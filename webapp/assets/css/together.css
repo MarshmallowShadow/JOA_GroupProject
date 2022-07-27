@@ -9,30 +9,31 @@ textarea, button, form {margin: 0; padding: 0;}
 	width: 1200px;
 	margin: 0px auto;
 }
+
+/******************** 게시판 머리글 ********************/
+
 h1 {margin-left: 400px;}
+
+/******************* 소분류 카테고리 *******************/
+
 ul, ol, li	{
 	list-style-type: none;
 	float: left;
 	margin-left: 8px;
 }
+/** 밑줄, 글자색 없애기 **/
 a {
 	text-decoration: none;
 	color: inherit;
 }
-table {
-	width: 23%;
-	height: 150px;
-	border: solid 1px;
-	float: left;
-	margin-left: 20px;
-}
-.line_top {border-bottom: solid 1px;}
-.line_bottom {border-top: solid 1px;}
 #top_side {
 	margin-left: 375px;
 	margin-top: 15px;
 	
 }
+
+/***************** 함께하기 만들기 버튼 *****************/
+
 #to_make {
 	float: left;
 	margin-top: 15px;
@@ -42,10 +43,29 @@ table {
 	float: left;
 	padding: 15px 25px;
 }
+
+/****************** 태그와 참여 분류 ******************/
+
 #rightside {
 	margin-left: 747px;
 	padding:35px 43px;
 }
+
+/******************** 함께하기 표 ********************/
+
+table {
+	width: 23%;
+	height: 150px;
+	border: solid 1px;
+	float: left;
+	margin-left: 20px;
+}
+/** 표 내부 선 정리 **/
+.line_top {border-bottom: solid 1px;}
+.line_bottom {border-top: solid 1px;}
+
+/*************** 함께하기 리스트 더보기 버튼 ***************/
+
 #more {
 	width: 45px;
 	height: 45px;

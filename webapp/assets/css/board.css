@@ -9,12 +9,40 @@ textarea, button, form {margin: 0; padding: 0;}
 	width: 1200px;
 	margin: 0px auto;
 }
+
+/******************** 게시판 머리글 ********************/
+
 h1 {margin-left: 550px;}
+
+/********************** 페이지 **********************/
+
 ul, ol, li	{
 	list-style-type: none;
 	float: left;
 	margin-left: 15px;
 }
+#page {
+	margin-top: 20px;
+	margin-left: 370px;
+}
+
+/*********************** 검색 ***********************/
+
+#top_aside {margin-left: 830px;}
+#keyword {height: 20px}
+/** 필터링 항목 **/
+#title {
+	width: 60px;
+	height: 25px
+}
+/** 검색 버튼 **/
+#search {
+	height: 25px;
+	width: 50px;
+}
+
+/******************** 게시판 테이블 ********************/
+
 table {
 	width: 85%;
 	margin-left: 100px;
@@ -25,22 +53,15 @@ th, td {
 	border-bottom: solid 1px #ccc;
 	height: 70px;
 }
-.center {text-align: center;}
-.photo {
+/** 게시글 제목 이외 것들 가운데 정렬 **/
+tr>.center {text-align: center;}
+/** 게시글 제목에 사진 업로드 아이콘 **/
+td>.photo {
 	width : 23px;
 	height: 20px;
 	padding: 0px 5px;	
 }
-#title {
-	width: 60px;
-	height: 25px
-}
-#top_aside {margin-left: 830px;}
-#keyword {height: 20px}
-#search {
-	height: 25px;
-	width: 50px;
-}
+/** 글쓰기 버튼 **/
 #write {
 	width: 80px;
 	margin-left: 1036px;
@@ -50,8 +71,5 @@ th, td {
 	border-radius: 5px;
 	height: 27px
 }
-#page {
-	margin-top: 20px;
-	margin-left: 370px;
-}
+
 
