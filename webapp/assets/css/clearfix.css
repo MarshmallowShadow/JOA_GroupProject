@@ -55,3 +55,8 @@ a:link    {color: #000000; text-decoration: none;}
 a:visited {color: #000000; text-decoration: none;}
 a:hover   {color: #000000; text-decoration: none;}
 a:active  {color: #000000; text-decoration: none;}
+
+#wrap {
+   min-width: 1200px;
+   margin: 0px auto;
+}
