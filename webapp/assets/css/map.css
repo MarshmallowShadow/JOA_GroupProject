@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@import "main.css";
+@import "clearfix.css";
+
+/****************************header****************************/
+#header {
+	width: 100%;
+	height: 80px;
+	background-color: red;
+}
+
+
+
+/**************************sub-header**************************/
+#sub-header {
+	width: 100%;
+	height: 64px;
+}
+
+#sub-header #searchbar {
+	float: left;
+	width: 400px;
+	height: 100%;
+	padding: 0px 20px;
+	align-items: center;
+	background-color: blue;
+}
+
+#sub-header #searchbar #search-icon {
+	height: 100%;
+	
+}
+
+#sub-header #filter {
+	float: right;
+	width: 0px;
+	flex-grow: 1;
+	height: 100%;
+	padding: 0px 12px 0px 8px;
+	background-color: green;
+}
+
+#sub-header #filter-buttons {
+	float: right;
+	margin-right: auto;
+	margin-left: 15px;
+	height: 100%;
+	background-color: yellow;
+}
+
+
+
+/****************************result****************************/
+
+
+
+
+/****************************map****************************/
+#map {
+	float: left;
+}
