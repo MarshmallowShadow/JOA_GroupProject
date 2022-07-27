@@ -21,7 +21,7 @@
 .resultList #listTitle {display:center; font: 28px "나눔고딕"; text-align:left; border: 1px solid #73AD21; padding:0px; margin:0px 0px 20px 0px;}
 .resultList ol { width:100%; display :center; border: 1px solid #73AD21;}
 .resultList li { width:23%; float : left ; list-style: none; border: 1px solid #73AD21; margin:0px 20px 0px 0px}
-.resultList li #imgBox {width:100%; height: 186px ;  border: 1px solid #73AD21; }
+.resultList li #imgBox {width:280; height: 186px ;  border: 1px solid #73AD21; }
 /* .resultList li #textBox {text-align:left; width: 250px ; height: 50px ;  border: 1px solid #73AD21; }
 .resultList li #textBox #courseName {font-weight:bold; font:20px "나눔고딕"; line-height: 30px; }
 .resultList li #textBox #courseInfo {font:16px "나눔고딕"; color: gray;} */
