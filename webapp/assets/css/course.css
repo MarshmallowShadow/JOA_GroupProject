@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import "main.css";
+
+/* =======================공통======================= */
+body {font-size: 14px;}
+.pointer {cursor: pointer;}
+p {display: inline-block;}
+/* radio 버튼 초기화 */
+input[type=radio] {display:none;}
+/* =======================레이아웃======================= */
+#wrap {max-width:1200px;}
+#wrap>#contents {padding: 10px 0px 10px 0px;}
+/* =======================타이틀======================= */
+#wrap #title {
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
+
+/* =======================content======================= */
+/* 테이블 선 */
+#content .course-form {
+	margin: 0px 0px 50px 0px;
+	border: 1px solid rgb(204, 204, 204);
+}
+/* 테이블 타이틀 */
+#content .course-form h2 {
+	line-height: 60px;
+	height: 60px;
+	font-size: 18px;
+	text-align: center;
+}
+/* p 태그 사이즈 */
+#content .course-form p {font-size: 15px; margin: 0px 10px 0px 0px;}
+
+
+
+/* 테이블 */
+.course-form table tr th {
+	height: 70px;
+	min-width: 150px;
+	color: rgb(34,34,34);
+	font-size: 15px;
+	background-color: rgb(240, 240, 240);
+	border-top: 1px solid rgb(204, 204, 204);
+	vertical-align: middle;
+}
+.course-form table tr td {
+	padding: 12px 20px;
+	border-top: 1px solid rgb(204, 204, 204);
+}
+
+/* 코스지정 */
+.course-form input[name="address"] {width: 89%;}
+.course-form .guide {color: rgb(136, 136, 136);}
+.course-form .address-form {margin: 15px 0px 10px 0px;}
+.course-form #address-btn {
+	width: 90px;
+	height: 46px;
+	margin: 0px 0px 0px 10px;
+	background-color: rgb(35, 45, 74);
+	color: rgb(255, 255, 255);
+}
+
+/* 텍스트박스 */
+.course-form input[type="text"] {
+	height: 46px;
+	padding: 0px 15px;
+	box-sizing: border-box;
+	border:  1px solid rgb(223, 223, 223);
+}
+.txt-long {width: 100%;}
+.txt-short {width: 110px; margin: 0px 12px 0px 0px;}
+input[name="address"] {width: 89%;}
+
+
+/* radio 버튼 css */
+label {
+	display: inline-block;
+	text-align: center;
+	width: 82px;
+	line-height: 46px;
+	margin: 0px 12px 0px 0px;
+	padding: 0px 15px;
+	color: rgb(102, 102, 102);
+	border: 1px solid rgb(217, 217, 217);
+	border-radius: 3px;
+	background-color: rgb(255,255,255);
+}
+
+input[type="radio"]:checked+label {
+	color: rgb(255,255,255);
+	border-color: rgb(50, 108, 249);
+	background-color: rgb(50, 108, 249);
+}
+
+
+
+
+
+
+/* 아래 버튼 */
+#btn-wrap {text-align: center;}
+#btn-wrap>button {
+	width: 160px;
+	height: 50px;
+	font-size: 15px;
+}
+#btn-wrap>.add {margin: 0px 0px 0px 12px;}

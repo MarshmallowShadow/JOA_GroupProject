@@ -2,18 +2,18 @@
 @import "clearfix.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
-input, fieldset, legend, p, select, table, th, td, tr,
-textarea, button, form {margin: 0; padding: 0;}
-
-#wrap {
-	width: 1200px;
-	margin: 0px auto;
-}
 
 /******************** 게시판 머리글 ********************/
 
-h1 {margin-left: 400px;}
+h1 {
+	margin-left: 400px;
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
 
 /******************* 소분류 카테고리 *******************/
 
@@ -43,6 +43,9 @@ a {
 #together_make {
 	float: left;
 	padding: 15px 25px;
+	background-color: rgb(50, 108, 249);
+	border:none;
+	color: white;
 }
 
 /****************** 태그와 참여 분류 ******************/
@@ -55,15 +58,25 @@ a {
 /******************** 함께하기 표 ********************/
 
 table {
-	width: 23%;
+	width: 25%;
 	height: 150px;
 	border: solid 1px;
 	float: left;
 	margin-left: 20px;
+	border: solid 1px #ccc;
 }
 /** 표 내부 선 정리 **/
-.line_top {border-bottom: solid 1px;}
-.line_bottom {border-top: solid 1px;}
+.line_top {
+	border-bottom: solid 1px #ccc;
+	height: 30px;
+}
+.line_bottom {border-top: solid 1px #ccc;}
+/** 태그 아이콘 **/
+th>.bookmark {
+	width : 23px;
+	height: 20px;
+	margin-left: 15px;
+}
 
 /*************** 함께하기 리스트 더보기 버튼 ***************/
 

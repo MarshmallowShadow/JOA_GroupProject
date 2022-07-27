@@ -2,18 +2,18 @@
 @import "clearfix.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
-input, fieldset, legend, p, select, table, th, td, tr,
-textarea, button, form {margin: 0; padding: 0;}
-
-#wrap {
-	width: 1200px;
-	margin: 0px auto;
-}
 
 /******************** 게시판 머리글 ********************/
 
-h1 {margin-left: 550px;}
+h1 {
+	margin-left: 550px;
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
 
 /********************** 페이지 **********************/
 

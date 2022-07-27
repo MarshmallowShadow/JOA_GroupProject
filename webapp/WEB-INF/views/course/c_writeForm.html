@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>코스 등록</title>
-<link rel="stylesheet" href="../../assets/css/clearfix.css">
+<link rel="stylesheet" href="../../../assets/css/course.css">
 </head>
 <body>
 <div id="wrap">
@@ -32,7 +32,10 @@
 				</tr>
 				<tr>
 					<td>
-						<p class="guide">주소를 검색하면 아래에 지도가 표시됩니다.</p>
+						<img src="../../../assets/image/course/!.png" height="18px">
+						<p class="guide">
+							주소를 검색하면 아래에 지도가 표시됩니다.
+						</p>
 						<form class="address-form">
 							<input type="text" name="address">
 							<button type="button" id="address-btn">주소검색</button>
@@ -40,9 +43,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="border-top: none;">
 						<!-- 지도 -->
-						<img src="../../assets/img/map.jpg" height="615">
+						<img src="../../../assets/image/course/map.jpg" height="615px">
 					</td>
 				</tr>
 			</table>
@@ -52,7 +55,7 @@
 		<!-- 코스정보 -->
 		<div class="course-form">
 		
-			<h1>코스 정보</h1>
+			<h2>코스 정보</h2>
 			
 			<table>
 			
@@ -64,7 +67,7 @@
 				<tbody>
 					<tr>
 						<th>코스 이름</th>
-						<td><input type="text" class="text-width" name="courseName"></td>
+						<td><input type="text" class="txt-long"  name="courseName"></td>
 					</tr>
 					<tr>
 						<th>종목</th>
@@ -94,7 +97,7 @@
 						<th>거리</th>
 						<td>
 							<div>
-								<input type="text">
+								<input type="text" class="txt-short">
 								
 								<input type="radio" name="distance" id="m" checked>
 								<label for="m">m</label>
@@ -102,7 +105,6 @@
 								<input type="radio" name="distance" id="km">
 								<label for="km">km</label>
 									
-								
 							</div>
 						</td>
 					</tr>
@@ -110,9 +112,9 @@
 					<tr>
 						<th>예상 시간</th>
 						<td>
-							<input type="text">
+							<input type="text" class="txt-short">
 							<p>시간</p>
-							<input type="text">
+							<input type="text" class="txt-short">
 							<p>분</p>
 						</td>
 					</tr>
@@ -134,7 +136,11 @@
 					<tr>
 						<th>코스 공개여부</th>
 						<td>
+							<input type="radio" name="open-status" id="open" checked>
+							<label for="open">공개</label>
 							
+							<input type="radio" name="open-status" id="close">
+							<label for="close">비공개</label>
 						</td>
 					</tr>
 				</tbody>
