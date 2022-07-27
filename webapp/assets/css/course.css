@@ -21,6 +21,9 @@ input[type=radio] {display:none;}
 }
 
 /* =======================content======================= */
+/* p 태그 사이즈 */
+#content .course-form p {font-size: 15px; margin: 0px 10px 0px 0px;}
+
 /* 테이블 선 */
 #content .course-form {
 	margin: 0px 0px 50px 0px;
@@ -33,9 +36,6 @@ input[type=radio] {display:none;}
 	font-size: 18px;
 	text-align: center;
 }
-/* p 태그 사이즈 */
-#content .course-form p {font-size: 15px; margin: 0px 10px 0px 0px;}
-
 
 
 /* 테이블 */
@@ -46,6 +46,7 @@ input[type=radio] {display:none;}
 	font-size: 15px;
 	background-color: rgb(240, 240, 240);
 	border-top: 1px solid rgb(204, 204, 204);
+	text-align: center;
 	vertical-align: middle;
 }
 .course-form table tr td {
@@ -65,6 +66,16 @@ input[type=radio] {display:none;}
 	color: rgb(255, 255, 255);
 }
 
+/* 코스정보 */
+.course-form h3 {
+	display: inline-block;
+	font-size: 15px;
+	font-family: bold;
+}
+.course-form .course-info > div {
+	margin: 12px 0px;
+}
+
 /* 텍스트박스 */
 .course-form input[type="text"] {
 	height: 46px;
@@ -77,30 +88,30 @@ input[type=radio] {display:none;}
 input[name="address"] {width: 89%;}
 
 
-/* radio 버튼 css */
-label {
-	display: inline-block;
-	text-align: center;
-	width: 82px;
-	line-height: 46px;
-	margin: 0px 12px 0px 0px;
+/* 버튼색깔 */
+label, #btn-wrap>button, .box {
 	padding: 0px 15px;
 	color: rgb(102, 102, 102);
 	border: 1px solid rgb(217, 217, 217);
 	border-radius: 3px;
 	background-color: rgb(255,255,255);
 }
-
-input[type="radio"]:checked+label {
+input[type="radio"]:checked+label, #btn-wrap>.add, .blue {
 	color: rgb(255,255,255);
 	border-color: rgb(50, 108, 249);
 	background-color: rgb(50, 108, 249);
 }
 
 
-
-
-
+/* 버튼 크기 */
+/* radio */
+label, .box {
+	display: inline-block;
+	text-align: center;
+	width: 82px;
+	line-height: 46px;
+	margin: 0px 12px 0px 0px;
+}
 
 /* 아래 버튼 */
 #btn-wrap {text-align: center;}

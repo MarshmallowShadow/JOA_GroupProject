@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>기록 작성</title>
-<link rel="stylesheet" href="../../assets/css/clearfix.css">
+<!-- css -->
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../assets/css/course.css">
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="/boots/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/boots/assets/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -20,35 +26,73 @@
 		<!-- 코스정보 -->
 		<div class="course-form">
 		
-			<h1>코스 정보</h1>
+			<h2>코스 정보</h2>
 			
 			<table>
 				<colgroup>
 					<col width="150px">
-					<col width="100%">
-					<col width="100%">
+					<col width="70%">
+					<col width="30%">
 				</colgroup>
 				
 				<tr>
-					<th rowspan="5">코스</th>
+					<th>코스</th>
+					
+					
 					<td>
 						<div class="course-info">
 							<div>
 								<p>코스 제목</p>
-								<h2>우리집 지름길</h2>
+								<h3>우리집 지름길</h3>
 							</div>
 							
 							<div>
 								<p>종목</p>
-								<span>산책</span>
+								<div class="box blue">산책</div>
+								
+								<!-- 
+								<div class="box">조깅</div>
+								<div class="box">러닝</div>
+								<div class="box">마라톤</div>
+								<div class="box">자전거</div>
+								<div class="box">그림</div>
+								 -->
+							</div>
+							
+							<div>
+								<p>거리</p>
+								
+								<input type="text" class="txt-short">
+								
+								<div class="box">m</div>
+								<div class="box blue">km</div>
+							</div>
+							
+							<div>
+								<p>예상 시간</p>
+								
+								<input type="text" class="txt-short">
+								<p>시간</p>
+								<input type="text" class="txt-short">
+								<p>분</p>
+							</div>
+							
+							<div>
+								<p>예상 난이도</p>
+								
+								<div class="box blue">쉬움</div>
+								<div class="box">보통</div>
+								<div class="box">어려움</div>
 							</div>
 						</div>
 						
 					</td>
-					<td rowspan="5">
+					
+					
+					<td>
 						<!-- 지도 -->
 						<div id="map">
-							<img src="../../assets/img/map.jpg">
+							<img src="../../../assets/image/course/map.jpg" height="300px">
 						</div>
 					</td>
 				</tr>
@@ -60,7 +104,7 @@
 		
 		<!-- 기록 정보 -->
 		<div class="course-form">
-			<h1>기록 정보</h1>
+			<h2>기록 정보</h2>
 			
 			<table>
 			
@@ -74,51 +118,33 @@
 				<tr>
 					<th>날짜</th>
 					<td colspan="3">
-						<input type="date">
+						<input class="txt-short" type="date">
 					</td>
 				</tr>
 				<tr>
 					<th>날씨</th>
 					<td>
 						<div class="course-radio">
-							<ul>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="weather" value="sun" checked>
-										<p>낮</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="weather" value="moon">
-										<p>밤</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="weather" value="cloud">
-										<p>흐린날</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="weather" value="rain">
-										<p>비오는날</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="weather" value="snow">
-										<p>눈오는날</p>
-									</label>
-								</li>
-							</ul>
+							<input type="radio" name="weather" id="sun" checked>
+							<label for="sun">낮</label>
+							
+							<input type="radio" name="weather" id="moon">
+							<label for="moon">밤</label>
+							
+							<input type="radio" name="weather" id="cloud">
+							<label for="cloud">흐린날</label>
+							
+							<input type="radio" name="weather" id="rain">
+							<label for="rain">비</label>
+							
+							<input type="radio" name="weather" id="snow">
+							<label for="snow">눈</label>
 						</div>
 					</td>
 					
 					<th>기온</th>
 					<td>
-						<input type="text">
+						<input class="txt-short" type="text">
 						<p><b>℃</b></p>
 					</td>
 				</tr>
@@ -126,55 +152,32 @@
 				<tr>
 					<th>종목</th>
 					<td colspan="3">
-						<div class="course-radio">
-							<ul class="">
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="walk" checked>
-										<p>산책</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="jogging">
-										<p>조깅</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="running">
-										<p>러닝</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="marathon">
-										<p>마라톤</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="bike">
-										<p>자전거</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="events" value="draw">
-										<p>그림그리기</p>
-									</label>
-								</li>
-							</ul>
-						</div>
+						<input type="radio" name="events" id="walk" checked>
+						<label for="walk">산책</label>
+						
+						<input type="radio" name="events" id="jogging">
+						<label for="jogging">조깅</label>
+						
+						<input type="radio" name="events" id="running">
+						<label for="running">러닝</label>
+						
+						<input type="radio" name="events" id="marathon">
+						<label for="marathon">마라톤</label>
+						
+						<input type="radio" name="events" id="bicycle">
+						<label for="bicycle">자전거</label>
+						
+						<input type="radio" name="events" id="draw">
+						<label for="draw">그림</label>
 					</td>
 				</tr>
 				
 				<tr>
 					<th>시간</th>
 					<td colspan="3">
-						<input type="text">
+						<input type="text" class="txt-short">
 						<p>시간</p>
-						<input type="text">
+						<input type="text" class="txt-short">
 						<p>분</p>
 					</td>
 				</tr>
@@ -182,35 +185,21 @@
 				<tr>
 					<th>예상 난이도</th>
 					<td colspan="3">
-						<div class="course-radio">
-							<ul class="">
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="levels" value="easy" checked>
-										<p>쉬움</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="levels" value="normal">
-										<p>보통</p>
-									</label>
-								</li>
-								<li>
-									<label class="course-radio">
-										<input type="radio" name="levels" value="hard">
-										<p>어려움</p>
-									</label>
-								</li>
-							</ul>
-						</div>
+						<input type="radio" name="level" id="easy" checked>
+						<label for="easy">쉬움</label>
+						
+						<input type="radio" name="level" id="nomal">
+						<label for="nomal">보통</label>
+						
+						<input type="radio" name="level" id="hard">
+						<label for="hard">어려움</label>
 					</td>
 				</tr>
 				
 				<tr>
 					<th>한줄평</th>
 					<td colspan="3">
-						<input type="text" class="text-width">
+						<input class="txt-long" type="text">
 					</td>
 				</tr>
 				
@@ -219,7 +208,7 @@
 		
 		<!-- 사진 등록 -->
 		<div class="course-form">
-			<h1>사진 등록</h1>
+			<h2>사진 등록</h2>
 			
 			<div class="course-pic">
 				<p>코스와 관련된 사진을 등록해주세요.</p>
