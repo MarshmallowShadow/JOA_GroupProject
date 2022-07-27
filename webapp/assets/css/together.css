@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin: 0; padding: 0;}
+
+#wrap {
+	width: 1200px;
+	margin: 0px auto;
+}
+h1 {margin-left: 400px;}
+ul, ol, li	{
+	list-style-type: none;
+	float: left;
+	margin-left: 8px;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+table {
+	width: 23%;
+	height: 150px;
+	border: solid 1px;
+	float: left;
+	margin-left: 20px;
+}
+.line_top {border-bottom: solid 1px;}
+.line_bottom {border-top: solid 1px;}
+#top_side {
+	margin-left: 375px;
+	margin-top: 15px;
+	
+}
+#to_make {
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+#together_make {
+	float: left;
+	padding: 15px 25px;
+}
+#rightside {
+	margin-left: 747px;
+	padding:35px 43px;
+}
+#more {
+	width: 45px;
+	height: 45px;
+	margin-left: 445px;
+	border-radius: 50px;
+}
+	
+	
