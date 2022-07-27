@@ -3,7 +3,7 @@
 @import "clearfix.css";
 
 /**************************************************************************/
-/* 마이페이지-메인/나의코스/나의기록 *************************************************************/
+/* 마이페이지-메인/나의코스/즐겨찾기 *************************************************************/
 /**************************************************************************/
 .header {background-color: #F1F1F1; text-align: center;   padding: 20px;}
 
@@ -33,23 +33,22 @@
 /**************************************************************************/
 /* 마이페이지-메뉴바 *************************************************************/
 /**************************************************************************/
-.menuBar { width:400px; min-height:600px; border:solid 1px #000000; text-align:left; line-height: 50px}
-.menuBar ol { border:solid 1px #000000;}
-.menuBar #list { border:solid 1px #000000; font: 20px "나눔고딕"; line-height:50px;}
+.menuBar { width:400px; min-height:600px; background-color:lightyellow; text-align:left; line-height: 50px}
+.menuBar #list {font-size: 20px; line-height:50px;}
 
 
-.menuBar .menu1 {width:330px; height: 60px; border:solid 1px #000000; text-align:left;  padding:20px 30px 100px 30px; }
+.menuBar .menu1 {width:(100%-padding); height:(20%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 .menuBar .menu1 #mypage {font: 24px "나눔고딕"; font-weight:bold;}
 .menuBar #myHome {width: 24px; height: 24px;}
 
-.menuBar .menu2 {width:330px; height: 180px; border:solid 1px #000000; text-align:left;  padding:20px 30px 100px 30px;}
-.menuBar .menu2 #bookmark {font: 24px "나눔고딕"; float:left; font-weight:bold;  }
+.menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px;}
+.menuBar .menu2 #bookmark {font-size: 24px; float:left; font-weight:bold;  }
 .menuBar #bmStar {width: 24px; height: 24px;}
 .menuBar .menu2 #bookmark-btn {text-align:right}
 .menuBar #plus-btn {width: 24px; height: 24px;}
 .menuBar #minus-btn {width: 24px; height: 24px;}
 
-.menuBar .menu3 {width:330px; height: 20px; border:solid 1px #000000; text-align:left;  padding:20px 30px 70px 30px; }
+.menuBar .menu3 {width:(100%-padding); height: (20%-padding); /* border-bottom:solid 1px #000000; */ text-align:left;  padding:20px 30px; }
 .menuBar .menu3 #members {font: 24px "나눔고딕"; font-weight:bold; }
 .menuBar #setting {width: 24px; height: 24px;}
 
