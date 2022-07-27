@@ -5,7 +5,15 @@
 
 /******************** 게시판 머리글 ********************/
 
-h1 {margin-left: 550px;}
+h1 {
+	margin-left: 550px;
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
 
 /********************** 페이지 **********************/
 
