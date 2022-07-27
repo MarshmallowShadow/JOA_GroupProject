@@ -33,7 +33,7 @@
 /**************************************************************************/
 /* 마이페이지-메뉴바 *************************************************************/
 /**************************************************************************/
-.menuBar { width:400px; height:600px; border:solid 1px #000000; text-align:left; line-height: 50px}
+.menuBar { width:400px; min-height:600px; border:solid 1px #000000; text-align:left; line-height: 50px}
 .menuBar ol { border:solid 1px #000000;}
 .menuBar #list { border:solid 1px #000000; font: 20px "나눔고딕"; line-height:50px;}
 
