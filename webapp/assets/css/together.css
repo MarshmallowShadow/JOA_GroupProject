@@ -2,14 +2,6 @@
 @import "clearfix.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
-input, fieldset, legend, p, select, table, th, td, tr,
-textarea, button, form {margin: 0; padding: 0;}
-
-#wrap {
-	width: 1200px;
-	margin: 0px auto;
-}
 
 /******************** 게시판 머리글 ********************/
 
@@ -55,15 +47,19 @@ a {
 /******************** 함께하기 표 ********************/
 
 table {
-	width: 23%;
+	width: 25%;
 	height: 150px;
 	border: solid 1px;
 	float: left;
 	margin-left: 20px;
+	border: solid 1px #ccc;
 }
 /** 표 내부 선 정리 **/
-.line_top {border-bottom: solid 1px;}
-.line_bottom {border-top: solid 1px;}
+.line_top {
+	border-bottom: solid 1px #ccc;
+	height: 30px;
+}
+.line_bottom {border-top: solid 1px #ccc;}
 
 /*************** 함께하기 리스트 더보기 버튼 ***************/
 
