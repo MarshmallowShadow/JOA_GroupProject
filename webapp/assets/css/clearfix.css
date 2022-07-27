@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -35,6 +36,9 @@ body {
 	line-height: 1;
 } 
 */
+body {
+	font-family: 'Nanum Gothic', sans-serif;
+}
 ol, ul {
 	list-style: none;
 }
