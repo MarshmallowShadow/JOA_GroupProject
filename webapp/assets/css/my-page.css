@@ -20,7 +20,7 @@
 
 .resultList #listTitle {display:center; font-size: 28px; text-align:left; border: 1px solid #73AD21; padding:0px; margin:0px 0px 20px 0px;}
 .resultList ol { width:100%; display :center; border: 1px solid #73AD21;}
-.resultList li {width:(25%-margin); float : left ; list-style: none; border: 1px solid #73AD21; margin:20px 20px 20px 0px}
+.resultList li {width:(25%-margin); float : left ; list-style: none; border: 1px solid #73AD21; margin:0px 10px 40px 10px}
 .resultList li #imgBox {width:280; height: 186px ;}
 .resultList li #textBox {text-align:left; width:(100%-padding) ; height: 50px ;  border: 1px solid #73AD21; padding:10px;}
 .resultList li #textBox #courseName {font-weight:bold; font-size:16px; line-height: 30px; }
