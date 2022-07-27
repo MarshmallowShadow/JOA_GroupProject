@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>코스 등록</title>
+<link rel="stylesheet" href="../../assets/css/clearfix.css">
+</head>
+<body>
+<div id="wrap">
+	
+	<!-- 헤더 -->
+
+	<!-- 타이틀 -->
+	<div>
+		<h1 id="title">코스 등록하기</h1>
+	</div>
+	
+	<!-- 본문 -->
+	<div id="content">
+	
+		<!-- 코스 지정 -->
+		<div class="course-form">
+			<table>
+			
+				<colgroup>
+					<col width="150px">
+					<col width="100%">
+				</colgroup>
+				
+				<tr>
+					<th rowspan="3">코스 지정</th>
+				</tr>
+				<tr>
+					<td>
+						<p class="guide">주소를 검색하면 아래에 지도가 표시됩니다.</p>
+						<form class="address-form">
+							<input type="text" name="address">
+							<button type="button" id="address-btn">주소검색</button>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<!-- 지도 -->
+						<img src="../../assets/img/map.jpg" height="615">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- course-select -->
+		
+		<!-- 코스정보 -->
+		<div class="course-form">
+		
+			<h1>코스 정보</h1>
+			
+			<table>
+			
+				<colgroup>
+					<col width="150px">
+					<col width="100%">
+				</colgroup>
+				
+				<tbody>
+					<tr>
+						<th>코스 이름</th>
+						<td><input type="text" class="text-width" name="courseName"></td>
+					</tr>
+					<tr>
+						<th>종목</th>
+						<td>
+							<input type="radio" name="events" id="walk" checked>
+							<label for="walk">산책</label>
+							
+							<input type="radio" name="events" id="jogging">
+							<label for="jogging">조깅</label>
+							
+							<input type="radio" name="events" id="running">
+							<label for="running">러닝</label>
+							
+							<input type="radio" name="events" id="marathon">
+							<label for="marathon">마라톤</label>
+							
+							<input type="radio" name="events" id="bicycle">
+							<label for="bicycle">자전거</label>
+							
+							<input type="radio" name="events" id="draw">
+							<label for="draw">그림그리기</label>
+							
+						</td>
+					</tr>
+					
+					<tr>
+						<th>거리</th>
+						<td>
+							<div>
+								<input type="text">
+								
+								<input type="radio" name="distance" id="m" checked>
+								<label for="m">m</label>
+								
+								<input type="radio" name="distance" id="km">
+								<label for="km">km</label>
+									
+								
+							</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>예상 시간</th>
+						<td>
+							<input type="text">
+							<p>시간</p>
+							<input type="text">
+							<p>분</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>예상 난이도</th>
+						<td>
+							<input type="radio" name="level" id="easy" checked>
+							<label for="easy">쉬움</label>
+							
+							<input type="radio" name="level" id="nomal">
+							<label for="nomal">보통</label>
+							
+							<input type="radio" name="level" id="hard">
+							<label for="hard">어려움</label>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>코스 공개여부</th>
+						<td>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- course-info -->
+		
+		<div id="btn-wrap">
+			<button class="cancel">취소</button>
+			<button class="add">코스 등록</button>
+		</div>
+		
+	</div>
+	<!-- content -->
+	
+	
+	<!-- 푸터 -->
+	
+</div>
+<!-- wrap -->
+</body>
+</html>
