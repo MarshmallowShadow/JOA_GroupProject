@@ -1,20 +1,6 @@
 @charset "UTF-8";
 @import "main.css";
 @import "clearfix.css";
-/****************************************************************/
-/* 초기화 공통 ***************************************************/
-/****************************************************************/
-/* 여백 초기화 */
-body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
-input, fieldset, legend, p, select, table, th, td, tr,
-textarea, button, form {margin: 0; padding: 0;}
-
-body	{font:15px "맑은 고딕", 돋움, 굴림; text-align:center; }
-ul, ol	{list-style-type: none; }
-a:link {text-decoration: none; color: #000000; }
-a:visited {text-decoration: none; color: #000000; }
-a:active {text-decoration: none; color: #000000; }
-a:hover {text-decoration: none; color: #000000; }
 
 /**************************************************************************/
 /* 마이페이지-메인 *************************************************************/
