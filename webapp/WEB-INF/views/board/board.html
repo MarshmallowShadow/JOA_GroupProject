@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../../assets/css/board.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<div id="wrap">
+	
+		<h1>게시판</h1>
+		
+		<div id="top_aside">
+			<select id="title">
+				<option value="question">질문</option>
+				<option value="commute">소통</option>
+				<option value="post">후기</option>
+				<option value="together">함께</option>
+			</select>
+			
+			<input type="text" id="keyword">
+			<button type="submit" id="search">검색</button>
+		</div>
+	
+		<br>
+	
+		<div id="board">
+			<table>
+				<thead>
+					<tr>
+						<th>NO</th>
+						<th>항목</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>조회수</th>
+						<th>날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>공지</th>
+						<td class="center">공지</td>
+						<td>(필독)글쓰기 전 확인해 주세요.[1985]</td>
+						<td class="center">관리자</td>
+						<td class="center">35482</td>
+						<td class="center">2022.02.15</td>
+					</tr>
+					
+					<tr>
+						<th>1</th>
+						<td class="center">[소통]</td>
+						<td>도림천 다녀오는 길![21]<img class="photo" src="../../assets/image/photo.png"></td>
+						<td class="center">신림러</td>
+						<td class="center">47</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>2</th>
+						<td class="center">[함께]</td>
+						<td>한강 사진 공유~[14]<img class="photo" src="../../assets/image/photo.png"></td>
+						<td class="center">프리러너</td>
+						<td class="center">21</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>3</th>
+						<td class="center">[소통]</td>
+						<td>러닝화 구매 후기[4]<img class="photo" src="../../assets/image/photo.png"></td>
+						<td class="center">하이슈즈</td>
+						<td class="center">17</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>4</th>
+						<td class="center">[소통]</td>
+						<td>관악산 정상뷰[16]<img class="photo" src="../../assets/image/photo.png"></td>
+						<td class="center">올하이킹</td>
+						<td class="center">54</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>5</th>
+						<td class="center">[후기]</td>
+						<td>한강 코스에서 공사 진행중이네요;[96]</td>
+						<td class="center">알림러</td>
+						<td class="center">168</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>6</th>
+						<td class="center">[소통]</td>
+						<td>집 겨우 도착[0]</td>
+						<td class="center">히유</td>
+						<td class="center">2</td>
+						<td class="center">2022.07.25</td>
+					</tr>
+					
+					<tr>
+						<th>7</th>
+						<td class="center">[소통]</td>
+						<td>강남 산책 코스 등록했어요! 많이 이용해 주세요![5]</td>
+						<td class="center">직장노예</td>
+						<td class="center">33</td>
+						<td class="center">2022.07.24</td>
+					</tr>
+					
+					<tr>
+						<th>8</th>
+						<td class="center">[질문]</td>
+						<td>등산 배낭 공구하실 분??[186]</td>
+						<td class="center">장비빨</td>
+						<td class="center">78</td>
+						<td class="center">2022.07.24</td>
+					</tr>
+					
+					<tr>
+						<th>9</th>
+						<td class="center">[질문]</td>
+						<td>ㅇㅇ빌딩 옆 top1 산책 코스에서 차키 보신 분ㅜㅠ[19]</td>
+						<td class="center">매직핸드</td>
+						<td class="center">34</td>
+						<td class="center">2022.07.24</td>
+					</tr>
+					
+					<tr>
+						<th>10</th>
+						<td class="center">[후기]</td>
+						<td>내일 폭염이라네요ㅜ][2]</td>
+						<td class="center">날씨예민러</td>
+						<td class="center">18</td>
+						<td class="center">2022.07.23</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- table -->
+		
+		<div>
+			<button type="submit" id="write">글쓰기</button>
+		</div>
+		
+		<div id="page">
+			<ul>
+				<li>◀</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li class="active">5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>▶</li>
+			</ul>
+		</div><!-- board button -->
+		
+	</div><!-- wrap -->
+	
+	<br><br><br><br><br>
+	
+
+</body>
+</html>
