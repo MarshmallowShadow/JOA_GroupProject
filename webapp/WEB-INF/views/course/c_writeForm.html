@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>코스 등록</title>
-<link rel="stylesheet" href="../../assets/css/clearfix.css">
+<link rel="stylesheet" href="../../../assets/css/course.css">
 </head>
 <body>
 <div id="wrap">
@@ -42,7 +42,7 @@
 				<tr>
 					<td>
 						<!-- 지도 -->
-						<img src="../../assets/img/map.jpg" height="615">
+						<img src="../../../assets/image/map.jpg" height="615">
 					</td>
 				</tr>
 			</table>
@@ -52,7 +52,7 @@
 		<!-- 코스정보 -->
 		<div class="course-form">
 		
-			<h1>코스 정보</h1>
+			<h2>코스 정보</h2>
 			
 			<table>
 			
@@ -64,7 +64,7 @@
 				<tbody>
 					<tr>
 						<th>코스 이름</th>
-						<td><input type="text" class="text-width" name="courseName"></td>
+						<td><input class="text-width"  type="text" name="courseName"></td>
 					</tr>
 					<tr>
 						<th>종목</th>
@@ -102,7 +102,6 @@
 								<input type="radio" name="distance" id="km">
 								<label for="km">km</label>
 									
-								
 							</div>
 						</td>
 					</tr>
@@ -134,7 +133,11 @@
 					<tr>
 						<th>코스 공개여부</th>
 						<td>
+							<input type="radio" name="open-status" id="open">
+							<label for="open">공개</label>
 							
+							<input type="radio" name="open-status" id="close">
+							<label for="close">비공개</label>
 						</td>
 					</tr>
 				</tbody>
