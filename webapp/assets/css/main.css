@@ -2,16 +2,17 @@
 @import "clearfix.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-/******************************main****************************/
-body {
-	font-family: 'Nanum Gothic', sans-serif;
-}
 /*----------------------------------------------------- 메인(Main) ----------------------------------------------------- */
-
+ㄴ
 /*----------------- 헤더 스타일 -----------------*/
 span {
 	font-size: 16px;
 }
+
+.main-text {
+		padding: 12px;
+		font-size: 14px;
+		}
 		
 /*----------------- 사진 편집 -----------------*/		
 .slider{
@@ -123,12 +124,18 @@ ul.imgs li{
 
 /*----------------- 푸터 스타일 -----------------*/
 .footer{
+	justify-content: space-between;
 	line-height: 18px;
 	font-size: 12px;
 	color: rgb(160, 160, 160);
 	background-color: rgb(55, 55, 55);
 	/* white-space: pre-wrap; 다방에 있어서 끌고 왔으나 와장창됨
 		스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성*/
+}
+
+p{
+	padding-top: 5px;
+	padding-left: 15px;
 }
 
 /* 푸터 버튼 */
