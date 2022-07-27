@@ -1,8 +1,9 @@
 @charset "UTF-8";
+@import "main.css";
+@import "clearfix.css";
 /****************************************************************/
 /* 초기화 공통 ***************************************************/
 /****************************************************************/
-
 /* 여백 초기화 */
 body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
 input, fieldset, legend, p, select, table, th, td, tr,
@@ -14,10 +15,6 @@ a:link {text-decoration: none; color: #000000; }
 a:visited {text-decoration: none; color: #000000; }
 a:active {text-decoration: none; color: #000000; }
 a:hover {text-decoration: none; color: #000000; }
-
-
-#wrap {width: 1200px; margin: 0px auto;}
-
 
 /**************************************************************************/
 /* 마이페이지-메인 *************************************************************/
@@ -36,9 +33,9 @@ a:hover {text-decoration: none; color: #000000; }
 			width:1100px; height:700px; padding:49px 49px 0px 49px;}
 
 .resultList #listTitle {font: 28px "나눔고딕"; text-align:left; border: 1px solid #73AD21; padding:0px; margin:0px 0px 20px 0px;}
-.resultList li {display : inline - block ; float : left ; list-style: none; border: 1px solid #73AD21; margin:0px 20px 0px 0px;}
-.resultList li #imgBox {width: 280px ; height: 186px ;  border: 1px solid #73AD21; }
-.resultList li #textBox {text-align:left; width: 250px ; height: 50px ;  border: 1px solid #73AD21; padding:15px;}
+.resultList li { width:23%; display : inline - block ; float : left ; list-style: none; border: 1px solid #73AD21;}
+.resultList li #imgBox {/* width: 260px ; */ height: 186px ;  border: 1px solid #73AD21; }
+.resultList li #textBox {text-align:left; /* width: 250px ; */ height: 50px ;  border: 1px solid #73AD21; }
 .resultList li #textBox #courseName {font-weight:bold; font:20px "나눔고딕"; line-height: 30px; }
 .resultList li #textBox #courseInfo {font:16px "나눔고딕"; color: gray;}
 
