@@ -9,7 +9,7 @@ body {font-size: 14px;}
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #wrap {max-width:1200px;}
-#wrap>#content {padding: 10px 0px 10px 0px; margin: 0px 0px 150px 0px;}
+#wrap>#content {padding: 50px 0px; margin-bottom: 150px;}
 
 
 /* =======================content======================= */
@@ -64,20 +64,71 @@ input[type=radio] {display:none;}
 	font-size: 24px;
 	font-weight: 700;
 	letter-spacing: -0.5px;
-}
-/* 즐겨찾기 이미지 */
-.course-info-content a img {
-	vertical-align: middle;
+	text-align:center;
+	margin-bottom: 5px;
+	
 }
 /* 이름, 글정보 */
 .course-info-content .article-info {
 	text-align: left;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .course-info-content .article-info span {
 	margin-right: 8px;
 	color: rgb(101, 101, 101);
 }
-.course-info-content .article-container img {
+
+/* 코스 정보 컨테이너 */
+.course-info-content .article-container {
+	width: 100%;
+	height: 80px;
+}
+.course-info-content .article-container div {
+	width: 50%;
+	height: 50%;
+	padding: 5px;
+}
+.left {float: left;}
+.right {clear: right; float: right;}
+.course-info-content .article-container img {vertical-align: middle;}
+.course-info-content .article-container span {
+	font-size: 16px;
+	font-weight: 700;
+	padding-left: 5px;
+}
+
+/* ---------------------기록 정보----------------------- */
+.course-view-info .record-status {
+	padding: 20px 0px;
+}
+.record-status h3 {
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+.record-status .graph {
+	height: 140px;
+}
+.record-status .graph div {
+	width: 50%;
+	height: 100%;
+	border: 1px solid;
+}
+
+/* --------------------하단 버튼------------------------ */
+#course-info-btn .link-btn {
+	width: 209px;
+	height: 56px;
+	font-size: 16px;
+	color: rgb(255,255,255);
+	border-color: rgb(50, 108, 249);
+	background-color: rgb(50, 108, 249);
+}
+#course-info-btn .like-btn {
+	width: 75px;
+	height: 54px;
+	background-color: rgb(255,255,255);
+	border: 1px solid black;
+	text-align: center;
 	vertical-align: middle;
 }

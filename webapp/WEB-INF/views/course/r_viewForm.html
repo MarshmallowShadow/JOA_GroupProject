@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>코스기록 상세보기</title>
-<link rel="stylesheet" href="../../assets/css/clearfix.css">
+<!-- css -->
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../assets/css/course_view.css">
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 
@@ -16,26 +22,26 @@
 		<!-- 지도 영역 -->
 		<div id="map">
 			<!-- 지도 -->
-			<img src="../../assets/img/map.jpg" height="569px">
+			<img src="../../../assets/image/course/map.jpg" width="100%">
 		</div>
 		
 		
 		<!-- 글 영역 -->
-		<div class="course-info">
+		<div class="course-view">
 			<!-- 상단 탭 -->
-			<div>
+			<div class="course-view-tap">
 				<ul>
-					<li>
+					<li class="tabbtn selected">
 						<a href="">코스정보</a>
 					</li>
-					<li>
+					<li class="tabbtn">
 						<a href="">기록보기</a>
 					</li>
 				</ul>
 			</div>
 			
 			<!-- 코스 정보 -->
-			<div class="info">
+			<div class="course-view-info">
 				
 				<div>
 					<ul>
@@ -75,7 +81,7 @@
 								</div>
 								
 								<div>
-									<img src="../../assets/img/img.jpg" width="24px">
+									<img src="../../../assets/image/course/img.jpg" width="24px">
 								</div>
 							</div>
 						</li>
@@ -91,7 +97,7 @@
 								</div>
 								
 								<div>
-									<img src="../../assets/img/img.jpg" width="24px">
+									<img src="../../../assets/image/course/img.jpg" width="24px">
 								</div>
 							</div>
 						</li>
@@ -107,7 +113,7 @@
 								</div>
 								
 								<div>
-									<img src="../../assets/img/img.jpg" width="24px">
+									<img src="../../../assets/image/course/img.jpg" width="24px">
 								</div>
 							</div>
 						</li>
@@ -123,7 +129,7 @@
 								</div>
 								
 								<div>
-									<img src="../../assets/img/img.jpg" width="24px">
+									<img src="../../../assets/image/course/img.jpg" width="24px">
 								</div>
 							</div>
 						</li>
@@ -131,8 +137,8 @@
 				</div>
 				
 				<div id="course-info-btn">
-					<button>후기 보러가기</button>
-					<button>♡ 0</button>
+					<button class="link-btn">후기 보러가기</button>
+					<button class="like-btn"><img src="../../../assets/image/main/heart-off.png"> 0</button>
 				</div>
 			</div>
 		</div>

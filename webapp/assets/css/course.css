@@ -9,7 +9,7 @@ body {font-size: 14px;}
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #wrap {max-width:1200px;}
-#wrap>#content {padding: 10px 0px 10px 0px; margin: 0px 0px 150px 0px;}
+#wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 /* =======================타이틀======================= */
 #wrap #title {
 	margin: 80px 0px 64px 0px;
@@ -25,7 +25,7 @@ input[type=radio] {display:none;}
 #content .course-form p {
 	display: inline-block;
 	font-size: 15px;
-	margin: 0px 10px 0px 0px;
+	margin-right: 10px;
 	padding: 0px;
 }
 #content .course-form .course-info p {
@@ -37,7 +37,7 @@ input[type=radio] {display:none;}
 /* -----------------------테이블 설정---------------------- */
 /* 테이블 선 */
 #content .course-form {
-	margin: 0px 0px 50px 0px;
+	margin-bottom: 50px;
 	border: 1px solid rgb(204, 204, 204);
 }
 
@@ -82,7 +82,7 @@ input[name="address"] {width: 89%;}
 
 /* ---------------------버튼설정-------------------- */
 /* 검은색 버튼 */
-.course-form #address-btn, .course-form #course-pic>div>button {
+.course-form #address-btn, .course-form #course-pic div label {
 	border-radius: 3px;
 	background-color: rgb(35, 45, 74);
 	color: rgb(255, 255, 255);
@@ -109,14 +109,14 @@ label {
 	text-align: center;
 	width: 82px;
 	line-height: 46px;
-	margin: 0px 12px 0px 0px;
+	margin-right: 12px;
 }
 .box {
 	display: inline-block;
 	text-align: center;
 	width: 72px;
 	line-height: 38px;
-	margin: 0px 12px 0px 0px;
+	margin-right: 12px;
 }
 
 /* 하단 버튼 */
@@ -126,7 +126,7 @@ label {
 	height: 50px;
 	font-size: 15px;
 }
-#btn-wrap>.add {margin: 0px 0px 0px 12px;}
+#btn-wrap>.add {margin-left: 12px;}
 
 
 
@@ -138,7 +138,7 @@ label {
 .course-form #address-btn {
 	width: 90px;
 	height: 46px;
-	margin: 0px 0px 0px 10px;
+	margin-right: 10px;
 	
 }
 
@@ -178,7 +178,10 @@ label {
 	display: block;
 	margin: 15px 0px 30px 0px;
 }
-.course-form #course-pic div button {
+.course-form #course-pic div input[type="file"] {
+	display: none;
+}
+.course-form #course-pic div label {
 	width: 123px;
-	height: 40px;
+	line-height: 40px;
 }
