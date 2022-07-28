@@ -152,7 +152,7 @@ ul.imgs li{
 /*----------------- 푸터 스타일 -----------------*/
 .footer{
 	justify-content: space-between;
-	line-height: 18px;
+	line-height: 18px;		/*줄 높이 설정값*/
 	font-size: 12px;
 	color: rgb(160, 160, 160);
 	background-color: rgb(55, 55, 55);
@@ -168,7 +168,7 @@ ul.imgs li{
 
 #footer-Copyright {
     display: block;
-	line-height: 18px;
+	line-height: 18px;		/*줄 높이 설정값*/
 	margin-top: 20px;
 	padding: 5px 0px 20px 15px;
 }
