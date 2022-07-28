@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "includes.css";
 @import "main.css";
 @import "clearfix.css";
 
@@ -121,72 +122,4 @@
 #content #map{
 	float: left;
 	max-width: calc(100% - 400px);
-}
-
-
-
-/****************************course-container****************************/
-.course-container {
-	width: 399px;
-	height: 172px;
-	padding: 15px 16px;
-	overflow: hidden;
-}
-
-.course-container .course-icon {
-	float: left;
-	width: 205px;
-	height: 144px;
-	overflow: hidden;
-}
-
-.course-container .course-icon img {
-	width: 100%;
-}
-
-.course-container .course-info {
-	float: left;
-	height: 100%;
-	margin-left: 15px;
-}
-
-.course-container .course-info .course-title {
-	height: 41px;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.course-container .course-info .p-info {
-	height: 62px;
-	font-size: 14px;
-}
-
-.course-container .course-info .tag-blue {
-	float: left;
-	display: flex;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
-	width: 48px;
-	height: 20px;
-	border-radius: 10px;
-	background-color: rgb(50, 108, 249);
-	color: white;
-	font-size: 10px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-
-.course-container .course-info .tag-pink {
-	float: left;
-	display: flex;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
-	width: 48px;
-	height: 20px;
-	border-radius: 10px;
-	background-color: rgb(255, 52, 120);
-	color: white;
-	font-size: 10px;
-	text-align: center;
 }
