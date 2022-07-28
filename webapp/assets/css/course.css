@@ -3,6 +3,7 @@
 
 /* =======================공통======================= */
 body {font-size: 14px;}
+.bold {font-weight: 700;}
 .pointer {cursor: pointer;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
@@ -33,13 +34,12 @@ input[type=radio] {display:none;}
 	text-align: center;
 }
 
-
+/* -----------------------테이블 설정---------------------- */
 /* 테이블 선 */
 #content .course-form {
 	margin: 0px 0px 50px 0px;
 	border: 1px solid rgb(204, 204, 204);
 }
-
 
 /* 테이블 타이틀 */
 #content .course-form h2 {
@@ -49,7 +49,6 @@ input[type=radio] {display:none;}
 	font-weight: 700;
 	text-align: center;
 }
-
 
 /* 테이블 */
 .course-form table tr th {
@@ -69,7 +68,7 @@ input[type=radio] {display:none;}
 }
 
 
-/* 텍스트박스 */
+/* -------------------------텍스트박스----------------------------- */
 .course-form input[type="text"] {
 	height: 46px;
 	padding: 0px 15px;
@@ -81,7 +80,7 @@ input[type=radio] {display:none;}
 input[name="address"] {width: 89%;}
 
 
-/* 버튼색깔 */
+/* ---------------------버튼설정-------------------- */
 /* 검은색 버튼 */
 .course-form #address-btn, .course-form #course-pic>div>button {
 	border-radius: 3px;
@@ -103,7 +102,6 @@ input[type="radio"]:checked+label, #btn-wrap>.add, .blue {
 	background-color: rgb(50, 108, 249);
 }
 
-
 /* 버튼 크기 */
 /* radio */
 label {
@@ -121,7 +119,7 @@ label {
 	margin: 0px 12px 0px 0px;
 }
 
-/* 아래 버튼 */
+/* 하단 버튼 */
 #btn-wrap {text-align: center;}
 #btn-wrap>button {
 	width: 160px;
@@ -151,7 +149,7 @@ label {
 	font-weight: 700;
 }
 .course-form .course-info > div {
-	margin: 12px 0px;
+	margin-bottom: 20px;
 }
 /* 지도이미지 (나중에 구글지도로 변경!!!) */
 .course-form #map img {

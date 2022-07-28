@@ -5,7 +5,7 @@
 <title>코스 정보 상세보기</title>
 <!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course.css">
+<link rel="stylesheet" href="../../../assets/css/course_view.css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
@@ -22,41 +22,60 @@
 		<!-- 지도 영역 -->
 		<div id="map">
 			<!-- 지도 -->
-			<img src="../../assets/img/map.jpg" height="569px">
+			<img src="../../../assets/image/course/map.jpg" width="100%">
 		</div>
 		
 		
 		<!-- 글 영역 -->
-		<div class="course-info">
+		<div class="course-view">
 			<!-- 상단 탭 -->
-			<div>
+			<div class="course-view-tap">
 				<ul>
-					<li>
+					<li class="tabbtn selected">
 						<a href="">코스정보</a>
 					</li>
-					<li>
+					<li class="tabbtn">
 						<a href="">기록보기</a>
 					</li>
 				</ul>
 			</div>
 			
 			<!-- 코스 정보 -->
-			<div class="info">
+			<div class="course-view-info">
 				<div class="course-info-content">
-					<h1>코스제목</h1>
-					<a href="">♠</a>
-					<a href="">☆</a>
-					<p><b>박깜이</b></p>
-					<p>조회수</p>
-					<p>22.07.18</p>
-					<p>기록 8</p>
+					<h2>코스제목</h2>
+					<a href=""><span class="glyphicon glyphicon-pencil"></span></a>
 					
-					<ul>
-						<li>산책</li>
-						<li>30분</li>
-						<li>2km</li>
-						<li>어려움</li>
-					</ul>
+					<a href=""><img alt="즐겨찾기" src="../../../assets/image/main/star-off.png"></a>
+					
+					<div class="article-info">
+						<span class="bold">박깜이</span>
+						<span>조회수 518</span>
+						<span>22.07.18</span>
+						<span>기록 8</span>
+					</div>
+					
+					<div class="article-container">
+						<div>
+							<img alt="산책" src="../../../assets/image/course/walk.png">
+							<span>산책</span>
+							
+							<!-- <img alt="조깅" src="../../../assets/image/course/jog.png">
+							<span>조깅</span>
+							<img alt="러닝" src="../../../assets/image/course/run.png">
+							<span>러닝</span>
+							<img alt="마라톤" src="../../../assets/image/course/marathon.png">
+							<span>마라톤</span>
+							<img alt="자전거" src="../../../assets/image/course/bicycle.png">
+							<span>자전거</span>
+							<img alt="그림" src="../../../assets/image/course/drawing.png">
+							<span>그림</span> -->
+						</div>
+						
+						<div>
+							
+						</div>
+					</div>
 				</div>
 				
 				<div class="course-stats">

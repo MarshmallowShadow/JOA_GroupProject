@@ -1,0 +1,83 @@
+@charset "UTF-8";
+@import "main.css";
+
+/* =======================공통======================= */
+body {font-size: 14px;}
+.pointer {cursor: pointer;}
+.bold {font-weight: 700;}
+/* radio 버튼 초기화 */
+input[type=radio] {display:none;}
+/* =======================레이아웃======================= */
+#wrap {max-width:1200px;}
+#wrap>#content {padding: 10px 0px 10px 0px; margin: 0px 0px 150px 0px;}
+
+
+/* =======================content======================= */
+/* content 레이아웃 */
+#content #map {
+	float: left;
+	width: 70%;
+}
+#content .course-view {
+	float: right;
+	width: 30%;
+}
+
+
+/* -----------------------상단탭------------------------- */
+.course-view .course-view-tap {
+	height: 60px;
+}
+.tabbtn {
+	width: 180px;
+	line-height: 60px;
+	float: left;
+	font-size: 16px;
+	text-align: center;
+	background-color: rgb(255,255,255);
+	border-bottom: 1px solid black;
+}
+/* 검은색 버튼 */
+.selected, .selected>a {
+	background-color: rgb(34, 34, 34);
+	color: rgb(255, 255, 255);
+}
+
+/* -----------------------본문------------------------- */
+#content .course-view .course-view-info {
+	padding: 0px 32px;
+	width: 100%;
+	height: 510px;
+	/* 임시선 */
+	border: 1px solid #ffff00;
+}
+.course-view-info .course-info-content {
+	padding: 12px 0px 25px 0px;
+	border-bottom: 1px solid rgb(101, 101, 101);
+}
+
+/* -------------------코스 정보------------------------ */
+/* 타이틀 */
+.course-info-content h2 {
+	display: inline-block;
+	line-height: 36px;
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+}
+/* 즐겨찾기 이미지 */
+.course-info-content a img {
+	vertical-align: middle;
+}
+/* 이름, 글정보 */
+.course-info-content .article-info {
+	text-align: left;
+	margin-bottom: 10px;
+}
+.course-info-content .article-info span {
+	margin-right: 8px;
+	color: rgb(101, 101, 101);
+}
+.course-info-content .article-container img {
+	vertical-align: middle;
+}
