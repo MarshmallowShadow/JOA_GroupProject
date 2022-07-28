@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/board.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,15 +13,15 @@
 		<h1>게시판</h1>
 		
 		<div id="top_aside">
-			<select id="title">
+			<select id="option">
 				<option value="question">질문</option>
 				<option value="commute">소통</option>
 				<option value="post">후기</option>
 				<option value="together">함께</option>
 			</select>
 			
-			<input type="text" id="keyword">
-			<button type="submit" id="search">검색</button>
+			<input type="text" id="textbox">
+			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span></button>
 		</div>
 	
 		<br>
@@ -50,7 +51,7 @@
 					<tr>
 						<th>1</th>
 						<td class="center">[소통]</td>
-						<td>도림천 다녀오는 길![21]<img class="photo" src="../../../assets/image/board/photo.png"></td>
+						<td>도림천 다녀오는 길![21] <span class="glyphicon glyphicon-picture"></span></td>
 						<td class="center">신림러</td>
 						<td class="center">47</td>
 						<td class="center">2022.07.25</td>
@@ -59,7 +60,7 @@
 					<tr>
 						<th>2</th>
 						<td class="center">[함께]</td>
-						<td>한강 사진 공유~[14]<img class="photo" src="../../../assets/image/board/photo.png"></td>
+						<td>한강 사진 공유~[14] <span class="glyphicon glyphicon-picture"></span></td>
 						<td class="center">프리러너</td>
 						<td class="center">21</td>
 						<td class="center">2022.07.25</td>
@@ -68,7 +69,7 @@
 					<tr>
 						<th>3</th>
 						<td class="center">[소통]</td>
-						<td>러닝화 구매 후기[4]<img class="photo" src="../../../assets/image/board/photo.png"></td>
+						<td>러닝화 구매 후기[4] <span class="glyphicon glyphicon-picture"></span></td>
 						<td class="center">하이슈즈</td>
 						<td class="center">17</td>
 						<td class="center">2022.07.25</td>
@@ -77,7 +78,7 @@
 					<tr>
 						<th>4</th>
 						<td class="center">[소통]</td>
-						<td>관악산 정상뷰[16]<img class="photo" src="../../../assets/image/board/photo.png"></td>
+						<td>관악산 정상뷰[16] <span class="glyphicon glyphicon-picture"></span></td>
 						<td class="center">올하이킹</td>
 						<td class="center">54</td>
 						<td class="center">2022.07.25</td>
