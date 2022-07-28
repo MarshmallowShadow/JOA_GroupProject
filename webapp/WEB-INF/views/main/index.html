@@ -8,42 +8,25 @@
 </head>
 <body>
 
-	<div id="main-header">
-		<h1>
-			<img src="c:\javastudy\workspace_web\joa\webapp\assets\images\joalogo.jpg" />
-		</h1>
-	</div>
-	<!-- /header -->
-	
-
-	<div class="main-nav" id="main-navmenu">
+	<div id="header">
+		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
 		
-		<div id="nav-content">
-			<a href="/map" class="map_link"> 
-			<span class="map_name" data-hover>지도</span>
-			</a>
-		</div>
-
-		<div id="nav-content">
-			<a href="/best" class="best_link"> 
-			<span class="best_name" data-hover>베스트</span>
-			</a>
-		</div>
-
-		<div id="nav-content">
-			<a href="" class="noticeboard_link"> 
-			<span class="noticeboard_name" data-hover>게시판</span>
-			</a>
-		</div>
-
-		<div id="nav-content">
-			<a href="" class="noticeboard_link"> 
-			<span class="noticeboard_name" data-hover>함께하기</span>
-			</a>
-		</div>
-
-	</div>
-	<!-- /nav -->
+		<div id="login">
+			<ul>
+				<li><a href="">회원가입</a></li>
+				<li><a href="">로그인</a></li>
+			</ul>
+		</div> <!-- login -->
+		
+		<div id="nav">
+			<ul>
+				<li><a href="../together/together.html">함깨하기</a></li>
+				<li><a href="../board/board.html">게시판</a></li>
+				<li><a href="../best/best.html">베스트</a></li>
+				<li><a href="../map/map.html">지도</a></li>
+			</ul>
+		</div> <!-- nav -->
+	</div> <!-- header -->
 
 
 <!-- photo slider -->
@@ -84,24 +67,30 @@
 	<!-- /text -->
 	
 
-	<br>
-	<div class="footer">
-		<p>주식회사 조아</p>
-		<p>대표 : 최보승</p>
-		<p>사업자 번호 : 123-456-789</p>
-		<p>서울특별시 관악구 봉천동 862 - 1</p>
 		<br>
-		<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
-		<p>tel. 02 - 1111 - 1111</p>
-		<p>fax. 02 - 1111 - 1111</p>
-		<p>email. joa@joa.co.kr</p>
-		<br>
-		
-		<div class="footer-btn">
-			<button type="button">자주묻는 질문</button>
-			<button type="button">1:1 문의</button>
+		<div class="footer">
+			<div class="footer-text">
+				<p>주식회사 조아</p>
+				<p>대표 : 최보승</p>
+				<p>사업자 번호 : 123-456-789</p>
+				<p>서울특별시 관악구 봉천동 862 - 1</p>
+				<br>
+				<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일,
+					공휴일 휴무)</p>
+				<p>tel. 02 - 1111 - 1111</p>
+				<p>fax. 02 - 1111 - 1111</p>
+				<p>email. joa@joa.co.kr</p>
+			</div>
+			<br>
+			<div class="footer-btn">
+				<button id="footerbtn" type="button">자주묻는 질문</button>
+				<button id="footerbtn" type="button">1:1 문의</button>
+			</div>
+			<br>
+			<hr class="my-hr1">
+			<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
+
 		</div>
-	</div>
 <!-- /footer -->
 
 </body>
