@@ -4,12 +4,11 @@
 /* =======================공통======================= */
 body {font-size: 14px;}
 .pointer {cursor: pointer;}
-p {display: inline-block;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #wrap {max-width:1200px;}
-#wrap>#contents {padding: 10px 0px 10px 0px;}
+#wrap>#content {padding: 10px 0px 10px 0px; margin: 0px 0px 150px 0px;}
 /* =======================타이틀======================= */
 #wrap #title {
 	margin: 80px 0px 64px 0px;
@@ -22,18 +21,32 @@ input[type=radio] {display:none;}
 
 /* =======================content======================= */
 /* p 태그 설정 */
-#content .course-form p {font-size: 15px; margin: 0px 10px 0px 0px; padding: 0px;}
+#content .course-form p {
+	display: inline-block;
+	font-size: 15px;
+	margin: 0px 10px 0px 0px;
+	padding: 0px;
+}
+#content .course-form .course-info p {
+	width: 80px;
+	line-height: 46px;
+	text-align: center;
+}
+
 
 /* 테이블 선 */
 #content .course-form {
 	margin: 0px 0px 50px 0px;
 	border: 1px solid rgb(204, 204, 204);
 }
+
+
 /* 테이블 타이틀 */
 #content .course-form h2 {
 	line-height: 60px;
 	height: 60px;
 	font-size: 18px;
+	font-weight: 700;
 	text-align: center;
 }
 
@@ -44,6 +57,7 @@ input[type=radio] {display:none;}
 	min-width: 150px;
 	color: rgb(34,34,34);
 	font-size: 15px;
+	font-weight: 700;
 	background-color: rgb(240, 240, 240);
 	border-top: 1px solid rgb(204, 204, 204);
 	text-align: center;
@@ -54,33 +68,6 @@ input[type=radio] {display:none;}
 	border-top: 1px solid rgb(204, 204, 204);
 }
 
-/* 코스지정 */
-.course-form input[name="address"] {width: 89%;}
-.course-form .guide {color: rgb(136, 136, 136);}
-.course-form .address-form {margin: 15px 0px 10px 0px;}
-.course-form #address-btn {
-	width: 90px;
-	height: 46px;
-	margin: 0px 0px 0px 10px;
-	background-color: rgb(35, 45, 74);
-	color: rgb(255, 255, 255);
-}
-
-/* 코스정보 */
-.course-form h3 {
-	display: inline-block;
-	font-size: 15px;
-	font-family: bold;
-}
-.course-form .course-info > div {
-	margin: 12px 0px;
-}
-/* 지도이미지 (나중에 구글지도로 변경!!!) */
-.course-form #map img {
-	width: 100%;
-	height: 100%;
-	vertical-align: top;
-}
 
 /* 텍스트박스 */
 .course-form input[type="text"] {
@@ -95,6 +82,13 @@ input[name="address"] {width: 89%;}
 
 
 /* 버튼색깔 */
+/* 검은색 버튼 */
+.course-form #address-btn, .course-form #course-pic>div>button {
+	border-radius: 3px;
+	background-color: rgb(35, 45, 74);
+	color: rgb(255, 255, 255);
+}
+/* 흰색 버튼 */
 label, #btn-wrap>button, .box {
 	padding: 0px 15px;
 	color: rgb(102, 102, 102);
@@ -102,6 +96,7 @@ label, #btn-wrap>button, .box {
 	border-radius: 3px;
 	background-color: rgb(255,255,255);
 }
+/* 파란색 버튼 */
 input[type="radio"]:checked+label, #btn-wrap>.add, .blue {
 	color: rgb(255,255,255);
 	border-color: rgb(50, 108, 249);
@@ -111,11 +106,18 @@ input[type="radio"]:checked+label, #btn-wrap>.add, .blue {
 
 /* 버튼 크기 */
 /* radio */
-label, .box {
+label {
 	display: inline-block;
 	text-align: center;
 	width: 82px;
 	line-height: 46px;
+	margin: 0px 12px 0px 0px;
+}
+.box {
+	display: inline-block;
+	text-align: center;
+	width: 72px;
+	line-height: 38px;
 	margin: 0px 12px 0px 0px;
 }
 
@@ -127,3 +129,58 @@ label, .box {
 	font-size: 15px;
 }
 #btn-wrap>.add {margin: 0px 0px 0px 12px;}
+
+
+
+
+/* -------------------코스지정----------------------- */
+.course-form input[name="address"] {width: 89%;}
+.course-form .guide {color: rgb(136, 136, 136);}
+.course-form .address-form {margin: 15px 0px 10px 0px;}
+.course-form #address-btn {
+	width: 90px;
+	height: 46px;
+	margin: 0px 0px 0px 10px;
+	
+}
+
+/* -------------------코스정보----------------------- */
+.course-form .course-info h3 {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+}
+.course-form .course-info > div {
+	margin: 12px 0px;
+}
+/* 지도이미지 (나중에 구글지도로 변경!!!) */
+.course-form #map img {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+/* -------------------사진등록----------------------- */
+.course-form #course-pic {
+	width: 100%;
+	height: 350px;
+	background-color: rgb(224, 224, 224);
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.course-form #course-pic div img {
+	display: block;
+	margin: auto;
+	width: 64px;
+	height: 64px;
+}
+.course-form #course-pic div p {
+	display: block;
+	margin: 15px 0px 30px 0px;
+}
+.course-form #course-pic div button {
+	width: 123px;
+	height: 40px;
+}
