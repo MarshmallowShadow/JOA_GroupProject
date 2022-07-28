@@ -15,10 +15,66 @@ h1 {
 	text-align: center;
 }
 
+/******************** 게시판 테이블 ********************/
+
+table {
+	width: 80%;
+	margin-left: 170px;
+	border-top: solid 2px;
+	border-bottom: solid 2px; 
+	border-collapse: collapse;
+}
+#board_title {
+	padding: 18px 10px;
+	font-size : 13pt;
+}
+#top {border-bottom: solid 2px;}
+tr>#id {font-weight : bold;}
+tr>#id, #date, #up {
+	padding-bottom: 18px;
+	padding-left: 10px;
+	font-size : 13pt;
+}
+tr>#date, #up {
+	text-align: right;
+	margin-left: 500px;
+}
+#up {padding-right: 10px;}
+#content {
+	padding: 25px 0px;
+	line-height:200%
+}
+
 /********************* 첨부 사진 *********************/
 
 .image {
 	width : 300px;
 	height: 270px;
-	margin-left: 15px;
+	margin-left: 10px;
+	padding-bottom: 30px;
 }
+
+/******************** 작성자 버튼 ********************/
+
+#writer_btn {margin-left: 1213px;}
+#modify {
+	width : 82px;
+	height: 35px;
+	background-color: #dedede;
+	color: #666;
+	border:none;
+}
+#delete {
+	margin-left: 5px;
+	width : 82px;
+	height: 35px;
+	background-color: #000;
+	color: #fff;
+	border:none;
+}
+
+
+
+
+
+
