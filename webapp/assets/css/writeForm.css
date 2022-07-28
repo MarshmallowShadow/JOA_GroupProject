@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+/******************** 게시판 머리글 ********************/
+
+h1 {
+	margin-left: 550px;
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
+
+/********************* 첨부 사진 *********************/
+
+.image {
+	width : 300px;
+	height: 270px;
+	margin-left: 15px;
+}
