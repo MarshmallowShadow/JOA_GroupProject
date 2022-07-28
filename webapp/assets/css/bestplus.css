@@ -1,0 +1,125 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/*----------------------------------------------------- 베스트 상세페이지 ----------------------------------------------------- */
+
+h1{
+	font-size: 46px;
+	font-weight: bold;
+	text-align : center;
+	margin: 80px, 0px, 64px, 0px;
+	display: block;	
+}
+
+
+/* main list */
+table {
+	border: 1px solid;
+	margin: 40px 0px 80px 500px;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+}
+
+table td {
+	border: 1px solid;
+	padding: 20px 60px 20px;	
+}
+
+table td a:hover {
+	font-weight: bold;
+	color: rgb(101, 101, 101);
+}
+
+/* 종목테그 */
+.best-mini-list {
+	font-size: 12px;
+	float: right;
+	margin: 140px 50px 0px;
+}
+
+.best-mini-list p {
+	padding-left: 30px;
+	padding-bottom: 5px; 
+}
+
+.best-mini-list ul{
+	margin-left: 30px;
+}
+
+.best-mini-list li {
+	display: inline;
+	}
+	
+
+/* hr(nav) 라인 */
+.one {
+	width: 1400px;
+	}
+
+/*------------------------- Top1~3 -------------------------*/
+/* 이미지 */
+img {
+	width: 350px;
+	height: 280px;
+	}
+
+.img-total .img-1 p {
+	display: inline;
+	margin-right:319px;
+	text-align: center;
+	}
+
+.img-total .img-1 img{
+	width:30px;
+	height: 30px; 
+}
+
+
+/*----------------- 푸터 스타일 -----------------*/
+.footer{
+	justify-content: space-between;
+	line-height: 18px;		/*줄 높이 설정값*/
+	font-size: 12px;
+	color: rgb(160, 160, 160);
+	background-color: rgb(55, 55, 55);
+	/* white-space: pre-wrap; 다방에 있어서 끌고 왔으나 와장창됨
+		스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성*/
+}
+
+.footer-text {
+	padding-top: 20px;
+	padding-left: 15px;
+
+}
+
+#footer-Copyright {
+    display: block;
+	line-height: 18px;		/*줄 높이 설정값*/
+	margin-top: 20px;
+	padding: 5px 0px 20px 15px;
+}
+
+.my-hr1 {
+	border: 0;
+	height: 1px;
+	width : 99%;
+	background-color: rgb(123, 118, 118);
+}
+/* ---------------------------- 푸터 버튼 -----------------------------------*/
+.footer-btn{
+	padding: 0px 9px;
+	
+}
+
+#footerbtn {
+	border: 0;
+	outline: 0;
+	border-radius: 2px;
+	height: 30px;
+	padding: 0px 9px;
+	font-size: 12px;
+	color: rgb(229, 229, 229);
+	background-color: rgb(81, 81, 81);
+}

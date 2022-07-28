@@ -40,16 +40,71 @@
 
 
 /*-------------------------------------------------------- 베스트 -------------------------------------------------------- */
-p {
+/* header */
+h1{
+	font-size: 46px;
+	font-weight: bold;
+	text-align : center;
+	margin: 80px, 0px, 64px, 0px;
+	display: block;	
+}
+
+#best-title {
 	font-size: 20px;
+	text-align : center;
+}
+
+#best-text {
+	font-size: 20px;
+	text-align : center;
+	margin: 0px;
+	padding: 0px;	
 }
 
 
 /* 더보기 Go 버튼 */
-.Go {
+#Go {
 	font-size: 14px;
+	margin: 0 auto; 
+	width: 200px; 
+	float: right; 
+	text-align: center; 
+	border: 0;
 }
 
+/* 사진 */
+img {
+	display: block;
+}
+
+.best-list {
+	float: left;
+	text-align: center;
+}
+.best-listtext {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+
+
+
+.items {
+	width: 232px;
+	float: left;
+	margin: 30px 0px 0px 25px;
+}
+
+.items .a {
+	font-size: 14px;
+	margin-top: 20px;
+}
+
+.items .a span {
+	color: rgb(160, 160, 160);
+}
 /*----------------- 푸터 스타일 -----------------*/
 .footer{
 	justify-content: space-between;
@@ -96,6 +151,3 @@ p {
 	color: rgb(229, 229, 229);
 	background-color: rgb(81, 81, 81);
 }
-
-
-/*----------------------------------------------------- 베스트 상세페이지 ----------------------------------------------------- */
