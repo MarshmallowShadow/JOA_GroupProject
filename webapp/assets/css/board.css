@@ -24,7 +24,7 @@ ul, ol, li	{
 }
 #page {
 	margin-top: 20px;
-	margin-left: 370px;
+	margin-left: 587px;
 }
 
 /*********************** 검색 ***********************/
@@ -32,21 +32,25 @@ ul, ol, li	{
 #top_aside {margin-left: 830px;}
 #keyword {height: 20px}
 /** 필터링 항목 **/
-#title {
-	width: 60px;
-	height: 25px
+#option {
+	width: 75px;
+	height: 30px
+}
+#textbox {
+	width: 230px;
+	height: 30px
 }
 /** 검색 버튼 **/
 #search {
-	height: 25px;
 	width: 50px;
+	height: 30px;
 }
 
 /******************** 게시판 테이블 ********************/
 
 table {
-	width: 85%;
-	margin-left: 100px;
+	width: 80%;
+	margin-left: 170px;
 	border-top: solid 2px; 
 	border-collapse: collapse;
 }
@@ -54,23 +58,22 @@ th, td {
 	border-bottom: solid 1px #ccc;
 	height: 70px;
 }
-/** 게시글 제목 이외 것들 가운데 정렬 **/
-tr>.center {text-align: center;}
-/** 게시글 제목에 사진 업로드 아이콘 **/
-td>.photo {
-	width : 23px;
-	height: 20px;
-	padding: 0px 5px;	
+/** 게시글 제목 이외 것들 가운데, 중앙 정렬 **/
+th, tr>.center {text-align: center;}
+th, td {
+	margin-top: 50px;
+	vertical-align : middle;
 }
 /** 글쓰기 버튼 **/
 #write {
-	width: 80px;
-	margin-left: 1036px;
+	width: 87px;
+	height: 32px;
+	margin-left: 1283px;
 	margin-top: 20px;
 	background-color: #000;
 	color: #fff;
+	font-size : 10pt;
 	border-radius: 5px;
-	height: 27px
 }
 
 
