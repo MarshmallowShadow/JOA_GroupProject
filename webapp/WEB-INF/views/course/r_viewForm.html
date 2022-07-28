@@ -31,10 +31,10 @@
 			<!-- 상단 탭 -->
 			<div class="course-view-tap">
 				<ul>
-					<li class="tabbtn selected">
+					<li class="tabbtn">
 						<a href="">코스정보</a>
 					</li>
-					<li class="tabbtn">
+					<li class="tabbtn selected">
 						<a href="">기록보기</a>
 					</li>
 				</ul>
@@ -43,11 +43,12 @@
 			<!-- 코스 정보 -->
 			<div class="course-view-info">
 				
-				<div>
-					<ul>
-						<li>전체</li>
-						<li>내가 쓴 기록</li>
-					</ul>
+				<div class="record-filter">
+					<input type="radio" name="record-filter" id="all" checked>
+					<label for="all">전체</label>
+					
+					<input type="radio" name="record-filter" id="myrecord">
+					<label for="myrecord">내가 쓴 기록</label>
 				</div>
 				
 				<div class="record-info-content">
@@ -55,16 +56,20 @@
 						<li>
 							<div>
 								<div>
-									<p>박깜이●</p>
-									<span>즐겁게 뛰었던 코스~</span>
-									<p>220.07.18 10:03</p>
-									<p>※20℃</p>
-									<span>산책</span>
-									<span>어려움</span>
+									<div class="record-content">
+										<span class="name bold">박깜이<img src="../../../assets/image/course/footprint.png" width="12px"></span>
+										<p>즐겁게 뛰었던 코스~</p>
+									</div>
+									<div>
+										<span>220.07.18 10:03</span>
+										<span>※20℃</span>
+										<span>산책</span>
+										<span>어려움</span>
+									</div>
 								</div>
 								
 								<div>
-									<img src="../../assets/img/img.jpg" width="24px">
+									<img src="../../../assets/image/course/img.jpg" width="24px">
 								</div>
 							</div>
 						</li>

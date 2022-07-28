@@ -45,18 +45,18 @@ input[type=radio] {display:none;}
 
 /* -----------------------본문------------------------- */
 #content .course-view .course-view-info {
-	padding: 0px 32px;
+	padding: 20px 32px;
 	width: 100%;
 	height: 510px;
 	/* 임시선 */
 	border: 1px solid #ffff00;
 }
 .course-view-info .course-info-content {
-	padding: 12px 0px 25px 0px;
+	padding-bottom: 25px;
 	border-bottom: 1px solid rgb(101, 101, 101);
 }
 
-/* -------------------코스 정보------------------------ */
+/* ===================================코스 정보==================================== */
 /* 타이틀 */
 .course-info-content h2 {
 	display: inline-block;
@@ -114,6 +114,47 @@ input[type=radio] {display:none;}
 	height: 100%;
 	border: 1px solid;
 }
+/* ===================================코스 정보==================================== */
+
+
+/* ===================================기록보기==================================== */
+/* 기록 필터 */
+.record-filter {
+	margin-bottom: 10px;
+}
+.course-view-info .record-filter label {
+	font-size: 16px;
+	margin-right: 20px;
+	color: rgb(170, 170, 170);
+}
+.course-view-info .record-filter input[type="radio"]:checked+label {
+	color: black;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* 기록리스트 */
+.record-info-content ul > li {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin-bottom: 12px;
+}
+
+.record-info-content ul > li .name {
+	margin-right: 5px;
+}
+.record-info-content ul > li img {
+	margin-left: 3px;
+}
+.record-info-content ul > li p {
+	margin-right: 5px;
+}
+
+
+
+
+/* ===================================기록보기==================================== */
 
 /* --------------------하단 버튼------------------------ */
 #course-info-btn .link-btn {
