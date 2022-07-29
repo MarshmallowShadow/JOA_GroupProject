@@ -7,41 +7,6 @@
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
-/****************************header****************************/
-#header {
-	max-width: 100%;
-	height: 80px;
-	padding: 0px 20px;
-	border-bottom: 1px solid rgb(174, 174, 174);
-}
-
-#header #logo {
-	float: left;
-	height: 60px;
-	margin: 10px;
-}
-
-#header #nav ul li {
-	float: right;
-	font-size: 16px;
-	margin-left: 40px;
-	margin-top: 32px;
-}
-
-#header #login {
-	float: right;
-	height: 40px;
-	width: 160px;
-	margin: 20px 0px 20px 40px;
-	border: 1px solid rgb(174, 174, 174);
-}
-
-#header #login ul li {
-	float: right;
-	margin: 13px 15px 13px 15px;
-	font-size: 14px;
-	font-weight: 700;
-}
 
 /*----------------------------------------------------- 베스트 상세페이지 ----------------------------------------------------- */
 #wrap h1{
@@ -138,6 +103,7 @@ table td a:hover {
 	height: 280px;
 	margin: 0px 10px 0px 10px; 
 }
+/*----------------- comment 댓글 -----------------*/
 
 /*----------------- 푸터 스타일 -----------------*/
 .footer{
