@@ -25,23 +25,29 @@ h1 {
 #option_line, #title_line, #content_line, #file_line, #course_line, #together_line {margin-top: 37px;}
 #together_line {margin-bottom: 37px;}
 /** 선택 항목들 **/
-#option, #title, #file, #course, #together {float: left; margin-left: 50px;}
+#option, #title, #file, #course, #together {
+	float: left;
+	margin-left: 58px;
+	font-size : 15pt;
+}
+#option, #title {margin-top: 6px;}
+#file, #course, #together {margin-top: 1px;}
 #contentbox {margin-left: 50px;}
 #option_list {
 	width : 100px;
-	height: 30px;
+	height: 40px;
 	margin-left: 37px;
 }
 #titlebox {
-	width : 300px;
-	height: 30px;
+	width : 630px;
+	height: 40px;
 	margin-left: 37px;
 }
 #contentbox {
-	width : 1145px;
+	width : 92%;
 	height: 500px;
 }
-#filebox{margin-left: 37px;}
+#file {margin-right: 37px;}
 /** 버튼 **/
 #course_choice, #together_choice {
 	margin-left: 30px;
@@ -49,7 +55,23 @@ h1 {
 	background-color: #fff;
 	color: #ccc;
 }
-
+#folder, #man {margin-right: 10px;}
+#user_btn {margin-left: 44%;}
+#cencle {
+	width : 100px;
+	height: 40px;
+	background-color: #dedede;
+	color: #666;
+	border:none;
+}
+#post {
+	width : 100px;
+	height: 40px;
+	margin-left: 5px;
+	background-color: rgb(50, 108, 249);
+	border:none;
+	color: white;
+}
 
 
 
