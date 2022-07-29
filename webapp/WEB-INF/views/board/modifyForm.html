@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/writeForm.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+	<div id="wrap">
+	
+		<h1>게시판</h1>
+		
+		<div id="writebox">
+		
+			<div id="option_line">
+				<p id="option">항목</p>
+				<select id="option_list">
+					<option value="question">질문</option>
+					<option value="commute">소통</option>
+					<option value="post">후기</option>
+					<option value="together">함께</option>
+				</select>
+			</div>
+			
+			<div id="title_line">
+				<p id="title">제목</p>
+				<input type="text" id="titlebox">
+			</div>
+			
+			<div id="content_line"><input type="text" id="contentbox"></div>
+			
+			<div id="file_line">
+				<p id="file">파일선택</p>
+				<input type="file" id="filebox">
+			</div>
+			
+			<div id="course_line">
+				<p id="course">코스선택</p>
+				<button type="submit" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
+			</div>
+			
+			<div id="together_line">
+				<p id="together">함께하기</p>
+				<button type="submit" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
+			</div>
+			
+		</div><!-- writebox -->	
+		
+	</div><!-- wrap -->
+	
+	<br><br><br>
+	
+	<div id="user_btn">
+		<button type="submit" id="cencle">취소</button>
+		<button type="submit" id="post">등록</button>
+	</div>
+
+	<br><br><br><br><br><br><br>
+
+
+</body>
+</html>
