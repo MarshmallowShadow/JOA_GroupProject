@@ -1,52 +1,125 @@
 @charset "UTF-8";
+@import "includes.css";
 @import "main.css";
 @import "clearfix.css";
 
-/**************************sub-header**************************/
-#sub-header {
-	width: 100%;
-	height: 64px;
+/*****************************wrap*****************************/
+#wrap{
+	height: 100vh;
+	overflow-x: hidden; /* 이미지 크기로 인해 화면 깨짐 방지 */
+	overflow-y: hidden;
 }
 
+
+
+/**************************sub-header**************************/
+#sub-header {
+	display: flex; /* 필터 메뉴 길이 flex-grow로 크기 조절*/
+	width: 100%;
+	height: 64px;
+	border-bottom: 1px solid rgb(174, 174, 174);
+}
+
+/* 검색바 */
 #sub-header #searchbar {
-	float: left;
+	display: flex; /* 요소들 세로로 가운데 정렬 하기 위해서 설정 */
 	width: 400px;
 	height: 100%;
 	padding: 0px 20px;
 	align-items: center;
-	background-color: blue;
+	border-right: 1px solid rgb(174, 174, 174);
 }
 
-#sub-header #searchbar #search-icon {
-	height: 100%;
-	
+#sub-header #searchbar .search-icon {
+	width: 20px;
 }
 
-#sub-header #filter {
-	float: right;
-	width: 0px;
-	flex-grow: 1;
+#sub-header #searchbar #search-input {
+	height: 36px;
+	width: 205px;
+	margin: 0px 15px;
+	border: 0px solid transparent;
+}
+
+#sub-header #searchbar .btn-blue {
+	width: 52px;
+	height: 36px;
+	border: 0px solid transparent;
+	background-color: rgb(50, 108, 249);
+	font-weight: 700;
+	color: white;
+	font-size: 13px;
+}
+
+#sub-header #searchbar .btn-grey {
+	width: 52px;
+	height: 36px;
+	border: 0px solid transparent;
+	background-color: rgb(245, 245, 245);
+	color: rgb(174, 174, 174);
+	font-weight: 700;
+	font-size: 13px;
+}
+
+/* 필터 메뉴 */
+#sub-header #filter-menu {
+	display: flex; /* 요소들 세로로 가운데 정렬 */
+	min-width: 800px;
 	height: 100%;
+	flex-grow: 1; /* 부모 display가 flex일 경우에만 사용 가능 (가로로 체우는 방식으로 크기 조절) */
+	align-items: center;
 	padding: 0px 12px 0px 8px;
-	background-color: green;
+}
+
+#sub-header #filter-menu .fmenu {
+	display: flex;
+	height: 34px;
+	margin-right: 8px;
+	border: 1px solid rgb(174, 174, 174);
+	padding: 0px 10px;
+	align-items: center;
+	background-color: transparent;
+	font-weight: 700;
+	font-size: 13px;
 }
 
 #sub-header #filter-buttons {
-	float: right;
+	display: flex;
 	margin-right: auto;
 	margin-left: 15px;
 	height: 100%;
-	background-color: yellow;
+}
+
+#sub-header #filter-buttons img {
+	margin: auto;
+}
+
+#sub-header #filter-menu .fmenu .down-icon {
+	width: 12px;
+	margin-left: 10px;
 }
 
 
 
-/****************************result****************************/
+/****************************content****************************/
+#content {
+	width: 100%;
+	display: flex;
+	height: calc(100% - 144px);
+	overflow: hidden;
+}
 
+#content #result-list {
+	width: 400px;
+	border-right: 1px solid rgb(174, 174, 174);
+	overflow: scroll; /* 세로로 스크롤링 가능하게 설정 */
+}
 
+#content #result-list li{
+	border-bottom: 1px solid rgb(174, 174, 174);
+}
 
-
-/****************************map****************************/
-#map {
+#content #map{
 	float: left;
+	max-width: calc(100% - 400px);
 }
