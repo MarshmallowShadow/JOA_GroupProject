@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 /***************************** 레이아웃 ****************************/
-
-#wrap {max-width:1200px;}
+/*
+#content {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
 /**************************** header ****************************/
