@@ -68,12 +68,12 @@
 /* 마이페이지-나의 기록 *************************************************************/
 /**************************************************************************/
 .myReport {position: absolute; left: 50%; transform: translateX(-50%); display: center; text-align:center; 
-			border:solid 1px #111111; width:1100px; height:700px; padding:50px; margin:50px 0px}
+			background-color:lightblue; width:1200px; height:700px; padding:0px 30px;}
 
-.myReport #calendar {float:left; width:750px; border:solid 1px #000000; text-align:left; line-height: 50px;}
-.myReport #calendar #calDate {font: 38px "나눔고딕"; text-align:left}
-.myReport #calendar #dateSearch {font: 24px "나눔고딕";}
-.myReport #calendar #dSearch-btn {font: 24px "나눔고딕";}
+.myReport #calendar {float:left; width:750px; background-color:lightyellow; line-height: 50px;}
+.myReport #calendar #dateForm {width:750px; height:100px; line-height:100px; }
+.myReport #calendar #calDate {font-size: 28px; font-weight:bold; float:left; text-align:left;}
+.myReport #calendar #dateSearch {font-size: 20px; float:right;}
 .myReport #calendar #calAPI {text-align:center; line-height:600px; width:750px; height:600px; border:solid 1px #73AD21;}
 
 
