@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @import "clearfix.css";
 
+#wrap {max-width:1200px;}
+#wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
+
 /*----------------------------------------------------- 메인(Main) ----------------------------------------------------- */
 
 /**************************** header ****************************/
@@ -44,7 +47,6 @@
     width: 1200px;
     height: 613px;
     position: relative;
-    margin: 0 auto;
     overflow: hidden; /* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드 들이 보이지 않도록 가림 */
 }
 

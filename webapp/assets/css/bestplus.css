@@ -2,6 +2,9 @@
 @import "clearfix.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
+#wrap {max-width:1200px;}
+#wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
+
 /****************************header****************************/
 #header {
 	max-width: 100%;
@@ -39,13 +42,13 @@
 }
 
 /*----------------------------------------------------- 베스트 상세페이지 ----------------------------------------------------- */
-
 h1{
+	font-family: 'Nanum Gothic';
 	font-size: 46px;
 	font-weight: bold;
 	text-align : center;
 	margin: 80px, 0px, 64px, 0px;
-	display: block;	
+	letter-spacing: -1px;
 }
 
 
@@ -54,7 +57,6 @@ table {
 	border: 1px solid;
 	margin: 40px 0px 80px 500px;
 	text-align: center;
-	position: relative;
 	display: inline-block;
 }
 
