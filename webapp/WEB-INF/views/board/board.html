@@ -12,6 +12,7 @@
 	
 		<h1>게시판</h1>
 		
+		<!-- 필터링 옵션 항목 -->
 		<div id="top_aside">
 			<select id="option">
 				<option value="question">질문</option>
@@ -20,12 +21,14 @@
 				<option value="together">함께</option>
 			</select>
 			
+			<!-- 검색창과 버튼 -->
 			<input type="text" id="textbox">
 			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span></button>
 		</div>
 	
 		<br>
 	
+		<!-- 게시판 리스트 -->
 		<div id="board">
 			<table>
 				<thead>
@@ -141,10 +144,12 @@
 			</table>
 		</div><!-- table -->
 		
+		<!-- 글쓰기 버튼 -->
 		<div>
 			<button type="submit" id="write">글쓰기</button>
 		</div>
 		
+		<!-- 페이지 -->
 		<div id="page">
 			<ul>
 				<li>◀</li>
