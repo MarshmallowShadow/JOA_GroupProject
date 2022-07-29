@@ -1,6 +1,11 @@
 $(document).ready(function(){
-    /*alert("hey");*/
-})
+    var addbtn=document.getElementById('plus-btn')
+  	console(addbtn);
+  	/*addbtn.click(function(){
+		alert("hey");
+})*/
+});
+
 
 $("#menuShow").click(function(){
 	alert("hey");
@@ -8,8 +13,9 @@ $("#menuShow").click(function(){
 });
 
 
-
-$("#plus-btn").click(function(){
+$("#bmAdd-btn").click(function(){
 	alert("hey");
 	/*$(".menuBar-display").show();*/
 });
+
+/*스크립트슈발*/

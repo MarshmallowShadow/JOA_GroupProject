@@ -125,7 +125,12 @@ input[type=radio] {display:none;}
 .record-status .graph-choose input[type="radio"]:checked + label {color: black;	font-weight: 700;}
 
 .record-status .graphs {
+	width: 100%;
 	height: 140px;
+}
+.record-status .graphs #myChart {
+	width: 100%;
+	height: 100%;
 }
 
 
