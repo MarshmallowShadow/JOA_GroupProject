@@ -76,7 +76,7 @@ ul.imgs li{
 .slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
     background-color: #fff;
 }		
-		
+
 /* 슬라이드 이동 애니메이션 효과 */		
 .slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
     left: 0;
