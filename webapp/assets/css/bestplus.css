@@ -64,7 +64,11 @@ table td a:hover {
 	display: inline;
 	padding-left: 5px;
 	}
-	
+
+.best-mini-list li span:hover {
+	color: rgb(255, 52, 120);
+	font-weight: bold;
+}	
 
 /* hr(nav) 라인 */
 .one {
@@ -115,8 +119,43 @@ table td a:hover {
 /*------------------------- 댓글 comment -------------------------*/
 .comment-text {
 	width: 80px;
-	padding: 0px 50px 20px;
+	padding: 0px 50px 50px;
 	text-align: left;
 	display: block;
+}
+.comment-text input {
+	margin-top: 3px;
+}
+
+#cbutton {		/* 후기 */
+	border: 1px solid rgb(50, 108, 249);
+	background-color: #ffffff;
+}
+
+#cbutton:hover {
+	font-weight: bold;
+}
+
+/*------------------------- Top4~6 -------------------------*/
+.img-total2 {
+	padding-top: 50px;
+}
+
+.img-total2 .img-line p {
+	font-size: 20px;
+	text-align: left;
+	width:170px;
 	
+	/* 위치 */
+	margin-left: 40px;
+	margin-bottom: 10px;
+}
+
+.img-total2 .img-line p span {
+	color: rgb(255, 52, 120);
+}
+
+/* footer */
+.footer {
+	clear: both;
 }
