@@ -65,6 +65,7 @@ table {
 	margin-left: 20px;
 	border: solid 1px #ccc;
 }
+.chart {text-align: center;}
 /** 표 내부 선 정리 **/
 .line_top {
 	border-bottom: solid 1px #ccc;
@@ -76,6 +77,11 @@ th>.bookmark {
 	width : 23px;
 	height: 20px;
 	margin-left: 15px;
+}
+/** 북마크 버튼 **/
+.bookmark {margin-left: 55px;}
+#nomark {
+	color: #fff;
 }
 
 /*************** 함께하기 리스트 더보기 버튼 ***************/
