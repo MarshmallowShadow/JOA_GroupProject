@@ -33,16 +33,14 @@ input[type=radio] {display:none;}
 	width: 100px;
 	line-height: 46px;
 	text-align: right;
+	font-weight: 700;
 }
-/* #content .course-form .course-info p::after {
-	content:'';
-	width:2px;
-	height:30px;
-	background-color: #ccc;
-	margin: 0px 10px;
+#content .course-form .course-info p::after {
+	content: '|';
 	color: #ccc;
+	margin: 0px 10px;
 	display: inline-block;
-} */
+}
 
 /* -----------------------테이블 설정---------------------- */
 /* 테이블 선 */
@@ -161,7 +159,7 @@ label img {
 	font-weight: 700;
 }
 .course-form .course-info > div {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 /* 지도이미지 (나중에 구글지도로 변경!!!) */
 .course-form #map img {
