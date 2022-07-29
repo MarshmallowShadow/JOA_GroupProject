@@ -130,6 +130,7 @@
 		
 		/* 종목별 그래프 */
 		function event() {
+			
 			const labels = [
 				'산책',
 			    '조깅',
@@ -159,10 +160,13 @@
 					document.getElementById('myChart'),
 					config
 				);
+			  
+			  myChart.destroy();
 		}
 		
 		/* 난이도별 그래프 */
 		function difficult() {
+			
 			const labels = [
 				'쉬움',
 			    '보통',
@@ -194,6 +198,7 @@
 					document.getElementById('myChart'),
 					config
 				);
+			  myChart.destroy();
 		}
 
 		var ck = $('input[type=radio]:checked').val();
@@ -202,9 +207,10 @@
 		var graphs = document.getElementById("graphs");
 		$('input:radio[name="graph-choose"]').change(function() {
 			if($(this).val() === 'diffi') {
-				difiicult();
-			} else if($(this).val() === 'evt') {
 				event();
+			} else if($(this).val() === 'evt') {
+				
+				difficult();
 			}
 		});
 		

@@ -30,10 +30,19 @@ input[type=radio] {display:none;}
 	padding: 0px;
 }
 #content .course-form .course-info p {
-	width: 80px;
+	width: 100px;
 	line-height: 46px;
-	text-align: center;
+	text-align: right;
 }
+/* #content .course-form .course-info p::after {
+	content:'';
+	width:2px;
+	height:30px;
+	background-color: #ccc;
+	margin: 0px 10px;
+	color: #ccc;
+	display: inline-block;
+} */
 
 /* -----------------------테이블 설정---------------------- */
 /* 테이블 선 */
@@ -147,8 +156,7 @@ label img {
 }
 
 /* -------------------코스정보----------------------- */
-.course-form .course-info h3 {
-	display: inline-block;
+.course-form .course-info span {
 	font-size: 16px;
 	font-weight: 700;
 }
