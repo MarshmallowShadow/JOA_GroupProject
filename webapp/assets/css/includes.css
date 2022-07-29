@@ -98,6 +98,7 @@
 
 /****************************course-container****************************/
 .course-container {
+	cursor: pointer;
 	width: 399px;
 	height: 172px;
 	padding: 15px 16px;
