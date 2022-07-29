@@ -55,27 +55,30 @@
 
 
 /* main list */
-table {
+table, tr, td {
 	border: 1px solid rgb(50, 108, 249);
-	border-collapse : collapse;
+}
+
+table {
+	border:none;
 	margin: 40px 0px 0px 300px;
 	text-align: center;
 	display: inline-block;
-	 
 }
+
 table td {
-	border: 1px solid;
 	padding: 20px 60px 20px;	
 }
 
-table td a:hover {
+table td:hover {
+	background-color: rgb(50, 108, 249);
 	font-weight: bold;
-	color: rgb(101, 101, 101);
 }
 
-table, tr, td {
-	border-collapse : collapse;
+table td a:hover {
+	color: #ffffff;
 }
+
 /* 종목테그 */
 .best-mini-list {
 	font-size: 12px;
@@ -110,17 +113,18 @@ table, tr, td {
 	font-weight: bold;
 	display: inline;
 	margin-right:100px;
-	margin-left: 150px;
+	margin-left: 175px;
 	text-align: center;
 	}
 	
-.img-total .img-1{
-	margin-top: 20px;
+.img-total .img-1{		/* 왕관 */
+	padding: 0px 20px 0px;
 	}
 	
-.img-total .img-1 img{
-	width:30px;
+.img-total .img-1 img{		/* 왕관 */
+	width: 30px;
 	height: 30px; 
+	margin-top: 50px; 
 }
 
 /* 이미지 */
