@@ -57,6 +57,18 @@ input[type=radio] {display:none;}
 }
 
 /* ===================================코스 정보==================================== */
+/* 레이아웃 */
+.course-view-info .course-info-content {
+	height: 190px;
+}
+.course-view-info .record-status {
+	height: 220px;
+}
+.course-view-info .course-info-btn {
+	height: 60px;
+	position: fixed;
+	bottom: 0;
+}
 /* 타이틀 */
 .course-info-content h2 {
 	display: inline-block;
@@ -97,7 +109,7 @@ input[type=radio] {display:none;}
 	padding-left: 5px;
 }
 
-/* ---------------------기록 정보----------------------- */
+/* ---------------------기록 정보 (그래프)----------------------- */
 .course-view-info .record-status {
 	padding: 20px 0px;
 }
@@ -114,14 +126,66 @@ input[type=radio] {display:none;}
 	height: 100%;
 	border: 1px solid;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===================================코스 정보==================================== */
 
 
 /* ===================================기록보기==================================== */
-/* 기록 필터 */
-.record-filter {
-	margin-bottom: 10px;
+/* 레이아웃 */
+.course-view-info .record-filter {
+	height: 20px;
 }
+.course-view-info .record-info-content {
+	height: 380px;
+	overflow: hidden;
+}
+.course-view-info .course-info-btn {
+	height: 60px;
+	position: fixed;
+	bottom: 0;
+}
+/* 기록 필터 */
+.record-filter {margin-bottom: 10px;}
 .course-view-info .record-filter label {
 	font-size: 16px;
 	margin-right: 20px;
@@ -129,47 +193,88 @@ input[type=radio] {display:none;}
 }
 .course-view-info .record-filter input[type="radio"]:checked+label {
 	color: black;
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 700;
 }
 
 /* 기록리스트 */
-.record-info-content ul > li {
+/* 레이아웃 */
+.record-info-content .record-full-content {
 	width: 100%;
 	height: auto;
 	overflow: hidden;
 	margin-bottom: 12px;
+	border: 1px solid transparent;
+}
+.record-info-content .record-full-content {
+	display: flex;
+	justify-content: space-between;
+	vertical-align: baseline;
+}
+.record-info-content .record-full-content .record-txt .record-content {
+	padding-bottom: 5px;
+	width: 270px;
+}
+.record-txt .record-content .name {margin-right: 5px;}
+.record-txt .record-info {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.record-info-content ul > li .name {
+/* 글씨 */
+.record-txt .record-info span {
+	font-size: 12px;
+	color: rgb(101, 101, 101);
 	margin-right: 5px;
 }
-.record-info-content ul > li img {
-	margin-left: 3px;
+/* 글쓴이 아이콘 */
+.record-txt .record-info span img {
+	margin-right: 3px;
+	width: 12px;
+	height: 12px;
 }
-.record-info-content ul > li p {
-	margin-right: 5px;
+/* 박스 설정 */
+.record-txt .record-info .box {
+	width: 48px;
+	height: 15px;
+	border-radius: 10px;
+	text-align: center;
+	color: rgb(255,255,255);
+	font-weight: 700;
 }
-
+.pink {background-color: rgb(255, 52, 120);}
+.blue {background-color: rgb(50, 108, 249);}
 
 
 
 /* ===================================기록보기==================================== */
 
 /* --------------------하단 버튼------------------------ */
+#course-info-btn {
+	vertical-align: bottom;
+}
+#course-info-btn a {
+	font-size: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
 #course-info-btn .link-btn {
 	width: 209px;
 	height: 56px;
-	font-size: 16px;
 	color: rgb(255,255,255);
-	border-color: rgb(50, 108, 249);
 	background-color: rgb(50, 108, 249);
 }
 #course-info-btn .like-btn {
+	float: right;
 	width: 75px;
 	height: 54px;
 	background-color: rgb(255,255,255);
 	border: 1px solid black;
-	text-align: center;
-	vertical-align: middle;
+	
+}
+
+#course-info-btn .like-btn span {
+	padding-left: 5px;
 }
