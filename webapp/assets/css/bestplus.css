@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @import "clearfix.css";
+@import "includes.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
+/* ****************** 레이아웃 ****************** */
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
@@ -42,7 +44,7 @@
 }
 
 /*----------------------------------------------------- 베스트 상세페이지 ----------------------------------------------------- */
-h1{
+#wrap h1{
 	font-family: 'Nanum Gothic';
 	font-size: 46px;
 	font-weight: bold;
@@ -54,12 +56,13 @@ h1{
 
 /* main list */
 table {
-	border: 1px solid;
-	margin: 40px 0px 80px 500px;
+	border: 1px solid rgb(50, 108, 249);
+	border-collapse : collapse;
+	margin: 40px 0px 0px 300px;
 	text-align: center;
 	display: inline-block;
+	 
 }
-
 table td {
 	border: 1px solid;
 	padding: 20px 60px 20px;	
@@ -70,15 +73,18 @@ table td a:hover {
 	color: rgb(101, 101, 101);
 }
 
+table, tr, td {
+	border-collapse : collapse;
+}
 /* 종목테그 */
 .best-mini-list {
 	font-size: 12px;
 	float: right;
-	margin: 140px 50px 0px;
+	margin: 50px 50px 10px;
 }
 
 .best-mini-list p {
-	padding-left: 35px;
+	padding-left: 280px;
 	padding-bottom: 5px; 
 }
 
@@ -94,7 +100,7 @@ table td a:hover {
 
 /* hr(nav) 라인 */
 .one {
-	width: 1400px;
+	width: 1100px;
 	}
 
 /*------------------------- Top1~3 -------------------------*/
@@ -103,13 +109,13 @@ table td a:hover {
 	font-size: 20px;
 	font-weight: bold;
 	display: inline;
-	margin-right:210px;
-	margin-left: 130px;
+	margin-right:100px;
+	margin-left: 150px;
 	text-align: center;
 	}
 	
 .img-total .img-1{
-	margin-top: 40px;
+	margin-top: 20px;
 	}
 	
 .img-total .img-1 img{
@@ -120,13 +126,13 @@ table td a:hover {
 /* 이미지 */
 .img-line {
 	display: block;
-	margin-left: 90px;
+	margin-left: 40px;
 }
 
 .img-line img {
 	width: 350px;
 	height: 280px;
-	margin: 0px 40px 0px 40px; 
+	margin: 0px 10px 0px 10px; 
 }
 
 /*----------------- 푸터 스타일 -----------------*/
