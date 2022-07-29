@@ -10,6 +10,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -92,15 +93,17 @@
 				<!-- 통계그래프 -->
 				<div class="record-status">
 					<h3>일기 작성 현황</h3>
-					
-					<div class="graph">
-						<div class="graph-doughnut left">
-							<p>난이도</p>
-						</div>
+					<div class="graph-choose">
+						<input type="radio" name="graph-choose" id="difficulty" value="diffi" checked>
+						<label for="difficulty">난이도별</label>
 						
-						<div class="graph-bar right">
-							<p>종목</p>
-						</div>
+						<input type="radio" name="graph-choose" id="event" value="evt">
+						<label for="event">종목별</label>
+					</div>
+					
+					<div id="graphs">
+						<canvas id="myChart"></canvas>
+						
 					</div>
 				</div>
 				
@@ -121,6 +124,92 @@
 	<!-- 푸터 -->
 	
 </div>
+<script>
+	window.onload = function test() {
+		console.log("tq");
+		
+		/* 종목별 그래프 */
+		function event() {
+			const labels = [
+				'산책',
+			    '조깅',
+			    '러닝',
+			    '마라톤',
+			    '자전거',
+			    '그림',
+			  ];
+			
+			const data = {
+			    labels: labels,
+			    datasets: [{
+			      label: '종목',
+			      backgroundColor: 'rgb(50, 108, 249)',
+			      borderColor: 'rgb(50, 108, 249)',
+			      data: [0, 10, 5, 2, 20, 30, 45],
+			    }]
+			  };
+			
+			  const config = {
+			    type: 'bar',
+			    data: data,
+			    options: {}
+			  };
+			  
+			  const myChart = new Chart(
+					document.getElementById('myChart'),
+					config
+				);
+		}
+		
+		/* 난이도별 그래프 */
+		function difficult() {
+			const labels = [
+				'쉬움',
+			    '보통',
+			    '어려움',
+			  ];
+			
+			const data = {
+			    labels: labels,
+			    datasets: [{
+			      label: '난이도',
+			      backgroundColor: [
+			    	  'rgb(255, 99, 132)',
+			          'rgb(54, 162, 235)',
+			          'rgb(255, 205, 86)'
+			      ],
+			      borderColor: 'rgb(255, 255, 255)',
+			      data: [1, 10, 5],
+			      hoverOffset: 4
+			    }]
+			  };
+			
+			  const config = {
+			    type: 'doughnut',
+			    data: data,
+			    options: {}
+			  };
+			  
+			  const myChart = new Chart(
+					document.getElementById('myChart'),
+					config
+				);
+		}
 
+		var ck = $('input[type=radio]:checked').val();
+		console.log(ck);
+		
+		var graphs = document.getElementById("graphs");
+		$('input:radio[name="graph-choose"]').change(function() {
+			if($(this).val() === 'diffi') {
+				difiicult();
+			} else if($(this).val() === 'evt') {
+				event();
+			}
+		});
+		
+		
+	};
+</script>
 </body>
 </html>
