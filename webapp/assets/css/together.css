@@ -20,8 +20,6 @@ h1 {
 ul, ol, li	{
 	list-style-type: none;
 	float: left;
-	margin-left: 8px;
-	margin-right: 8px;
 }
 /** 밑줄, 글자색 없애기 **/
 a {
@@ -29,17 +27,21 @@ a {
 	color: inherit;
 }
 #top_side {
-	margin-left: 42.7%;
+	margin-left: 43.8%;
 	margin-top: 17px;
 }
-.category {	font-size: 20px;}
+.category {
+	font-size: 20px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
 
 /***************** 함께하기 만들기 버튼 *****************/
 
 #to_make {
 	float: left;
 	margin-top: 15px;
-	margin-left: 3.5%;
+	margin-left: 4.9%;
 }
 #together_make {
 	float: left;
@@ -53,7 +55,7 @@ a {
 /****************** 태그와 참여 분류 ******************/
 
 #rightside {
-	margin-left: 84.2%;
+	margin-left: 86%;
 	padding:35px 43px;
 	font-size : 13pt;
 }
@@ -62,14 +64,17 @@ a {
 /******************** 함께하기 표 ********************/
 
 table {
-	width: 22%;
+	width: 335px;
 	height: 150px;
+	margin-left: 4.37%;
+	margin-bottom: 4.37%;
 	border: solid 1px;
 	float: left;
-	margin-left: 2.4%;
 	border: solid 1px #ccc;
 }
-.chart {text-align: center;}
+.chart {
+	text-align: center;
+}
 /** 표 내부 행 **/
 .line_top {
 	float: left;
@@ -78,6 +83,7 @@ table {
 }
 .line_bottom {
 	padding-left: 117px;
+	padding-right: 95px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top: solid 1px #ccc;
@@ -92,11 +98,11 @@ table {
 .mark {background-color: #fff;}
 .content {
 	font-size : 13pt;
-	padding: 20px 0px 20px 100px;
+	padding: 20px 90px 20px 100px;
 }
 .content_course {
 	font-size : 13pt;
-	padding: 20px 0px 20px 110px;
+	padding: 20px 120px 20px 110px;
 }
 .bookmark {
 	margin-left: 12%;
