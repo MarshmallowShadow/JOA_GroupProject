@@ -24,12 +24,12 @@ ul, ol, li	{
 }
 #page {
 	margin-top: 20px;
-	margin-left: 587px;
+	margin-left: 39%;
 }
 
 /*********************** 검색 ***********************/
 
-#top_aside {margin-left: 1005px;}
+#top_aside {margin-left: 67.5%;}
 #keyword {height: 20px}
 /** 필터링 항목 **/
 #option {
@@ -70,7 +70,7 @@ th, td {
 #write {
 	width: 87px;
 	height: 32px;
-	margin-left: 1283px;
+	margin-left: 85%;
 	margin-top: 20px;
 	background-color: #000;
 	color: #fff;

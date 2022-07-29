@@ -15,63 +15,66 @@ h1 {
 	text-align: center;
 }
 
-/******************** 게시판 테이블 ********************/
+/******************** 게시판 텍스트 ********************/
 
-table {
-	width: 80%;
-	margin-left: 170px;
-	border-top: solid 2px;
-	border-bottom: solid 2px; 
-	border-collapse: collapse;
+/** 테두리 **/
+#writebox {
+	border: solid 1px #c0c0c0;
+	margin: 0px 130px 0px 130px;
 }
-#board_title {
-	padding: 18px 10px;
-	font-size : 13pt;
+#option_line, #title_line, #content_line, #file_line, #course_line, #together_line {margin-top: 37px;}
+#together_line {margin-bottom: 37px;}
+/** 선택 항목들 **/
+#option, #title, #file, #course, #together {
+	float: left;
+	margin-left: 58px;
+	font-size : 15pt;
 }
-#top {border-bottom: solid 2px;}
-tr>#id {font-weight : bold;}
-tr>#id, #date, #up {
-	padding-bottom: 18px;
-	padding-left: 10px;
-	font-size : 13pt;
+#option, #title {margin-top: 6px;}
+#file, #course, #together {margin-top: 1px;}
+#contentbox {margin-left: 50px;}
+#option_list {
+	width : 100px;
+	height: 40px;
+	margin-left: 37px;
 }
-tr>#date, #up {
-	text-align: right;
-	margin-left: 500px;
+#titlebox {
+	width : 630px;
+	height: 40px;
+	margin-left: 37px;
 }
-#up {padding-right: 10px;}
-#content {
-	padding: 25px 0px;
-	line-height:200%
+#contentbox {
+	width : 92%;
+	height: 500px;
 }
-
-/********************* 첨부 사진 *********************/
-
-.image {
-	width : 300px;
-	height: 270px;
-	margin-left: 10px;
-	padding-bottom: 30px;
+#file {margin-right: 37px;}
+/** 버튼 **/
+#course_choice, #together_choice {
+	margin-left: 30px;
+	border:none;
+	background-color: #fff;
+	color: #ccc;
 }
-
-/******************** 작성자 버튼 ********************/
-
-#writer_btn {margin-left: 1213px;}
-#modify {
-	width : 82px;
-	height: 35px;
+#folder, #man {margin-right: 10px;}
+#user_btn {margin-left: 44%;}
+#cencle {
+	width : 100px;
+	height: 40px;
 	background-color: #dedede;
 	color: #666;
 	border:none;
 }
-#delete {
+#post {
+	width : 100px;
+	height: 40px;
 	margin-left: 5px;
-	width : 82px;
-	height: 35px;
-	background-color: #000;
-	color: #fff;
+	background-color: rgb(50, 108, 249);
 	border:none;
+	color: white;
 }
+
+
+
 
 
 
