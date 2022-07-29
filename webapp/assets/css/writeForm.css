@@ -17,15 +17,45 @@ h1 {
 
 /******************** 게시판 텍스트 ********************/
 
+/** 테두리 **/
 #writebox {
 	border: solid 1px #c0c0c0;
+	margin: 0px 130px 0px 130px;
 }
-#option, #title, #file {float: left;}
-#option_line {margin-left: 50px;}
+#option_line, #title_line, #content_line, #file_line, #course_line, #together_line {margin-top: 37px;}
+#together_line {margin-bottom: 37px;}
+/** 선택 항목들 **/
+#option, #title, #file, #course, #together {float: left; margin-left: 50px;}
+#contentbox {margin-left: 50px;}
 #option_list {
 	width : 100px;
 	height: 30px;
-	margin-left: 30px;
+	margin-left: 37px;
 }
+#titlebox {
+	width : 300px;
+	height: 30px;
+	margin-left: 37px;
+}
+#contentbox {
+	width : 1145px;
+	height: 500px;
+}
+#filebox{margin-left: 37px;}
+/** 버튼 **/
+#course_choice, #together_choice {
+	margin-left: 30px;
+	border:none;
+	background-color: #fff;
+	color: #ccc;
+}
+
+
+
+
+
+
+
+
 
 

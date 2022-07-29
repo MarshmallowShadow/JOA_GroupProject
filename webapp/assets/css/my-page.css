@@ -68,34 +68,26 @@
 /* 마이페이지-나의 기록 *************************************************************/
 /**************************************************************************/
 .myReport {position: absolute; left: 50%; transform: translateX(-50%); display: center; text-align:center; 
-			border:solid 1px #111111; width:1100px; height:700px; padding:50px; margin:50px 0px}
+			background-color:lightblue; width:1200px; height:700px; padding:0px 30px;}
 
-.myReport #calendar {float:left; width:750px; border:solid 1px #000000; text-align:left; line-height: 50px;}
-.myReport #calendar #calDate {font: 38px "나눔고딕"; text-align:left}
-.myReport #calendar #dateSearch {font: 24px "나눔고딕";}
-.myReport #calendar #dSearch-btn {font: 24px "나눔고딕";}
-.myReport #calendar #calAPI {text-align:center; line-height:600px; width:750px; height:600px; border:solid 1px #73AD21;}
-
-
-.myReport #reportList {float:right; height:600px; width:340px; text-align:left; }
-.myReport #reportList #listTitle {height:100px; line-height:100px; text-align:right; }
+.myReport #calendar {float:left; width:750px; background-color:lightyellow; line-height: 50px;}
+.myReport #calendar #dateForm {width:750px; height:50px; }
+.myReport #calendar #calDate {font-size: 28px; font-weight:bold; float:left; text-align:left;}
+.myReport #calendar #dateSearch {font-size: 20px; float:right;}
+.myReport #calendar #calAPI {text-align:center; line-height:600px; width:750px; height:600px; border:solid 1px #73AD21; }
 
 
-.myReport #reportList #contentBox {height:100px; border:solid 1px #000000; padding:9px;}
-.myReport #reportList #contentImg {width:95px; height:95px; border:solid 1px #000000; float:left; margin:0px 15px 0px 0px;}
-.myReport #reportList #contentTitle {font: 20px "나눔고딕"; font-weight:bold;line-height:40px;}
-.myReport #reportList #content {font: 18px "나눔고딕"; line-height:30px; }
-.myReport #reportList #contentDate {font: 14px "나눔고딕"; color:gray; line-height:30px;}
+.myReport #reportList {background-color:lightpink; width:380px; text-align:left; float:right;}
+.myReport #reportList #listTitle {width:380px; height:50px; text-align:center; line-height:50px; margin:0px}
+.myReport #reportList #listTitle #monthReport {background-color:rgb(50, 108, 249); color:white; font-size:20px; float:left; width:190px; border:black 1px solid;}
+.myReport #reportList #listTitle #todayReport {font-size:20px; float:right; width:190px;border:black 1px solid;}
 
 
-
-
-
-
-
-
-
-
+.myReport #reportList #reportContent {width:380px; height:100px; border:solid 1px #000000; margin:0px}
+.myReport #reportList #contentImg {width:90px; height:90px; border:solid 1px #000000; float:left;}
+.myReport #reportList #contentTitle {font-size:20px; font-weight:bold;line-height:30px;}
+.myReport #reportList #content {font-size:18px; line-height:25px; }
+.myReport #reportList #contentDate {font-size:14px; color:gray; line-height:25px;}
 
 
 
