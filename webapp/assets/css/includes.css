@@ -14,13 +14,17 @@
 	margin: 10px;
 }
 
+/* 내비 */
 #header #nav ul li {
 	float: right;
+	height: 80px;
+	display: flex; /* for center-align */
+	align-items: center; /* align vertical */
 	font-size: 16px;
 	margin-left: 40px;
-	margin-top: 32px;
 }
 
+/* 로그인 회원가입 */
 #header #login {
 	float: right;
 	height: 40px;
@@ -31,14 +35,20 @@
 
 #header #login ul li {
 	float: right;
-	margin: 13px 15px 13px 15px;
+	display: flex; /* for center-align */
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	width: 79px;
+	height: 40px;
 	font-size: 14px;
 	font-weight: 700;
 }
 
+
+
 /**************************** footer ****************************/
 
-/*----------------- 푸터 스타일 -----------------*/
+/* 푸터 스타일 */
 .footer{
 	justify-content: space-between;
 	line-height: 18px;		/*줄 높이 설정값*/
@@ -68,7 +78,7 @@
 	width : 99%;
 	background-color: rgb(123, 118, 118);
 }
-/* ---------------------------- 푸터 버튼 -----------------------------------*/
+/* 푸터 버튼 */
 .footer-btn{
 	padding: 0px 9px;
 	
@@ -124,7 +134,7 @@
 
 .course-container .course-info .tag-blue {
 	float: left;
-	display: flex;
+	display: flex; /* for center-align */
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */
 	width: 48px;
