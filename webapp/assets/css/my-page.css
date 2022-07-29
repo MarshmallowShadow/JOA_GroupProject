@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "includes.css";
 @import "main.css";
 @import "clearfix.css";
 
@@ -33,6 +34,7 @@
 /**************************************************************************/
 /* 마이페이지-메뉴바 *************************************************************/
 /**************************************************************************/
+.menuBar-display {width:1200px; background-color:none;}
 .menuBar { width:400px; min-height:600px; background-color:lightyellow; text-align:left; line-height: 50px}
 .menuBar #menuList {font-size: 14px; line-height:50px;}
 
