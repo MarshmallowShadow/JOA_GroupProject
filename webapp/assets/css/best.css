@@ -7,42 +7,6 @@
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
-/****************************header****************************/
-#header {
-	max-width: 100%;
-	height: 80px;
-	padding: 0px 20px;
-	border-bottom: 1px solid rgb(174, 174, 174);
-}
-
-#header #logo {
-	float: left;
-	height: 60px;
-	margin: 10px;
-}
-
-#header #nav ul li {
-	float: right;
-	font-size: 16px;
-	margin-left: 40px;
-	margin-top: 32px;
-}
-
-#header #login {
-	float: right;
-	height: 40px;
-	width: 160px;
-	margin: 20px 0px 20px 40px;
-	border: 1px solid rgb(174, 174, 174);
-}
-
-#header #login ul li {
-	float: right;
-	margin: 13px 15px 13px 15px;
-	font-size: 14px;
-	font-weight: 700;
-}
-
 /*-------------------------------------------------------- 베스트 -------------------------------------------------------- */
 /* context header */
 #wrap h1{
@@ -140,52 +104,4 @@
 
 .best {	/* 사진 가운데 정렬 */
 	margin-left: 0px;	
-}
-
-
-/*----------------------------------------- 푸터 스타일 --------------------------------------------*/
-.footer{
-	justify-content: space-between;
-	line-height: 18px;
-	font-size: 12px;
-	color: rgb(160, 160, 160);
-	background-color: rgb(55, 55, 55);
-	/* white-space: pre-wrap; 다방에 있어서 끌고 왔으나 와장창됨
-		스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성*/
-}
-
-.footer-text {
-	padding-top: 20px;
-	padding-left: 15px;
-
-}
-
-#footer-Copyright {
-    display: block;
-	line-height: 18px;
-	margin-top: 20px;
-	padding: 5px 0px 20px 15px;
-}
-
-.my-hr1 {
-	border: 0;
-	height: 1px;
-	width : 99%;
-	background-color: rgb(123, 118, 118);
-}
-/* ---------------------------- 푸터 버튼 -----------------------------------*/
-.footer-btn{
-	padding: 0px 9px;
-	
-}
-
-#footerbtn {
-	border: 0;
-	outline: 0;
-	border-radius: 2px;
-	height: 30px;
-	padding: 0px 9px;
-	font-size: 12px;
-	color: rgb(229, 229, 229);
-	background-color: rgb(81, 81, 81);
 }
