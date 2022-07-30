@@ -79,16 +79,16 @@
 
 
 .myReport #reportList {width:380px; text-align:left; float:right;}
-.myReport #reportList #listTitle {width:380px; height:50px; text-align:center; line-height:50px; margin:0px}
-.myReport #reportList #listTitle #monthReport {background-color:rgb(50, 108, 249); color:white; font-size:20px; float:left; width:190px; border:rgb(50, 108, 249) 1px solid;}
-.myReport #reportList #listTitle #todayReport {font-size:20px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
+.myReport #reportList .listTitle {width:380px; height:50px; text-align:center; line-height:50px; margin:0px}
+.myReport #reportList .listTitle .monthReport {background-color:rgb(50, 108, 249); color:white; font-size:20px; float:left; width:190px; border:rgb(50, 108, 249) 1px solid;}
+.myReport #reportList .listTitle .todayReport {font-size:20px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
 
 
-.myReport #reportList #reportContent {width:380px; height:120px; border:solid 0.5px rgb(101,101,101); border-top:none; margin:0px; padding:10px 0px 0px 10px;}
+.myReport #reportList .reportContent {width:380px; height:120px; border:solid 0.5px rgb(101,101,101); border-top:none; margin:0px; padding:10px 0px 0px 10px;}
 .myReport #reportList .contentImg {width:100px; height:100px; border:solid 1px #000000; float:left; margin-right:20px; }
-.myReport #reportList #contentTitle {font-size:20px; font-weight:bold;line-height:40px;}
-.myReport #reportList #content {font-size:18px; line-height:25px; }
-.myReport #reportList #contentDate {font-size:14px; color:gray; line-height:30px;}
+.myReport #reportList .contentTitle {font-size:20px; font-weight:bold;line-height:40px;}
+.myReport #reportList .content {font-size:18px; line-height:25px; }
+.myReport #reportList .contentDate {font-size:14px; color:gray; line-height:30px;}
 
 
 
