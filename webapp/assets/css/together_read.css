@@ -15,5 +15,76 @@ h1 {
 	text-align: center;
 }
 
+/******************** 제목과 작성일 ********************/
 
+#title {
+	margin-top: 115px;
+	margin-left: 42%;
+	font-size : 23pt;
+	font-weight : bold;
+}
+#date {
+	margin-left: 68%;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size : 19pt;
+	font-weight : bold;
+	color: rgb(50, 108, 249);
+}
+
+/********************* 지도 사진 *********************/
+
+.map {
+	width : 90%;
+	height: 750px
+}
+#map_sample {margin-left: 10%;}
+
+/********************** 테이블 **********************/
+
+table {
+	margin-top: 25px;
+	width : 90%;
+	height: 500px;
+	margin-left: 14%;
+}
+tr {height: 100px}
+/** 아이콘 **/
+#map_icon, #stopwatch, #calendar,#marking, #user {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+#stopwatch, #calendar,#map_icon , #user {margin-right: 15px;}
+#marking {margin-right: 8px;}
+/** 글씨 **/
+#route, #d-date, #distance, #user_num, #location{
+	margin-top: 10px;
+	font-size : 18pt;
+	font-weight : bold;
+}
+#content {
+	padding-top: 17px;
+	font-size : 15pt;
+	line-height:180%
+}
+
+/******************** 작성자 버튼 ********************/
+
+#writer_btn {margin-left: 79.5%;}
+#modify {
+	width : 82px;
+	height: 35px;
+	background-color: #dedede;
+	color: #666;
+	border:none;
+}
+#delete {
+	margin-left: 5px;
+	width : 82px;
+	height: 35px;
+	background-color: #000;
+	color: #fff;
+	border:none;
+}
 
