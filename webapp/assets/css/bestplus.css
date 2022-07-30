@@ -72,14 +72,10 @@ table td a:hover {
 }	
 
 /* hr(nav) 라인 */
-.one {
-	width: 1100px;
-	}
-
 #hr {
 	width: 1100px;
-	border: 1px solid rgb(101, 101, 101);
 }
+
 /*------------------------- Top1~3 -------------------------*/
 /* Top 1~3 폰트 */
 .img-total .img-1{		
@@ -93,7 +89,12 @@ table td a:hover {
 	margin-right:110px;
 	margin-left: 175px;
 	text-align: center;
-	}
+}
+
+/* new(1주일 이내 올라온 게시물 띄워주기) */
+#new {
+	color: rgb(255, 52, 120);
+}
 	
 /* 왕관 이미지 */	
 .img-total .img-1 img{
