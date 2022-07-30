@@ -8,27 +8,26 @@
 	padding: 100px 0px;
 }
 
+#content h2 {
+	font-size: 30px;
+	font-weight: 900;
+}
+
+#content hr {
+	margin: 10px 0px 30px 0px;
+}
+
+#content #form-container {
+	width: 100%;
+	padding: 0px 20px;
+}
 
 /******************************join-form******************************/
 #join-form{
 	width: 700px;
 	margin: auto;
 	padding: 50px;
-	border: 2px solid rgb(94, 94, 94);
-}
-
-#join-form h2 {
-	font-size: 30px;
-	font-weight: 900;
-}
-
-#join-form hr {
-	margin: 10px 0px 30px 0px;
-}
-
-#join-form #form-container {
-	width: 100%;
-	padding: 0px 20px;
+	border: 1px solid rgb(94, 94, 94);
 }
 
 #join-form #form-container .form-input {
@@ -70,6 +69,52 @@
 #join-form #form-container .submit-container #btn-submit {
 	width: 100%;
 	height: 100%;
+	border: none;
+	background-color: rgb(50, 108, 249);
+	color: white;
+	font-weight: 900;
+}
+
+/******************************login-form******************************/
+#login-form {
+	width: 590px;
+	margin: auto;
+	padding: 50px;
+	border: 1px solid rgb(94, 94, 94);
+}
+
+#login-form p {
+	font-size: 16px;
+	font-weight: 900;
+	margin: 20px 0px;
+}
+
+#login-form #form-container label {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 900;
+	margin: 10px 0px;
+}
+
+#login-form #form-container input {
+	width: 100%;
+	height: 44px;
+}
+
+#login-form #form-container p {
+	margin-bottom: 40px;
+	text-align: right;
+	font-size: 12px;
+	font-weight: 900;
+}
+
+#login-form #form-container a {
+	margin-left: 20px;
+}
+
+#login-form #form-container #btn-submit {
+	width: 100%;
+	height: 44px;
 	border: none;
 	background-color: rgb(50, 108, 249);
 	color: white;
