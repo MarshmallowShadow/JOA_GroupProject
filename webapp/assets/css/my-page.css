@@ -8,11 +8,11 @@
 .header {background-color: #F1F1F1; text-align: center;   padding: 20px;}
 
 /* .subHeader {height: 90px; border: 1px solid #808080; text-align: center;   padding: 20px;} */
-.subHeader #menuBar-open {width: 30px; height:30px; float: left; margin-left:40px;}
+.subHeader .menuBar-open {width: 30px; height:30px; float: left; margin-left:40px;}
 .subHeader #title {height: 48px; line-height:48px; text-align: center;
 					font-size:36px; font-weight:bold; margin:20px;}
-.subHeader #myHome {width: 45px; height: 45x; vertical-align:bottom;}
-.subHeader #edit-btn {width: 40px; height:40px; vertical-align:center;}
+.subHeader .myHome {width: 45px; height: 45x; vertical-align:bottom;}
+.subHeader .edit-btn {width: 40px; height:40px; vertical-align:center;}
 
 
 .resultView {min-width:1200px; position: absolute; left: 50%; transform: translateX(-50%); display: center;}
@@ -21,7 +21,7 @@
 .resultList #listTitle {display:center; font-size: 18px; text-align:left;  padding:0px; margin-bottom:10px;}
 .resultList ol {width:100%; display :center; }
 .resultList li {width:(25%-margin);float : left ; list-style: none; margin:0px 5px 30px 10px}
-.resultList li #courseImg {width:260px; height: 186px ; padding:0px;}
+.resultList li .courseImg {width:260px; height: 186px ; padding:0px;}
 .resultList li #textBox {text-align:left; width:(100%-padding) ; height: 60px ; padding-left:5px;}
 .resultList li #textBox #courseName {font-weight:bold; font-size:16px; line-height: 20px; }
 .resultList li #textBox #courseInfo {font-size:13px; color: gray; line-height: 16px;}
@@ -40,18 +40,18 @@
 
 .menuBar .menu1 {width:(100%-padding); height:(20%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 .menuBar .menu1 #mypage {font-size: 18px; float:left; font-weight:bold;}
-.menuBar .menu1 #myHome {width: 20px; height: 20px;}
+.menuBar .menu1 .myHome {width: 20px; height: 20px;}
 .menuBar .menu1 #bookmark-btn {text-align:right}
-.menuBar .menu1 #menuBar-close {width: 20px; height: 20px;}
+.menuBar .menu1 .menuBar-close {width: 20px; height: 20px;}
 
 
 .menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px;}
 .menuBar .menu2 #bookmark {font-size: 18px; float:left; font-weight:bold;}
-.menuBar #bmStar {width: 20px; height: 20px;}
+.menuBar .bmStar {width: 20px; height: 20px;}
 
 .menuBar .menu2 #bookmark-btn {text-align:right}
-.menuBar #plus-btn {width: 20px; height: 20px;}
-.menuBar #minus-btn {width: 20px; height: 20px;}
+.menuBar .plus-btn {width: 20px; height: 20px;}
+.menuBar .minus-btn {width: 20px; height: 20px;}
 
 .menuBar .menu3 {width:(100%-padding); height: (20%-padding); text-align:left;  padding:20px 30px; }
 .menuBar .menu3 #members {font-size: 18px; font-weight:bold; }
@@ -85,7 +85,7 @@
 
 
 .myReport #reportList #reportContent {width:380px; height:120px; border:solid 0.5px rgb(101,101,101); border-top:none; margin:0px; padding:10px 0px 0px 10px;}
-.myReport #reportList #contentImg {width:100px; height:100px; border:solid 1px #000000; float:left; margin-right:20px; }
+.myReport #reportList .contentImg {width:100px; height:100px; border:solid 1px #000000; float:left; margin-right:20px; }
 .myReport #reportList #contentTitle {font-size:20px; font-weight:bold;line-height:40px;}
 .myReport #reportList #content {font-size:18px; line-height:25px; }
 .myReport #reportList #contentDate {font-size:14px; color:gray; line-height:30px;}
