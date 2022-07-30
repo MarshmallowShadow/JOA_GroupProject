@@ -145,7 +145,11 @@ label {
 /* 인원 폼 */
 .together-form input[type="number"] {height:46px; width: 110px;}
 /* 상세내용 폼 */
-.together-form textarea {width:100%; height:390px;}
+.together-form textarea {
+	width:100%;
+	height:390px;
+	resize: none;
+}
 
 /* -------------------하단 버튼----------------------- */
 #btn-wrap {text-align: center;}
