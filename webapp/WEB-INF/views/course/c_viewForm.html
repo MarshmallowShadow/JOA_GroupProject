@@ -185,15 +185,17 @@ window.onload = function test() {
 	
 	
 
-	difficult();
+	event();
 	
 	var graphs = document.getElementById("graphs");
 	$('input:radio[name="graph-choose"]').change(function() {
 		if($(this).val() === 'diffi') {
-			myChart.destroy();
+			$('#myChart').remove();
+			$('#graphs').append('<canvas id="myChart"></canvas>');
 			event();
 		} else if($(this).val() === 'evt') {
-			myChart.destroy();
+			$('#myChart').remove();
+			$('#graphs').append('<canvas id="myChart"></canvas>');
 			difficult();
 		}
 	});
