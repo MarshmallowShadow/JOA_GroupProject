@@ -49,8 +49,6 @@
 	font-weight: 700;
 }
 
-
-
 /**************************** footer ****************************/
 
 /* 푸터 스타일 */
@@ -100,6 +98,9 @@
 	background-color: rgb(81, 81, 81);
 }
 
+#footerbtn:hover {
+	background-color: #3366cc; 
+}
 
 /****************************course-container****************************/
 .course-container {
