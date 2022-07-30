@@ -31,7 +31,7 @@ input[type=radio] {display:none;}
 }
 /* -----------------------테이블 설정---------------------- */
 /* 테이블 선 */
-#content .together-form {
+#content .together-form table {
 	margin-bottom: 50px;
 	border: 1px solid rgb(204, 204, 204);
 }
@@ -43,6 +43,9 @@ input[type=radio] {display:none;}
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
+	border-top: 1px solid rgb(204, 204, 204);
+	border-left: 1px solid rgb(204, 204, 204);
+	border-right: 1px solid rgb(204, 204, 204);
 }
 
 /* 테이블 */
@@ -60,6 +63,9 @@ input[type=radio] {display:none;}
 .together-form table tr td {
 	padding: 12px 20px;
 	border-top: 1px solid rgb(204, 204, 204);
+}
+.together-form .map table tr td {
+	border-top: none;
 }
 
 /* -------------------------텍스트박스----------------------------- */
@@ -113,6 +119,18 @@ label {
 }
 
 /* -------------------코스지정----------------------- */
+/* 코스 불러오기 버튼 */
+.together-form #course-load {
+	font-size: 15px;
+	font-weight: 700;
+	color: rgb(35, 45, 74);
+	border: transparent;
+	background-color: transparent;
+}
+.together-form #course-load span {
+	margin-right: 5px;
+}
+/* 주소검색 부분 */
 .together-form input[name="address"] {width: 89%;}
 .together-form .guide {color: rgb(136, 136, 136);}
 .together-form .address-form {margin: 15px 0px 10px 0px;}
