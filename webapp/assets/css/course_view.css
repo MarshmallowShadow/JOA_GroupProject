@@ -129,7 +129,8 @@ input[type=radio] {display:none;}
 	height: 140px;
 }
 .record-status .graphs #myChart {
-	width: 100%;
+	position: relative;
+	width: 100px;
 	height: 140px;
 	
 }
@@ -176,7 +177,12 @@ input[type=radio] {display:none;}
 }
 .course-view-info .record-info-content {
 	height: 380px;
-	overflow: hidden;
+	overflow: auto;
+}
+.record-info-content::-webkit-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	display: none; /* Chrome, Safari, Opera */
 }
 .course-view-info .course-info-btn {
 	height: 60px;
@@ -201,7 +207,6 @@ input[type=radio] {display:none;}
 .record-info-content .record-full-content {
 	width: 100%;
 	height: auto;
-	overflow: hidden;
 	margin-bottom: 15px;
 	border: 1px solid transparent;
 }
@@ -244,6 +249,12 @@ input[type=radio] {display:none;}
 }
 .pink {background-color: rgb(255, 52, 120);}
 .blue {background-color: rgb(50, 108, 249);}
+/* 기록 사진 */
+.record-img img {
+	width: 24px;
+	height: 24px;
+	object-fit: cover;
+}
 
 
 
