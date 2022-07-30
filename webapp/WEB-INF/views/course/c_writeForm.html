@@ -26,135 +26,148 @@
 		
 		<!-- 코스 지정 -->
 		<div class="course-form">
-			<table>
-			
-				<colgroup>
-					<col width="150px">
-					<col width="100%">
-				</colgroup>
+			<div class="course-select">
+				<table>
 				
-				<tr>
-					<th rowspan="3">코스 지정</th>
-				</tr>
-				<tr>
-					<td>
-						
-						<p class="guide">
-							<span class="glyphicon glyphicon-info-sign"></span>
-							주소를 검색하면 아래에 지도가 표시됩니다.
-						</p>
-						<form class="address-form">
-							<input type="text" name="address">
-							<button type="button" id="address-btn">주소검색</button>
-						</form>
-					</td>
-				</tr>
-				<tr>
-					<td style="border-top: none;">
-						<!-- 지도 -->
-						<img src="../../../assets/image/course/map.jpg" height="615px">
-					</td>
-				</tr>
-			</table>
-		</div>
+					<colgroup>
+						<col width="150px">
+						<col width="100%">
+					</colgroup>
+					
+					<tr>
+						<th rowspan="3">코스 지정</th>
+					</tr>
+					
+					<!-- 주소검색 -->
+					<tr>
+						<td>
+							<p class="guide">
+								<span class="glyphicon glyphicon-info-sign"></span>
+								주소를 검색하면 아래에 지도가 표시됩니다.
+							</p>
+							<form class="address-form">
+								<input type="text" name="address">
+								<button type="button" id="address-btn">주소검색</button>
+							</form>
+						</td>
+					</tr>
+					
+					<!-- 지도영역 -->
+					<tr>
+						<td>
+							<!-- 지도 -->
+							<img src="../../../assets/image/course/map.jpg" height="615px">
+						</td>
+					</tr>
+				</table>
+			</div>
 		<!-- course-select -->
 		
 		<!-- 코스정보 -->
-		<div class="course-form">
-		
-			<h2>코스 정보</h2>
-			
-			<table>
-			
-				<colgroup>
-					<col width="150px">
-					<col width="100%">
-				</colgroup>
+			<div class="course-content">
+				<h2>코스 정보</h2>
 				
-				<tbody>
-					<tr>
-						<th>코스 이름</th>
-						<td><input type="text" class="txt-long"  name="courseName"></td>
-					</tr>
-					<tr>
-						<th>종목</th>
-						<td>
-							<input type="radio" name="events" id="walk" checked>
-							<label for="walk">산책</label>
-							
-							<input type="radio" name="events" id="jogging">
-							<label for="jogging">조깅</label>
-							
-							<input type="radio" name="events" id="running">
-							<label for="running">러닝</label>
-							
-							<input type="radio" name="events" id="marathon">
-							<label for="marathon">마라톤</label>
-							
-							<input type="radio" name="events" id="bicycle">
-							<label for="bicycle">자전거</label>
-							
-							<input type="radio" name="events" id="draw">
-							<label for="draw">그림</label>
-							
-						</td>
-					</tr>
+				<table>
+				
+					<colgroup>
+						<col width="150px">
+						<col width="100%">
+					</colgroup>
 					
-					<tr>
-						<th>거리</th>
-						<td>
-							<div>
-								<input type="text" class="txt-short">
-
-								<input type="radio" name="distance" id="km" checked>
-								<label for="km">km</label>
+					<tbody>
+					
+						<!-- 코스 이름 -->
+						<tr>
+							<th>코스 이름</th>
+							<td><input type="text" class="txt-long"  name="courseName"></td>
+						</tr>
+						
+						<!-- 종목 -->
+						<tr>
+							<th>종목</th>
+							<td>
+								<input type="radio" name="events" id="walk" checked>
+								<label for="walk">산책</label>
 								
-								<input type="radio" name="distance" id="m">
-								<label for="m">m</label>
+								<input type="radio" name="events" id="jogging">
+								<label for="jogging">조깅</label>
+								
+								<input type="radio" name="events" id="running">
+								<label for="running">러닝</label>
+								
+								<input type="radio" name="events" id="marathon">
+								<label for="marathon">마라톤</label>
+								
+								<input type="radio" name="events" id="bicycle">
+								<label for="bicycle">자전거</label>
+								
+								<input type="radio" name="events" id="draw">
+								<label for="draw">그림</label>
+								
+							</td>
+						</tr>
+						
+						<!-- 거리 -->
+						<tr>
+							<th>거리</th>
+							<td>
+								<div>
+									<input type="text" class="txt-short">
+	
+									<input type="radio" name="distance" id="km" checked>
+									<label for="km">km</label>
 									
-							</div>
-						</td>
-					</tr>
-					
-					<tr>
-						<th>예상 시간</th>
-						<td>
-							<input type="text" class="txt-short">
-							<p>시간</p>
-							<input type="text" class="txt-short">
-							<p>분</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<th>예상 난이도</th>
-						<td>
-							<input type="radio" name="level" id="easy" checked>
-							<label for="easy">쉬움</label>
-							
-							<input type="radio" name="level" id="nomal">
-							<label for="nomal">보통</label>
-							
-							<input type="radio" name="level" id="hard">
-							<label for="hard">어려움</label>
-						</td>
-					</tr>
-					
-					<tr>
-						<th>코스 공개여부</th>
-						<td>
-							<input type="radio" name="open-status" id="open" checked>
-							<label for="open">공개</label>
-							
-							<input type="radio" name="open-status" id="close">
-							<label for="close">비공개</label>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+									<input type="radio" name="distance" id="m">
+									<label for="m">m</label>
+										
+								</div>
+							</td>
+						</tr>
+						
+						<!-- 예상 시간 -->
+						<tr>
+							<th>예상 시간</th>
+							<td>
+								<input type="text" class="txt-short">
+								<p>시간</p>
+								<input type="text" class="txt-short">
+								<p>분</p>
+							</td>
+						</tr>
+						
+						<!-- 예상 난이도 -->
+						<tr>
+							<th>예상 난이도</th>
+							<td>
+								<input type="radio" name="level" id="easy" checked>
+								<label for="easy">쉬움</label>
+								
+								<input type="radio" name="level" id="nomal">
+								<label for="nomal">보통</label>
+								
+								<input type="radio" name="level" id="hard">
+								<label for="hard">어려움</label>
+							</td>
+						</tr>
+						
+						<!-- 코스 공개여부 -->
+						<tr>
+							<th>코스 공개여부</th>
+							<td>
+								<input type="radio" name="open-status" id="open" checked>
+								<label for="open">공개</label>
+								
+								<input type="radio" name="open-status" id="close">
+								<label for="close">비공개</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<!-- course-info -->
 		
+		<!-- 하단 버튼 영역 -->
 		<div id="btn-wrap">
 			<button class="cancel">취소</button>
 			<button class="add">코스 등록</button>
