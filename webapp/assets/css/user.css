@@ -40,15 +40,25 @@
 }
 
 #join-form #form-container .form-input label {
-	width: 15%;
+	width: 20%;
 	font-size: 16px;
 	font-weight: 900;
 }
 
 #join-form #form-container .form-input input {
-	width: 70%;
+	width: 62%;
 	height: 100%;
 	font-size: 16px;
+}
+
+#join-form #form-container .form-input #btn-check {
+	width: 70px;
+	height: 25px;
+	margin-left: 20px;
+	border: none;
+	background-color: rgb(50, 108, 249);
+	color: white;
+	font-size: 12px;
 }
 
 #join-form #form-container .submit-container {
