@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import "includes.css";
+
+
+/**********************************공통*********************************/
+#content{
+	padding: 100px 0px;
+}
+
+
+/******************************join-form******************************/
+#join-form{
+	width: 700px;
+	margin: auto;
+	padding: 50px;
+	border: 2px solid rgb(94, 94, 94);
+}
+
+#join-form h2 {
+	font-size: 30px;
+	font-weight: 900;
+}
+
+#join-form hr {
+	margin: 10px 0px 30px 0px;
+}
+
+#join-form #form-container {
+	width: 100%;
+	padding: 0px 20px;
+}
+
+#join-form #form-container .form-input {
+	display: flex; /* for center-align */
+	align-items: center; /* align vertical */
+	width: 100%;
+	height: 44px;
+	margin: 20px 0px;
+}
+
+#join-form #form-container .form-input label {
+	width: 15%;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+#join-form #form-container .form-input input {
+	width: 70%;
+	height: 100%;
+	font-size: 16px;
+}
+
+#join-form #form-container .submit-container {
+	width: 400px;
+	height: 50px;
+	margin: auto;
+}
+
+#join-form #form-container .submit-container #btn-submit {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: rgb(50, 108, 249);
+	color: white;
+	font-weight: 900;
+}
+
