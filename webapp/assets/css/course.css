@@ -1,6 +1,6 @@
 @charset "UTF-8";
+@import "clearfix.css";
 @import "includes.css";
-@import "main.css";
 
 /* =======================공통======================= */
 body {font-size: 14px;}
@@ -9,8 +9,7 @@ body {font-size: 14px;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
-#wrap {max-width:1200px;}
-#wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
+#wrap>#content {padding: 10px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
 /* =======================타이틀======================= */
 #wrap #title {
 	margin: 80px 0px 64px 0px;
@@ -22,6 +21,7 @@ input[type=radio] {display:none;}
 }
 
 /* =======================content======================= */
+
 /* p 태그 설정 */
 #content .course-form p {
 	display: inline-block;
@@ -30,7 +30,7 @@ input[type=radio] {display:none;}
 	padding: 0px;
 }
 #content .course-form .course-info p {
-	width: 100px;
+	width: 110px;
 	line-height: 46px;
 	text-align: right;
 	font-weight: 700;
@@ -58,6 +58,7 @@ input[type=radio] {display:none;}
 	text-align: center;
 	border: 1px solid rgb(204, 204, 204);
 	border-bottom: none;
+	margin-bottom: 0px;
 }
 
 /* 테이블 */
@@ -130,7 +131,7 @@ label img {
 .box {
 	display: inline-block;
 	text-align: center;
-	width: 72px;
+	width: 75px;
 	line-height: 38px;
 	margin-right: 12px;
 }

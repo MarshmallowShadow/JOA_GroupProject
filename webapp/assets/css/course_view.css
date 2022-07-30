@@ -1,6 +1,6 @@
 @charset "UTF-8";
+@import "clearfix.css";
 @import "includes.css";
-@import "main.css";
 
 /* =======================공통======================= */
 body {font-size: 14px;}
@@ -9,15 +9,17 @@ body {font-size: 14px;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
-#wrap {max-width:1200px;}
-#wrap>#content {padding: 50px 0px; margin-bottom: 150px;}
+#wrap>#content {padding: 50px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
 
 
 /* =======================content======================= */
 /* content 레이아웃 */
+#content #view-content {height:620px;}
 #content #map {
 	float: left;
 	width: 70%;
+	height: 600px;
+	object-fit: cover;
 }
 #content .course-view {
 	float: right;
