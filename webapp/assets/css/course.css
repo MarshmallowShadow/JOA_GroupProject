@@ -169,6 +169,7 @@ label img {
 }
 
 /* -------------------사진등록----------------------- */
+/* 사진 없을때 */
 .course-form #course-pic {
 	width: 100%;
 	height: 350px;
@@ -178,7 +179,7 @@ label img {
 	justify-content: center;
 	align-items: center;
 }
-.course-form #course-pic div img {
+.course-form #course-pic div #photo-icon {
 	display: block;
 	margin: auto;
 	width: 64px;
@@ -194,4 +195,52 @@ label img {
 .course-form #course-pic div label {
 	width: 123px;
 	line-height: 40px;
+}
+
+/* 사진 추가 했을때 */
+.course-form #course-pic-add {
+	width: 100%;
+	height: 350px;
+	background-color: rgb(224, 224, 224);
+	padding: 10px;
+	overflow: auto;
+}
+/* 스크롤바 없애기 */
+#course-pic-add::-webkit-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	display: none; /* Chrome, Safari, Opera*/
+}
+#course-pic-add .pic-list .pic-content {
+	width: 233px;
+	height: 145px;
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+#course-pic-add .pic-content button {
+	width: 29px;
+	height: 29px;
+	border-radius: 50%;
+	border: 3px solid rgb(255,255,255);
+	float: right;
+
+}
+#course-pic-add .pic-content button img {
+	transform: translate(-27%, -5%);
+}
+#course-pic-add .pic-list .pic-content .add-img {
+	width: 204px;
+	height: 145px;
+	object-fit: cover;
+	border: 3px solid rgb(255,255,255);
+}
+/* 사진추가 버튼 */
+.pic-update {
+	width: 204px;
+	height: 145px;
+	float: left;
+	border: 3px solid rgb(255,255,255);
+	background-color: rgb(216, 216, 216);
+	color: rgb(34,34,34);
 }

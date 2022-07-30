@@ -129,7 +129,8 @@ input[type=radio] {display:none;}
 	height: 140px;
 }
 .record-status .graphs #myChart {
-	width: 100%;
+	position: relative;
+	width: 100px;
 	height: 140px;
 	
 }
