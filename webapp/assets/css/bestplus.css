@@ -22,7 +22,7 @@
 
 /* ----------- main list(좋아요,즐찾,기록) ----------- */
 table, tr, td {
-	border: 1px solid rgb(50, 108, 249);
+	border: 1px solid;
 }
 
 table {
@@ -37,12 +37,12 @@ table td {
 }
 
 table td:hover {
-	background-color: rgb(50, 108, 249);
+	background-color: #000000;
 	font-weight: bold;
 }
 
 table td a:hover {
-	color: #ffffff;
+	color: #fff;
 }
 
 /* ------------- 종목테그 ------------- */
