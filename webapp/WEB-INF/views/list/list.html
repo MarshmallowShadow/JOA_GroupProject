@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>1:1 문의게시판</title>
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/list.css">
+<link rel="stylesheet" href="../../../assets/css/list.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<div class="wrap"> 
+<div id="wrap"> 
 
 		<div id="header">
 			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
@@ -35,16 +35,21 @@
 
 	<div class="content">
 		<h1>문의 게시판</h1>
-		<input type="text" name="" value="">
-		<hr>
-		
-		<p>♧ 답변은 글 작성해주신 이후 영업시간 기준 최대 24시간이 소요되며,</p> 
-		<p>영업시간 외, 주말 및 공휴일, 지정 휴일엔 답변이 불가할 수 있습니다.</p>
-		
-		
-		
-		
-		
+
+			<div class="content-text">
+				<p><span id="a">♧</span> 답변은 글 작성해주신 이후 영업시간 기준 <span id="b">최대 24시간</span>이 소요되며,</p>
+				<p>&nbsp;&nbsp;&nbsp; 영업시간 외, <span id="b">주말 및 공휴일, 지정 휴일</span>엔 답변이 불가할 수 있습니다.</p>
+			</div>
+
+		<!-- 검색창과 버튼 -->
+			<div class="textbox">
+				<input type="text" id="textbox">
+				<button type="submit" id="search">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</div>
+			<br>
+
 		<!-- 게시판 리스트 -->
 		<div id="board">
 			<table>
@@ -163,7 +168,7 @@
 		
 		<!-- 글쓰기 버튼 -->
 		<div>
-			<button type="submit" id="write">글쓰기</button>
+			<button type="submit" id="write">문의하기</button>
 		</div>
 		
 		<!-- 페이지 -->
@@ -183,8 +188,32 @@
 				<li>▶</li>
 			</ul>
 		</div><!-- board button -->
-		
-	
+
+
+<!----------------- footer ------------------>		
+	<br>
+	<div class="footer">
+		<div class="footer-text">
+			<p>주식회사 조아</p>
+			<p>대표 : 최보승</p>
+			<p>사업자 번호 : 123-456-789</p>
+			<p>서울특별시 관악구 봉천동 862 - 1</p>
+			<br>
+			<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
+			<p>tel. 02 - 1111 - 1111</p>
+			<p>fax. 02 - 1111 - 1111</p>
+			<p>email. joa@joa.co.kr</p>
+		</div>
+		<br>
+		<div class="footer-btn">
+			<button id="footerbtn" type="button" name="" value="">자주묻는 질문</button>
+			<button id="footerbtn" type="button" name="" value="">1:1 문의</button>
+		</div>
+		<br>
+		<hr class="my-hr1">
+		<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
+
+	</div>	
 
 	
 	</div>

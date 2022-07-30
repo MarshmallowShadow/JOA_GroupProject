@@ -3,17 +3,80 @@
 @import "includes.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-
 /* ****************** 레이아웃 ****************** */
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
+/* ****************** 제목 ****************** */
+#wrap h1{
+	font-family: 'Nanum Gothic';
+	font-size: 46px;
+	font-weight: bold;
+	text-align : center;
+	margin: 80px, 0px, 64px, 0px;
+	letter-spacing: -1px;
+	padding-top: 50px;
+}
+
+/********************** 페이지 하단 번호 **********************/
+#page ul, #page ol, #page li	{
+	list-style-type: none;
+	float: left;
+	margin-left: 15px;
+}
+
+#page {
+	margin-top: 20px;
+	margin-bottom: 70px;
+	margin-left: 39%;
+}
+
+/******************** 공지사항 p ********************/
+.content-text{
+	font-size: 12px;
+	font-weight: 500%;
+	color: rgb(101, 101, 101);
+	margin: 80px 0px 10px 0px;
+	padding-left: 150px;
+}
+
+.content-text p {
+	margin-top: 5px;
+}
+
+#a {
+	color: #669900;
+	font-weight: bold;
+}
+
+#b {
+	color: red;
+	font-weight: bold;
+}
+
+/******************** 검색 ********************/
+#keyword {height: 20px}
+
+#textbox {
+	width: 230px;
+	height: 30px
+}
+
+/** 검색 버튼 **/
+#search {
+	width: 50px;
+	height: 30px;
+	background-color: #fff;
+	border-radius: 3px;
+}
+.textbox {
+	padding-left: 820px;
+}
 
 /******************** 게시판 테이블 ********************/
-
 table {
 	width: 80%;
-	margin-left: 170px;
+	margin-left: 150px;
 	border-top: solid 2px; 
 	border-collapse: collapse;
 }
