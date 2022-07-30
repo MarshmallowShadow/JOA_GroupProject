@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import "includes.css";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+/* ****************** 레이아웃 ****************** */
+#wrap {max-width:1200px;}
+#wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
+
+
+/******************** 게시판 테이블 ********************/
+
+table {
+	width: 80%;
+	margin-left: 170px;
+	border-top: solid 2px; 
+	border-collapse: collapse;
+}
+th, td {
+	border-bottom: solid 1px #ccc;
+	height: 70px;
+}
+/** 게시글 제목 이외 것들 가운데, 중앙 정렬 **/
+th, tr>.center {text-align: center;}
+th, td {
+	margin-top: 50px;
+	vertical-align : middle;
+}
+/** 글쓰기 버튼 **/
+#write {
+	width: 87px;
+	height: 32px;
+	margin-left: 85%;
+	margin-top: 20px;
+	background-color: #000;
+	color: #fff;
+	font-size : 10pt;
+	border-radius: 5px;
+}
