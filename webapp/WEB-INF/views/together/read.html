@@ -13,14 +13,66 @@
 	
 		<h1>함께하기</h1>
 		
+		<!-- 제목과 작성일 -->
 		<div>
-			<p>쭈쭈네 동네 한바퀴</p>
-			<p>2022/07/24</p>
+			<p id="title">쭈쭈네 동네 한바퀴</p>
+			<p id="date">2022/07/24 - 2022/07/29</p>
 		</div>
 		
-			<!-- 상세지도 -->
+		<!-- 상세지도 -->
+		<div id="map_sample">
+			<img class="map" src="../../../assets/image/map/map-sample.jpg">
+		</div>
 		
-	</div>
+		<!-- 상세정보 -->
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>
+							<img id="marking" src="../../../assets/image/together/marking.png">
+							<div id="route">신림 - 잠실</div>
+						</th>
+						<th>
+							<img id="map_icon" src="../../../assets/image/together/map.png">
+							<div id="location">신림역 7번 출구</div>
+						</th>
+						<th>
+							<img id="calendar" src="../../../assets/image/together/calendar.png">
+							<div id="d-date">2022.07.31 12:45pm</div>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<img id="stopwatch" src="../../../assets/image/together/stopwatch.png">
+							<div id="distance">7.8km</div>
+						</th>
+						<th colspan="2">
+							<img id="user" src="../../../assets/image/together/user.png">
+							<div id="user_num">10/15명</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="3" id="content">
+							다같이 마라톤 같이 뛰었으면 좋겠어요~ 당일 덥다고 일기예보가 떠서 각자 마실 물과 땀수건을 챙겨 오셨으면 해요~!<br>
+							점심도 같이 먹고 갔으면 해서 각자 점심값도 같이 준비 부탁드려요!<br><br>
+							ps.무조건 러닝화 신고 오세요. 장거리이기 때문에 발이 붓고 다리가 많이 아플 수 있습니다.<br>
+							   러닝화가 없으시면 참가 거부하겠습니다.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- 테이블 -->
+		
+		<!-- 수정, 삭제 버튼 -->
+		<div id="writer_btn">
+			<button type="submit" id="modify">수정</button>
+			<button type="submit" id="delete">삭제</button>
+		</div>
+	
+	</div><!-- wrap -->
 
 
 </body>
