@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "clearfix.css";
+@import "includes.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 
@@ -17,7 +18,7 @@ h1 {
 
 /********************** 페이지 **********************/
 
-ul, ol, li	{
+.ul, .ol, .li	{
 	list-style-type: none;
 	float: left;
 	margin-left: 15px;
