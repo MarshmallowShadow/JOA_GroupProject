@@ -102,7 +102,7 @@ input[name="address"] {width: 89%;}
 	color: rgb(255, 255, 255);
 }
 /* 흰색 버튼 */
-label, #btn-wrap>button, .box {
+input[type="radio"]+label, #btn-wrap>button, .box {
 	padding: 0px 15px;
 	color: rgb(102, 102, 102);
 	border: 1px solid rgb(217, 217, 217);
@@ -118,14 +118,14 @@ input[type="radio"]:checked+label, #btn-wrap>.add, .blue {
 
 /* 버튼 크기 */
 /* radio */
-label {
+input[type="radio"]+label {
 	display: inline-block;
 	text-align: center;
 	width: 82px;
 	line-height: 46px;
 	margin-right: 12px;
 }
-label img {
+input[type="radio"]+label img {
 	vertical-align: middle;
 }
 .box {
@@ -196,9 +196,8 @@ label img {
 	display: block;
 	margin: 15px 0px 30px 0px;
 }
-.course-form #course-pic div input[type="file"] {
-	display: none;
-}
+/* 파일선택 버튼 가리기 */
+input[type="file"] {display: none;}
 .course-form #course-pic div label {
 	width: 123px;
 	line-height: 40px;
@@ -243,11 +242,12 @@ label img {
 	border: 3px solid rgb(255,255,255);
 }
 /* 사진추가 버튼 */
-.pic-update {
+#course-pic-add .pic-list .pic-update {
 	width: 204px;
-	height: 145px;
+	line-height: 145px;
 	float: left;
 	border: 3px solid rgb(255,255,255);
 	background-color: rgb(216, 216, 216);
 	color: rgb(34,34,34);
+	text-align: center;
 }
