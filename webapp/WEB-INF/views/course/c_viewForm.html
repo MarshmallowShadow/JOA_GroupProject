@@ -56,12 +56,12 @@
 				<div class="course-view-tap">
 					<ul>
 						<li>
-							<div class="tabbtn selected" style="cursor: pointer;" onclick="window.location='/c_viewform.html';">
+							<div class="tabbtn selected" style="cursor: pointer;" onclick="window.location='/c_viewForm.html';">
 								<a>코스정보</a>
 							</div>
 						</li>
 						<li>
-							<div class="tabbtn" style="cursor: pointer;" onclick="window.location='/c_viewform.html';">
+							<div class="tabbtn" style="cursor: pointer;" onclick="window.location='/r_viewForm.html';">
 								<a>기록보기</a>
 							</div>
 						</li>
@@ -221,7 +221,7 @@ function event() {
 	      label: '종목',
 	      backgroundColor: 'rgb(50, 108, 249)',
 	      borderColor: 'rgb(50, 108, 249)',
-	      data: [0, 10, 5, 2, 20, 30, 45],
+	      data: [0, 10, 5, 2, 20, 30],
 		}]
 	};
 	
@@ -229,13 +229,17 @@ function event() {
 		type: 'bar',
 		data: data,
 	    options: {
-	    	legend: {
-	    		labels: {
-	    			font: {
-	    				size: 12,
-	    				family: 'Nanum Gothic'
-	    			}
-	    		}
+	    	maintainAspectRatio: false,
+	    	plugins: {
+	    		legend: {
+		    		display: false,
+		    		labels: {
+		    			font: {
+		    				size: 12,
+		    				family: 'Nanum Gothic'
+		    			}
+		    		}
+		    	}
 	    	}
 	    }
 	};
@@ -273,7 +277,19 @@ function difficult() {
 	const config = {
 	    type: 'doughnut',
 	    data: data,
-	    options: {}
+	    options: {
+	    	maintainAspectRatio: false,
+	    	plugins: {
+	    		legend: {
+		    		labels: {
+		    			font: {
+		    				size: 12,
+		    				family: 'Nanum Gothic'
+		    			}
+		    		}
+		    	}
+	    	}
+	    }
 	};
 	  
 	const myChart = new Chart(
