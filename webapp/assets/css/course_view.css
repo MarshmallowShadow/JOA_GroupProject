@@ -53,7 +53,8 @@ input[type=radio] {display:none;}
 #content .course-view .course-view-info {
 	padding: 20px 32px;
 	width: 100%;
-	height: 650px;
+	height: 600px;
+	/* height: auto; */
 	border: 1px solid rgb(174, 174, 174);
 }
 
@@ -65,7 +66,9 @@ input[type=radio] {display:none;}
 	height: 190px;
 }
 .course-view-info .record-status {
-	height: 350px;
+	height: 300px;
+	/* height: auto; */
+	padding: 20px 0px;
 }
 .course-view-info .course-info-btn {
 	height: 60px;
@@ -113,10 +116,6 @@ input[type=radio] {display:none;}
 }
 
 /* ---------------------기록 정보 (그래프)----------------------- */
-/* 레이아웃 */
-.course-view-info .record-status {
-	padding: 20px 0px;
-}
 .record-status h3 {
 	display: inline-block;
 	font-size: 16px;
@@ -131,6 +130,8 @@ input[type=radio] {display:none;}
 
 .record-status #graphs {
 	width: 100%;
+	height: 220px;
+	position: relative;
 }
 
 /* ===================================코스 정보==================================== */
@@ -142,7 +143,7 @@ input[type=radio] {display:none;}
 	height: 20px;
 }
 .course-view-info .record-info-content {
-	height: 510px;
+	height: 460px;
 	overflow: auto;
 }
 .record-info-content::-webkit-scrollbar {
@@ -235,6 +236,7 @@ input[type=radio] {display:none;}
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	color: black;
 }
 #course-info-btn .link-btn {
 	width: 209px;
