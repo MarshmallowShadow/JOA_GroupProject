@@ -18,6 +18,11 @@
 		생성 하겠다. (new 하겠다) -->
 	<context:component-scan
 		base-package="com.javaex.controller" />
+		
+	<!-- com.javaex.api.controller 패키지 밑에 있는 클래스 중에 @Controller를 달고 있는 클래스의 
+		객체를 생성 하겠다. (new 하겠다) -->
+	<context:component-scan
+		base-package="com.javaex.api.controller" />
 	
 	
 	<!-- 기본 뷰 리졸버 -->
@@ -34,5 +39,34 @@
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 	
+	<!-- json -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+
+				<property name="supportedMediaTypes">
+
+					<list>
+
+						<value>application/json; charset=UTF-8</value>
+
+					</list>
+				</property>
+
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	
+	
+	<!-- 멀티파트 리졸버 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 최대업로드 가능한 바이트크기 -->
+		<property name="maxUploadSize" value="52428800" />
+		<!-- 디스크에 임시 파일을 생성하기 전에 메모리에 보관할수있는 최대 바이트 크기 -->
+		<property name="maxInMemorySize" value="52428800" />
+		<!-- defaultEncoding -->
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
 </beans>
