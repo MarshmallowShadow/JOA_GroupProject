@@ -19,8 +19,8 @@ h1 {
 /******************** 게시판 테이블 ********************/
 
 table {
-	width: 80%;
-	margin-left: 12%;
+	width:83%;
+	margin-left: 9.5%;
 	border-top: solid 2px;
 	border-bottom: solid 2px; 
 	border-collapse: collapse;
@@ -57,6 +57,8 @@ tr>#date, #up {
 }
 /***** 첨부 자료 *****/
 .course-container {
+	float: right;
+	margin-left: 10px;
 	cursor: pointer;
 	width: 380px;
 	height: 200px;
@@ -82,11 +84,11 @@ tr>#date, #up {
 	height: 150px;
 	margin-bottom: 4.37%;
 	border: solid 1px;
-	float: left;
 	border: solid 1px #ccc;
 }
 .chart {
 	text-align: center;
+	float: right;
 }
 /** 표 내부 행 **/
 .line_top {
@@ -193,15 +195,15 @@ tr>#date, #up {
 /********************** 댓글 **********************/
 
 #top_comment {
-	margin-left: 12%;
+	margin-left: 9.5%;
 	margin-top: 100px;
 	margin-bottom: 10px;
 	font-size : 16pt;
 	font-weight : bold;
 }
 #commentbox {
-	margin-left: 12%;
-	width : 80%;
+	margin-left: 9.5%;
+	width : 83%;
 	border-top: solid 2px #ccc;
 	border-bottom: solid 2px #ccc;
 }
