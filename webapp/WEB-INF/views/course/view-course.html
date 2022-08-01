@@ -5,12 +5,14 @@
 <title>코스 정보 상세보기</title>
 <!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course_view.css">
+<link rel="stylesheet" href="../../../assets/css/course-view.css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 차트 api -->
+<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
+<!-- 차트 api -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -56,14 +58,10 @@
 				<div class="course-view-tap">
 					<ul>
 						<li>
-							<div class="tabbtn selected" style="cursor: pointer;" onclick="window.location='./view-course.html';">
-								<a>코스정보</a>
-							</div>
+							<a href="./view-course.html" class="tabbtn selected">코스정보</a>
 						</li>
 						<li>
-							<div class="tabbtn" style="cursor: pointer;" onclick="window.location='./view-record.html';">
-								<a>기록보기</a>
-							</div>
+							<a href="./view-record.html" class="tabbtn">기록보기</a>
 						</li>
 					</ul>
 				</div>
@@ -71,13 +69,13 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2>코스제목</h2>
+						<h2><img src="../../../assets/image/best/cgold.jpg">코스제목</h2>
 						
 						<!-- 수정 버튼 -->
 						<a href=""><span class="glyphicon glyphicon-pencil"></span></a>
 						
 						<!-- 즐겨찾기 별 -->
-						<img class="right" alt="즐겨찾기" src="../../../assets/image/main/star-off.png">
+						<img class="right" alt="즐겨찾기" src="../../../assets/image/main/star.png">
 						
 						<div class="article-info">
 							<span class="bold">박깜이</span>
@@ -124,11 +122,12 @@
 					<div class="record-status">
 						<h3>일기 작성 현황</h3>
 						<div class="graph-choose">
-							<input type="radio" name="graph-choose" id="difficulty" value="diffi" checked>
-							<label for="difficulty">난이도별</label>
-							
-							<input type="radio" name="graph-choose" id="event" value="evt">
+						
+							<input type="radio" name="graph-choose" id="event" value="evt" checked>
 							<label for="event">종목별</label>
+							
+							<input type="radio" name="graph-choose" id="difficulty" value="diffi">
+							<label for="difficulty">난이도별</label>
 						</div>
 						
 						<div id="graphs">
@@ -139,7 +138,7 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
-						<a class="link-btn">후기 보러가기</a>
+						<a href="../board/board.html" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
 							<img src="../../../assets/image/main/heart-off.png">
 							<span>0</span>
@@ -177,125 +176,30 @@
 	</div>
 	
 </div>
+<!-- wrap -->
+
+
+<div class="modal fade" id="addModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">코스 제목 수정</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label class="form-text">코스 제목</label>
+					<input id="addModalContent" type="text" value="" >
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn" id="btnUpload">등록</button>
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 </body>
 
-<script>
-window.onload = function test() {
-	console.log("tq");
-	
-	
-
-	event();
-	
-	var graphs = document.getElementById("graphs");
-	$('input:radio[name="graph-choose"]').change(function() {
-		if($(this).val() === 'diffi') {
-			$('#myChart').remove();
-			$('#graphs').append('<canvas id="myChart"></canvas>');
-			event();
-		} else if($(this).val() === 'evt') {
-			$('#myChart').remove();
-			$('#graphs').append('<canvas id="myChart"></canvas>');
-			difficult();
-		}
-	});
-	
-	
-};
-
-/* 종목별 그래프 */
-function event() {
-	
-	const labels = [
-		'산책',
-	    '조깅',
-	    '러닝',
-	    '마라톤',
-	    '자전거',
-	    '그림',
-	  ];
-	
-	const data = {
-		labels: labels,
-		datasets: [{
-	      label: '종목',
-	      backgroundColor: 'rgb(50, 108, 249)',
-	      borderColor: 'rgb(50, 108, 249)',
-	      data: [0, 10, 5, 2, 20, 30],
-		}]
-	};
-	
-	const config = {
-		type: 'bar',
-		data: data,
-	    options: {
-	    	maintainAspectRatio: false,
-	    	plugins: {
-	    		legend: {
-		    		display: false,
-		    		labels: {
-		    			font: {
-		    				size: 12,
-		    				family: 'Nanum Gothic'
-		    			}
-		    		}
-		    	}
-	    	}
-	    }
-	};
-	  
-	const myChart = new Chart(
-		document.getElementById('myChart'),
-		config
-	);
-}
-
-/* 난이도별 그래프 */
-function difficult() {
-	
-	const labels = [
-		'쉬움',
-	    '보통',
-	    '어려움',
-	  ];
-	
-	const data = {
-	    labels: labels,
-	    datasets: [{
-	      label: '난이도',
-	      backgroundColor: [
-	    	  'rgb(255, 99, 132)',
-	          'rgb(54, 162, 235)',
-	          'rgb(255, 205, 86)'
-	      ],
-	      borderColor: 'rgb(255, 255, 255)',
-	      data: [1, 10, 5],
-	      hoverOffset: 4
-	    }]
-	  };
-	
-	const config = {
-	    type: 'doughnut',
-	    data: data,
-	    options: {
-	    	maintainAspectRatio: false,
-	    	plugins: {
-	    		legend: {
-		    		labels: {
-		    			font: {
-		    				size: 12,
-		    				family: 'Nanum Gothic'
-		    			}
-		    		}
-		    	}
-	    	}
-	    }
-	};
-	  
-	const myChart = new Chart(
-		document.getElementById('myChart'),
-		config
-	);
-}
-</script>
 </html>

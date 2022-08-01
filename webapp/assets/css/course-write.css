@@ -102,7 +102,7 @@ input[name="address"] {width: 89%;}
 	color: rgb(255, 255, 255);
 }
 /* 흰색 버튼 */
-input[type="radio"]+label, #btn-wrap>button, .box {
+input[type="radio"]+label, #btn-wrap>a{
 	padding: 0px 15px;
 	color: rgb(102, 102, 102);
 	border: 1px solid rgb(217, 217, 217);
@@ -128,20 +128,15 @@ input[type="radio"]+label {
 input[type="radio"]+label img {
 	vertical-align: middle;
 }
-.box {
-	display: inline-block;
-	text-align: center;
-	width: 75px;
-	line-height: 38px;
-	margin-right: 12px;
-}
 
 /* 하단 버튼 */
 #btn-wrap {text-align: center;}
-#btn-wrap>button {
+#btn-wrap>a {
 	width: 160px;
-	height: 50px;
+	line-height: 50px;
 	font-size: 15px;
+	display: inline-block;
+	vertical-align: middle;
 }
 #btn-wrap>.add {margin-left: 12px;}
 

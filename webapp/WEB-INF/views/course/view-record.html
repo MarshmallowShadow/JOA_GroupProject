@@ -5,7 +5,7 @@
 <title>코스기록 상세보기</title>
 <!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course_view.css">
+<link rel="stylesheet" href="../../../assets/css/course-view.css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
@@ -56,14 +56,10 @@
 				<div class="course-view-tap">
 					<ul>
 						<li>
-							<div class="tabbtn" style="cursor: pointer;" onclick="window.location='./view-course.html';">
-								<a>코스정보</a>
-							</div>
+							<a href="./view-course.html" class="tabbtn selected">코스정보</a>
 						</li>
 						<li>
-							<div class="tabbtn selected" style="cursor: pointer;" onclick="window.location='./view-record.html';">
-								<a>기록보기</a>
-							</div>
+							<a href="./view-record.html" class="tabbtn">기록보기</a>
 						</li>
 					</ul>
 				</div>
@@ -257,7 +253,7 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
-						<a class="link-btn">기록 작성하기</a>
+						<a href="./write-record.html" class="link-btn">기록 작성하기</a>
 						<a class="like-btn">
 							<img src="../../../assets/image/main/heart-off.png">
 							<span>0</span>
