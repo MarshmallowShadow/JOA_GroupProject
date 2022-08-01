@@ -46,7 +46,8 @@ h1 {
 #together-nav {width:100%; height:90px;}
 #to_make {
 	float: left;
-	margin-top: 15px;
+	margin-top: 28px;
+	margin-left: 52px;
 }
 #together_make {
 	float: left;
@@ -60,6 +61,7 @@ h1 {
 /****************** 태그와 참여 분류 ******************/
 
 #rightside {
+	margin-top: 10px;
 	float: right;
 	padding:35px 43px;
 	font-size : 13pt;
@@ -70,13 +72,13 @@ h1 {
 /******************** 함께하기 표 ********************/
 
 #list .chart table {
-	width: 335px;
+	width: 350px;
 	height: 150px;
 	border: solid 1px;
 	float: left;
 	border: solid 1px #ccc;
-	margin: 20px 20px;
-	margin-left: 35px;
+	margin: 20px 5px;
+	margin-left: 43px;
 }
 #list {
 	height: auto;
@@ -90,8 +92,12 @@ h1 {
 /** 표 내부 행 **/
 .line_top {
 	float: left;
-	margin-left: 58px;
+	margin-left: 78px;
 	font-size : 12pt;
+	text-align: center;
+	margin-top: 8px;
+	color: rgb(50, 108, 249);
+	font-weight: bold;
 }
 .line_bottom {
 	padding-left: 117px;
@@ -104,7 +110,7 @@ h1 {
 }
 /** 북마크 버튼 **/
 .top {
-	height: 20px;
+	height: 36px;
 	border-bottom: solid 1px #ccc;
 }
 .mark {background-color: #fff;}
@@ -114,7 +120,7 @@ h1 {
 }
 .content_course {
 	font-size : 13pt;
-	padding: 20px 120px 20px 110px;
+	padding: 20px 120px 20px 120px;
 }
 .bookmark {
 	margin-left: 12%;
@@ -130,6 +136,52 @@ h1 {
 	background-color: #fff;
 	border: solid 1px #9e9e9e;
 	color: #9e9e9e;
+}
+/** 기간 지난 함께하기 **/
+.over {
+	width: 350px;
+	height: 150px;
+	border: solid 1px;
+	float: left;
+	border: solid 1px #ccc;
+	margin: 20px 5px;
+	margin-left: 43px;
+	background-color: #757575;
+}
+.mark_over {background-color: #757575;}
+.bookmark_over {
+	margin-left: 12%;
+	margin-top: 5px;
+	background-color: #757575;
+	border:none;
+}
+.line_bottomOver {
+	padding-left: 117px;
+	padding-right: 95px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: solid 1px #ccc;
+	color: #000;
+	font-size : 13pt;
+}
+.image_over {
+	width : 18px;
+	height: 18px;
+	background-color: #757575;
+}
+.date_over {
+	float: left;
+	margin-left: 78px;
+	font-size : 12pt;
+	text-align: center;
+	margin-top: 8px;
+	color: #000;
+	font-weight: bold;
+}
+.joinOver {
+	background-color: rgb(50, 108, 249);
+	border: solid 1px #9e9e9e;
+	color: #fff;
 }
 
 /********************** 페이지 **********************/
