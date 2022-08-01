@@ -126,18 +126,4 @@ h1 {
 	border: solid 1px #9e9e9e;
 	color: #9e9e9e;
 }
-
-/*************** 함께하기 리스트 더보기 버튼 ***************/
-
-#more_btn {
-	display: inline-block;
-}
-#more {
-	width: 45px;
-	height: 45px;
-	border-radius: 50px;
-	color: #fff;
-	background-color: #000;
-}
-	
 	
