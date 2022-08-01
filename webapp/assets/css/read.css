@@ -57,7 +57,8 @@ tr>#date, #up {
 }
 /***** 첨부 자료 *****/
 .course-container {
-	float: right;
+	float: left;
+	margin-bottom: 30px;
 	margin-left: 10px;
 	cursor: pointer;
 	width: 380px;
@@ -79,22 +80,28 @@ tr>#date, #up {
 	margin-bottom: 22px;
 }
 /***** 함께하기 첨부 *****/
-#together_chart {
-	width: 335px;
+.chart table {
+	margin-left: 0px;
+	margin-bottom: 35px;
+	width: 350px;
 	height: 150px;
-	margin-bottom: 4.37%;
 	border: solid 1px;
+	float: left;
 	border: solid 1px #ccc;
+	margin-left: 10px;
 }
-.chart {
+/* .chart {
 	text-align: center;
-	float: right;
-}
+} */
 /** 표 내부 행 **/
 .line_top {
 	float: left;
-	margin-left: 58px;
+	margin-left: 78px;
 	font-size : 12pt;
+	text-align: center;
+	margin-top: 8px;
+	color: rgb(50, 108, 249);
+	font-weight: bold;
 }
 .line_bottom {
 	padding-left: 117px;
@@ -107,7 +114,7 @@ tr>#date, #up {
 }
 /** 북마크 버튼 **/
 .top {
-	height: 20px;
+	height: 36px;
 	border-bottom: solid 1px #ccc;
 }
 .mark {background-color: #fff;}
@@ -117,13 +124,13 @@ tr>#date, #up {
 }
 .content_course {
 	font-size : 13pt;
-	padding: 20px 120px 20px 110px;
+	padding: 20px 120px 20px 120px;
 }
 .bookmark {
 	margin-left: 12%;
 	margin-top: 5px;
 	background-color: #fff;
-	border: none;
+	border:none;
 }
 #image {
 	width : 18px;
@@ -252,6 +259,26 @@ tr>#date, #up {
 	margin-left: 10px;
 	margin-top: 15px;
 	margin-bottom: 35px;
+}
+#replybox {
+	width: 1115px;
+	height: 35px;
+	margin-left: 10px;
+	margin-bottom: 25px;
+	border: solid 1px #c0c0c0;
+	border-radius: 3px;
+}
+#reply_btn {
+	margin-left: 15px;
+	padding-top: 3px;
+	font-size: 10pt;
+	border: none;
+	background-color: #fff;
+	color: #000;
+}
+.glyphicon glyphicon-open {
+	width: 300px;
+	height: 305px;
 }
 
 /******************** 목록 버튼 ********************/
