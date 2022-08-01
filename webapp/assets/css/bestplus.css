@@ -111,7 +111,7 @@ table td:hover {
 .img-line img {
 	width: 350px;
 	height: 280px;
-	margin: 0px 0px 0px 30px;
+	margin: 0px 0px 0px 12px;
 	display: block;
 }
 
@@ -134,7 +134,7 @@ table td:hover {
 	width: 80px;
 	padding: 0px 35px 50px;
 	text-align: left;
-	display: block;
+	display: inline;
 	
 }
 
@@ -152,13 +152,33 @@ table td:hover {
 }
 
 /* 후기 : _개 */
-#cbutton {		
+#cbutton {
 	border: 1px solid rgb(50, 108, 249);
 	background-color: #ffffff;
+	float: left;
 }
 
 #cbutton:hover {
 	font-weight: bold;
+}
+
+/* 좋아요 개수 */
+.imgbutton {
+	padding-bottom: 20px;	
+}
+
+.imgbutton img {
+	height: 18px;
+	width: 18px;
+	margin-top: 5px;
+	float: left;
+}
+
+.imgbutton span {
+	font-size: 14px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 3px;
 }
 
 /*------------------------- Top 4~15 -------------------------*/
