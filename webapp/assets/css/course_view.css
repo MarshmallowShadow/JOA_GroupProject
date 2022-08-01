@@ -14,12 +14,13 @@ input[type=radio] {display:none;}
 
 /* =======================content======================= */
 /* content 레이아웃 */
-#content #view-content {height:620px;}
+#content #view-content {/* height:620px; */ overflow: auto;}
 #content #map {
 	float: left;
 	width: 70%;
 	height: 600px;
 	object-fit: cover;
+	overflow: auto;
 }
 #content .course-view {
 	float: right;
@@ -31,10 +32,11 @@ input[type=radio] {display:none;}
 .course-view .course-view-tap {
 	height: 60px;
 }
+.course-view-tap ul li {float:left;}
 .tabbtn {
+	display: inline-block;
 	width: 180px;
 	line-height: 60px;
-	float: left;
 	font-size: 16px;
 	text-align: center;
 	background-color: rgb(255,255,255);
