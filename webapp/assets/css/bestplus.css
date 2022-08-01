@@ -99,7 +99,7 @@ table td:hover {
 .img-total .img-1 img{
 	width: 30px;
 	height: 30px; 
-	margin-top: 50px; 
+	margin-top: 30px;
 }
 
 /*--------------------- 이미지 ---------------------*/
@@ -114,6 +114,11 @@ table td:hover {
 	margin: 0px 0px 0px 30px;
 	display: block;
 }
+
+.img-line img:hover {
+	transform: scale( 1.1 );
+
+	}
 
 /* 지역, 거리 설정*/
 #best-text {		
@@ -130,9 +135,20 @@ table td:hover {
 	padding: 0px 35px 50px;
 	text-align: left;
 	display: block;
+	
 }
+
 .comment-text input {
 	margin-top: 3px;
+}
+
+.comment-text1{
+	width: 340px;
+	height: 0 auto;
+	border:1px solid rgb(101, 101, 101);
+	border-radius: 2px;
+	margin-top: 3px;
+	padding: 2px;
 }
 
 /* 후기 : _개 */
