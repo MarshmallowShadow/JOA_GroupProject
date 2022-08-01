@@ -3,7 +3,7 @@
 @import "includes.css";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-#wrap>#content {margin: auto; max-width: 1200px;}
+#wrap>#content {margin: auto; max-width: 1200px; height: auto;}
 
 /******************** 게시판 머리글 ********************/
 
@@ -69,8 +69,9 @@ h1 {
 #list {
 	height: auto;
 	margin-top : 20px;
+	display: block;
+	overflow: auto;
 }
-
 #list .chart table {
 	width: 335px;
 	height: 150px;
@@ -79,9 +80,9 @@ h1 {
 	border: solid 1px #ccc;
 	margin: 20px 20px;
 }
-.chart {
+/* .chart {
 	text-align: center;
-}
+} */
 /** 표 내부 행 **/
 .line_top {
 	float: left;
