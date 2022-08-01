@@ -22,11 +22,15 @@
 .resultList .listBox {height:360px;}
 .resultList ol {width:100%; display :center; }
 .resultList li {width:(25%-margin);float : left ; list-style: none; margin:0px 5px 30px 15px}
-.resultList .img-icons {width:260px; height: 186px ; padding:0px; position:relative;}
-.resultList .like-bookmark {position: absolute; top:10%; left:88%; width:100%;transform:translate(-50%, -50%);}
 .resultList li .courseImg {width:260px; height: 186px ; padding:0px;}
+
 .resultList li #textBox {text-align:left; width:(100%-padding) ; height: 80px ; padding-left:5px; margin-top:5px; line-height:60px;}
-.resultList li #textBox #courseName {font-weight:bold; font-size:16px; line-height: 20px; padding-bottom:5px;}
+
+.resultList .courseTitle {width:250px; height:20px; margin-bottom:5px;padding:0px;}
+.resultList #courseName {position:absolute; font-weight:bold; font-size:16px; line-height: 20px;}
+.resultList .img-icons {float:right; width:50px; height:20px; margin:0px; padding:0px;}
+.resultList .img-icons .like-bookmark {vertical-align:top; margin:0px; padding:0px; width:20px; height:20px;}
+
 .resultList li #textBox #courseInfo {font-size:13px; color: gray; line-height: 20px;}
 .resultList li #textBox .newpost {width:20px; height:20px; vertical-align:bottom;}
 
