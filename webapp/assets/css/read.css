@@ -269,12 +269,16 @@ tr>#date, #up {
 	border-radius: 3px;
 }
 #reply_btn {
+	width: 50px;
+	height: 35px;
 	margin-left: 15px;
 	padding-top: 3px;
 	font-size: 10pt;
 	border: none;
+	border: solid 1px #000;
 	background-color: #fff;
 	color: #000;
+	border-radius: 3px;
 }
 .glyphicon glyphicon-open {
 	width: 300px;
