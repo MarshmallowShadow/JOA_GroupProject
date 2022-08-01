@@ -12,21 +12,21 @@
 /*--------------------------- 사진 편집 ----------------------------*/		
 .slider{
     width: 1200px;
-    height: 613px;
+    height: 800px;
     position: relative;
     overflow: hidden; /* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드 들이 보이지 않도록 가림 */
 }
 
 .slider img {
 	width: 1200px;
-	height: 613px;
+	height: 800px;
 }
 
 .slider input[type=radio]{
     display: none;
 }		
 
-/*사진 슬라이드*/		
+/*---------------------------- 사진 슬라이드 ----------------------------*/		
 ul.imgs{
     padding: 0;
     margin: 0;
@@ -108,14 +108,15 @@ ul.imgs li{
     z-index:1;
 }
 
-
-
-/*---------------------------- 메인 텍스트 -----------------------------*/
+/*---------------------------- 글귀 -----------------------------*/
 .main-text{
 	font-size: 14px;
 	color: rgb(117, 117, 117);
 	text-align: center;
-	padding-top : 90px;
-	padding-left: 13px;
-    padding-right: 13px;
+	padding: 90px 13px 70px;
+}
+
+.main-text span {
+	color: #3399ff;
+	font-weight: bold;
 }

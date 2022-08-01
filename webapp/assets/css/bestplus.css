@@ -38,12 +38,11 @@ table td {
 
 table td:hover {
 	background-color: #000000;
+	color: #fff;
 	font-weight: bold;
+	cursor: pointer;
 }
 
-table td a:hover {
-	color: #fff;
-}
 
 /* ------------- 종목테그 ------------- */
 .best-mini-list {
