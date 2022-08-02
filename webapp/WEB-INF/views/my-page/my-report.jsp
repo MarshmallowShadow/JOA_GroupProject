@@ -1,10 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의 코스 보기</title>
+<title>나의 기록들</title>
+
+<!-- CSS -->
 <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="../../../assets/css/my-page.css">
+
+<!-- jquery -->
+<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/my-page/my-page.js"></script>
+
+
 
 </head>
 <body>
