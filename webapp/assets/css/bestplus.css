@@ -105,7 +105,7 @@ table td:hover {
 /*--------------------- 이미지 ---------------------*/
 .img-list {
 	float: left;
-	padding-left: 10px;
+	padding-left: 30px;
 }
 
 .img-line img {
@@ -148,23 +148,30 @@ table td:hover {
 	border:1px solid rgb(101, 101, 101);
 	border-radius: 2px;
 	margin-top: 3px;
+	margin-left: 17px;
 	padding: 2px;
 }
 
-/* 후기 : _개 */
-#cbutton {
-	border: 1px solid rgb(50, 108, 249);
-	background-color: #ffffff;
-	float: left;
+/* 후기 좋아요 Total */
+.button-ttl {
+	margin-left: 20px;
+	padding-bottom: 30px;
 }
 
-#cbutton:hover {
-	font-weight: bold;
+/* 후기 : _개 */
+.button-ttl span {
+	float: left;
+	margin-top: 5px;
+}
+
+.button-ttl .imgbutton-text {
+	margin-left: 3px;
+	color: 진한 회색 rgb(101, 101, 101);
 }
 
 /* 좋아요 개수 */
 .imgbutton {
-	padding-bottom: 20px;	
+	margin-bottom: 20px;	
 }
 
 .imgbutton img {
