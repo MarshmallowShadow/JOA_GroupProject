@@ -6,10 +6,14 @@
 <!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../assets/css/course-view.css">
+<link href="../../../assets/css/lightbox.css" rel="stylesheet" />
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/course/view-record.js"></script>
+<!-- lightbox -->
+<script src="../../../assets/js/course/lightbox.js"></script>
 </head>
 <body>
 
@@ -99,7 +103,10 @@
 									</div>
 									
 									<div class="record-img">
-										<img src="../../../assets/image/course/img2.jpg" width="24px">
+										<!-- lightbox: 이미지 모달, data-lightbox의 이름을 똑같이 하면 이미지 세트로 묶임 -->
+										<a href="../../../assets/image/course/img2.jpg" data-lightbox="image-1">
+											<img class="recordImg" src="../../../assets/image/course/img2.jpg" width="24px">
+										</a>
 									</div>
 								</div>
 							</li>
@@ -123,7 +130,9 @@
 									</div>
 									
 									<div class="record-img">
-										<img src="../../../assets/image/course/img1.jpg" width="24px">
+										<a href="../../../assets/image/course/img1.jpg" data-lightbox="image-1">
+											<img class="recordImg" src="../../../assets/image/course/img1.jpg" width="24px">
+										</a>
 									</div>
 								</div>
 							</li>
@@ -147,7 +156,7 @@
 									</div>
 									
 									<div class="record-img">
-										<!-- <img src="../../../assets/image/course/img.jpg" width="24px"> -->
+										<!-- <img class="recordImg" src="../../../assets/image/course/img.jpg" width="24px"> -->
 									</div>
 								</div>
 							</li>
@@ -171,7 +180,7 @@
 									</div>
 									
 									<div class="record-img">
-										<!-- <img src="../../../assets/image/course/img.jpg" width="24px"> -->
+										<!-- <img class="recordImg" src="../../../assets/image/course/img.jpg" width="24px"> -->
 									</div>
 								</div>
 							</li>
@@ -195,7 +204,7 @@
 									</div>
 									
 									<div class="record-img">
-										<img src="../../../assets/image/course/img3.jpg" width="24px">
+										<img class="recordImg" src="../../../assets/image/course/img3.jpg" width="24px">
 									</div>
 								</div>
 							</li>
@@ -219,7 +228,7 @@
 									</div>
 									
 									<div class="record-img">
-										<img src="../../../assets/image/course/img3.jpg" width="24px">
+										<img class="recordImg" src="../../../assets/image/course/img3.jpg" width="24px">
 									</div>
 								</div>
 							</li>
@@ -290,6 +299,10 @@
 	</div>
 	
 </div>
+	
+
+	
+	
 	
 </body>
 </html>

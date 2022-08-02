@@ -142,7 +142,7 @@ input[type=radio] {display:none;}
 	position: relative;
 }
 
-/* ---------------------모달창 공통----------------------- */
+/* ---------------------모달창 공통(코스제목, 즐겨찾기)----------------------- */
 .modal-header {text-align: center;}
 .modal-header .modal-title {
 	font-size: 18px;
@@ -286,7 +286,7 @@ input[type=radio] {display:none;}
 .pink {background-color: rgb(255, 52, 120);}
 .blue {background-color: rgb(50, 108, 249);}
 /* 기록 사진 */
-.record-img img {
+.record-img .recordImg {
 	width: 24px;
 	height: 24px;
 	object-fit: cover;

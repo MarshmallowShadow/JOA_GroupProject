@@ -246,3 +246,14 @@ input[type="file"] {display: none;}
 	color: rgb(34,34,34);
 	text-align: center;
 }
+
+
+
+/* 사진추가 2 */
+.course-form #drop{
+    width: 100%;
+	height: 350px;
+	background-color: rgb(224, 224, 224);
+	padding: 10px;
+	overflow: auto;
+}

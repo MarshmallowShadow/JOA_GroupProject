@@ -1,4 +1,5 @@
 /*코스 정보 상세보기 js*/
+/*차트 https://www.chartjs.org/docs/latest/*/
 
 window.onload = function test() {
 	console.log("tq");
