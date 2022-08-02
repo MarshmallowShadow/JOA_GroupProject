@@ -10,6 +10,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/course/write-record.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -235,7 +236,25 @@
 			</table>
 		</div>
 		
-		<!-- 사진 등록 -->
+		<!-- 사진 등록 (드래그앤 드롭) -->
+		<div class="course-form">
+			<h2>사진 등록</h2>
+			
+			<div id="drop">
+				<div id="thumbnails">
+					<div id="course-pic">
+						<div id="pic-main">
+							<img id="photo-icon" src="../../../assets/image/course/photo.png">
+							<p class="pic-txt red">사진을 여기로 드래그 해주세요.</p>
+							<p class="pic-txt">코스와 관련된 사진을 등록해주세요.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 일반 사진 등록
 		<div class="course-form">
 			<h2>사진 등록</h2>
 			
@@ -247,7 +266,7 @@
 					<input type="file" id="input-file">
 				</div>
 			</div>
-		</div>
+		</div> -->
 		
 		
 		<div id="btn-wrap">

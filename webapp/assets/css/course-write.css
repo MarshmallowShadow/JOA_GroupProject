@@ -170,7 +170,65 @@ input[type="radio"]+label img {
 }
 
 /* -------------------사진등록----------------------- */
-/* 사진 없을때 */
+/* 사진추가 드래그앤 드롭 */
+
+.course-form #drop {
+    width: 100%;
+	height: 350px;
+	background-color: rgb(224, 224, 224);
+	padding: 10px;
+	overflow: auto;
+}
+/* 스크롤바 없애기 */
+.course-form #drop::-webkit-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	display: none; /* Chrome, Safari, Opera */
+}
+#thumbnails {margin: 15px;}
+#thumbnails #course-pic {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#thumbnails #course-pic #pic-main {
+	margin: auto;
+	background-color: yellow;
+	width: 250px;
+	height: 250px;
+	text-align: center;
+}
+#thumbnails #course-pic #pic-main p {
+	margin-top: 20px;
+}
+/* 추가된 사진 */
+#drop .pic-content {
+	width: 220px;
+	height: 145px;
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+#drop .pic-content > img {
+	width: 190px;
+	height: 140px;
+	object-fit: cover;
+	border: 3px solid rgb(255,255,255);
+}
+#drop .pic-content .close {
+	width: 29px;
+	height: 29px;
+	border-radius: 50%;
+	border: 3px solid rgb(255,255,255);
+	float: right;
+	background-color: rgb(255,255,255);
+}
+.red {color: rgb(239, 67, 81)};
+
+
+/* 사진 없을때
 .course-form #course-pic {
 	width: 100%;
 	height: 350px;
@@ -191,14 +249,14 @@ input[type="radio"]+label img {
 	display: block;
 	margin: 15px 0px 30px 0px;
 }
-/* 파일선택 버튼 가리기 */
+파일선택 버튼 가리기
 input[type="file"] {display: none;}
 .course-form #course-pic div label {
 	width: 123px;
 	line-height: 40px;
 }
 
-/* 사진 추가 했을때 */
+사진 추가 했을때
 .course-form #course-pic-add {
 	width: 100%;
 	height: 350px;
@@ -206,11 +264,11 @@ input[type="file"] {display: none;}
 	padding: 10px;
 	overflow: auto;
 }
-/* 스크롤바 없애기 */
+스크롤바 없애기
 #course-pic-add::-webkit-scrollbar {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
-	display: none; /* Chrome, Safari, Opera*/
+	-ms-overflow-style: none; IE and Edge
+	scrollbar-width: none; Firefox
+	display: none; Chrome, Safari, Opera
 }
 #course-pic-add .pic-list .pic-content {
 	width: 233px;
@@ -236,7 +294,7 @@ input[type="file"] {display: none;}
 	object-fit: cover;
 	border: 3px solid rgb(255,255,255);
 }
-/* 사진추가 버튼 */
+사진추가 버튼
 #course-pic-add .pic-list .pic-update {
 	width: 204px;
 	line-height: 145px;
@@ -245,15 +303,8 @@ input[type="file"] {display: none;}
 	background-color: rgb(216, 216, 216);
 	color: rgb(34,34,34);
 	text-align: center;
-}
+} */
 
 
 
-/* 사진추가 2 */
-.course-form #drop{
-    width: 100%;
-	height: 350px;
-	background-color: rgb(224, 224, 224);
-	padding: 10px;
-	overflow: auto;
-}
+
