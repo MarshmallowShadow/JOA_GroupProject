@@ -1,27 +1,41 @@
+/*코스 정보 상세보기 js*/
+
 window.onload = function test() {
 	console.log("tq");
 	
 	/*디폴트 - 종목별 그래프*/
-	event();
+	category();
 	
-	var graphs = document.getElementById("graphs");
-	$('input:radio[name="graph-choose"]').change(function() {
+	var charts = document.getElementById("charts");
+	$('input:radio[name="chart-choose"]').change(function() {
 		if($(this).val() === 'diffi') {
-			$('#myChart').remove();
-			$('#graphs').append('<canvas id="myChart"></canvas>');
+			$('#chart').remove();
+			$('#charts').append('<canvas id="chart"></canvas>');
 			difficult();
-		} else if($(this).val() === 'evt') {
-			$('#myChart').remove();
-			$('#graphs').append('<canvas id="myChart"></canvas>');
-			event();
+		} else if($(this).val() === 'category') {
+			$('#chart').remove();
+			$('#charts').append('<canvas id="chart"></canvas>');
+			category();
 		}
 	});
 	
+	/*코스제목 수정 버튼 클릭*/
+	$("#update-btn").on("click", function() {
+		//모달창 띄우기
+		$("#title-update").modal("show");
+	});
+	
+	
+	/*즐겨찾기 버튼 클릭*/
+	$("#bookmark").on("click", function() {
+		//모달창 띄우기
+		$("#bookmark-list").modal("show");
+	});
 	
 };
 
 /* 종목별 그래프 */
-function event() {
+function category() {
 	
 	const labels = [
 		'산책',
@@ -61,8 +75,8 @@ function event() {
 	    }
 	};
 	  
-	const myChart = new Chart(
-		document.getElementById('myChart'),
+	const chart = new Chart(
+		document.getElementById('chart'),
 		config
 	);
 }
@@ -109,8 +123,13 @@ function difficult() {
 	    }
 	};
 	  
-	const myChart = new Chart(
-		document.getElementById('myChart'),
+	const chart = new Chart(
+		document.getElementById('chart'),
 		config
 	);
 }
+
+
+
+
+

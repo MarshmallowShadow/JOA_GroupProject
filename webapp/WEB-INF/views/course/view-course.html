@@ -72,10 +72,10 @@
 						<h2><img src="../../../assets/image/best/cgold.jpg">코스제목</h2>
 						
 						<!-- 수정 버튼 -->
-						<a href=""><span class="glyphicon glyphicon-pencil"></span></a>
+						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
 						
 						<!-- 즐겨찾기 별 -->
-						<img class="right" alt="즐겨찾기" src="../../../assets/image/main/star.png">
+						<img class="right" id="bookmark" alt="즐겨찾기" src="../../../assets/image/main/star.png">
 						
 						<div class="article-info">
 							<span class="bold">박깜이</span>
@@ -121,17 +121,17 @@
 					<!-- 통계그래프 -->
 					<div class="record-status">
 						<h3>일기 작성 현황</h3>
-						<div class="graph-choose">
+						<div class="chart-choose">
 						
-							<input type="radio" name="graph-choose" id="event" value="evt" checked>
-							<label for="event">종목별</label>
+							<input type="radio" name="chart-choose" id="category" value="category" checked>
+							<label for="category">종목별</label>
 							
-							<input type="radio" name="graph-choose" id="difficulty" value="diffi">
+							<input type="radio" name="chart-choose" id="difficulty" value="diffi">
 							<label for="difficulty">난이도별</label>
 						</div>
 						
-						<div id="graphs">
-							<canvas id="myChart"></canvas>
+						<div id="charts">
+							<canvas id="chart"></canvas>
 							
 						</div>
 					</div>
@@ -178,27 +178,69 @@
 </div>
 <!-- wrap -->
 
+<!-- 코스제목 수정 모달창 -->
+<div class="modal" tabindex="-1" role="dialog" id="title-update">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">제목 수정</h5>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="title-update" value="원래 있던 제목">
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary">수정</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      </div>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
 
-<div class="modal fade" id="addModal">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">코스 제목 수정</h4>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<label class="form-text">코스 제목</label>
-					<input id="addModalContent" type="text" value="" >
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn" id="btnUpload">등록</button>
-			</div>
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
+<!-- 즐겨찾기 목록 선택 -->
+<div class="modal" tabindex="-1" role="dialog" id="bookmark-list">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<img alt="즐겨찾기" src="../../../assets/image/main/star.png">
+        <h5 class="modal-title">즐겨찾기 추가하기</h5>
+      </div>
+      <div class="modal-body">
+        
+        <div>
+        	<ul>
+        		<li>
+        			<div>
+        				<input type="checkbox" id="bookmark1" name="bookmark" value="">
+        				<label for="bookmark1">서울 근교 코스</label>
+        			</div>
+        		</li>
+        	
+        		<li>
+        			<div>
+        				<input type="checkbox" id="bookmark2" name="bookmark" value="">
+        				<label for="bookmark2">웃겨 자빠질 코스</label>
+        			</div>
+        		</li>
+        		
+        		<li>
+        			<div>
+        				<input type="checkbox" id="bookmark3" name="bookmark" value="">
+        				<label for="bookmark3">기어가는 코스</label>
+        			</div>
+        		</li>
+        		
+        	</ul>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary">추가</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      </div>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
 
 </body>
 
