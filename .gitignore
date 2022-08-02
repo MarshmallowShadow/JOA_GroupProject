@@ -1,6 +1,6 @@
 /build/
 /target/
 /bin/
-/.settings/org.eclipse.wst.common.project.facet.core.xml
+/.settings
 /.classpath
 /*.project
