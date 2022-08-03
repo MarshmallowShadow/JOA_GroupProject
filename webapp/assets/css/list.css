@@ -69,10 +69,24 @@
 	background-color: #fff;
 	border-radius: 3px;
 }
-.textbox {
-	padding-left: 820px;
+
+.top_aside {
+	padding-left: 300px;
 }
 
+/** 필터링 항목 **/
+#option {
+	width: 75px;
+	height: 30px;
+	margin-left: 750px;
+	
+}
+
+#textbox {
+	width: 230px;
+	height: 30px;
+	
+}
 /******************** 게시판 테이블 ********************/
 table {
 	width: 80%;
