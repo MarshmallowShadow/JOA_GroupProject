@@ -85,9 +85,9 @@
 						<tr>
 							<td>
 								<!-- 지도 영역 -->
-								<div id="map-wrap">
+								<div class="map-wrap">
 									<!-- 지도 -->
-									<div id="map" style="width:100%; height:500px;"></div>
+									<div id="map"></div>
 									
 									<!-- 지도 확대, 축소 컨트롤 -->
 									<div class="custom_zoomcontrol radius_border"> 
