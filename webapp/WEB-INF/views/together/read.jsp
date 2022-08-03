@@ -1,13 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../../../assets/css/together_read.css" rel="stylesheet" type="text/css">
+<title>함께하기 상세페이지</title>
+<!-- css -->
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/together_read.css" rel="stylesheet" type="text/css">
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
 </head>
 <body>
-
 
 	<div id="wrap">
 		<div id="header">
@@ -145,7 +153,6 @@
 		</div> <!-- footer -->
 	
 	</div><!-- wrap -->
-
 
 </body>
 </html>

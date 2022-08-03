@@ -54,10 +54,10 @@
 			
 			<div id="title_line">
 				<p id="title">제목</p>
-				<input type="text" id="titlebox">
+				<input type="text" id="titlebox" value="도림천 다녀오는 길">
 			</div>
 			
-			<div id="content_line"><input type="text" id="contentbox"></div>
+			<div id="content_line"><input type="text" id="contentbox" value="오늘 도림천 다녀오면서 저번에 같이 달리기했던 깜이님 만났어요!"></div>
 			
 			<div id="file_line">
 				<p id="file">파일선택</p>
@@ -82,7 +82,7 @@
 	
 	<div id="user_btn">
 		<button type="submit" id="cencle">취소</button>
-		<button type="submit" id="post">등록</button>
+		<button type="submit" id="post">수정</button>
 	</div>
 
 	<br><br><br><br><br><br><br>
