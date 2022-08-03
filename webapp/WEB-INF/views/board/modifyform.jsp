@@ -1,15 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 수정폼</title>
+<!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/writeForm.css" rel="stylesheet" type="text/css">
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
 </head>
 <body>
 
-
-	<div id="wrap">
+<div id="wrap">
 		<div id="header">
 			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
 			
@@ -34,7 +42,6 @@
 		
 		<div id="writebox">
 		
-			<!-- 글쓰기 옵션 항목 -->
 			<div id="option_line">
 				<p id="option">항목</p>
 				<select id="option_list">
@@ -45,28 +52,23 @@
 				</select>
 			</div>
 			
-			<!-- 제목 -->
 			<div id="title_line">
 				<p id="title">제목</p>
 				<input type="text" id="titlebox">
 			</div>
 			
-			<!-- 글내용 -->
 			<div id="content_line"><input type="text" id="contentbox"></div>
 			
-			<!-- 사진 첨부 -->
 			<div id="file_line">
-				<p id="file">사진첨부</p>
-				<input type="file" id="filebox" multiple="multiple">
+				<p id="file">파일선택</p>
+				<input type="file" id="filebox">
 			</div>
 			
-			<!-- 코스 선택 -->
 			<div id="course_line">
 				<p id="course">코스선택</p>
 				<button type="submit" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
 			</div>
 			
-			<!-- 함께하기 선택 -->
 			<div id="together_line">
 				<p id="together">함께하기</p>
 				<button type="submit" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
@@ -107,7 +109,6 @@
 		<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
 
 	</div> <!-- footer -->
-
 
 </body>
 </html>
