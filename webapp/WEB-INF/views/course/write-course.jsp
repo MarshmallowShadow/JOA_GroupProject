@@ -13,6 +13,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -42,6 +43,7 @@
 	
 	<!-- content -->
 	<div id="content">
+		
 		<!-- 타이틀 -->
 		<div>
 			<h1 id="title">코스 등록하기</h1>
@@ -70,10 +72,10 @@
 								<span class="glyphicon glyphicon-info-sign"></span>
 								주소를 검색하면 아래에 지도가 표시됩니다.
 							</p>
-							<form class="address-form">
+							<div class="address-form">
 								<input type="text" name="address">
 								<button type="button" id="address-btn">주소검색</button>
-							</form>
+							</div>
 						</td>
 					</tr>
 					
@@ -86,111 +88,116 @@
 					</tr>
 				</table>
 			</div>
-		<!-- course-select -->
-		
-		<!-- 코스정보 -->
-			<div class="course-content">
-				<h2>코스 정보</h2>
-				
-				<table>
-				
-					<colgroup>
-						<col width="150px">
-						<col width="100%">
-					</colgroup>
+			<!-- course-select -->
+			
+				<!-- 코스정보 -->
+				<div class="course-content">
+					<h2>코스 정보</h2>
 					
-					<tbody>
-					
-						<!-- 코스 이름 -->
-						<tr>
-							<th>코스 이름</th>
-							<td><input type="text" class="txt-long"  name="title"></td>
-						</tr>
+					<form id="courseForm" method="get" action="./courseWrite">
+						<table>
 						
-						<!-- 종목 -->
-						<tr>
-							<th>종목</th>
-							<td>
-								<input type="radio" name="course-cate" id="walk" checked>
-								<label for="walk">산책</label>
+							<colgroup>
+								<col width="150px">
+								<col width="100%">
+							</colgroup>
+							
+							<tbody>
+							
+								<!-- 코스 이름 -->
+								<tr>
+									<th>코스 이름</th>
+									<td><input type="text" class="txt-long"  name="title"></td>
+								</tr>
 								
-								<input type="radio" name="course-cate" id="jogging">
-								<label for="jogging">조깅</label>
-								
-								<input type="radio" name="course-cate" id="running">
-								<label for="running">러닝</label>
-								
-								<input type="radio" name="course-cate" id="marathon">
-								<label for="marathon">마라톤</label>
-								
-								<input type="radio" name="course-cate" id="bicycle">
-								<label for="bicycle">자전거</label>
-								
-								<input type="radio" name="course-cate" id="draw">
-								<label for="draw">그림</label>
-								
-							</td>
-						</tr>
-						
-						<!-- 거리 -->
-						<tr>
-							<th>거리</th>
-							<td>
-								<div>
-									<input type="text" class="txt-short" name="distance" value="">
-	
-									<input type="radio" name="distance-unit" id="km" checked>
-									<label for="km">km</label>
-									
-									<input type="radio" name="distance-unit" id="m">
-									<label for="m">m</label>
+								<!-- 종목 -->
+								<tr>
+									<th>종목</th>
+									<td>
+										<input type="radio" name="course-cate" id="walk" checked>
+										<label for="walk">산책</label>
 										
-								</div>
-							</td>
-						</tr>
-						
-						<!-- 예상 시간 -->
-						<tr>
-							<th>예상 시간</th>
-							<td>
-								<input type="text" class="txt-short" name="time-ho" value="">
-								<p>시간</p>
-								<input type="text" class="txt-short" name="time-mi" value="">
-								<p>분</p>
-							</td>
-						</tr>
-						
-						<!-- 예상 난이도 -->
-						<tr>
-							<th>예상 난이도</th>
-							<td>
-								<input type="radio" name="difficulty" id="easy" checked>
-								<label for="easy">쉬움</label>
+										<input type="radio" name="course-cate" id="jogging">
+										<label for="jogging">조깅</label>
+										
+										<input type="radio" name="course-cate" id="running">
+										<label for="running">러닝</label>
+										
+										<input type="radio" name="course-cate" id="marathon">
+										<label for="marathon">마라톤</label>
+										
+										<input type="radio" name="course-cate" id="bicycle">
+										<label for="bicycle">자전거</label>
+										
+										<input type="radio" name="course-cate" id="draw">
+										<label for="draw">그림</label>
+										
+									</td>
+								</tr>
 								
-								<input type="radio" name="difficulty" id="nomal">
-								<label for="nomal">보통</label>
+								<!-- 거리 -->
+								<tr>
+									<th>거리</th>
+									<td>
+										<div>
+											<input type="text" class="txt-short" name="distance" value="">
+			
+											<input type="radio" name="distance-unit" id="km" checked>
+											<label for="km">km</label>
+											
+											<input type="radio" name="distance-unit" id="m">
+											<label for="m">m</label>
+												
+										</div>
+									</td>
+								</tr>
 								
-								<input type="radio" name="difficulty" id="hard">
-								<label for="hard">어려움</label>
-							</td>
-						</tr>
-						
-						<!-- 코스 공개여부 -->
-						<tr>
-							<th>코스 공개여부</th>
-							<td>
-								<input type="radio" name="open-status" id="open" checked>
-								<label for="open">공개</label>
+								<!-- 예상 시간 -->
+								<tr>
+									<th>예상 시간</th>
+									<td>
+										<input type="text" class="txt-short" name="time-ho" value="">
+										<p>시간</p>
+										<input type="text" class="txt-short" name="time-mi" value="">
+										<p>분</p>
+									</td>
+								</tr>
 								
-								<input type="radio" name="open-status" id="close">
-								<label for="close">비공개</label>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+								<!-- 예상 난이도 -->
+								<tr>
+									<th>예상 난이도</th>
+									<td>
+										<input type="radio" name="difficulty" id="easy" checked>
+										<label for="easy">쉬움</label>
+										
+										<input type="radio" name="difficulty" id="nomal">
+										<label for="nomal">보통</label>
+										
+										<input type="radio" name="difficulty" id="hard">
+										<label for="hard">어려움</label>
+									</td>
+								</tr>
+								
+								<!-- 코스 공개여부 -->
+								<tr>
+									<th>코스 공개여부</th>
+									<td>
+										<input type="radio" name="open-status" id="open" value="open" checked>
+										<label for="open">공개</label>
+										
+										<input type="radio" name="open-status" id="close" value="close">
+										<label for="close">비공개</label>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<!-- course-content -->
+				
 			</div>
-		</div>
-		<!-- course-info -->
+			<!-- course-form -->
+		
 		
 		<!-- 하단 버튼 영역 -->
 		<div id="btn-wrap">
