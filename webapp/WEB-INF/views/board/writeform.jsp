@@ -7,19 +7,19 @@
 <meta charset="UTF-8">
 <title>게시판 글쓰기폼</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../../../assets/css/writeForm.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/writeForm.css" rel="stylesheet" type="text/css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
 </head>
 <body>
 
 	<div id="wrap">
 		<div id="header">
-			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
 			
 			<div id="login">
 				<ul>

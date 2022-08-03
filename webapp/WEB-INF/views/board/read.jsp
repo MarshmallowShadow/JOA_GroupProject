@@ -7,19 +7,19 @@
 <meta charset="UTF-8">
 <title>게시판 상세페이지</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../../../assets/css/read.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/read.css" rel="stylesheet" type="text/css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
 </head>
 <body>
 
 	<div id="wrap">
 		<div id="header">
-			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
 			
 			<div id="login">
 				<ul>
@@ -64,7 +64,7 @@
 							<td>
 								<!-- 
 								<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-									<div class="course-icon"><img src="../../../assets/image/map/map-icon.jpg"></div>
+									<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
 									<div class="course-info">
 										<h3 class="course-title">헬 ^^</h3>
 										<p class="p-info">
@@ -85,7 +85,7 @@
 												<th class="line_top">2022/07/24 - 2022/07/30</th>
 												<th class="mark">
 													<button class="bookmark">
-														<img id="image" src="../../../assets/image/together/bookmarks_black.png">
+														<img id="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
 													</button>
 												</th>
 											</tr>
@@ -110,8 +110,8 @@
 						</tr>
 						<tr>
 							<td>
-								<img class="image" src="../../../assets/image/board/window.jpg">
-								<img class="image" src="../../../assets/image/board/flower.jpg">
+								<img class="image" src="${pageContext.request.contextPath}/assets/image/board/window.jpg">
+								<img class="image" src="${pageContext.request.contextPath}/assets/image/board/flower.jpg">
 							</td>
 						</tr>
 					</tbody>

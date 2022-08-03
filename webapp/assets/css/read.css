@@ -261,17 +261,17 @@ tr>#date, #up {
 	margin-bottom: 35px;
 }
 #replybox {
-	width: 1115px;
+	width: 86%;
 	height: 35px;
-	margin-left: 10px;
+	margin-left: 35px;
 	margin-bottom: 25px;
 	border: solid 1px #c0c0c0;
 	border-radius: 3px;
 }
 #reply_btn {
-	width: 50px;
+	width: 63px;
 	height: 35px;
-	margin-left: 15px;
+	margin-left: 17px;
 	padding-top: 3px;
 	font-size: 10pt;
 	border: none;
