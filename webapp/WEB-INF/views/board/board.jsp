@@ -1,10 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 리스트</title>
+<!-- css -->
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/board.css" rel="stylesheet" type="text/css">
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
 </head>
 <body>
 
@@ -214,7 +223,6 @@
 		<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
 
 	</div> <!-- footer -->
-	
 
 </body>
 </html>
