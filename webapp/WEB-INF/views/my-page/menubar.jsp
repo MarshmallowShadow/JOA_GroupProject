@@ -48,34 +48,33 @@
 				<div class="menu1">
 					<ol>
 						<li id="mypage">
-							<a href="./main.html">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></a>
+							<a href="${pageContext.request.contextPath}/my-page">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></a>
 						</li>
-						<li id="bookmark-btn">
-							<a href=""><img class="menuBar-close" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
+						<li class="menuBar-close">
+							<a href=""><img class="menuBar-close-btn" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
 						</li>
-						<li id="menuList"><a href="./my-course.html">나의 코스 보기</a></li>
-						<li id="menuList"><a href="./my-report.html">나의 기록 보기</a></li>
-						<li class="hello">Hello</li>
+						<li id="menuList"><a href="${pageContext.request.contextPath}/my-page/my-course">나의 코스 보기</a></li>
+						<li id="menuList"><a href="${pageContext.request.contextPath}/my-page/my-report">나의 기록 보기</a></li>
 					</ol>
 				</div>
 				
 				<div class="menu2">
 					<ol>
-						<li id="bookmark"><a href="./bookmark.html">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
+						<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
 						<li class="bookmark-btn">
 							<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
 							<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 						</li>
 						<li id="menuList">
-							<a href="./bookmark-ex.html">서울 근교 코스 </a>
+							<a href="${pageContext.request.contextPath}/my-page/bookmark/01">서울 근교 코스 </a>
 							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">				
 						</li>
 						<li id="menuList">
-							<a href="">웃겨 자빠질 코스</a>
+							<a href="${pageContext.request.contextPath}/my-page/bookmark/01">웃겨 자빠질 코스</a>
 							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
 						</li>
 						<li id="menuList">
-							<a href="">기어가는 코스</a>
+							<a href="${pageContext.request.contextPath}/my-page/bookmark/01">기어가는 코스</a>
 							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
 						</li>
 					</ol>
@@ -123,7 +122,7 @@
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
-<div class="category-add-del">
+<div class="category-del-btn">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -159,7 +158,6 @@
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h4 class="modal-title">카테고리 이름 변경</h4>
-      <!-- <h3 class="modal-title">새로운 목록을 만들어 주세요.</h3> -->
     </div>
     <div class="modal-body">
       <input type="text" placeholder="카테고리 기존 이름">
