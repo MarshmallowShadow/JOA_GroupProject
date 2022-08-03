@@ -9,11 +9,14 @@
 <!-- css -->
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-map.css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a3870909543cc9a79f21eb4b20d2598"></script>
 </head>
 <body>
 <div id="wrap">
@@ -79,11 +82,19 @@
 							</td>
 						</tr>
 						
-						<!-- 지도영역 -->
 						<tr>
 							<td>
-								<!-- 지도 -->
-								<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" height="615px">
+								<!-- 지도 영역 -->
+								<div id="map-wrap">
+									<!-- 지도 -->
+									<div id="map" style="width:100%; height:500px;"></div>
+									
+									<!-- 지도 확대, 축소 컨트롤 -->
+									<div class="custom_zoomcontrol radius_border"> 
+								        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+								        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+								    </div>
+								</div>
 							</td>
 						</tr>
 					</table>
