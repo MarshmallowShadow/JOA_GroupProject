@@ -5,10 +5,7 @@ $(document).ready(function(){
     $(".category-del-btn").hide();
     $(".category-modify-btn").hide();
     
-    $(".hello").click(function(){
-		$(".hello").hide();
-	});
-	
+    
 	
 	$(".plus-btn").click(function(){
       console.log("카테고리추가");

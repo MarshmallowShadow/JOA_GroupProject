@@ -240,7 +240,7 @@
 								</div>
 								<p id="courseInfo">고길동</p>
 								<p id="courseInfo">조회수2 * 22.06.30</p>
-								<p id="courseInfo">후기글3 &nbsp;<img class="newpost" src="../../../assets/image/main/new.png"></p>
+								<p id="courseInfo">후기글3 &nbsp;<img class="newpost" src="${pageContext.request.contextPath}/assets/image/main/new.png"></p>
 						  	</div>
 						</div>
 					</li>
