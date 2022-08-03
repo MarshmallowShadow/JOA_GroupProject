@@ -8,17 +8,13 @@
 <title>마이페이지 메뉴</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="../../../assets/css/my-page.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
 <!-- jquery -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/my-page/my-page.js"></script>
-
-
-<!-- js -->
-<script type="text/javascript" src="../../../assets/js/my-page/menubar"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/my-page.js"></script> --%>
 
 
 </head>
@@ -27,7 +23,7 @@
 		
 		<!--메인 해더 자리 -->
 		<div id="header">
-			<img id="logo" src="../../../assets/image/main/logo.jpg">
+			<img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg">
 			
 			<div id="login">
 				<ul>
@@ -53,10 +49,10 @@
 				<div class="menu1">
 					<ol>
 						<li id="mypage">
-							<a href="./main.html">마이페이지 <img class="myHome" src="../../../assets/image/my-page/house.png"></a>
+							<a href="./main.html">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></a>
 						</li>
 						<li id="bookmark-btn">
-							<a href=""><img class="menuBar-close" src="../../../assets/image/my-page/menu.png"></a>
+							<a href=""><img class="menuBar-close" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
 						</li>
 						<li id="menuList"><a href="./my-course.html">나의 코스 보기</a></li>
 						<li id="menuList"><a href="./my-report.html">나의 기록 보기</a></li>
@@ -65,29 +61,29 @@
 				
 				<div class="menu2">
 					<ol>
-						<li id="bookmark"><a href="./bookmark.html">즐겨찾기 <img class="bmStar" src="../../../assets/image/my-page/star.png"></a></li>
+						<li id="bookmark"><a href="./bookmark.html">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
 						<li id="bookmark-btn">
-							<img class="plus-btn" src="../../../assets/image/my-page/plus.png">&nbsp; 
-							<img class="minus-btn" src="../../../assets/image/my-page/minus.png">
+							<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
+							<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 						</li>
 						<li id="menuList">
 							<a href="./bookmark-ex.html">서울 근교 코스 </a>
-							<img class="editName" src="../../../assets/image/my-page/edit.png">				
+							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">				
 						</li>
 						<li id="menuList">
 							<a href="">웃겨 자빠질 코스</a>
-							<img class="editName" src="../../../assets/image/my-page/edit.png">
+							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
 						</li>
 						<li id="menuList">
 							<a href="">기어가는 코스</a>
-							<img class="editName" src="../../../assets/image/my-page/edit.png">
+							<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
 						</li>
 					</ol>
 				</div>
 				
 				<div class="menu3">
 					<ol>
-						<li id="members"><p><a href="">회원정보수정 <img id="setting" src="../../../assets/image/my-page/setting.png"></a></p></li>
+						<li id="members"><p><a href="">회원정보수정 <img id="setting" src="${pageContext.request.contextPath}/assets/image/my-page/setting.png"></a></p></li>
 					</ol>
 				</div>
 			</div>
