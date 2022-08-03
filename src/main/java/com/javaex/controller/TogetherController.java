@@ -17,7 +17,7 @@ public class TogetherController {
 	}
 	
 	//함께하기 글쓰기폼
-	@RequestMapping(value="/writeform", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/together-writeform", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeform() {
 		
 		 System.out.println("TogetherController > writeform");
@@ -26,7 +26,7 @@ public class TogetherController {
 	}
 	
 	//함께하기 상세페이지
-	@RequestMapping(value="/read", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/together-read", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read() {
 		
 		 System.out.println("TogetherController > read");
