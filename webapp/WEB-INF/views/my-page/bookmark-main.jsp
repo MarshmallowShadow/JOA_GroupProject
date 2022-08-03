@@ -72,8 +72,8 @@
 				<p id="listTitle"></p>
 				<ol>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg"  style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">신나는 코스</p>
@@ -89,8 +89,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg"  style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">오예</p>
@@ -106,8 +106,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg"  style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">깐따삐야 가는 길</p>
@@ -123,8 +123,8 @@
 					  	</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg"  style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">집에 가자</p>
@@ -142,8 +142,8 @@
 					
 					
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">신나는 코스</p>
@@ -159,8 +159,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">오호</p>
@@ -176,8 +176,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">깐따삐야 가는 길</p>
@@ -193,8 +193,8 @@
 					  	</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">집에 가는 길</p>
@@ -211,8 +211,8 @@
 					</li>
 					
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">신나는 코스</p>
@@ -228,8 +228,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">우이씨</p>
@@ -245,8 +245,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">깐따삐야 가는 길</p>
@@ -262,8 +262,8 @@
 					  	</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">밥먹으러 가는 길 </p>
@@ -281,8 +281,8 @@
 					
 					
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">재밌는 길</p>
@@ -298,8 +298,8 @@
 						</div>
 					</li>
 					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						<div class="listBox">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg" style="cursor: pointer;" onclick="window.location='';">
 						  	<div id="textBox">
 								<div class="courseTitle">
 									<p id="courseName">나만 아는 길</p>
@@ -335,7 +335,7 @@
 
 
 <!-- 좋아요 해제 모달!! ************************************************************************************* -->
-<div class="dislike-modal">
+<div class="course-like-cancel">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -356,7 +356,7 @@
 <!-- 좋아요 해제 모달 끝!! ************************************************************************************* -->
 
 <!-- 즐겨찾기 해제 모달!! ************************************************************************************* -->
-<div class="bye-bookmark-modal">
+<div class="course-bookmark-cancel">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

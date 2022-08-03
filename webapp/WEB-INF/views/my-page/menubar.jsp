@@ -102,10 +102,12 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">즐겨찾기 추가</h4>
-        <h3 class="modal-title">새로운 목록을 만들어 주세요.</h3>
+        <br>
+        <h2 class="modal-title">새로운 목록을 만들어 주세요.</h2>
       </div>
       <div class="modal-body">
-        <p>새 즐겨찾기 이름</p>
+        <p>새 목록 이름</p>
+        <br>
         <input type="text" placeholder="즐겨찾기 이름을 입력하세요">
       </div>
       <div class="modal-footer">
@@ -118,7 +120,6 @@
 
 
 
-
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
@@ -128,6 +129,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">즐겨찾기 삭제</h4>
+        <br>
         <h3 class="modal-title">삭제할 목록을 선택해 주세요.</h3>
       </div>
       <div class="modal-body">
@@ -137,6 +139,8 @@
         	<option>즐겨찾기3</option>
         	<option>으아아아앙</option>
         </select>
+        <br>
+        <br>
         <p>목록을 삭제할 경우,<br>목록 안의 내용들도 삭제됩니다!!</p>
       </div>
       <div class="modal-footer">
@@ -157,10 +161,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">카테고리 이름 변경</h4>
+      <h4 class="modal-title">즐겨찾기 목록 이름 변경</h4>
     </div>
     <div class="modal-body">
-      <input type="text" placeholder="카테고리 기존 이름">
+    	<p>목록의 이름을 변경해주세요.</p>
+    	<br>
+    	<input type="text" placeholder="카테고리 기존 이름">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
