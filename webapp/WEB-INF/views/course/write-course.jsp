@@ -7,19 +7,19 @@
 <meta charset="UTF-8">
 <title>코스 등록</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course-write.css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <div id="wrap">
 	
 	<!-- 헤더 -->
 	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+		<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
 		
 		<div id="login">
 			<ul>
@@ -81,7 +81,7 @@
 					<tr>
 						<td>
 							<!-- 지도 -->
-							<img src="../../../assets/image/course/map.jpg" height="615px">
+							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" height="615px">
 						</td>
 					</tr>
 				</table>
@@ -104,29 +104,29 @@
 						<!-- 코스 이름 -->
 						<tr>
 							<th>코스 이름</th>
-							<td><input type="text" class="txt-long"  name="courseName"></td>
+							<td><input type="text" class="txt-long"  name="title"></td>
 						</tr>
 						
 						<!-- 종목 -->
 						<tr>
 							<th>종목</th>
 							<td>
-								<input type="radio" name="events" id="walk" checked>
+								<input type="radio" name="course-cate" id="walk" checked>
 								<label for="walk">산책</label>
 								
-								<input type="radio" name="events" id="jogging">
+								<input type="radio" name="course-cate" id="jogging">
 								<label for="jogging">조깅</label>
 								
-								<input type="radio" name="events" id="running">
+								<input type="radio" name="course-cate" id="running">
 								<label for="running">러닝</label>
 								
-								<input type="radio" name="events" id="marathon">
+								<input type="radio" name="course-cate" id="marathon">
 								<label for="marathon">마라톤</label>
 								
-								<input type="radio" name="events" id="bicycle">
+								<input type="radio" name="course-cate" id="bicycle">
 								<label for="bicycle">자전거</label>
 								
-								<input type="radio" name="events" id="draw">
+								<input type="radio" name="course-cate" id="draw">
 								<label for="draw">그림</label>
 								
 							</td>
@@ -137,12 +137,12 @@
 							<th>거리</th>
 							<td>
 								<div>
-									<input type="text" class="txt-short">
+									<input type="text" class="txt-short" name="distance" value="">
 	
-									<input type="radio" name="distance" id="km" checked>
+									<input type="radio" name="distance-unit" id="km" checked>
 									<label for="km">km</label>
 									
-									<input type="radio" name="distance" id="m">
+									<input type="radio" name="distance-unit" id="m">
 									<label for="m">m</label>
 										
 								</div>
@@ -153,9 +153,9 @@
 						<tr>
 							<th>예상 시간</th>
 							<td>
-								<input type="text" class="txt-short">
+								<input type="text" class="txt-short" name="time-ho" value="">
 								<p>시간</p>
-								<input type="text" class="txt-short">
+								<input type="text" class="txt-short" name="time-mi" value="">
 								<p>분</p>
 							</td>
 						</tr>
@@ -164,13 +164,13 @@
 						<tr>
 							<th>예상 난이도</th>
 							<td>
-								<input type="radio" name="level" id="easy" checked>
+								<input type="radio" name="difficulty" id="easy" checked>
 								<label for="easy">쉬움</label>
 								
-								<input type="radio" name="level" id="nomal">
+								<input type="radio" name="difficulty" id="nomal">
 								<label for="nomal">보통</label>
 								
-								<input type="radio" name="level" id="hard">
+								<input type="radio" name="difficulty" id="hard">
 								<label for="hard">어려움</label>
 							</td>
 						</tr>
@@ -194,8 +194,8 @@
 		
 		<!-- 하단 버튼 영역 -->
 		<div id="btn-wrap">
-			<a href="" class="cancel">취소</a>
-			<a href="./view-course.html" class="add">코스 등록</a>
+			<button class="cancel">취소</button>
+			<button type="submit" class="add">코스 등록</button>
 		</div>
 		
 	</div>

@@ -42,7 +42,7 @@ $(document).ready(function() {
 				$("#course-pic").remove();
 					
 				var div = '<div class="pic-content"> \
-							<div class="close" data-idx="' + idx + '"><img src="../../../assets/image/course/pic-cancel.png"></div> \
+							<div class="close" data-idx="' + idx + '"><img src="${pageContext.request.contextPath }/assets/image/course/pic-cancel.png"></div> \
 							<img src="' + e.target.result + '" title="' + escape(f.name) + '"/> \
 						</div>';
 				$("#thumbnails").append(div);

@@ -102,7 +102,7 @@ input[name="address"] {width: 89%;}
 	color: rgb(255, 255, 255);
 }
 /* 흰색 버튼 */
-input[type="radio"]+label, #btn-wrap>a{
+input[type="radio"]+label, #btn-wrap>button{
 	padding: 0px 15px;
 	color: rgb(102, 102, 102);
 	border: 1px solid rgb(217, 217, 217);
@@ -131,7 +131,7 @@ input[type="radio"]+label img {
 
 /* 하단 버튼 */
 #btn-wrap {text-align: center;}
-#btn-wrap>a {
+#btn-wrap>button {
 	width: 160px;
 	line-height: 50px;
 	font-size: 15px;

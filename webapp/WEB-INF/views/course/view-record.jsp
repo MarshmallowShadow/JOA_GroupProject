@@ -7,16 +7,16 @@
 <meta charset="UTF-8">
 <title>코스기록 상세보기</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../assets/css/course-view.css">
-<link href="../../../assets/css/lightbox.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath }/assets/css/lightbox.css" rel="stylesheet" />
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/course/view-record.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-record.js"></script>
 <!-- lightbox -->
-<script src="../../../assets/js/course/lightbox.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/course/lightbox.js"></script>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 
 	<!-- 헤더 -->
 	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+		<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
 		
 		<div id="login">
 			<ul>
@@ -53,7 +53,7 @@
 			<!-- 지도 영역 -->
 			<div id="map">
 				<!-- 지도 -->
-				<img src="../../../assets/image/course/map.jpg" width="100%">
+				<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" width="100%">
 			</div>
 			
 			
@@ -92,13 +92,13 @@
 									<div class="record-txt">
 										<div class="record-content">
 											<span class="record">
-												<span class="bold"><img src="../../../assets/image/course/footprint.png" width="12px">박깜이</span>
+												<span class="bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
 												<span>즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~</span>
 											</span>
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/sun.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></span>
 											<span>20℃</span>
 											<span class="box blue">산책</span>
 											<span class="box pink">어려움</span>
@@ -107,8 +107,8 @@
 									
 									<div class="record-img">
 										<!-- lightbox: 이미지 모달, data-lightbox의 이름을 똑같이 하면 이미지 세트로 묶임 -->
-										<a href="../../../assets/image/course/img2.jpg" data-lightbox="image-1">
-											<img class="recordImg" src="../../../assets/image/course/img2.jpg" width="24px">
+										<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
+											<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img2.jpg" width="24px">
 										</a>
 									</div>
 								</div>
@@ -125,7 +125,7 @@
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/cloud.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></span>
 											<span>20℃</span>
 											<span class="box blue">러닝</span>
 											<span class="box pink">어려움</span>
@@ -134,7 +134,7 @@
 									
 									<div class="record-img">
 										<a href="../../../assets/image/course/img1.jpg" data-lightbox="image-1">
-											<img class="recordImg" src="../../../assets/image/course/img1.jpg" width="24px">
+											<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img1.jpg" width="24px">
 										</a>
 									</div>
 								</div>
@@ -151,7 +151,7 @@
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/moon.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></span>
 											<span>20℃</span>
 											<span class="box blue">마라톤</span>
 											<span class="box pink">쉬움</span>
@@ -169,13 +169,13 @@
 									<div class="record-txt">
 										<div class="record-content">
 											<span class="record">
-												<span class="name bold"><img src="../../../assets/image/course/footprint.png" width="12px">박깜이</span>
+												<span class="name bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
 												<span>즐겁게 뛰었던 코스~</span>
 											</span>
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/rain.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></span>
 											<span>20℃</span>
 											<span class="box blue">산책</span>
 											<span class="box pink">어려움</span>
@@ -199,7 +199,7 @@
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/snow.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></span>
 											<span>20℃</span>
 											<span class="box blue">산책</span>
 											<span class="box pink">어려움</span>
@@ -223,7 +223,7 @@
 										</div>
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
-											<span><img src="../../../assets/image/course/snow.png"></span>
+											<span><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></span>
 											<span>20℃</span>
 											<span class="box blue">산책</span>
 											<span class="box pink">어려움</span>
@@ -231,7 +231,7 @@
 									</div>
 									
 									<div class="record-img">
-										<img class="recordImg" src="../../../assets/image/course/img3.jpg" width="24px">
+										<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img3.jpg" width="24px">
 									</div>
 								</div>
 							</li>
@@ -241,7 +241,7 @@
 									<div class="record-txt">
 										<div class="record-content">
 											<span class="record">
-												<span class="bold"><img src="../../../assets/image/course/footprint.png" width="12px">박깜이</span>
+												<span class="bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
 												<span></span>
 											</span>
 										</div>
@@ -267,7 +267,7 @@
 					<div id="course-info-btn">
 						<a href="./write-record.html" class="link-btn">기록 작성하기</a>
 						<a class="like-btn">
-							<img src="../../../assets/image/main/heart-off.png">
+							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
 							<span>0</span>
 						</a>
 					</div>

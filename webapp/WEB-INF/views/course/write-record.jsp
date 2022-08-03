@@ -7,20 +7,20 @@
 <meta charset="UTF-8">
 <title>기록 작성</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course-write.css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/course/write-record.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
 </head>
 <body>
 <div id="wrap">
 
 	<!-- 헤더 -->
 	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+		<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
 		
 		<div id="login">
 			<ul>
@@ -117,7 +117,7 @@
 					
 						<!-- 지도 -->
 						<div id="map">
-							<img src="../../../assets/image/course/map.jpg">
+							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg">
 						</div>
 					</td>
 				</tr>
@@ -154,19 +154,19 @@
 					<td>
 						<div class="course-radio">
 							<input type="radio" name="weather" id="sun" checked>
-							<label for="sun"><img src="../../../assets/image/course/sun.png"></label>
+							<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
 							
 							<input type="radio" name="weather" id="moon">
-							<label for="moon"><img src="../../../assets/image/course/moon.png"></label>
+							<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
 							
 							<input type="radio" name="weather" id="cloud">
-							<label for="cloud"><img src="../../../assets/image/course/cloud.png"></label>
+							<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
 							
 							<input type="radio" name="weather" id="rain">
-							<label for="rain"><img src="../../../assets/image/course/rain.png"></label>
+							<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
 							
 							<input type="radio" name="weather" id="snow">
-							<label for="snow"><img src="../../../assets/image/course/snow.png"></label>
+							<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
 						</div>
 					</td>
 					
@@ -247,7 +247,7 @@
 				<div id="thumbnails">
 					<div id="course-pic">
 						<div id="pic-main">
-							<img id="photo-icon" src="../../../assets/image/course/photo.png">
+							<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
 							<p class="pic-txt red">사진을 여기로 드래그 해주세요.</p>
 							<p class="pic-txt">코스와 관련된 사진을 등록해주세요.</p>
 						</div>

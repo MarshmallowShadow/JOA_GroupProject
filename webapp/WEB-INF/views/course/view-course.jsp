@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>코스 정보 상세보기</title>
 <!-- css -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../assets/css/course-view.css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-view.css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-course.js"></script>
 <!-- 차트 api -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -22,7 +22,7 @@
 <div id="wrap">
 
 	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+		<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
 		
 		<div id="login">
 			<ul>
@@ -51,7 +51,7 @@
 			<!-- 지도 영역 -->
 			<div id="map">
 				<!-- 지도 -->
-				<img src="../../../assets/image/course/map.jpg" width="100%">
+				<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" width="100%">
 			</div>
 			
 			
@@ -72,13 +72,13 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2><img src="../../../assets/image/best/cgold.jpg">코스제목</h2>
+						<h2><img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg">코스제목</h2>
 						
 						<!-- 수정 버튼 -->
 						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
 						
 						<!-- 즐겨찾기 별 -->
-						<img class="right" id="bookmark" alt="즐겨찾기" src="../../../assets/image/main/star.png">
+						<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
 						
 						<div class="article-info">
 							<span class="bold">박깜이</span>
@@ -89,7 +89,7 @@
 						
 						<div class="article-container">
 							<div class="left">
-								<img alt="산책" src="../../../assets/image/course/walk.png">
+								<img alt="산책" src="${pageContext.request.contextPath }/assets/image/course/walk.png">
 								<span>산책</span>
 								
 								<!-- <img alt="조깅" src="../../../assets/image/course/jog.png">
@@ -105,17 +105,17 @@
 							</div>
 							
 							<div class="right">
-								<img alt="시간" src="../../../assets/image/course/time.png">
+								<img alt="시간" src="${pageContext.request.contextPath }/assets/image/course/time.png">
 								<span>30분</span>
 							</div>
 							
 							<div class="left">
-								<img alt="거리" src="../../../assets/image/course/distance.png">
+								<img alt="거리" src="${pageContext.request.contextPath }/assets/image/course/distance.png">
 								<span>2 km</span>
 							</div>
 							
 							<div class="right">
-								<img alt="난이도" src="../../../assets/image/course/difficulty.png">
+								<img alt="난이도" src="${pageContext.request.contextPath }/assets/image/course/difficulty.png">
 								<span>어려움</span>
 							</div>
 						</div>
@@ -143,7 +143,7 @@
 					<div id="course-info-btn">
 						<a href="../board/board.html" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
-							<img src="../../../assets/image/main/heart-off.png">
+							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
 							<span>0</span>
 						</a>
 					</div>
@@ -205,7 +205,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      	<img alt="즐겨찾기" src="../../../assets/image/main/star.png">
+      	<img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 추가하기</h5>
       </div>
       <div class="modal-body">
