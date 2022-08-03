@@ -1,21 +1,19 @@
+
+/*준비가 끝나면*/
 $(document).ready(function(){
-    var addbtn=document.getElementByClass('plus-btn')
-  	console(addbtn);
-  	/*addbtn.click(function(){
-		alert("hey");
-})*/
+    console.log('메뉴바!!');
+    
+    $(".hello").click(function(){
+		$(".hello").hide();
+	});
+	
+	
+	$("#plus-btn").click(function(){
+		$(".category-add-btn").show();
+	});
+	
 });
 
-
-$("#menuShow").click(function(){
-	alert("hey");
-	/*$(".menuBar-display").show();*/
-});
+/*var add = document.getElementById("hello");*/
 
 
-$("#bmAdd-btn").click(function(){
-	alert("hey");
-	/*$(".menuBar-display").show();*/
-});
-
-/*스크립트슈발*/

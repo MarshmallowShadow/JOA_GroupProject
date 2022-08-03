@@ -48,16 +48,16 @@
 
 
 .menuBar .menu1 {width:(100%-padding); height:(20%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
-.menuBar .menu1 #mypage {font-size: 18px; float:left; font-weight:bold;}
+.menuBar .menu1 #mypage {font-size: 18px; font-weight:bold;}
 .menuBar .menu1 .myHome {width: 20px; height: 20px;}
-.menuBar .menu1 #bookmark-btn {text-align:right}
+.menuBar .menu1 .bookmark-btn {text-align:right;}
 .menuBar .menu1 .menuBar-close {width: 20px; height: 20px;}
 
 
 .menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; overflow:scroll;}
 .menuBar .menu2 #bookmark {font-size: 18px; float:left; font-weight:bold;}
 .menuBar .bmStar {width: 20px; height: 20px;}
-.menuBar .menu2 #bookmark-btn {text-align:right}
+.menuBar .menu2 .bookmark-btn {text-align:right;  float:right;}
 .menuBar .plus-btn {width: 20px; height: 20px;}
 .menuBar .minus-btn {width: 20px; height: 20px;}
 .menuBar #menuList .editName {width: 16px; height: 16px; float:right; color: gray; margin-top:17px;}

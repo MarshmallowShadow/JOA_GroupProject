@@ -14,8 +14,7 @@
 <!-- jquery -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/my-page.js"></script> --%>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/menubar.js"></script>
 
 </head>
 <body>
@@ -56,13 +55,14 @@
 						</li>
 						<li id="menuList"><a href="./my-course.html">나의 코스 보기</a></li>
 						<li id="menuList"><a href="./my-report.html">나의 기록 보기</a></li>
+						<li class="hello">Hello</li>
 					</ol>
 				</div>
 				
 				<div class="menu2">
 					<ol>
 						<li id="bookmark"><a href="./bookmark.html">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
-						<li id="bookmark-btn">
+						<li class="bookmark-btn">
 							<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
 							<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 						</li>
@@ -97,7 +97,7 @@
 
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
-<div class="modal fade">
+<div class="category-add-btn">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -123,7 +123,7 @@
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
-<div class="modal fade">
+<div class="category-add-del">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -153,7 +153,7 @@
 <!-- 모달-즐겨찾기 삭제 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 이름변경 ***************************************************************************************** -->
-<div class="modal fade">
+<div class="category-modify-btn">
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
