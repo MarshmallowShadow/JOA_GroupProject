@@ -43,58 +43,57 @@
 	
 	<!-- content -->
 	<div id="content">
-		
-		<!-- 타이틀 -->
-		<div>
-			<h1 id="title">코스 등록하기</h1>
-		</div>
-		
-		<!-- 본문 -->
-		
-		<!-- 코스 지정 -->
-		<div class="course-form">
-			<div class="course-select">
-				<table>
-				
-					<colgroup>
-						<col width="150px">
-						<col width="100%">
-					</colgroup>
-					
-					<tr>
-						<th rowspan="3">코스 지정</th>
-					</tr>
-					
-					<!-- 주소검색 -->
-					<tr>
-						<td>
-							<p class="guide">
-								<span class="glyphicon glyphicon-info-sign"></span>
-								주소를 검색하면 아래에 지도가 표시됩니다.
-							</p>
-							<div class="address-form">
-								<input type="text" name="address">
-								<button type="button" id="address-btn">주소검색</button>
-							</div>
-						</td>
-					</tr>
-					
-					<!-- 지도영역 -->
-					<tr>
-						<td>
-							<!-- 지도 -->
-							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" height="615px">
-						</td>
-					</tr>
-				</table>
+		<form id="courseForm" method="get" action="./courseWrite">
+			<!-- 타이틀 -->
+			<div>
+				<h1 id="title">코스 등록하기</h1>
 			</div>
-			<!-- course-select -->
 			
-				<!-- 코스정보 -->
-				<div class="course-content">
-					<h2>코스 정보</h2>
+			<!-- 본문 -->
+			
+			<!-- 코스 지정 -->
+			<div class="course-form">
+				<div class="course-select">
+					<table>
 					
-					<form id="courseForm" method="get" action="./courseWrite">
+						<colgroup>
+							<col width="150px">
+							<col width="100%">
+						</colgroup>
+						
+						<tr>
+							<th rowspan="3">코스 지정</th>
+						</tr>
+						
+						<!-- 주소검색 -->
+						<tr>
+							<td>
+								<p class="guide">
+									<span class="glyphicon glyphicon-info-sign"></span>
+									주소를 검색하면 아래에 지도가 표시됩니다.
+								</p>
+								<div class="address-form">
+									<input type="text" name="address">
+									<button type="button" id="address-btn">주소검색</button>
+								</div>
+							</td>
+						</tr>
+						
+						<!-- 지도영역 -->
+						<tr>
+							<td>
+								<!-- 지도 -->
+								<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" height="615px">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- course-select -->
+				
+					<!-- 코스정보 -->
+					<div class="course-content">
+						<h2>코스 정보</h2>
+						
 						<table>
 						
 							<colgroup>
@@ -114,22 +113,22 @@
 								<tr>
 									<th>종목</th>
 									<td>
-										<input type="radio" name="course-cate" id="walk" checked>
+										<input type="radio" name="courseCate" id="walk" checked>
 										<label for="walk">산책</label>
 										
-										<input type="radio" name="course-cate" id="jogging">
+										<input type="radio" name="courseCate" id="jogging">
 										<label for="jogging">조깅</label>
 										
-										<input type="radio" name="course-cate" id="running">
+										<input type="radio" name="courseCate" id="running">
 										<label for="running">러닝</label>
 										
-										<input type="radio" name="course-cate" id="marathon">
+										<input type="radio" name="courseCate" id="marathon">
 										<label for="marathon">마라톤</label>
 										
-										<input type="radio" name="course-cate" id="bicycle">
+										<input type="radio" name="courseCate" id="bicycle">
 										<label for="bicycle">자전거</label>
 										
-										<input type="radio" name="course-cate" id="draw">
+										<input type="radio" name="courseCate" id="draw">
 										<label for="draw">그림</label>
 										
 									</td>
@@ -141,12 +140,7 @@
 									<td>
 										<div>
 											<input type="text" class="txt-short" name="distance" value="">
-			
-											<input type="radio" name="distance-unit" id="km" checked>
-											<label for="km">km</label>
-											
-											<input type="radio" name="distance-unit" id="m">
-											<label for="m">m</label>
+											<p>km</p>
 												
 										</div>
 									</td>
@@ -156,9 +150,9 @@
 								<tr>
 									<th>예상 시간</th>
 									<td>
-										<input type="text" class="txt-short" name="time-ho" value="">
+										<input type="text" class="txt-short" name="timeH" value="">
 										<p>시간</p>
-										<input type="text" class="txt-short" name="time-mi" value="">
+										<input type="text" class="txt-short" name="timeMi" value="">
 										<p>분</p>
 									</td>
 								</tr>
@@ -167,13 +161,13 @@
 								<tr>
 									<th>예상 난이도</th>
 									<td>
-										<input type="radio" name="difficulty" id="easy" checked>
+										<input type="radio" name="difficulty" id="easy" value="easy" checked>
 										<label for="easy">쉬움</label>
 										
-										<input type="radio" name="difficulty" id="nomal">
-										<label for="nomal">보통</label>
+										<input type="radio" name="difficulty" id="normal" value="normal">
+										<label for="normal">보통</label>
 										
-										<input type="radio" name="difficulty" id="hard">
+										<input type="radio" name="difficulty" id="hard" value="hard">
 										<label for="hard">어려움</label>
 									</td>
 								</tr>
@@ -182,29 +176,31 @@
 								<tr>
 									<th>코스 공개여부</th>
 									<td>
-										<input type="radio" name="open-status" id="open" value="open" checked>
+										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
 										
-										<input type="radio" name="open-status" id="close" value="close">
+										<input type="radio" name="openStatus" id="close" value="close">
 										<label for="close">비공개</label>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-					</form>
+					</div>
+					<!-- course-content -->
+					
 				</div>
-				<!-- course-content -->
+				<!-- course-form -->
+			
+			
+			<!-- 하단 버튼 영역 -->
+			<div id="btn-wrap">
+				<!-- 사용자 번호 -->
+				<input type="hidden" name="userNo" value="1">
 				
+				<button class="cancel">취소</button>
+				<button type="submit" class="add">코스 등록</button>
 			</div>
-			<!-- course-form -->
-		
-		
-		<!-- 하단 버튼 영역 -->
-		<div id="btn-wrap">
-			<button class="cancel">취소</button>
-			<button type="submit" class="add">코스 등록</button>
-		</div>
-		
+		</form>
 	</div>
 	<!-- content -->
 	
