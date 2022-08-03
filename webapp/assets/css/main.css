@@ -73,6 +73,7 @@ ul.imgs li{
     height: 20px;
     cursor: pointer;
 }
+
 /* 현재 선택된 불릿 배경 흰색으로 구분 표시 */
 .slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
     background-color: #fff;
@@ -109,6 +110,20 @@ ul.imgs li{
     z-index:1;
 }
 
+
+ul.imgs li{
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition-delay: 0.9s; /* 트랜지션 지연 시간 지정 */
+}
+
+.slider ul {
+    -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+    -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+    transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+}
 /*---------------------------- 글귀 -----------------------------*/
 .main-text{
 	font-size: 16px;
