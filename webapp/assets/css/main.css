@@ -7,15 +7,23 @@
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
-/*----------------------------------------------------- 메인(Main) ----------------------------------------------------- */
-
 /*--------------------------- 사진 편집 ----------------------------*/		
-.slider{
+.slide {
 	margin: auto;
-    width: 1500px;
-    height: 800px;
-    position: relative;
-    overflow: hidden; 		/* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드 들이 보이지 않도록 가림 */
+	width: 1500px;
+	height: 800px;
+	/* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+	position: relative;
+	
+	/* 현재 슬라이드 오른쪽에 위치한 나머지 슬라이드 들이 보이지 않도록 가림 */
+	overflow: hidden;
+	
+	/* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+	user-select: none;
+	
+	/* layout */
+	display: flex;
+	flex-wrap: nowrap;
 }
 
 .slider img {
@@ -23,107 +31,101 @@
 	height: 800px;
 }
 
-.slider input[type=radio]{
-    display: none;
-}		
+
+/* ---------------------------- 사진 한 장씩 효과 ---------------------------- */
+.slide_item {
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+  position: relative;
+  left: 0px;
+
+  /* size */
+    width: 1500px;
+    height: 800px;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.15s;
+}
+
+/* ---------------------------- 양옆 화살표 버튼 ---------------------------- */
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 32px;
+  height: 32px;
+
+  /* style */
+  border-radius: 100%;
+  background-color: #cccc;
+  cursor: pointer;
+}
+
+  /* 화살표 위치 조정 */
+.slide_prev_button {
+  left: 10px;
+}
+.slide_next_button {
+  right: 10px;
+}
 
 /*---------------------------- 사진 슬라이드 ----------------------------*/		
-ul.imgs{
-    padding: 0;
-    margin: 0;
-    list-style: none;    
+/* 페이지네이션 스타일 */
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.slide_pagination {
+  /* layout */
+  display: flex;
+  gap: 5px;
+
+  /* position */
+  position: absolute;
+  bottom: 0;
+  /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide_pagination > li {
+  /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+  color: #7fb5ff88;
+  cursor: pointer;
+  font-size: 25px;
+}
+.slide_pagination > li.active {
+  /* 현재 슬라이드 색상은 투명도 없이 */
+  color: #7fb5ff;
+}
+
+.slide_item_duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
 }		
 
-ul.imgs li{
-    position: absolute;
-    left: 0px;	/* 양 옆의 공백?*/
-    transition-delay: 1s; /* 새 슬라이드가 이동해 오는 동안 이전 슬라이드 이미지가 배경이 보이도록 지연 */
-
-    padding: 0;
-    margin: 0;
-}
-
-ul.imgs{
-    padding: 0;
-    margin: 0;
-    list-style: none;    
-}		
-ul.imgs li{
-    position: absolute;
-    left: 0px;
-    transition-delay: 1s; /* 새 슬라이드가 이동해 오는 동안 이전 슬라이드 이미지가 배경이 보이도록 지연 */
-
-    padding: 0;
-    margin: 0;
-}		
-
-/* 라벨(사진 밑 이동버튼) */
-.bullets{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    z-index: 2;
-}		
-.bullets label{
-    display: inline-block;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.55);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-/* 현재 선택된 불릿 배경 흰색으로 구분 표시 */
-.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
-    background-color: #fff;
-}		
-
-/* 슬라이드 이동 애니메이션 효과 */		
-.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
-    left: 0;
-    transition: 0.5s;	/* 0.5초간 해당 이미지에서 머무름 */	
-    z-index:1;
-}
-.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
-    left: 0;
-    transition: 0.5s;
-    z-index:1;
-}
-.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
-    left: 0;
-    transition: 0.5s;
-    z-index:1;
-}
-.slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
-    left: 0;
-    transition: 0.5s;
-    z-index:1;
-}
-
-
-ul.imgs li{
-    position: absolute;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    transition-delay: 0.9s; /* 트랜지션 지연 시간 지정 */
-}
-
-.slider ul {
-    -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-    -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-    transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-}
 /*---------------------------- 글귀 -----------------------------*/
 .main-text{
 	font-size: 16px;
