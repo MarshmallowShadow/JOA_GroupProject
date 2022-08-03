@@ -178,6 +178,7 @@ input[type="radio"]+label img {
 	background-color: rgb(224, 224, 224);
 	padding: 10px;
 	overflow: auto;
+	margin-bottom: 50px;
 }
 /* 스크롤바 없애기 */
 .course-form #drop::-webkit-scrollbar {
@@ -194,14 +195,13 @@ input[type="radio"]+label img {
 	justify-content: center;
 }
 #thumbnails #course-pic #pic-main {
-	margin: auto;
-	background-color: yellow;
+	padding: 60px 0px;
 	width: 250px;
 	height: 250px;
 	text-align: center;
 }
 #thumbnails #course-pic #pic-main p {
-	margin-top: 20px;
+	margin: 20px 0px 0px 0px;
 }
 /* 추가된 사진 */
 #drop .pic-content {
