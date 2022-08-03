@@ -25,11 +25,11 @@ public class CourseController {
 		return "";
 	}
 	
-	
-	//기록 등록폼
-	@RequestMapping(value="/record-write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWriteForm() {
-		
-		return "course/write-record";
+	//코스 상세보기
+	@RequestMapping(value="/course-view", method = {RequestMethod.GET, RequestMethod.POST})
+	public String courseViewForm() {
+		System.out.println("CourseController->courseViewForm()");
+		return "course/view-course";
 	}
+	
 }
