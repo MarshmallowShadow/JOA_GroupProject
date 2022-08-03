@@ -26,12 +26,6 @@
 	flex-wrap: nowrap;
 }
 
-.slider img {
-	width: 1500px;
-	height: 800px;
-}
-
-
 /* ---------------------------- 사진 한 장씩 효과 ---------------------------- */
 .slide_item {
   /* layout */
@@ -43,9 +37,10 @@
   position: relative;
   left: 0px;
 
-  /* size */
+  /* size - 없으면 크기에 따라 다음 사진이 보임 */
     width: 1500px;
     height: 800px;
+    
   /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
   flex-shrink: 0;
 
@@ -66,12 +61,12 @@
   top: calc(50% - 16px);
 
   /* size */
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 
   /* style */
   border-radius: 100%;
-  background-color: #cccc;
+  background-color: #eaeaea;
   cursor: pointer;
 }
 
@@ -83,14 +78,14 @@
   right: 10px;
 }
 
-/*---------------------------- 사진 슬라이드 ----------------------------*/		
-/* 페이지네이션 스타일 */
+/* ---------------------------- 하단 버튼 - 페이지네이션 스타일---------------------------- */
 ul,
 li {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
+
 .slide_pagination {
   /* layout */
   display: flex;
@@ -103,6 +98,7 @@ li {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .slide_pagination > li {
   /* 현재 슬라이드가 아닌 것은 투명도 부여 */
   color: #7fb5ff88;
@@ -113,18 +109,6 @@ li {
   /* 현재 슬라이드 색상은 투명도 없이 */
   color: #7fb5ff;
 }
-
-.slide_item_duplicate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  left: 0px;
-  width: 100%;
-  height: 300px;
-  flex-shrink: 0;
-  transition: left 0.15s;
-}		
 
 /*---------------------------- 글귀 -----------------------------*/
 .main-text{

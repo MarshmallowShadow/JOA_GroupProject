@@ -17,29 +17,8 @@
 </head>
 <body>
 
-	<div id="header">
-		<a href="../main/index.html"> 
-		<img id="logo" src="../../../assets/image/main/logo.jpg"></a>
-
-		<div id="login">
-			<ul>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
-			</ul>
-		</div>
-		<!-- login -->
-
-		<div id="nav">
-			<ul>
-				<li><a href="../together/together.html">함께하기</a></li>
-				<li><a href="../board/board.html">게시판</a></li>
-				<li><a href="../best/best.html">베스트</a></li>
-				<li><a href="../map/map.html">지도</a></li>
-			</ul>
-		</div>
-		<!-- nav -->
-	</div>
-	<!-- header -->
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<!--메인 해더 자리 -->
 
 <!------------------------- photo slider ------------------------>
 	

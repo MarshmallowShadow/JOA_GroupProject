@@ -49,6 +49,20 @@
 	font-weight: 700;
 }
 
+/* 로그인 후 헤더 변환*/
+/* 메뉴 펼침 - 체크박스 체크되면 메뉴목록 표시 */
+#check-btn { 
+	display: none; 
+}
+#check-btn label {
+	width: 100px; 
+	margin: 0 auto;
+}
+
+#check-btn:checked ~ .menubars { display: block; } 
+.menubars { display: none; }
+
+
 /**************************** footer ****************************/
 
 /* 푸터 스타일 */
