@@ -17,6 +17,9 @@
 <script type="text/javascript" src="../../../assets/js/my-page/my-page.js"></script>
 
 
+<!-- js -->
+<script type="text/javascript" src="../../../assets/js/my-page/menubar"></script>
+
 
 </head>
 <body>
@@ -98,8 +101,6 @@
 
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
-
-
 <div class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -126,8 +127,6 @@
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
-
-
 <div class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -147,7 +146,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">목록 만들기</button>
+        <button type="button" class="btn btn-primary">목록 삭제</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -155,10 +154,31 @@
 
 
 
-
 <!-- 모달-즐겨찾기 삭제 끝!! ************************************************************************************* -->
 
+<!-- 모달-즐겨찾기 이름변경 ***************************************************************************************** -->
+<div class="modal fade">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">카테고리 이름 변경</h4>
+      <!-- <h3 class="modal-title">새로운 목록을 만들어 주세요.</h3> -->
+    </div>
+    <div class="modal-body">
+      <input type="text" placeholder="카테고리 기존 이름">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+      <button type="button" class="btn btn-primary">변경</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
+
+
+<!-- 모달-즐겨찾기 이름변경 끝!! ***************************************************************************************** -->
 
 </body>
 </html>

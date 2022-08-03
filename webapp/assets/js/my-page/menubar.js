@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var addbtn=document.getElementById('plus-btn')
+    var addbtn=document.getElementByClass('plus-btn')
   	console(addbtn);
   	/*addbtn.click(function(){
 		alert("hey");
