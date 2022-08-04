@@ -23,4 +23,4 @@
 	<hr class="my-hr1">
 	<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
 
-</div>
+</div> <!-- footer -->
