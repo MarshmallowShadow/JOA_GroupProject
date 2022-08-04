@@ -19,7 +19,7 @@
 
 	<div id="wrap">
 		<div id="header">
-			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
 			
 			<div id="login">
 				<ul>
@@ -48,7 +48,7 @@
 		
 		<!-- 상세지도 -->
 		<div id="map_sample">
-			<img class="map" src="../../../assets/image/map/map-sample.jpg"><!-- a링크 걸어서 상세지도 연결 -->
+			<img class="map" src="${pageContext.request.contextPath}/assets/image/map/map-sample.jpg"><!-- a링크 걸어서 상세지도 연결 -->
 		</div>
 		
 		<!-- 상세정보 -->
@@ -57,25 +57,25 @@
 				<thead>
 					<tr>
 						<th>
-							<img id="marking" src="../../../assets/image/together/marking.png">
+							<img id="marking" src="${pageContext.request.contextPath}/assets/image/together/marking.png">
 							<div id="route">신림 - 잠실</div>
 						</th>
 						<th>
-							<img id="map_icon" src="../../../assets/image/together/map.png">
+							<img id="map_icon" src="${pageContext.request.contextPath}/assets/image/together/map.png">
 							<div id="location">신림역 7번 출구</div>
 						</th>
 						<th>
-							<img id="calendar" src="../../../assets/image/together/calendar.png">
+							<img id="calendar" src="${pageContext.request.contextPath}/assets/image/together/calendar.png">
 							<div id="d-date">2022.07.31 12:45pm</div>
 						</th>
 					</tr>
 					<tr>
 						<th>
-							<img id="stopwatch" src="../../../assets/image/together/stopwatch.png">
+							<img id="stopwatch" src="${pageContext.request.contextPath}/assets/image/together/stopwatch.png">
 							<div id="distance">7.8km</div>
 						</th>
 						<th colspan="2">
-							<img id="user" src="../../../assets/image/together/user.png">
+							<img id="user" src="${pageContext.request.contextPath}/assets/image/together/user.png">
 							<div id="user_num">10/15명</div>
 						</th>
 					</tr>
