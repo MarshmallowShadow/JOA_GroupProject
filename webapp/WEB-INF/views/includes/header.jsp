@@ -5,7 +5,6 @@
 	<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
 	<div id="user-menu">
 		<c:choose>
-	<!-- ************** 로그인 전 ************** -->
 			<c:when test="${empty authUser}">
 				<div id="login">
 					<ul>
@@ -14,7 +13,6 @@
 					</ul>
 				</div>
 			</c:when>
-	<!-- ************** 로그인 후 ************** -->
 			<c:otherwise>
 				<label for="check-btn">최보승님</label>
 				<input id="check-btn" type="checkbox">
@@ -34,7 +32,5 @@
 			<li><a href="../best/bestPlus.html">베스트</a></li>
 			<li><a href="../map/map.html">지도</a></li>
 		</ul>
-	</div>
-	<!-- nav -->
-</div> 
-<!-- header -->
+	</div> <!-- nav -->
+</div>  <!-- header -->
