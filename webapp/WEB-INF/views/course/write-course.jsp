@@ -83,7 +83,7 @@
 						</tr>
 						
 						<tr>
-							<td height="500px">
+							<td>
 								<!-- 지도 영역 -->
 								<div id="map"></div>
 									
@@ -117,22 +117,22 @@
 								<tr>
 									<th>종목</th>
 									<td>
-										<input type="radio" name="courseCate" id="walk" checked>
+										<input type="radio" name="courseCate" id="walk" value="walk" checked>
 										<label for="walk">산책</label>
 										
-										<input type="radio" name="courseCate" id="jogging">
+										<input type="radio" name="courseCate" id="jogging" value="jogging">
 										<label for="jogging">조깅</label>
 										
-										<input type="radio" name="courseCate" id="running">
+										<input type="radio" name="courseCate" id="running" value="running">
 										<label for="running">러닝</label>
 										
-										<input type="radio" name="courseCate" id="marathon">
+										<input type="radio" name="courseCate" id="marathon" value="marathon">
 										<label for="marathon">마라톤</label>
 										
-										<input type="radio" name="courseCate" id="bicycle">
+										<input type="radio" name="courseCate" id="bicycle" value="bicycle">
 										<label for="bicycle">자전거</label>
 										
-										<input type="radio" name="courseCate" id="draw">
+										<input type="radio" name="courseCate" id="draw" value="draw">
 										<label for="draw">그림</label>
 										
 									</td>
@@ -143,7 +143,7 @@
 									<th>거리</th>
 									<td>
 										<div>
-											<input type="text" class="txt-short" name="distance" value="">
+											<input type="text" class="txt-short" name="distance" value="" readonly>
 											<p>km</p>
 												
 										</div>
@@ -154,9 +154,9 @@
 								<tr>
 									<th>예상 시간</th>
 									<td>
-										<input type="text" class="txt-short" name="timeH" value="">
+										<input type="text" class="txt-short" name="timeH" id="hour" value="">
 										<p>시간</p>
-										<input type="text" class="txt-short" name="timeMi" value="">
+										<input type="text" class="txt-short" name="timeMi" id="minute" value="">
 										<p>분</p>
 									</td>
 								</tr>
