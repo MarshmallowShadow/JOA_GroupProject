@@ -30,7 +30,7 @@
 }
 
 /* 로그인 회원가입 */
-#header #login {
+#header #logout {
 	float: right;
 	height: 40px;
 	width: 160px;
@@ -38,7 +38,7 @@
 	border: 1px solid rgb(174, 174, 174);
 }
 
-#header #login ul li {
+#header #logout ul li {
 	float: right;
 	display: flex; /* for center-align */
 	justify-content: center; /* align horizontal */
@@ -52,17 +52,44 @@
 /* 로그인 후 헤더 변환*/
 /* 메뉴 펼침 - 체크박스 체크되면 메뉴목록 표시 */
 #check-btn { 
+	display: none;
+}
+
+/* 사용자 이름 설정 */
+.login {	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 700;
+	background-color: rgb(174, 174, 174);
+}
+
+#check-btn label {
+	text-align: center;
+	display: block; 
+}
+
+#check-btn:checked ~ .menubars { 
+	display: block; 
+} 
+
+.menubars { 
 	display: none; 
 }
-#check-btn label {
-	width: 100px; 
-	margin: 0 auto;
+
+/* 로그인 후 펼친 메뉴 설정 */
+.menubars li {
+	text-align: center;
 }
 
-#check-btn:checked ~ .menubars { display: block; } 
-.menubars { display: none; }
-
-
+#header #login {
+	float: right;
+	height: 40px;
+	width: 160px;
+	margin: 20px 0px 20px 40px;
+	border: 1px solid rgb(174, 174, 174);
+}
 /**************************** footer ****************************/
 
 /* 푸터 스타일 */
