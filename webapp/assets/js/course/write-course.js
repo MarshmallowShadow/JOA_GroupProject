@@ -50,14 +50,18 @@ $(document).ready(function() {
 	    map.setCenter(locPosition);      
 	}    
 /***********************현재 위치 찍기********************************************************/	
+	
+/***********************키워드 검색********************************************************/
+
+
+/***********************키워드 검색********************************************************/	
 
 /***********************코스 그리기********************************************************/	
 
 	var drawingFlag = false; // 그리고 있는 상태 체크
-	var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
-	var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
-	var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
-	var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열입니다.
+	var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체
+	var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체
+	var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열
 
 
 	// 지도 클릭이벤트
@@ -75,7 +79,7 @@ $(document).ready(function() {
 	        // 선 리셋
 	        deleteClickLine();
 	        
-	        //// 지도 위에 커스텀오버레이가 표시되고 있다면 지도에서 제거합니다
+	        // 코스 정보 지우기
 	        deleteDistnce();
 	
 	        //// 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
@@ -164,16 +168,21 @@ $(document).ready(function() {
 	
 				//선의 총 거리 계산
 	            var distance = Math.round(clickLine.getLength()), 
-	                content = getTimeHTML(distance);
+	                content = getTime(distance);
 	                
 	            // 선의 거리 정보를 코스정보에 입력
 	            showDistance(content);  
 	            console.log(path);
+	            
+	            $('input:radio[name="courseCate"]').change(function() {
+					var content = getTime(distance);
+					showDistance(content);
+				});
 	             
 	        } else {
 	
 	            // 선을 구성하는 좌표의 개수가 1개 이하이면 
-	            // 지도에 표시되고 있는 선과 정보들을 지도에서 제거합니다.
+	            // 지도에 표시되고 있는 선을 제거
 	            deleteClickLine();
 	            deleteCircleDot(); 
 	            deleteDistnce();
@@ -205,10 +214,22 @@ $(document).ready(function() {
 		}
 		
 		//시간
-		$('#hour').attr('value', content.hour);
+		var hour = Math.floor(content.time / 60);
+		if(isNaN(hour)) {
+			$('#hour').attr('value', '');
+		} else {
+			$('#hour').attr('value', hour);
+		}
+		
 		
 		//분
-		$('#minute').attr('value', content.minute);
+		var minute = content.time%60;
+		if(isNaN(minute)) {
+			$('#minute').attr('value', '');
+		} else {
+			$('#minute').attr('value', minute);
+		}
+		
 	}
 	
 	// 거리 정보 삭제
@@ -257,14 +278,10 @@ $(document).ready(function() {
 	}
 	
 	// 선그리기 종료 했을때 시간, 거리 출력
-	function getTimeHTML(distance) {
+	function getTime(distance) {
 		
 		//총 분단위 시간
 		var time = 0;
-		//시간
-		var hour;
-		//분
-		var minute;
 		
 		
 		//선택한 종목값 가져오기
@@ -295,19 +312,11 @@ $(document).ready(function() {
 			hour = Math.floor(time / 60);
 			minute = time % 60;
 			
-			
-			var content = {
-				distance: distance,
-				hour : hour,
-				minute : minute
-			}
-			
-		} else {
-			var content = {
-				distance: distance,
-				hour : '',
-				minute : ''
-			}
+		}
+		
+		var content = {
+			distance: distance,
+			time: time
 		}
 	
 	    return content;
