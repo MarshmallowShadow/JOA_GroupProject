@@ -28,13 +28,6 @@
 		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		<!-- header -->
 		
-		
-		
-		
-		
-		
-		
-		
 		<div class="subHeader">
 			<a href="${pageContext.request.contextPath}/my-page/menu"><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
 			<p id="title">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></p>
@@ -134,25 +127,12 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<!-- 메인 푸터  자리-->
-		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-		<!-- footer -->
-		
-	
 	</div>
 	<!-- //center-content -->
 
+	<!-- 메인 푸터  자리-->
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- footer -->
 
 
 </body>
