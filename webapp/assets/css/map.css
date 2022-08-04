@@ -114,6 +114,10 @@
 	overflow: scroll; /* 세로로 스크롤링 가능하게 설정 */
 }
 
+#content #result-list::-webkit-scrollbar {
+  display: none;
+}
+
 #content #result-list li{
 	border-bottom: 1px solid rgb(174, 174, 174);
 }
