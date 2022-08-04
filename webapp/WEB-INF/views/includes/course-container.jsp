@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div class="course-container">
-	<div class="course-icon"><img src="../../../assets/image/map/map-icon.jpg"></div>
+	<div class="course-icon"><img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg"></div>
 	<div class="course-info">
 		<h3 class="course-title">헬 ^^</h3>
 		<p class="p-info">
