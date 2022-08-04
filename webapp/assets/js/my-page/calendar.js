@@ -4164,13 +4164,26 @@ var FullCalendar = (function (exports) {
     var globalLocales = [];
 
     var MINIMAL_RAW_EN_LOCALE = {
-        code: 'en',
+        /*code: 'en',*/code: 'ko',
         week: {
             dow: 0,
             doy: 4, // 4 days need to be within the year to be considered the first week
         },
         direction: 'ltr',
         buttonText: {
+	      prev: '이전달',
+	      next: '다음달',
+	      today: '오늘',
+	      month: '월',
+	      week: '주',
+	      day: '일',
+	      list: '일정목록',
+	    },
+	    weekText: '주',
+	    allDayText: '종일',
+	    moreLinkText: '개',
+	    noEventsText: '일정이 없습니다',
+        /*buttonText: {
             prev: 'prev',
             next: 'next',
             prevYear: 'prev year',
@@ -4189,7 +4202,7 @@ var FullCalendar = (function (exports) {
         eventHint: 'Event',
         allDayText: 'all-day',
         moreLinkText: 'more',
-        noEventsText: 'No events to display',
+        noEventsText: 'No events to display',*/
     };
     var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), { 
         // Includes things we don't want other locales to inherit,
@@ -4199,7 +4212,7 @@ var FullCalendar = (function (exports) {
             next: 'Next $0',
             today: function (buttonText, unit) {
                 return (unit === 'day')
-                    ? 'Today'
+                    ? 'today'
                     : "This " + buttonText;
             },
         }, viewHint: '$0 view', navLinkHint: 'Go to $0', moreLinkHint: function (eventCnt) {
