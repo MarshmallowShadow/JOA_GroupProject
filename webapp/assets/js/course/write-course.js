@@ -24,7 +24,7 @@ $(document).ready(function() {
 	            lon = position.coords.longitude; // 경도
 	        
 	        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
-	        
+
 	        // 마커 표시
 	        displayMarker(locPosition);
 	            
@@ -52,7 +52,35 @@ $(document).ready(function() {
 /***********************현재 위치 찍기********************************************************/	
 	
 /***********************키워드 검색********************************************************/
-
+	
+	$('#address-btn').on("click", function() {
+		//주소 가져오기
+		var keyword = $('input[name="address"]').val();
+		
+		// 장소 검색 객체를 생성합니다
+		var ps = new kakao.maps.services.Places(); 
+		
+		// 키워드로 장소를 검색합니다
+		ps.keywordSearch(keyword, placesSearchCB); 
+		
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB (data, status) {
+		    if (status === kakao.maps.services.Status.OK) {
+		
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+		        // LatLngBounds 객체에 좌표를 추가합니다
+		        var bounds = new kakao.maps.LatLngBounds();
+		
+		        for (var i=0; i<data.length; i++) {   
+		            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+		        }       
+		
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+		        map.setBounds(bounds);
+		    } 
+		}
+		
+	});
 
 /***********************키워드 검색********************************************************/	
 
@@ -90,7 +118,7 @@ $(document).ready(function() {
 	            map: map, // 표시할 지도
 	            path: [clickPosition], // 좌표 배열!!!!!!!!
 	            strokeWeight: 3, // 선 두께
-	            strokeColor: '#db4040', // 선 색깔
+	            strokeColor: 'rgb(255, 52, 120)', // 선 색깔
 	            strokeOpacity: 1, // 선 불투명도 (0~1)
 	            strokeStyle: 'solid' // 선 스타일
 	        });
@@ -98,7 +126,7 @@ $(document).ready(function() {
 	        // 마우스 움직일때 선
 	        moveLine = new kakao.maps.Polyline({
 	            strokeWeight: 3, // 선 두께
-	            strokeColor: '#db4040', // 선 색깔
+	            strokeColor: 'rgb(255, 52, 120)', // 선 색깔
 	            strokeOpacity: 0.5, // 선 불투명도 (0~1)
 	            strokeStyle: 'solid' // 선 스타일   
 	        });

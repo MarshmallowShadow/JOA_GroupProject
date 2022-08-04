@@ -147,13 +147,14 @@ input[type="radio"]+label img {
 /* -------------------코스지정----------------------- */
 .course-form input[name="address"] {width: 89%;}
 .course-form .guide {color: rgb(136, 136, 136);}
+.course-form .map-guide {margin-bottom: 12px; color: rgb(255, 52, 120);}
 .course-form .address-form {margin: 15px 0px 10px 0px;}
 .course-form #address-btn {
 	width: 90px;
 	height: 46px;
 	margin-right: 10px;
-	
 }
+
 
 /* -------------------코스정보----------------------- */
 .course-form .course-info span {
@@ -164,10 +165,14 @@ input[type="radio"]+label img {
 	margin-bottom: 10px;
 }
 /* 지도이미지 (나중에 구글지도로 변경!!!) */
-.course-form #map img {
+.course-form #map {
 	width: 100%;
-	height: 100%;
-	vertical-align: top;
+	height: 500px;
+}
+.course-form .time-guide {
+	font-size: 15px;
+	color: rgb(136, 136, 136);
+	margin-bottom: 12px;
 }
 
 /* -------------------사진등록----------------------- */

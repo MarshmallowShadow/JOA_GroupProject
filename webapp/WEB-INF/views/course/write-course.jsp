@@ -9,14 +9,13 @@
 <!-- css -->
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-map.css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 </head>
 <body>
 <div id="wrap">
@@ -46,7 +45,7 @@
 	
 	<!-- content -->
 	<div id="content">
-		<form id="courseForm" method="get" action="./courseWrite">
+		
 			<!-- 타이틀 -->
 			<div>
 				<h1 id="title">코스 등록하기</h1>
@@ -73,17 +72,18 @@
 							<td>
 								<p class="guide">
 									<span class="glyphicon glyphicon-info-sign"></span>
-									주소를 검색하면 아래에 지도가 표시됩니다.
+									위치 키워드를 입력하면 아래에 지도가 표시됩니다.
 								</p>
 								<div class="address-form">
-									<input type="text" name="address">
-									<button type="button" id="address-btn">주소검색</button>
+									<input type="text" name="address" value="">
+									<button type="button" id="address-btn">위치검색</button>
 								</div>
 							</td>
 						</tr>
 						
 						<tr>
 							<td>
+								<p class="map-guide">지도를 마우스로 클릭하면 선 그리기가 시작되고, 오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다</p>
 								<!-- 지도 영역 -->
 								<div id="map"></div>
 									
@@ -94,6 +94,7 @@
 				</div>
 				<!-- course-select -->
 				
+				<form id="courseForm" method="get" action="./courseWrite">
 					<!-- 코스정보 -->
 					<div class="course-content">
 						<h2>코스 정보</h2>
@@ -154,10 +155,16 @@
 								<tr>
 									<th>예상 시간</th>
 									<td>
+										<div class="time-guide">
+											<span class="glyphicon glyphicon-info-sign"></span>
+											마라톤, 그림 종목은 직접 입력해주세요.
+										</div>
+										
 										<input type="text" class="txt-short" name="timeH" id="hour" value="">
 										<p>시간</p>
 										<input type="text" class="txt-short" name="timeMi" id="minute" value="">
 										<p>분</p>
+										
 									</td>
 								</tr>
 								
@@ -191,7 +198,7 @@
 						</table>
 					</div>
 					<!-- course-content -->
-					
+					</form>
 				</div>
 				<!-- course-form -->
 			
@@ -204,7 +211,7 @@
 				<button class="cancel">취소</button>
 				<button type="submit" class="add">코스 등록</button>
 			</div>
-		</form>
+		
 	</div>
 	<!-- content -->
 	
