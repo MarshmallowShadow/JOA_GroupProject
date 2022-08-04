@@ -18,7 +18,7 @@
 
 	<div id="wrap">
 		<div id="header">
-			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
 			
 			<div id="login">
 				<ul>
@@ -91,7 +91,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_black.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
 									</button>
 								</th>
 							</tr>
@@ -120,7 +120,7 @@
 								<th class="date_over">2022/07/24 - 2022/07/30</th>
 								<th class="mark_over">
 									<button class="bookmark_over">
-										<img class="image_over" src="../../../assets/image/together/bookmarks_black.png">
+										<img class="image_over" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
 									</button>
 								</th>
 							</tr>
@@ -149,7 +149,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -178,7 +178,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -207,7 +207,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -236,7 +236,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -265,7 +265,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -294,7 +294,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -323,7 +323,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -352,7 +352,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -381,7 +381,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
@@ -410,7 +410,7 @@
 								<th class="line_top">2022/07/24 - 2022/07/30</th>
 								<th class="mark">
 									<button class="bookmark">
-										<img class="image" src="../../../assets/image/together/bookmarks_white.png">
+										<img class="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 									</button>
 								</th>
 							</tr>
