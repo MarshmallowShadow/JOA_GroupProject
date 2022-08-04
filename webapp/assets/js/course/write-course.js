@@ -168,6 +168,7 @@ $(document).ready(function() {
 	                
 	            // 선의 거리 정보를 코스정보에 입력
 	            showDistance(content);  
+	            console.log(path);
 	             
 	        } else {
 	
@@ -281,6 +282,7 @@ $(document).ready(function() {
 				time = distance / 134 | 0;
 				
 			} else if(cate === 'running') {
+				
 				//러닝 15km/h / 250m/min
 				time = distance / 250 | 0;
 				
