@@ -26,6 +26,12 @@
 	flex-wrap: nowrap;
 }
 
+.slide img {
+	width: 1500px;
+	height: 800px;
+}
+
+
 /* ---------------------------- 사진 한 장씩 효과 ---------------------------- */
 .slide_item {
   /* layout */
@@ -58,11 +64,11 @@
   /* position */
   position: absolute;
   /* 버튼이 중앙에 위치하게 하기위해 계산 */
-  top: calc(50% - 16px);
+  top: calc(50% - 8px);
 
   /* size */
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 
   /* style */
   border-radius: 100%;
