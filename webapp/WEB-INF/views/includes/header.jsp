@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div id="header">
-	<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+	<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
 	<div id="user-menu">
 		<c:choose>
 			<c:when test="${empty authUser}">
