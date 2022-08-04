@@ -72,7 +72,7 @@
 							<li class="reportContent">
 								<div style="cursor: pointer;" onclick="window.location='';">
 									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">내가 여기 왔다감ㅋ</p>
+									<p class="contentTitle"><p class="date" id="nows"></p></p>
 									<p class="content">링거 맞고 뛰었다^^</p>
 									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
 									<div class="modify-del-icons">
@@ -163,12 +163,48 @@
     
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	locale: 'ko',
+    	/* dayPopoverFormat: event-popover, */
     	editable: true,
 		selectable: true,
 		businessHours: true,
 		dayMaxEvents: true, // allow "more" link when too many events
 		events: [	//나의 기록 여기다가 추가해야할 듯?
-        {
+			{
+	          title: '테스트 코스',
+	          start: '2022-08-01',
+	          textcolor: 'white',
+			},
+	        {
+	          title: '88길',
+	          start: '2022-08-08',
+	        },
+	        {
+	          groupId: 999,
+	          title: '학원 가는 길',
+	          start: '2022-08-10'
+	        },
+	        {
+	          groupId: 999,
+	          title: '집에 가는 길',
+	          start: '2022-08-10'
+	        },
+	        {
+	          title: '새로운 길',
+	          start: '2022-08-12',
+	         },
+	        {
+	          title: '이쁜 길',
+	          start: '2022-08-15',
+	        },
+	        {
+	          title: '데이트 코스',
+	          start: '2022-08-18'
+	        }
+				
+				
+				
+				
+		/* {
           title: 'All Day Event',
           start: '2020-09-01'
         },
@@ -221,12 +257,14 @@
           title: 'Click for Google',
           url: 'http://google.com/',
           start: '2020-09-28'
-        }
+        } */
       ]
     });
     
-
+	
+    
     calendar.render();
+    
   });
 
   
