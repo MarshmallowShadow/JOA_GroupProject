@@ -8,11 +8,11 @@
 <title>JOA Main</title>
 
 <!-- CSS -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../../../assets/css/main.css" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/assets/css/main.css" rel="stylesheet"  type="text/css">
 
-<!-- jquery -->
-
+<!-- js -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
 
 </head>
 <body>
@@ -29,10 +29,10 @@
 			<input type="radio" name="slide" id="slide4">
 
 			<ul class="imgs" id="imgholder">
-				<li><img src="../../../assets/image/main/swiss.jpg"></li>
-				<li><img src="../../../assets/image/main/paris.jpg"></li>
-				<li><img src="../../../assets/image/main/parispark.jpg"></li>
-				<li><img src="../../../assets/image/main/busan.jpg"></li>
+				<li><img src="${pageContext.request.contextPath }/assets/image/main/swiss.jpg"></li>
+				<li><img src="${pageContext.request.contextPath }/assets/image/main/paris.jpg"></li>
+				<li><img src="${pageContext.request.contextPath }/assets/image/main/parispark.jpg"></li>
+				<li><img src="${pageContext.request.contextPath }/assets/image/main/busan.jpg"></li>
 			</ul>
 
 			<div class="bullets">
@@ -54,6 +54,6 @@
 </div>
 
 	<!------------------------ footer ------------------------>
-
+<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 </body>
 </html>
