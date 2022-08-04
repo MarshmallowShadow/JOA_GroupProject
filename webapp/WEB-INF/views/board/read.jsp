@@ -65,22 +65,24 @@
 							<td>
 								<!-- 
 								<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-									<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
-									<div class="course-info">
-										<h3 class="course-title">헬 ^^</h3>
-										<p class="p-info">
-											작성자: 쿵야 <br>
-											거리: 5.0km <br>
-											시간: 40분
-										</p>
-										<div class="tag-blue"><p>런닝</p></div>
-										<div class="tag-pink"><p>어려움</p></div>
-									</div>
+									<a>
+										<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
+										<div class="course-info">
+											<h3 class="course-title">헬 ^^</h3>
+											<p class="p-info">
+												작성자: 쿵야 <br>
+												거리: 5.0km <br>
+												시간: 40분
+											</p>
+											<div class="tag-blue"><p>런닝</p></div>
+											<div class="tag-pink"><p>어려움</p></div>
+										</div>
+									</a>
 								</div>
 								 -->
 								
 								<div class="chart">
-									<table id="together_chart">
+									<table id="together_chart" onClick="location.href='http://localhost:8088/JOA_GroupProject/together-read'">
 										<thead>
 											<tr class="top">
 												<th class="line_top">2022/07/24 - 2022/07/30</th>
