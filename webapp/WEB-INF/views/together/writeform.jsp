@@ -19,7 +19,7 @@
 
 	<!-- 헤더 -->
 	<div id="header">
-			<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
+			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
 			
 			<div id="login">
 				<ul>
@@ -92,7 +92,7 @@
 						<tr>
 							<td>
 								<!-- 지도 -->
-								<img src="../../../assets/image/course/map.jpg" height="615px">
+								<img src="${pageContext.request.contextPath}/assets/image/course/map.jpg" height="615px">
 							</td>
 						</tr>
 					
