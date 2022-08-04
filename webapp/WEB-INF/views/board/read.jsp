@@ -18,25 +18,8 @@
 <body>
 
 	<div id="wrap">
-		<div id="header">
-			<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath}/assets/image/main/logo.jpg"></a>
-			
-			<div id="login">
-				<ul>
-					<li><a href="">회원가입</a></li>
-					<li><a href="">로그인</a></li>
-				</ul>
-			</div> <!-- login -->
-			
-			<div id="nav">
-				<ul>
-					<li><a href="../together/together.html">함께하기</a></li>
-					<li><a href="../board/board.html">게시판</a></li>
-					<li><a href="../best/best.html">베스트</a></li>
-					<li><a href="../map/map.html">지도</a></li>
-				</ul>
-			</div> <!-- nav -->
-		</div> <!-- header -->
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+		<!-- header -->
 	
 		<h1>게시판</h1>
 		
@@ -141,15 +124,15 @@
 					<p id="comment_btn">-망고 샀어ㅎㅎ</p>
 					<!-- 수정, 삭제 버튼 -->
 					<div id="writer_btnS">
-						<button type="submit" id="modify_s">수정</button>
-						<button type="submit" id="delete_s">삭제</button>
+						<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>
+						<button type="submit" id="delete_s"><span class="glyphicon glyphicon-trash"></span></button>
 					</div><!-- writer_btn -->
 					<p class="REcomment">&nbsp &nbsp ㄴ쭌:망고 얼마야?</p>
 					<p id="REcomment_btn">&nbsp &nbsp ㄴ깜이:할인해서 만원</p>
 					<!-- 수정, 삭제 버튼 -->
 					<div id="writer_btnXS">
-						<button type="submit" id="modify_xs">수정</button>
-						<button type="submit" id="delete_xs">삭제</button>
+						<button type="submit" id="modify_xs"><span class="glyphicon glyphicon-pencil"></span></button>
+						<button type="submit" id="delete_xs"><span class="glyphicon glyphicon-trash"></span></button>
 					</div><!-- writer_btn -->
 					<p id="REcomment_bottom">&nbsp &nbsp ㄴ쭈쭈:나는 두개 샀어!</p>
 					
@@ -161,28 +144,8 @@
 			
 			<br><br><br><br><br><br><br><br><br><br>
 			
-			<div class="footer">
-				<div class="footer-text">
-					<p>주식회사 조아</p>
-					<p>대표 : 최보승</p>
-					<p>사업자 번호 : 123-456-789</p>
-					<p>서울특별시 관악구 봉천동 862 - 1</p>
-					<br>
-					<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
-					<p>tel. 02 - 1111 - 1111</p>
-					<p>fax. 02 - 1111 - 1111</p>
-					<p>email. joa@joa.co.kr</p>
-				</div>
-				<br>
-				<div class="footer-btn">
-					<button id="footerbtn" type="button" name="" value="">자주묻는 질문</button>
-					<button id="footerbtn" type="button" name="" value="">1:1 문의</button>
-				</div>
-				<br>
-				<hr class="my-hr1">
-				<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
-		
-			</div> <!-- footer -->
+			<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+			<!-- footer -->
 		
 	</div><!-- wrap -->	
 

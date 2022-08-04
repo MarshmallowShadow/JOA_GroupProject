@@ -1,6 +1,19 @@
 @charset "UTF-8";
-@import "includes.css";
 @import "clearfix.css";
+@import "includes.css";
+
+/* =======================공통======================= */
+body {font-size: 14px;}
+.bold {font-weight: 700;}
+.pointer {cursor: pointer;}
+/* radio 버튼 초기화 */
+input[type=radio] {display:none;}
+/* =======================레이아웃======================= */
+#wrap {padding: 10px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
+
+
+
+
 
 /**************************************************************************/
 /* 마이페이지-메인/나의코스/즐겨찾기 *************************************************************/

@@ -1,6 +1,3 @@
-@charset "UTF-8";
-
-
 
 /* classes attached to <body> */
 /* TODO: make fc-event selector work when calender in shadow DOM */
@@ -308,13 +305,9 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc-direction-rtl .fc-toolbar-ltr { /* when the toolbar-chunk positioning system is explicitly left-to-right */
     flex-direction: row-reverse;
   }
-  
-  
-  
-   
 .fc .fc-scroller {
     -webkit-overflow-scrolling: touch;
-    position: relative; for abs-positioned elements within
+    position: relative; /* for abs-positioned elements within */
   }
 .fc .fc-scroller-liquid {
     height: 100%;
@@ -330,17 +323,12 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     position: relative;
     overflow: hidden;
     direction: ltr;
-      hack for chrome computing the scroller's right/left wrong for rtl. undone below...
-      TODO: demonstrate in codepen
+      /* hack for chrome computing the scroller's right/left wrong for rtl. undone below... */
+      /* TODO: demonstrate in codepen */
   }
 .fc .fc-scroller-harness-liquid {
     height: 100%;
   }
-   
-   
-   
-   
-   
 .fc-direction-rtl .fc-scroller-harness > .fc-scroller { /* undo above hack */
     direction: rtl;
   }
@@ -418,11 +406,6 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     height: 1px; /* needs height to create scrollbars */
     margin-bottom: -1px;
   }
-  
-  */
-  
-  
-  
 .fc-sticky { /* no .fc wrap because used as child of body */
   position: sticky;
 }
@@ -457,7 +440,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     bottom: 0;
   }
 .fc .fc-non-business {
-	background: rgba(215, 215, 215, 0.3);
+    background: rgba(215, 215, 215, 0.3);
     background: var(--fc-non-business-color, rgba(215, 215, 215, 0.3));
   }
 .fc .fc-bg-event {
@@ -603,7 +586,6 @@ A HORIZONTAL event
     color: var(--fc-event-text-color, #fff);
   }
 .fc-h-event .fc-event-main-frame {
-    width:100px; height:24px;	/* 따로 추가 */
     display: flex; /* for make fc-event-title-container expand */
   }
 .fc-h-event .fc-event-time {
@@ -890,7 +872,7 @@ A HORIZONTAL event
 .fc-daygrid-event { /* make root-level, because will be dragged-and-dropped outside of a component root */
   position: relative; /* for z-indexes assigned later */
   white-space: nowrap;
-  /* border-radius: 3px;  *//* dot event needs this to when selected */
+  border-radius: 3px; /* dot event needs this to when selected */
   font-size: .85em;
   font-size: var(--fc-small-font-size, .85em);
 }
@@ -900,7 +882,7 @@ A HORIZONTAL event
   }
 .fc-daygrid-block-event .fc-event-time,
   .fc-daygrid-block-event .fc-event-title {
-    padding: 1px; 
+    padding: 1px;
   }
 /* --- the dot style of event --- */
 .fc-daygrid-dot-event {
@@ -1227,7 +1209,7 @@ A VERTICAL event
     margin: 0 2px 0 2.5%;
   }
 .fc-timegrid-event-harness {
-	position: absolute /* top/left/right/bottom will all be set by JS */
+  position: absolute /* top/left/right/bottom will all be set by JS */
 }
 .fc-timegrid-event-harness > .fc-timegrid-event {
     position: absolute; /* absolute WITHIN the harness */

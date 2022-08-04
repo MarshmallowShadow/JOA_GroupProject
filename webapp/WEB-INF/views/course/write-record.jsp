@@ -116,7 +116,7 @@
 					<td>
 					
 						<!-- 지도 -->
-						<div id="map">
+						<div id="map-info">
 							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg">
 						</div>
 					</td>
