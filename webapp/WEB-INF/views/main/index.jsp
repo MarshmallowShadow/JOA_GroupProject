@@ -11,10 +11,6 @@
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/assets/css/main.css" rel="stylesheet"  type="text/css">
 
-<!-- js -->
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
-
 </head>
 <body>
 
@@ -36,6 +32,7 @@
 		<div class="slide_next_button slide_button">▶</div>
 		<ul class="slide_pagination"></ul>
 	</div>
+	
 		<!------------------------- 글귀 ------------------------>
 <div id="wrap">
 		<div class="main-text">
@@ -53,5 +50,8 @@
 
 </body>
 
+<!-- js -->
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
 
 </html>
