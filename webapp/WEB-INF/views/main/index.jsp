@@ -33,7 +33,8 @@
 		<ul class="slide_pagination"></ul>
 	</div>
 	
-		<!------------------------- 글귀 ------------------------>
+<!------------------------- 글귀 ------------------------>
+
 <div id="wrap">
 		<div class="main-text">
 			<p>살아 숨쉬는 자연에서 <br><br><br> 운동을 시작하다.
@@ -47,7 +48,6 @@
 
 <!------------------------ footer ------------------------>
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-
 </body>
 
 <!-- js -->
