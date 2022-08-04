@@ -167,7 +167,7 @@
     	editable: true,
 		selectable: true,
 		businessHours: true,
-		dayMaxEvents: true, // allow "more" link when too many events
+		dayMaxEvents: false, // allow "more" link when too many events
 		events: [	//나의 기록 여기다가 추가해야할 듯?
 			{
 	          title: '테스트 코스',
