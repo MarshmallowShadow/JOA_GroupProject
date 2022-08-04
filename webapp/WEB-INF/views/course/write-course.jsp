@@ -16,7 +16,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a3870909543cc9a79f21eb4b20d2598"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
 </head>
 <body>
 <div id="wrap">
@@ -83,18 +83,11 @@
 						</tr>
 						
 						<tr>
-							<td>
+							<td height="500px">
 								<!-- 지도 영역 -->
-								<div class="map-wrap">
-									<!-- 지도 -->
-									<div id="map"></div>
+								<div id="map"></div>
 									
-									<!-- 지도 확대, 축소 컨트롤 -->
-									<div class="custom_zoomcontrol radius_border"> 
-								        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-								        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
-								    </div>
-								</div>
+								<%-- <img src="${pageContext.request.contextPath }/assets/image/course/map.jpg"> --%>
 							</td>
 						</tr>
 					</table>
