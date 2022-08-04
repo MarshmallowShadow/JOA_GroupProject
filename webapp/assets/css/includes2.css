@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@import "clearfix.css";	
+
+/**************************** header ****************************/
+/* ----------- 네비 ----------- */
+#header {
+	max-width: 100%;
+	height: 80px;
+	padding: 0px 20px;
+	border-bottom: 1px solid rgb(174, 174, 174);
+}
+
+#header #logo {
+	float: left;
+	height: 60px;
+	margin: 10px;
+}
+
+/* 내비 */
+#header #nav ul li {
+	float: right;
+	height: 80px;
+	display: flex; /* for center-align */
+	align-items: center; /* align vertical */
+	font-size: 16px;
+	margin-left: 40px;
+}
+
+#header #user-menu { 
+	margin: 20px 0px 20px 40px;
+	float: right;
+	width: 160px;
+	margin: 20px 0px 20px 40px;
+}
+
+/* ----------- 로그인 전 로그인 회원가입 ----------- */
+#header #login {
+	float: right;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	height: 40px;
+	width: 160px;
+	border: 1px solid rgb(174, 174, 174);
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#header #login ul li {
+	float: right;
+	display: flex; /* for center-align */
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	width: 79px;
+	height: 40px;
+}
+
+/* ----------- 로그인 후 헤더 변환 ----------- */
+/* 메뉴 펼침 - 체크박스 체크되면 메뉴목록 표시 */
+
+#header #user-menu label { 
+	margin: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	height: 40px;
+	width: 160px;
+	border: 1px solid rgb(174, 174, 174);
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#header #user-menu #check-btn, .menubars { 
+	display: none;
+}
+
+#header #user-menu #check-btn:checked ~ .menubars { 
+	display: block;
+	margin-top: 10px;
+}
+
+/* 로그인 후 펼친 메뉴 설정 */
+#header #user-menu .menubars li {
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	background-color: #fff;
+	text-align: center;
+	height: 30px;
+	width: 100%;
+	border: 1px solid rgb(174, 174, 174);
+}
