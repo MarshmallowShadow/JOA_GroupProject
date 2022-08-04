@@ -96,14 +96,14 @@
 
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
-<div class="category-add-btn">
+<div class="modal category-add-btn">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">즐겨찾기 추가</h4>
+        <h5 class="modal-title">즐겨찾기 추가</h5>
         <br>
-        <h2 class="modal-title">새로운 목록을 만들어 주세요.</h2>
+        <p class="modal-title">새로운 목록을 만들어 주세요.</p>
       </div>
       <div class="modal-body">
         <p>새 목록 이름</p>
@@ -123,14 +123,14 @@
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
-<div class="category-del-btn">
-  <div class="modal-dialog">
+<div class="modal category-del-btn">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">즐겨찾기 삭제</h4>
+        <h5 class="modal-title">즐겨찾기 삭제</h5>
         <br>
-        <h3 class="modal-title">삭제할 목록을 선택해 주세요.</h3>
+        <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
       </div>
       <div class="modal-body">
         <select>
@@ -141,7 +141,7 @@
         </select>
         <br>
         <br>
-        <p>목록을 삭제할 경우,<br>목록 안의 내용들도 삭제됩니다!!</p>
+        <p class="modal-body-detail">목록을 삭제할 경우, 목록 안의 내용들도 삭제됩니다!!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
@@ -156,12 +156,12 @@
 <!-- 모달-즐겨찾기 삭제 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 이름변경 ***************************************************************************************** -->
-<div class="category-modify-btn">
+<div class="modal category-modify-btn">
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">즐겨찾기 목록 이름 변경</h4>
+      <h5 class="modal-title">즐겨찾기 목록 이름 변경</h5>
     </div>
     <div class="modal-body">
     	<p>목록의 이름을 변경해주세요.</p>

@@ -335,15 +335,15 @@
 
 
 <!-- 좋아요 해제 모달!! ************************************************************************************* -->
-<div class="course-like-cancel">
+<div class="modal course-like-cancel">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">좋아요 해제</h4>
+        <h5 class="modal-title">좋아요 해제</h5>
       </div>
       <div class="modal-body">
-        <p>좋아요를 해제하시겠습니까?</p>
+        <p class="modal-body-detail">좋아요를 해제하시겠습니까?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
@@ -356,15 +356,15 @@
 <!-- 좋아요 해제 모달 끝!! ************************************************************************************* -->
 
 <!-- 즐겨찾기 해제 모달!! ************************************************************************************* -->
-<div class="course-bookmark-cancel">
+<div class="modal course-bookmark-cancel">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">즐겨찾기 해제</h4>
+        <h5 class="modal-title">즐겨찾기 해제</h5>
       </div>
       <div class="modal-body">
-        <p>즐겨찾기를 해제하시겠습니까?</p>
+        <p class="modal-body-detail">즐겨찾기를 해제하시겠습니까?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
