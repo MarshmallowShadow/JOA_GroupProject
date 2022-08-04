@@ -8,11 +8,12 @@
 <title>JOA Main</title>
 
 <!-- CSS -->
-<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../../../assets/css/main.css" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/assets/css/main.css" rel="stylesheet"  type="text/css">
 
-<!-- jquery -->
-
+<!-- js -->
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
 
 </head>
 <body>
@@ -21,26 +22,20 @@
 <!--메인 해더 자리 -->
 
 <!------------------------- photo slider ------------------------>
-	
-		<div class="slider">
-			<input type="radio" name="slide" id="slide1" checked> 
-			<input type="radio" name="slide" id="slide2"> 
-			<input type="radio" name="slide" id="slide3"> 
-			<input type="radio" name="slide" id="slide4">
-
-			<ul class="imgs" id="imgholder">
-				<li><img src="../../../assets/image/main/swiss.jpg"></li>
-				<li><img src="../../../assets/image/main/paris.jpg"></li>
-				<li><img src="../../../assets/image/main/parispark.jpg"></li>
-				<li><img src="../../../assets/image/main/busan.jpg"></li>
-			</ul>
-
-			<div class="bullets">
-				<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
-				<label for="slide3">&nbsp;</label> <label for="slide4">&nbsp;</label>
+	<div class="slide slide_wrap">
+			<div class="slide_item item1"><img src="${pageContext.request.contextPath }/assets/image/main/swiss.jpg">
 			</div>
-		</div>
+			<div class="slide_item item2"><img src="${pageContext.request.contextPath }/assets/image/main/paris.jpg">
+			</div>
+			<div class="slide_item item3"><img src="${pageContext.request.contextPath }/assets/image/main/parispark.jpg">
+			</div>
+			<div class="slide_item item4"><img src="${pageContext.request.contextPath }/assets/image/main/busan.jpg">
+			</div>
 
+		<div class="slide_prev_button slide_button">◀</div>
+		<div class="slide_next_button slide_button">▶</div>
+		<ul class="slide_pagination"></ul>
+	</div>
 		<!------------------------- 글귀 ------------------------>
 <div id="wrap">
 		<div class="main-text">
@@ -53,7 +48,10 @@
 		</div>
 </div>
 
-	<!------------------------ footer ------------------------>
+<!------------------------ footer ------------------------>
+<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 </body>
+
+
 </html>
