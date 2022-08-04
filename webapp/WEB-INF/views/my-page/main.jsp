@@ -365,28 +365,16 @@
 						 	</div>
 						</div>
 					</li>
-					
-					
-					
-					
 				</ol>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<!-- 메인 푸터  자리-->
-		
-	
 	</div>
 	<!-- //center-content -->
-
+	
+	
+	<!-- 메인 푸터  자리-->
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- footer -->
 
 
 </body>

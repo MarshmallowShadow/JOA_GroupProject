@@ -35,64 +35,16 @@
 		<div id="result-list">
 			<ul>
 				<li>
-					<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-						<div class="course-icon"><img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg"></div>
-						<div class="course-info">
-							<h3 class="course-title">헬 ^^</h3>
-							<p class="p-info">
-								작성자: 쿵야 <br>
-								거리: 5.0km <br>
-								시간: 40분
-							</p>
-							<div class="tag-blue"><p>런닝</p></div>
-							<div class="tag-pink"><p>어려움</p></div>
-						</div> <!-- course-info -->
-					</div> <!-- course-container -->
+					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
 				</li>
 				<li>
-					<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-						<div class="course-icon"><img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg"></div>
-						<div class="course-info">
-							<h3 class="course-title">넘 하기 싫다</h3>
-							<p class="p-info">
-								작성자: 쿵야 <br>
-								거리: 6.0km <br>
-								시간: 50분
-							</p>
-							<div class="tag-blue"><p>조깅</p></div>
-							<div class="tag-pink"><p>어려움</p></div>
-						</div> <!-- course-info -->
-					</div> <!-- course-container -->
+					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
 				</li>
 				<li>
-					<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-						<div class="course-icon"><img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg"></div>
-						<div class="course-info">
-							<h3 class="course-title">언제 끝남</h3>
-							<p class="p-info">
-								작성자: 쿵야 <br>
-								거리: 7.0km <br>
-								시간: 50분
-							</p>
-							<div class="tag-blue"><p>조깅</p></div>
-							<div class="tag-pink"><p>어려움</p></div>
-						</div> <!-- course-info -->
-					</div> <!-- course-container -->
+					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
 				</li>
 				<li>
-					<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-						<div class="course-icon"><img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg"></div>
-						<div class="course-info">
-							<h3 class="course-title">ㅠㅠ</h3>
-							<p class="p-info">
-								작성자: 쿵야 <br>
-								거리: 5.0km <br>
-								종목: 런닝
-							</p>
-							<div class="tag-blue"><p>런닝</p></div>
-							<div class="tag-pink"><p>어려움</p></div>
-						</div> <!-- course-info -->
-					</div> <!-- course-container -->
+					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
 				</li>
 			</ul>
 		</div> <!-- result-mask -->
