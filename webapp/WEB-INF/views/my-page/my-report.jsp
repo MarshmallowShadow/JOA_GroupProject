@@ -146,6 +146,8 @@
 		
 		
 		<!-- 메인 푸터  자리-->
+		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+		<!-- footer -->
 		
 	
 	</div>
@@ -164,9 +166,9 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	locale: 'ko',
     	/* dayPopoverFormat: event-popover, */
-    	editable: true,
+    	editable: false,
 		selectable: true,
-		businessHours: true,
+		businessHours: true,	//주말 구분;
 		dayMaxEvents: false, // allow "more" link when too many events
 		events: [	//나의 기록 여기다가 추가해야할 듯?
 			{
