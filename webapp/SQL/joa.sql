@@ -134,11 +134,11 @@ NOCACHE;
 /* 사용자 */
 CREATE TABLE USERS (
 	user_no NUMBER, /* 회원번호 */
-	id VARCHAR2(20) NOT NULL, /* 아이디 */
+	id VARCHAR2(20) NOT NULL UNIQUE, /* 아이디 */
 	password VARCHAR2(20) NOT NULL, /* 비밀번호 */
 	name VARCHAR2(100) NOT NULL, /* 회원이름 */
-	phone VARCHAR2(20) NOT NULL, /* 전화번호 */
-	email VARCHAR2(200) NOT NULL, /* 이메일 */
+	phone VARCHAR2(20) NOT NULL UNIQUE, /* 전화번호 */
+	email VARCHAR2(200) NOT NULL UNIQUE, /* 이메일 */
 	Primary Key (user_no)
 );
 
