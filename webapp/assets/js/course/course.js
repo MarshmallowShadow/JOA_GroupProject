@@ -1,5 +1,5 @@
 /**
- * 코스 작성하기 js
+ * 코스 그리기 js
  */
  
 $(document).ready(function() {
@@ -25,8 +25,8 @@ $(document).ready(function() {
 	        
 	        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
 
-	        // 마커 표시
-	        displayMarker(locPosition);
+	        // 접속 위치 변경
+   			map.setCenter(locPosition); 
 	            
 	      });
 	    
@@ -34,21 +34,11 @@ $(document).ready(function() {
 	    
 	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667); 
 	        
-	    displayMarker(locPosition);
+	    // 접속 위치 변경
+	    map.setCenter(locPosition); 
 	}
 	
-	// 현재 위치 마커 표시
-	function displayMarker(locPosition) {
-	
-	    // 마커 생성
-	    var marker = new kakao.maps.Marker({  
-	        map: map, 
-	        position: locPosition
-	    }); 
-
-	    // 접속 위치 변경
-	    map.setCenter(locPosition);      
-	}    
+   
 /***********************현재 위치 찍기********************************************************/	
 	
 /***********************키워드 검색********************************************************/
@@ -81,6 +71,7 @@ $(document).ready(function() {
 		}
 		
 	});
+
 
 /***********************키워드 검색********************************************************/	
 
