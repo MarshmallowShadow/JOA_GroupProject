@@ -13,7 +13,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/course.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 </head>
@@ -77,7 +77,7 @@
 				</div>
 				<!-- course-select -->
 				
-				<form id="courseForm" method="get" action="./courseWrite">
+				<!-- <form id="courseForm" method="get" action="./courseWrite"> -->
 					<!-- 코스정보 -->
 					<div class="course-content">
 						<h2>코스 정보</h2>
@@ -181,7 +181,7 @@
 						</table>
 					</div>
 					<!-- course-content -->
-					</form>
+					<!-- </form> -->
 				</div>
 				<!-- course-form -->
 			

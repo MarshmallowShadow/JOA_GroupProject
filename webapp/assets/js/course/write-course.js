@@ -2,6 +2,7 @@
  * 코스 그리기 js
  */
  
+ 
 $(document).ready(function() {
 	console.log("페이지 준비");
 	
@@ -79,7 +80,7 @@ $(document).ready(function() {
 
 	var drawingFlag = false; // 그리고 있는 상태 체크
 	var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체
-	var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체
+	var clickLine; // 마우스로 클릭한 좌표로 그려질 선 객체
 	var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열
 
 
@@ -341,6 +342,58 @@ $(document).ready(function() {
 	    return content;
 	}
 /***********************코스 그리기********************************************************/
+
+
+
+/***********************코스 등록********************************************************/
+	/*등록 버튼 클릭 했을때*/
+	$('.add').on('click', function() {
+		console.log("등록 버튼 클릭");
+		
+		/*값 가져오기*/
+		var path = clickLine.getPath();
+		var title = $('input[name="title"]').val();
+		var courseCate = $('input[name="courseCate"]:checked').val();
+		var distance = $('input[name="distance"]').val();
+		var time = ($('#hour').val()*60) + parseInt($('#minute').val());
+		var difficulty = $('input[name="difficulty"]:checked').val();
+		var openStatus = $('input[name="openStatus"]:checked').val();
+		
+		var courseMap = {
+			courseVo: courseVo = {
+						title,
+						courseCate,
+						distance,
+						time,
+						difficulty,
+						openStatus,
+					},
+			path: path
+		};
+		
+		console.log(courseMap);
+		
+		
+		
+		$.ajax({
+			//보낼때
+			url : "${pageContext.request.contextPath }/courseWrite",
+			type : "get",
+			contentType : "application/json",
+			data : JSON.stringify(courseMap),
+			
+			//받을때
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+				console.log(result);
+				
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+	});
 });
 
 

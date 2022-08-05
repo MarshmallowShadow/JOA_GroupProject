@@ -1,11 +1,12 @@
 package com.javaex.controller;
 
+import java.util.HashMap;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.javaex.vo.CourseVo;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CourseController {
@@ -18,10 +19,11 @@ public class CourseController {
 	}
 	
 	//코스 정보 등록
+	@ResponseBody
 	@RequestMapping(value="/courseWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String courseWrite(@ModelAttribute CourseVo coVo ) {
+	public String courseWrite(@RequestBody HashMap<String, Object> courseMap) {
 		System.out.println("CourseController->courseWrite()");
-		System.out.println(coVo);
+		System.out.println(courseMap);
 		return "";
 	}
 	
