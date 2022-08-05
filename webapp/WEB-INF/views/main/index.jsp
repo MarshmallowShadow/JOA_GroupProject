@@ -25,6 +25,8 @@
 		</div>
 		<div id="weather_result" style="padding:6px; padding-right:75px; border:1px solid #bbbbbb; 
 		margin-left: 50px; width:90%; min-height:150px; display:inline-block; margin-top: 10px;"></div>
+		
+<!------------------------- 날씨 api ------------------------>		
 
 	<div class="slide slide_wrap">
 			<div class="slide_item item1"><img src="${pageContext.request.contextPath }/assets/image/main/swiss.jpg">
