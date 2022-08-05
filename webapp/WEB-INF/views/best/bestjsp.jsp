@@ -12,34 +12,11 @@
 <link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/bestplus.css" rel="stylesheet"  type="text/css">
 
-<!-- jquery -->
-
-
 </head>
 <body>
 
-	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="../../../assets/image/main/logo.jpg"></a>
-
-		<div id="login">
-			<ul>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
-			</ul>
-		</div>
-		<!-- login -->
-
-		<div id="nav">
-			<ul>
-				<li><a href="../together/together.html">함께하기</a></li>
-				<li><a href="../board/board.html">게시판</a></li>
-				<li><a href="../best/best.html">베스트</a></li>
-				<li><a href="../map/map.html">지도</a></li>
-			</ul>
-		</div>
-		<!-- nav -->
-	</div>
-<!---------------------------------------- header --------------------------------------->
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<!------------------- header --------------------->
 
 <div id="wrap">
 	<div class="content"> 	
@@ -77,9 +54,9 @@
 
 			<!-- 왕관 이미지 -->
 			<div class="img-1">		
-				<p>Top 1 <img src="../../../assets/image/best/cgold.jpg" /></p>
-				<p>Top 2 <img src="../../../assets/image/best/csilver.jpg" /></p>
-				<p>Top 3 <img src="../../../assets/image/best/cbronze.jpg" /></p>
+				<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
+				<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
+				<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
 			</div>
 
 			<br> <br> <br>
@@ -87,7 +64,7 @@
 			<!-- Top 1~3 게시물 -->
 			<div class="img-line">
 				<div class="img-list">
-					<a href=""> <img src="../../../assets/image/best/sw1.jpg" />
+					<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/sw1.jpg" />
 						<span id="best-text"> 지역 : <span>서울</span> | 거리 : <span>1km</span> <span id="new">🅽</span></span></a>
 
 						<div class="comment-text">
@@ -100,15 +77,15 @@
 								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
 								
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -120,15 +97,15 @@
 							<div class="button-ttl">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -140,8 +117,8 @@
 							<div class="button-ttl">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
 								</div>
 							</div>
 						</div>
@@ -160,7 +137,7 @@
 					<p><span>ε♡з</span> Top 4 ~ 6</p>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>서울</span> | 거리 : <span>1km</span></span></a>
 
 						<div class="comment-text">
@@ -172,15 +149,15 @@
 							<div class="button-ttl">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 						
 						<div class="comment-text">
@@ -192,15 +169,15 @@
 							<div class="button-ttl">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/poo613.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/poo613.jpg" />
 							<span id="best-text"> 지역 : <span>인천</span> | 거리 : <span>1km</span></span></a>
 						
 						<div class="comment-text">
@@ -213,8 +190,8 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
@@ -229,7 +206,7 @@
 				<p> <span>ε♡з</span> Top 7 ~ 9</p>
 			
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -242,15 +219,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -263,15 +240,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -284,8 +261,8 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
@@ -300,7 +277,7 @@
 				<p> <span>ε♡з</span> Top 10 ~ 12</p>
 			
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -313,15 +290,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -334,15 +311,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -355,8 +332,8 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
@@ -371,7 +348,7 @@
 				<p> <span>ε♡з</span> Top 13 ~ 15</p>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -384,15 +361,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/map.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
 							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
 					
 						<div class="comment-text">
@@ -405,15 +382,15 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="img-list">
-						<a href=""> <img src="../../../assets/image/best/poo613.jpg" />
+						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/poo613.jpg" />
 							<span id="best-text"> 지역 : <span>인천</span> | 거리 : <span>1km</span></span></a>
 
 						<div class="comment-text">
@@ -426,8 +403,8 @@
 								<input type="button" id="cbutton" name="button" value="후기 : 3개">
 
 								<div class="imgbutton">
-									<img src="../../../assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="../../../assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
 								</div>
 							</div>
 						</div>
@@ -436,34 +413,10 @@
 		</div>		
 	</div>			
 				
-</div>				
-		<!------------------ footer -------------------->
-		<div class="footer">
-			<div class="footer-text">
-				<p>주식회사 조아</p>
-				<p>대표 : 최보승</p>
-				<p>사업자 번호 : 123-456-789</p>
-				<p>서울특별시 관악구 봉천동 862 - 1</p>
-				<br>
-				<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
-				<p>Tel. 02 - 1111 - 1111</p>
-				<p>Fax. 02 - 1111 - 1111</p>
-				<p>Email. joa@joa.co.kr</p>
-			</div>
-			<br>
-			<div class="footer-btn">
-				<button id="footerbtn" type="button">자주묻는 질문</button>
-				<button id="footerbtn" type="button">1:1 문의</button>
-			</div>
-			<br>
-			<hr class="my-hr1">
-			<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
+</div>
 
-		</div>
-		<!-- /footer -->			
-			
-			
-	
+	<!------------------------ footer ------------------------>
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
-</body>
+</body>	
 </html>
