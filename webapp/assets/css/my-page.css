@@ -10,7 +10,7 @@ body {font-size: 14px;}
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #wrap/* >#content */ {top:80px; padding: 50px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px; height:5000px; }
-#header {left:0;/* z-index: 1;  */top:0; position: fixed; width:100%; background-color:white; height:80px;}
+#header {left:0; z-index: 1;  top:0; position: fixed; width:100%; background-color:white; height:80px;}
 
 
 
