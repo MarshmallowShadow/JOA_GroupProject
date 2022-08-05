@@ -21,17 +21,6 @@ public class MypageController {
 		return "my-page/main";
 	}
 	
-	//메뉴바
-	@RequestMapping(value="/my-page/menu", method = {RequestMethod.GET, RequestMethod.POST})
-	public String menu() {
-		System.out.println("MypageController>menu");
-		
-		return "my-page/menubar";
-	}
-	
-	
-	
-	
 	
 	//마이페이지-내 코스
 	@RequestMapping(value="/my-page/my-course", method = {RequestMethod.GET, RequestMethod.POST})
