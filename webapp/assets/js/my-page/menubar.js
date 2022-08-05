@@ -1,6 +1,19 @@
 /*준비가 끝나면*/
 $(document).ready(function(){
-    console.log('메뉴바!!');
+	console.log("준비")
+	$("#menuBar").hide();
+	
+	
+	$(".menuBar-open").click(function(){
+		$("#menuBar").show();
+		
+	});
+	
+	$(".menuBar-close-btn").click(function(){
+		$("#menuBar").hide();
+		
+	});
+	
     $(".category-add-btn").hide();
     $(".category-del-btn").hide();
     $(".category-modify-btn").hide();
@@ -30,4 +43,11 @@ $(document).ready(function(){
 
 
 
-
+/*function openNav() {
+	  document.getElementById("menuBar").style.width = "400px";
+	}
+	
+	function closeNav() {
+	  document.getElementById("menuBar").style.width = "0";
+	}
+	*/

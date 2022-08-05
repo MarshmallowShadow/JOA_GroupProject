@@ -18,15 +18,7 @@
 
 </head>
 <body>
-	<div id="wrap">
-		
-		<!--메인 해더 자리 -->
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-		<!-- header -->
-		
-		
-		
-		<div class="menuBar-display">
+	<div class="menuBar-display">
 			<div class="menuBar">
 				<div class="menu1">
 					<ol>
@@ -34,7 +26,7 @@
 							<a href="${pageContext.request.contextPath}/my-page">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></a>
 						</li>
 						<li class="menuBar-close">
-							<a href=""><img class="menuBar-close-btn" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
+							 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="menuBar-close-btn" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></a>
 						</li>
 						<li id="menuList"><a href="${pageContext.request.contextPath}/my-page/my-course">나의 코스 보기</a></li>
 						<li id="menuList"><a href="${pageContext.request.contextPath}/my-page/my-report">나의 기록 보기</a></li>
@@ -70,12 +62,9 @@
 				</div>
 			</div>
 		</div>	
-	
-	<!-- 메인 푸터  자리-->
 		
 	
-	</div>
-	<!-- //center-content -->
+
 
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
