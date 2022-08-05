@@ -13,7 +13,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/course.js"></script>
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 </head>
@@ -21,25 +21,8 @@
 <div id="wrap">
 	
 	<!-- 헤더 -->
-	<div id="header">
-		<a href="../main/index.html"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
-		
-		<div id="login">
-			<ul>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
-			</ul>
-		</div> <!-- login -->
-		
-		<div id="nav">
-			<ul>
-				<li><a href="../together/together.html">함깨하기</a></li>
-				<li><a href="../board/board.html">게시판</a></li>
-				<li><a href="../best/best.html">베스트</a></li>
-				<li><a href="../map/map.html">지도</a></li>
-			</ul>
-		</div> <!-- nav -->
-	</div> <!-- header -->
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	<!-- 헤더 -->
 	
 	
 	
