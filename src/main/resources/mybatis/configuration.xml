@@ -3,10 +3,13 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		
+		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
+		<typeAlias alias="pointVo" type="com.javaex.vo.PointVo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/users.xml" />
 		<mapper resource="mybatis/mappers/mypage.xml" />
+		<mapper resource="mybatis/mappers/course.xml"/>
+		<mapper resource="mybatis/mappers/point.xml"/>
 	</mappers>
 </configuration>

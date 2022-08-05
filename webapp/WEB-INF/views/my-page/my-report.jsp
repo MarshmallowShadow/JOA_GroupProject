@@ -177,6 +177,135 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->
 
+<!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
+<div class="modal category-add-btn">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">즐겨찾기 추가</h5>
+        <br>
+        <p class="modal-title">새로운 목록을 만들어 주세요.</p>
+      </div>
+      <div class="modal-body">
+        <p>새 목록 이름</p>
+        <br>
+        <input type="text" placeholder="즐겨찾기 이름을 입력하세요">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">목록 만들기</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
+
+<!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
+<div class="modal category-del-btn">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">즐겨찾기 삭제</h5>
+        <br>
+        <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
+      </div>
+      <div class="modal-body">
+        <select>
+        	<option>즐겨찾기1</option>
+        	<option>즐겨찾기2</option>
+        	<option>즐겨찾기3</option>
+        	<option>으아아아앙</option>
+        </select>
+        <br>
+        <br>
+        <p class="modal-body-detail">목록을 삭제할 경우, 목록 안의 내용들도 삭제됩니다!!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">목록 삭제</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- 모달-즐겨찾기 삭제 끝!! ************************************************************************************* -->
+
+<!-- 모달-즐겨찾기 이름변경 ***************************************************************************************** -->
+<div class="modal category-modify-btn">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h5 class="modal-title">즐겨찾기 목록 이름 변경</h5>
+    </div>
+    <div class="modal-body">
+    	<p>목록의 이름을 변경해주세요.</p>
+    	<br>
+    	<input type="text" placeholder="카테고리 기존 이름">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+      <button type="button" class="btn btn-primary">변경</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- 모달-즐겨찾기 이름변경 끝!! ***************************************************************************************** -->
+
+
+
+<!-- 좋아요 해제 모달!! ************************************************************************************* -->
+<div class="modal course-like-cancel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">좋아요 해제</h5>
+      </div>
+      <div class="modal-body">
+        <p class="modal-body-detail">좋아요를 해제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">좋아요 해제</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 좋아요 해제 모달 끝!! ************************************************************************************* -->
+
+<!-- 즐겨찾기 해제 모달!! ************************************************************************************* -->
+<div class="modal course-bookmark-cancel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">즐겨찾기 해제</h5>
+      </div>
+      <div class="modal-body">
+        <p class="modal-body-detail">즐겨찾기를 해제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">즐겨찾기 해제</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 즐겨찾기 해제 모달 끝!! ************************************************************************************* -->
+
 
 </body>
 </html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="course">
+
+	<!-- 코스 추가 -->
+	<insert id="insert" parameterType="coVo">
+		<selectKey keyProperty="courseNo" resultType="int" order="BEFORE">
+			select SEQ_COURSE_NO.nextval from dual
+		</selectKey>
+		<![CDATA[
+			insert into course
+			values (#{courseNo}, #{userNo}, #{title}, #{distance}, #{courseCate}, #{courseTime}, #{difficulty}, sysdate, #{openStatus})
+		
+		]]>
+	</insert>
+
+</mapper>

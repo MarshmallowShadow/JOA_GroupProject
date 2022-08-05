@@ -1,15 +1,22 @@
 package com.javaex.controller;
 
-import java.util.HashMap;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.javaex.service.CourseService;
+import com.javaex.vo.CourseVo;
 
 @Controller
 public class CourseController {
+	
+	@Autowired
+	CourseService coService;
 
 	//코스 등록폼
 	@RequestMapping(value="/course-write", method = {RequestMethod.GET, RequestMethod.POST})
@@ -19,11 +26,15 @@ public class CourseController {
 	}
 	
 	//코스 정보 등록
-	@ResponseBody
 	@RequestMapping(value="/courseWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String courseWrite(@RequestBody HashMap<String, Object> courseMap) {
+	public String courseWrite(@RequestParam(value="x", required=true) List<Double> xList,
+							@RequestParam(value="y", required=true) List<Double> yList,
+							@RequestParam(value="hour", required = true) int hour,
+							@RequestParam(value="minute", required = true) int minute,
+							@ModelAttribute CourseVo coVo) {
 		System.out.println("CourseController->courseWrite()");
-		System.out.println(courseMap);
+		
+		coService.courseWrite(xList, yList, hour, minute, coVo);
 		return "";
 	}
 	
