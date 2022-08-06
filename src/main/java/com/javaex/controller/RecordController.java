@@ -5,9 +5,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.RecordService;
 
@@ -20,8 +20,8 @@ public class RecordController {
 	
 	
 	//기록 등록폼
-	@RequestMapping(value="/{courseNo}/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWriteForm(Model model, @PathVariable int courseNo) {
+	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
+	public String recordWriteForm(Model model, @RequestParam int courseNo) {
 		System.out.println("RecordController->recordWriteForm");
 		Map<String, Object> coMap = recService.getCourseInfo(courseNo);
 		model.addAttribute("coMap", coMap);
