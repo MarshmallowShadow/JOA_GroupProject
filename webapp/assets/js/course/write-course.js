@@ -198,6 +198,19 @@ $(document).ready(function() {
 					var content = getTime(distance);
 					showDistance(content);
 				});
+				
+				$("#point").empty();
+				
+				//input hidden 추가
+				for(var i=0; i<path.length; i++) {
+					
+					console.log(path[i]);
+					
+					var input = '<input type="hidden" name="x" value="'+path[i].La+'">'
+								+ '<input type="hidden" name="y" value="'+path[i].Ma+'">';
+					$("#point").append(input);
+				}
+				
 	             
 	        } else {
 	
@@ -347,27 +360,41 @@ $(document).ready(function() {
 
 /***********************코스 등록********************************************************/
 	/*등록 버튼 클릭 했을때*/
-	$('.add').on('click', function() {
+	/*$('.add').on('click', function() {
 		console.log("등록 버튼 클릭");
 		
-		/*값 가져오기*/
 		var path = clickLine.getPath();
-		var title = $('input[name="title"]').val();
+		var title = $('#course-title').val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
 		var distance = $('input[name="distance"]').val();
 		var time = ($('#hour').val()*60) + parseInt($('#minute').val());
 		var difficulty = $('input[name="difficulty"]:checked').val();
 		var openStatus = $('input[name="openStatus"]:checked').val();
 		
+		
+		if(path == "" || path == null || distance == "" || distance == null || distance == 0) {
+			document.getElementById('map').scrollIntoView();
+		}
+		
+		if(title == "" || title == null) {
+			document.getElementById('course-title').scrollIntoView();
+		}
+		
+		if(time == "" || time == null || time == 0) {
+			document.getElementById('hour').scrollIntoView();
+		}
+		
+		var courseVo = {
+						title: title,
+						courseCate: courseCate,
+						distance: distance,
+						time: time,
+						difficulty: difficulty,
+						openStatus: openStatus,
+					}; 
+		
 		var courseMap = {
-			courseVo: courseVo = {
-						title,
-						courseCate,
-						distance,
-						time,
-						difficulty,
-						openStatus,
-					},
+			courseVo: courseVo,
 			path: path
 		};
 		
@@ -378,14 +405,14 @@ $(document).ready(function() {
 		$.ajax({
 			//보낼때
 			url : "${pageContext.request.contextPath }/courseWrite",
-			type : "get",
-			contentType : "application/json",
-			data : JSON.stringify(courseMap),
+			type : "post",
+			//contentType : "application/json",
+			data : courseMap,
 			
 			//받을때
-			dataType : "json",
+			//dataType : "json",
 			success : function(result){
-				/*성공시 처리해야될 코드 작성*/
+				//성공시 처리해야될 코드 작성
 				console.log(result);
 				
 			},
@@ -393,7 +420,7 @@ $(document).ready(function() {
 				console.error(status + " : " + error);
 			}
 		});
-	});
+	});*/
 });
 
 

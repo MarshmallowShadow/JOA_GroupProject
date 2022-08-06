@@ -4,6 +4,30 @@
 <mapper namespace="mypage">
 	
 	<!-- 쿼리문 작성 -->
+	<resultMap id="MyReportVo" type="com.javaex.vo.MyReportVo">
+		<result column="record_no" property="recordNo" />
+		<result column="course_no" property="courseNo" />
+		<result column="user_no" property="userNo" />
+		<result column="title" property="title" />
+		<result column="review" property="review" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+	
+	
+	<select id="calendarList" resultType="com.javaex.vo.MyReportVo">
+		<![CDATA[
+			select  r.record_no,
+					r.course_no,
+			        r.user_no,
+			        c.title,
+			        r.review,
+			        r.reg_date regDate
+			from record r, course c
+			where r.course_no = c.course_no
+		]]>
+	</select>
+	
+	
 	
 	
 </mapper>

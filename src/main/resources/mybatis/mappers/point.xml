@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="point">
+
+	<!-- 코스 좌표 추가 -->
+	<insert id="insert" parameterType="pointVo">
+		<![CDATA[
+			insert into point
+			values (SEQ_POINT_NO.nextval, #{courseNo}, #{orderNo}, #{x}, #{y})
+		]]>
+	</insert>
+
+</mapper>
