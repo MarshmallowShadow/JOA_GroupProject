@@ -13,7 +13,6 @@
 	<!-- annotation 설정을 하겠다. -->
 	<context:annotation-config />
 
-
 	<!-- com.javaex.controller 패키지 밑에 있는 클래스 중에 @Controller를 달고 있는 클래스의 객체를 
 		생성 하겠다. (new 하겠다) -->
 	<context:component-scan

@@ -8,7 +8,7 @@
 	<title>코스 탐색</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/map.css">
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f9735f43a150536e030654b347315fc"></script>
+	<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f9735f43a150536e030654b347315fc"></script> -->
 </head>
 <body>
 <div id="wrap">
