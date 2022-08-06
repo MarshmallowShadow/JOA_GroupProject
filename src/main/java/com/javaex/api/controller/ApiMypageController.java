@@ -11,6 +11,7 @@ import com.javaex.service.MypageService;
 
 public class ApiMypageController {
 	
+	/*
 	@Autowired
 	private MypageService mypageService;
 	

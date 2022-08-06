@@ -61,7 +61,7 @@
 </body>
 
 <!-- js -->
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main/weather.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main/weather.js"></script>
 </html>
