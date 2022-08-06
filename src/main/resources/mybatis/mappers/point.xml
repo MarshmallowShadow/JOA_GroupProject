@@ -10,5 +10,18 @@
 			values (SEQ_POINT_NO.nextval, #{courseNo}, #{orderNo}, #{x}, #{y})
 		]]>
 	</insert>
-
+	
+	<!-- (기록등록) 코스 좌표 가져오기 -->
+	<select id="selectPoint" resultType="pointVo" parameterType="int">
+		<![CDATA[
+			select point_no pointNo
+			        ,course_no courseNo
+			        ,order_no orderNo
+			        ,x
+			        ,y
+			from point
+			where course_no = #{courseNo}
+			order by order_no asc
+		]]>
+	</select>
 </mapper>

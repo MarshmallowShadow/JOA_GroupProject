@@ -11,8 +11,23 @@
 		<![CDATA[
 			insert into course
 			values (#{courseNo}, #{userNo}, #{title}, #{distance}, #{courseCate}, #{courseTime}, #{difficulty}, sysdate, #{openStatus})
-		
 		]]>
 	</insert>
+	
+	
+	<!-- (기록등록) 코스 가져오기 -->
+	<select id="selectCourse" resultType="coVo" parameterType="int">
+		<![CDATA[
+			select course_no courseNo
+			        ,user_no userNo
+			        ,title
+			        ,distance
+			        ,course_category courseCate
+			        ,course_time courseTime
+			        ,difficulty
+			from course
+			where course_no = #{courseNo}
+		]]>
+	</select>
 
 </mapper>

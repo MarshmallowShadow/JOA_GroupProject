@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:parseNumber var="hour" value="${coMap.coVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
 
 <!DOCTYPE html>
 <html>
@@ -55,43 +57,64 @@
 						<div class="course-info">
 							<div>
 								<p>코스 제목</p>
-								<span>우리집 지름길</span>
+								<span>${coMap.coVo.title }</span>
 							</div>
 							
 							<div>
 								<p>종목</p>
-								<span>산책</span>
 								
-								<!-- 
-								<span>조깅</span>
-								<span>러닝</span>
-								<span>마라톤</span>
-								<span>자전거</span>
-								<span>그림</span>
-								 -->
+								<c:choose>
+									<c:when test="${coMap.coVo.courseCate eq 'walk' }">
+										<span>산책</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'jogging' }">
+										<span>조깅</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'running' }">
+										<span>러닝</span>
+									</c:when>
+									
+									<c:when test="${coMap.coVo.courseCate eq 'marathon' }">
+										<span>마라톤</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'bicycle' }">
+										<span>자전거</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'draw' }">
+										<span>그림</span>
+									</c:when>
+								</c:choose>
 							</div>
 							
 							<div>
 								<p>거리</p>
-								<span>1</span>
+								<span>${coMap.coVo.distance }</span>
 								<span>km</span>
 								<!-- <p>m</p> -->
 							</div>
 							
 							<div>
 								<p>예상 시간</p>
-								<span>0</span>
+								<span>${hour }</span>
 								<span>시간</span>
-								<span>30</span>
+								<span>${coMap.coVo.courseTime%60 }</span>
 								<span>분</span>
 							</div>
 							
 							<div>
 								<p>예상 난이도</p>
 								
-								<span>쉬움</span>
-								<!-- <span>보통</span>
-								<span>어려움</span> -->
+								<c:choose>
+									<c:when test="${coMap.coVo.difficulty eq 'easy' }">
+										<span>쉬움</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'normal' }">
+										<span>보통</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'hard' }">
+										<span>어려움</span>
+									</c:when>
+								</c:choose>
 							</div>
 						</div>
 						
