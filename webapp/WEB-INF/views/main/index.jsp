@@ -11,22 +11,22 @@
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/assets/css/main.css" rel="stylesheet"  type="text/css">
 
+
 </head>
 <body>
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 <!--메인 해더 자리 -->
 
-<!------------------------- photo slider ------------------------>
+<!------------------------- 날씨 api ------------------------>
+	<div style="width: 1000px; margin: 5px;">
+		<input type="text" name="city" id="city" value="" style="width: 150px; height: 24px;">
+		<button onclick="javascript:goSearch();">날씨 검색</button>
+	</div>
+	<div id="weather_result" style="padding: 6px; padding-right: 75px; border: 1px solid #bbbbbb; 
+	margin-left: 50px; width: 90%; min-height: 150px; display: inline-block; margin-top: 10px;"></div>
 
-		<div style="width:1000px; margin: 5px;">
-				<input type="text" name="city" id="city" value= "" style="width: 150px; height: 24px;">
-				<button onclick="javascript:goSearch();" >날씨 검색</button>
-		</div>
-		<div id="weather_result" style="padding:6px; padding-right:75px; border:1px solid #bbbbbb; 
-		margin-left: 50px; width:90%; min-height:150px; display:inline-block; margin-top: 10px;"></div>
-		
-<!------------------------- 날씨 api ------------------------>		
+<!------------------------- photo slider ------------------------>	
 
 	<div class="slide slide_wrap">
 			<div class="slide_item item1"><img src="${pageContext.request.contextPath }/assets/image/main/swiss.jpg">
