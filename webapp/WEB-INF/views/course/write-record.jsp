@@ -14,6 +14,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=drawing"></script>
 </head>
 <body>
 <div id="wrap">
@@ -39,7 +41,7 @@
 		
 			<h2>코스 정보</h2>
 			
-			<table>
+			<table class="courseInfo">
 				<colgroup>
 					<col width="150px">
 					<col width="70%">
@@ -99,9 +101,10 @@
 					<td>
 					
 						<!-- 지도 -->
-						<div id="map-info">
+						<div id="map-info"  style="width:500px;height:300px;"></div>
+						<%-- <div id="map-info">
 							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg">
-						</div>
+						</div> --%>
 					</td>
 				</tr>
 
@@ -266,28 +269,8 @@
 	
 	
 	<!-- 푸터 -->
-	<div class="footer">
-		<div class="footer-text">
-			<p>주식회사 조아</p>
-			<p>대표 : 최보승</p>
-			<p>사업자 번호 : 123-456-789</p>
-			<p>서울특별시 관악구 봉천동 862 - 1</p>
-			<br>
-			<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
-			<p>tel. 02 - 1111 - 1111</p>
-			<p>fax. 02 - 1111 - 1111</p>
-			<p>email. joa@joa.co.kr</p>
-		</div>
-		<br>
-		<div class="footer-btn">
-			<button id="footerbtn" type="button" name="" value="">자주묻는 질문</button>
-			<button id="footerbtn" type="button" name="" value="">1:1 문의</button>
-		</div>
-		<br>
-		<hr class="my-hr1">
-		<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
-
-	</div>
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- 푸터 -->
 
 </div>
 <!-- wrap -->

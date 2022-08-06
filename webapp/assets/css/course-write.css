@@ -154,17 +154,6 @@ input[type="radio"]+label img {
 	height: 46px;
 	margin-right: 10px;
 }
-
-
-/* -------------------코스정보----------------------- */
-.course-form .course-info span {
-	font-size: 16px;
-	font-weight: 700;
-}
-.course-form .course-info > div {
-	margin-bottom: 10px;
-}
-/* 지도이미지 (나중에 구글지도로 변경!!!) */
 .course-form #map {
 	width: 100%;
 	height: 500px;
@@ -174,6 +163,22 @@ input[type="radio"]+label img {
 	color: rgb(136, 136, 136);
 	margin-bottom: 12px;
 }
+
+
+/* -------------------코스정보----------------------- */
+.course-form .courseInfo td {
+	vertical-align: middle;
+}
+.course-form .course-info span {
+	font-size: 16px;
+	font-weight: 700;
+}
+.course-form .course-info > div {
+	margin-bottom: 10px;
+}
+/* .course-form .course-info #map-info {
+	
+} */
 
 /* -------------------사진등록----------------------- */
 /* 사진추가 드래그앤 드롭 */
@@ -194,6 +199,7 @@ input[type="radio"]+label img {
 }
 #thumbnails {margin: 15px;}
 #thumbnails #course-pic {
+	margin:auto;
 	width: 100%;
 	height: 100%;
 	display: flex;

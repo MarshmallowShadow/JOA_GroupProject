@@ -3,7 +3,106 @@
  */
 
 $(document).ready(function() {
-	/*사진 드래그앤 드롭*/ 
+	console.log("페이지 준비");
+	
+	//마커 위치
+	/*var markers = [
+	    {
+	        position: new kakao.maps.LatLng(33.450701, 126.570667)
+	    },
+	    {
+	        position: new kakao.maps.LatLng(33.450001, 126.570467), 
+	    }
+	];*/
+	
+	//지도 정보
+	var mapContainer = document.getElementById('map-info');
+	var mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+		level: 3, //지도의 레벨(확대, 축소 정도)
+		//marker: markers
+		
+	};
+	
+	// 이미지 지도 생성
+	var staticMap = new kakao.maps.StaticMap(mapContainer, mapOption),
+		overlays = []; //지도에 그릴 선 담을 배열
+		
+	
+	// Drawing Manager에서 가져온 데이터 중 마커를 아래 지도에 표시하는 함수입니다
+/*	function drawMarker(markers) {
+	    var len = markers.length, i = 0;
+	
+	    for (; i < len; i++) {
+	        var marker = new kakao.maps.Marker({
+	            map: map, 
+	            position: new kakao.maps.LatLng(markers[i].y, markers[i].x), 
+	            zIndex: markers[i].zIndex
+	        });
+	
+	        overlays.push(marker);
+	    }
+	}*/
+	
+	
+	// Drawing Manager에서 가져온 데이터 중 선을 아래 지도에 표시하는 함수입니다
+/*	function drawPolyline(lines) {
+	    var len = lines.length, i = 0;
+	
+	    for (; i < len; i++) {
+	        var path = pointsToPath(lines[i].points);
+	        var style = lines[i].options;
+	        var polyline = new kakao.maps.Polyline({
+	            map: map,
+	            path: path,
+	            strokeColor: style.strokeColor,
+	            strokeOpacity: style.strokeOpacity,
+	            strokeStyle: style.strokeStyle,
+	            strokeWeight: style.strokeWeight
+	        });
+	
+	        overlays.push(polyline);
+	    }
+	}*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*----------------------사진 드래그앤 드롭------------------------------------*/ 
 	var uploadFiles = [];
 	var $drop = $("#drop");
 	$drop.on("dragenter", function(e) {//드래그 요소가 들어왔을 때  
