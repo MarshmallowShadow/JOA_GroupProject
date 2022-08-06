@@ -18,11 +18,13 @@ integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 crossorigin="anonymous"></script>
 
 <script>
-		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿api.openweathermap.org/data/2.5/weather?q=Seoul&appid=c0af703bdcbdcbb564c909471fce177c',function(
-				result){
-			
-				$('.ctemp').append(result.main.temp);
-		});
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿api.openweathermap.org/data/2.5/weather?q=Seoul&appid=c0af703bdcbdcbb564c909471fce177c',
+		function(result){
+		
+			$('.ctemp').append(result.main.temp);
+			$('.lowtemp').append(result.main.temp_min);
+			$('.hightemp').append(result.main.temp_max);
+	});
 	
 </script>
 
