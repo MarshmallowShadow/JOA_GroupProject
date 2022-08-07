@@ -166,11 +166,11 @@
 		<div id="page">
 			<ul class="ul">
 				<li class="li"><a href="">◀</a></li>
-				<li class="li"><a href="">1</a></li>
+				<li class="active li"><a href="">1</a></li>
 				<li class="li"><a href="">2</a></li>
 				<li class="li"><a href="">3</a></li>
 				<li class="li"><a href="">4</a></li>
-				<li class="active li"><a href="">5</a></li>
+				<li class="li"><a href="">5</a></li>
 				<li class="li"><a href="">6</a></li>
 				<li class="li"><a href="">7</a></li>
 				<li class="li"><a href="">8</a></li>
