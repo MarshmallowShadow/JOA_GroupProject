@@ -135,157 +135,159 @@
 			
 		</div>
 		
-		
-		<!-- 기록 정보 -->
-		<div class="course-form">
-			<h2>기록 정보</h2>
-			
-			<table>
-			
-				<colgroup>
-					<col width="150px">
-					<col width="80%">
-					<col width="150px">
-					<col width="100%">
-				</colgroup>
+		<form id="courseForm" method="get" action="./recordWrite">
+			<!-- 기록 정보 -->
+			<div class="course-form">
+				<h2>기록 정보</h2>
 				
-				<!-- 날짜 -->
-				<tr>
-					<th>날짜</th>
-					<td colspan="3">
-						<input class="txt-short" type="date">
-					</td>
-				</tr>
+				<table>
 				
-				<!-- 날씨, 기온 -->
-				<tr>
-					<th>날씨</th>
-					<td>
-						<div class="course-radio">
-							<input type="radio" name="weather" id="sun" checked>
-							<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
-							
-							<input type="radio" name="weather" id="moon">
-							<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
-							
-							<input type="radio" name="weather" id="cloud">
-							<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
-							
-							<input type="radio" name="weather" id="rain">
-							<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
-							
-							<input type="radio" name="weather" id="snow">
-							<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
-						</div>
-					</td>
+					<colgroup>
+						<col width="150px">
+						<col width="80%">
+						<col width="150px">
+						<col width="100%">
+					</colgroup>
 					
-					<th>기온</th>
-					<td>
-						<input class="txt-short" type="text">
-						<p class="bold">℃</p>
-					</td>
-				</tr>
-				
-				
-				<!-- 종목 -->
-				<tr>
-					<th>종목</th>
-					<td colspan="3">
-						<input type="radio" name="events" id="walk" checked>
-						<label for="walk">산책</label>
+					<!-- 날짜 -->
+					<tr>
+						<th>날짜</th>
+						<td colspan="3">
+							<input class="txt-short" id="date" type="date" name="regDate">
+						</td>
+					</tr>
+					
+					<!-- 날씨, 기온 -->
+					<tr>
+						<th>날씨</th>
+						<td>
+							<div class="course-radio">
+								<input type="radio" name="weather" id="sun" value="sun" checked>
+								<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+								
+								<input type="radio" name="weather" id="moon" value="moon">
+								<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+								
+								<input type="radio" name="weather" id="cloud" value="cloud">
+								<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+								
+								<input type="radio" name="weather" id="rain" value="rain">
+								<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+								
+								<input type="radio" name="weather" id="snow" value="snow">
+								<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+							</div>
+						</td>
 						
-						<input type="radio" name="events" id="jogging">
-						<label for="jogging">조깅</label>
-						
-						<input type="radio" name="events" id="running">
-						<label for="running">러닝</label>
-						
-						<input type="radio" name="events" id="marathon">
-						<label for="marathon">마라톤</label>
-						
-						<input type="radio" name="events" id="bicycle">
-						<label for="bicycle">자전거</label>
-						
-						<input type="radio" name="events" id="draw">
-						<label for="draw">그림</label>
-					</td>
-				</tr>
-				
-				<!-- 시간 -->
-				<tr>
-					<th>시간</th>
-					<td colspan="3">
-						<input type="text" class="txt-short">
-						<p>시간</p>
-						<input type="text" class="txt-short">
-						<p>분</p>
-					</td>
-				</tr>
-				
-				<!-- 난이도 -->
-				<tr>
-					<th>난이도</th>
-					<td colspan="3">
-						<input type="radio" name="level" id="easy" checked>
-						<label for="easy">쉬움</label>
-						
-						<input type="radio" name="level" id="nomal">
-						<label for="nomal">보통</label>
-						
-						<input type="radio" name="level" id="hard">
-						<label for="hard">어려움</label>
-					</td>
-				</tr>
-				
-				<!-- 한줄평 -->
-				<tr>
-					<th>한줄평</th>
-					<td colspan="3">
-						<input class="txt-long" type="text">
-					</td>
-				</tr>
-				
-			</table>
-		</div>
-		
-		<!-- 사진 등록 (드래그앤 드롭) -->
-		<div class="course-form">
-			<h2>사진 등록</h2>
+						<th>기온</th>
+						<td>
+							<input class="txt-short" type="text" name="temperature">
+							<p class="bold">℃</p>
+						</td>
+					</tr>
+					
+					
+					<!-- 종목 -->
+					<tr>
+						<th>종목</th>
+						<td colspan="3">
+							<input type="radio" name="courseCate" id="walk" value="walk" checked>
+							<label for="walk">산책</label>
+							
+							<input type="radio" name="courseCate" id="jogging" value="jogging">
+							<label for="jogging">조깅</label>
+							
+							<input type="radio" name="courseCate" id="running" value="running">
+							<label for="running">러닝</label>
+							
+							<input type="radio" name="courseCate" id="marathon" value="marathon">
+							<label for="marathon">마라톤</label>
+							
+							<input type="radio" name="courseCate" id="bicycle" value="bicycle">
+							<label for="bicycle">자전거</label>
+							
+							<input type="radio" name="courseCate" id="draw" value="draw">
+							<label for="draw">그림</label>
+						</td>
+					</tr>
+					
+					<!-- 시간 -->
+					<tr>
+						<th>시간</th>
+						<td colspan="3">
+							<input type="text" class="txt-short" name="hour">
+							<p>시간</p>
+							<input type="text" class="txt-short" name="minute">
+							<p>분</p>
+						</td>
+					</tr>
+					
+					<!-- 난이도 -->
+					<tr>
+						<th>난이도</th>
+						<td colspan="3">
+							<input type="radio" name="difficulty" id="easy" value="easy" checked>
+							<label for="easy">쉬움</label>
+							
+							<input type="radio" name="difficulty" id="normal" value="normal">
+							<label for="normal">보통</label>
+							
+							<input type="radio" name="difficulty" id="hard" value="hard">
+							<label for="hard">어려움</label>
+						</td>
+					</tr>
+					
+					<!-- 한줄평 -->
+					<tr>
+						<th>한줄평</th>
+						<td colspan="3">
+							<input class="txt-long" type="text" name="review" value="">
+						</td>
+					</tr>
+					
+				</table>
+			</div>
 			
-			<div id="drop">
-				<div id="thumbnails">
-					<div id="course-pic">
-						<div id="pic-main">
-							<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
-							<p class="pic-txt red">사진을 여기로 드래그 해주세요.</p>
-							<p class="pic-txt">코스와 관련된 사진을 등록해주세요.</p>
+			<!-- 사진 등록 (드래그앤 드롭) -->
+			<div class="course-form">
+				<h2>사진 등록</h2>
+				
+				<div id="drop">
+					<div id="thumbnails">
+						<div id="course-pic">
+							<div id="pic-main">
+								<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
+								<p class="pic-txt red">사진을 여기로 드래그 해주세요.</p>
+								<p class="pic-txt">코스와 관련된 사진을 등록해주세요.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		
-		<!-- 일반 사진 등록
-		<div class="course-form">
-			<h2>사진 등록</h2>
 			
-			<div id="course-pic">
-				<div>
-					<img id="photo-icon" src="../../../assets/image/course/photo.png">
-					<p>코스와 관련된 사진을 등록해주세요.</p>
-					<label for="input-file">사진 추가하기</label>
-					<input type="file" id="input-file">
+			
+			<!-- 일반 사진 등록
+			<div class="course-form">
+				<h2>사진 등록</h2>
+				
+				<div id="course-pic">
+					<div>
+						<img id="photo-icon" src="../../../assets/image/course/photo.png">
+						<p>코스와 관련된 사진을 등록해주세요.</p>
+						<label for="input-file">사진 추가하기</label>
+						<input type="file" id="input-file">
+					</div>
 				</div>
+			</div> -->
+			
+			
+			<div id="btn-wrap">
+				<input type="hidden" name="courseNo" value="${param.courseNo }">
+				<input type="hidden" name="userNo" value="2">
+				<button class="cancel">취소</button>
+				<button type="submit" class="add">기록 등록</button>
 			</div>
-		</div> -->
-		
-		
-		<div id="btn-wrap">
-			<a href="./view-record.html" class="cancel">취소</a>
-			<a href="../my-page/my-report.html" class="add">기록 등록</a>
-		</div>
-		
+		</form>	
 	</div>
 	
 	

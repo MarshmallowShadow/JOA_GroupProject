@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="record">
+
+	<!-- 기록 추가하기 -->
+	<insert id="insert" parameterType="recVo">
+		<selectKey keyProperty="recordNo" resultType="int" order="BEFORE">
+			select SEQ_RECORD_NO.nextval from dual
+		</selectKey>
+		
+		<![CDATA[
+			insert into record
+			values (#{recordNo}, #{courseNo}, #{userNo}, #{review}, #{weather}, #{temperature}, #{courseCate}, #{courseTime}, #{difficulty}, #{regDate})
+		]]>
+	</insert>
+
+</mapper>

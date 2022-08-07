@@ -5,7 +5,12 @@
 $(document).ready(function() {
 	console.log("페이지 준비");
 	
+	//input date에 현재 날짜 세팅
+	document.getElementById('date').value = new Date().toISOString().substring(0, 10);;
 	
+	
+	
+	/*-----------------------지도 보여주기--------------------------------------*/
 	//지도 정보
 	var mapContainer = document.getElementById('map-info');
 	var mapOption = {
@@ -214,7 +219,7 @@ $(document).ready(function() {
 				$("#course-pic").remove();
 					
 				var div = '<div class="pic-content"> \
-							<div class="close" data-idx="' + idx + '"><img src="${pageContext.request.contextPath }/assets/image/course/pic-cancel.png"></div> \
+							<div class="close" data-idx="' + idx + '"><span class="glyphicon glyphicon-remove"></div> \
 							<img src="' + e.target.result + '" title="' + escape(f.name) + '"/> \
 						</div>';
 				$("#thumbnails").append(div);
@@ -224,12 +229,12 @@ $(document).ready(function() {
 	}
 		
 	/* 등록 버튼 클릭 했을때 */
-	$("#btnSubmit").on("click", function() {
-		/*var formData = new FormData();
+	$(".add").on("submit", function() {
+		var formData = new FormData();
 		$.each(uploadFiles, function(i, file) {
 			if(file.upload != 'disable')  //삭제하지 않은 이미지만 업로드 항목으로 추가
 			formData.append('upload-file', file, file.name);
-		});*/
+		});
 		/*$.ajax({
 			url: '/api/etc/file/upload',
 			data : formData,

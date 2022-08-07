@@ -191,12 +191,6 @@ input[type="radio"]+label img {
 	overflow: auto;
 	margin-bottom: 50px;
 }
-/* 스크롤바 없애기 */
-.course-form #drop::-webkit-scrollbar {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
-	display: none; /* Chrome, Safari, Opera */
-}
 #thumbnails {margin: 15px;}
 #thumbnails #course-pic {
 	margin:auto;
@@ -217,25 +211,31 @@ input[type="radio"]+label img {
 }
 /* 추가된 사진 */
 #drop .pic-content {
-	width: 220px;
+	display: inline-block;
+	width: 210px;
 	height: 145px;
-	float: left;
 	margin-bottom: 20px;
 	margin-right: 10px;
 }
 #drop .pic-content > img {
-	width: 190px;
+	width: 180px;
 	height: 140px;
 	object-fit: cover;
 	border: 3px solid rgb(255,255,255);
 }
 #drop .pic-content .close {
-	width: 29px;
-	height: 29px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	border: 3px solid rgb(255,255,255);
 	float: right;
 	background-color: rgb(255,255,255);
+	opacity: .5;
+}
+#drop .pic-content .close .glyphicon {
+	position: relative;
+	top: 0px;
+	color: black;
 }
 .red {color: rgb(239, 67, 81)};
 
