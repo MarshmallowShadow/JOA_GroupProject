@@ -10,13 +10,20 @@ import com.javaex.vo.CourseVo;
 public class CourseDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 
 	//코스 추가
 	public int insertCourse(CourseVo coVo) {
 		System.out.println("CourseDao->insertCourse");
 		return sqlSession.insert("course.insert", coVo);		
+	}
+
+
+	//(기록등록) 코스 가져오기
+	public CourseVo selectCourse(int courseNo) {
+		System.out.println("CourseDao->selectCourse");
+		return sqlSession.selectOne("course.selectCourse", courseNo);
 	}
 
 }

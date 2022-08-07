@@ -75,15 +75,15 @@
 								<img alt="산책" src="${pageContext.request.contextPath }/assets/image/course/walk.png">
 								<span>산책</span>
 								
-								<!-- <img alt="조깅" src="../../../assets/image/course/jog.png">
+								<!-- <img alt="조깅" src="${pageContext.request.contextPath }/assets/image/course/jog.png">
 								<span>조깅</span>
-								<img alt="러닝" src="../../../assets/image/course/run.png">
+								<img alt="러닝" src="${pageContext.request.contextPath }/assets/image/course/run.png">
 								<span>러닝</span>
-								<img alt="마라톤" src="../../../assets/image/course/marathon.png">
+								<img alt="마라톤" src="${pageContext.request.contextPath }/assets/image/course/marathon.png">
 								<span>마라톤</span>
-								<img alt="자전거" src="../../../assets/image/course/bicycle.png">
+								<img alt="자전거" src="${pageContext.request.contextPath }/assets/image/course/bicycle.png">
 								<span>자전거</span>
-								<img alt="그림" src="../../../assets/image/course/drawing.png">
+								<img alt="그림" src="${pageContext.request.contextPath }/assets/image/course/drawing.png">
 								<span>그림</span> -->
 							</div>
 							
@@ -139,6 +139,7 @@
 	
 	<!-- 푸터 -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- 푸터 -->
 	
 </div>
 <!-- wrap -->

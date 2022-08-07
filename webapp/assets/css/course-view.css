@@ -37,14 +37,14 @@ input[type=radio] {display:none;}
 	display: inline-block;
 	width: 180px;
 	line-height: 60px;
-	color: rgb(34, 34, 34);
+	/* color: rgb(34, 34, 34); */
 	font-size: 16px;
 	text-align: center;
 	background-color: rgb(255,255,255);
 	border: 1px solid rgb(174, 174, 174);
 }
 /* 검은색 버튼 */
-.selected, .selected:visited {
+.selected, .selected:link {
 	background-color: rgb(34, 34, 34);
 	color: rgb(255, 255, 255);
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, intial-scale=1.0">
+<title>main test</title>
+</head>
+<body>
+	<h2>현재 날씨</h2>
+	<h3 class="ctemp">현재 온도 : </h3>
+	<h3 class="lowtemp">최저 온도 : </h3>
+	<h3 class="hightemp">최고 온도 : </h3>
+	<h3 class="icon"></h3>
+
+
+<script>
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿api.openweathermap.org/data/2.5/weather?q=Seoul&appid=c0af703bdcbdcbb564c909471fce177c',
+		function(result){
+		
+			$('.ctemp').append(result.main.temp);
+			$('.lowtemp').append(result.main.temp_min);
+			$('.hightemp').append(result.main.temp_max);
+	});
+	
+</script>
+
+</body>
+</html>

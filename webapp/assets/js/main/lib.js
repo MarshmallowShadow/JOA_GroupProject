@@ -17,7 +17,7 @@
  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
  curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, 0);  
  $response =  curl_exec($ch);
- $state_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+ $state_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
  curl_close($ch);
  if($state_code == 200)
  {

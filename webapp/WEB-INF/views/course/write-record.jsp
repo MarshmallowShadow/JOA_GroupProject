@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:parseNumber var="hour" value="${coMap.coVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=drawing"></script>
 </head>
 <body>
 <div id="wrap">
@@ -39,7 +43,7 @@
 		
 			<h2>코스 정보</h2>
 			
-			<table>
+			<table class="courseInfo">
 				<colgroup>
 					<col width="150px">
 					<col width="70%">
@@ -53,43 +57,64 @@
 						<div class="course-info">
 							<div>
 								<p>코스 제목</p>
-								<span>우리집 지름길</span>
+								<span>${coMap.coVo.title }</span>
 							</div>
 							
 							<div>
 								<p>종목</p>
-								<span>산책</span>
 								
-								<!-- 
-								<span>조깅</span>
-								<span>러닝</span>
-								<span>마라톤</span>
-								<span>자전거</span>
-								<span>그림</span>
-								 -->
+								<c:choose>
+									<c:when test="${coMap.coVo.courseCate eq 'walk' }">
+										<span>산책</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'jogging' }">
+										<span>조깅</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'running' }">
+										<span>러닝</span>
+									</c:when>
+									
+									<c:when test="${coMap.coVo.courseCate eq 'marathon' }">
+										<span>마라톤</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'bicycle' }">
+										<span>자전거</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'draw' }">
+										<span>그림</span>
+									</c:when>
+								</c:choose>
 							</div>
 							
 							<div>
 								<p>거리</p>
-								<span>1</span>
+								<span>${coMap.coVo.distance }</span>
 								<span>km</span>
 								<!-- <p>m</p> -->
 							</div>
 							
 							<div>
 								<p>예상 시간</p>
-								<span>0</span>
+								<span>${hour }</span>
 								<span>시간</span>
-								<span>30</span>
+								<span>${coMap.coVo.courseTime%60 }</span>
 								<span>분</span>
 							</div>
 							
 							<div>
 								<p>예상 난이도</p>
 								
-								<span>쉬움</span>
-								<!-- <span>보통</span>
-								<span>어려움</span> -->
+								<c:choose>
+									<c:when test="${coMap.coVo.difficulty eq 'easy' }">
+										<span>쉬움</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'normal' }">
+										<span>보통</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'hard' }">
+										<span>어려움</span>
+									</c:when>
+								</c:choose>
 							</div>
 						</div>
 						
@@ -99,9 +124,10 @@
 					<td>
 					
 						<!-- 지도 -->
-						<div id="map-info">
+						<div id="map-info"  style="width:500px;height:300px;"></div>
+						<%-- <div id="map-info">
 							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg">
-						</div>
+						</div> --%>
 					</td>
 				</tr>
 
@@ -266,28 +292,8 @@
 	
 	
 	<!-- 푸터 -->
-	<div class="footer">
-		<div class="footer-text">
-			<p>주식회사 조아</p>
-			<p>대표 : 최보승</p>
-			<p>사업자 번호 : 123-456-789</p>
-			<p>서울특별시 관악구 봉천동 862 - 1</p>
-			<br>
-			<p>고객센터 | 평일 9 : 30 ~ 18 : 30, 점심시간 : 12 : 00 ~ 13 : 00 (토, 일요일, 공휴일 휴무)</p>
-			<p>tel. 02 - 1111 - 1111</p>
-			<p>fax. 02 - 1111 - 1111</p>
-			<p>email. joa@joa.co.kr</p>
-		</div>
-		<br>
-		<div class="footer-btn">
-			<button id="footerbtn" type="button" name="" value="">자주묻는 질문</button>
-			<button id="footerbtn" type="button" name="" value="">1:1 문의</button>
-		</div>
-		<br>
-		<hr class="my-hr1">
-		<p id="footer-Copyright">JOA, Inc. All rights reserved.</p>
-
-	</div>
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- 푸터 -->
 
 </div>
 <!-- wrap -->
