@@ -1,41 +1,40 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class WeatherTest2 {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws IOException, ParseException {
 		
 		double lat = 37.5684;
 		double lon = 126.9778;
-		String weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lon=" + lon + "&lat=" + lat + "&appid=ddeb92652c34f9e77a6961c434afa555";
+		String apiKey = "50f3ba3db97de5bef78cc9bfd637b913";
+		String weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lon=" + lon + "&lat=" + lat + "&appid=" + apiKey;
 		
+		//API 가져오기
 		URL url = new URL(weatherUrl);
 		URLConnection conn = url.openConnection();
-		
 		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		
-		String info = null;
-		while(true){
-            info = br.readLine(); //날씨 정보 가져오기
-            
-            if(info == null) {
-            	break;
-            }
-            
-            info = info.replace("\"", "");
-            System.out.println(info); //API 추력 정보 전부 출력
-            
-            int wIndex = info.indexOf("main");
-            String weather = info.substring(wIndex);
-            weather = weather.substring(0, weather.indexOf(","));
-            System.out.println(weather);
-            
-            int a2 = info.indexOf("temp");
-            int temp=(int)(Double.parseDouble(info.substring(a2+5, a2+11))-273.15);
-            System.out.println("서울의 현재 온도(섭씨): " + temp + " C");
-        }
+		//리더로 JSON파일을 Map 형식으로 저장
+		JSONParser parser = new JSONParser();
+		JSONObject weatherJson = (JSONObject)parser.parse(br);
 		
+		//test
+		String base = (String) weatherJson.get("name");
+		System.out.println(base);
+		
+		//날씨 가져오기
+		List<Object> weather = ((List<Object>)weatherJson.get("weather"));
+		Map<String, Object> wInfo = (Map<String,Object>)weather.get(0);
+		System.out.println(wInfo.get("main"));
 	}
 	
 	//날씨 weather > main
