@@ -14,7 +14,7 @@
 	</resultMap> -->
 	
 	
-	<select id="calendarList" resultType="map">
+	<select id="getRecordList" parameterType="int" resultType="map">
 		<![CDATA[
 			select  r.record_no recordNo,
 					r.course_no courseNo,
@@ -27,6 +27,7 @@
 			where r.course_no = c.course_no
 			and r.record_no = i.record_no
 			and order_no = 0
+			and r.user_no = {userNo}
 		]]>
 	</select>
 	
