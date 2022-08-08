@@ -8,22 +8,49 @@
 </head>
 <body>
 	<h2>현재 날씨</h2>
+	<h3 class="time">현재 시간 : </h3>
 	<h3 class="ctemp">현재 온도 : </h3>
 	<h3 class="lowtemp">최저 온도 : </h3>
 	<h3 class="hightemp">최고 온도 : </h3>
 	<h3 class="icon"></h3>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
-	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555',
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
 		function(result){
 		
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
+			
+			//result.weather
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn' + result.weather[0].icon+
+			'.png" alt="' + result.weather[0].desciption + '">'
+			$('.icon').html(wiconUrl);
+			
+			var ct = result.dt;
+			
+			function convertTime(t) {
+				var ot = new Date(t * 1000);
+				
+				var hr = ot.getHours();
+				var m = ot.getMinutes();
+				var s = ot.getSeconds();
+				var mo = ot.getMonth() + 1;
+				var d = ot.getDate();
+				
+				
+				//return ot;
+				return mo + '월' + d + '일' + '  '+ hr + ':' + m + ':' + s;
+			}
+			
+			var currentTime = convertTime(ct);
+			$('.time').append(currentTime);
 	});
 	
 </script>
+
 
 </body>
 </html>

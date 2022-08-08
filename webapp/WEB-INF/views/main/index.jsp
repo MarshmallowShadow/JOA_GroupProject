@@ -35,7 +35,13 @@
 			</div>
 			<div class="slide_item item3"><img src="${pageContext.request.contextPath }/assets/image/main/parispark.jpg">
 			</div>
-			<div class="slide_item item4"><img src="${pageContext.request.contextPath }/assets/image/main/busan.jpg">
+			<div class="slide_item item4">
+				<button onclick="javascript:goSearch();">현재위치 날씨 검색</button>
+				<p class="time">시간 :</p>
+				<p class="ctemp">온도 :</p>
+				<p class="lowtemp">최저 온도 :</p>
+				<p class="hightemp">최고 온도 :</p>
+				<p class="rain">강수량 :</p>
 			</div>
 
 		<div class="slide_prev_button slide_button">◀</div>
@@ -58,10 +64,49 @@
 
 <!------------------------ footer ------------------------>
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+
 </body>
 
 <!-- js -->
 <script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/main/weather.js"></script>
+<!-- <script src="${pageContext.request.contextPath}/assets/js/main/weather.js"></script> -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
+		function(result){
+		
+			$('.ctemp').append(result.main.temp);
+			$('.lowtemp').append(result.main.temp_min);
+			$('.hightemp').append(result.main.temp_max);
+			$('.rain').append(result.main.rain);
+			//$('.wind').append(result.main.wind);
+			
+			//result.weather
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn' + result.weather[0].icon+
+			'.png" alt="' + result.weather[0].desciption + '">'
+			$('.icon').html(wiconUrl);
+			
+			var ct = result.dt;
+			
+			function convertTime(t) {
+				var ot = new Date(t * 1000);
+				
+				var hr = ot.getHours();
+				var m = ot.getMinutes();
+				var s = ot.getSeconds();
+				var mo = ot.getMonth() + 1;
+				var d = ot.getDate();
+				
+				//return ot;
+				return mo + '월' + d + '일' + '  '+ hr + ':' + m + ':' + s;
+			}
+			
+			var currentTime = convertTime(ct);
+			$('.time').append(currentTime);
+	});
+	
+</script>
+
 </html>
