@@ -17,7 +17,7 @@ public class ApiMypageController {
 	private MypageService mypageService;
 
 	@ResponseBody
-	@RequestMapping(value="/my-page/get-record-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	@RequestMapping(value="/api/my-page/get-record-list", method= {RequestMethod.GET, RequestMethod.POST}) 
 	public List <Map<String,Object>> getRecordList() {
 		System.out.println("ApiMypageController>list()");
 		//List<Map<String,Object>> calendarList = mypageService.calendarList();
