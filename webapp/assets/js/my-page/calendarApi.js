@@ -8,9 +8,55 @@ var rList =
 		}
 	];
 	
-function render(rMap) {
-	var str = "";
 	
+/*function render(guestbookVo){
+	console.log("render()");
+	//var name = guestbookVo.name;
+	
+	var str = '';
+	str += '<table id="t'+guestbookVo.no+'" class="guestRead">';
+	str += '	<colgroup>';
+	str += '		<col style="width: 10%;">';
+	str += '		<col style="width: 40%;">';
+	str += '		<col style="width: 40%;">';
+	str += '		<col style="width: 10%;">';
+	str += '	</colgroup>';
+	str += '	<tr>';
+	str += '		<td>'+guestbookVo.no+'</td>';
+	str += '		<td>'+guestbookVo.name+'</td>';
+	str += '		<td>'+guestbookVo.regDate+'</td>';
+	str += '		<td><button class="btnDel" type="button" data-no="' +guestbookVo.no+ '" data-age="">삭제</button></td>';	//data는 여러개 설정가능
+	str += '	</tr>';
+	str += '	<tr>';
+	str += '		<td colspan=4 class="text-left">'+guestbookVo.content+'</td>';
+	str += '	</tr>';
+	str += '</table>';
+	
+	
+	if(opt == "down"){
+		$("#listArea").append(str);
+	}else if(opt == "up"){
+		$("#listArea").prepend(str);
+	}else{
+		console.log("opt오류");
+	}
+}*/	
+
+
+function render(rMap) {
+	
+	var str = '<li class="reportContent">';
+	str += '	<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
+	str += '		<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">';
+	str += '		<p class="contentTitle">88888888888<p class="date" id="nows"></p></p>';
+	str += '		<p class="content">링거 맞고 뛰었다^^</p>';
+	str += '		<p class="contentDate">2022.07.18 &nbsp; 10:03</p>';
+	str += '		<div class="modify-del-icons">';
+	str += '			<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
+	str += '			<span class="glyphicon glyphicon-trash"></span>';
+	str += '		</div>';
+	str += '	</div>';
+	str += '</li>';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
