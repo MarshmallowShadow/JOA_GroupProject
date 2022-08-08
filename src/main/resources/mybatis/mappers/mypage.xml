@@ -21,10 +21,10 @@
 			        r.user_no userNo,
 			        c.title,
 			        r.review,
-			        r.reg_date regDate,
+			        to_char(r.reg_date, 'YYYY-MM-DD') regDate,
 			        i.file_path filePath
 			from course c, record r 
-			left outer join (select file_path from record_img where order_no = 0) i
+			left outer join (select * from record_img where order_no = 0) i
 			on r.record_no = i.record_no 
 			where r.course_no = c.course_no
 			and r.user_no =  #{userNo}
