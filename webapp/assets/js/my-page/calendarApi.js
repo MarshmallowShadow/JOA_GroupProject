@@ -12,32 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		
 		
-		select: function(arg) {
-    	  console.log(arg);
-
-	        var title = prompt('입력할 일정:');
-	    // title 값이 있을때, 화면에 calendar.addEvent() json형식으로 일정을 추가
-	        if (title) {
-	          calendar.addEvent({
-	            title: title,
-	            start: arg.start,
-	            end: arg.end,
-	            allDay: arg.allDay,
-	            backgroundColor:"yellow",
-	            textColor:"blue"
-	          })
-	        }
-	        calendar.unselect()
-	      },
-	      eventClick: function(arg) {
-	    	  // 있는 일정 클릭시,
-	    	  console.log("#등록된 일정 클릭#");
-	    	  console.log(arg.event);
-	    	  
-	        /*if (confirm('Are you sure you want to delete this event?')) {
-	          arg.event.remove()
-	        }*/
-	      },
+		
 		
 		
 		events: [	//나의 기록 여기다가 추가해야할 듯?

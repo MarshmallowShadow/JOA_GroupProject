@@ -4,21 +4,21 @@
 <mapper namespace="mypage">
 	
 	<!-- 쿼리문 작성 -->
-	<resultMap id="MyReportVo" type="com.javaex.vo.MyReportVo">
+	<!-- <resultMap id="MyReportVo" type="com.javaex.vo.MyReportVo">
 		<result column="record_no" property="recordNo" />
 		<result column="course_no" property="courseNo" />
 		<result column="user_no" property="userNo" />
 		<result column="title" property="title" />
 		<result column="review" property="review" />
 		<result column="reg_date" property="regDate" />
-	</resultMap>
+	</resultMap> -->
 	
 	
-	<select id="calendarList" resultType="com.javaex.vo.MyReportVo">
+	<select id="calendarList" resultType="map">
 		<![CDATA[
-			select  r.record_no,
-					r.course_no,
-			        r.user_no,
+			select  r.record_no recordNo,
+					r.course_no courseNo,
+			        r.user_no userNo,
 			        c.title,
 			        r.review,
 			        r.reg_date regDate

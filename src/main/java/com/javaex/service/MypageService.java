@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.MyReportDao;
-import com.javaex.vo.MyReportVo;
 
 @Service
 public class MypageService {
@@ -15,9 +14,10 @@ public class MypageService {
 	
 	
 	//나의기록 list 가져오기
-	public List<MyReportVo> calendarList(){
-		System.out.println("MyReportService>calendarList");
-		return myReportDao.calendarList();
-	}
+	/*
+	 * public List<MyReportVo> calendarList(){
+	 * System.out.println("MyReportService>calendarList"); return
+	 * myReportDao.calendarList(); }
+	 */
 	
 }
