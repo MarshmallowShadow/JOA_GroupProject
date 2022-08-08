@@ -24,9 +24,9 @@
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
 			
-			//result.weather
-			var wiconUrl = '<img src="http://openweathermap.org/img/wn' + result.weather[0].icon+
-			'.png" alt="' + result.weather[0].desciption + '">'
+			//result.weather[0].icon
+			var wiconUrl = '<img src="http://openwethermap.org/img/wn/'+ result.weather[0].icon +
+			'.png" alt="'+ result.weather[0].description +'">'
 			$('.icon').html(wiconUrl);
 			
 			var ct = result.dt;

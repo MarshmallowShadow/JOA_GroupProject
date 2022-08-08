@@ -19,12 +19,19 @@
 <!--메인 해더 자리 -->
 
 <!------------------------- 날씨 api ------------------------>
-	<div style="width: 1000px; margin: 5px;">
-		<input type="text" name="city" id="city" value="" style="width: 150px; height: 24px;">
-		<button onclick="javascript:goSearch();">날씨 검색</button>
+	<div class="weather">
+		<ul>
+			<li class="time">현재 시간 : </li>
+			<li class="ctemp">온도 : </li>
+			<li class="hightemp">최고 온도 : </li>
+			<li class="lowtemp">최저 온도 : </li>
+			<li class="humidity">습도 : </li>
+			<li class="rain">강수량 : </li>
+			<li class="wind">풍속 : </li>
+			<li class="icon"></li>
+		</ul>
+		<button onclick="javascript:goSearch();">현재 위치 날씨 검색</button>
 	</div>
-	<div id="weather_result" style="padding: 6px; padding-right: 75px; border: 1px solid #bbbbbb; 
-	margin-left: 50px; width: 90%; min-height: 150px; display: inline-block; margin-top: 10px;"></div>
 
 <!------------------------- photo slider ------------------------>	
 
@@ -35,13 +42,7 @@
 			</div>
 			<div class="slide_item item3"><img src="${pageContext.request.contextPath }/assets/image/main/parispark.jpg">
 			</div>
-			<div class="slide_item item4">
-				<button onclick="javascript:goSearch();">현재위치 날씨 검색</button>
-				<p class="time">시간 :</p>
-				<p class="ctemp">온도 :</p>
-				<p class="lowtemp">최저 온도 :</p>
-				<p class="hightemp">최고 온도 :</p>
-				<p class="rain">강수량 :</p>
+			<div class="slide_item item4"><img src="${pageContext.request.contextPath }/assets/image/main/parispark.jpg">
 			</div>
 
 		<div class="slide_prev_button slide_button">◀</div>
@@ -80,12 +81,13 @@
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
-			$('.rain').append(result.main.rain);
-			//$('.wind').append(result.main.wind);
+			$('.humidity').append(result.main.humidity);
+			//$('.rain').append(result.rain.rain);
+			$('.wind').append(result.wind.speed);
 			
-			//result.weather
-			var wiconUrl = '<img src="http://openweathermap.org/img/wn' + result.weather[0].icon+
-			'.png" alt="' + result.weather[0].desciption + '">'
+			//result.weather[0].icon
+			var wiconUrl = '<img src="http://openwethermap.org/img/wn/'+ result.weather[0].icon +
+			'.png" alt="'+result.weather[0].description +'">'
 			$('.icon').html(wiconUrl);
 			
 			var ct = result.dt;
