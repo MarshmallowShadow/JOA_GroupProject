@@ -10,12 +10,11 @@ var recordList =
 
 
 $(document).ready(function(){
-   	
-   	var userNo = parseInt('${authUser.userNo}');
+	
    	console.log(userNo);
    	
 	$.ajax({
-		url : "${pageContext.request.contextPath}/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
+		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
 		type : "post",
 		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
 		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
@@ -32,7 +31,6 @@ $(document).ready(function(){
 					}
 				);
 			}
-			
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
