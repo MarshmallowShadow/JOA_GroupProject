@@ -1,13 +1,7 @@
 /**
  * 기록 작성하기 js
  */
- 
-//contextPath
-function getContextPath() {
-	var hostIndex = location.href.indexOf(location.host) + location.host.length;
-	var contextPath = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
-	return contextPath;
-}
+
 
 $(document).ready(function() {
 	console.log("페이지 준비");
@@ -191,7 +185,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			//보낼때
-			url : "${pageContext.request.contextPath}/recordwrite",
+			url : contextPath+"/recordwrite",
 			type : "get",
 			//contentType : "application/json",
 			data : uploadFiles,
