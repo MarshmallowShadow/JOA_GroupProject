@@ -25,43 +25,64 @@
 		
 		<div id="writebox">
 		
-			<!-- 글쓰기 옵션 항목 -->
-			<div id="option_line">
-				<p id="option">항목</p>
-				<select id="option_list">
-					<option value="question">질문</option>
-					<option value="commute">소통</option>
-					<option value="post">후기</option>
-					<option value="together">함께</option>
-				</select>
-			</div>
-			
-			<!-- 제목 -->
-			<div id="title_line">
-				<p id="title">제목</p>
-				<input type="text" id="titlebox">
-			</div>
-			
-			<!-- 글내용 -->
-			<div id="content_line"><input type="text" id="contentbox"></div>
-			
-			<!-- 사진 첨부 -->
-			<div id="file_line">
-				<p id="file">사진첨부</p>
-				<input type="file" id="filebox" multiple="multiple">
-			</div>
-			
-			<!-- 코스 선택 -->
-			<div id="course_line">
-				<p id="course">코스선택</p>
-				<button type="submit" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
-			</div>
-			
-			<!-- 함께하기 선택 -->
-			<div id="together_line">
-				<p id="together">함께하기</p>
-				<button type="submit" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
-			</div>
+			<form action="${pageContext.request.contextPath}/board/write" method="get">
+				<!-- 글쓰기 옵션 항목 -->
+				<div id="option_line">
+					<p id="option">항목</p>
+					<select id="option_list">
+						<option value="question">질문</option>
+						<option value="commute">소통</option>
+						<option value="post">후기</option>
+						<option value="together">함께</option>
+					</select>
+				</div>
+				
+				<!-- 제목 -->
+				<div id="title_line">
+					<p id="title">제목</p>
+					<input type="text" id="titlebox"  placeholder="제목을 입력해 주세요.">
+				</div>
+				
+				<!-- 글내용 -->
+				<div id="content_line"><input type="text" id="contentbox"></div>
+				
+				<!-- 사진 첨부 -->
+				<div id="file_line">
+					<p id="file">사진첨부</p>
+					<input type="file" id="filebox" multiple="multiple">
+				</div>
+				
+				<!-- 코스 선택 -->
+				<div id="course_line">
+					<p id="course">코스선택</p>
+					<button type="submit" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
+				</div>
+				
+				<!-- 함께하기 선택 -->
+				<div id="together_line">
+					<p id="together">함께하기</p>
+					<button type="submit" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
+				</div>
+				
+				<div id="courseModal" class="modal fade">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">코스 등록하기</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p>One fine body&hellip;</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				
+			</form>
 			
 		</div><!-- writebox -->	
 		
@@ -70,8 +91,8 @@
 	<br><br><br>
 	
 	<div id="user_btn">
-		<button type="submit" id="cencle">취소</button>
-		<button type="submit" id="post">등록</button>
+		<button id="cencle" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">취소</button>
+		<button type="submit" id="post"  onclick="location.href='http://localhost:8088/JOA_GroupProject/read';">등록</button>
 	</div>
 
 	<br><br><br><br><br><br><br>
@@ -80,4 +101,38 @@
 	<!-- footer -->
 
 </body>
+
+	<script type="text/javascript">
+		
+		/* 준비가 끝났을 때 */
+		$(document).ready(function() {
+			
+			console.log("jquery로 요청 data만 받는 요청");
+			
+			//리스트 요청 + 그리기
+			fetchList();
+			
+		});
+		
+		/* 삭제 버튼을 클릭했을 때 */
+		$(".course_choice").on("click", ".courseModal", function() {
+			
+			console.log("리스트 삭제 버튼 클릭");
+			
+			var $this = $(this);	
+			var no = $this.data("no");
+			//console.log(no);
+			
+			//모달창에 form값 입력
+			//$("[name=password]").val("");
+			$("#delModal [name=password]").val("");
+			$("[name=no]").val(no);
+			
+			//모달창 띄우기
+			$("#delModal").modal("show");
+			
+		});
+		
+	</script>
+
 </html>
