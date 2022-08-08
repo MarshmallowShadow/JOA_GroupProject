@@ -48,7 +48,7 @@ window.onload = function(){
 		businessHours: true,	//주말 구분;
 		dayMaxEvents: false, // allow "more" link when too many events
 
-		events: recordList()
+		events: rList
 	});
 	calendar.render();
 	
