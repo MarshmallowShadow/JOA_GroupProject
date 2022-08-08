@@ -57,4 +57,26 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+window.onload = function(){
+	var calendarEl = document.getElementById('calendarApi');
+    
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+    	locale: 'ko',
+    	/*dayPopoverFormat: 'event-popover',*/
+    	editable: false,
+		selectable: true,
+		businessHours: true,	//주말 구분;
+		dayMaxEvents: false, // allow "more" link when too many events
+
+		events: rList
+	});
+	calendar.render();
+	
+	
+	/*달력폼 준비가 끝나면*/
+	$(".fc-event-title").click(function(){
+		console.log("이벤트");
+		alert("이벤트다!!");
+	});
+}
 
