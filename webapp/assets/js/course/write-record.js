@@ -180,20 +180,21 @@ $(document).ready(function() {
 	
 	//등록 버튼 클릭했을때
 	$(".add").on("click", function () {
-		var formData = new FormData();
-		$.each(uploadFiles, function(i, file) {
+		//var formData = new FormData();
+		/*$.each(uploadFiles, function(i, file) {
 			if(file.upload != 'disable') { //삭제하지 않은 이미지만 업로드 항목으로 추가
 				formData.append('file', file);
 				console.log(formData);
 			}
-		});
+		});*/
+		console.log(uploadFiles);
 		
 		$.ajax({
 			//보낼때
 			url : "${pageContext.request.contextPath}/recordwrite",
 			type : "get",
 			//contentType : "application/json",
-			data : formData,
+			data : uploadFiles,
 			processData: false,
 			contentType: false,
 			
