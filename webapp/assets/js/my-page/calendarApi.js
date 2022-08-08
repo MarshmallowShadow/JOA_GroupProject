@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		events: recordList()
 	});
-	
+	calendar.render();
 	
 	
 	/*달력폼 준비가 끝나면*/
@@ -23,29 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	
 });
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendarApi');
-    
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	locale: 'ko',
-    	/*dayPopoverFormat: 'event-popover',*/
-    	editable: false,
-		selectable: true,
-		businessHours: true,	//주말 구분;
-		dayMaxEvents: false, // allow "more" link when too many events
 
-		events: recordList()
-	});
-	
-	
-	
-	/*달력폼 준비가 끝나면*/
-	$(".fc-event-title").click(function(){
-		console.log("이벤트");
-		alert("이벤트다!!");
-	});
-	
-});
 var recordList = function() {
 	var rList =
 	[	//ajax 데이터 불러올 부분(배열)///////////////////////////////
@@ -77,7 +55,7 @@ var recordList = function() {
 				);
 			}
 			console.log(rList);
-			calendar.render();
+			
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
