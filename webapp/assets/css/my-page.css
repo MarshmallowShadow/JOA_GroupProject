@@ -40,8 +40,8 @@ input[type=radio] {display:none;}
 .resultList #courseName {position: absolute; font-weight:bold; font-size:16px; line-height: 20px;}
 .resultList .besticon {vertical-align:bottom; width:20px; height:20px;}
 .resultList .img-icons {float:right; width: 65px; height:24px; margin-right:3px; padding:0px; text-align:right;}
-.resultList .img-icons .like-btn {vertical-align:top; margin-left:3px; padding:0px; width:(100%-margin); height:24px;}
-.resultList .img-icons .bookmark-btn {vertical-align:top; margin-left:3px; padding:0px; width:(100%-margin); height:24px;}
+.resultList .img-icons .like-cancel-btn {vertical-align:top; margin-left:3px; padding:0px; width:(100%-margin); height:24px;}
+.resultList .img-icons .bookmark-cancel-btn {vertical-align:top; margin-left:3px; padding:0px; width:(100%-margin); height:24px;}
 
 .resultList li #textBox #courseInfo {font-size:13px; color: gray; line-height: 20px;}
 .resultList li #textBox .newpost {width:20px; height:20px; vertical-align:bottom;}

@@ -95,7 +95,8 @@
 							<br>
 
 							<div class="button-ttl">
-
+							<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
@@ -115,6 +116,7 @@
 							<br>
 
 							<div class="button-ttl">
+							<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
 
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
@@ -147,7 +149,8 @@
 							<br>
 
 							<div class="button-ttl">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -167,7 +170,8 @@
 							<br>
 
 							<div class="button-ttl">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -187,7 +191,7 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
 
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
@@ -216,8 +220,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -237,7 +241,7 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
 
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
@@ -258,8 +262,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -287,8 +291,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -308,8 +312,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -329,8 +333,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -358,8 +362,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -379,8 +383,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
@@ -400,8 +404,8 @@
 							<br>
 
 							<div class="button-ttl">
-								<input type="button" id="cbutton" name="button" value="후기 : 3개">
-
+								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+								
 								<div class="imgbutton">
 									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
 									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BestController {
 	
-	//화면 test
+	//게시물 불러오기
+	
+	//화면 띄우기
 	@RequestMapping(value="/best", method = {RequestMethod.GET, RequestMethod.POST})
 	public String best() {
-		
 		System.out.println("BestController");
-		
-	return "best/best";
+		return "best/best";
 		
 	}
 

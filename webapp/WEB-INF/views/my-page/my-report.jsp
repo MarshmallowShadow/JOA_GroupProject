@@ -107,7 +107,7 @@
 							<li class="reportContent">
 								<div style="cursor: pointer;" onclick="window.location='';">
 									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle"><p class="date" id="nows"></p></p>
+									<p class="contentTitle">88888888888<p class="date" id="nows"></p></p>
 									<p class="content">링거 맞고 뛰었다^^</p>
 									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
 									<div class="modify-del-icons">
