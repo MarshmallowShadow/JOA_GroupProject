@@ -135,7 +135,7 @@
 			
 		</div>
 		
-		<form id="courseForm" method="get" action="./recordWrite">
+		<form id="courseForm" method="get" enctype="multipart/form-data">
 			<!-- 기록 정보 -->
 			<div class="course-form">
 				<h2>기록 정보</h2>
@@ -250,20 +250,25 @@
 			
 			<!-- 사진 등록 (드래그앤 드롭) -->
 			<div class="course-form">
+				
 				<h2>사진 등록</h2>
 				
 				<div id="drop">
-					<div id="thumbnails">
-						<div id="course-pic">
-							<div id="pic-main">
-								<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
-								<p class="pic-txt red">사진을 여기로 드래그 해주세요.</p>
-								<p class="pic-txt">코스와 관련된 사진을 등록해주세요.</p>
-							</div>
-						</div>
+					<div id="file-btn">
+						<input type="file" id="input-file" multiple="multiple">
+						<label for="input-file">파일선택</label>
+					</div>
+					
+					<div id="fileDragDesc">
+						<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
+						<p>사진을 드래그 해주세요.</p>
+					</div>
+					
+					<div id="filesList">
 					</div>
 				</div>
 			</div>
+			<!-- course-form -->
 			
 			
 			<!-- 일반 사진 등록
@@ -285,7 +290,7 @@
 				<input type="hidden" name="courseNo" value="${param.courseNo }">
 				<input type="hidden" name="userNo" value="2">
 				<button class="cancel">취소</button>
-				<button type="submit" class="add">기록 등록</button>
+				<button type="button" class="add">기록 등록</button>
 			</div>
 		</form>	
 	</div>
