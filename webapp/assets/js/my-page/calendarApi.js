@@ -1,63 +1,14 @@
 /*달력 API*/
-
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendarApi');
-    
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	locale: 'ko',
-    	/*dayPopoverFormat: 'event-popover',*/
-    	editable: false,
-		selectable: true,
-		businessHours: true,	//주말 구분;
-		dayMaxEvents: false, // allow "more" link when too many events
-
-		events: recordList()
-	});
-	
-	
-	
-	/*달력폼 준비가 끝나면*/
-	$(".fc-event-title").click(function(){
-		console.log("이벤트");
-		alert("이벤트다!!");
-	});
-	
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendarApi');
-    
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	locale: 'ko',
-    	/*dayPopoverFormat: 'event-popover',*/
-    	editable: false,
-		selectable: true,
-		businessHours: true,	//주말 구분;
-		dayMaxEvents: false, // allow "more" link when too many events
-
-		events: recordList()
-	});
-	
-	
-	
-	/*달력폼 준비가 끝나면*/
-	$(".fc-event-title").click(function(){
-		console.log("이벤트");
-		alert("이벤트다!!");
-	});
-	
-});
-var recordList = function() {
-	var rList =
+    var rList =
 	[	//ajax 데이터 불러올 부분(배열)///////////////////////////////
 		{
 	      title: '테스트 코스',
 	      start: '2022-08-01',
 		}
 	];
-	
-   	//console.log(userNo);
-   	
-	$.ajax({
+    
+    $.ajax({
 		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
 		type : "post",
 		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
@@ -77,12 +28,43 @@ var recordList = function() {
 				);
 			}
 			console.log(rList);
-			calendar.render();
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
 		}
 	});
+    
+    
+    
+    var calendarEl = document.getElementById('calendarApi');
+    
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+    	locale: 'ko',
+    	/*dayPopoverFormat: 'event-popover',*/
+    	editable: false,
+		selectable: true,
+		businessHours: true,	//주말 구분;
+		dayMaxEvents: false, // allow "more" link when too many events
+
+		events: rList
+	});
+	calendar.render();
+	
+	
+	/*달력폼 준비가 끝나면*/
+	$(".fc-event-title").click(function(){
+		console.log("이벤트");
+		alert("이벤트다!!");
+	});
+	
+});
+
+var recordList = function() {
+	
+	
+   	//console.log(userNo);
+   	
+	
 };
 
 
