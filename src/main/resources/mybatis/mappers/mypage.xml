@@ -23,12 +23,11 @@
 			        r.review,
 			        r.reg_date regDate,
 			        i.file_path filePath
-			from record r, course c,
+			from course c, record r 
 			left outer join record_img i
-			on and r.record_no = i.record_no
+			on r.record_no = i.record_no 
 			where r.course_no = c.course_no
-			and order_no = 0
-			and r.user_no = #{userNo}
+			and r.user_no =  #{userNo}
 		]]>
 	</select>
 	
