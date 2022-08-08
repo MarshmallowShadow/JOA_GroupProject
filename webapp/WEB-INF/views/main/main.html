@@ -18,15 +18,20 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-
 <script>
-	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿ddeb92652c34f9e77a6961c434afa555&units=metric',
-		function(result){
-		
+$.getJSON(
+		'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿ddeb92652c34f9e77a6961c434afa555',
+		function(
+				result){
+			
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
-			$('.icon').append(result.wheather[0].icon);
+			//$('.icon').append(result.weather[0].icon);
+			
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn/' + 
+			result.weather[0].icon + '.png" alt="' + result.weather[0].description + '">'
+			$('.icon').html(wiconUrl);
 	});
 	
 </script>
