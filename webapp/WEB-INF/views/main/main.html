@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, intial-scale=1.0">
 <title>main test</title>
 </head>
-
 <body>
 	<h2>현재 날씨</h2>
 	<h3 class="ctemp">현재 온도 : </h3>
@@ -16,22 +14,13 @@
 	<h3 class="icon"></h3>
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 <script>
-$.getJSON(
-		'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿ddeb92652c34f9e77a6961c434afa555',
-		function(
-				result){
-			
+	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=﻿api.openweathermap.org/data/2.5/weather?q=Seoul&appid=c0af703bdcbdcbb564c909471fce177c',
+		function(result){
+		
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
-			//$('.icon').append(result.weather[0].icon);
-			
-			var wiconUrl = '<img src="http://openweathermap.org/img/wn/' + 
-			result.weather[0].icon + '.png" alt="' + result.weather[0].description + '">'
-			$('.icon').html(wiconUrl);
 	});
 	
 </script>

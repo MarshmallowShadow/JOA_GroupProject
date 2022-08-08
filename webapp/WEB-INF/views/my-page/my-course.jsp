@@ -98,8 +98,8 @@
 						  		<div class="courseTitle">
 									<p id="courseName">신나는 코스</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
 									</div>
 								</div>
 								<p id="courseInfo">홍길동</p>
@@ -115,8 +115,8 @@
 								<div class="courseTitle">
 									<p id="courseName">이건 아닌데...</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
 									</div>
 								</div>
 								<p id="courseInfo">고길동</p>
@@ -132,8 +132,8 @@
 								<div class="courseTitle">
 									<p id="courseName">깐따비야 가는 길</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
 									</div>
 								</div>
 								<p id="courseInfo">둘리</p>
@@ -149,8 +149,8 @@
 								<div class="courseTitle">
 									<p id="courseName">집에 가는 길</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
 									</div>
 								</div>
 								<p id="courseInfo">아무개</p>
@@ -168,8 +168,8 @@
 								<div class="courseTitle">
 									<p id="courseName">신나는 코스</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
 									</div>
 								</div>
 								<p id="courseInfo">홍길동</p>
@@ -185,8 +185,8 @@
 								<div class="courseTitle">
 									<p id="courseName">학원 가는 길</p>
 									<div class="img-icons">
-										<img class="like-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
-										<img class="bookmark-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
 									</div>
 								</div>
 								<p id="courseInfo">고길동</p>

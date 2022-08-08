@@ -5,12 +5,12 @@ $(document).ready(function(){
 	$(".course-bookmark-cancel").hide();
     
 	
-	$(".like-btn").click(function(){
+	$(".like-cancel-btn").click(function(){
 		console.log("좋아요해제");
 		$(".course-like-cancel").modal("show");
    	});
    
-	$(".bookmark-btn").click(function(){
+	$(".bookmark-cancel-btn").click(function(){
 		console.log("즐겨찾기해제");
 		$(".course-bookmark-cancel").modal("show");
 	});
