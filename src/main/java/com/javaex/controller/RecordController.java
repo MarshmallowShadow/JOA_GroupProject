@@ -43,15 +43,6 @@ public class RecordController {
 		return "";
 	}
 	
-	//기록 등록
-	@ResponseBody
-	@RequestMapping(value = "/recordwrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWrite(@RequestBody Map<String, Object> fileMap) {
-		System.out.println("ApiRecordController->recordWrite");
-		System.out.println(fileMap);
-		return "";
-	}
-	
 	
 	//기록 상세보기
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
