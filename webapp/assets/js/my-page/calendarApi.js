@@ -12,6 +12,7 @@ var recordList =
 $(document).ready(function(){
    	
    	var userNo = parseInt('${authUser.userNo}');
+   	console.log(userNo);
    	
 	$.ajax({
 		url : "${pageContext.request.contextPath}/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
