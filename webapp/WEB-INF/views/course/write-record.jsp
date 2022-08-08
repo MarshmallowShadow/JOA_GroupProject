@@ -13,12 +13,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js">
+<script type="text/javascript">
 	window.userNo = parseInt('1');
 	window.contextPath = '${pageContext.request.contextPath}';
 </script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=drawing"></script>
 </head>
