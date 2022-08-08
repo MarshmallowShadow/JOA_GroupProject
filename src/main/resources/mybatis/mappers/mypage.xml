@@ -21,9 +21,12 @@
 			        r.user_no userNo,
 			        c.title,
 			        r.review,
-			        r.reg_date regDate
-			from record r, course c
+			        r.reg_date regDate,
+			        i.file_path filePath
+			from record r, course c, record_img i
 			where r.course_no = c.course_no
+			and r.record_no = i.record_no
+			and order_no = 0
 		]]>
 	</select>
 	

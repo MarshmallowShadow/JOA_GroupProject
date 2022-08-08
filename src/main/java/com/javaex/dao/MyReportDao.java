@@ -1,6 +1,6 @@
 package com.javaex.dao;
 
-import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,10 @@ public class MyReportDao {
 	@Autowired 
 	private SqlSession sqlSession;
 	
+	public Map<String,Object> getRecordList(int userNo) {
+		
+		return null;
+	}
 	
 	//나의기록 list 가져오기
 	/*
@@ -20,5 +24,5 @@ public class MyReportDao {
 	 * sqlSession.selectList("mypage.calendarList"); }
 	 */
 	
-
+	
 }
