@@ -55,7 +55,7 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2><img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg">코스제목</h2>
+						<h2>코스제목</h2>
 						
 						<!-- 수정 버튼 -->
 						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>

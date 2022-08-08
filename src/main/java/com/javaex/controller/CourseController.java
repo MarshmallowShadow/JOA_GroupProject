@@ -13,13 +13,14 @@ import com.javaex.service.CourseService;
 import com.javaex.vo.CourseVo;
 
 @Controller
+@RequestMapping(value = "/course")
 public class CourseController {
 	
 	@Autowired
 	CourseService coService;
 
 	//코스 등록폼
-	@RequestMapping(value="/course-write", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String courseWriteForm() {
 		System.out.println("CourseController->courseWriteForm()");
 		return "course/write-course";
@@ -33,15 +34,15 @@ public class CourseController {
 							@RequestParam(value="minute", required = true) int minute,
 							@ModelAttribute CourseVo coVo) {
 		System.out.println("CourseController->courseWrite()");
-		
 		coService.courseWrite(xList, yList, hour, minute, coVo);
 		return "";
 	}
 	
 	//코스 상세보기
-	@RequestMapping(value="/course-view", method = {RequestMethod.GET, RequestMethod.POST})
-	public String courseViewForm() {
+	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
+	public String courseViewForm(@RequestParam(value = "courseNo") int courseNo) {
 		System.out.println("CourseController->courseViewForm()");
+		coService.getCourseInfo(courseNo);
 		return "course/view-course";
 	}
 	

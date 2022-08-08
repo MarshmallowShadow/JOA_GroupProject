@@ -44,4 +44,14 @@ public class CourseService {
 		
 	}
 
+	//(코스상세보기) 코스 정보 가져오기
+	public void getCourseInfo(int courseNo) {
+		System.out.println("CourseService->getCourseInfo");
+		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
+		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표정보
+		//기록 통계
+		//즐겨찾기 여부
+		//좋아요 여부
+	}
+
 }

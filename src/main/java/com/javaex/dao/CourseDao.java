@@ -20,7 +20,7 @@ public class CourseDao {
 	}
 
 
-	//(기록등록) 코스 가져오기
+	//(기록등록, 코스상세보기) 코스 가져오기
 	public CourseVo selectCourse(int courseNo) {
 		System.out.println("CourseDao->selectCourse");
 		return sqlSession.selectOne("course.selectCourse", courseNo);

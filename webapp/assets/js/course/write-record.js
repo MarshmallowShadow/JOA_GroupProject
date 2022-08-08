@@ -190,7 +190,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			//보낼때
-			url : getContextPath() + "/recordwrite",
+			url : "${pageContext.request.contextPath}/recordwrite",
 			type : "get",
 			//contentType : "application/json",
 			data : formData,
