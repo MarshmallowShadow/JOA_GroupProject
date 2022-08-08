@@ -94,7 +94,7 @@
 							<!-- <p id="calDate">2022년 3월</p> -->
 							<!-- <input id="dateSearch" type="date"> -->
 						</div>
-						<div id="calendar"></div>
+						<div id="calendarApi"></div>
 					</div>
 				
 					

@@ -1,6 +1,6 @@
 /*달력 API*/
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById('calendarApi');
     
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	locale: 'ko',
