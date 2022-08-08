@@ -7,6 +7,11 @@ var rList =
 	      start: '2022-08-01',
 		}
 	];
+	
+function render(rMap) {
+	var str = "";
+	
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     $.ajax({
@@ -27,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 						start: rMap.REGDATE
 					}
 				);
+				
+				$(".reportBox").append(render(rMap));
 			}
 			console.log(rList);
 			
