@@ -15,7 +15,7 @@ public class WeatherTest {
 		
 		double lat = 37.5684;
 		double lon = 126.9778;
-		String apiKey = "50f3ba3db97de5bef78cc9bfd637b913";
+		String apiKey = "";
 		String weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lon=" + lon + "&lat=" + lat + "&appid=" + apiKey;
 		
 		//API 가져오기
