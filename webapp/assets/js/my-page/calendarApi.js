@@ -8,11 +8,11 @@ var rList =
 		}
 	];
 	
-function render(rMap, opt) {
-	
-	var str = '<li class="reportContent">';
+function render(rMap) {
+	var str = '';
+	str += '<li class="reportContent">';
 	str += '	<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
-	str += '		<img class="contentImg" src="contextPath+/assets/image/my-page/sample2.jpg">';
+	str += '		<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
 	str += '		<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
 	str += '		<p class="content">'+rMap.REVIEW+'</p>';
 	str += '		<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
