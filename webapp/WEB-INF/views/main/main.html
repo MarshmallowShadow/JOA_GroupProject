@@ -7,50 +7,58 @@
 <title>main test</title>
 </head>
 <body>
-	<h2>현재 날씨</h2>
-	<h3 class="time">현재 시간 : </h3>
-	<h3 class="ctemp">현재 온도 : </h3>
-	<h3 class="lowtemp">최저 온도 : </h3>
-	<h3 class="hightemp">최고 온도 : </h3>
-	<h3 class="icon"></h3>
+
+	<div class="hflex-item hitc" >
+		<ul>
+			<li class="weather"></li>
+			<li class="city"></li>
+			<li class="icon"></li>
+		</ul>
+	</div>
+	
+	
+	
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
-	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
-		function(result){
-		
-			$('.ctemp').append(result.main.temp);
-			$('.lowtemp').append(result.main.temp_min);
-			$('.hightemp').append(result.main.temp_max);
-			
-			//result.weather[0].icon
-			var wiconUrl = '<img src="http://openwethermap.org/img/wn/'+ result.weather[0].icon +
-			'.png" alt="'+ result.weather[0].description +'">'
-			$('.icon').html(wiconUrl);
-			
-			var ct = result.dt;
-			
-			function convertTime(t) {
-				var ot = new Date(t * 1000);
-				
-				var hr = ot.getHours();
-				var m = ot.getMinutes();
-				var s = ot.getSeconds();
-				var mo = ot.getMonth() + 1;
-				var d = ot.getDate();
-				
-				
-				//return ot;
-				return mo + '월' + d + '일' + '  '+ hr + ':' + m + ':' + s;
-			}
-			
-			var currentTime = convertTime(ct);
-			$('.time').append(currentTime);
-	});
+	
+var time = document.getElementById(".wimg");
+// 나중에 innerHTML로 날씨 이미지를 추가해줄 예정
+var weather = document.querySelector(".weather");
+// 나중에 innerText로 날씨정보를 넣어줄 예정
+var city = document.querySelector(".city");
+// 나중에 innerText로 지역정보를 넣어줄 예정
+var API_KEY = "ddeb92652c34f9e77a6961c434afa555";
+// API의 키를 변수로 저장
+
+function onGeoOk(position) {//위치정보를 확인하면 실행할 함수 매개변수로 현재위치 넣어줌
+	
+var lat = position.coords.latitude;
+// 현재 위치 정보의 위도 저장
+var lon = position.coords.longitude;
+// 현재 위치 정보의 경도 저장
+var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric`;
+    
+	fetch(url) // url변수(URL)를 통해 fetch를 진행
+      .then((response) => response.json()) // 응답 객체를 자바 스크립트 객체로 변환
+      .then((data) => { 
+    	  
+      	city.innerText = data.name;
+      	
+      	weather.innerText = `${data.main.temp}`+"°C";
+      	
+      	var icon = data.weather[0].icon;
+      	wimg.innerHTML = "<img src='http://openweathermap.org/img/wn/"+icon+".png'>";
+      });
+  console.log(url);
+}
+function onGeoError() { // 위치 정보 확인 못할때 실행할 함수
+	alert("Can't find you. No weather for you.");
+}
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 	
 </script>
-
 
 </body>
 </html>
