@@ -162,50 +162,55 @@ $(document).ready(function() {
 	
 	//업로드 파일 삭제
 	$("#filesList").on("click", ".close", function(e) {
-		console.log("클릭은되는거냐고")
 		var $target = $(e.target).parent();
 		var idx = $target.attr('data-idx');
 		console.log(idx);
-		//uploadFiles.splice(idx,1);
-		uploadFiles[idx].upload = 'disable'; //삭제된 항목은 없로드하지 않기 위해 플래그 생성
+		uploadFiles.splice(idx, 1); //배열에서 요소 삭제
 		
 		$target.parent().remove(); //프리뷰 삭제
 	});
 	
 	//등록 버튼 클릭했을때
-	$(".add").on("click", function () {
-		//var formData = new FormData();
-		/*$.each(uploadFiles, function(i, file) {
-			if(file.upload != 'disable') { //삭제하지 않은 이미지만 업로드 항목으로 추가
-				formData.append('file', file);
-				console.log(formData);
-			}
-		});*/
-		console.log(uploadFiles);
+	$(".add").on("submit", function (event) {
+		event.preventDefault();
 		
-		$.ajax({
-			//보낼때
-			url : contextPath+"/recordwrite",
-			type : "get",
-			//contentType : "application/json",
-			data : uploadFiles,
-			processData: false,
-			contentType: false,
+		if(uploadFiles != null) { //업로드할 사진이 있을때
+			var formData = new FormData();
 			
-			//받을때
-			//dataType : "json",
-			success : function(result){
-				//성공시 처리해야될 코드 작성
-				console.log(result);
-
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
+			for(var i=0; i < uploadFiles.length; i++) {
+				formData.append('file', uploadFiles[i]);
 			}
-		});
-	})
-
-
+			
+			console.log(formData);
+			
+			$.ajax({
+				//보낼때
+				url : contextPath+"/recordImgWrite",
+				type : "post",
+				//contentType : "application/json",
+				data : formData,
+				processData: false,
+				contentType: false,
+				enctype : 'multipart/form-data',
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					console.log(result);
+					event.currentTarget.submit();
+	
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+		} else { //업로드할 사진이 없을 때
+			event.currentTarget.submit();
+			
+		}
+		
+	});
 });
 
 //업로드할 파일 목록

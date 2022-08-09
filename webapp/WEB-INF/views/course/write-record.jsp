@@ -139,7 +139,7 @@
 			
 		</div>
 		
-		<form id="courseForm" method="get" enctype="multipart/form-data">
+		<form id="courseForm" method="get" action="./recordWrite" enctype="multipart/form-data">
 			<!-- 기록 정보 -->
 			<div class="course-form">
 				<h2>기록 정보</h2>
@@ -294,7 +294,7 @@
 				<input type="hidden" name="courseNo" value="${param.courseNo }">
 				<input type="hidden" name="userNo" value="2">
 				<button class="cancel">취소</button>
-				<button type="button" class="add">기록 등록</button>
+				<button type="submit" class="add">기록 등록</button>
 			</div>
 		</form>	
 	</div>

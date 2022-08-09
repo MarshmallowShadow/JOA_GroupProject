@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
 		<typeAlias alias="recVo" type="com.javaex.vo.RecordVo"/>
+		<typeAlias alias="rimgVo" type="com.javaex.vo.RecordImgVo"/>
 		<typeAlias alias="pointVo" type="com.javaex.vo.PointVo"/>
 	</typeAliases>
 	<mappers>
@@ -13,5 +14,6 @@
 		<mapper resource="mybatis/mappers/record.xml"/>
 		<mapper resource="mybatis/mappers/course.xml"/>
 		<mapper resource="mybatis/mappers/point.xml"/>
+		<mapper resource="mybatis/mappers/recordimg.xml"/>
 	</mappers>
 </configuration>

@@ -2,8 +2,8 @@ package com.javaex.vo;
 
 public class RecordImgVo {
 
-	private int RecordImgNo; //사진번호
-	private int RecordNo; //기록번호
+	private int recordImgNo; //사진번호
+	private int recordNo; //기록번호
 	private String saveName; //저장파일명
 	private String filePath; //파일경로
 	private int orderNo; //사진순서
@@ -12,8 +12,8 @@ public class RecordImgVo {
 	public RecordImgVo() {
 	}
 	public RecordImgVo(int recordImgNo, int recordNo, String saveName, String filePath, int orderNo) {
-		RecordImgNo = recordImgNo;
-		RecordNo = recordNo;
+		this.recordImgNo = recordImgNo;
+		this.recordNo = recordNo;
 		this.saveName = saveName;
 		this.filePath = filePath;
 		this.orderNo = orderNo;
@@ -21,16 +21,16 @@ public class RecordImgVo {
 	
 	
 	public int getRecordImgNo() {
-		return RecordImgNo;
+		return recordImgNo;
 	}
 	public void setRecordImgNo(int recordImgNo) {
-		RecordImgNo = recordImgNo;
+		this.recordImgNo = recordImgNo;
 	}
 	public int getRecordNo() {
-		return RecordNo;
+		return recordNo;
 	}
 	public void setRecordNo(int recordNo) {
-		RecordNo = recordNo;
+		this.recordNo = recordNo;
 	}
 	public String getSaveName() {
 		return saveName;
@@ -54,7 +54,7 @@ public class RecordImgVo {
 	
 	@Override
 	public String toString() {
-		return "RecordImgVo [RecordImgNo=" + RecordImgNo + ", RecordNo=" + RecordNo + ", saveName=" + saveName
+		return "RecordImgVo [recordImgNo=" + recordImgNo + ", recordNo=" + recordNo + ", saveName=" + saveName
 				+ ", filePath=" + filePath + ", orderNo=" + orderNo + "]";
 	}
 	
