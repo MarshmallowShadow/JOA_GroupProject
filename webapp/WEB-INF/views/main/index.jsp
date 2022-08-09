@@ -31,7 +31,7 @@
 			<li class="wind">풍속 : </li>
 			<li class="icon"></li>
 		</ul>
-		<button onclick="javascript:goSearch();">현재 위치 날씨 검색</button>
+		<button onclick="javascript:goSearch();">현위치 날씨 검색</button>
 	</div>
 
 <!------------------------- photo slider ------------------------>	
@@ -84,14 +84,15 @@ $(document).ready(function(position){
 	//위도 경도 저장
 	var lat = position.latitude;	
 	var lon = position.longitude;
-	var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric`;
+	//var ip = '9e59ce9dcb1014633e13dc6b7a7ffa54'
+	//var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + ddeb92652c34f9e77a6961c434afa555 + &units=metric';
 	
 	
     $.ajax({
-        url: 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
+		url: 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + ddeb92652c34f9e77a6961c434afa555 +&units=metric',
         dataType: 'json',
         type: 'POST',
-       	//data: {'search_city':SEARCH_CITY},
+       	//data: {'lat' : LAT, 'lon' : LON},
         success:function(result){
         	
         	// 보여질 정보

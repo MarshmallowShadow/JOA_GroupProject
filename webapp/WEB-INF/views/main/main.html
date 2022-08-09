@@ -9,11 +9,7 @@
 <body>
 
 	<div class="hflex-item hitc" >
-		<ul>
-			<li class="weather"></li>
-			<li class="city"></li>
-			<li class="icon"></li>
-		</ul>
+		<button onclick="javascript:searchWithLatLng();">현위치 검색</button>
 	</div>
 	
 	
@@ -22,42 +18,58 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
-	
-var time = document.getElementById(".wimg");
-// 나중에 innerHTML로 날씨 이미지를 추가해줄 예정
-var weather = document.querySelector(".weather");
-// 나중에 innerText로 날씨정보를 넣어줄 예정
-var city = document.querySelector(".city");
-// 나중에 innerText로 지역정보를 넣어줄 예정
-var API_KEY = "ddeb92652c34f9e77a6961c434afa555";
-// API의 키를 변수로 저장
 
-function onGeoOk(position) {//위치정보를 확인하면 실행할 함수 매개변수로 현재위치 넣어줌
+function getWeatherEngineData(){
 	
-var lat = position.coords.latitude;
-// 현재 위치 정보의 위도 저장
-var lon = position.coords.longitude;
-// 현재 위치 정보의 경도 저장
-var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric`;
-    
-	fetch(url) // url변수(URL)를 통해 fetch를 진행
-      .then((response) => response.json()) // 응답 객체를 자바 스크립트 객체로 변환
-      .then((data) => { 
-    	  
-      	city.innerText = data.name;
-      	
-      	weather.innerText = `${data.main.temp}`+"°C";
-      	
-      	var icon = data.weather[0].icon;
-      	wimg.innerHTML = "<img src='http://openweathermap.org/img/wn/"+icon+".png'>";
-      });
-  console.log(url);
-}
-function onGeoError() { // 위치 정보 확인 못할때 실행할 함수
-	alert("Can't find you. No weather for you.");
-}
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 	
+    $.ajax({
+        type: "POST",
+        dataType: "JSON",
+        url: "lib.js",
+        data: {'lat':LAT, 'lon':LON},   //검색하고자 하는 도시 정보
+        cache: false,
+        async: false
+     })
+     .done(function(result) {
+        //ajax 통신이 성공한 경우
+        console.log(result);
+        if(result.main){
+       	 
+       	 $("resultTemperature").html(result.main.temp);
+       	 $("resultCity").html(result.name);
+        
+        }
+     });
+}
+
+
+
+
+
+function searchWithLatLon()
+{
+	
+	getWeatherEngineData(Lat, Lon)
+	
+	}
+
+
+
+	
+function goSearch ()    //날씨 검색
+{
+   var SEARCH_CITY = $("#city").val();
+   if(!SEARCH_CITY){
+      alert("먼저 도시를 입력하세요");      //SERCH_CITY값 입력하지 않을 경우 경고장
+      return false;               //그럴 경우 더이상 진행 불가
+   }
+   
+   else {                        //API 엔진과 소통
+	   
+	   getWeatherEngineData("","");			//위도 경도
+
+   }
+}
 </script>
 
 </body>
