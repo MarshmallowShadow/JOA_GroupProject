@@ -48,7 +48,7 @@
 							<td>
 								<!-- 
 								<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-									<a href="">
+									<a href="${pageContext.request.contextPath}/WEB-INF/course/view-course">
 										<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
 										<div class="course-info">
 											<h3 class="course-title">헬 ^^</h3>
