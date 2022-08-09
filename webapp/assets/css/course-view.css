@@ -15,16 +15,13 @@ input[type=radio] {display:none;}
 /* =======================content======================= */
 /* content 레이아웃 */
 #content #view-content {/* height:620px; */ overflow: auto;}
-#content #map {
-	float: left;
-	width: 70%;
-	height: 600px;
-	object-fit: cover;
-	overflow: auto;
+#content #map-info {
+	display: inline-block;
 }
 #content .course-view {
 	float: right;
 	width: 30%;
+	vertical-align: middle;
 }
 
 

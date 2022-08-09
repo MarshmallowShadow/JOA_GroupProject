@@ -30,5 +30,11 @@ public class RecordDao {
 		System.out.println("RecordDao->getRecCnt");
 		return sqlSession.selectOne("record.recCnt", courseNo);
 	}
+	
+	//(코스상세보기) 기록통계-종목 가져오기
+	public int getCate(int courseNo) {
+		System.out.println("RecordDao->getCate");
+		return 0;
+	}
 
 }

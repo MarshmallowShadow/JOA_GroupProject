@@ -36,10 +36,7 @@
 		
 		<div id="view-content">
 			<!-- 지도 영역 -->
-			<div id="map">
-				<!-- 지도 -->
-				<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg" width="100%">
-			</div>
+			<div id="map-info"  style="width:70%;height:662px;"></div>
 			
 			
 			<!-- 글 영역 -->

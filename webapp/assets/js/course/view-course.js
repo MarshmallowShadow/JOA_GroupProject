@@ -4,7 +4,43 @@
 window.onload = function test() {
 	console.log("tq");
 	
-	/*디폴트 - 종목별 그래프*/
+	
+	/*------------모달창-------------------------------------------------------------------*/
+	/*코스제목 수정 버튼 클릭*/
+	$("#update-btn").on("click", function() {
+		//모달창 띄우기
+		$("#title-update").modal("show");
+	});
+	
+	
+	/*즐겨찾기 버튼 클릭*/
+	$("#bookmark").on("click", function() {
+		//모달창 띄우기
+		$("#bookmark-list").modal("show");
+	});
+	
+	
+	
+	/*------------지도-------------------------------------------------------------------*/
+	//지도 정보
+	var mapContainer = document.getElementById('map-info');
+	var mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+		level: 3, //지도의 레벨(확대, 축소 정도)
+	};
+	
+	// 이미지 지도 생성
+	//var staticMap = new kakao.maps.StaticMap(mapContainer, mapOption),
+	var staticMap = new kakao.maps.Map(mapContainer, mapOption),
+		overlays = []; //지도에 그릴 선 담을 배열
+	
+	
+	
+	
+	
+	
+	/*------------차트-------------------------------------------------------------------*/
+	/*디폴트 - 종목별 차트*/
 	category();
 	
 	var charts = document.getElementById("charts");
@@ -20,22 +56,11 @@ window.onload = function test() {
 		}
 	});
 	
-	/*코스제목 수정 버튼 클릭*/
-	$("#update-btn").on("click", function() {
-		//모달창 띄우기
-		$("#title-update").modal("show");
-	});
 	
-	
-	/*즐겨찾기 버튼 클릭*/
-	$("#bookmark").on("click", function() {
-		//모달창 띄우기
-		$("#bookmark-list").modal("show");
-	});
 	
 };
 
-/* 종목별 그래프 */
+/* 종목별 차트 */
 function category() {
 	
 	const labels = [
@@ -82,7 +107,7 @@ function category() {
 	);
 }
 
-/* 난이도별 그래프 */
+/* 난이도별 차트 */
 function difficult() {
 	
 	const labels = [

@@ -60,7 +60,6 @@ public class CourseService {
 		String userName = userDao.getUserName(coVo.getUserNo());
 		//기록 통계
 		int recCnt = recDao.getRecCnt(courseNo);
-		System.out.println(recCnt);
 		//즐겨찾기 여부
 		//좋아요 여부
 		
