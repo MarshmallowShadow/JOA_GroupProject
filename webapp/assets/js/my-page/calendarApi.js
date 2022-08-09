@@ -12,7 +12,7 @@ function render(rMap, opt) {
 	
 	var str = '<li class="reportContent">';
 	str += '	<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
-	str += '		<img class="contentImg" src="contextPath+/assets/image/my-page/sample.jpg">';
+	str += '		<img class="contentImg" src="contextPath+/assets/image/my-page/sample2.jpg">';
 	str += '		<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
 	str += '		<p class="content">'+rMap.REVIEW+'</p>';
 	str += '		<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
@@ -23,14 +23,14 @@ function render(rMap, opt) {
 	str += '	</div>';
 	str += '</li>';
 	
-	
-	if(opt == "down"){
+	$(".reportBox").append(str);
+	/*if(opt == "down"){
 		$(".reportBox").append(str);
 	}else if(opt == "up"){
 		$(".reportBox").prepend(str);
 	}else{
 		console.log("opt오류");
-	}
+	}*/
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -52,18 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
 						start: rMap.REGDATE
 					}
 				);
-				
 				render(rMap, "down");
 				/*$(".reportBox").append(render(rMap));*/
 			}
-			
-			
 			console.log(rList);
 			
-			
 			var calendarEl = document.getElementById('calendarApi');
-    
-		    var calendar = new FullCalendar.Calendar(calendarEl, {
+    	    var calendar = new FullCalendar.Calendar(calendarEl, {
 		    	locale: 'ko',
 		    	/*dayPopoverFormat: 'event-popover',*/
 		    	editable: false,
