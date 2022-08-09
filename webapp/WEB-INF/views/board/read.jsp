@@ -48,7 +48,7 @@
 							<td>
 								<!-- 
 								<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-									<a>
+									<a href="">
 										<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
 										<div class="course-info">
 											<h3 class="course-title">헬 ^^</h3>
@@ -140,7 +140,7 @@
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
-			<button type="submit" id="list">목록</button>
+			<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">목록</button>
 			
 			<br><br><br><br><br><br><br><br><br><br>
 			
