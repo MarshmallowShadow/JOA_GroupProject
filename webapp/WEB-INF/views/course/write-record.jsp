@@ -139,7 +139,7 @@
 			
 		</div>
 		
-		<form id="courseForm" method="get" action="./recordWrite" enctype="multipart/form-data">
+		<!-- <form id="courseForm" method="get" action="./recordWrite" onsubmit="return sendImage()"> -->
 			<!-- 기록 정보 -->
 			<div class="course-form">
 				<h2>기록 정보</h2>
@@ -185,7 +185,7 @@
 						
 						<th>기온</th>
 						<td>
-							<input class="txt-short" type="text" name="temperature">
+							<input class="txt-short" type="text" name="temperature" id="tem">
 							<p class="bold">℃</p>
 						</td>
 					</tr>
@@ -219,9 +219,9 @@
 					<tr>
 						<th>시간</th>
 						<td colspan="3">
-							<input type="text" class="txt-short" name="hour">
+							<input type="text" class="txt-short" name="hour" id="hour">
 							<p>시간</p>
-							<input type="text" class="txt-short" name="minute">
+							<input type="text" class="txt-short" name="minute" id="minute">
 							<p>분</p>
 						</td>
 					</tr>
@@ -245,7 +245,7 @@
 					<tr>
 						<th>한줄평</th>
 						<td colspan="3">
-							<input class="txt-long" type="text" name="review" value="">
+							<input class="txt-long" type="text" id="review" name="review" value="">
 						</td>
 					</tr>
 					
@@ -255,17 +255,16 @@
 			<!-- 사진 등록 (드래그앤 드롭) -->
 			<div class="course-form">
 				
-				<h2>사진 등록</h2>
+				<h2>
+					<input type="file" id="input-file" multiple="multiple">
+					<label for="input-file">파일선택</label>
+					사진을 드래그하거나 선택해주세요.
+				</h2>
 				
 				<div id="drop">
-					<div id="file-btn">
-						<input type="file" id="input-file" multiple="multiple">
-						<label for="input-file">파일선택</label>
-					</div>
 					
 					<div id="fileDragDesc">
 						<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
-						<p>사진을 드래그 해주세요.</p>
 					</div>
 					
 					<div id="filesList">
@@ -291,12 +290,12 @@
 			
 			
 			<div id="btn-wrap">
-				<input type="hidden" name="courseNo" value="${param.courseNo }">
-				<input type="hidden" name="userNo" value="2">
+				<input type="hidden" id="courseNo" value="${param.courseNo }">
+				<input type="hidden" id="userNo" value="2">
 				<button class="cancel">취소</button>
 				<button type="submit" class="add">기록 등록</button>
 			</div>
-		</form>	
+		<!-- </form>	 -->
 	</div>
 	
 	

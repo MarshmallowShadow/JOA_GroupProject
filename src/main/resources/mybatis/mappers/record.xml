@@ -14,5 +14,11 @@
 			values (#{recordNo}, #{courseNo}, #{userNo}, #{review}, #{weather}, #{temperature}, #{courseCate}, #{courseTime}, #{difficulty}, #{regDate})
 		]]>
 	</insert>
-
+	
+	<!-- (이미지추가) 기록번호 가져오기 -->
+	<select id="getrecNo" resultType="int">
+		<![CDATA[
+			select SEQ_RECORD_NO.currval from dual
+		]]>
+	</select>
 </mapper>

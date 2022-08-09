@@ -36,14 +36,15 @@ public class RecordService {
 
 	
 	//코스기록 등록하기
-	public void recordWrite(RecordVo recVo, int hour, int minute) {
+	public String recordWrite(RecordVo recVo) {
 		System.out.println("RecordService->recordWrite");
-		
-		recVo.setCourseTime((hour*60)+minute);
 		System.out.println(recVo);
-		recDao.insertRecord(recVo);
-		System.out.println(recVo.getRecordNo());
-		
+		int count = recDao.insertRecord(recVo);
+		if(count > 0) {
+			return "success";
+		} else {
+			return "false";
+		}
 	}
 	
 	//코스기록 이미지 등록
@@ -55,6 +56,11 @@ public class RecordService {
 		int index = 0;
 		
 		for(MultipartFile file : fileList) {
+			
+			//기록번호 가져오기
+			int recNo = recDao.getrecNo();
+			System.out.println(recNo);
+			
 			if(file.getSize() > 0) {
 				//오리지날 파일명
 				String orgName = file.getOriginalFilename();
@@ -68,7 +74,7 @@ public class RecordService {
 				
 				//DB 저장
 				RecordImgVo imgVo = new RecordImgVo();
-				imgVo.setRecordNo(2); //기록번호 어케하징
+				imgVo.setRecordNo(recNo);
 				imgVo.setSaveName(saveName);
 				imgVo.setFilePath(filePath);
 				imgVo.setOrderNo(index);
@@ -88,6 +94,7 @@ public class RecordService {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					return "false";
 				}
 			}
 			

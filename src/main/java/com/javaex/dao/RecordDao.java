@@ -19,4 +19,10 @@ public class RecordDao {
 		return sqlSession.insert("record.insert", recVo);
 	}
 
+	//(이미지추가) 기록번호 가져오기
+	public int getrecNo() {
+		System.out.println("RecordDao->getrecNo");
+		return sqlSession.selectOne("record.getrecNo");
+	}
+
 }

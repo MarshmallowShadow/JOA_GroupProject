@@ -165,52 +165,98 @@ $(document).ready(function() {
 		var $target = $(e.target).parent();
 		var idx = $target.attr('data-idx');
 		console.log(idx);
-		uploadFiles.splice(idx, 1); //배열에서 요소 삭제
+		delete uploadFiles[idx]; //배열에서 요소 삭제
 		
 		$target.parent().remove(); //프리뷰 삭제
 	});
 	
-	//등록 버튼 클릭했을때
-	$(".add").on("submit", function (event) {
-		event.preventDefault();
-		
-		if(uploadFiles != null) { //업로드할 사진이 있을때
-			var formData = new FormData();
-			
-			for(var i=0; i < uploadFiles.length; i++) {
-				formData.append('file', uploadFiles[i]);
-			}
-			
-			console.log(formData);
-			
-			$.ajax({
-				//보낼때
-				url : contextPath+"/recordImgWrite",
-				type : "post",
-				//contentType : "application/json",
-				data : formData,
-				processData: false,
-				contentType: false,
-				enctype : 'multipart/form-data',
-				
-				//받을때
-				//dataType : "json",
-				success : function(result){
-					//성공시 처리해야될 코드 작성
-					console.log(result);
-					event.currentTarget.submit();
 	
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : " + error);
-				}
-			});
-		} else { //업로드할 사진이 없을 때
-			event.currentTarget.submit();
-			
-		}
+	/*----------------------기록 등록------------------------------------*/ 
+	$(".add").on("click", function() {
 		
+		//폼 데이터 가져오기
+		var date = $("#date").val();
+		var weather = $('input[name="weather"]:checked').val();
+		var temperature = $("#tem").val();
+		var courseCate = $('input[name="courseCate"]:checked').val();
+		var hour = $("#hour").val();
+		var minute = $("#minute").val();
+		var time = (hour*60)+parseInt(minute);
+		var difficulty = $('input[name="difficulty"]:checked').val();
+		var review = $("#review").val();
+		var courseNo = $("#courseNo").val();
+		var userNo = $("#userNo").val();
+		//recVo 생성
+		var recVo = {
+			regDate: date,
+			weather: weather,
+			temperature: temperature,
+			courseCate: courseCate,
+			courseTime: time,
+			difficulty: difficulty,
+			review: review,
+			courseNo: courseNo,
+			userNo: userNo
+		};
+		
+		console.log(recVo);
+		
+		//recVo 전송
+		$.ajax({
+			//보낼때
+			url : contextPath+"/recordWrite",
+			type : "post",
+			//contentType : "application/json",
+			data : recVo,
+	
+			//받을때
+			//dataType : "json",
+			success : function(recResult){
+				//성공시 처리해야될 코드 작성
+				console.log("record:"+recResult);
+				
+				//업로드할 사진이 있을때 사진 업로드
+				if(uploadFiles.length > 0) { 
+					var formData = new FormData();
+					
+					for(var i=0; i < uploadFiles.length; i++) {
+						formData.append('file', uploadFiles[i]);
+					}
+					
+					console.log(formData);
+					
+					$.ajax({
+						//보낼때
+						url : contextPath+"/recordImgWrite",
+						type : "post",
+						//contentType : "application/json",
+						data : formData,
+						processData: false,
+						contentType: false,
+						enctype : 'multipart/form-data',
+						
+						//받을때
+						//dataType : "json",
+						success : function(imgResult){
+							//성공시 처리해야될 코드 작성
+							console.log("img:"+imgResult);
+						},
+						error : function(XHR, status, error) {
+							console.error(status + " : " + error);
+						}
+					});
+				}
+				
+				if(recResult == "success") {
+					location.href = contextPath+"/record/view";
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
 	});
+	
 });
 
 //업로드할 파일 목록
@@ -317,4 +363,7 @@ function preview(file, idx) {
 	})(file,idx);
 	reader.readAsDataURL(file);
 }
+
+
+
 
