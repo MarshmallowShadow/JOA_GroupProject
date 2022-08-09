@@ -34,6 +34,8 @@
 
 .weather .icon {
 	margin: auto;
+	position: relative;
+	bottom: 15px;	
 }
 /*--------------------------- 사진 편집 ----------------------------*/		
 .slide {
