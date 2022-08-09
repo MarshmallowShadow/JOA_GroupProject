@@ -159,7 +159,7 @@
 		
 		<!-- 글쓰기 버튼 -->
 		<div>
-			<button type="submit" id="write">글쓰기</button>
+			<button type="submit" id="write" onclick="location.href='http://localhost:8088/JOA_GroupProject/writeform';">글쓰기</button>
 		</div>
 		
 		<!-- 페이지 -->
