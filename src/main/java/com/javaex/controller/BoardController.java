@@ -30,8 +30,8 @@ public class BoardController {
 		
 		System.out.println("BoardController > board");
 		 
-		Map<String, Object> pMap = boardService.board(crtPage);
-		model.addAttribute("pMap", pMap);
+		//Map<String, Object> pMap = boardService.board(crtPage);
+		//model.addAttribute("pMap", pMap);
 		
 		return "board/board";
 	}
