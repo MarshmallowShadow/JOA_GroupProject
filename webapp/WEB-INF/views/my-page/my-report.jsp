@@ -28,17 +28,14 @@
 
 </head>
 <body>
-<div id="header">
-<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-</div>
-<!-- 헤더 -->
-<div id="wrap">	
+<div id="wrap">
+	<div id="header">
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	</div>
+	<!-- 헤더 -->	
+	
 	<!-- content -->
 	<div id="content">
-		
-		
-		
-		
 		
 		<!-- 마이페이지 메뉴바 자리 -->
 		<div id="menuBar">
@@ -94,10 +91,6 @@
 				<p id="listTitle">나의 기록 보기</p>
 				<div class="myReport">
 					<div id="calendar">
-						<div id="dateForm">
-							<!-- <p id="calDate">2022년 3월</p> -->
-							<!-- <input id="dateSearch" type="date"> -->
-						</div>
 						<div id="calendarApi"></div>
 					</div>
 				
@@ -108,7 +101,7 @@
 							<p class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	
-							<li class="reportContent">
+							<%-- <li class="reportContent">
 								<div style="cursor: pointer;" onclick="window.location='';">
 									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
 									<p class="contentTitle">88888888888<p class="date" id="nows"></p></p>
@@ -119,55 +112,7 @@
 										<span class="glyphicon glyphicon-trash"></span>
 									</div>
 								</div>
-							</li>
-							<li class="reportContent">
-								<div style="cursor: pointer;" onclick="window.location='';">
-									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">우앙우앙우앙</p>
-									<p class="content">우앙우앙우앙^^</p>
-									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
-									<div class="modify-del-icons">
-										<span class="glyphicon glyphicon-pencil"></span>&nbsp;
-										<span class="glyphicon glyphicon-trash"></span>
-									</div>
-								</div>
-							</li>
-							<li class="reportContent">
-								<div style="cursor: pointer;" onclick="window.location='';">
-									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">산책 재밌다</p>
-									<p class="content">산책 다녀왔는데 좋았네</p>
-									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
-									<div class="modify-del-icons">
-										<span class="glyphicon glyphicon-pencil"></span>&nbsp;
-										<span class="glyphicon glyphicon-trash"></span>
-									</div>
-								</div>
-							</li>
-							<li class="reportContent">
-								<div style="cursor: pointer;" onclick="window.location='';">
-									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">무더위</p>
-									<p class="content">요즘 날씨 미친거 같다</p>
-									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
-									<div class="modify-del-icons">
-										<span class="glyphicon glyphicon-pencil"></span>&nbsp;
-										<span class="glyphicon glyphicon-trash"></span>
-									</div>
-								</div>
-							</li>
-							<li class="reportContent">
-								<div style="cursor: pointer;" onclick="window.location='';">
-									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">살려줘ㅠㅠ</p>
-									<p class="content">html/css너무 귀찮다ㅠㅠ</p>
-									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
-									<div class="modify-del-icons">
-										<span class="glyphicon glyphicon-pencil"></span>&nbsp;
-										<span class="glyphicon glyphicon-trash"></span>
-									</div>
-								</div>
-							</li>
+							</li> --%>
 						</ul>
 					</div>
 				</div>

@@ -21,11 +21,12 @@
 
 </head>
 <body>
-<div id="header">
-<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-</div>
+
 <!-- 헤더 -->
-<div id="wrap">	
+<div id="wrap">
+	<div id="header">
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	</div>	
 	<!-- content -->
 	<div id="content">
 		

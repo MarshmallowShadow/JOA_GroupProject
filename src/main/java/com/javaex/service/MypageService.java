@@ -13,7 +13,6 @@ public class MypageService {
 	
 	@Autowired private MyReportDao myReportDao;
 	
-	
 	//나의기록 list 가져오기
 	public List <Map<String,Object>> getRecordList(int userNo){
 		System.out.println("MyReportService>calendarList"); 
