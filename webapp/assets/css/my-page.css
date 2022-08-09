@@ -108,8 +108,10 @@ input[type=radio] {display:none;}
 
 .myReport #reportList {width:380px; text-align:left; float:right;}
 .myReport #reportList .listTitle {width:380px; height:50px; text-align:center; line-height:50px; margin:0px}
-.myReport #reportList .listTitle .monthReport {background-color:rgb(50, 108, 249); color:white; font-size:18px; float:left; width:190px; border:rgb(50, 108, 249) 1px solid;}
-.myReport #reportList .listTitle .todayReport {font-size:18px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
+.myReport #reportList .listTitle .monthReport1 {background-color:rgb(50, 108, 249); color:white; font-size:18px; float:left; width:190px; border:rgb(50, 108, 249) 1px solid;}
+.myReport #reportList .listTitle .todayReport1 {font-size:18px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
+.myReport #reportList .listTitle .monthReport2 {font-size:18px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
+.myReport #reportList .listTitle .todayReport2 {background-color:rgb(50, 108, 249); color:white; font-size:18px; float:left; width:190px; border:rgb(50, 108, 249) 1px solid;}
 
 
 .myReport #reportList .reportBox {overflow:scroll; width:380px; height:600px;}

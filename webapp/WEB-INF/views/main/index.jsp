@@ -21,6 +21,7 @@
 <!------------------------- 날씨 api ------------------------>
 	<div class="weather">
 		<ul>
+			<li class="city"></li>
 			<li class="time">현재 시간 : </li>
 			<li class="ctemp">온도 : </li>
 			<li class="hightemp">최고 온도 : </li>
@@ -73,11 +74,28 @@
 <script src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
 <!-- <script src="${pageContext.request.contextPath}/assets/js/main/weather.js"></script> -->
 
+<!-- 날씨 api 주소 -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- 날씨 api 구현 -->
 <script>
-	$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
-		function(result){
-		
+$(document).ready(function(position){
+
+	//위도 경도 저장
+	var lat = position.latitude;	
+	var lon = position.longitude;
+	var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric`;
+	
+	
+    $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
+        dataType: 'json',
+        type: 'POST',
+       	//data: {'search_city':SEARCH_CITY},
+        success:function(result){
+        	
+        	// 보여질 정보
+        	$('.city').append(result.name);
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
@@ -85,11 +103,12 @@
 			//$('.rain').append(result.rain.rain);
 			$('.wind').append(result.wind.speed);
 			
-			//result.weather[0].icon
-			var wiconUrl = '<img src="http://openwethermap.org/img/wn/'+ result.weather[0].icon +
+			//아이콘
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+ result.weather[0].icon +
 			'.png" alt="'+result.weather[0].description +'">'
 			$('.icon').html(wiconUrl);
 			
+			//시간
 			var ct = result.dt;
 			
 			function convertTime(t) {
@@ -107,6 +126,11 @@
 			
 			var currentTime = convertTime(ct);
 			$('.time').append(currentTime);
+			
+        	}
+   		})
+   		
+   		//console.log(url);
 	});
 	
 </script>

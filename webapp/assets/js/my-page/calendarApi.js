@@ -7,7 +7,7 @@ var rList =
 	      start: '2022-08-01',
 		}
 	];
-	
+
 function render(rMap) {
 	var str = '';
 	str += '<li class="reportContent">';
@@ -33,6 +33,34 @@ function render(rMap) {
 	}*/
 }
 
+
+
+function render2(rMap) {
+	var str = '';
+	str  = '<div class="listTitle">';
+	str  = '	<p class="monthReport2">이달의 기록</p>';
+	str  = '	<p class="todayReport2">오늘의 기록</p>';
+	str  = '</div>';
+	str  = '<ul class="reportBox">';
+	
+	str += '	<li class="reportContent">';
+	str += '		<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
+	str += '			<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
+	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
+	str += '			<p class="content">'+rMap.REVIEW+'</p>';
+	str += '			<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
+	str += '			<div class="modify-del-icons">';
+	str += '				<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
+	str += '				<span class="glyphicon glyphicon-trash"></span>';
+	str += '			</div>';
+	str += '		</div>';
+	str += '	</li>';
+	
+	str  = '</ul>';
+		
+	$("#reportList").append(str);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     $.ajax({
 		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
@@ -43,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		dataType : "json",
 		success : function(result){
 			//컨트롤러 함수 실행 후 코드
-			
 			for (var i = 0; i < result.length; i++) {
 				var rMap = result[i];
 				rList.push(
@@ -70,10 +97,28 @@ document.addEventListener('DOMContentLoaded', function() {
 			calendar.render();
 			
 			
-			/*달력폼 준비가 끝나면*/
-			$(".fc-event-title").click(function(){
+			/*달력폼 준비가 끝나면 .fc-event-title*/
+			$(".fc-daygrid-day.fc-day").click(function(){
 				console.log("이벤트");
-				alert("이벤트다!!");
+				console.log(this);
+				
+				var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
+				var todaydate = $this.data('date');
+				console.log(todaydate);
+				alert("이벤트다!!" + todaydate);
+				
+				for (var i = 0; i < result.length; i++) {
+					var rMap = result[i];
+					//if함수 넣어서 그 날짜의 rList만 push하게...
+					
+					rList.push(
+						{
+						title: rMap.TITLE,
+						start: todaydate
+						}
+					);
+					render2(rMap, "down");
+				}
 			});
 		},
 		error : function(XHR, status, error) {

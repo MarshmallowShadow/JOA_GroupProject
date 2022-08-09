@@ -30,7 +30,12 @@
 .weather button {
 	border: 2px solid #666699;
 	border-radius: 2px;
-	
+}
+
+.weather .icon {
+	margin: auto;
+	position: relative;
+	bottom: 15px;	
 }
 /*--------------------------- 사진 편집 ----------------------------*/		
 .slide {

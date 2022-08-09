@@ -63,96 +63,20 @@
 						<td class="center">35482</td>
 						<td class="center">2022.02.15</td>
 					</tr>
+
+					<c:forEach items="${boardList}" var="bMap">
+							<tr>
+								<td class="center">${bMap.NO}</td>
+								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.NO}">${bMap.TITLE} 
+									<c:if test="${authUser.board_img_no eq true}">
+										<span class="glyphicon glyphicon-picture"></span>
+									</c:if></a></td>
+								<td class="center">${bMap.ID}</td>
+								<td class="center">${bMap.HIT}</td>
+								<td class="center">${bMap.REGDATE}</td>
+							</tr>
+					</c:forEach>
 					
-					<tr>
-						<th>1</th>
-						<td class="center">[소통]</td>
-						<td><a href="">도림천 다녀오는 길![21] <span class="glyphicon glyphicon-picture"></span></a></td>
-						<td class="center">신림러</td>
-						<td class="center">47</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>2</th>
-						<td class="center">[함께]</td>
-						<td><a href="">한강 사진 공유~[14] <span class="glyphicon glyphicon-picture"></span></a></td>
-						<td class="center">프리러너</td>
-						<td class="center">21</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>3</th>
-						<td class="center">[소통]</td>
-						<td><a href="">러닝화 구매 후기[4] <span class="glyphicon glyphicon-picture"></span></a></td>
-						<td class="center">하이슈즈</td>
-						<td class="center">17</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>4</th>
-						<td class="center">[소통]</td>
-						<td><a href="">관악산 정상뷰[16] <span class="glyphicon glyphicon-picture"></span></a></td>
-						<td class="center">올하이킹</td>
-						<td class="center">54</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>5</th>
-						<td class="center">[후기]</td>
-						<td><a href="">한강 코스에서 공사 진행중이네요;[96]</a></td>
-						<td class="center">알림러</td>
-						<td class="center">168</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>6</th>
-						<td class="center">[소통]</td>
-						<td><a href="">집 겨우 도착[0]</a></td>
-						<td class="center">히유</td>
-						<td class="center">2</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-					
-					<tr>
-						<th>7</th>
-						<td class="center">[소통]</td>
-						<td><a href="">강남 산책 코스 등록했어요! 많이 이용해 주세요![5]</a></td>
-						<td class="center">직장노예</td>
-						<td class="center">33</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-					
-					<tr>
-						<th>8</th>
-						<td class="center">[질문]</td>
-						<td><a href="">등산 배낭 공구하실 분??[186]</a></td>
-						<td class="center">장비빨</td>
-						<td class="center">78</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-					
-					<tr>
-						<th>9</th>
-						<td class="center">[질문]</td>
-						<td><a href="">ㅇㅇ빌딩 옆 top1 산책 코스에서 차키 보신 분ㅜㅠ[19]</a></td>
-						<td class="center">매직핸드</td>
-						<td class="center">34</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-					
-					<tr>
-						<th>10</th>
-						<td class="center">[후기]</td>
-						<td><a href="">내일 폭염이라네요ㅜ[2]</a></td>
-						<td class="center">날씨예민러</td>
-						<td class="center">18</td>
-						<td class="center">2022.07.23</td>
-					</tr>
 				</tbody>
 			</table>
 		</div><!-- table -->
