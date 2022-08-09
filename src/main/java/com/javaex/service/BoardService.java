@@ -69,7 +69,7 @@ public class BoardService {
 		System.out.println("service" + totalCnt);
 		
 		//페이지당 버튼 갯수
-		int pageBtnCount = 5;
+		int pageBtnCount = 10;
 		
 		//마지막 버튼 번호
 		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
