@@ -3,7 +3,15 @@
 
 <mapper namespace="users">
 
-
+	<!-- 사용자 이름 가져오기 -->
+	<select id="getName" parameterType="int" resultType="String">
+		<![CDATA[
+			select name
+			from users
+			where user_no = #{userNo}
+		]]>
+	
+	</select>
 
 
 

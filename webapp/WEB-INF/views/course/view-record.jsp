@@ -15,6 +15,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-record.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 <!-- lightbox -->
 <script src="${pageContext.request.contextPath }/assets/js/course/lightbox.js"></script>
 </head>
@@ -46,10 +48,10 @@
 				<div class="course-view-tap">
 					<ul>
 						<li>
-							<a href="./view-course.html" class="tabbtn">코스정보</a>
+							<a href="${pageContext.request.contextPath }/course/view?courseNo=${param.courseNo}" class="tabbtn">코스정보</a>
 						</li>
 						<li>
-							<a href="./view-record.html" class="tabbtn  selected">기록보기</a>
+							<a href="${pageContext.request.contextPath }/record/view?courseNo=${param.courseNo}" class="tabbtn  selected">기록보기</a>
 						</li>
 					</ul>
 				</div>

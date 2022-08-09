@@ -9,7 +9,7 @@ body {font-size: 14px;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
-#wrap>#content {padding: 50px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
+#wrap>#content {padding: 100px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
 
 
 /* =======================content======================= */
@@ -44,7 +44,7 @@ input[type=radio] {display:none;}
 	border: 1px solid rgb(174, 174, 174);
 }
 /* 검은색 버튼 */
-.selected, .selected:link {
+.selected, .selected:visited {
 	background-color: rgb(34, 34, 34);
 	color: rgb(255, 255, 255);
 }

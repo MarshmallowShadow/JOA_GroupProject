@@ -248,7 +248,7 @@ $(document).ready(function() {
 				}
 				
 				if(recResult == "success") {
-					location.href = contextPath+"/record/view";
+					location.href = contextPath+"/record/view?courseNo="+courseNo;
 				}
 			},
 			error : function(XHR, status, error) {

@@ -25,6 +25,7 @@
 			        ,course_category courseCate
 			        ,course_time courseTime
 			        ,difficulty
+			        ,to_char(reg_date, 'YYYY.MM.DD') regDate
 			from course
 			where course_no = #{courseNo}
 		]]>

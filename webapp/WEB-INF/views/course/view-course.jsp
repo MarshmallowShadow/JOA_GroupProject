@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:parseNumber var="hour" value="${coMap.coVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-course.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 <!-- 차트 api -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -44,10 +48,10 @@
 				<div class="course-view-tap">
 					<ul>
 						<li>
-							<a href="./view-course.html" class="tabbtn selected">코스정보</a>
+							<a href="${pageContext.request.contextPath }/course/view?courseNo=${param.courseNo}" class="tabbtn selected">코스정보</a>
 						</li>
 						<li>
-							<a href="./view-record.html" class="tabbtn">기록보기</a>
+							<a href="${pageContext.request.contextPath }/record/view?courseNo=${param.courseNo}" class="tabbtn">기록보기</a>
 						</li>
 					</ul>
 				</div>
@@ -55,7 +59,7 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2>코스제목</h2>
+						<h2>${coMap.coVo.title }</h2>
 						
 						<!-- 수정 버튼 -->
 						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
@@ -64,42 +68,68 @@
 						<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
 						
 						<div class="article-info">
-							<span class="bold">박깜이</span>
-							<span>조회수 518</span>
-							<span>22.07.18</span>
-							<span>기록 8</span>
+							<span class="bold">${coMap.userName }</span>
+							<span>${coMap.coVo.regDate }</span>
+							<span>기록 ${coMap.recCnt }</span>
 						</div>
 						
 						<div class="article-container">
 							<div class="left">
-								<img alt="산책" src="${pageContext.request.contextPath }/assets/image/course/walk.png">
-								<span>산책</span>
-								
-								<!-- <img alt="조깅" src="${pageContext.request.contextPath }/assets/image/course/jog.png">
-								<span>조깅</span>
-								<img alt="러닝" src="${pageContext.request.contextPath }/assets/image/course/run.png">
-								<span>러닝</span>
-								<img alt="마라톤" src="${pageContext.request.contextPath }/assets/image/course/marathon.png">
-								<span>마라톤</span>
-								<img alt="자전거" src="${pageContext.request.contextPath }/assets/image/course/bicycle.png">
-								<span>자전거</span>
-								<img alt="그림" src="${pageContext.request.contextPath }/assets/image/course/drawing.png">
-								<span>그림</span> -->
+								<c:choose>
+									<c:when test="${coMap.coVo.courseCate eq 'walk' }">
+										<img alt="산책" src="${pageContext.request.contextPath }/assets/image/course/walk.png">
+										<span>산책</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'jogging' }">
+										<img alt="조깅" src="${pageContext.request.contextPath }/assets/image/course/jog.png">
+										<span>조깅</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'running' }">
+										<img alt="러닝" src="${pageContext.request.contextPath }/assets/image/course/run.png">
+										<span>러닝</span>
+									</c:when>
+									
+									<c:when test="${coMap.coVo.courseCate eq 'marathon' }">
+										<img alt="마라톤" src="${pageContext.request.contextPath }/assets/image/course/marathon.png">
+										<span>마라톤</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'bicycle' }">
+										<img alt="자전거" src="${pageContext.request.contextPath }/assets/image/course/bicycle.png">
+										<span>자전거</span>
+									</c:when>
+									<c:when test="${coMap.coVo.courseCate eq 'draw' }">
+										<img alt="그림" src="${pageContext.request.contextPath }/assets/image/course/drawing.png">
+										<span>그림</span>
+									</c:when>
+								</c:choose>
 							</div>
 							
 							<div class="right">
 								<img alt="시간" src="${pageContext.request.contextPath }/assets/image/course/time.png">
-								<span>30분</span>
+								<c:if test="${coMap.coVo.courseTime >= 60 }">
+									<span>${hour }시간</span>
+								</c:if>
+								<span>${coMap.coVo.courseTime%60 }분</span>
 							</div>
 							
 							<div class="left">
 								<img alt="거리" src="${pageContext.request.contextPath }/assets/image/course/distance.png">
-								<span>2 km</span>
+								<span>${coMap.coVo.distance } km</span>
 							</div>
 							
 							<div class="right">
 								<img alt="난이도" src="${pageContext.request.contextPath }/assets/image/course/difficulty.png">
-								<span>어려움</span>
+								<c:choose>
+									<c:when test="${coMap.coVo.difficulty eq 'easy' }">
+										<span>쉬움</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'normal' }">
+										<span>보통</span>
+									</c:when>
+									<c:when test="${coMap.coVo.difficulty eq 'hard' }">
+										<span>어려움</span>
+									</c:when>
+								</c:choose>
 							</div>
 						</div>
 					</div>

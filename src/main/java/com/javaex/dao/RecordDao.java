@@ -25,4 +25,10 @@ public class RecordDao {
 		return sqlSession.selectOne("record.getrecNo");
 	}
 
+	//(코스상세보기) 기록수 가져오기
+	public int getRecCnt(int courseNo) {
+		System.out.println("RecordDao->getRecCnt");
+		return sqlSession.selectOne("record.recCnt", courseNo);
+	}
+
 }

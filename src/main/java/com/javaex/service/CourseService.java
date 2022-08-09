@@ -1,12 +1,16 @@
 package com.javaex.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
 import com.javaex.dao.PointDao;
+import com.javaex.dao.RecordDao;
+import com.javaex.dao.UserDao;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.PointVo;
 
@@ -17,6 +21,10 @@ public class CourseService {
 	CourseDao coDao;
 	@Autowired
 	PointDao pointDao;
+	@Autowired
+	RecordDao recDao;
+	@Autowired
+	UserDao userDao;
 	
 	
 	//코스 등록하기
@@ -45,13 +53,24 @@ public class CourseService {
 	}
 
 	//(코스상세보기) 코스 정보 가져오기
-	public void getCourseInfo(int courseNo) {
+	public Map<String, Object> getCourseInfo(int courseNo) {
 		System.out.println("CourseService->getCourseInfo");
 		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
-		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표정보
+		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
+		String userName = userDao.getUserName(coVo.getUserNo());
 		//기록 통계
+		int recCnt = recDao.getRecCnt(courseNo);
+		System.out.println(recCnt);
 		//즐겨찾기 여부
 		//좋아요 여부
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("coVo", coVo); //코스정보
+		coMap.put("pointVo", pointVo); //코스좌표
+		coMap.put("userName", userName); //유저이름
+		coMap.put("recCnt", recCnt); //기록수
+		
+		return coMap;
 	}
 
 }

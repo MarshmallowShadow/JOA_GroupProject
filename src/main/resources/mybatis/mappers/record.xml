@@ -21,4 +21,13 @@
 			select SEQ_RECORD_NO.currval from dual
 		]]>
 	</select>
+	
+	<!-- (코스상세보기) 기록수 가져오기 -->
+	<select id="recCnt" parameterType="int" resultType="int">
+		<![CDATA[
+			select  count(*)
+			from record
+			where course_no = #{courseNo}
+		]]>
+	</select>
 </mapper>
