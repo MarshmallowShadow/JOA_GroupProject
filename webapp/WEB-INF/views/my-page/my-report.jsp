@@ -108,7 +108,7 @@
 							<p class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	
-							<li class="reportContent">
+							<%-- <li class="reportContent">
 								<div style="cursor: pointer;" onclick="window.location='';">
 									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
 									<p class="contentTitle">88888888888<p class="date" id="nows"></p></p>
@@ -167,7 +167,7 @@
 										<span class="glyphicon glyphicon-trash"></span>
 									</div>
 								</div>
-							</li>
+							</li> --%>
 						</ul>
 					</div>
 				</div>
