@@ -8,16 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javaex.service.MypageService;
 
 @Controller
+@RequestMapping(value="/my-page")
 public class MypageController {
-	
 	
 	@Autowired private MypageService mypageService;
 	
 	
-	
-	
 	//마이페이지-메인
-	@RequestMapping(value="/my-page", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypage() {
 		System.out.println("MypageController>mypage");
 		
@@ -26,7 +24,7 @@ public class MypageController {
 	
 	
 	//마이페이지-내 코스
-	@RequestMapping(value="/my-page/my-course", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/my-course", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mycourse() {
 		System.out.println("MypageController>mycourse");
 		
@@ -34,7 +32,7 @@ public class MypageController {
 	}
 	
 	//마이페이지-내 기록
-	@RequestMapping(value="/my-page/my-report", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/my-report", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myreport() {
 		System.out.println("MypageController>myreport");
 		
@@ -44,7 +42,7 @@ public class MypageController {
 	
 	
 	//즐겨찾기
-	@RequestMapping(value="/my-page/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bookmark() {
 		System.out.println("MypageController>bookmark");
 		
@@ -53,7 +51,7 @@ public class MypageController {
 	
 	
 	//즐겨찾기-예시
-	@RequestMapping(value="/my-page/bookmark/01", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/bookmark/01", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bookmark01() {
 		System.out.println("MypageController>bookmark01");
 		
