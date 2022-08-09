@@ -96,9 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 			calendar.render();
 			
-			
 			/*달력폼 준비가 끝나면 .fc-event-title*/
 			$(".fc-daygrid-day.fc-day").click(function(){
+				/*style.backgroundColor = "lightblue";*/
+				
+				const box = document.getElementById('box');
+				box.style.backgroundColor = 'coral';
+				
 				console.log("이벤트");
 				console.log(this);
 				
@@ -106,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				var todaydate = $this.data('date');
 				console.log(todaydate);
 				alert("이벤트다!!" + todaydate);
+				
 				
 				for (var i = 0; i < result.length; i++) {
 					var rMap = result[i];

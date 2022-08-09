@@ -97,8 +97,8 @@
 					
 					<div id="reportList">
 						<div class="listTitle">
-							<p class="monthReport1">이달의 기록</p>
-							<p class="todayReport1">오늘의 기록</p>
+							<p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p>
+							<p id="category2" class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	
 							<%--
