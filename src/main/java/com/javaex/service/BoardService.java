@@ -93,7 +93,7 @@ public class BoardService {
 			prev = true;
 		}
 		
-		System.out.println("페이지" + crtPage + ",시작 버튼 번호" + startPageBtnNo + ",마지막 버튼 번호" + endPageBtnNo + ",이전" + prev + ", 다음" + next);
+		System.out.println("페이지" + crtPage + ", 시작 버튼 번호" + startPageBtnNo + ", 마지막 버튼 번호" + endPageBtnNo + ", 이전" + prev + ", 다음" + next);
 		
 		Map<String, Object> pMap = new HashMap<String, Object>();
 		pMap.put("boardList", boardList);
