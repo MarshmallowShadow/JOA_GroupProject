@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				$(".reportContent").remove();
 				for(var i=0; i < eList.length; i++){
 					if(todaydate == eList[i].REGDATE){
-						render(rMap, "down");	
+						render(eList[i]	, "down");	
 					}
 				}
 			});
