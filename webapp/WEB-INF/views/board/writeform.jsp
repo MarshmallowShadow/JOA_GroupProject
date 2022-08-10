@@ -25,11 +25,14 @@
 		
 		<div id="writebox">
 		
-			<!-- <form action="${pageContext.request.contextPath}/board/write" method="get"> -->
+			<form action="${pageContext.request.contextPath}/board/write" method="get">
+				<!-- 글쓴이 -->
+				<input type="hidden" name="userNo" value="${authUser.no}">
+				
 				<!-- 글쓰기 옵션 항목 -->
 				<div id="option_line">
 					<p id="option">항목</p>
-					<select id="option_list" name="option">
+					<select id="option_list" name="viewCount">
 						<option value="question">질문</option>
 						<option value="commute">소통</option>
 						<option value="post">후기</option>
@@ -49,7 +52,7 @@
 				<!-- 사진 첨부 -->
 				<div id="file_line">
 					<p id="file">사진첨부</p>
-					<input type="file" id="filebox" multiple="multiple">
+					<input type="file" id="filebox" name="boardImgNo" multiple="multiple">
 				</div>
 				
 				<!-- 코스 선택 -->
@@ -64,7 +67,7 @@
 					<button type="submit" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
 				</div>
 				
-			<!-- </form> -->
+			</form>
 			
 		</div><!-- writebox -->	
 		
@@ -105,7 +108,7 @@
 	
 
 </body>
-
+<!-- 
 	<script type="text/javascript">
 		
 		/* 준비가 끝났을 때 */
@@ -178,5 +181,5 @@
 		});
 		
 	</script>
-
+ -->
 </html>

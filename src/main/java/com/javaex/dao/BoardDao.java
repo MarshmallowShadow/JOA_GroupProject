@@ -70,5 +70,16 @@ public class BoardDao {
 		return bList;
 		
 	}
+	
+	//게시판 글쓰기
+	public int write(BoardVo boardVo) {
+		
+		System.out.println("BoardDao > write");
+		
+		int count = sqlSession.insert("board.insert", boardVo);
+		
+		return count;
+		
+	}
 
 }

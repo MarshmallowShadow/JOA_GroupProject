@@ -4,7 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
-		<typeAlias alias="boardVo" type="com.javaex.vo.BoardVo"/>
+		<typeAlias alias="BoardVo" type="com.javaex.vo.BoardVo"/>
 		<typeAlias alias="recVo" type="com.javaex.vo.RecordVo"/>
 		<typeAlias alias="rimgVo" type="com.javaex.vo.RecordImgVo"/>
 		<typeAlias alias="pointVo" type="com.javaex.vo.PointVo"/>

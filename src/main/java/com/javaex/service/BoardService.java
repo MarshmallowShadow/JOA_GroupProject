@@ -107,5 +107,23 @@ public class BoardService {
 		return pMap;
 		
 	}
+	
+	//게시판 글쓰기
+	public int write(BoardVo boardVo) {
+		
+		System.out.println("BoardService > write");
+		
+		/*
+		for(int i=1; i<127; i++) { //글쓰기 조작
+			boardVo.setTitle(i+" 번째 게시물 제목입니다.");
+			boardVo.setContent(i+" 번째 게시물 내용입니다.");
+			boardDao.write(boardVo);
+		}
+		*/
+		
+		int count = boardDao.write(boardVo);
+
+		return 1;
+	}
 
 }
