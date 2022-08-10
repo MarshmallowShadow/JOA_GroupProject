@@ -89,7 +89,7 @@ $(document).ready(function(position){
 	
 	
     $.ajax({
-		url: 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + ddeb92652c34f9e77a6961c434afa555 +&units=metric',
+		url: 'https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
         dataType: 'json',
         type: 'POST',
        	//data: {'lat' : LAT, 'lon' : LON},
