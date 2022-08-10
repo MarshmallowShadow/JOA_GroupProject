@@ -80,16 +80,35 @@
 <!-- 날씨 api 구현 -->
 <script>
 $(document).ready(function(position){
-
-	//위도 경도 저장
-	var lat = position.latitude;	
-	var lon = position.longitude;
-	//var ip = '9e59ce9dcb1014633e13dc6b7a7ffa54'
-	//var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + ddeb92652c34f9e77a6961c434afa555 + &units=metric';
+	
+	var lat = 37.5683;
+	var lon = 126.9778;
+	
+	var options = {
+		enableHighAccuracy : true,
+		timeout : 5000,
+		maximumAge : 0
+	};
+	function success(pos) {
+		var crd = pos.coords;
+		console.log('위도 : ' + crd.latitude);
+		console.log('경도: ' + crd.longitude);
+		lat = crd.latitude;
+		lon = crd.longitude;
+	};
+	
+	function error(err) {
+		console.warn('ERROR(' + err.code + '): ' + err.message);
+	};
+	
+	navigator.geolocation.getCurrentPosition(success, error, options);
+	
+	var wAPI = 'ddeb92652c34f9e77a6961c434afa555'
+	//var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + '9e59ce9dcb1014633e13dc6b7a7ffa54' + &units=metric';
 	
 	
     $.ajax({
-		url: 'https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ddeb92652c34f9e77a6961c434afa555&units=metric',
+		url: 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + wAPI + '&units=metric',
         dataType: 'json',
         type: 'POST',
        	//data: {'lat' : LAT, 'lon' : LON},
