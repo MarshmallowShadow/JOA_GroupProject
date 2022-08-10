@@ -51,6 +51,36 @@ public class CourseService {
 		}
 		
 	}
+	
+	//종목 차트 데이터 가져오기
+	public int[] getCateData(int courseNo) {
+		System.out.println("CourseService->getCategory");
+		
+		int walk = recDao.getWalkCnt(courseNo);
+		int jogging = recDao.getJogCnt(courseNo);
+		int running = recDao.getRunCnt(courseNo);
+		int marathon = recDao.getMaraCnt(courseNo);
+		int bicycle = recDao.getBicCnt(courseNo);
+		int draw = recDao.getDrawCnt(courseNo);
+		
+		int[] cateData = {walk, jogging, running, marathon, bicycle, draw};		
+		
+		return cateData;
+	}
+	
+	//난이도 차트 데이터 가져오기
+	public int[] getDiffiData(int courseNo) {
+		System.out.println("CourseService->getDiffiData");
+		
+		int easy = recDao.getEasyCnt(courseNo);
+		int normal = recDao.getNormalCnt(courseNo);
+		int hard = recDao.getHardCnt(courseNo);
+		
+		int[] diffiData = {easy, normal, hard};
+		
+		return diffiData;
+	}
+
 
 	//(코스상세보기) 코스 정보 가져오기
 	public Map<String, Object> getCourseInfo(int courseNo) {
@@ -71,10 +101,8 @@ public class CourseService {
 		return coMap;
 	}
 
+	
 
-	public List<Integer> getCategory(int courseNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+	
 }

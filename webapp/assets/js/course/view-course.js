@@ -40,19 +40,22 @@ $(document).ready(function() {
 	
 	
 	/*------------차트-------------------------------------------------------------------*/
+	
+	var courseNo = $("#courseNo").val();
+	
 	/*디폴트 - 종목별 차트*/
-	category();
+	category(courseNo);
 	
 	var charts = document.getElementById("charts");
 	$('input:radio[name="chart-choose"]').change(function() {
 		if($(this).val() === 'diffi') {
 			$('#chart').remove();
 			$('#charts').append('<canvas id="chart"></canvas>');
-			difficult();
+			difficult(courseNo);
 		} else if($(this).val() === 'category') {
 			$('#chart').remove();
 			$('#charts').append('<canvas id="chart"></canvas>');
-			category();
+			category(courseNo);
 		}
 	});
 	
@@ -61,22 +64,66 @@ $(document).ready(function() {
 });
 
 /* 종목별 차트 */
-function category() {
+function category(courseNo) {
 	
 	
 	//종목 데이터 가져오기
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getCategory",
+		url : contextPath+"/getCateData",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},
 		
 		//받을때
 		//dataType : "json",
-		success : function(imgResult){
+		success : function(cateData){
 			//성공시 처리해야될 코드 작성
-			console.log("img:"+imgResult);
+			console.log(cateData);
+			
+			
+			const labels = [
+				'산책',
+			    '조깅',
+			    '러닝',
+			    '마라톤',
+			    '자전거',
+			    '그림',
+			  ];
+			
+			const data = {
+				labels: labels,
+				datasets: [{
+			      label: '종목',
+			      backgroundColor: 'rgb(50, 108, 249)',
+			      borderColor: 'rgb(50, 108, 249)',
+			      data: cateData
+				}]
+			};
+			
+			const config = {
+				type: 'bar',
+				data: data,
+			    options: {
+			    	maintainAspectRatio: false,
+			    	plugins: {
+			    		legend: {
+				    		display: false,
+				    		labels: {
+				    			font: {
+				    				size: 12,
+				    				family: 'Nanum Gothic'
+				    			}
+				    		}
+				    	}
+			    	}
+			    }
+			};
+			  
+			const chart = new Chart(
+				document.getElementById('chart'),
+				config
+			);
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
@@ -85,96 +132,75 @@ function category() {
 	
 	
 	
-	const labels = [
-		'산책',
-	    '조깅',
-	    '러닝',
-	    '마라톤',
-	    '자전거',
-	    '그림',
-	  ];
 	
-	const data = {
-		labels: labels,
-		datasets: [{
-	      label: '종목',
-	      backgroundColor: 'rgb(50, 108, 249)',
-	      borderColor: 'rgb(50, 108, 249)',
-	      data: [0, 10, 5, 2, 20, 30]
-		}]
-	};
-	
-	const config = {
-		type: 'bar',
-		data: data,
-	    options: {
-	    	maintainAspectRatio: false,
-	    	plugins: {
-	    		legend: {
-		    		display: false,
-		    		labels: {
-		    			font: {
-		    				size: 12,
-		    				family: 'Nanum Gothic'
-		    			}
-		    		}
-		    	}
-	    	}
-	    }
-	};
-	  
-	const chart = new Chart(
-		document.getElementById('chart'),
-		config
-	);
 }
 
 /* 난이도별 차트 */
-function difficult() {
+function difficult(courseNo) {
 	
-	const labels = [
-		'쉬움',
-	    '보통',
-	    '어려움',
-	  ];
+	//종목 데이터 가져오기
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getDiffiData",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(diffiData){
+			//성공시 처리해야될 코드 작성
+			console.log(diffiData);
 	
-	const data = {
-	    labels: labels,
-	    datasets: [{
-	      label: '난이도',
-	      backgroundColor: [
-	    	  'rgb(255, 99, 132)',
-	          'rgb(54, 162, 235)',
-	          'rgb(255, 205, 86)'
-	      ],
-	      borderColor: 'rgb(255, 255, 255)',
-	      data: [1, 10, 5],
-	      hoverOffset: 4
-	    }]
-	  };
+			const labels = [
+				'쉬움',
+			    '보통',
+			    '어려움',
+			  ];
+			
+			const data = {
+			    labels: labels,
+			    datasets: [{
+			      label: '난이도',
+			      backgroundColor: [
+			    	  'rgb(255, 99, 132)',
+			          'rgb(54, 162, 235)',
+			          'rgb(255, 205, 86)'
+			      ],
+			      borderColor: 'rgb(255, 255, 255)',
+			      data: diffiData,
+			      hoverOffset: 4
+			    }]
+			  };
+			
+			const config = {
+			    type: 'doughnut',
+			    data: data,
+			    options: {
+			    	maintainAspectRatio: false,
+			    	plugins: {
+			    		legend: {
+				    		labels: {
+				    			font: {
+				    				size: 12,
+				    				family: 'Nanum Gothic'
+				    			}
+				    		}
+				    	}
+			    	}
+			    }
+			};
+			  
+			const chart = new Chart(
+				document.getElementById('chart'),
+				config
+			);
 	
-	const config = {
-	    type: 'doughnut',
-	    data: data,
-	    options: {
-	    	maintainAspectRatio: false,
-	    	plugins: {
-	    		legend: {
-		    		labels: {
-		    			font: {
-		    				size: 12,
-		    				family: 'Nanum Gothic'
-		    			}
-		    		}
-		    	}
-	    	}
-	    }
-	};
-	  
-	const chart = new Chart(
-		document.getElementById('chart'),
-		config
-	);
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
 }
 
 
