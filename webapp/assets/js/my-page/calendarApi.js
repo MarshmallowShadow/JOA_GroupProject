@@ -96,12 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 			calendar.render();
 			
+			
 			/*달력폼 준비가 끝나면 .fc-event-title*/
 			$(".fc-daygrid-day.fc-day").click(function(){
-				/*style.backgroundColor = "lightblue";*/
 				
-				const box = document.getElementById('box');
-				box.style.backgroundColor = 'coral';
 				
 				console.log("이벤트");
 				console.log(this);
@@ -111,18 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
 				console.log(todaydate);
 				alert("이벤트다!!" + todaydate);
 				
-				
-				for (var i = 0; i < result.length; i++) {
-					var rMap = result[i];
-					//if함수 넣어서 그 날짜의 rList만 push하게...
-					
-					rList.push(
-						{
-						title: rMap.TITLE,
-						start: todaydate
-						}
-					);
-					render2(rMap, "down");
+				$(".reportContent").remove();
+				if(todaydate == rMap.REGDATE){
+					render(rMap, "down");	
 				}
 			});
 		},
