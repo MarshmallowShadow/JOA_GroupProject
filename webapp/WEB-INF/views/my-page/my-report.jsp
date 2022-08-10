@@ -9,9 +9,8 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/calendar.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
 <!-- jquery -->
 <script type="text/javascript">
@@ -98,7 +97,7 @@
 					
 					<div id="reportList">
 						<div class="listTitle">
-							<p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p>
+							<a href="${pageContext.request.contextPath}/my-page/my-report"><p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p></a>
 							<p id="category2" class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	
