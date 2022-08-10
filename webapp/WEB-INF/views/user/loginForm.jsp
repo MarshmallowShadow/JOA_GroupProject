@@ -29,7 +29,7 @@
 						<p>
 							<a href="join-form.html">회훤가입</a> <a href="">비밀번호 재설정</a>
 						</p>
-						<button id="btn-submit" type="button">로그인</button>
+						<button type="submit" id="btn-submit">로그인</button>
 					</form>
 				</div>
 				<!-- form-container -->

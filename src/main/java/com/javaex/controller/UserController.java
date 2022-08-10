@@ -51,9 +51,9 @@ public class UserController {
 		
 		if(authUser != null) {
 			session.setAttribute("authUser", authUser);
-			return "redirect:/main";
+			return "redirect:/";
 		} else {
-			return "redirect:/loginForm?login=fail";
+			return "redirect:/user/loginForm?login=fail";
 		}
 	}
 	
@@ -65,6 +65,6 @@ public class UserController {
 		session.removeAttribute("authUser");
 		session.invalidate();
 		
-		return "redirect:/main";
+		return "redirect:/";
 	}
 }
