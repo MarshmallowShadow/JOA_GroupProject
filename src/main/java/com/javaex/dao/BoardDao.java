@@ -23,7 +23,7 @@ public class BoardDao {
 	
 	
 	//메소드-일반
-	//리스트 불러오기 + 검색(페이징)
+	//리스트 불러오기 + 페이징
 	public List<BoardVo> board(int startRnum, int endRnum) {
 		
 		System.out.println("BoardDao > board");
@@ -51,6 +51,24 @@ public class BoardDao {
 	      
 		return totalCount;
 	      
+	}
+	
+	//검색
+	public List<Map<String, Object>> getList(String keyword) {
+		
+		System.out.println("BoardDao > getList");
+		
+		if(keyword == null) {
+			keyword = "";
+		}
+		
+		keyword = "%" + keyword + "%";
+		List<Map<String, Object>> bList = sqlSession.selectList("board.getList", keyword);
+		
+		System.out.println(bList);
+		
+		return bList;
+		
 	}
 
 }
