@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-view.css">
 
 <!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.cateCnt = '${coMap.cateCnt }';
+	window.diffiCnt = '${coMap.diffiCnt }';
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-course.js"></script>

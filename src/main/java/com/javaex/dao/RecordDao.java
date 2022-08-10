@@ -1,5 +1,8 @@
 package com.javaex.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,9 +35,15 @@ public class RecordDao {
 	}
 	
 	//(코스상세보기) 기록통계-종목 가져오기
-	/*public int getCate(int courseNo) {
-		System.out.println("RecordDao->getCate");
-		return 0;
-	}*/
+	public List<Map<String, Object>> getCateCnt(int courseNo) {
+		System.out.println("RecordDao->getCateCnt");
+		 return sqlSession.selectList("record.getCateCnt", courseNo);
+	}
+	
+	//(코스상세보기) 기록통계-난이도 가져오기
+		public List<Map<String, Object>> getDiffiCnt(int courseNo) {
+			System.out.println("RecordDao->getDiffiCnt");
+			return sqlSession.selectList("record.getDiffiCnt", courseNo);
+		}
 
 }

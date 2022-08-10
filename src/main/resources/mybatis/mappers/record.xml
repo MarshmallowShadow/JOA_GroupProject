@@ -32,5 +32,27 @@
 			where course_no = #{courseNo}
 		]]>
 	</select>
+	
+	<!-- (코스상세보기) 기록통계-종목 가져오기 -->
+	<select id="getCateCnt" parameterType="int" resultType="hashmap">
+		<![CDATA[
+			select course_category courseCate
+			       ,count(course_category) cnt
+			from record
+			group by course_no, course_category
+			having course_no = #{courseNo}
+		]]>
+	</select>
+	
+	<!-- (코스상세보기) 기록통계-난이도 가져오기 -->
+	<select id="getDiffiCnt" parameterType="int" resultType="hashmap">
+		<![CDATA[
+			select  difficulty
+			        ,count(difficulty) cnt
+			from record
+			group by course_no, difficulty
+			having course_no = #{courseNo}
+		]]>
+	</select>
 
 </mapper>
