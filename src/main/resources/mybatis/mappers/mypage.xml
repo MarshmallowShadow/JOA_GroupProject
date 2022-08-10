@@ -4,16 +4,14 @@
 <mapper namespace="mypage">
 	
 	<!-- 쿼리문 작성 -->
-	<!-- <resultMap id="MyReportVo" type="com.javaex.vo.MyReportVo">
-		<result column="record_no" property="recordNo" />
-		<result column="course_no" property="courseNo" />
+	<resultMap id="resultMapCategoryVo" type="com.javaex.vo.CategoryVo">
+		<result column="cate_no" property="cateNo" />
 		<result column="user_no" property="userNo" />
-		<result column="title" property="title" />
-		<result column="review" property="review" />
-		<result column="reg_date" property="regDate" />
-	</resultMap> -->
+		<result column="cate_name" property="cateName" />
+	</resultMap>
 	
 	
+	<!-- 나의 기록보기 - 리스트 가져오기 -->
 	<select id="getRecordList" parameterType="int" resultType="map">
 		<![CDATA[
 			select  r.record_no recordNo,
@@ -31,6 +29,28 @@
 			order by r.reg_date asc
 		]]>
 	</select>
+	
+	
+	
+	
+	<!-- 카테고리-1.리스트 가져오기 -->
+	<select id="getCategoryList" parameterType="int" resultType="CategoryVo">
+		<![CDATA[
+			select  cate_no cateNo,
+			        user_no userNo,
+			        cate_name cateName
+			from favorite_category
+			where user_no = #{userNo}
+			order by cate_name desc
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
