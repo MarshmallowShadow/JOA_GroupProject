@@ -30,16 +30,5 @@
 			where course_no = #{courseNo}
 		]]>
 	</select>
-	
-	<!-- (코스상세보기) 기록통계-종목 가져오기 -->
-	<select id="getCate" parameterType="int" resultMap="map">
-		<![CDATA[
-			select  course_no
-			        ,course_category
-			        ,count(*)
-			from record
-			group by course_no, course_category
-			having course_no = #{courseNo}
-		]]>
-	</select>
+
 </mapper>
