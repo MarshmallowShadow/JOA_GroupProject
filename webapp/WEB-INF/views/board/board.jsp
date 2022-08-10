@@ -66,7 +66,7 @@
 						<td class="center">2022.02.15</td>
 					</tr>
 
-					<c:forEach items="${boardList}" var="bMap">
+					<c:forEach items="${bList}" var="bMap">
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${bMap.BOARDCATEGORY}</td>
