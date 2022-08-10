@@ -58,7 +58,7 @@ public class RecordService {
 		for(MultipartFile file : fileList) {
 			
 			//기록번호 가져오기
-			int recNo = recDao.getrecNo();
+			int recNo = recDao.getrecNo()-1;
 			System.out.println(recNo);
 			
 			if(file.getSize() > 0) {
