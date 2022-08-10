@@ -8,68 +8,90 @@
 </head>
 <body>
 
-	<div class="hflex-item hitc" >
-		<button onclick="javascript:searchWithLatLng();">현위치 검색</button>
+<!------------------------- 날씨 api ------------------------>
+	<div class="weather">
+		<ul>
+			<li class="city"></li>
+			<li class="time">현재 시간 : </li>
+			<li class="ctemp">온도 : </li>
+			<li class="hightemp">최고 온도 : </li>
+			<li class="lowtemp">최저 온도 : </li>
+			<li class="humidity">습도 : </li>
+			<li class="rain">강수량 : </li>
+			<li class="wind">풍속 : </li>
+			<li class="icon"></li>
+		</ul>
 	</div>
-	
-	
 	
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
 
-function getWeatherEngineData(){
-	
+function onGeoOk(position){
+
+	  $.getJSON('https://geoip-db.com/json/geoip.php?jsonp=?') 
+      .done (function(location)
+      {
+        $('.country').html(location.country_name);
+        $('.city').html(location.city);
+        
+	//위도 경도 저장
+	var lat = location.latitude;	
+	var lon = location.longitude;
+	var  weatherLink = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric';
+	$('body').append(weatherLink);
 	
     $.ajax({
-        type: "POST",
-        dataType: "JSON",
-        url: "lib.js",
-        data: {'lat':LAT, 'lon':LON},   //검색하고자 하는 도시 정보
-        cache: false,
-        async: false
-     })
-     .done(function(result) {
-        //ajax 통신이 성공한 경우
-        console.log(result);
-        if(result.main){
-       	 
-       	 $("resultTemperature").html(result.main.temp);
-       	 $("resultCity").html(result.name);
-        
-        }
-     });
+		url: weatherLink,
+		dataType: 'json',
+        type: 'POST',
+       	//data: {'lat' : LAT, 'lon' : LON},
+        success:function(result){
+        	
+        	$('body').append(result);
+        	
+        	// 보여질 정보
+        	//$('.city').append(result.name);
+			$('.ctemp').append(result.main.temp);
+			$('.lowtemp').append(result.main.temp_min);
+			$('.hightemp').append(result.main.temp_max);
+			$('.humidity').append(result.main.humidity);
+			//$('.rain').append(result.rain.rain);
+			$('.wind').append(result.wind.speed);
+			
+			//아이콘
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+ result.weather[0].icon +
+			'.png" alt="'+result.weather[0].description +'">'
+			$('.icon').html(wiconUrl);
+			
+			//시간
+			var ct = result.dt;
+			
+			function convertTime(t) {
+				var ot = new Date(t * 1000);
+				
+				var hr = ot.getHours();
+				var m = ot.getMinutes();
+				var s = ot.getSeconds();
+				var mo = ot.getMonth() + 1;
+				var d = ot.getDate();
+				
+				//return ot;
+				return mo + '월' + d + '일' + '  '+ hr + ':' + m + ':' + s;
+			}
+			
+			var currentTime = convertTime(ct);
+			$('.time').append(currentTime);
+			
+        	}
+   		});
+   		
+   		console.log(weatherLink);
+	});
 }
-
-
-
-
-
-function searchWithLatLon()
-{
+	navigator.geolocation.getCurrentPosition(onGeoOk);
 	
-	getWeatherEngineData(Lat, Lon)
-	
-	}
-
-
-
-	
-function goSearch ()    //날씨 검색
-{
-   var SEARCH_CITY = $("#city").val();
-   if(!SEARCH_CITY){
-      alert("먼저 도시를 입력하세요");      //SERCH_CITY값 입력하지 않을 경우 경고장
-      return false;               //그럴 경우 더이상 진행 불가
-   }
-   
-   else {                        //API 엔진과 소통
-	   
-	   getWeatherEngineData("","");			//위도 경도
-
-   }
-}
 </script>
 
 </body>
