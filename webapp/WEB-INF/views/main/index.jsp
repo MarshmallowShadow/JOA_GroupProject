@@ -31,7 +31,6 @@
 			<li class="wind">풍속 : </li>
 			<li class="icon"></li>
 		</ul>
-		<button onclick="javascript:goSearch();">현위치 날씨 검색</button>
 	</div>
 
 <!------------------------- photo slider ------------------------>	
@@ -128,7 +127,7 @@ $(document).ready(function(position){
 			'.png" alt="'+result.weather[0].description +'">'
 			$('.icon').html(wiconUrl);
 			
-			//시간
+			//현재시간
 			var ct = result.dt;
 			
 			function convertTime(t) {
@@ -146,10 +145,8 @@ $(document).ready(function(position){
 			
 			var currentTime = convertTime(ct);
 			$('.time').append(currentTime);
-				
         	}
    		})
-   		
    		//console.log(url);
 	});
 	
