@@ -25,7 +25,7 @@ public class BoardService {
 	
 	//메소드-일반
 	
-	public Map<String, Object> board(int crtPage) {
+	public Map<String, Object> board(String keyword, int crtPage) {
 		
 		System.out.println("BoardService > board");
 		
@@ -101,6 +101,8 @@ public class BoardService {
 		pMap.put("next", next);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("startPageBtnNo", startPageBtnNo);
+		
+		List<Map<String, Object>> bList = boardDao.getList(keyword);
 		
 		return pMap;
 		
