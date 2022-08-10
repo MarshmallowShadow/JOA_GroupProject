@@ -226,8 +226,8 @@
 			
 			<!-- 하단 버튼 -->
 			<div id="btn-wrap">
-				<button class="cancel">취소</button>
-				<button class="add">코스 등록</button>
+				<button class="cancel" onclick="location.href='http://localhost:8088/JOA_GroupProject/together';">취소</button>
+				<button class="add" onclick="location.href='http://localhost:8088/JOA_GroupProject/together-read';">코스 등록</button>
 			</div>
 			
 		</div>
@@ -237,7 +237,7 @@
 
 
 	<!-- 푸터 -->
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->
 
 </body>
