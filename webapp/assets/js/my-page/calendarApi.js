@@ -1,11 +1,10 @@
 /*달력 API*/
-var rList =
-	[	//ajax 데이터 불러올 부분(배열)///////////////////////////////
-		{
-	      title: '테스트 코스',
-	      start: '2022-08-01',
-		}
-	];
+var rList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
+				{
+					title: '테스트 코스',
+					start: '2022-08-01',
+				}
+			];
 
 function render(rMap) {
 	var str = '';
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		dataType : "json",
 		success : function(result){
 			eList = result;
-			
 			//컨트롤러 함수 실행 후 코드
 			for (var i = 0; i < result.length; i++) {
 				var rMap = result[i];
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					}
 				);
 				render(rMap, "down");
-				/*$(".reportBox").append(render(rMap));*/
 			}
 			console.log(rList);
 			
@@ -69,35 +66,30 @@ document.addEventListener('DOMContentLoaded', function() {
 				events: rList
 			});
 			calendar.render();
-			
-			
-			
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
 		}
-		
 	});
 	
 	
-	/*달력폼 준비가 끝나면 .fc-event-title*/
-			/*$(".fc-daygrid-day.fc-day").click(function(){*/
-			$("#calendarApi").on("click", ".fc-daygrid-day.fc-day", function(){	
-				
-				console.log("이벤트");
-				console.log(this);
-				
-				var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
-				var todaydate = $this.data('date');
-				console.log(todaydate);
-				alert("이벤트다!!" + todaydate);
-				
-				$(".reportContent").remove();
-				for(var i=0; i < eList.length; i++){
-					if(todaydate == eList[i].REGDATE){
-						render(eList[i]	, "down");	
-					}
-				}
-			});
+	/*달력폼 준비가 끝나면*/
+	$("#calendarApi").on("click", ".fc-daygrid-day.fc-day", function(){	
+		
+		console.log("이벤트");
+		console.log(this);
+		
+		var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
+		var todaydate = $this.data('date');
+		console.log(todaydate);
+		alert("이벤트다!!" + todaydate);
+		
+		$(".reportContent").remove();
+		for(var i=0; i < eList.length; i++){
+			if(todaydate == eList[i].REGDATE){
+				render(eList[i]	, "down");	
+			}
+		}
+	});
 });
 

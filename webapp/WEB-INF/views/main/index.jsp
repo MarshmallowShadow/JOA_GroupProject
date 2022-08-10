@@ -27,7 +27,6 @@
 			<li class="hightemp">최고 온도 : </li>
 			<li class="lowtemp">최저 온도 : </li>
 			<li class="humidity">습도 : </li>
-			<li class="rain">강수량 : </li>
 			<li class="wind">풍속 : </li>
 			<li class="icon"></li>
 		</ul>
@@ -80,6 +79,7 @@
 <script>
 $(document).ready(function(position){
 	
+	//위치 측정 불가인 경우 기본 경/위도 : 서울
 	var lat = 37.5683;
 	var lon = 126.9778;
 	
@@ -88,6 +88,7 @@ $(document).ready(function(position){
 		timeout : 5000,
 		maximumAge : 0
 	};
+	
 	function success(pos) {
 		var crd = pos.coords;
 		console.log('위도 : ' + crd.latitude);
@@ -119,7 +120,6 @@ $(document).ready(function(position){
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
 			$('.humidity').append(result.main.humidity);
-			//$('.rain').append(result.rain.rain);
 			$('.wind').append(result.wind.speed);
 			
 			//아이콘
@@ -143,11 +143,23 @@ $(document).ready(function(position){
 				return mo + '월' + d + '일' + '  '+ hr + ':' + m + ':' + s;
 			}
 			
+				
+			//경보 알림
+			if(result.main.temp >= 35) {
+        		alert("더운 날씨가 예상됩니다. 야외활동에 주의하십시오.");
+        		
+        	} else if(result.main.temp >= -10) {
+        		alert("강추위가 예상됩니다. 야외활동에 주의하십시오.");
+        		
+        	} else if(result.wind.speed >= 5){
+        		alert("강한 바람이 예상됩니다. 야외활동에 주의하십시오.")
+        	};
+			
 			var currentTime = convertTime(ct);
 			$('.time').append(currentTime);
         	}
    		})
-   		//console.log(url);
+   		
 	});
 	
 </script>

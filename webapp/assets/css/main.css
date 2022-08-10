@@ -8,32 +8,37 @@
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
 
 /*--------------------------- 날씨 ----------------------------*/	
-.weather li, .weather button{
+.weather li{
 	float: left;
 	font-size: 14px;
-	font-weight: 700%;	
 	text-align: center;
-	margin-left: 20px;
+	font-weight: bold;
+	margin-left: 40px;
+	width: auto;
 }
 
 .weather ul {
-	padding-left: 250px;
+	width: auto;
+	padding-left: 200px;
 	padding-top: 10px;
+	position: relative;
+	display: inherit;
 }
 
 .weather {
+	position: relative;
 	background-color: #B0C4DE;
-	border: 1px solid rgb(117, 117, 117); 
 	height: 40px;
-	overflow: hidden;
-	min-width: 1200px;
+	overflow: hidden;				/* 하단 공백 삭제 */
+	min-width: 1200px;				/* 화면 크기 변해도 텍스트 고정 */
 }
 
 /* 날씨 아이콘 */
 .weather .icon {
 	margin: auto;
 	position: relative;
-	bottom: 15px;	
+	bottom: 15px;
+	left: 30px;	
 }
 /*--------------------------- 사진 편집 ----------------------------*/		
 .slide {
