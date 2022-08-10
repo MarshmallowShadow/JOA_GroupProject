@@ -25,18 +25,20 @@
 		
 		<!-- 필터링 옵션 항목 -->
 		<div id="top_aside">
-			<select id="option">
-				<option value="default"></option>
-				<option value="question">질문</option>
-				<option value="commute">소통</option>
-				<option value="post">후기</option>
-				<option value="together">함께</option>
-				<option value="map">코스</option>
-			</select>
-			
-			<!-- 검색창과 버튼 -->
-			<input type="text" id="textbox">
-			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span></button>
+			<form action="${pageContext.request.contextPath}/board" method="get">
+				<select id="option">
+					<option value="default"></option>
+					<option value="question">질문</option>
+					<option value="commute">소통</option>
+					<option value="post">후기</option>
+					<option value="together">함께</option>
+					<option value="map">코스</option>
+				</select>
+				
+				<!-- 검색창과 버튼 -->
+				<input type="text" id="textbox" name="keyword">
+				<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span></button>
+			</form>
 		</div>
 	
 		<br>
@@ -66,13 +68,14 @@
 
 					<c:forEach items="${boardList}" var="bMap">
 							<tr>
-								<td class="center">${bMap.NO}</td>
-								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.NO}">${bMap.TITLE} 
+								<td class="center">${bMap.BOARDNO}</td>
+								<td class="center">${bMap.BOARDCATEGORY}</td>
+								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
 									<c:if test="${authUser.board_img_no eq true}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if></a></td>
 								<td class="center">${bMap.ID}</td>
-								<td class="center">${bMap.HIT}</td>
+								<td class="center">${bMap.VIEWCOUNT}</td>
 								<td class="center">${bMap.REGDATE}</td>
 							</tr>
 					</c:forEach>
@@ -89,18 +92,18 @@
 		<!-- 페이지 -->
 		<div id="page">
 			<ul class="ul">
-				<li class="li"><a href="">◀</a></li>
+				<li class="li"><a href="#">◀</a></li>
 				<li class="active li"><a href="">1</a></li>
-				<li class="li"><a href="">2</a></li>
-				<li class="li"><a href="">3</a></li>
-				<li class="li"><a href="">4</a></li>
-				<li class="li"><a href="">5</a></li>
-				<li class="li"><a href="">6</a></li>
-				<li class="li"><a href="">7</a></li>
-				<li class="li"><a href="">8</a></li>
-				<li class="li"><a href="">9</a></li>
-				<li class="li"><a href="">10</a></li>
-				<li class="li"><a href="">▶</a></li>
+				<li class="li"><a href="#">2</a></li>
+				<li class="li"><a href="#">3</a></li>
+				<li class="li"><a href="#">4</a></li>
+				<li class="li"><a href="#">5</a></li>
+				<li class="li"><a href="#">6</a></li>
+				<li class="li"><a href="#">7</a></li>
+				<li class="li"><a href="#">8</a></li>
+				<li class="li"><a href="#">9</a></li>
+				<li class="li"><a href="#">10</a></li>
+				<li class="li"><a href="#">▶</a></li>
 			</ul>
 		</div><!-- board button -->
 		
