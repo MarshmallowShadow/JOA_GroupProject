@@ -146,7 +146,7 @@ $(document).ready(function(position){
 			
 			var currentTime = convertTime(ct);
 			$('.time').append(currentTime);
-			
+				
         	}
    		})
    		
