@@ -7,7 +7,7 @@ public class UserVo {
 	private String id;
 	private String password;
 	private String name;
-	private int phone;
+	private String phone;
 	private String email;
 	
 	//생성자
@@ -15,7 +15,7 @@ public class UserVo {
 		
 	}
 
-	public UserVo(int userNo, String id, String password, String name, int phone, String email) {
+	public UserVo(int userNo, String id, String password, String name, String phone, String email) {
 		this.userNo = userNo;
 		this.id = id;
 		this.password = password;
@@ -57,11 +57,11 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

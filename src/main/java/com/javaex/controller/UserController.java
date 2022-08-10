@@ -32,7 +32,7 @@ public class UserController {
 		
 		int count = uService.join(uVo);
 		
-		return "redirect:/user/login";
+		return "redirect:/user/loginForm";
 	}
 	
 	//로그인 폼

@@ -21,7 +21,7 @@
 				<h2>회원가입</h2>
 				<hr>
 				<div id="form-container">
-					<form action="${pageContext.request.contextPath}/join" method="post">
+					<form action="${pageContext.request.contextPath}/user/join" method="post">
 						<div class="form-input">
 							<label for="name">이름</label><input id="name" name="name" type="text">
 						</div>

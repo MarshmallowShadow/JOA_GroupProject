@@ -22,7 +22,7 @@
 				<hr>
 				<p>서비스 이용을 위해 로그인 해주세요.</p>
 				<div id="form-container">
-					<form action="${pageContext.request.contextPath}/login" method="post">
+					<form action="${pageContext.request.contextPath}/user/login" method="post">
 						<label for="id">아이디</label><br> <input id="id" name="id"
 							type="text"><br> <label for="password">비밀번호</label><br>
 						<input id="password" name="password" type="password"><br>
