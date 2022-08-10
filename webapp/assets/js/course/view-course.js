@@ -1,8 +1,10 @@
 /*코스 정보 상세보기 js*/
 /*차트 https://www.chartjs.org/docs/latest/*/
 
-window.onload = function test() {
+$(document).ready(function() {
 	console.log("tq");
+	console.log(cateCnt);
+	console.log(diffiCnt)
 	
 	
 	/*------------모달창-------------------------------------------------------------------*/
@@ -58,7 +60,7 @@ window.onload = function test() {
 	
 	
 	
-};
+});
 
 /* 종목별 차트 */
 function category() {

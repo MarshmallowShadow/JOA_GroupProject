@@ -5,37 +5,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의 기록들</title>
+<title>즐겨찾기 메인</title>
 
 <!-- CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/calendar.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
 <!-- jquery -->
-<script type="text/javascript">
-	window.userNo = parseInt('1');
-	window.contextPath = '${pageContext.request.contextPath}';
-	window.eList = null;
-</script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/menubar.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/bookmark.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/calendar.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/calendarApi.js"></script>
+
 
 
 </head>
 <body>
-<div id="wrap">
-	<div id="header">
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-	</div>
-	<!-- 헤더 -->	
-	
+<div id="header">
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+</div>
+<!-- 헤더 -->
+<div id="wrap">	
 	<!-- content -->
 	<div id="content">
+		
+		
+		
+		
 		
 		<!-- 마이페이지 메뉴바 자리 -->
 		<div id="menuBar">
@@ -81,51 +77,180 @@
 			</div>
 		</div>
 		
+		
+		
+		
+		
+		
 		<div class="subHeader">
 			<span onclick="openNav()"><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></span>
 			<p id="title">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></p>
 		</div>
 		
+		
+		
+		
+				
+		
+		
+		
+		
+		
 		<div class="resultView">
 			<div class="resultList">
-				<p id="listTitle">나의 기록 보기</p>
-				<div class="myReport">
-					<div id="calendar">
-						<div id="calendarApi"></div>
-					</div>
-				
-					
-					<div id="reportList">
-						<div class="listTitle">
-							<a href="${pageContext.request.contextPath}/my-page/my-report"><p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p></a>
-							<p id="category2" class="todayReport">오늘의 기록</p>
-						</div>
-						<ul class="reportBox">	
-							<%--
-							<li class="reportContent">
-								<div style="cursor: pointer;" onclick="window.location='';">
-									<img class="contentImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-									<p class="contentTitle">88888888888<p class="date" id="nows"></p></p>
-									<p class="content">링거 맞고 뛰었다^^</p>
-									<p class="contentDate">2022.07.18 &nbsp; 10:03</p>
-									<div class="modify-del-icons">
-										<span class="glyphicon glyphicon-pencil"></span>&nbsp;
-										<span class="glyphicon glyphicon-trash"></span>
+				<p id="listTitle">나의 코스 보기</p>
+				<ol>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">신나는 코스 &nbsp;<img class="besticon" src="${pageContext.request.contextPath}/assets/image/best/cgold.jpg"></p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
 									</div>
 								</div>
-							</li>--%> 
-						</ul>
-					</div>
-				</div>
+								<p id="courseInfo">홍길동</p>
+								<p id="courseInfo">조회수2 * 22.07.01</p>
+								<p id="courseInfo">후기글8 &nbsp;<img class="newpost" src="${pageContext.request.contextPath}/assets/image/main/new.png"></p>
+						  	</div>
+						</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">우히히</p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star-off.png">
+									</div>
+								</div>
+								<p id="courseInfo">고길동</p>
+								<p id="courseInfo">조회수2 * 22.06.30</p>
+								<p id="courseInfo">후기글0</p>
+						  	</div>
+						</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">빙수 먹으러 가는 길 &nbsp;<img class="besticon" src="${pageContext.request.contextPath}/assets/image/best/csilver.jpg"></p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">둘리</p>
+								<p id="courseInfo">조회수18 * 22.06.29</p>
+								<p id="courseInfo">후기글4 &nbsp;<img class="newpost" src="${pageContext.request.contextPath}/assets/image/main/new.png"></p>
+						  	</div>
+					  	</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">집에 가는 길 &nbsp;<img class="besticon" src="${pageContext.request.contextPath}/assets/image/best/cbronze.jpg"></p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">둘리</p>
+								<p id="courseInfo">조회수11 * 22.06.21</p>
+								<p id="courseInfo">후기글0</p>
+						 	</div>
+						</div>
+					</li>
+					
+					
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">신나는 코스</p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">홍길동</p>
+								<p id="courseInfo">조회수2 * 22.07.01</p>
+								<p id="courseInfo">후기글5 &nbsp;<img class="newpost" src="${pageContext.request.contextPath}/assets/image/main/new.png"></p>
+						  	</div>
+						</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">이건 아니잖아</p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">고길동</p>
+								<p id="courseInfo">조회수2 * 22.06.30</p>
+								<p id="courseInfo">후기글0</p>
+						  	</div>
+						</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample3.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">깐따삐야 가는 길</p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">둘리</p>
+								<p id="courseInfo">조회수18 * 22.06.29</p>
+								<p id="courseInfo">후기글0</p>
+						  	</div>
+					  	</div>
+					</li>
+					<li>
+						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
+						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
+						  	<div id="textBox">
+								<div class="courseTitle">
+									<p id="courseName">신나는 코스</p>
+									<div class="img-icons">
+										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart-off.png">
+										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
+									</div>
+								</div>
+								<p id="courseInfo">둘리</p>
+								<p id="courseInfo">조회수11 * 22.06.21</p>
+								<p id="courseInfo">후기글0</p>
+						 	</div>
+						</div>
+					</li>
+				</ol>
 			</div>
 		</div>
 	</div>
 	<!-- //center-content -->
 </div>
 <!-- wrap -->
-	<!-- 메인 푸터  자리-->
+	
+	<!-- 푸터 -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-	<!-- footer -->
+	
+
+
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
 <div class="modal category-add-btn">
@@ -214,6 +339,7 @@
 
 
 
+
 <!-- 좋아요 해제 모달!! ************************************************************************************* -->
 <div class="modal course-like-cancel">
   <div class="modal-dialog">
@@ -259,3 +385,4 @@
 
 </body>
 </html>
+		

@@ -75,14 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	/*달력폼 준비가 끝나면*/
 	$("#calendarApi").on("click", ".fc-daygrid-day.fc-day", function(){	
-		
-		console.log("이벤트");
 		console.log(this);
-		
 		var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
 		var todaydate = $this.data('date');
 		console.log(todaydate);
-		alert("이벤트다!!" + todaydate);
+		/*alert("날짜는???   " + todaydate);*/
+		
+		$(".monthReport").css('background', 'white');
+		$(".monthReport").css('color', 'black');
+		$(".monthReport").css('border', 'rgb(101,101,101) 1px solid');
+		
+		$(".todayReport").css('background', 'rgb(50, 108, 249)');
+		$(".todayReport").css('color', 'white');
+		$(".todayReport").css('border', 'rgb(50, 108, 249) 1px solid');
 		
 		$(".reportContent").remove();
 		for(var i=0; i < eList.length; i++){
