@@ -31,7 +31,7 @@ public class ApiMypageController {
 	
 	
 	
-	//나의 기록보기 - 기록 list 가져오기
+	//즐겨찾기 카테고리 1- 카테고리 list 가져오기
 	@ResponseBody
 	@RequestMapping(value="/api/my-page/get-category-list", method= {RequestMethod.GET, RequestMethod.POST}) 
 	public List <CategoryVo> getCategoryList(@RequestBody int userNo) {
@@ -40,5 +40,16 @@ public class ApiMypageController {
 	 	System.out.println(categoryList);
 	 return categoryList; 
 	}
+	
+	//즐겨찾기 카테고리 2- 카테고리 추가하기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/add-category-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public CategoryVo insertCategory(@RequestBody CategoryVo categoryVo) {
+		System.out.println("ApiMypageController>insert-cate()");
+		int cVo = mypageService.insertCategory(categoryVo);
+	 	System.out.println(cVo);
+	 return categoryVo;
+	}
+	
 	
 }

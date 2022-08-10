@@ -30,5 +30,10 @@ public class MypageService {
 		return categoryDao.getCategoryList(userNo); 
 	}
 	
+	//즐겨찾기 카테고리 추가 insert
+	public int insertCategory(CategoryVo categoryVo) {
+		System.out.println("MypageService>insertCategory()");
+		return categoryDao.insertCategory(categoryVo);
+	}
 	
 }

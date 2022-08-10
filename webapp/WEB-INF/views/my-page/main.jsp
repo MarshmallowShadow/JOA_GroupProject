@@ -78,6 +78,7 @@
 				</ol>
 			</div>
 			
+			<!-- 메뉴3-회원정보수정 -->
 			<div class="menu3">
 				<ol>
 					<li id="members"><p><a href="">회원정보수정 <img id="setting" src="${pageContext.request.contextPath}/assets/image/my-page/setting.png"></a></p></li>
@@ -86,25 +87,10 @@
 		</div>
 		
 		
-		
-		
-		
-		
-		
-		
-		
 		<div class="subHeader">
 			<!-- <span onclick="openNav()"> --><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"><!-- </span> -->
 			<p id="title">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></p>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

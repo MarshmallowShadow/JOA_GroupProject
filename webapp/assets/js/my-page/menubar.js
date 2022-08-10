@@ -32,8 +32,6 @@ $(document).ready(function(){
     $(".category-del-btn").hide();
     $(".category-modify-btn").hide();
     
-    
-	
 	
 	
 	/*--------------------------------------------------*/
@@ -61,14 +59,6 @@ $(document).ready(function(){
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	/*--------------------------------------------------*/
 	/*카테고리 추가하기*/
 	$(".plus-btn").click(function(){
@@ -77,47 +67,35 @@ $(document).ready(function(){
       
       $("#add-bookmark-category").on("click", function(){
 			console.log("즐겨찾기 추가 버튼 클릭");
-			
 			//데이터 수집
 			var catename = $("[name=catename]").val();
-			/*
-			
-			var guestVo = {
-				name: name, 
-				password: password, 
-				content: content
+			var categoryVo = {
+				/*cateNo: cateNo,*/
+				userNo: userNo,
+				cateName: catename
 			};
-			
-			
-			console.log(guestVo);
-			
-			
+			console.log(categoryVo);
 			
 			$.ajax({
-				
-				url : "${pageContext.request.contextPath }/api/guestbook/add2",		
+				url : contextPath + "/api/my-page/add-category-list",		
 				type : "post",
 				contentType : "application/json",
-				data : JSON.stringify(guestVo),		//js객체를 JSON문자열로 변경->그래야 controller에서 @RequestBody로 받을 수 있음
+				data : JSON.stringify(categoryVo),		//js객체를 JSON문자열로 변경->그래야 controller에서 @RequestBody로 받을 수 있음
 				dataType : "json",
-				success : function(gVo){
+				success : function(categoryVo){
 					//성공시 처리해야될 코드 작성
-					console.log(gVo);
+					console.log(categoryVo);
 					
 					//1개의 데이터 리스트에 추가(그리기)
-					render(gVo, "up");
-					
+					render(categoryVo, "up");
 					
 					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
-					$("[name=name]").val("");
-					$("[name=password]").val("");
-					$("[name=content]").val("");
-					
+					$("[name=catename]").val("");
 				},
 				error : function(XHR, status, error) {
 					console.error(status + " : " + error);
 				}
-			});*/
+			});
 			
 		});
       
