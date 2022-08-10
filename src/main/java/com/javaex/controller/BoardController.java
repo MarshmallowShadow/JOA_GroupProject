@@ -2,14 +2,19 @@ package com.javaex.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BoardService;
+import com.javaex.vo.BoardVo;
+import com.javaex.vo.UserVo;
 
 @Controller
 public class BoardController {
@@ -43,6 +48,23 @@ public class BoardController {
 		 System.out.println("BoardController > writeform");
 		
 		return "board/writeform";
+	}
+	
+	//게시판 글쓰기
+	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
+	public String write(@ModelAttribute BoardVo boardVo, HttpSession session) {
+		
+		System.out.println("BoardController > write");
+		
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		boardVo.setUserNo(authUser.getUserNo());
+		
+		//줄바꿈
+		boardVo.setContent(boardVo.getContent().replace("\n", "<br>"));
+		
+		boardService.write(boardVo);
+		
+		return "redirect:board/read/{no}";
 	}
 	
 	//게시판 상세페이지
