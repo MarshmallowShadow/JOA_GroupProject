@@ -6,8 +6,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>코스 탐색</title>
+	
+	<!-- css -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/map.css">
+	
+	<!-- js -->
+	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/map/map.js"></script>
 	<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f9735f43a150536e030654b347315fc"></script> -->
 </head>
 <body>
@@ -22,9 +29,13 @@
 			<button class="btn-grey">제목</button>
 		</div> <!-- searchbar -->
 		<div id="filter-menu">
-			<button class="fmenu">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
-			<button class="fmenu">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
-			<button class="fmenu">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			<input type="radio" id="rdo-filter-none" name="rdo-filter">
+			<label for="rdo-filter-cate" class="fmenu">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
+			<input type="radio" id="rdo-filter-cate" name="rdo-filter">
+			<label for="rdo-filter-dist" class="fmenu">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
+			<input type="radio" id="rdo-filter-dist" name="rdo-filter">
+			<label for="rdo-filter-diff" class="fmenu">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
+			<input type="radio" id="rdo-filter-diff" name="rdo-filter">
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
 			

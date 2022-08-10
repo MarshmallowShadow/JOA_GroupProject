@@ -24,7 +24,7 @@ $(document).ready(function(position){
 	
 	navigator.geolocation.getCurrentPosition(success, error, options);
 	
-	var wAPI = 'ddeb92652c34f9e77a6961c434afa555'
+	let wAPI = 'ddeb92652c34f9e77a6961c434afa555'
 	//var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + '9e59ce9dcb1014633e13dc6b7a7ffa54' + &units=metric';
 	
 	
