@@ -40,7 +40,9 @@ public class MypageController {
 	
 	
 	
-	//즐겨찾기
+	
+	
+	//즐겨찾기////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bookmark() {
 		System.out.println("MypageController>bookmark");
