@@ -44,8 +44,8 @@ public class CourseController {
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
 	public String courseViewForm(Model model, @RequestParam(value = "courseNo") int courseNo) {
 		System.out.println("CourseController->courseViewForm()");
-		Map<String, Object> coMap = coService.getCourseInfo(courseNo);
-		model.addAttribute("coMap", coMap);
+		Map<String, Object> coMap = coService.getCourseInfo(courseNo);		
+		model.addAttribute("coMap", coMap);		
 		return "course/view-course";
 	}
 	

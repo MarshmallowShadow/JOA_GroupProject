@@ -3,9 +3,9 @@
 
 $(document).ready(function() {
 	console.log("tq");
-	console.log(cateCnt);
-	console.log(diffiCnt)
 	
+	
+
 	
 	/*------------모달창-------------------------------------------------------------------*/
 	/*코스제목 수정 버튼 클릭*/
@@ -65,6 +65,8 @@ $(document).ready(function() {
 /* 종목별 차트 */
 function category() {
 	
+	
+	
 	const labels = [
 		'산책',
 	    '조깅',
@@ -80,7 +82,7 @@ function category() {
 	      label: '종목',
 	      backgroundColor: 'rgb(50, 108, 249)',
 	      borderColor: 'rgb(50, 108, 249)',
-	      data: [0, 10, 5, 2, 20, 30],
+	      data: [0, 10, 5, 2, 20, 30]
 		}]
 	};
 	

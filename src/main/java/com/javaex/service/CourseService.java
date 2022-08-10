@@ -59,8 +59,6 @@ public class CourseService {
 		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
 		String userName = userDao.getUserName(coVo.getUserNo()); //유저이름
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
-		List<Map<String, Object>> cateCntMap = recDao.getCateCnt(courseNo); //카테고리 통계
-		List<Map<String, Object>> diffiCntMap = recDao.getDiffiCnt(courseNo); //난이도 통계
 		//즐겨찾기 여부
 		//좋아요 여부
 		
@@ -69,8 +67,6 @@ public class CourseService {
 		coMap.put("pointVo", pointVo); //코스좌표
 		coMap.put("userName", userName); //유저이름
 		coMap.put("recCnt", recCnt); //총 기록수
-		coMap.put("cateCnt", cateCntMap); //카테고리 통계
-		coMap.put("diffiCnt", diffiCntMap); //난이도 통계
 		
 		return coMap;
 	}
