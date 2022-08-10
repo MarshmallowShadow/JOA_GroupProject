@@ -4,6 +4,9 @@
 
 <mapper namespace="best">
 
+
+<!-- 게시글 -->
+
 <!-- Top 1 ~ 3 -->
 <!-- 좋아요 -->
 
