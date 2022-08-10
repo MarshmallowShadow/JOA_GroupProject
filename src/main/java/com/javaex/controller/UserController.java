@@ -21,14 +21,14 @@ public class UserController {
 	//회원가입 폼
 	@RequestMapping(value="/joinForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm(){
-		System.out.println("UserController > joinForm");
+		System.out.println("UserController>joinForm");
 		return "user/joinForm";
 	}
 	
 	//회원가입
 	@RequestMapping(value="/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join(@ModelAttribute UserVo uVo){
-		System.out.println("UserController > join");
+		System.out.println("UserController>join");
 		
 		int count = uService.join(uVo);
 		
@@ -38,14 +38,14 @@ public class UserController {
 	//로그인 폼
 	@RequestMapping(value="/loginForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String loginForm(){
-		System.out.println("UserController > loginForm");
+		System.out.println("UserController>loginForm");
 		return "user/loginForm";
 	}
 	
 	//로그인
-	@RequestMapping(value="/join", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public String login(@ModelAttribute UserVo uVo, HttpSession session){
-		System.out.println("UserController > login");
+		System.out.println("UserController>login");
 		
 		UserVo authUser = uService.login(uVo);
 		
@@ -60,7 +60,7 @@ public class UserController {
 	//로그아웃
 	@RequestMapping(value="/logout", method= {RequestMethod.GET, RequestMethod.POST})
 	public String logout(HttpSession session){
-		System.out.println("UserController > logout");
+		System.out.println("UserController>logout");
 		
 		session.removeAttribute("authUser");
 		session.invalidate();
