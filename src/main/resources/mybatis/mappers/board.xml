@@ -61,5 +61,13 @@
 			and title like #{keyword}
 		]]>
 	</select>
+	
+	<!-- 게시판 글쓰기 -->
+	<insert id="insert" parameterType="BoardVo">
+		<![CDATA[
+			insert into board
+			values(seq_board_no.nextval, #{viewCount}, #{title}, #{content}, 0, sysdate, #{userNo})
+		]]>
+	</insert>
 
 </mapper>
