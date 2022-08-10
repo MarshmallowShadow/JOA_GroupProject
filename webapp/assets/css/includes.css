@@ -33,10 +33,11 @@
 }
 
 #header #user-menu { 
-	margin: 20px 0px 20px 40px;
 	float: right;
 	width: 160px;
-	margin: 20px 0px 20px 40px;
+	height: 80px;
+	margin-left: 40px;
+	padding: 20px 0px 20px 0px;
 }
 
 /* ----------- 로그인 전 로그인 회원가입 ----------- */
@@ -57,8 +58,15 @@
 	display: flex; /* for center-align */
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */
-	width: 79px;
+	width: 78px;
 	height: 40px;
+}
+
+#header #login ul #middle {
+	width: 1px;
+	height: 16px;
+	border-left: 1px solid rgb(174, 174, 174);
+	margin: 11px 0px;
 }
 
 /* ----------- 로그인 후 헤더 변환 ----------- */
@@ -83,10 +91,11 @@
 
 #header #user-menu #check-btn:checked ~ .menubars { 
 	display: block;
-	margin-top: 10px;
+	position:relative;
+	z-index: 900;
 }
 
-#user-menu label:hover {
+#user-menu label:hover, #header #user-menu .menubars li:hover {
 	background-color: rgb(50, 108, 249);
 	color: #fff
 }
@@ -97,7 +106,8 @@
 	background-color: #fff;
 	height: 30px;
 	width: 100%;
-	border: 1px solid rgb(50, 108, 249);
+	border: 1px solid rgb(174, 174, 174);
+	cursor: pointer;
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */	
 	text-align: center;

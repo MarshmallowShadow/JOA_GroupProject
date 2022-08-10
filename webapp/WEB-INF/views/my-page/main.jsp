@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
 <!-- jquery -->
+<script type="text/javascript">
+	window.userNo = parseInt('1');
+	window.contextPath = '${pageContext.request.contextPath}';
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/menubar.js"></script>
@@ -20,20 +24,22 @@
 
 </head>
 <body>
-<div id="header">
-<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-</div>
-<!-- 헤더 -->
-<div id="wrap">	
+
+<div id="wrap">
+	<!-- 헤더자리 -->
+	<div id="header">
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	</div>
+	<!-- 헤더자리 -->	
+	
+	
+	
 	<!-- content -->
 	<div id="content">
 		
-		
-		
-		
-		
 		<!-- 마이페이지 메뉴바 자리 -->
 		<div id="menuBar">
+			<!-- 메뉴1-나의코스보기/나의기록보기 -->
 			<div class="menu1">
 				<ol>
 					<li id="mypage">
@@ -47,6 +53,7 @@
 				</ol>
 			</div>
 			
+			<!-- 메뉴2-즐겨찾기 -->
 			<div class="menu2">
 				<ol>
 					<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
@@ -54,7 +61,9 @@
 						<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
 						<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 					</li>
-					<li id="menuList">
+				</ol>	
+				<ol class="categoryArea">	
+					<%-- <li id="menuList">
 						<a href="${pageContext.request.contextPath}/my-page/bookmark/01">서울 근교 코스 </a>
 						<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">				
 					</li>
@@ -65,7 +74,7 @@
 					<li id="menuList">
 						<a href="${pageContext.request.contextPath}/my-page/bookmark/01">기어가는 코스</a>
 						<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
-					</li>
+					</li> --%>
 				</ol>
 			</div>
 			
@@ -85,7 +94,7 @@
 		
 		
 		<div class="subHeader">
-			<span onclick="openNav()"><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></span>
+			<!-- <span onclick="openNav()"> --><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"><!-- </span> -->
 			<p id="title">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></p>
 		</div>
 		
@@ -450,11 +459,11 @@
       <div class="modal-body">
         <p>새 목록 이름</p>
         <br>
-        <input type="text" placeholder="즐겨찾기 이름을 입력하세요">
+        <input type="text" name="catename" value="" placeholder="즐겨찾기 이름을 입력하세요">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">목록 만들기</button>
+        <button type="button" class="btn btn-primary" id="add-bookmark-category">목록 만들기</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

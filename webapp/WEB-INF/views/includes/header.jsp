@@ -9,6 +9,7 @@
 				<div id="login">
 					<ul>
 						<li><a href="${pageContext.request.contextPath }/user/joinForm">회원가입</a></li>
+						<li id="middle">
 						<li><a href="${pageContext.request.contextPath }/user/loginForm">로그인</a></li>
 					</ul>
 				</div>
@@ -17,9 +18,9 @@
 				<label for="check-btn">최보승님</label>
 				<input id="check-btn" type="checkbox">
 				<ul id="menuitems" class="menubars">
-						<li class="a"><a href="${pageContext.request.contextPath }/course/write">코스 등록하기</a></li>
-						<li class="a"><a href="${pageContext.request.contextPath }/my-page">마이사이트</a></li>
-						<li class="a"><a href="${pageContext.request.contextPath }/user/logout">로그아웃</a></li>
+						<li class="a" onclick="window.location='${pageContext.request.contextPath }/course/write';">코스 등록하기</li>
+						<li class="a" onclick="window.location='${pageContext.request.contextPath }/my-page';">마이사이트</li>
+						<li class="a" onclick="window.location='${pageContext.request.contextPath }/user/logout';">로그아웃</li>
 				</ul>
 			</c:otherwise>
 		</c:choose>
