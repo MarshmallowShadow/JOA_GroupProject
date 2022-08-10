@@ -33,10 +33,11 @@
 }
 
 #header #user-menu { 
-	margin: 20px 0px 20px 40px;
 	float: right;
 	width: 160px;
-	margin: 20px 0px 20px 40px;
+	height: 80px;
+	margin-left: 40px;
+	padding: 20px 0px 20px 0px;
 }
 
 /* ----------- 로그인 전 로그인 회원가입 ----------- */
@@ -83,7 +84,9 @@
 
 #header #user-menu #check-btn:checked ~ .menubars { 
 	display: block;
+	position:relative;
 	margin-top: 10px;
+	z-index: 900;
 }
 
 #user-menu label:hover {
