@@ -1,5 +1,4 @@
 /*달력 API*/
-
 var rList =
 	[	//ajax 데이터 불러올 부분(배열)///////////////////////////////
 		{
@@ -34,33 +33,6 @@ function render(rMap) {
 }
 
 
-
-function render2(rMap) {
-	var str = '';
-	str  = '<div class="listTitle">';
-	str  = '	<p class="monthReport2">이달의 기록</p>';
-	str  = '	<p class="todayReport2">오늘의 기록</p>';
-	str  = '</div>';
-	str  = '<ul class="reportBox">';
-	
-	str += '	<li class="reportContent">';
-	str += '		<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
-	str += '			<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
-	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
-	str += '			<p class="content">'+rMap.REVIEW+'</p>';
-	str += '			<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
-	str += '			<div class="modify-del-icons">';
-	str += '				<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
-	str += '				<span class="glyphicon glyphicon-trash"></span>';
-	str += '			</div>';
-	str += '		</div>';
-	str += '	</li>';
-	
-	str  = '</ul>';
-		
-	$("#reportList").append(str);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     $.ajax({
 		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
@@ -70,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
 		dataType : "json",
 		success : function(result){
+			eList = result;
+			
 			//컨트롤러 함수 실행 후 코드
 			for (var i = 0; i < result.length; i++) {
 				var rMap = result[i];
@@ -97,9 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			calendar.render();
 			
 			
-			/*달력폼 준비가 끝나면 .fc-event-title*/
-			$(".fc-daygrid-day.fc-day").click(function(){
-				
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+		
+	});
+	
+	
+	/*달력폼 준비가 끝나면 .fc-event-title*/
+			/*$(".fc-daygrid-day.fc-day").click(function(){*/
+			$("#calendarApi").on("click", ".fc-daygrid-day.fc-day", function(){	
 				
 				console.log("이벤트");
 				console.log(this);
@@ -114,10 +97,5 @@ document.addEventListener('DOMContentLoaded', function() {
 					render(rMap, "down");	
 				}
 			});
-		},
-		error : function(XHR, status, error) {
-			console.error(status + " : " + error);
-		}
-	});
 });
 
