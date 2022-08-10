@@ -26,38 +26,49 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
+<!-- 날씨 api 구현 -->
 <script>
-
-function onGeoOk(position){
-
-	  $.getJSON('https://geoip-db.com/json/geoip.php?jsonp=?') 
-      .done (function(location)
-      {
-        $('.country').html(location.country_name);
-        $('.city').html(location.city);
-        
-	//위도 경도 저장
-	var lat = location.latitude;	
-	var lon = location.longitude;
-	var  weatherLink = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=ddeb92652c34f9e77a6961c434afa555&units=metric';
-	$('body').append(weatherLink);
+$(document).ready(function(position){
+	
+	var lat = 37.5683;
+	var lon = 126.9778;
+	
+	var options = {
+		enableHighAccuracy : true,
+		timeout : 5000,
+		maximumAge : 0
+	};
+	function success(pos) {
+		var crd = pos.coords;
+		console.log('위도 : ' + crd.latitude);
+		console.log('경도: ' + crd.longitude);
+		lat = crd.latitude;
+		lon = crd.longitude;
+	};
+	
+	function error(err) {
+		console.warn('ERROR(' + err.code + '): ' + err.message);
+	};
+	
+	navigator.geolocation.getCurrentPosition(success, error, options);
+	
+	var wAPI = 'ddeb92652c34f9e77a6961c434afa555'
+	//var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' +lon+ '&appid=' + '9e59ce9dcb1014633e13dc6b7a7ffa54' + &units=metric';
+	
 	
     $.ajax({
-		url: weatherLink,
-		dataType: 'json',
+		url: 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + wAPI + '&units=metric',
+        dataType: 'json',
         type: 'POST',
        	//data: {'lat' : LAT, 'lon' : LON},
         success:function(result){
         	
-        	$('body').append(result);
-        	
         	// 보여질 정보
-        	//$('.city').append(result.name);
+        	$('.city').append(result.name);
 			$('.ctemp').append(result.main.temp);
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
 			$('.humidity').append(result.main.humidity);
-			//$('.rain').append(result.rain.rain);
 			$('.wind').append(result.wind.speed);
 			
 			//아이콘
@@ -65,7 +76,7 @@ function onGeoOk(position){
 			'.png" alt="'+result.weather[0].description +'">'
 			$('.icon').html(wiconUrl);
 			
-			//시간
+			//현재시간
 			var ct = result.dt;
 			
 			function convertTime(t) {
@@ -83,16 +94,13 @@ function onGeoOk(position){
 			
 			var currentTime = convertTime(ct);
 			$('.time').append(currentTime);
-			
         	}
-   		});
-   		
-   		console.log(weatherLink);
+   		})
+   		//console.log(url);
 	});
-}
-	navigator.geolocation.getCurrentPosition(onGeoOk);
 	
 </script>
+
 
 </body>
 </html>

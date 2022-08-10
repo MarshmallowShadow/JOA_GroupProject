@@ -27,7 +27,6 @@
 			<li class="hightemp">최고 온도 : </li>
 			<li class="lowtemp">최저 온도 : </li>
 			<li class="humidity">습도 : </li>
-			<li class="rain">강수량 : </li>
 			<li class="wind">풍속 : </li>
 			<li class="icon"></li>
 		</ul>
@@ -119,7 +118,6 @@ $(document).ready(function(position){
 			$('.lowtemp').append(result.main.temp_min);
 			$('.hightemp').append(result.main.temp_max);
 			$('.humidity').append(result.main.humidity);
-			//$('.rain').append(result.rain.rain);
 			$('.wind').append(result.wind.speed);
 			
 			//아이콘
