@@ -66,7 +66,7 @@ public class BoardService {
 		
 		//전체 글갯수
 		int totalCnt = boardDao.selectTotalCnt();
-		System.out.println("service" + totalCnt);
+		System.out.println("service = " + totalCnt);
 		
 		//페이지당 버튼 갯수
 		int pageBtnCount = 10;

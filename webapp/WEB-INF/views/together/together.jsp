@@ -39,7 +39,7 @@
 			<!-- 함께하기 만들기 버튼 -->
 			<div id="together-nav">
 				<div id="to_make">
-					<button type="submit" id="together_make">함께하기 만들기</button>
+					<button type="submit" id="together_make" onclick="location.href='http://localhost:8088/JOA_GroupProject/together-writeform';">함께하기 만들기</button>
 				</div>
 		
 				<!-- 즐겨찾기와 참여한 항목 필터링 버튼 -->

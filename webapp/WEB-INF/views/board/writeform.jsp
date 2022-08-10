@@ -150,7 +150,7 @@
 				success : function(boardVo){
 					
 					//1개데이터 리스트 추가(그리기)하기
-					render(gvo, "up");
+					render(boardVo, "up");
 					
 					//입력폼 초기화
 					$("[name=option]").val("");

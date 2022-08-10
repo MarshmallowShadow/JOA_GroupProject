@@ -110,11 +110,11 @@
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
 
-		<button type="submit" id="list">목록</button>
+		<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA_GroupProject/together';">목록</button>
 		
 		<br><br><br><br><br><br><br><br><br><br>
 		
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		<!-- footer -->
 	
 	</div><!-- wrap -->
