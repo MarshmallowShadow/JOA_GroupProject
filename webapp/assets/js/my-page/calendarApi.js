@@ -93,8 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
 				alert("이벤트다!!" + todaydate);
 				
 				$(".reportContent").remove();
-				if(todaydate == rMap.REGDATE){
-					render(rMap, "down");	
+				for(var i=0; i < eList.length; i++){
+					if(todaydate == eList[i].REGDATE){
+						render(rMap, "down");	
+					}
 				}
 			});
 });
