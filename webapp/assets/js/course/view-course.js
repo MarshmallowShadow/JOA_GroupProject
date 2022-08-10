@@ -3,8 +3,6 @@
 
 $(document).ready(function() {
 	console.log("tq");
-	
-	
 
 	
 	/*------------모달창-------------------------------------------------------------------*/
@@ -64,6 +62,26 @@ $(document).ready(function() {
 
 /* 종목별 차트 */
 function category() {
+	
+	
+	//종목 데이터 가져오기
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getCategory",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(imgResult){
+			//성공시 처리해야될 코드 작성
+			console.log("img:"+imgResult);
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
 	
 	
 	

@@ -71,4 +71,10 @@ public class CourseService {
 		return coMap;
 	}
 
+
+	public List<Integer> getCategory(int courseNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

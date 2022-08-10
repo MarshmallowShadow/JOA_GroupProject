@@ -59,6 +59,7 @@
 					<div class="course-info-content">
 						<h2>${coMap.coVo.title }</h2>
 						
+						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
 						<!-- 수정 버튼 -->
 						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
 						

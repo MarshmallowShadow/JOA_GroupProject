@@ -6,6 +6,8 @@
 $(document).ready(function() {
 	console.log("페이지 준비");
 	
+	var courseNo = $("#courseNo");
+	
 	//input date에 현재 날짜 세팅
 	document.getElementById('date').value = new Date().toISOString().substring(0, 10);;
 	
