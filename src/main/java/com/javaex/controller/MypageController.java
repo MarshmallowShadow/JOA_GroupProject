@@ -35,7 +35,6 @@ public class MypageController {
 	@RequestMapping(value="/my-report", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myreport() {
 		System.out.println("MypageController>myreport");
-		
 		return "my-page/my-report";
 	}
 	
