@@ -21,7 +21,7 @@
 				<h2>회원가입</h2>
 				<hr>
 				<div id="form-container">
-					<form action="" method="post">
+					<form action="${pageContext.request.contextPath}/join" method="post">
 						<div class="form-input">
 							<label for="name">이름</label><input id="name" name="name" type="text">
 						</div>
@@ -36,7 +36,7 @@
 							<label for="password2">비밀번호 확인</label><input id="password2" name="password2" type="password"><br>
 						</div>
 						<div class="form-input">
-							<label for="ph">전화번호</label><input id="ph" name="ph" type="text">
+							<label for="phone">전화번호</label><input id="phone" name="phone" type="text">
 						</div>
 						<div class="form-input">
 							<label for="email">이메일</label><input id="email" name="email" type="text">

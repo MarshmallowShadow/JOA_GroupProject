@@ -3,6 +3,24 @@
 
 <mapper namespace="users">
 
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="UserVo">
+	<![CDATA[
+		insert into users
+		values(seq_user_no.nextval, #{id}, #{password}, #{name}, #{phone}, #{email})
+	]]>
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="UserVo" resultType="UserVo">
+	<![CDATA[
+		select user_no, name
+		from users
+		where id = #{id}
+		and password = #{password}
+	]]>
+	</select>
+	
 	<!-- 사용자 이름 가져오기 -->
 	<select id="getName" parameterType="int" resultType="String">
 		<![CDATA[

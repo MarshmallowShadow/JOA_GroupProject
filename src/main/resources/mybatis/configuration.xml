@@ -8,6 +8,7 @@
 		<typeAlias alias="recVo" type="com.javaex.vo.RecordVo"/>
 		<typeAlias alias="rimgVo" type="com.javaex.vo.RecordImgVo"/>
 		<typeAlias alias="pointVo" type="com.javaex.vo.PointVo"/>
+		<typeAlias alias="UserVo" type="com.javaex.vo.UserVo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/users.xml" />
