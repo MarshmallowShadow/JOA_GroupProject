@@ -13,7 +13,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/board/writeform.js"></script>
+
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		
 		<div id="writebox">
 		
-			<form action="${pageContext.request.contextPath}/board/write" method="get">
+			<form action="${pageContext.request.contextPath}/board/write" method="post">
 				<!-- 글쓴이 -->
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				
@@ -70,18 +70,19 @@
 					<input type="hidden" name="eventNo">
 				</div>
 				
+				<br><br><br>
+	
+				<div id="user_btn">
+					<button id="cencle" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">취소</button>
+					<button type="submit" id="post">등록</button>
+				</div>
 			</form>
 			
 		</div><!-- writebox -->	
 		
 	</div><!-- wrap -->
 	
-	<br><br><br>
 	
-	<div id="user_btn">
-		<button id="cencle" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">취소</button>
-		<button type="submit" id="post"  onclick="location.href='http://localhost:8088/JOA_GroupProject/read';">등록</button>
-	</div>
 
 	<br><br><br><br><br><br><br>
 
@@ -182,4 +183,6 @@
 	
 
 </body>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/board/writeform.js"></script>
 </html>
