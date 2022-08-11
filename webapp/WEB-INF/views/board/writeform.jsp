@@ -198,13 +198,15 @@
 			console.log("저장 버튼 클릭");
 			
 			//데이터 수집
-			var option = $("[name=option]").val();
+			var userNo = $("[name=userNo]").val();
+			var boardCategory = $("[name=boardCategory]").val();
 			var title = $("[name=title]").val();
 			var content = $("[name=content]").val();
 			
 			//데이터 객체로 묶기
 			var boardVo = {
-					option: option
+					userNo: userNo
+					, boardCategory: boardCategory
 					, title: title
 					, content: content
 			};
@@ -227,7 +229,8 @@
 					render(boardVo, "up");
 					
 					//입력폼 초기화
-					$("[name=option]").val("");
+					$("[name=userNo]").val();
+					$("[name=boardCategory]").val("");
 					$("[name=title]").val("");
 					$("[name=content]").val("");
 					
