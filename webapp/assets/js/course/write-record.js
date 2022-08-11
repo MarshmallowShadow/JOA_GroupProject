@@ -204,7 +204,7 @@ $(document).ready(function() {
 		console.log(recVo);
 		
 		//recVo 전송
-		/*$.ajax({
+		$.ajax({
 			//보낼때
 			url : contextPath+"/recordWrite",
 			type : "post",
@@ -256,7 +256,7 @@ $(document).ready(function() {
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
-		});*/
+		});
 	});
 	
 });

@@ -54,7 +54,7 @@
 	<!-- (차트통계) 산책 갯수 가져오기 -->
 	<select id="getWalkCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -65,7 +65,7 @@
 	<!-- (차트통계) 조깅 갯수 가져오기 -->
 	<select id="getJogCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -76,7 +76,7 @@
 	<!-- (차트통계) 러닝 갯수 가져오기 -->
 	<select id="getRunCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -87,7 +87,7 @@
 	<!-- (차트통계) 마라톤 갯수 가져오기 -->
 	<select id="getMaraCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -98,7 +98,7 @@
 	<!-- (차트통계) 자전거 갯수 가져오기 -->
 	<select id="getBicCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -109,7 +109,7 @@
 	<!-- (차트통계) 그림 갯수 가져오기 -->
 	<select id="getDrawCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(course_category)
+			select  NVL(count(course_category), 0)
 			from record
 			group by course_no, course_category
 			having (course_no = #{courseNo}
@@ -120,7 +120,7 @@
 	<!-- (차트통계) 난이도-쉬움 갯수 가져오기 -->
 	<select id="getEasyCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(difficulty)
+			select  NVL(count(difficulty), 0)
 			from record
 			group by course_no, difficulty
 			having (course_no = #{courseNo}
@@ -131,7 +131,7 @@
 	<!-- (차트통계) 난이도-보통 갯수 가져오기 -->
 	<select id="getNormalCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(difficulty)
+			select  NVL(count(difficulty), 0)
 			from record
 			group by course_no, difficulty
 			having (course_no = #{courseNo}
@@ -142,7 +142,7 @@
 	<!-- (차트통계) 난이도-어려움 갯수 가져오기 -->
 	<select id="getHardCnt" parameterType="int" resultType="int">
 		<![CDATA[
-			select  count(difficulty)
+			select  NVL(count(difficulty), 0)
 			from record
 			group by course_no, difficulty
 			having (course_no = #{courseNo}
