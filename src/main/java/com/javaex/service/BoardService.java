@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.BoardDao;
+import com.javaex.dao.CourseDao;
+import com.javaex.dao.TogetherDao;
 import com.javaex.vo.BoardVo;
 
 @Service
@@ -16,6 +18,10 @@ public class BoardService {
 	//필드
 	@Autowired
 	BoardDao boardDao;
+	//@Autowired
+	//CourseDao courseDao;
+	//@Autowired
+	//TogetherDao togetherDao;
 	
 	//생성자
 	
@@ -24,7 +30,6 @@ public class BoardService {
 	
 	
 	//메소드-일반
-	
 	public Map<String, Object> board(String keyword, int crtPage) {
 		
 		System.out.println("BoardService > board");
@@ -122,8 +127,12 @@ public class BoardService {
 		*/
 		
 		int count = boardDao.write(boardVo);
+		
+		//courseDao.selectCourse(boardVo);
+		
+		//togetherDao.together(boardVo);
 
-		return 1;
+		return count;
 	}
 
 }
