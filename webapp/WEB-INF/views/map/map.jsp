@@ -29,13 +29,13 @@
 			<button class="btn-grey">제목</button>
 		</div> <!-- searchbar -->
 		<div id="filter-menu">
-			<input type="radio" id="rdo-filter-none" name="rdo-filter">
-			<label for="rdo-filter-cate" class="fmenu">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
-			<input type="radio" id="rdo-filter-cate" name="rdo-filter">
-			<label for="rdo-filter-dist" class="fmenu">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
-			<input type="radio" id="rdo-filter-dist" name="rdo-filter">
-			<label for="rdo-filter-diff" class="fmenu">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></label>
-			<input type="radio" id="rdo-filter-diff" name="rdo-filter">
+			
+			<button type="button" id="btn-cate" class="fmenu-btn">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			
+			<button type="button" id="btn-dist" class="fmenu-btn">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			
+			<button type="button" id="btn-diff" class="fmenu-btn">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
 			

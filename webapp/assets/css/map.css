@@ -70,11 +70,11 @@
 	padding: 0px 12px 0px 8px;
 }
 
-#sub-header #filter-menu .fmenu {
+#sub-header #filter-menu .fmenu-btn {
 	display: flex;
 	height: 34px;
 	margin-right: 8px;
-	border: 1px solid rgb(174, 174, 174);
+	border: 1px solid rgb(230, 230, 230);
 	padding: 0px 10px;
 	cursor: pointer;
 	align-items: center;
@@ -83,21 +83,42 @@
 	font-size: 13px;
 }
 
-#sub-header #filter-menu .fmenu:hover {
-	background-color: rgb(174, 174, 174);
+#sub-header #filter-menu .fmenu-btn:hover {
+	background-color: rgb(230, 230, 230);
 }
 
-#sub-header #filter-menu .fmenu-selected {
+#sub-header #filter-menu #win-cate {
+	display: none;
+	width: 318px;
+}
+
+#sub-header #filter-menu #win-cate {
+	display: none;
+	width: 318px;
+}
+
+#sub-header #filter-menu #win-cate {
+	display: none;
+	width: 318px;
+}
+
+#sub-header #filter-menu .fmenu-btn-selected {
 	display: flex;
 	height: 34px;
 	margin-right: 8px;
 	border: 1px solid rgb(50, 108, 249);
+	color: rgb(50, 108, 249);
 	padding: 0px 10px;
 	cursor: pointer;
 	align-items: center;
 	background-color: transparent;
 	font-weight: 700;
 	font-size: 13px;
+}
+
+#sub-header #filter-menu .down-icon {
+	width: 12px;
+	margin-left: 10px;
 }
 
 #sub-header #filter-buttons {
@@ -109,11 +130,6 @@
 
 #sub-header #filter-buttons img {
 	margin: auto;
-}
-
-#sub-header #filter-menu .fmenu .down-icon {
-	width: 12px;
-	margin-left: 10px;
 }
 
 
