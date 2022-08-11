@@ -26,7 +26,7 @@
 	                           , b.title
 	                           , u.id
 	                           , b.view_count viewCount
-	                           , to_char(b.reg_date,'YYYY-MM-DD HH24:MI') regDate
+	                           , to_char(b.reg_date,'YYYY-MM-DD') regDate
 	                           , b.user_no userNo
 	                  from board b, users u
 	                  where u.user_no = b.user_no

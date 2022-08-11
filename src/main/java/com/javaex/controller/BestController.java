@@ -11,8 +11,8 @@ import com.javaex.service.BoardService;
 public class BestController {
 	
 	//필드
-	@Autowired
-	BoardService boardService;
+	//@Autowired
+	//BoardService boardService;
 	
 	//생성자
 	//메소드 g/s

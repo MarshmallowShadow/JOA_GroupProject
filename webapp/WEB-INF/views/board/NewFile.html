@@ -1,24 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게시판 글쓰기폼</title>
 <!-- css -->
-<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/writeForm.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/writeForm.css" rel="stylesheet" type="text/css">
 
 <!-- 자바스크립트 -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
+<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/js/course/view-course.js"></script>
 </head>
 <body>
 
 	<div id="wrap">
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		<!-- header -->
 	
 		<h1>게시판</h1>
@@ -33,7 +29,6 @@
 				<div id="option_line">
 					<p id="option">항목</p>
 					<select id="option_list" name="boardCategory">
-						<option value="default"></option>
 						<option value="question">질문</option>
 						<option value="commute">소통</option>
 						<option value="post">후기</option>
@@ -82,9 +77,6 @@
 	</div>
 
 	<br><br><br><br><br><br><br>
-
-	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-	<!-- footer -->
 	
 	
 	<!-- ////////////////////////////////////////////////////////////////// -->
@@ -199,15 +191,13 @@
 			console.log("저장 버튼 클릭");
 			
 			//데이터 수집
-			var userNo = $("[name=userNo]").val();
-			var boardCategory = $("[name=boardCategory]").val();
+			var option = $("[name=option]").val();
 			var title = $("[name=title]").val();
 			var content = $("[name=content]").val();
 			
 			//데이터 객체로 묶기
 			var boardVo = {
-					userNo: userNo
-					, boardCategory: boardCategory
+					option: option
 					, title: title
 					, content: content
 			};
@@ -217,7 +207,7 @@
 			$.ajax({
 				
 				//보낼 때
-				url : "${pageContext.request.contextPath}/write",
+				url : "${pageContext.request.contextPath}/writeform",
 				type : "post",
 				contentType : "application/json",
 				data : JSON.stringify(boardVo),	//js객체를 JSON 문자열로 변경
@@ -230,8 +220,7 @@
 					render(boardVo, "up");
 					
 					//입력폼 초기화
-					$("[name=userNo]").val();
-					$("[name=boardCategory]").val("");
+					$("[name=option]").val("");
 					$("[name=title]").val("");
 					$("[name=content]").val("");
 					
