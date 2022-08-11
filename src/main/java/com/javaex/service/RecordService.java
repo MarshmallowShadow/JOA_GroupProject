@@ -126,11 +126,10 @@ public class RecordService {
 	}
 
 	//(기록상세보기) 기록 리스트 가져오기
-	public void getRecord(int courseNo) {
+	public List<RecordVo> getRecord(int courseNo) {
 		System.out.println("RecordService->getRecord");
 		
-		List<RecordVo> recList = recDao.getRecord(courseNo);
-		System.out.println(recList);
+		return recDao.getRecord(courseNo);
 	}
 
 

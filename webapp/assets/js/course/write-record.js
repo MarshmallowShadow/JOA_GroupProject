@@ -9,7 +9,7 @@ $(document).ready(function() {
 	var courseNo = $("#courseNo");
 	
 	//input date에 현재 날짜 세팅
-	document.getElementById('date').value = new Date().toISOString().substring(0, 10);;
+	document.getElementById('date').value= new Date().toISOString().slice(0, -1);
 	
 	
 	
@@ -178,23 +178,25 @@ $(document).ready(function() {
 		
 		//폼 데이터 가져오기
 		var date = $("#date").val();
+		var time = $("#time").val();
+		var regDate = date + time;
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
 		var hour = $("#hour").val();
 		var minute = $("#minute").val();
-		var time = (hour*60)+parseInt(minute);
+		var courseTime = (hour*60)+parseInt(minute);
 		var difficulty = $('input[name="difficulty"]:checked').val();
 		var review = $("#review").val();
 		var courseNo = $("#courseNo").val();
 		var userNo = $("#userNo").val();
 		//recVo 생성
 		var recVo = {
-			regDate: date,
+			regDate: regDate,
 			weather: weather,
 			temperature: temperature,
 			courseCate: courseCate,
-			courseTime: time,
+			courseTime: courseTime,
 			difficulty: difficulty,
 			review: review,
 			courseNo: courseNo,
@@ -204,7 +206,7 @@ $(document).ready(function() {
 		console.log(recVo);
 		
 		//recVo 전송
-		$.ajax({
+		/*$.ajax({
 			//보낼때
 			url : contextPath+"/recordWrite",
 			type : "post",
@@ -257,7 +259,7 @@ $(document).ready(function() {
 				console.error(status + " : " + error);
 			}
 		});
-	});
+	});*/
 	
 });
 

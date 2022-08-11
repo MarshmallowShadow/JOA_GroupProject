@@ -42,9 +42,8 @@ public class ApiRecordController {
 	//기록 리스트 가져오기
 	@ResponseBody
 	@RequestMapping(value = "/getRecord", method = {RequestMethod.GET, RequestMethod.POST})
-	public String getRecord(@RequestParam(value = "courseNo", required = false) int courseNo) {
+	public List<RecordVo> getRecord(@RequestParam(value = "courseNo", required = false) int courseNo) {
 		System.out.println("ApiRecordController->getRecord");
-		recService.getRecord(courseNo);
-		return "";
+		return recService.getRecord(courseNo);
 	}
 }

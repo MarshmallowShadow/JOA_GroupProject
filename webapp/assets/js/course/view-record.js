@@ -37,6 +37,7 @@ $(document).ready(function() {
 });
 
 /*------------기록리스트-------------------------------------------------------------------*/
+/*기록리스트 가져오기*/
 function getRecord(courseNo) {
 	
 	console.log("getRecord");
@@ -53,6 +54,10 @@ function getRecord(courseNo) {
 		success : function(recList){
 			//성공시 처리해야될 코드 작성
 			console.log(recList);
+			
+			for(var i=0; i<recList.length; i++) {
+				render(recList[i]);
+			}
 
 		},
 		error : function(XHR, status, error) {
@@ -60,3 +65,41 @@ function getRecord(courseNo) {
 		}
 	});
 };
+
+/*리스트 추가하기*/
+function render(recVo) {
+	console.log("render");
+	
+	var str="";	
+	str = '	<li>' +
+			'<div class="record-full-content">'+
+			'	<div class="record-txt">'+
+			'		<div class="record-content">'+
+			'			<span class="record">'+
+			'				<span class="bold">'+
+			'<img src="'+contextPath+'/assets/image/course/footprint.png" width="12px">'+
+			'박깜이</span>'+
+			'							<span>'+recVo.review+'</span>'+
+			'			</span>'+
+			'		</div>'+
+			'		<div class="record-info">'+
+			'			<span>'+recVo.regDate+'</span>'+
+			'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.weather+'.png"></span>'+
+			'			<span>'+recVo.temperature+'℃</span>'+
+			'			<span class="box blue">산책</span>'+
+			'			<span class="box pink">어려움</span>'+
+			'		</div>'+
+			'	</div>'+
+				
+				/*<div class="record-img">
+					<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
+						<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img2.jpg" width="24px">
+					</a>
+				</div>*/
+			'</div>'+
+		'</li>';
+		
+	$(".record-list").append(str);
+		
+	
+}
