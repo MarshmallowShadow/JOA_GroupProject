@@ -11,14 +11,20 @@ import com.javaex.service.BoardService;
 public class BestController {
 	
 	//필드
-	//@Autowired
-	//BoardService boardService;
+	@Autowired
+	BoardService boardService;
 	
 	//생성자
 	//메소드 g/s
 	//메소드 일반
 	
 	//게시물 불러오기
+	@RequestMapping(value="/bestList", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bestList() {
+		System.out.println("BestController>bestList");
+		
+		return "";
+	}
 	
 	//화면 띄우기
 	@RequestMapping(value="/best", method = {RequestMethod.GET, RequestMethod.POST})
