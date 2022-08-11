@@ -163,7 +163,7 @@ tr>#date, #up {
 /******/
 #writer_btnS {margin-top: 2px;}
 #modify_s {
-	width : 60px;
+	width : 23px;
 	height: 30px;
 	background-color: #fff;
 	color: #666;
@@ -172,7 +172,7 @@ tr>#date, #up {
 }
 #delete_s {
 	margin-left: 1px;
-	width : 60px;
+	width : 23px;
 	height: 30px;
 	background-color: #fff;
 	color: #666;
@@ -182,21 +182,21 @@ tr>#date, #up {
 /******/
 #writer_btnXS {margin-top: 16px;}
 #modify_xs {
-	width : 50px;
+	width : 20px;
 	height: 25px;
 	background-color: #fff;
 	color: #666;
 	font-size : 9pt;
-	border:none;
+	border: none;
 }
 #delete_xs {
 	margin-left: 0.5px;
-	width : 50px;
+	width : 20px;
 	height: 25px;
 	background-color: #fff;
 	color: #666;
 	font-size : 9pt;
-	border:none;
+	border: none;
 }
 
 /********************** 댓글 **********************/
