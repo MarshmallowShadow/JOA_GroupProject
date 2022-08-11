@@ -13,7 +13,6 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
 </head>
 <body>
 
@@ -106,7 +105,7 @@
 				</div><!-- writer_btn -->
 				<p id="REcomment_bottom">&nbsp &nbsp ㄴ쭈쭈:나는 두개 샀어!</p>
 				
-				<input type="text" id="replybox"><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+				<textarea id="replybox"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
 

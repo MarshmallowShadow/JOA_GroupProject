@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
 		dataType : "json",
 		success : function(result){
+			$(".reportBox").empty();
 			eList = result;
 			//컨트롤러 함수 실행 후 코드
 			for (var i = 0; i < result.length; i++) {

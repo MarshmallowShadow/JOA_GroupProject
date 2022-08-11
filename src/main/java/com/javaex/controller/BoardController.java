@@ -38,6 +38,10 @@ public class BoardController {
 		Map<String, Object> pMap = boardService.board(keyword, crtPage);
 		
 		model.addAttribute("boardList", pMap.get("boardList"));
+		model.addAttribute("prev", pMap.get("prev"));
+		model.addAttribute("next", pMap.get("next"));
+		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
+		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
 		
 		return "board/board";
 	}
@@ -52,7 +56,7 @@ public class BoardController {
 	}
 	
 	//게시판 글쓰기
-	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/board/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute BoardVo boardVo, HttpSession session) {
 		
 		System.out.println("BoardController > write");
@@ -65,7 +69,7 @@ public class BoardController {
 		
 		boardService.write(boardVo);
 		
-		return "redirect:board/read/{no}";
+		return "redirect:board/read" + boardVo.getBoardNo();
 	}
 	
 	//게시판 상세페이지
