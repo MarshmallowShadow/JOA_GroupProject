@@ -139,7 +139,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">코스 등록하기</h4>
+	        <h4 class="modal-title">함께하기 등록하기</h4>
 	      </div>
 	      <div class="modal-body">
 	        
@@ -157,7 +157,7 @@
 			
 			<div class="togetherChoose">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    코스
+			    함께하기
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
