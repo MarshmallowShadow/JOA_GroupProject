@@ -14,8 +14,8 @@
 	<!-- js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/map/map.js"></script>
-	<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f9735f43a150536e030654b347315fc"></script> -->
 </head>
 <body>
 <div id="wrap">
@@ -59,9 +59,8 @@
 				</li>
 			</ul>
 		</div> <!-- result-mask -->
-		<div id="map">
-			<img src="${pageContext.request.contextPath }/assets/image/map/map-sample.jpg">
-		</div> <!-- map -->
+		<div id="map-info">
+		</div> <!-- map-info -->
 	</div><!-- content -->
 </div> <!-- wrap -->
 </body>
