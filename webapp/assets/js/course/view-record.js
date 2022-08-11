@@ -3,6 +3,12 @@
 
 $(document).ready(function() {
 	
+	var courseNo = $("#courseNo").val();
+	console.log(courseNo);
+	
+	getRecord(courseNo);
+	
+	
 	/*------------지도-------------------------------------------------------------------*/
 	//지도 정보
 	var mapContainer = document.getElementById('map-info');
@@ -17,7 +23,7 @@ $(document).ready(function() {
 		overlays = []; //지도에 그릴 선 담을 배열
 	
 	
-	
+	/*------------사진모달-------------------------------------------------------------------*/
 	lightbox.option({
 		/*https://lokeshdhakar.com/projects/lightbox2/*/
 		'alwaysShowNavOnTouchDevices': true, /*이미지 세트 일때 화면 양쪽 누르면 사진 변경*/
@@ -29,3 +35,28 @@ $(document).ready(function() {
 		'albumLabel': "총 %2개 중 %1번째 이미지"
 	});
 });
+
+/*------------기록리스트-------------------------------------------------------------------*/
+function getRecord(courseNo) {
+	
+	console.log("getRecord");
+	
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getRecord",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(recList){
+			//성공시 처리해야될 코드 작성
+			console.log(recList);
+
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+};

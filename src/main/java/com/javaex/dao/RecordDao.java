@@ -1,5 +1,7 @@
 package com.javaex.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,7 +20,7 @@ public class RecordDao {
 		System.out.println("RecordDao->insertRecord");
 		return sqlSession.insert("record.insert", recVo);
 	}
-
+	
 	//(이미지추가) 기록번호 가져오기
 	public int getrecNo() {
 		System.out.println("RecordDao->getrecNo");
@@ -29,6 +31,12 @@ public class RecordDao {
 	public int getRecCnt(int courseNo) {
 		System.out.println("RecordDao->getRecCnt");
 		return sqlSession.selectOne("record.recCnt", courseNo);
+	}
+	
+	//(기록상세보기) 기록 리스트 가져오기
+	public List<RecordVo> getRecord(int courseNo) {
+		System.out.println("RecordDao->getRecord");
+		return sqlSession.selectList("record.getRec", courseNo);
 	}
 	
 //////차트 통계////////////////////////////////////////////////////////////////////////////////
@@ -130,5 +138,7 @@ public class RecordDao {
 			return hard;
 		}
 	}
+
+	
 
 }

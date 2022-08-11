@@ -28,7 +28,7 @@ public class CourseService {
 	
 	
 	//코스 등록하기
-	public void courseWrite(List<Double> xList, List<Double> yList, int hour, int minute, CourseVo coVo) {
+	public int courseWrite(List<Double> xList, List<Double> yList, int hour, int minute, CourseVo coVo) {
 		System.out.println("CourseService->courseWrite");
 		
 		//코스 시간 계산해서 Vo에 넣음
@@ -37,12 +37,12 @@ public class CourseService {
 		
 		//코스Vo db에 추가
 		coDao.insertCourse(coVo);
-		System.out.println(coVo.getCourseNo());
+		int courseNo = coVo.getCourseNo();
 		
 		//x, y값 리스트에서 하나씩 꺼내서 db에 추가
 		for(int i=0; i<xList.size(); i++) {
 			PointVo pointVo = new PointVo();
-			pointVo.setCourseNo(coVo.getCourseNo());
+			pointVo.setCourseNo(courseNo);
 			pointVo.setOrderNo(i);
 			pointVo.setX(xList.get(i));
 			pointVo.setY(yList.get(i));
@@ -50,6 +50,7 @@ public class CourseService {
 			pointDao.insertPoint(pointVo);
 		}
 		
+		return courseNo;
 	}
 	
 	//종목 차트 데이터 가져오기

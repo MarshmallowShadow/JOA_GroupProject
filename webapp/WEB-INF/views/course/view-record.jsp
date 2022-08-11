@@ -12,6 +12,11 @@
 <link href="${pageContext.request.contextPath }/assets/css/lightbox.css" rel="stylesheet" />
 
 <!-- 자바스크립트 -->
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.userNo = parseInt('1');
+	window.contextPath = '${pageContext.request.contextPath}';
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-record.js"></script>
@@ -32,6 +37,7 @@
 	
 	<!-- content -->
 	<div id="content">
+		<input type="hidden" id="courseNo" value="${param.courseNo }">
 	
 		<div id="view-content">
 			
@@ -68,7 +74,7 @@
 					
 					<!-- 기록 리스트 -->
 					<div class="record-info-content">
-						<ul>
+						<ul class="record-list">
 							<li>
 								<div class="record-full-content">
 									<div class="record-txt">
@@ -95,159 +101,13 @@
 									</div>
 								</div>
 							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="bold">김쭈쭈</span>
-												<span>링거 맞고 뛰었어요</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></span>
-											<span>20℃</span>
-											<span class="box blue">러닝</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<a href="../../../assets/image/course/img1.jpg" data-lightbox="image-1">
-											<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img1.jpg" width="24px">
-										</a>
-									</div>
-								</div>
-							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="bold">김쭌이</span>
-												<span>랄라라</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></span>
-											<span>20℃</span>
-											<span class="box blue">마라톤</span>
-											<span class="box pink">쉬움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<!-- <img class="recordImg" src="../../../assets/image/course/img.jpg" width="24px"> -->
-									</div>
-								</div>
-							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="name bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
-												<span>즐겁게 뛰었던 코스~</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></span>
-											<span>20℃</span>
-											<span class="box blue">산책</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<!-- <img class="recordImg" src="../../../assets/image/course/img.jpg" width="24px"> -->
-									</div>
-								</div>
-							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="name bold">우영우</span>
-												<span>이 사건은 재미있습니다. 제가 좋아하는 고래 퀴즈 같아요. 몸무게가 22톤인 암컷 향고래가 500kg에 달하는 대왕오징어를 먹고 6시간 뒤 1.3톤짜리 알을 낳았다면 이 암컷 향고래의 몸무게는 얼마일까요? 정답은 ‘고래는 알을 낳을 수 없다’입니다. 고래는 포유류라 알이 아닌 새끼를 낳으니까요. 무게에만 초점을 맞추면 문제를 풀 수 없습니다. 핵심을 봐야 돼요.</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></span>
-											<span>20℃</span>
-											<span class="box blue">산책</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<img class="recordImg" src="../../../assets/image/course/img3.jpg" width="24px">
-									</div>
-								</div>
-							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="name bold">우영우</span>
-												<span>이 사건은 재미있습니다. 제가 좋아하는 고래 퀴즈 같아요. 몸무게가 22톤인 암컷 향고래가 500kg에 달하는 대왕오징어를 먹고 6시간 뒤 1.3톤짜리 알을 낳았다면 이 암컷 향고래의 몸무게는 얼마일까요? 정답은 ‘고래는 알을 낳을 수 없다’입니다. 고래는 포유류라 알이 아닌 새끼를 낳으니까요. 무게에만 초점을 맞추면 문제를 풀 수 없습니다. 핵심을 봐야 돼요.</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></span>
-											<span>20℃</span>
-											<span class="box blue">산책</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img3.jpg" width="24px">
-									</div>
-								</div>
-							</li>
-							
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
-												<span></span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span></span>
-											<span></span>
-											<span class="box blue">산책</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										
-									</div>
-								</div>
-							</li>
 						</ul>
 					</div>
 					
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
-						<a href="./write-record.html" class="link-btn">기록 작성하기</a>
+						<a href="./write?courseNo=${param.courseNo }" class="link-btn">기록 작성하기</a>
 						<a class="like-btn">
 							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
 							<span>0</span>

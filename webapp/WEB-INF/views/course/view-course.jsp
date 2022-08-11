@@ -64,8 +64,10 @@
 						<h2>${coMap.coVo.title }</h2>
 						
 						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
-						<!-- 수정 버튼 -->
-						<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
+						<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
+							<!-- 제목 수정 버튼 -->
+							<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
+						</c:if>
 						
 						<!-- 즐겨찾기 별 -->
 						<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
@@ -157,7 +159,7 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
-						<a href="../board/board.html" class="link-btn">후기 보러가기</a>
+						<a href="${pageContext.request.contextPath }/board" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
 							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
 							<span>0</span>
