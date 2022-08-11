@@ -22,7 +22,8 @@ public class MypageController {
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypage(Model model, int userNo) {
 		System.out.println("MypageController>mypage");
-		List<CategoryVo> categoryList = mypageService.getCategoryList(userNo);
+		List<CategoryVo> getCategoryList = mypageService.getCategoryList(userNo);
+		List<CategoryVo> categoryList = mypageService.categoryList();
 		model.addAttribute("categoryList", categoryList);
 		return "my-page/main";
 	}

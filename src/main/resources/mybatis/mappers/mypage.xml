@@ -33,7 +33,7 @@
 	
 	
 	
-	<!-- 카테고리-1.리스트 가져오기 -->
+	<!-- 카테고리-1.리스트 가져오기1 -->
 	<select id="getCategoryList" parameterType="int" resultType="CategoryVo">
 		<![CDATA[
 			select  cate_no cateNo,
@@ -42,6 +42,17 @@
 			from favorite_category
 			where user_no = #{userNo}
 			order by cate_no asc
+		]]>
+	</select>
+	
+	
+	<!-- 카테고리-1.리스트 가져오기2 -->
+	<select id="categoryList" resultType="CategoryVo">
+		<![CDATA[
+			select  cate_no cateNo,
+			        user_no userNo,
+			        cate_name cateName
+			from favorite_category
 		]]>
 	</select>
 	
