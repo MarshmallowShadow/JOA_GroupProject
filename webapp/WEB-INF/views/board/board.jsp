@@ -13,7 +13,6 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/course/view-course.js"></script>
 </head>
 <body>
 
@@ -87,7 +86,9 @@
 		
 		<!-- 글쓰기 버튼 -->
 		<div>
-			<button type="submit" id="write" onclick="location.href='http://localhost:8088/JOA_GroupProject/writeform';">글쓰기</button>
+			<c:if test="${authUser != null}">
+				<button type="submit" id="write" onclick="location.href='http://localhost:8088/JOA_GroupProject/writeform';">글쓰기</button>
+			</c:if>
 		</div>
 		
 		<!-- 페이지 -->
