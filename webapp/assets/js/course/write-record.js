@@ -177,9 +177,7 @@ $(document).ready(function() {
 	$(".add").on("click", function() {
 		
 		//폼 데이터 가져오기
-		var date = $("#date").val();
-		var time = $("#time").val();
-		var regDate = date + time;
+		var regDate = $("#date").val();
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
@@ -258,8 +256,8 @@ $(document).ready(function() {
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
-		});
-	});*/
+		});*/
+	});
 	
 });
 
