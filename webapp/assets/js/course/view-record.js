@@ -3,10 +3,39 @@
 
 $(document).ready(function() {
 	
-	var courseNo = $("#courseNo").val();
-	console.log(courseNo);
+	console.log(authUserNo);
 	
-	getRecord(courseNo);
+	//코스번호
+	var courseNo = $("#courseNo").val();
+	//코스작성자번호 가져오기
+	var coUserNo = function (courseNo) {
+		
+		console.log("getuserNo");
+		
+		$.ajax({
+			//보낼때
+			url : contextPath+"/getCoUserNo",
+			type : "post",
+			//contentType : "application/json",
+			data : {courseNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(coUserNo){
+				//성공시 처리해야될 코드 작성
+				console.log(coUserNo);
+				
+				return coUserNo;
+	
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+	};
+	
+	getRecord(courseNo, coUserNo);
 	
 	
 	/*------------지도-------------------------------------------------------------------*/
@@ -38,7 +67,7 @@ $(document).ready(function() {
 
 /*------------기록리스트-------------------------------------------------------------------*/
 /*기록리스트 가져오기*/
-function getRecord(courseNo) {
+function getRecord(courseNo, coUserNo) {
 	
 	console.log("getRecord");
 	
@@ -56,7 +85,7 @@ function getRecord(courseNo) {
 			console.log(recList);
 			
 			for(var i=0; i<recList.length; i++) {
-				render(recList[i]);
+				render(recList[i], coUserNo);
 			}
 
 		},
@@ -67,39 +96,99 @@ function getRecord(courseNo) {
 };
 
 /*리스트 추가하기*/
-function render(recVo) {
+function render(recVo, coUserNo) {
 	console.log("render");
 	
+	var name = getUserName(recVo.userNo);
+	
 	var str="";	
-	str = '	<li>' +
-			'<div class="record-full-content">'+
-			'	<div class="record-txt">'+
-			'		<div class="record-content">'+
-			'			<span class="record">'+
-			'				<span class="bold">'+
-			'<img src="'+contextPath+'/assets/image/course/footprint.png" width="12px">'+
-			'박깜이</span>'+
-			'							<span>'+recVo.review+'</span>'+
-			'			</span>'+
-			'		</div>'+
-			'		<div class="record-info">'+
-			'			<span>'+recVo.regDate+'</span>'+
-			'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.weather+'.png"></span>'+
-			'			<span>'+recVo.temperature+'℃</span>'+
-			'			<span class="box blue">산책</span>'+
-			'			<span class="box pink">어려움</span>'+
-			'		</div>'+
-			'	</div>'+
+	str = '	<li>';
+	str +=	'<div class="record-full-content">';
+	str +=	'	<div class="record-txt">';
+	str +=	'		<div class="record-content">';
+	str +=	'			<span class="record">';
+	str +=	'				<span class="bold">';
+	if(coUserNo == recVo.userNo) {
+		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" width="12px">';
+	};
+	
+	str += name;
+
+	str +=	'</span>';
+	str +=	'							<span>'+recVo.review+'</span>';
+	str +=	'			</span>';
+	str +=	'		</div>';
+	str +=	'		<div class="record-info">';
+	str +=	'			<span>'+recVo.regDate+'</span>';
+	str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.weather+'.png"></span>';
+	str +=	'			<span style="width:24px;">'+recVo.temperature+'℃</span>';
+	str +=	'			<span class="box blue">';
+	
+	if(recVo.courseCate === 'walk') {
+		str += '산책';
+	} else if(recVo.courseCate === 'jogging') {
+		str += '조깅';
+	} else if(recVo.courseCate === 'running') {
+		str += '러닝';
+	} else if(recVo.courseCate === 'marathon') {
+		str += '마라톤';
+	} else if(recVo.courseCate === 'bicycle') {
+		str += '자전거';
+	} else if(recVo.courseCate === 'draw') {
+		str += '그림';
+	}
+	
+	str +=	'			</span>';
+	str +=	'			<span class="box pink">';
+	
+	if(recVo.difficulty === 'easy') {
+		str += '쉬움'
+	} else if(recVo.difficulty === 'normal') {
+		str += '보통'
+	} else if(recVo.difficulty === 'hard') {
+		str += '어려움'
+	}
+	
+	str +=	'			</span>';
+	str +=	'		</div>';
+	str +=	'	</div>';
 				
-				/*<div class="record-img">
-					<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
+	str +=	'	<div class="record-img">';
+					/*<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
 						<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img2.jpg" width="24px">
-					</a>
-				</div>*/
-			'</div>'+
-		'</li>';
+					</a>*/
+	str +=	'	</div>';
+	str +=	'</div>';
+	str +=	'</li>';
 		
 	$(".record-list").append(str);
-		
 	
 }
+
+function getUserName(userNo) {
+	
+	var name = "";
+	
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getUserName",
+		type : "post",
+		//contentType : "application/json",
+		async: false,
+		data : {userNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(userName){
+			//성공시 처리해야될 코드 작성
+			console.log(userName);
+			name = userName;
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+	return name;
+}
+
