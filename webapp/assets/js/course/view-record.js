@@ -35,8 +35,18 @@ $(document).ready(function() {
 		
 	};
 	
-	/*기록 가져오기*/
-	getRecord(courseNo, coUserNo);
+	/*디폴트-전체 기록 리스트 가져오기*/
+	getAllRecord(courseNo, coUserNo);
+	
+	$('input:radio[name="record-filter"]').change(function() {
+		if($(this).val() === 'all') {
+			$('.record-list').empty();
+			getAllRecord(courseNo, coUserNo);
+		} else if($(this).val() === 'myrecord') {
+			$('record-list').empty();
+			getMyRecord();
+		}
+	});
 	
 	
 	/*------------지도-------------------------------------------------------------------*/
@@ -67,14 +77,14 @@ $(document).ready(function() {
 });
 
 /*------------기록리스트-------------------------------------------------------------------*/
-/*기록리스트 가져오기*/
-function getRecord(courseNo, coUserNo) {
+/*전체 기록 리스트 가져오기*/
+function getAllRecord(courseNo, coUserNo) {
 	
-	console.log("getRecord");
+	console.log("getAllRecord");
 	
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getRecord",
+		url : contextPath+"/getAllRecord",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},

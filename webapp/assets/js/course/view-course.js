@@ -46,7 +46,7 @@ $(document).ready(function() {
 	/*디폴트 - 종목별 차트*/
 	category(courseNo);
 	
-	var charts = document.getElementById("charts");
+	var charts = $("#charts");
 	$('input:radio[name="chart-choose"]').change(function() {
 		if($(this).val() === 'diffi') {
 			$('#chart').remove();

@@ -128,11 +128,11 @@ public class RecordService {
 		
 	}
 
-	//(기록상세보기) 기록 리스트 가져오기
-	public List<RecordVo> getRecord(int courseNo) {
-		System.out.println("RecordService->getRecord");
+	//(기록상세보기) 전체 기록 리스트 가져오기
+	public List<RecordVo> getAllRecord(int courseNo) {
+		System.out.println("RecordService->getAllRecord");
 		
-		return recDao.getRecord(courseNo);
+		return recDao.getAllRecord(courseNo);
 	}
 
 	//(기록상세보기) 코스작성자 번호 가져오기
