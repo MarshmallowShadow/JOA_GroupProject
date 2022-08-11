@@ -157,9 +157,9 @@
 					<tr>
 						<th>날짜</th>
 						<td colspan="3">
-							<!-- <input class="txt-short" id="date" type="date" name="regDate">
-							<input class="txt-short" id="time" type="time" name="regTime"> -->
-							<input type="datetime-local" id="date" name="regDate">
+							<input class="txt-short" id="date" type="date" name="regDate">
+							<input class="txt-short" id="time" type="time" name="regTime">
+							<!-- <input type="datetime-local" id="date" name="regDate"> -->
 						</td>
 					</tr>
 					

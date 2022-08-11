@@ -8,9 +8,6 @@ $(document).ready(function() {
 	
 	var courseNo = $("#courseNo");
 	
-	//input date에 현재 날짜 세팅
-	document.getElementById('date').value= new Date().toISOString().slice(0, -1);
-	
 	
 	
 	/*-----------------------지도 보여주기--------------------------------------*/
@@ -177,7 +174,7 @@ $(document).ready(function() {
 	$(".add").on("click", function() {
 		
 		//폼 데이터 가져오기
-		var regDate = $("#date").val();
+		var regDate = $("#date").val()+" "+$("#time").val();
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();

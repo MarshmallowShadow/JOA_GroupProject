@@ -43,55 +43,100 @@ public class RecordDao {
 	//종목-산책
 	public int getWalkCnt(int courseNo) {
 		System.out.println("RecordDao->getWalkCnt");
-		return sqlSession.selectOne("record.getWalkCnt", courseNo);
+		Integer walk = sqlSession.selectOne("record.getWalkCnt", courseNo);
+		if (walk == null) {
+			return 0;
+		} else {
+			return walk;
+		}
 	}
 	
 	//종목-조깅
 	public int getJogCnt(int courseNo) {
 		System.out.println("RecordDao->getJogCnt");
-		return sqlSession.selectOne("record.getJogCnt", courseNo);
+		Integer jogging = sqlSession.selectOne("record.getJogCnt", courseNo);
+		if (jogging == null) {
+			return 0;
+		} else {
+			return jogging;
+		}
 	}
 	
 	//종목-러닝
 	public int getRunCnt(int courseNo) {
 		System.out.println("RecordDao->getRunCnt");
-		return sqlSession.selectOne("record.getRunCnt", courseNo);
+		Integer running = sqlSession.selectOne("record.getRunCnt", courseNo);
+		if (running == null) {
+			return 0;
+		} else {
+			return running;
+		}
 	}
 	
 	//종목-마라톤
 	public int getMaraCnt(int courseNo) {
 		System.out.println("RecordDao->getMaraCnt");
-		return sqlSession.selectOne("record.getMaraCnt", courseNo);
+		Integer marathon = sqlSession.selectOne("record.getMaraCnt", courseNo);
+		if (marathon == null) {
+			return 0;
+		} else {
+			return marathon;
+		}
 	}
 	
 	//종목-자전거
 	public int getBicCnt(int courseNo) {
 		System.out.println("RecordDao->getBicCnt");
-		return sqlSession.selectOne("record.getBicCnt", courseNo);
+		Integer bicycle = sqlSession.selectOne("record.getBicCnt", courseNo);
+		if (bicycle == null) {
+			return 0;
+		} else {
+			return bicycle;
+		}
 	}
 	
 	//종목-그림
 	public int getDrawCnt(int courseNo) {
 		System.out.println("RecordDao->getDrawCnt");
-		return sqlSession.selectOne("record.getDrawCnt", courseNo);
+		Integer draw = sqlSession.selectOne("record.getDrawCnt", courseNo);
+		if (draw == null) {
+			return 0;
+		} else {
+			return draw;
+		}
 	}
 	
 	//난이도-쉬움
 	public int getEasyCnt(int courseNo) {
 		System.out.println("RecordDao->getEasyCnt");
-		return sqlSession.selectOne("record.getEasyCnt", courseNo);
+		Integer easy = sqlSession.selectOne("record.getEasyCnt", courseNo);
+		if (easy == null) {
+			return 0;
+		} else {
+			return easy;
+		}
 	}
 	
 	//난이도-보통
 	public int getNormalCnt(int courseNo) {
 		System.out.println("RecordDao->getNormalCnt");
-		return sqlSession.selectOne("record.getNormalCnt", courseNo);
+		Integer normal = sqlSession.selectOne("record.getNormalCnt", courseNo);
+		if (normal == null) {
+			return 0;
+		} else {
+			return normal;
+		}
 	}
 	
 	//난이도-어려움
 	public int getHardCnt(int courseNo) {
 		System.out.println("RecordDao->getHardCnt");
-		return sqlSession.selectOne("record.getHardCnt", courseNo);
+		Integer hard = sqlSession.selectOne("record.getHardCnt", courseNo);
+		if (hard == null) {
+			return 0;
+		} else {
+			return hard;
+		}
 	}
 
 	
