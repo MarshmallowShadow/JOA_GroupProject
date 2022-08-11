@@ -35,6 +35,7 @@ $(document).ready(function() {
 		
 	};
 	
+	/*기록 가져오기*/
 	getRecord(courseNo, coUserNo);
 	
 	
@@ -155,7 +156,7 @@ function render(recVo, coUserNo) {
 				
 	str +=	'	<div class="record-img">';
 					/*<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
-						<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img2.jpg" width="24px">
+						<img class="recordImg" src="'+contextPath+'/assets/image/course/img2.jpg" width="24px">
 					</a>*/
 	str +=	'	</div>';
 	str +=	'</div>';
@@ -165,6 +166,7 @@ function render(recVo, coUserNo) {
 	
 }
 
+/*기록 작성자 이름 가져오기*/
 function getUserName(userNo) {
 	
 	var name = "";
