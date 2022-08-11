@@ -36,8 +36,8 @@ public class CourseController {
 							@RequestParam(value="minute", required = true) int minute,
 							@ModelAttribute CourseVo coVo) {
 		System.out.println("CourseController->courseWrite()");
-		coService.courseWrite(xList, yList, hour, minute, coVo);
-		return "";
+		int courseNo = coService.courseWrite(xList, yList, hour, minute, coVo);
+		return "redirect:/course/view?courseNo="+courseNo;
 	}
 	
 	//코스 상세보기

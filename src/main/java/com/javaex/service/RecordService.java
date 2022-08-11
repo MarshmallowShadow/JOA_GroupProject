@@ -104,7 +104,6 @@ public class RecordService {
 		return "success";
 		
 	}
-
 	
 	
 	//(기록등록) 코스 정보 가져오기
@@ -124,6 +123,14 @@ public class RecordService {
 		
 		return coMap;
 		
+	}
+
+	//(기록상세보기) 기록 리스트 가져오기
+	public void getRecord(int courseNo) {
+		System.out.println("RecordService->getRecord");
+		
+		List<RecordVo> recList = recDao.getRecord(courseNo);
+		System.out.println(recList);
 	}
 
 

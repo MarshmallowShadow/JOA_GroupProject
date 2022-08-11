@@ -131,6 +131,8 @@ public class BoardService {
 		//courseDao.selectCourse(boardVo);
 		
 		//togetherDao.together(boardVo);
+		
+		System.out.println(count);
 
 		return count;
 	}

@@ -33,6 +33,7 @@
 				<div id="option_line">
 					<p id="option">항목</p>
 					<select id="option_list" name="boardCategory">
+						<option value="default"></option>
 						<option value="question">질문</option>
 						<option value="commute">소통</option>
 						<option value="post">후기</option>
@@ -109,7 +110,7 @@
 			  </ul>
 			</div>
 			
-			<div class="togetherCate">
+			<div class="courseChoose">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 			    코스
 			    <span class="caret"></span>
@@ -124,8 +125,8 @@
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save</button>
+	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -138,14 +139,39 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">함께하기 등록하기</h4>
+	        <h4 class="modal-title">코스 등록하기</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>One fine body&hellip;</p>
+	        
+	        <div class="togetherCate">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    카테고리
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">함께</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">태그</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">참여</a></li>
+			  </ul>
+			</div>
+			
+			<div class="togetherChoose">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    코스
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  </ul>
+			</div>
+
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save</button>
+	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -173,13 +199,15 @@
 			console.log("저장 버튼 클릭");
 			
 			//데이터 수집
-			var option = $("[name=option]").val();
+			var userNo = $("[name=userNo]").val();
+			var boardCategory = $("[name=boardCategory]").val();
 			var title = $("[name=title]").val();
 			var content = $("[name=content]").val();
 			
 			//데이터 객체로 묶기
 			var boardVo = {
-					option: option
+					userNo: userNo
+					, boardCategory: boardCategory
 					, title: title
 					, content: content
 			};
@@ -189,7 +217,7 @@
 			$.ajax({
 				
 				//보낼 때
-				url : "${pageContext.request.contextPath}/writeform",
+				url : "${pageContext.request.contextPath}/write",
 				type : "post",
 				contentType : "application/json",
 				data : JSON.stringify(boardVo),	//js객체를 JSON 문자열로 변경
@@ -202,7 +230,8 @@
 					render(boardVo, "up");
 					
 					//입력폼 초기화
-					$("[name=option]").val("");
+					$("[name=userNo]").val();
+					$("[name=boardCategory]").val("");
 					$("[name=title]").val("");
 					$("[name=content]").val("");
 					
