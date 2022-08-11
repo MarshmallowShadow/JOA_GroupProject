@@ -471,10 +471,9 @@
       </div>
       <div class="modal-body">
         <select>
-        	<option>즐겨찾기1</option>
-        	<option>즐겨찾기2</option>
-        	<option>즐겨찾기3</option>
-        	<option>으아아아앙</option>
+        	<c:forEach items="${requestScope.categoryList}" var="categoryVo">
+        		<option>${categoryVo.cateName}</option>
+        	</c:forEach>
         </select>
         <br>
         <br>
@@ -482,7 +481,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">목록 삭제</button>
+        <button type="button" class="btn btn-primary" data-cateNo="${categoryVo.cateNo}">목록 삭제</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

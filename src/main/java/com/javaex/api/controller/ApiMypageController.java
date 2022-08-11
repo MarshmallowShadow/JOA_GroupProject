@@ -47,7 +47,7 @@ public class ApiMypageController {
 	public CategoryVo insertCategory(@RequestBody CategoryVo categoryVo) {
 		System.out.println("ApiMypageController>insert-cate()");
 		int cVo = mypageService.insertCategory(categoryVo);
-	 	System.out.println(cVo);
+	 	System.out.println(categoryVo);
 	 return categoryVo;
 	}
 	
