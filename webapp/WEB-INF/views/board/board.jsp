@@ -26,7 +26,7 @@
 		<!-- 필터링 옵션 항목 -->
 		<div id="top_aside">
 			<form action="${pageContext.request.contextPath}/board" method="get">
-				<select id="option">
+				<select id="option" name="boardCategory">
 					<option value="default"></option>
 					<option value="question">질문</option>
 					<option value="commute">소통</option>
@@ -71,9 +71,10 @@
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${bMap.BOARDCATEGORY}</td>
 								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
-									<c:if test="${authUser.board_img_no eq true}">
+									<!--<c:if test="${Map.board_img_no eq true}">
 										<span class="glyphicon glyphicon-picture"></span>
-									</c:if></a></td>
+									</c:if>-->
+								</a></td>
 								<td class="center">${bMap.ID}</td>
 								<td class="center">${bMap.VIEWCOUNT}</td>
 								<td class="center">${bMap.REGDATE}</td>

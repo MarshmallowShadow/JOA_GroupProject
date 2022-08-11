@@ -1,11 +1,15 @@
 package com.javaex.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.service.MypageService;
+import com.javaex.vo.CategoryVo;
 
 @Controller
 @RequestMapping(value="/my-page")
@@ -16,9 +20,10 @@ public class MypageController {
 	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypage() {
+	public String mypage(Model model, int userNo) {
 		System.out.println("MypageController>mypage");
-		
+		List<CategoryVo> categoryList = mypageService.getCategoryList(userNo);
+		model.addAttribute("categoryList", categoryList);
 		return "my-page/main";
 	}
 	

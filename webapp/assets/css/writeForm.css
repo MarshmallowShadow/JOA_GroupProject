@@ -75,9 +75,48 @@ h1 {
 }
 
 
+/********************** 모달 **********************/
 
+.modal-content {
+	width: 430px;
+}
+.courseCate {
+	height: 35px;
+	overflow: visible;
+}
+.dropdown-toggle {
+	width: 230px;
+	height: 35px;
+	text-align: left;
+}
+.dropdown-menu {
+	position: absolute;
+	z-index: 0;
+}
 
+.open > .dropdown-menu {
+	position: relative;
+	z-index: 99999;
+}
 
+.caret {
+	float: right;
+	margin-top: 10px;
+}
+.courseChoose {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	height: 35px;
+}
+
+#close {
+	margin-bottom: 10px;
+	float: left;
+}
+#save {
+	margin-bottom: 10px;
+	float: right;
+}
 
 
 

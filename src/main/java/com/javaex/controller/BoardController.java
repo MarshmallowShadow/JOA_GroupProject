@@ -36,7 +36,8 @@ public class BoardController {
 		System.out.println("BoardController > board");
 		 
 		Map<String, Object> pMap = boardService.board(keyword, crtPage);
-		model.addAttribute("pMap", pMap);
+		
+		model.addAttribute("boardList", pMap.get("boardList"));
 		
 		return "board/board";
 	}
