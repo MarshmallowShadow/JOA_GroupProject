@@ -41,7 +41,7 @@
 			        cate_name cateName
 			from favorite_category
 			where user_no = #{userNo}
-			order by cate_name desc
+			order by cate_no asc
 		]]>
 	</select>
 	

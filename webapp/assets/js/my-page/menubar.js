@@ -28,11 +28,10 @@ $(document).ready(function(){
 	});
 	
 	/*메뉴창 안의 모달들 숨겨두기*/
-    $(".category-add-btn").hide();
-    $(".category-del-btn").hide();
-    $(".category-modify-btn").hide();
-    
-	
+    $(".category-add-btn").modal('hide');
+    $(".category-del-btn").modal('hide');
+    $(".category-modify-btn").modal('hide');
+
 	
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
@@ -56,16 +55,17 @@ $(document).ready(function(){
 			console.error(status + " : " + error);
 		}
 	});
-	
+		
+
 	
 	
 	/*--------------------------------------------------*/
 	/*카테고리 추가하기*/
 	$(".plus-btn").click(function(){
-      console.log("카테고리추가");
-      $(".category-add-btn").modal("show");
-      
-      $("#add-bookmark-category").on("click", function(){
+		console.log("카테고리추가");
+		$(".category-add-btn").modal("show");
+	  
+		$("#add-bookmark-category").on("click", function(){
 			console.log("즐겨찾기 추가 버튼 클릭");
 			//데이터 수집
 			var catename = $("[name=catename]").val();
@@ -75,7 +75,7 @@ $(document).ready(function(){
 				cateName: catename
 			};
 			console.log(categoryVo);
-			
+		
 			$.ajax({
 				url : contextPath + "/api/my-page/add-category-list",		
 				type : "post",
@@ -85,10 +85,10 @@ $(document).ready(function(){
 				success : function(categoryVo){
 					//성공시 처리해야될 코드 작성
 					console.log(categoryVo);
-					
+				
 					//1개의 데이터 리스트에 추가(그리기)
 					render(categoryVo, "up");
-					
+				
 					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
 					$("[name=catename]").val("");
 				},
@@ -96,15 +96,65 @@ $(document).ready(function(){
 					console.error(status + " : " + error);
 				}
 			});
-			
+			$(".category-add-btn").modal('hide');
 		});
-      
-   	});
+	});
+	
+	
+	
+	
+	/*--------------------------------------------------*/
+	/*카테고리 삭제하기*/
+	$(".minus-btn").click(function(){
+		console.log("카테고리삭제");
+		
+		//삭제버튼의 no값 꺼내오기
+		var $this = $(this);
+		var cateNo = $this.data("cateNo");	//data-cateNo
+		console.log(cateNo);
+		
+		
+		/*//모달창의 비밀번호만 비우기
+		$("#delModal [name=password]").val("");
+		//꺼낸 no를 모달창의 폼에서 no값 넣는 곳에 넣어주기
+		$("[name=no]").val(no);
+		
+		
+		//모달창 띄우기
+		$("#delModal").modal("show");
+		*/
+		
+		
+		
+		$(".category-del-btn").modal("show");
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
    
-   	$(".minus-btn").click(function(){
-      console.log("카테고리삭제");
-      $(".category-del-btn").modal("show");
-   	});
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
    	
    	
    	$(".editName").click(function(){
@@ -112,8 +162,5 @@ $(document).ready(function(){
       $(".category-modify-btn").modal("show");
    });
    
-   
-   
-	
-});
+});   
 
