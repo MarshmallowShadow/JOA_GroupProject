@@ -9,7 +9,7 @@
 			console.log("jquery로 요청 data만 받는 요청");
 			
 			//리스트 요청 + 그리기
-			fetchList();
+			//fetchList();
 			
 		});
 		

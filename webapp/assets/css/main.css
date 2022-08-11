@@ -19,13 +19,14 @@
 
 .weather ul {
 	width: auto;
-	padding-left: 200px;
 	padding-top: 10px;
 	position: relative;
 	display: inherit;
 }
 
 .weather {
+	display: flex; /* for center-align */
+	justify-content: center; /* align horizontal */
 	position: relative;
 	background-color: #B0C4DE;
 	height: 40px;

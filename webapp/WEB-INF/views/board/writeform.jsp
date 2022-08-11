@@ -10,9 +10,6 @@
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/writeForm.css" rel="stylesheet" type="text/css">
 
-<!-- 자바스크립트 -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -25,7 +22,7 @@
 		
 		<div id="writebox">
 		
-			<form action="${pageContext.request.contextPath}/board/write" method="post">
+			<form action="${pageContext.request.contextPath}/board/write" method="get">
 				<!-- 글쓴이 -->
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				
@@ -184,5 +181,9 @@
 
 </body>
 
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/board/writeform.js"></script>
+
 </html>

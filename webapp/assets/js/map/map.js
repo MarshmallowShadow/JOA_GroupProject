@@ -19,10 +19,10 @@ $(document).ready(function(){
 		console.log("dist");
 	});
 	
-	$("#btn-cate").on("focusout", function(){
+	$("#btn-dist").on("focusout", function(){
 		$(this).toggleClass("fmenu-btn-selected");
 		$(this).toggleClass("fmenu-btn");
-		console.log("cate out");
+		console.log("dist out");
 	});
 	
 	$("#btn-diff").on("click", function(){
@@ -31,7 +31,11 @@ $(document).ready(function(){
 		console.log("diff");
 	});
 	
-	
+	$("#btn-diff").on("focusout", function(){
+		$(this).toggleClass("fmenu-btn-selected");
+		$(this).toggleClass("fmenu-btn");
+		console.log("diff out");
+	});
 	/*------------지도------------*/
 	//지도 정보
 	var mapContainer = document.getElementById('map-info');
