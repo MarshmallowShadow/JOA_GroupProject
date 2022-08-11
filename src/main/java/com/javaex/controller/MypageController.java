@@ -18,13 +18,12 @@ public class MypageController {
 	@Autowired private MypageService mypageService;
 	
 	
+	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypage(Model model, int userNo) {
+	public String mypage() {
 		System.out.println("MypageController>mypage");
-		List<CategoryVo> getCategoryList = mypageService.getCategoryList(userNo);
-		List<CategoryVo> categoryList = mypageService.categoryList();
-		model.addAttribute("categoryList", categoryList);
+		
 		return "my-page/main";
 	}
 	
