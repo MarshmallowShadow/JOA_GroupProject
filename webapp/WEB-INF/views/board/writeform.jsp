@@ -33,6 +33,7 @@
 				<div id="option_line">
 					<p id="option">항목</p>
 					<select id="option_list" name="boardCategory">
+						<option value="default"></option>
 						<option value="question">질문</option>
 						<option value="commute">소통</option>
 						<option value="post">후기</option>
@@ -216,7 +217,7 @@
 			$.ajax({
 				
 				//보낼 때
-				url : "${pageContext.request.contextPath}/writeform",
+				url : "${pageContext.request.contextPath}/write",
 				type : "post",
 				contentType : "application/json",
 				data : JSON.stringify(boardVo),	//js객체를 JSON 문자열로 변경
