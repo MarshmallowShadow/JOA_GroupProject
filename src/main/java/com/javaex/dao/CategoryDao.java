@@ -15,10 +15,16 @@ public class CategoryDao {
 	private SqlSession sqlSession;
 		
 	
-	//즐겨찾기 카테고리 list 가져오기
+	//즐겨찾기 카테고리 list 가져오기1
 	public List <CategoryVo> getCategoryList(int userNo){
 		System.out.println("CategoryDao>CateList"); 
 		return sqlSession.selectList("mypage.getCategoryList", userNo);
+	}
+	
+	//즐겨찾기 카테고리 list 가져오기2
+	public List <CategoryVo> categoryList(){
+		System.out.println("CategoryDao>CateList"); 
+		return sqlSession.selectList("mypage.categoryList");
 	}
 	
 	
