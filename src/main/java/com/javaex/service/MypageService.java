@@ -24,22 +24,27 @@ public class MypageService {
 	
 	
 	
+	
+	
+	
+	
 	//즐겨찾기 카테고리 list 가져오기1
 	public List <CategoryVo> getCategoryList(int userNo){
 		System.out.println("MypageService>CateList"); 
 		return categoryDao.getCategoryList(userNo); 
 	}
-	
-	//즐겨찾기 카테고리 list 가져오기2
-	public List <CategoryVo> categoryList(){
-		System.out.println("MypageService>CateList"); 
-		return categoryDao.categoryList(); 
-	}
-	
+		
 	//즐겨찾기 카테고리 추가 insert
 	public int insertCategory(CategoryVo categoryVo) {
 		System.out.println("MypageService>insertCategory()");
 		return categoryDao.insertCategory(categoryVo);
 	}
+	
+	//즐겨찾기 카테고리 추가 delete
+	public int deleteCategory(int cateNo) {
+		System.out.println("MypageService>deleteCategory()");
+		return categoryDao.deleteCategory(cateNo);
+	}
+	
 	
 }

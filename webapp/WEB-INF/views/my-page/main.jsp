@@ -470,10 +470,8 @@
         <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
       </div>
       <div class="modal-body">
-        <select>
-        	<c:forEach items="${requestScope.categoryList}" var="categoryVo">
-        		<option>${categoryVo.cateName}</option>
-        	</c:forEach>
+        <select class="sel-delCategory">
+        	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
         <br>
         <br>
@@ -481,7 +479,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary" data-cateNo="${categoryVo.cateNo}">목록 삭제</button>
+        <button type="button" class="btn btn-primary" id="del-bookmark-category">목록 삭제</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

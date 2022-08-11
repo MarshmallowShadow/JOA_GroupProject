@@ -6,10 +6,15 @@ function render(categoryList) {
 	str += '	<img class="editName" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
-	
 	$(".categoryArea").append(str);
 }
 
+function render2(categoryList) {
+	var str = '';
+	str += '<option data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
+	
+	$(".sel-delCategory").append(str);
+}
 
 $(document).ready(function(){
 	console.log("준비")
@@ -108,28 +113,58 @@ $(document).ready(function(){
 	$(".minus-btn").click(function(){
 		console.log("카테고리삭제");
 		
-		//삭제버튼의 no값 꺼내오기
-		var $this = $(this);
-		var cateNo = $this.data("cateNo");	//data-cateNo
-		console.log(cateNo);
-		
-		
-		/*//모달창의 비밀번호만 비우기
-		$("#delModal [name=password]").val("");
-		//꺼낸 no를 모달창의 폼에서 no값 넣는 곳에 넣어주기
-		$("[name=no]").val(no);
-		
-		
+		/*삭제리스트 가져오기*/
+		$.ajax({
+			url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(categoryList){
+				//컨트롤러 함수 실행 후 코드
+				console.log(categoryList);
+				//화면에 data + html로 띄운다(그린다).
+				//리스트니까 for문으로 그리기!
+				for(var i=0; i<categoryList.length; i++){
+					render2(categoryList[i], "down");	//vo --> 화면에 그린다.
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
 		//모달창 띄우기
-		$("#delModal").modal("show");
-		*/
-		
-		
-		
 		$(".category-del-btn").modal("show");
 	});
 	
-	
+	//모달창의 삭제버튼 클릭할때
+	$(".del-bookmark-category").on("click", function(){
+		console.log("모달>삭제버튼 클릭")
+		
+		//삭제할 데이터 모으기
+		var $this = $(this);
+		var cateNo = $this.data("cateNo");
+		
+		//서버로 데이터 전송(ajax)
+		$.ajax({
+			
+			url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+				console.log(result);
+				$(".category-del-btn").modal("show");
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+	});
 	
 	
 	

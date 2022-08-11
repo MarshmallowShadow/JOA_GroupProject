@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ public class ApiMypageController {
 	private MypageService mypageService;
 	
 	
+	//나의 기록 보기////////////////////////////////////////////////////////////////////////////
 	//나의 기록보기 - 기록 list 가져오기
 	@ResponseBody
 	@RequestMapping(value="/api/my-page/get-record-list", method= {RequestMethod.GET, RequestMethod.POST}) 
@@ -31,6 +33,12 @@ public class ApiMypageController {
 	
 	
 	
+	
+	
+	
+	
+	
+	//메뉴탭///////////////////////////////////////////////////////////
 	//즐겨찾기 카테고리 1- 카테고리 list 가져오기
 	@ResponseBody
 	@RequestMapping(value="/api/my-page/get-category-list", method= {RequestMethod.GET, RequestMethod.POST}) 
@@ -38,7 +46,7 @@ public class ApiMypageController {
 		System.out.println("ApiMypageController>cate-list()");
 		List<CategoryVo> categoryList = mypageService.getCategoryList(userNo);
 	 	System.out.println(categoryList);
-	 return categoryList; 
+	 	return categoryList; 
 	}
 	
 	//즐겨찾기 카테고리 2- 카테고리 추가하기
@@ -48,8 +56,17 @@ public class ApiMypageController {
 		System.out.println("ApiMypageController>insert-cate()");
 		int cVo = mypageService.insertCategory(categoryVo);
 	 	System.out.println(categoryVo);
-	 return categoryVo;
+	 	return categoryVo;
 	}
+	
+	//즐겨찾기 카테고리 3- 카테고리 삭제하기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/del-category-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public int deleteCategory(@RequestBody int cateNo) {
+		System.out.println("ApiMypageController>delete-cate()");
+		return mypageService.deleteCategory(cateNo);
+	}
+	
 	
 	
 }
