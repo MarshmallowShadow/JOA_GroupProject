@@ -16,11 +16,7 @@ function render2(categoryList) {
 	$(".sel-delCategory").append(str);
 }
 
-$("#category").change(function () {
-	var selectedItem = $(this).val();
-	var abc=$(this).find(':selected').data("value");
-	console.log(abc)
-});
+
 
 $(document).ready(function(){
 	console.log("준비")
@@ -152,9 +148,9 @@ $(document).ready(function(){
 		/*var $this = $(this);
 		var cateNo = $this.data("cateNo");*/
 		//삭제할 데이터 모으기
-		/*var optNo = $(this).children('option:selected').data('cateNo');
-		*/var cateNo = $('option:selected',this).data("cateNo");
-		console.log(cateNo);
+		var selectedItem = $("#opt-delCategory [name=cateNo]").val();
+		/*var abc=$(this).find(':selected').data("value");*/
+		console.log(selectedItem);
 		
 		//서버로 데이터 전송(ajax)
 		/*$.ajax({
