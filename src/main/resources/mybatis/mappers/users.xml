@@ -22,16 +22,13 @@
 	</select>
 	
 	<!-- 사용자 이름 가져오기 -->
-	<select id="getName" parameterType="int" resultType="String">
+	<select id="getName" parameterType="int" resultType="UserVo">
 		<![CDATA[
-			select name
+			select user_no, name
 			from users
 			where user_no = #{userNo}
 		]]>
 	
 	</select>
-
-
-
 
 </mapper>

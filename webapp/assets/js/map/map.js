@@ -1,39 +1,39 @@
 
 $(document).ready(function(){
 	$("#btn-cate").on("click", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-cate").toggleClass("fmenu-btn-selected");
+		$("#btn-cate").toggleClass("fmenu-btn");
 		console.log("cate");
 	});
 	
 	
 	$("#btn-cate").on("focusout", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-cate").toggleClass("fmenu-btn-selected");
+		$("#btn-cate").toggleClass("fmenu-btn");
 		console.log("cate out");
 	});
 	
 	$("#btn-dist").on("click", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-dist").toggleClass("fmenu-btn-selected");
+		$("#btn-dist").toggleClass("fmenu-btn");
 		console.log("dist");
 	});
 	
 	$("#btn-dist").on("focusout", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-dist").toggleClass("fmenu-btn-selected");
+		$("#btn-dist").toggleClass("fmenu-btn");
 		console.log("dist out");
 	});
 	
 	$("#btn-diff").on("click", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-diff").toggleClass("fmenu-btn-selected");
+		$("#btn-diff").toggleClass("fmenu-btn");
 		console.log("diff");
 	});
 	
 	$("#btn-diff").on("focusout", function(){
-		$(this).toggleClass("fmenu-btn-selected");
-		$(this).toggleClass("fmenu-btn");
+		$("#btn-diff").toggleClass("fmenu-btn-selected");
+		$("#btn-diff").toggleClass("fmenu-btn");
 		console.log("diff out");
 	});
 	/*------------지도------------*/
@@ -71,5 +71,8 @@ $(document).ready(function(){
 		map.setCenter(locPosition); 
 	}
 });
+
+
+
 
 

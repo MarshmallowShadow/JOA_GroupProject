@@ -29,13 +29,15 @@
 			<button class="btn-grey">제목</button>
 		</div> <!-- searchbar -->
 		<div id="filter-menu">
-			
-			<button type="button" id="btn-cate" class="fmenu-btn">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
-			
-			<button type="button" id="btn-dist" class="fmenu-btn">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
-			
-			<button type="button" id="btn-diff" class="fmenu-btn">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
-			
+			<div id="cont-cate">
+				<button type="button" id="btn-cate" class="fmenu-btn">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			</div>
+			<div id="cont-dist">
+				<button type="button" id="btn-dist" class="fmenu-btn">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			</div>
+			<div id="cont-diff">
+				<button type="button" id="btn-diff" class="fmenu-btn">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			</div>
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
 			

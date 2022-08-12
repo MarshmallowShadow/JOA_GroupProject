@@ -29,7 +29,7 @@ public class UserDao {
 	}
 	
 	//사용자 이름 가져오기
-	public String getUserName(int userNo) {
+	public UserVo getUserName(int userNo) {
 		System.out.println("UserDao->getUserName");
 		return sqlSession.selectOne("users.getName", userNo);
 	}

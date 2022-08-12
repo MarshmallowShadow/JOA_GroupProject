@@ -72,7 +72,7 @@
 /* ----------- 로그인 후 헤더 변환 ----------- */
 /* 메뉴 펼침 - 체크박스 체크되면 메뉴목록 표시 */
 
-#header #user-menu label { 
+#header #user-menu #menu-btn { 
 	margin: 0;
 	cursor: pointer;
 	display: flex;
@@ -95,9 +95,9 @@
 	z-index: 900;
 }
 
-#user-menu label:hover, #header #user-menu .menubars li:hover {
+#user-menu #menu-btn:hover, #header #user-menu .menubars li:hover {
 	background-color: rgb(50, 108, 249);
-	color: #fff
+	color: #fff;
 }
 
 /* 로그인 후 펼친 메뉴 설정 */
