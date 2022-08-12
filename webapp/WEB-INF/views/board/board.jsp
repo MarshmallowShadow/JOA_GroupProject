@@ -68,7 +68,7 @@
 					<c:forEach items="${boardList}" var="bMap">
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
-								<td class="center">${bMap.BOARDCATEGORY}</td>
+								<td class="center">${categoryMap[bMap.BOARDCATEGORY]}</td>
 								<td><a href="${pageContext.request.contextPath}/read/${bMap.BOARDNO}">${bMap.TITLE} 
 									<!--<c:if test="${Map.board_img_no eq true}">
 										<span class="glyphicon glyphicon-picture"></span>

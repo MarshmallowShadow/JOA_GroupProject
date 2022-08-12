@@ -24,13 +24,15 @@ public class BoardDao {
 	
 	//메소드-일반
 	//리스트 불러오기 + 페이징
-	public List<BoardVo> board(int startRnum, int endRnum) {
+	public List<BoardVo> board(String boardCategory, String keyword, int startRnum, int endRnum) {
 		
 		System.out.println("BoardDao > board");
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("keyword", keyword);
+		map.put("boardCategory", boardCategory);
 		
 		List<BoardVo> boardList = sqlSession.selectList("board.board", map);
 		
@@ -51,24 +53,6 @@ public class BoardDao {
 	      
 		return totalCount;
 	      
-	}
-	
-	//검색
-	public List<Map<String, Object>> getList(String keyword) {
-		
-		System.out.println("BoardDao > getList");
-		
-		if(keyword == null) {
-			keyword = "";
-		}
-		
-		keyword = "%" + keyword + "%";
-		List<Map<String, Object>> bList = sqlSession.selectList("board.getList", keyword);
-		
-		System.out.println(bList);
-		
-		return bList;
-		
 	}
 	
 	//게시판 글쓰기

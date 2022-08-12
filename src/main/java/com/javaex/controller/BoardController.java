@@ -31,17 +31,19 @@ public class BoardController {
 	//메소드-일반
 	//게시판 리스트
 	@RequestMapping(value="/board", method = {RequestMethod.GET, RequestMethod.POST})
-	public String board(Model model, String keyword, @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage) {
+	public String board(Model model,@RequestParam(value="boardCategory", required=false, defaultValue="") String boardCategory, @RequestParam(value="keyword", required=false, defaultValue="")String keyword, @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage) {
 		
 		System.out.println("BoardController > board");
 		 
-		Map<String, Object> pMap = boardService.board(keyword, crtPage);
+		Map<String, Object> pMap = boardService.board(boardCategory, keyword, crtPage);
 		
 		model.addAttribute("boardList", pMap.get("boardList"));
 		model.addAttribute("prev", pMap.get("prev"));
 		model.addAttribute("next", pMap.get("next"));
 		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
 		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
+		model.addAttribute("categoryMap", pMap.get("categoryMap"));
+		model.addAttribute("boardCategory", pMap.get("boardCategory"));
 		
 		return "board/board";
 	}

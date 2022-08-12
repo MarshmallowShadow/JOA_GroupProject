@@ -30,7 +30,7 @@ public class BoardService {
 	
 	
 	//메소드-일반
-	public Map<String, Object> board(String keyword, int crtPage) {
+	public Map<String, Object> board(String boardCategory, String keyword, int crtPage) {
 		
 		System.out.println("BoardService > board");
 		
@@ -60,8 +60,22 @@ public class BoardService {
 		int endRnum = (startRnum + listCnt) - 1;
 		
 		//System.out.println("글갯수" + listCnt + ",페이지" + crtPage + ",시작글" + startRnum + ",끝글" + endRnum);
+		if(boardCategory == null) {
+			boardCategory = "";
+		}
 		
-		List<BoardVo> boardList = boardDao.board(startRnum, endRnum);
+		if(keyword == null) {
+			
+			keyword = "";
+			
+		}
+		
+		boardCategory = "%" + boardCategory + "%";
+		keyword = "%" + keyword + "%";
+		
+		System.out.println(boardCategory);
+		
+		List<BoardVo> boardList = boardDao.board(boardCategory, keyword, startRnum, endRnum);
 		
 		//System.out.println(boardList);
 		
@@ -100,14 +114,20 @@ public class BoardService {
 		
 		System.out.println("페이지" + crtPage + ", 시작 버튼 번호" + startPageBtnNo + ", 마지막 버튼 번호" + endPageBtnNo + ", 이전" + prev + ", 다음" + next);
 		
+		Map<String, String> categoryMap = new HashMap<String, String>();
+		categoryMap.put("commute", "소통");
+		categoryMap.put("question", "질문");
+		categoryMap.put("post", "후기");
+		categoryMap.put("together", "함께");
+		categoryMap.put("map", "코스");
+		
 		Map<String, Object> pMap = new HashMap<String, Object>();
 		pMap.put("boardList", boardList);
 		pMap.put("prev", prev);
 		pMap.put("next", next);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("startPageBtnNo", startPageBtnNo);
-		
-		List<Map<String, Object>> bList = boardDao.getList(keyword);
+		pMap.put("categoryMap", categoryMap);
 		
 		return pMap;
 		
