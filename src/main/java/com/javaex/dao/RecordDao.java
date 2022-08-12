@@ -34,8 +34,8 @@ public class RecordDao {
 	}
 	
 	//(기록상세보기) 기록 리스트 가져오기
-	public List<RecordVo> getRecord(int courseNo) {
-		System.out.println("RecordDao->getRecord");
+	public List<RecordVo> getAllRecord(int courseNo) {
+		System.out.println("RecordDao->getAllRecord");
 		return sqlSession.selectList("record.getRec", courseNo);
 	}
 	

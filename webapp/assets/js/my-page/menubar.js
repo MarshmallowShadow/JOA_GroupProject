@@ -11,10 +11,12 @@ function render(categoryList) {
 
 function render2(categoryList) {
 	var str = '';
-	str += '<option data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
+	str += '<option id="opt-delCategory" data-cateNo="'+categoryList.cateNo+'" name="cateNo" value="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
 	
 	$(".sel-delCategory").append(str);
 }
+
+
 
 $(document).ready(function(){
 	console.log("준비")
@@ -139,15 +141,19 @@ $(document).ready(function(){
 	});
 	
 	//모달창의 삭제버튼 클릭할때
-	$(".del-bookmark-category").on("click", function(){
+	$("#del-bookmark-category").on("click", function(){
 		console.log("모달>삭제버튼 클릭")
 		
 		//삭제할 데이터 모으기
-		var $this = $(this);
-		var cateNo = $this.data("cateNo");
+		/*var $this = $(this);
+		var cateNo = $this.data("cateNo");*/
+		//삭제할 데이터 모으기
+		var selectedItem = $("#opt-delCategory [name=cateNo]").val();
+		/*var abc=$(this).find(':selected').data("value");*/
+		console.log(selectedItem);
 		
 		//서버로 데이터 전송(ajax)
-		$.ajax({
+		/*$.ajax({
 			
 			url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
 			type : "post",
@@ -157,36 +163,15 @@ $(document).ready(function(){
 			dataType : "json",
 			success : function(result){
 				/*성공시 처리해야될 코드 작성*/
-				console.log(result);
-				$(".category-del-btn").modal("show");
+				/*console.log(result);
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
 		});
+		$(".sel-delCategory").remove();
+		$(".category-del-btn").modal("hide");*/
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-
-   
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
    	
    	
    	

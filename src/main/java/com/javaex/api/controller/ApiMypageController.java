@@ -64,7 +64,8 @@ public class ApiMypageController {
 	@RequestMapping(value="/api/my-page/del-category-list", method= {RequestMethod.GET, RequestMethod.POST}) 
 	public int deleteCategory(@RequestBody int cateNo) {
 		System.out.println("ApiMypageController>delete-cate()");
-		return mypageService.deleteCategory(cateNo);
+		int delCate = mypageService.deleteCategory(cateNo);
+		return delCate;
 	}
 	
 	

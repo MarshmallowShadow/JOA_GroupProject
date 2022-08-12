@@ -20,9 +20,10 @@
 	
 		<h1>게시판</h1>
 		
-		<div id="writebox">
+		<form action="${pageContext.request.contextPath}/board/write" method="get">
 		
-			<form action="${pageContext.request.contextPath}/board/write" method="get">
+			<div id="writebox">
+
 				<!-- 글쓴이 -->
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				
@@ -67,21 +68,23 @@
 					<input type="hidden" name="eventNo">
 				</div>
 				
+			</div><!-- writebox -->	
+				
 				<br><br><br>
 	
 				<div id="user_btn">
 					<button id="cencle" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">취소</button>
 					<button type="submit" id="post">등록</button>
 				</div>
-			</form>
-			
-		</div><!-- writebox -->	
-		
+				
+		</form>
+
+
 	</div><!-- wrap -->
-	
 	
 
 	<br><br><br><br><br><br><br>
+
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->

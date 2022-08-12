@@ -30,5 +30,14 @@
 			where course_no = #{courseNo}
 		]]>
 	</select>
-
+	
+	
+	<!-- (코스상세보기) 기록작성자 번호 가져오기 -->
+	<select id="getUserNo" resultType="int" parameterType="int">
+		<![CDATA[
+			select user_no
+			from course
+			where course_no = #{courseNo}
+		]]>
+	</select>
 </mapper>

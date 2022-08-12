@@ -26,4 +26,11 @@ public class CourseDao {
 		return sqlSession.selectOne("course.selectCourse", courseNo);
 	}
 
+
+	//(코스상세보기) 기록작성자 번호 가져오기
+	public int getCoUserNo(int courseNo) {
+		System.out.println("CourseDao->getCoUserNo");
+		return sqlSession.selectOne("course.getUserNo", courseNo);
+	}
+
 }

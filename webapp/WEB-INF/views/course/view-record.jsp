@@ -14,7 +14,7 @@
 <!-- 자바스크립트 -->
 <!-- 자바스크립트 -->
 <script type="text/javascript">
-	window.userNo = parseInt('1');
+	window.authUserNo = parseInt('${authUser.userNo}');
 	window.contextPath = '${pageContext.request.contextPath}';
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
@@ -87,7 +87,7 @@
 										<div class="record-info">
 											<span>22.07.18 10:03</span>
 											<span><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></span>
-											<span>20℃</span>
+											<span style="width:24px;">20℃</span>
 											<span class="box blue">산책</span>
 											<span class="box pink">어려움</span>
 										</div>
