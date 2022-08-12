@@ -26,7 +26,7 @@
 		<div id="top_aside">
 			<form action="${pageContext.request.contextPath}/board" method="get">
 				<select id="option" name="boardCategory">
-					<option value="default"></option>
+					<option value=""></option>
 					<option value="question">질문</option>
 					<option value="commute">소통</option>
 					<option value="post">후기</option>
