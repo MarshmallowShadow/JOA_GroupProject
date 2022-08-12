@@ -64,8 +64,7 @@
 					<tr>
 						<th>1</th>
 						<td class="center">[개인]</td>
-						<td>내가 그렇게 만만하니 <span
-							class="glyphicon glyphicon-picture"></span></td>
+						<td>내가 그렇게 만만하니 <span class="glyphicon glyphicon-picture"></span></td>
 						<td class="center">유키스</td>
 						<td class="center">47</td>
 						<td class="center">2022.07.25</td>
