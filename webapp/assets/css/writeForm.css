@@ -23,16 +23,16 @@ h1 {
 	border: solid 1px #c0c0c0;
 	margin: 0px 130px 0px 130px;
 }
-#option_line, #title_line, #content_line, #file_line, #course_line, #together_line {margin-top: 37px;}
+#option_line, #title_line, #content_line, #course_line, #together_line {margin-top: 37px;}
 #together_line {margin-bottom: 37px;}
 /** 선택 항목들 **/
-#option, #title, #file, #course, #together {
+#option, #title, #course, #together {
 	float: left;
 	margin-left: 58px;
 	font-size : 15pt;
 }
 #option, #title {margin-top: 6px;}
-#file, #course, #together {margin-top: 1px;}
+#course, #together {margin-top: 1px;}
 #contentbox {margin-left: 50px;}
 #option_list {
 	width : 100px;
@@ -80,6 +80,66 @@ h1 {
 	background-color: rgb(50, 108, 249);
 	border:none;
 	color: white;
+}
+
+/********************* 사진 등록 *********************/
+
+/* 검은색 버튼 */
+.course-form #address-btn, .course-form h2 label {
+	border-radius: 3px;
+	background-color: rgb(35, 45, 74);
+	color: rgb(255, 255, 255);
+	border-color: transparent;
+}
+.course-form h2 {margin-left: 45px;}
+/* 사진추가 드래그앤 드롭 */
+/* 파일선택 버튼 가리기 */
+.course-form h2 input[type="file"] {display: none;}
+.course-form h2 label {
+	width: 123px;
+	line-height: 40px;
+	margin-right: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+.course-form #drop {
+    width: 92%;
+	height: 350px;
+	margin-left: 45px;
+	background-color: rgb(224, 224, 224);
+	padding: 10px;
+	overflow: auto;
+	margin-bottom: 37px;
+}
+/* 사진 없을때 */
+.course-form #drop #fileDragDesc {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 80px 0px
+}
+.course-form #drop #fileDragDesc #photo-icon {
+	display: block;
+}
+.course-form #drop #fileDragDesc p {
+	display: block;
+	margin: 15px 0px 30px 0px;
+}
+/* 사진 있을때 */
+#filesList .thumb {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	margin: 10px;
+}
+#filesList .thumb span {
+	background-color: rgb(255,255,255);
+	border-radius: 50px;
+}
+#filesList .thumb img {
+	width: 190px;
+	height: 150px;
+	object-fit: cover;
 }
 
 
