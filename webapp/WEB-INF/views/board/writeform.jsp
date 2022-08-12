@@ -25,7 +25,7 @@
 			<div id="writebox">
 
 				<!-- 글쓴이 -->
-				<input type="text" name="userNo" value="${authUser.userNo}">
+				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				
 				<!-- 글쓰기 옵션 항목 -->
 				<div id="option_line">

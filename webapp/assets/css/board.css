@@ -30,8 +30,8 @@ h1 {
 }
 #page {
 	margin-top: 20px;
-	display: flex;
-	justify-content: center;
+	display: flex; /* 가운데 정렬 */
+	justify-content: center; /* 가운데 정렬 */
 }
 
 /*********************** 검색 ***********************/
