@@ -64,10 +64,8 @@ public class BoardService {
 			boardCategory = "";
 		}
 		
-		if(keyword == null) {
-			
+		if(keyword == null) {	
 			keyword = "";
-			
 		}
 		
 		boardCategory = "%" + boardCategory + "%";
