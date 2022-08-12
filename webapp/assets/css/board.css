@@ -30,8 +30,8 @@ h1 {
 }
 #page {
 	margin-top: 20px;
-	display: grid;
-	place-items: center;
+	display: flex;
+	justify-content: center;
 }
 
 /*********************** 검색 ***********************/

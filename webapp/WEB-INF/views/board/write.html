@@ -8,8 +8,8 @@
 <title>게시판 글쓰기폼</title>
 
 <!-- css -->
-<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/writeForm.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/writeForm.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
 			<div id="writebox">
 
 				<!-- 글쓴이 -->
-				<input type="text" name="userNo" value="${authUser.userNo}">
+				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				
 				<!-- 글쓰기 옵션 항목 -->
 				<div id="option_line">

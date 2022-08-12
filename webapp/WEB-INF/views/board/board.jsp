@@ -69,7 +69,7 @@
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${bMap.BOARDCATEGORY}</td>
-								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
+								<td><a href="${pageContext.request.contextPath}/read/${bMap.BOARDNO}">${bMap.TITLE} 
 									<!--<c:if test="${Map.board_img_no eq true}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if>-->

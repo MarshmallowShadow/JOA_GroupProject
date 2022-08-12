@@ -56,13 +56,14 @@ public class BoardController {
 	}
 	
 	//게시판 글쓰기
-	@RequestMapping(value="/board/write", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute BoardVo boardVo, HttpSession session) {
 		
 		System.out.println("BoardController > write");
 		
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		boardVo.setUserNo(authUser.getUserNo());
+		System.out.println(authUser.getUserNo());
 		
 		//줄바꿈
 		boardVo.setContent(boardVo.getContent().replace("\n", "<br>"));

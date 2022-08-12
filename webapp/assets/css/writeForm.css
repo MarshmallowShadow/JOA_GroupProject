@@ -57,10 +57,16 @@ h1 {
 	color: #ccc;
 }
 #folder, #man {margin-right: 10px;}
-#user_btn {margin-left: 44%;}
-#cencle {
+#user_btn {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+#cancel {
 	width : 100px;
 	height: 40px;
+	display: grid;
+	place-items: center;
 	background-color: #dedede;
 	color: #666;
 	border:none;
@@ -68,6 +74,8 @@ h1 {
 #post {
 	width : 100px;
 	height: 40px;
+	display: grid;
+	place-items: center;
 	margin-left: 5px;
 	background-color: rgb(50, 108, 249);
 	border:none;

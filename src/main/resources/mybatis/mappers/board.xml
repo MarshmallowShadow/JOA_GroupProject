@@ -65,8 +65,8 @@
 	<!-- 게시판 글쓰기 -->
 	<insert id="insert" parameterType="BoardVo">
 		<![CDATA[
-			insert into board
-			values(seq_board_no.nextval, #{viewCount}, #{title}, #{content}, 0, sysdate, #{userNo})
+			insert into board (board_no, user_no, board_category, title, content, reg_date, view_count)
+			values(SEQ_BOARD_NO.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 
