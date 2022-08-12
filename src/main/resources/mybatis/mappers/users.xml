@@ -14,7 +14,8 @@
 	<!-- 로그인 -->
 	<select id="login" parameterType="UserVo" resultType="UserVo">
 	<![CDATA[
-		select user_no, name
+		select user_no userNo,
+			   name
 		from users
 		where id = #{id}
 		and password = #{password}
@@ -24,7 +25,8 @@
 	<!-- 사용자 이름 가져오기 -->
 	<select id="getName" parameterType="int" resultType="UserVo">
 		<![CDATA[
-			select user_no, name
+			select user_no userNo,
+				   name
 			from users
 			where user_no = #{userNo}
 		]]>

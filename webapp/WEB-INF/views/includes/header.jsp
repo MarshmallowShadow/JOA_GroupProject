@@ -22,7 +22,13 @@
 						<li class="a" onclick="window.location='${pageContext.request.contextPath }/my-page';">마이사이트</li>
 						<li class="a" onclick="window.location='${pageContext.request.contextPath }/user/logout';">로그아웃</li>
 				</ul>
+				
 				<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+				<script type="text/javascript">
+					$("menuitems").focusout(function(){
+						
+					});
+				</script>
 			</c:otherwise>
 		</c:choose>
 	</div>

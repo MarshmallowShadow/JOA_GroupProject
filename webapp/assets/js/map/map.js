@@ -1,41 +1,5 @@
 
 $(document).ready(function(){
-	$("#btn-cate").on("click", function(){
-		$("#btn-cate").toggleClass("fmenu-btn-selected");
-		$("#btn-cate").toggleClass("fmenu-btn");
-		console.log("cate");
-	});
-	
-	
-	$("#btn-cate").on("focusout", function(){
-		$("#btn-cate").toggleClass("fmenu-btn-selected");
-		$("#btn-cate").toggleClass("fmenu-btn");
-		console.log("cate out");
-	});
-	
-	$("#btn-dist").on("click", function(){
-		$("#btn-dist").toggleClass("fmenu-btn-selected");
-		$("#btn-dist").toggleClass("fmenu-btn");
-		console.log("dist");
-	});
-	
-	$("#btn-dist").on("focusout", function(){
-		$("#btn-dist").toggleClass("fmenu-btn-selected");
-		$("#btn-dist").toggleClass("fmenu-btn");
-		console.log("dist out");
-	});
-	
-	$("#btn-diff").on("click", function(){
-		$("#btn-diff").toggleClass("fmenu-btn-selected");
-		$("#btn-diff").toggleClass("fmenu-btn");
-		console.log("diff");
-	});
-	
-	$("#btn-diff").on("focusout", function(){
-		$("#btn-diff").toggleClass("fmenu-btn-selected");
-		$("#btn-diff").toggleClass("fmenu-btn");
-		console.log("diff out");
-	});
 	/*------------지도------------*/
 	//지도 정보
 	var mapContainer = document.getElementById('map-info');
@@ -71,6 +35,45 @@ $(document).ready(function(){
 		map.setCenter(locPosition); 
 	}
 });
+
+$("#btn-cate").on("click", function(){
+	$("#btn-cate").toggleClass("fmenu-btn-selected");
+	$("#btn-cate").toggleClass("fmenu-btn");
+	console.log("cate");
+});
+
+
+$("#btn-cate").on("focusout", function(){
+	$("#btn-cate").toggleClass("fmenu-btn-selected");
+	$("#btn-cate").toggleClass("fmenu-btn");
+	console.log("cate out");
+});
+
+$("#btn-dist").on("click", function(){
+	$("#btn-dist").toggleClass("fmenu-btn-selected");
+	$("#btn-dist").toggleClass("fmenu-btn");
+	console.log("dist");
+});
+
+$("#btn-dist").on("focusout", function(){
+	$("#btn-dist").toggleClass("fmenu-btn-selected");
+	$("#btn-dist").toggleClass("fmenu-btn");
+	console.log("dist out");
+});
+
+$("#btn-diff").on("click", function(){
+	$("#btn-diff").toggleClass("fmenu-btn-selected");
+	$("#btn-diff").toggleClass("fmenu-btn");
+	console.log("diff");
+});
+
+$("#btn-diff").on("focusout", function(){
+	$("#btn-diff").toggleClass("fmenu-btn-selected");
+	$("#btn-diff").toggleClass("fmenu-btn");
+	console.log("diff out");
+});
+
+
 
 
 

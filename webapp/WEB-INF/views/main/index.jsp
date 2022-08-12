@@ -35,7 +35,7 @@
 	</div>
 
 	<!------------------------- photo slider ------------------------>
-
+	${authUser.userNo }
 	<div class="slide slide_wrap">
 		<div class="slide_item item1">
 			<img src="${pageContext.request.contextPath }/assets/image/main/swiss.jpg">
