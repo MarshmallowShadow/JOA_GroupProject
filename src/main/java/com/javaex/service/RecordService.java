@@ -22,6 +22,7 @@ import com.javaex.vo.CourseVo;
 import com.javaex.vo.PointVo;
 import com.javaex.vo.RecordImgVo;
 import com.javaex.vo.RecordVo;
+import com.javaex.vo.UserVo;
 
 @Service
 public class RecordService {
@@ -128,22 +129,25 @@ public class RecordService {
 		
 	}
 
-	//(기록상세보기) 전체 기록 리스트 가져오기
-	public List<RecordVo> getAllRecord(int courseNo) {
-		System.out.println("RecordService->getAllRecord");
-		
-		return recDao.getAllRecord(courseNo);
+	//(기록상세보기) 기록 리스트 가져오기
+	public List<RecordVo> getRecord(int courseNo, int authUserNo) {
+		System.out.println("RecordService->getRecord");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("courseNo", courseNo);
+		map.put("authUserNo", authUserNo);
+		System.out.println(map);
+		return recDao.getRecord(map);
 	}
 
 	//(기록상세보기) 코스작성자 번호 가져오기
 	public int getCoUserNo(int courseNo) {
-		System.out.println("RecordService->getCoUserNo");
+		//System.out.println("RecordService->getCoUserNo");
 		return coDao.getCoUserNo(courseNo);
 	}
 
 	//(기록상세보기) 기록작성자 이름 가져오기
-	public String getUserName(int userNo) {
-		System.out.println("RecordService->getUserName");
+	public UserVo getUserName(int userNo) {
+		//System.out.println("RecordService->getUserName");
 		return userDao.getUserName(userNo);
 	}
 

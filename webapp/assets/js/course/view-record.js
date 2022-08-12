@@ -38,13 +38,26 @@ $(document).ready(function() {
 	/*디폴트-전체 기록 리스트 가져오기*/
 	getAllRecord(courseNo, coUserNo);
 	
+	/*전체-내가쓴기록 선택*/
 	$('input:radio[name="record-filter"]').change(function() {
 		if($(this).val() === 'all') {
 			$('.record-list').empty();
 			getAllRecord(courseNo, coUserNo);
 		} else if($(this).val() === 'myrecord') {
-			$('record-list').empty();
-			getMyRecord();
+			$('.record-list').empty();
+			
+			if(isNaN(authUserNo)) {
+				var str = '';
+				str += '<li>';
+				str += '	<div class="message">';
+				str += '		로그인 후에 이용해 주세요.';
+				str += '	</div>';
+				str += '</li>';
+				
+				$(".record-list").append(str);
+			} else {
+				getMyRecord(courseNo, coUserNo, authUserNo);
+			}
 		}
 	});
 	
@@ -84,7 +97,7 @@ function getAllRecord(courseNo, coUserNo) {
 	
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getAllRecord",
+		url : contextPath+"/getRecord",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},
@@ -106,9 +119,53 @@ function getAllRecord(courseNo, coUserNo) {
 	});
 };
 
+
+/*전체 기록 리스트 가져오기*/
+function getMyRecord(courseNo, coUserNo, authUserNo) {
+	
+	console.log("getMyRecord");
+	
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getRecord",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo, authUserNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(recList){
+			//성공시 처리해야될 코드 작성
+			console.log(recList);
+			
+			if(recList.length > 0) {
+				
+				for(var i=0; i<recList.length; i++) {
+					render(recList[i], coUserNo);
+				}
+				
+			} else {
+				var str = '';
+				str += '<li>';
+				str += '	<div class="message">';
+				str += '		기록이 없습니다.';
+				str += '	</div>';
+				str += '</li>';
+				
+				$(".record-list").append(str);
+			}
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+};
+
+
 /*리스트 추가하기*/
 function render(recVo, coUserNo) {
-	console.log("render");
+	//console.log("render");
 	
 	var name = getUserName(recVo.userNo);
 	
@@ -193,7 +250,7 @@ function getUserName(userNo) {
 		//dataType : "json",
 		success : function(userName){
 			//성공시 처리해야될 코드 작성
-			console.log(userName);
+			//console.log(userName);
 			name = userName;
 		},
 		error : function(XHR, status, error) {

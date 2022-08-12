@@ -1,6 +1,7 @@
 package com.javaex.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,14 @@ public class RecordDao {
 
 	//(코스상세보기) 기록수 가져오기
 	public int getRecCnt(int courseNo) {
-		System.out.println("RecordDao->getRecCnt");
+		//System.out.println("RecordDao->getRecCnt");
 		return sqlSession.selectOne("record.recCnt", courseNo);
 	}
 	
 	//(기록상세보기) 기록 리스트 가져오기
-	public List<RecordVo> getAllRecord(int courseNo) {
-		System.out.println("RecordDao->getAllRecord");
-		return sqlSession.selectList("record.getRec", courseNo);
+	public List<RecordVo> getRecord(Map<String, Object> map) {
+		System.out.println("RecordDao->getRecord");
+		return sqlSession.selectList("record.getRec", map);
 	}
 	
 //////차트 통계////////////////////////////////////////////////////////////////////////////////

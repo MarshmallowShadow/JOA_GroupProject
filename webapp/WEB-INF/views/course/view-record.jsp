@@ -12,7 +12,6 @@
 <link href="${pageContext.request.contextPath }/assets/css/lightbox.css" rel="stylesheet" />
 
 <!-- 자바스크립트 -->
-<!-- 자바스크립트 -->
 <script type="text/javascript">
 	window.authUserNo = parseInt('${authUser.userNo}');
 	window.contextPath = '${pageContext.request.contextPath}';
@@ -64,10 +63,10 @@
 					
 					<!-- 리스트 필터 -->
 					<div class="record-filter">
-						<input type="radio" name="record-filter" id="all" checked>
+						<input type="radio" name="record-filter" id="all" value="all" checked>
 						<label for="all">전체</label>
 						
-						<input type="radio" name="record-filter" id="myrecord">
+						<input type="radio" name="record-filter" id="myrecord" value="myrecord">
 						<label for="myrecord">내가 쓴 기록</label>
 					</div>
 					
@@ -75,32 +74,7 @@
 					<!-- 기록 리스트 -->
 					<div class="record-info-content">
 						<ul class="record-list">
-							<li>
-								<div class="record-full-content">
-									<div class="record-txt">
-										<div class="record-content">
-											<span class="record">
-												<span class="bold"><img src="${pageContext.request.contextPath }/assets/image/course/footprint.png" width="12px">박깜이</span>
-												<span>즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~즐겁게 뛰었던 코스~</span>
-											</span>
-										</div>
-										<div class="record-info">
-											<span>22.07.18 10:03</span>
-											<span><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></span>
-											<span style="width:24px;">20℃</span>
-											<span class="box blue">산책</span>
-											<span class="box pink">어려움</span>
-										</div>
-									</div>
-									
-									<div class="record-img">
-										<!-- lightbox: 이미지 모달, data-lightbox의 이름을 똑같이 하면 이미지 세트로 묶임 -->
-										<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
-											<img class="recordImg" src="${pageContext.request.contextPath }/assets/image/course/img2.jpg" width="24px">
-										</a>
-									</div>
-								</div>
-							</li>
+							
 						</ul>
 					</div>
 					

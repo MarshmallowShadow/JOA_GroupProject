@@ -13,6 +13,7 @@ import com.javaex.dao.RecordDao;
 import com.javaex.dao.UserDao;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.PointVo;
+import com.javaex.vo.UserVo;
 
 @Service
 public class CourseService {
@@ -88,7 +89,7 @@ public class CourseService {
 		System.out.println("CourseService->getCourseInfo");
 		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
 		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
-		String userName = userDao.getUserName(coVo.getUserNo()); //유저이름
+		UserVo userVo = userDao.getUserName(coVo.getUserNo()); //유저이름
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
 		//즐겨찾기 여부
 		//좋아요 여부
@@ -96,7 +97,7 @@ public class CourseService {
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo); //코스정보
 		coMap.put("pointVo", pointVo); //코스좌표
-		coMap.put("userName", userName); //유저이름
+		coMap.put("userName", userVo.getName()); //유저이름
 		coMap.put("recCnt", recCnt); //총 기록수
 		
 		return coMap;

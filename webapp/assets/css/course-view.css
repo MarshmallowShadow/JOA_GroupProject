@@ -288,7 +288,19 @@ input[type=radio] {display:none;}
 	height: 24px;
 	object-fit: cover;
 }
-
+/* 로그인 안됐을때 글씨 */
+.record-info-content .record-list .message {
+	font-size: 20px;
+	font-weight: 700;
+	color: rgb(50, 108, 249);
+	text-align: center;
+	padding-top: 20px;
+}
+.noRec {
+	font-size: 20px;
+	font-weight: 700;
+	padding-top: 20px;
+}
 
 
 /* ===================================기록보기==================================== */
