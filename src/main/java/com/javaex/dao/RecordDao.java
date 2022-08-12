@@ -35,7 +35,7 @@ public class RecordDao {
 	}
 	
 	//(기록상세보기) 기록 리스트 가져오기
-	public List<RecordVo> getRecord(Map<String, Object> map) {
+	public List<Map<String, Object>> getRecord(Map<String, Object> map) {
 		System.out.println("RecordDao->getRecord");
 		return sqlSession.selectList("record.getRec", map);
 	}

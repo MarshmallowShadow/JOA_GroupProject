@@ -159,7 +159,7 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
-						<a href="${pageContext.request.contextPath }/board" class="link-btn">후기 보러가기</a>
+						<a href="${pageContext.request.contextPath}/board?boardCategory=post" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
 							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
 							<span>0</span>

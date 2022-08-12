@@ -17,12 +17,10 @@ import com.javaex.dao.CourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.RecordImgDao;
-import com.javaex.dao.UserDao;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.PointVo;
 import com.javaex.vo.RecordImgVo;
 import com.javaex.vo.RecordVo;
-import com.javaex.vo.UserVo;
 
 @Service
 public class RecordService {
@@ -35,8 +33,6 @@ public class RecordService {
 	private PointDao pointDao;
 	@Autowired
 	private RecordImgDao imgDao;
-	@Autowired
-	private UserDao userDao;
 
 	
 	//코스기록 등록하기
@@ -130,25 +126,29 @@ public class RecordService {
 	}
 
 	//(기록상세보기) 기록 리스트 가져오기
-	public List<RecordVo> getRecord(int courseNo, int authUserNo) {
+	public Map<String, Object> getRecord(int courseNo, int authUserNo) {
 		System.out.println("RecordService->getRecord");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("courseNo", courseNo);
 		map.put("authUserNo", authUserNo);
 		System.out.println(map);
-		return recDao.getRecord(map);
+		
+		//기록 리스트 가져오기
+		List<Map<String, Object>> recList = recDao.getRecord(map);
+		System.out.println(recList);
+		
+		Map<String, Object> recMap = new HashMap<String, Object>();
+		recMap.put("recList", recList);
+		
+		return recMap;
+		
+		
 	}
 
 	//(기록상세보기) 코스작성자 번호 가져오기
 	public int getCoUserNo(int courseNo) {
 		//System.out.println("RecordService->getCoUserNo");
 		return coDao.getCoUserNo(courseNo);
-	}
-
-	//(기록상세보기) 기록작성자 이름 가져오기
-	public UserVo getUserName(int userNo) {
-		//System.out.println("RecordService->getUserName");
-		return userDao.getUserName(userNo);
 	}
 
 

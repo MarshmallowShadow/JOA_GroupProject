@@ -34,23 +34,26 @@
 	</select>
 	
 	<!-- (기록상세보기) 기록리스트 가져오기 -->
-	<select id="getRec" parameterType="hashmap" resultType="recVo">
+	<select id="getRec" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			select  record_no recordNo
-			        ,course_no courseNo
-			        ,user_no userNo
-			        ,review
-			        ,weather
-			        ,temperature
-			        ,course_category courseCate
-			        ,course_time courseTime
-			        ,difficulty
-			        ,to_char(reg_date, 'YY.MM.DD HH:Mi') regDate
-			from record
-			where course_no = #{courseNo}
+			        , course_no courseNo
+			        , r.user_no userNo
+			        , name
+			        , review
+			        , weather
+			        , temperature
+			        , course_category courseCate
+			        , course_time courseTime
+			        , difficulty
+			        , to_char(reg_date, 'YY.MM.DD HH:Mi') regDate
+			        
+			from record r, users u
+			where r.user_no = u.user_no
+			and course_no = #{courseNo}
 		]]>
 		<if test="authUserNo != 0">
-			and user_no = ${authUserNo}
+			and r.user_no = ${authUserNo}
 		</if>
 	</select>
 <!-- ************************************************************************************** -->	

@@ -104,8 +104,9 @@ function getAllRecord(courseNo, coUserNo) {
 		
 		//받을때
 		//dataType : "json",
-		success : function(recList){
+		success : function(recMap){
 			//성공시 처리해야될 코드 작성
+			var recList = recMap.recList;
 			console.log(recList);
 			
 			for(var i=0; i<recList.length; i++) {
@@ -120,7 +121,7 @@ function getAllRecord(courseNo, coUserNo) {
 };
 
 
-/*전체 기록 리스트 가져오기*/
+/*내가 쓴 기록 리스트 가져오기*/
 function getMyRecord(courseNo, coUserNo, authUserNo) {
 	
 	console.log("getMyRecord");
@@ -134,9 +135,9 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 		
 		//받을때
 		//dataType : "json",
-		success : function(recList){
+		success : function(recMap){
 			//성공시 처리해야될 코드 작성
-			console.log(recList);
+			console.log(recMap);
 			
 			if(recList.length > 0) {
 				
@@ -167,8 +168,6 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 function render(recVo, coUserNo) {
 	//console.log("render");
 	
-	var name = getUserName(recVo.userNo);
-	
 	var str="";	
 	str = '	<li>';
 	str +=	'<div class="record-full-content">';
@@ -176,44 +175,44 @@ function render(recVo, coUserNo) {
 	str +=	'		<div class="record-content">';
 	str +=	'			<span class="record">';
 	str +=	'				<span class="bold">';
-	if(coUserNo == recVo.userNo) {
+	
+	//코스 작성자 표시
+	if(coUserNo == recVo.USERNO) {
 		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" width="12px">';
 	};
 	
-	str += name;
-
-	str +=	'</span>';
-	str +=	'							<span>'+recVo.review+'</span>';
+	str +=	recVo.NAME+'	</span>';
+	str +=	'				<span>'+recVo.REVIEW+'</span>';
 	str +=	'			</span>';
 	str +=	'		</div>';
 	str +=	'		<div class="record-info">';
-	str +=	'			<span>'+recVo.regDate+'</span>';
-	str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.weather+'.png"></span>';
-	str +=	'			<span style="width:24px;">'+recVo.temperature+'℃</span>';
+	str +=	'			<span>'+recVo.REGDATE+'</span>';
+	str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
+	str +=	'			<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
 	str +=	'			<span class="box blue">';
 	
-	if(recVo.courseCate === 'walk') {
+	if(recVo.COURSECATE === 'walk') {
 		str += '산책';
-	} else if(recVo.courseCate === 'jogging') {
+	} else if(recVo.COURSECATE === 'jogging') {
 		str += '조깅';
-	} else if(recVo.courseCate === 'running') {
+	} else if(recVo.COURSECATE === 'running') {
 		str += '러닝';
-	} else if(recVo.courseCate === 'marathon') {
+	} else if(recVo.COURSECATE === 'marathon') {
 		str += '마라톤';
-	} else if(recVo.courseCate === 'bicycle') {
+	} else if(recVo.COURSECATE === 'bicycle') {
 		str += '자전거';
-	} else if(recVo.courseCate === 'draw') {
+	} else if(recVo.COURSECATE === 'draw') {
 		str += '그림';
 	}
 	
 	str +=	'			</span>';
 	str +=	'			<span class="box pink">';
 	
-	if(recVo.difficulty === 'easy') {
+	if(recVo.DIFFICULTY === 'easy') {
 		str += '쉬움'
-	} else if(recVo.difficulty === 'normal') {
+	} else if(recVo.DIFFICULTY === 'normal') {
 		str += '보통'
-	} else if(recVo.difficulty === 'hard') {
+	} else if(recVo.DIFFICULTY === 'hard') {
 		str += '어려움'
 	}
 	
@@ -222,8 +221,8 @@ function render(recVo, coUserNo) {
 	str +=	'	</div>';
 				
 	str +=	'	<div class="record-img">';
-	str +=	'		<a href="'+contextPath+'/upload/166002522633658dffb58-0e13-4493-81ba-be98d29a5c34.jpg" data-lightbox="image-1">';
-	str +=	'			<img class="recordImg" src="'+contextPath+'/assets/image/course/img2.jpg" width="24px">';
+	str +=	'		<a href="c:/javaStudy/upload/166002613150527e35783-d980-4536-8229-e6452d5e7d9a.jpg" data-lightbox="image-1">';
+	str +=	'			<img class="recordImg" src="c:/javaStudy/upload/166002613150527e35783-d980-4536-8229-e6452d5e7d9a.jpg" width="24px">';
 	str +=	'		</a>';
 	str +=	'		<a href="'+contextPath+'/assets/image/course/img1.jpg" data-lightbox="image-1">';
 	str +=	'		</a>';
@@ -233,33 +232,5 @@ function render(recVo, coUserNo) {
 		
 	$(".record-list").append(str);
 	
-}
-
-/*기록 작성자 이름 가져오기*/
-function getUserName(userNo) {
-	
-	var name = "";
-	
-	$.ajax({
-		//보낼때
-		url : contextPath+"/getUserName",
-		type : "post",
-		//contentType : "application/json",
-		async: false,
-		data : {userNo},
-		
-		//받을때
-		//dataType : "json",
-		success : function(userName){
-			//성공시 처리해야될 코드 작성
-			//console.log(userName);
-			name = userName;
-		},
-		error : function(XHR, status, error) {
-			console.error(status + " : " + error);
-		}
-	});
-	
-	return name;
 }
 
