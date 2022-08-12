@@ -38,17 +38,23 @@
  /*----------------------------- 사진 드래그앤 드롭 ------------------------------*/ 
 	
 	$("#input-file").bind('change', function() {
+		
 		selectFile(this.files);
+		
 	});
 	
 	//업로드 파일 삭제
 	$("#filesList").on("click", ".close", function(e) {
+		
 		var $target = $(e.target).parent();
 		var idx = $target.attr('data-idx');
+		
 		console.log(idx);
+		
 		delete uploadFiles[idx]; //배열에서 요소 삭제
 		
 		$target.parent().remove(); //프리뷰 삭제
+		
 	});
 	
 	

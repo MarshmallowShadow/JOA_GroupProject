@@ -48,12 +48,6 @@
 				<!-- 글내용 -->
 				<div id="content_line"><textarea id="contentbox" name="content"></textarea></div>
 				
-				<!-- 사진 첨부 -->
-				<div id="file_line">
-					<p id="file">사진첨부</p>
-					<input type="file" id="filebox" name="boardImgNo" multiple="multiple">
-				</div>
-				
 				<!-- 코스 선택 -->
 				<div id="course_line">
 					<p id="course">코스선택</p>
@@ -67,8 +61,31 @@
 					<button type="button" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
 					<!-- <input type="hidden" name="eventNo"> -->
 				</div>
+				<!-- 사진 등록 (드래그앤 드롭) -->
+				<div class="course-form">
+					
+					<h2>
+						<input type="file" id="input-file" multiple="multiple">
+						<label for="input-file">파일선택</label>
+						사진을 드래그하거나 선택해주세요.
+					</h2>
+					
+					<div id="drop">
+						
+						<div id="fileDragDesc">
+							<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
+						</div>
+						
+						<div id="filesList">
+						</div>
+					</div>
+					
+				</div>
+				<!-- course-form -->
 				
-			</div><!-- writebox -->	
+			</div><!-- writebox -->
+			
+				
 				
 				<br><br><br>
 	
