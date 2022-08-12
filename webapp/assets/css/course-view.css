@@ -296,7 +296,8 @@ input[type=radio] {display:none;}
 	text-align: center;
 	padding-top: 20px;
 }
-.noRec {
+/* 기록 없을때 글씨 */
+.record-info-content .record-list .noRec {
 	font-size: 20px;
 	font-weight: 700;
 	padding-top: 20px;

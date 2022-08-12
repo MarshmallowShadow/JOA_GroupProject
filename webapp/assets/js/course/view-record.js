@@ -147,8 +147,8 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 			} else {
 				var str = '';
 				str += '<li>';
-				str += '	<div class="message">';
-				str += '		기록이 없습니다.';
+				str += '	<div class="noRec">';
+				str += '		작성된 기록이 없습니다.';
 				str += '	</div>';
 				str += '</li>';
 				
