@@ -108,15 +108,6 @@
 					</tr>
 
 					<tr>
-						<th>6</th>
-						<td class="center">[개인]</td>
-						<td>그렇다는 증거 있습니까?[0]</td>
-						<td class="center">우영우<td>
-						<td class="center">2</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-
-					<tr>
 						<th>7</th>
 						<td class="center">[소통]</td>
 						<td>거 우영우 변호사 글 그만쓰세요.[5]</td>
@@ -156,9 +147,9 @@
 		</div>
 		<!-- table -->
 
-		<!-- 글쓰기 버튼 -->
+		<!-- 문의하기 버튼 -->
 		<div>
-			<button type="submit" id="write">문의하기</button>
+			<button type="submit" id="write" onclick="window.location='${pageContext.request.contextPath}/listWrite';">문의하기</button>
 		</div>
 
 		<!-- 페이지 -->

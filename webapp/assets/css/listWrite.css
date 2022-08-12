@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import "includes.css";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/******************** 게시판 머리글 ********************/
+h1 {
+	margin-left: 550px;
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
+
+/******************** 게시판 텍스트 ********************/
+
+/** 테두리 **/
+#writebox {
+	border: solid 1px #c0c0c0;
+	margin: 0px 130px 0px 130px;
+}
+
+#option_line, #title_line, #content_line, #course_line, #together_line {
+	margin-top: 37px;
+}
+
+#content_line{
+	padding-bottom: 30px;
+}
+
+#together_line {
+	margin-bottom: 37px;
+}
+
+/** 선택 항목들 **/
+#option, #title, #course, #together {
+	float: left;
+	margin-left: 58px;
+	font-size: 15pt;
+}
+
+#option, #title {
+	margin-top: 6px;
+}
+
+#course, #together {
+	margin-top: 1px;
+}
+
+#contentbox {
+	margin-left: 50px;
+}
+
+#option_list {
+	width: 100px;
+	height: 40px;
+	margin-left: 37px;
+}
+
+#titlebox {
+	width: 630px;
+	height: 40px;
+	margin-left: 37px;
+}
+
+#contentbox {
+	width: 92%;
+	height: 500px;
+}
+
+#file {
+	margin-right: 37px;
+}
+
+/** 버튼 **/
+#course_choice, #together_choice {
+	margin-left: 30px;
+	border: none;
+	background-color: #fff;
+	color: #ccc;
+}
+
+#folder, #man {
+	margin-right: 10px;
+}
+
+#user_btn {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#cancel {
+	width: 100px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	background-color: #dedede;
+	color: #666;
+	border: none;
+}
+
+#post {
+	width: 100px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	margin-left: 5px;
+	background-color: rgb(50, 108, 249);
+	border: none;
+	color: white;
+}
