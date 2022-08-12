@@ -5,35 +5,53 @@ $(document).ready(function() {
 	
 	console.log(authUserNo);
 	
+	
+	
+/*------------지도-------------------------------------------------------------------*/
+	//지도 정보
+	var mapContainer = document.getElementById('map-info');
+	var mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+		level: 3, //지도의 레벨(확대, 축소 정도)
+	};
+	
+	// 이미지 지도 생성
+	//var staticMap = new kakao.maps.StaticMap(mapContainer, mapOption),
+	var staticMap = new kakao.maps.Map(mapContainer, mapOption),
+		overlays = []; //지도에 그릴 선 담을 배열
+	
+	
+/*------------사진모달-------------------------------------------------------------------*/
+	lightbox.option({
+		/*https://lokeshdhakar.com/projects/lightbox2/*/
+		'alwaysShowNavOnTouchDevices': true, /*이미지 세트 일때 화면 양쪽 누르면 사진 변경*/
+		'disableScrolling': true, /*화면 스크롤링 막기*/
+		'fadeDuration': 300, /*페이드인아웃*/
+		'imageFadeDuration': 300, /*페이드인*/
+		'fitImagesInViewport': true, /*이미지 크기 자동조절*/
+		'wrapAround': true, /*이미지 끝나도 다시 첫이미지로*/
+		'albumLabel': "총 %2개 중 %1번째 이미지"
+	});
+	
+	
+	
+/*------------기록리스트-------------------------------------------------------------------*/	
+
+	/*스크롤 변화가 발생할때 호출*/
+	/*$(".record-info-content").scroll(function() {
+		console.log("스크롤");
+		
+		if($(window).scrollTop() == $(".record-info-content").height() - $(window).height()) {
+			console.log("페이지++");
+		}
+
+	})*/
+	
+	
 	//코스번호
 	var courseNo = $("#courseNo").val();
 	//코스작성자번호 가져오기
-	var coUserNo = function (courseNo) {
-		
-		console.log("getuserNo");
-		
-		$.ajax({
-			//보낼때
-			url : contextPath+"/getCoUserNo",
-			type : "post",
-			//contentType : "application/json",
-			data : {courseNo},
-			
-			//받을때
-			//dataType : "json",
-			success : function(coUserNo){
-				//성공시 처리해야될 코드 작성
-				console.log(coUserNo);
-				
-				return coUserNo;
-	
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-		});
-		
-	};
+	var coUserNo = getCoUserNo(courseNo);
 	
 	/*디폴트-전체 기록 리스트 가져오기*/
 	getAllRecord(courseNo, coUserNo);
@@ -60,36 +78,9 @@ $(document).ready(function() {
 			}
 		}
 	});
-	
-	
-	/*------------지도-------------------------------------------------------------------*/
-	//지도 정보
-	var mapContainer = document.getElementById('map-info');
-	var mapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
-		level: 3, //지도의 레벨(확대, 축소 정도)
-	};
-	
-	// 이미지 지도 생성
-	//var staticMap = new kakao.maps.StaticMap(mapContainer, mapOption),
-	var staticMap = new kakao.maps.Map(mapContainer, mapOption),
-		overlays = []; //지도에 그릴 선 담을 배열
-	
-	
-	/*------------사진모달-------------------------------------------------------------------*/
-	lightbox.option({
-		/*https://lokeshdhakar.com/projects/lightbox2/*/
-		'alwaysShowNavOnTouchDevices': true, /*이미지 세트 일때 화면 양쪽 누르면 사진 변경*/
-		'disableScrolling': true, /*화면 스크롤링 막기*/
-		'fadeDuration': 300, /*페이드인아웃*/
-		'imageFadeDuration': 300, /*페이드인*/
-		'fitImagesInViewport': true, /*이미지 크기 자동조절*/
-		'wrapAround': true, /*이미지 끝나도 다시 첫이미지로*/
-		'albumLabel': "총 %2개 중 %1번째 이미지"
-	});
 });
 
-/*------------기록리스트-------------------------------------------------------------------*/
+
 /*전체 기록 리스트 가져오기*/
 function getAllRecord(courseNo, coUserNo) {
 	
@@ -151,12 +142,15 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 		//dataType : "json",
 		success : function(recMap){
 			//성공시 처리해야될 코드 작성
-			console.log(recMap);
+			var recList = recMap.recList;
+			var recImgs = recMap.recImgs;
+			console.log(recList);
+			console.log(recImgs);
 			
 			if(recList.length > 0) {
 				
 				for(var i=0; i<recList.length; i++) {
-					render(recList[i], coUserNo);
+					render(recList[i], coUserNo, recImgs);
 				}
 				
 			} else {
@@ -192,8 +186,8 @@ function render(recVo, coUserNo, recImgs) {
 	
 	//코스 작성자 표시
 	if(coUserNo == recVo.USERNO) {
-		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" width="12px">';
-	};
+		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" style="width: 12px;">';
+	}
 	
 	str +=	recVo.NAME+'	</span>';
 	str +=	'				<span>'+recVo.REVIEW+'</span>';
@@ -240,7 +234,7 @@ function render(recVo, coUserNo, recImgs) {
 	
 	//이미지
 	for(var i=0; i<recImgs.length; i++) {
-		console.log(recVo.RECORDNO+","+recImgs[i].RECORD_NO);
+		//console.log(recVo.RECORDNO+","+recImgs[i].RECORD_NO);
 		if(recVo.RECORDNO == recImgs[i].RECORD_NO) {
 			if(recImgs[i].ORDER_NO == 0) {
 				str +=	'<a href="'+contextPath+'/upload/'+recImgs[i].SAVE_NAME+'" data-lightbox="image-'+recImgs[i].COURSE_NO+recImgs[i].RECORD_NO+'">';
@@ -256,6 +250,44 @@ function render(recVo, coUserNo, recImgs) {
 	str +=	'</li>';
 		
 	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
+	$(".record-list").append(str);
 	
 }
+
+function getCoUserNo(courseNo) {
+	
+	//console.log("getuserNo");
+	var coUserNo;
+	
+	$.ajax({
+		//보낼때
+		url : contextPath+"/getCoUserNo",
+		type : "post",
+		//contentType : "application/json",
+		async: false,
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(result){
+			//성공시 처리해야될 코드 작성
+			coUserNo = result;
+
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+	return coUserNo;
+	
+};
 

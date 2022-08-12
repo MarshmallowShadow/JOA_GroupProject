@@ -135,6 +135,7 @@ public class RecordService {
 		
 		//기록 리스트 가져오기
 		List<Map<String, Object>> recList = recDao.getRecord(map);
+		System.out.println(recList);
 		
 		//기록 이미지 가져오기
 		List<Map<String, Object>> recImgs = recDao.getImg(map);
@@ -142,6 +143,7 @@ public class RecordService {
 		Map<String, Object> recMap = new HashMap<String, Object>();
 		recMap.put("recList", recList);
 		recMap.put("recImgs", recImgs);
+		System.out.println(recMap);
 		
 		return recMap;
 		
