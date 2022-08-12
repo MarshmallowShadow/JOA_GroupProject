@@ -64,7 +64,7 @@
 								 -->
 								
 								<div class="chart">
-									<table id="together_chart" onClick="location.href='http://localhost:8088/JOA_GroupProject/together-read'">
+									<table id="together_chart" onClick="location.href='http://localhost:8088/JOA/together-read'">
 										<thead>
 											<tr class="top">
 												<th class="line_top">2022/07/24 - 2022/07/30</th>
@@ -139,7 +139,7 @@
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
-			<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA_GroupProject/board';">목록</button>
+			<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA/board';">목록</button>
 			
 			<br><br><br><br><br><br><br><br><br><br>
 			
