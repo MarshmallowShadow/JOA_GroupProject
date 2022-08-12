@@ -147,8 +147,8 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 			} else {
 				var str = '';
 				str += '<li>';
-				str += '	<div class="message">';
-				str += '		기록이 없습니다.';
+				str += '	<div class="noRec">';
+				str += '		작성된 기록이 없습니다.';
 				str += '	</div>';
 				str += '</li>';
 				
@@ -222,9 +222,11 @@ function render(recVo, coUserNo) {
 	str +=	'	</div>';
 				
 	str +=	'	<div class="record-img">';
-					/*<a href="${pageContext.request.contextPath }/assets/image/course/img2.jpg" data-lightbox="image-1">
-						<img class="recordImg" src="'+contextPath+'/assets/image/course/img2.jpg" width="24px">
-					</a>*/
+	str +=	'		<a href="'+contextPath+'/upload/1660025739784aaf0c2a8-0aeb-4507-85e5-52b08bdea3b0.jpg" data-lightbox="image-1">';
+	str +=	'			<img class="recordImg" src="'+contextPath+'/assets/image/course/img2.jpg" width="24px">';
+	str +=	'		</a>';
+	str +=	'		<a href="'+contextPath+'/assets/image/course/img1.jpg" data-lightbox="image-1">';
+	str +=	'		</a>';
 	str +=	'	</div>';
 	str +=	'</div>';
 	str +=	'</li>';
