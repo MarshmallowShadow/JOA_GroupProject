@@ -107,11 +107,25 @@ function getAllRecord(courseNo, coUserNo) {
 		success : function(recMap){
 			//성공시 처리해야될 코드 작성
 			var recList = recMap.recList;
+			var recImgs = recMap.recImgs;
 			console.log(recList);
+			console.log(recImgs);
 			
-			for(var i=0; i<recList.length; i++) {
-				render(recList[i], coUserNo);
+			if(recList.length > 0) {
+				for(var i=0; i<recList.length; i++) {
+					render(recList[i], coUserNo, recImgs);
+				}
+			} else {
+				var str = '';
+				str += '<li>';
+				str += '	<div class="noRec">';
+				str += '		기록이 없습니다.';
+				str += '	</div>';
+				str += '</li>';
+				
+				$(".record-list").append(str);
 			}
+			
 
 		},
 		error : function(XHR, status, error) {
@@ -149,7 +163,7 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 				var str = '';
 				str += '<li>';
 				str += '	<div class="noRec">';
-				str += '		작성된 기록이 없습니다.';
+				str += '		기록이 없습니다.';
 				str += '	</div>';
 				str += '</li>';
 				
@@ -165,7 +179,7 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 
 
 /*리스트 추가하기*/
-function render(recVo, coUserNo) {
+function render(recVo, coUserNo, recImgs) {
 	//console.log("render");
 	
 	var str="";	
@@ -191,6 +205,7 @@ function render(recVo, coUserNo) {
 	str +=	'			<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
 	str +=	'			<span class="box blue">';
 	
+	//종목
 	if(recVo.COURSECATE === 'walk') {
 		str += '산책';
 	} else if(recVo.COURSECATE === 'jogging') {
@@ -208,6 +223,7 @@ function render(recVo, coUserNo) {
 	str +=	'			</span>';
 	str +=	'			<span class="box pink">';
 	
+	//난이도
 	if(recVo.DIFFICULTY === 'easy') {
 		str += '쉬움'
 	} else if(recVo.DIFFICULTY === 'normal') {
@@ -221,11 +237,20 @@ function render(recVo, coUserNo) {
 	str +=	'	</div>';
 				
 	str +=	'	<div class="record-img">';
-	str +=	'		<a href="c:/javaStudy/upload/166002613150527e35783-d980-4536-8229-e6452d5e7d9a.jpg" data-lightbox="image-1">';
-	str +=	'			<img class="recordImg" src="c:/javaStudy/upload/166002613150527e35783-d980-4536-8229-e6452d5e7d9a.jpg" width="24px">';
-	str +=	'		</a>';
-	str +=	'		<a href="'+contextPath+'/assets/image/course/img1.jpg" data-lightbox="image-1">';
-	str +=	'		</a>';
+	
+	//이미지
+	for(var i=0; i<recImgs.length; i++) {
+		console.log(recVo.RECORDNO+","+recImgs[i].RECORD_NO);
+		if(recVo.RECORDNO == recImgs[i].RECORD_NO) {
+			if(recImgs[i].ORDER_NO == 0) {
+				str +=	'<a href="'+contextPath+'/upload/'+recImgs[i].SAVE_NAME+'" data-lightbox="image-'+recImgs[i].COURSE_NO+recImgs[i].RECORD_NO+'">';
+				str +=	'	<img class="recordImg" src="'+contextPath+'/upload/'+recImgs[i].SAVE_NAME+'" width="24px">';
+				str +=	'</a>';
+			} else {
+				str +=	'<a href="'+contextPath+'/upload/'+recImgs[i].SAVE_NAME+'" data-lightbox="image-'+recImgs[i].COURSE_NO+recImgs[i].RECORD_NO+'"></a>';
+			}
+		}
+	}
 	str +=	'	</div>';
 	str +=	'</div>';
 	str +=	'</li>';

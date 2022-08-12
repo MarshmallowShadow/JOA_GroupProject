@@ -56,6 +56,30 @@
 			and r.user_no = ${authUserNo}
 		</if>
 	</select>
+	
+	<!-- (기록상세보기) 기록이미지 가져오기 -->
+	<select id="getImg" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			select  course_no
+			        ,record_img_no
+			        ,ri.record_no
+			        ,save_name
+			        ,file_path
+			        ,order_no
+			from record_img ri, record r
+			where ri.record_no = r.record_no
+			and course_no = #{courseNo}
+		]]>
+		<if test="authUserNo != 0">
+			and r.user_no = ${authUserNo}
+		</if>
+		<![CDATA[
+			order by record_no, record_img_no, order_no
+		]]>
+	</select>
+	
+	
+	
 <!-- ************************************************************************************** -->	
 	<!-- (차트통계) 산책 갯수 가져오기 -->
 	<select id="getWalkCnt" parameterType="int" resultType="int">

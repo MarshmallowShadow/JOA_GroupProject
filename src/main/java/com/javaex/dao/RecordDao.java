@@ -40,6 +40,12 @@ public class RecordDao {
 		return sqlSession.selectList("record.getRec", map);
 	}
 	
+	//(기록상세보기) 기록 이미지 가져오기
+	public List<Map<String, Object>> getImg(Map<String, Object> map) {
+		System.out.println("RecordDao->getImg");
+		return sqlSession.selectList("record.getImg", map);
+	}
+	
 //////차트 통계////////////////////////////////////////////////////////////////////////////////
 	//종목-산책
 	public int getWalkCnt(int courseNo) {
