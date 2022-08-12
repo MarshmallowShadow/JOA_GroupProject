@@ -17,20 +17,34 @@
 	
 	<div id="sub-header">
 		<div id="searchbar">
-			<img class="search-icon" src="${pageContext.request.contextPath }/assets/image/map/search.png">
+			<span class="glyphicon glyphicon-search"></span>
 			<input id="search-input" type="text">
-			<button class="btn-blue">지역</button>
-			<button class="btn-grey">제목</button>
+			<button id="btn-loc" class="btn-blue">지역</button>
+			<button id="btn-title" class="btn-grey">제목</button>
 		</div> <!-- searchbar -->
 		<div id="filter-menu">
-			<div id="cont-cate">
-				<button type="button" id="btn-cate" class="fmenu-btn">종목 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			<div id="filter-cate">
+				<button type="button" id="btn-cate" class="fmenu-btn">
+					종목
+					<span id="icon-cate" class="glyphicon glyphicon-menu-down"></span>
+				</button>
+				
 			</div>
-			<div id="cont-dist">
-				<button type="button" id="btn-dist" class="fmenu-btn">코스길이 <img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			
+			<div id="filter-dist">
+				<button type="button" id="btn-dist" class="fmenu-btn">
+					코스길이
+					<span id="icon-dist" class="glyphicon glyphicon-menu-down"></span>
+				</button>
+				
 			</div>
-			<div id="cont-diff">
-				<button type="button" id="btn-diff" class="fmenu-btn">난이도<img class="down-icon" src="${pageContext.request.contextPath }/assets/image/map/down.png"></button>
+			
+			<div id="filter-diff">
+				<button type="button" id="btn-diff" class="fmenu-btn">
+					난이도
+					<span id="icon-diff" class="glyphicon glyphicon-menu-down"></span>
+				</button>
+				
 			</div>
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
