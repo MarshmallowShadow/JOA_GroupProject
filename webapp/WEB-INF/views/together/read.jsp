@@ -109,7 +109,7 @@
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
 
-		<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA_GroupProject/together';">목록</button>
+		<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA/together';">목록</button>
 		
 		<br><br><br><br><br><br><br><br><br><br>
 		
