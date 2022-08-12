@@ -1,7 +1,34 @@
 /*준비가 끝나면*/
+function fetchList(){
+	/*--------------------------------------------------*/
+	/*카테고리 리스트 가져오기*/
+	$.ajax({
+		url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
+		type : "post",
+		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+		dataType : "json",
+		success : function(categoryList){
+			//컨트롤러 함수 실행 후 코드
+			console.log(categoryList);
+			//화면에 data + html로 띄운다(그린다).
+			//리스트니까 for문으로 그리기!
+			for(var i=0; i<categoryList.length; i++){
+				render(categoryList[i], "down");	//vo --> 화면에 그린다.
+			}
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+}
+
+
+
 function render(categoryList) {
 	var str = '';
-	str += '<li id="menuList">';
+	str += '<li id="menuList" class="bookmark-menuList">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark/01">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
 	str += '	<img class="editName" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
@@ -11,7 +38,7 @@ function render(categoryList) {
 
 function render2(categoryList) {
 	var str = '';
-	str += '<option id="opt-delCategory" data-cateNo="'+categoryList.cateNo+'" name="cateNo" value="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
+	str += '<option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
 	
 	$(".sel-delCategory").append(str);
 }
@@ -42,27 +69,7 @@ $(document).ready(function(){
 	
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
-	$.ajax({
-		url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
-		type : "post",
-		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-		dataType : "json",
-		success : function(categoryList){
-			//컨트롤러 함수 실행 후 코드
-			console.log(categoryList);
-			//화면에 data + html로 띄운다(그린다).
-			//리스트니까 for문으로 그리기!
-			for(var i=0; i<categoryList.length; i++){
-				render(categoryList[i], "down");	//vo --> 화면에 그린다.
-			}
-		},
-		error : function(XHR, status, error) {
-			console.error(status + " : " + error);
-		}
-	});
-		
+	fetchList();	
 
 	
 	
@@ -143,18 +150,14 @@ $(document).ready(function(){
 	//모달창의 삭제버튼 클릭할때
 	$("#del-bookmark-category").on("click", function(){
 		console.log("모달>삭제버튼 클릭")
-		
+		/*$(".bookmark-menuList").remove();*/
+				
 		//삭제할 데이터 모으기
-		/*var $this = $(this);
-		var cateNo = $this.data("cateNo");*/
-		//삭제할 데이터 모으기
-		var selectedItem = $("#opt-delCategory [name=cateNo]").val();
-		/*var abc=$(this).find(':selected').data("value");*/
-		console.log(selectedItem);
+		var cateNo = $("#del-select-list").val();
+        console.log("cateNo", cateNo);
 		
 		//서버로 데이터 전송(ajax)
-		/*$.ajax({
-			
+		$.ajax({
 			url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
 			type : "post",
 			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
@@ -163,15 +166,26 @@ $(document).ready(function(){
 			dataType : "json",
 			success : function(result){
 				/*성공시 처리해야될 코드 작성*/
-				/*console.log(result);
+				console.log(result);
+				$(".bookmark-menuList").remove();
+				fetchList();
+				/*location.reload(true);*/
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
 		});
-		$(".sel-delCategory").remove();
-		$(".category-del-btn").modal("hide");*/
+		$(".category-del-btn").modal("hide");
 	});
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
    	
    	
    	

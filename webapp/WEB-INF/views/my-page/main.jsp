@@ -470,12 +470,12 @@
         <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
       </div>
       <div class="modal-body">
-        <select class="sel-delCategory">
+        <select id="del-select-list" class="sel-delCategory" >
         	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
         <br>
         <br>
-        <p class="modal-body-detail">목록을 삭제할 경우, 목록 안의 내용들도 삭제됩니다!!</p>
+        <p <%--  class="modal-body-detail" --%>>목록을 삭제할 경우, <br>목록 안의 내용들도 삭제됩니다!!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
