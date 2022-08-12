@@ -118,16 +118,16 @@ public class BoardService {
 		
 		System.out.println("BoardService > write");
 		
-		
+		/*
 		for(int i=1; i<30; i++) { //글쓰기 조작
 			boardVo.setBoardCategory("소통");
 			boardVo.setTitle(i+" 번째 게시물 제목입니다.");
 			boardVo.setContent(i+" 번째 게시물 내용입니다.");
 			boardDao.write(boardVo);
 		}
+		*/
 		
-		
-		//int count = boardDao.write(boardVo);
+		int count = boardDao.write(boardVo);
 		
 		//courseDao.selectCourse(boardVo);
 		
@@ -135,7 +135,7 @@ public class BoardService {
 		
 		//System.out.println(count);
 
-		return 1;
+		return count;
 	}
 
 }
