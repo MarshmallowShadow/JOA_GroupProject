@@ -181,16 +181,6 @@ $(document).ready(function(){
    	
    	
    	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
-   	
    	$(".editName").click(function(){
       console.log("카테고리이름 수정");
       $(".category-modify-btn").modal("show");
