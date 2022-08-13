@@ -17,6 +17,7 @@ import com.javaex.vo.BoardVo;
 import com.javaex.vo.UserVo;
 
 @Controller
+@RequestMapping(value="/board")
 public class BoardController {
 	
 	//필드
