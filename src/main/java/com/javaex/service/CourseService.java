@@ -105,8 +105,6 @@ public class CourseService {
 	public Map<String, Object> getCourseInfo(int courseNo, int userNo) {
 		System.out.println("CourseService->getCourseInfo");
 		
-		
-		
 		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
 		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
 		UserVo userVo = userDao.getUserName(coVo.getUserNo()); //유저이름
@@ -114,22 +112,17 @@ public class CourseService {
 		int likeCnt = likeDao.getLikeCnt(courseNo);//좋아요 갯수
 		
 		//좋아요 여부
-		String liked = "heart-off.png";
+		String liked = "heart-off";
 		if(userNo != 0) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("courseNo", courseNo);
 			map.put("userNo", userNo);
 			
-			int result = likeDao.getLiked(map);
-			
-			if(result == 1) { 
-				liked = "heart.png";
+			if(likeDao.getLiked(map) > 0) {
+				liked = "heart";
 			}
+
 		}
-		
-		
-		
-		
 		
 		//즐겨찾기 여부
 		
@@ -142,6 +135,35 @@ public class CourseService {
 		coMap.put("liked", liked); //좋아요 여부
 		
 		return coMap;
+	}
+
+	//좋아요 버튼 클릭
+	public Map<String, Object> likeBtnClick(int courseNo, int userNo) {
+		System.out.println("CourseService->getCourseInfo");
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("courseNo", courseNo);
+		map.put("userNo", userNo);
+		
+		System.out.println(map);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		//좋아요가 있는지 확인
+		int count = likeDao.getLiked(map);
+		
+		if(count == 0) {
+			likeDao.insertLiked(map); //추가
+			resultMap.put("heart", "heart");
+		} else {
+			likeDao.deleteLiked(map); //삭제
+			resultMap.put("heart", "heart-off");
+		}
+		
+		int cnt = likeDao.getLikeCnt(courseNo);//좋아요 갯수
+		resultMap.put("cnt", cnt);
+		
+		return resultMap;
 	}
 
 	

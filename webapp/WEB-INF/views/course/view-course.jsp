@@ -12,14 +12,7 @@
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-view.css">
 
-<!-- 자바스크립트 -->
-<script type="text/javascript">
-	window.userNo = parseInt('1');
-	window.contextPath = '${pageContext.request.contextPath}';
-</script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-course.js"></script>
+
 
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
@@ -62,8 +55,6 @@
 				<div class="course-view-info">
 					<div class="course-info-content">
 						<h2 id="course-title">${coMap.coVo.title }</h2>
-						
-						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
 						
 						<!-- 제목 수정 버튼 -->
 						<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
@@ -160,10 +151,11 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
+						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
 						<a href="${pageContext.request.contextPath}/board?boardCategory=post" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
-							<img src="${pageContext.request.contextPath }/assets/image/main/${coMap.liked}">
-							<span>${coMap.likeCnt }</span>
+							<img id="like" src="${pageContext.request.contextPath }/assets/image/main/${coMap.liked}.png">
+							<span id="like-cnt">${coMap.likeCnt }</span>
 						</a>
 					</div>
 				</div>
@@ -188,7 +180,7 @@
         <h5 class="modal-title">제목 수정</h5>
       </div>
       <div class="modal-body">
-        <input type="text" id="modTitle" name="modTitle" value="${coMap.coVo.courseNo }">
+        <input type="text" id="modTitle" name="modTitle" value="${coMap.coVo.title }">
       </div>
       <div class="modal-footer">
       	<button type="button" id="modTitle-btn" class="btn btn-primary">수정</button>
@@ -245,5 +237,14 @@
 </div><!-- modal -->
 
 </body>
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.userNo = parseInt('1');
+	window.contextPath = '${pageContext.request.contextPath}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-course.js"></script>
 
 </html>

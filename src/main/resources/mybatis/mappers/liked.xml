@@ -22,4 +22,21 @@
 		]]>
 	</select>
 	
+	<!-- 좋아요 추가 -->
+	<insert id="insert" parameterType="hashmap">
+		<![CDATA[
+			insert into liked_course
+			values(#{userNo}, #{courseNo}, sysdate)
+		]]>
+	</insert>
+	
+	<!-- 좋아요 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+		<![CDATA[
+			delete liked_course
+			where course_no = #{courseNo}
+			and user_no = #{userNo}
+		]]>
+	</delete>
+	
 </mapper>

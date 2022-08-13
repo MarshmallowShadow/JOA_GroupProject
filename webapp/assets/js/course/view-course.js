@@ -5,16 +5,17 @@ $(document).ready(function() {
 	console.log("tq");
 
 	
-	/*------------모달창-------------------------------------------------------------------*/
-	/*코스제목 수정 버튼 클릭*/
+	/*------------코스제목 수정 모달-------------------------------------------------------------------*/
+	/*코스제목 수정 모달 띄우는 버튼 클릭*/
 	$("#update-btn").on("click", function() {
 		//모달창 띄우기
 		$("#title-update").modal("show");
 	});
 	
-	/*$("#modTitle-btn").on("click", function() {
+	/*코스제목 수정 버튼 클릭*/
+	$("#modTitle-btn").on("click", function() {
 		
-		var modTitle = $("#title-update").val();
+		var modTitle = $("#modTitle").val();
 		var courseNo = $("#courseNo").val();
 		
 		$.ajax({
@@ -32,6 +33,7 @@ $(document).ready(function() {
 				
 				if(result == 'success') {
 					$("#course-title").text(modTitle);
+					$("#title-update").modal("hide");
 				}
 				
 	
@@ -41,15 +43,60 @@ $(document).ready(function() {
 			}
 		});
 		
-	});*/
+	});
 	
+	/*취소버튼*/
+	$(".btn-secondary").on("click", function() {
+		$(this).modal("hide");
+	});
 	
+	/*------------즐겨찾기 모달-------------------------------------------------------------------*/
 	/*즐겨찾기 버튼 클릭*/
 	$("#bookmark").on("click", function() {
 		//모달창 띄우기
 		$("#bookmark-list").modal("show");
 	});
 	
+	
+	
+	
+	
+	/*------------좋아요 버튼-------------------------------------------------------------------*/
+	
+	$(".like-btn").on("click", function() {
+		
+		var courseNo = $("#courseNo").val();
+		
+		if(userNo != null || userNo != ""){
+			$.ajax({
+				//보낼때
+				url : contextPath+"/apiCo/likeBtnClick",
+				type : "post",
+				//contentType : "application/json",
+				data : {courseNo},
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					var heart = result.heart;
+					var cnt = result.cnt;
+					
+					var src = contextPath + "/assets/image/main/"+heart+".png";
+					
+					$("#like").attr("src", src);
+					$("#like-cnt").text(cnt);
+					
+		
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+		}
+		
+		
+	});
 	
 	
 	

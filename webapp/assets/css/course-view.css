@@ -160,7 +160,7 @@ input[type=radio] {display:none;}
 }
 
 /* ---------------------코스제목 수정(모달창)----------------------- */
-.modal-body #title-update {
+.modal-body #modTitle {
 	width: 100%;
 	height: 40px; 
 	font-size: 14px;

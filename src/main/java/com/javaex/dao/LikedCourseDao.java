@@ -24,4 +24,16 @@ public class LikedCourseDao {
 		System.out.println("LikedCourseDao->getLiked");
 		return sqlSession.selectOne("liked.getLiked", map);
 	}
+
+	//(코스상세보기) 좋아요 추가
+	public int insertLiked(Map<String, Object> map) {
+		System.out.println("LikedCourseDao->insertLiked");
+		return sqlSession.insert("liked.insert", map);
+	}
+
+	//(코스상세보기) 좋아요 삭제
+	public int deleteLiked(Map<String, Object> map) {
+		System.out.println("LikedCourseDao->deleteLiked");
+		return sqlSession.delete("liked.delete", map);
+	}
 }
