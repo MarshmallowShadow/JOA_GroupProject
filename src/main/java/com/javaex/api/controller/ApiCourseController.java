@@ -14,7 +14,7 @@ import com.javaex.service.CourseService;
 public class ApiCourseController {
 	
 	@Autowired
-	CourseService coService;
+	private CourseService coService;
 
 	//종목 차트 데이터 가져오기
 	@ResponseBody

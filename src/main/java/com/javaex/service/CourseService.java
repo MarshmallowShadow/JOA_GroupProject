@@ -19,13 +19,13 @@ import com.javaex.vo.UserVo;
 public class CourseService {
 
 	@Autowired
-	CourseDao coDao;
+	private CourseDao coDao;
 	@Autowired
-	PointDao pointDao;
+	private PointDao pointDao;
 	@Autowired
-	RecordDao recDao;
+	private RecordDao recDao;
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 	
 	
 	//코스 등록하기
@@ -105,6 +105,7 @@ public class CourseService {
 		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
 		UserVo userVo = userDao.getUserName(coVo.getUserNo()); //유저이름
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
+		//좋아요 갯수
 		//즐겨찾기 여부
 		//좋아요 여부
 		

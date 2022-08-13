@@ -19,7 +19,7 @@ import com.javaex.vo.CourseVo;
 public class CourseController {
 	
 	@Autowired
-	CourseService coService;
+	private CourseService coService;
 
 	//코스 등록폼
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
