@@ -17,6 +17,7 @@ import com.javaex.service.RecordService;
 import com.javaex.vo.RecordVo;
 
 @Controller
+@RequestMapping(value = "apiRec")
 public class ApiRecordController {
 	
 	@Autowired

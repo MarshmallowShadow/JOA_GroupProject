@@ -203,7 +203,7 @@ $(document).ready(function() {
 		//recVo 전송
 		$.ajax({
 			//보낼때
-			url : contextPath+"/recordWrite",
+			url : contextPath+"/apiRec/recordWrite",
 			type : "post",
 			//contentType : "application/json",
 			data : recVo,
@@ -226,7 +226,7 @@ $(document).ready(function() {
 					
 					$.ajax({
 						//보낼때
-						url : contextPath+"/recordImgWrite",
+						url : contextPath+"/apiRec/recordImgWrite",
 						type : "post",
 						//contentType : "application/json",
 						data : formData,

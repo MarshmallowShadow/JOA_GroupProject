@@ -19,7 +19,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			//보낼때
-			url : contextPath+"/modifyTitle",
+			url : contextPath+"/apiCo/modifyTitle",
 			type : "post",
 			//contentType : "application/json",
 			data : {modTitle, courseNo},
@@ -103,7 +103,7 @@ function category(courseNo) {
 	//종목 데이터 가져오기
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getCateData",
+		url : contextPath+"/apiCo/getCateData",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},
@@ -174,7 +174,7 @@ function difficult(courseNo) {
 	//종목 데이터 가져오기
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getDiffiData",
+		url : contextPath+"/apiCo/getDiffiData",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.javaex.service.CourseService;
 
 @Controller
+@RequestMapping(value = "apiCo")
 public class ApiCourseController {
 	
 	@Autowired

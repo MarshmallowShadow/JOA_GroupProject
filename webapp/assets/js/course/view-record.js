@@ -88,7 +88,7 @@ function getAllRecord(courseNo, coUserNo) {
 	
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getRecord",
+		url : contextPath+"/apiRec/getRecord",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo},
@@ -133,7 +133,7 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 	
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getRecord",
+		url : contextPath+"/apiRec/getRecord",
 		type : "post",
 		//contentType : "application/json",
 		data : {courseNo, authUserNo},
@@ -269,7 +269,7 @@ function getCoUserNo(courseNo) {
 	
 	$.ajax({
 		//보낼때
-		url : contextPath+"/getCoUserNo",
+		url : contextPath+"/apiRec/getCoUserNo",
 		type : "post",
 		//contentType : "application/json",
 		async: false,
