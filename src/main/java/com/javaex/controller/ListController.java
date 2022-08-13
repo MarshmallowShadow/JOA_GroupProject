@@ -13,14 +13,14 @@ public class ListController {
 	//삭제
 	
 	//글쓰기 등록
-	/*@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute ListVo listVo) {
 		System.out.println("ListController>write");
 		
 		//listService.write(listVo);
 		
 		return "list/listWrite";
-	}*/
+	}
 	
 	//글쓰기폼
 	@RequestMapping(value="/listWrite", method = {RequestMethod.GET, RequestMethod.POST})
