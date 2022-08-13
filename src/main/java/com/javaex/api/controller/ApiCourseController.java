@@ -31,4 +31,14 @@ public class ApiCourseController {
 		System.out.println("ApiCourseController->getDiffiData");
 		return coService.getDiffiData(courseNo);
 	}
+	
+	
+	//코스 제목 수정
+	@ResponseBody
+	@RequestMapping(value = "/modifyTitle", method = {RequestMethod.GET, RequestMethod.POST})
+	public String modifyTitle(@RequestParam(value = "modTitle", required = false) String modTitle,
+							@RequestParam(value = "courseNo", required = false) int courseNo) {
+		System.out.println("ApiCourseController->modifyTitle");
+		return coService.modifyTitle(modTitle, courseNo);
+	}
 }

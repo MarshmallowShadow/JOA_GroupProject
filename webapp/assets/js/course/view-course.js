@@ -12,6 +12,39 @@ $(document).ready(function() {
 		$("#title-update").modal("show");
 	});
 	
+	$("#modTitle-btn").on("click", function() {
+		
+		var modTitle = $("#title-update").val();
+		var courseNo = $("#courseNo").val();
+		
+		$.ajax({
+			//보낼때
+			url : contextPath+"/modifyTitle",
+			type : "post",
+			//contentType : "application/json",
+			data : {modTitle, courseNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(result){
+				//성공시 처리해야될 코드 작성
+				console.log(result);
+				
+				if(result == 'success') {
+					$("#course-title").text(modTitle);
+				}
+				
+	
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+	});
+	
+	
+	
 	
 	/*즐겨찾기 버튼 클릭*/
 	$("#bookmark").on("click", function() {

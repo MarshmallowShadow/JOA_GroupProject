@@ -61,11 +61,12 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2>${coMap.coVo.title }</h2>
+						<h2 id="course-title">${coMap.coVo.title }</h2>
 						
 						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
+						
+						<!-- 제목 수정 버튼 -->
 						<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
-							<!-- 제목 수정 버튼 -->
 							<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
 						</c:if>
 						
@@ -187,10 +188,10 @@
         <h5 class="modal-title">제목 수정</h5>
       </div>
       <div class="modal-body">
-        <input type="text" id="title-update" value="원래 있던 제목">
+        <input type="text" id="title-update" name="modTitle" value="${coMap.coVo.courseNo }">
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-primary">수정</button>
+      	<button type="button" id="modTitle-btn" class="btn btn-primary">수정</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
       </div>
     </div><!-- modal-content -->

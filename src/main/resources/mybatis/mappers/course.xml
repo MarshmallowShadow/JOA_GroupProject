@@ -15,6 +15,16 @@
 	</insert>
 	
 	
+	<!-- 코스 제목 수정 -->
+	<update id="updateTitle" parameterType="map">
+		<![CDATA[
+			update course
+			set title = #{modTitle}
+			where course_no = #{courseNo}
+		]]>
+	</update>
+	
+	
 	<!-- (기록등록) 코스 가져오기 -->
 	<select id="selectCourse" resultType="coVo" parameterType="int">
 		<![CDATA[

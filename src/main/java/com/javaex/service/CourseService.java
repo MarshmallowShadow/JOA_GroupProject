@@ -54,6 +54,20 @@ public class CourseService {
 		return courseNo;
 	}
 	
+	//코스 제목 수정
+	public String modifyTitle(String modTitle, int courseNo) {
+		System.out.println("CourseService->modifyTitle");
+		Map<String , Object> map = new HashMap<String, Object>();
+		map.put("modTitle", modTitle);
+		map.put("courseNo", courseNo);
+		int count = coDao.updateTitle(map);
+		if(count > 0) {
+			return "success";
+		}
+		
+		return "fail";
+	}
+	
 	//종목 차트 데이터 가져오기
 	public int[] getCateData(int courseNo) {
 		System.out.println("CourseService->getCategory");
@@ -102,6 +116,8 @@ public class CourseService {
 		
 		return coMap;
 	}
+
+	
 
 	
 
