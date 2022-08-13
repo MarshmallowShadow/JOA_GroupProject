@@ -162,8 +162,8 @@
 					<div id="course-info-btn">
 						<a href="${pageContext.request.contextPath}/board?boardCategory=post" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
-							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
-							<span>0</span>
+							<img src="${pageContext.request.contextPath }/assets/image/main/${coMap.liked}">
+							<span>${coMap.likeCnt }</span>
 						</a>
 					</div>
 				</div>
@@ -171,7 +171,7 @@
 		</div>
 		
 	</div>
-	
+
 	
 	<!-- 푸터 -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
@@ -188,7 +188,7 @@
         <h5 class="modal-title">제목 수정</h5>
       </div>
       <div class="modal-body">
-        <input type="text" id="title-update" name="modTitle" value="${coMap.coVo.courseNo }">
+        <input type="text" id="modTitle" name="modTitle" value="${coMap.coVo.courseNo }">
       </div>
       <div class="modal-footer">
       	<button type="button" id="modTitle-btn" class="btn btn-primary">수정</button>

@@ -36,7 +36,6 @@
 	
 	<!-- content -->
 	<div id="content">
-		<input type="hidden" id="courseNo" value="${param.courseNo }">
 	
 		<div id="view-content">
 			
@@ -81,10 +80,11 @@
 					
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
+						<input type="hidden" id="courseNo" value="${param.courseNo }">
 						<a href="./write?courseNo=${param.courseNo }" class="link-btn">기록 작성하기</a>
 						<a class="like-btn">
 							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
-							<span>0</span>
+							<span>${likedCnt }</span>
 						</a>
 					</div>
 				</div>

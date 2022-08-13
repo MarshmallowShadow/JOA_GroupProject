@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
+import com.javaex.dao.LikedCourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.UserDao;
@@ -26,6 +27,8 @@ public class CourseService {
 	private RecordDao recDao;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private LikedCourseDao likeDao;
 	
 	
 	//코스 등록하기
@@ -99,21 +102,44 @@ public class CourseService {
 
 
 	//(코스상세보기) 코스 정보 가져오기
-	public Map<String, Object> getCourseInfo(int courseNo) {
+	public Map<String, Object> getCourseInfo(int courseNo, int userNo) {
 		System.out.println("CourseService->getCourseInfo");
+		
+		
+		
 		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
 		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
 		UserVo userVo = userDao.getUserName(coVo.getUserNo()); //유저이름
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
-		//좋아요 갯수
-		//즐겨찾기 여부
+		int likeCnt = likeDao.getLikeCnt(courseNo);//좋아요 갯수
+		
 		//좋아요 여부
+		String liked = "heart-off.png";
+		if(userNo != 0) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("courseNo", courseNo);
+			map.put("userNo", userNo);
+			
+			int result = likeDao.getLiked(map);
+			
+			if(result == 1) { 
+				liked = "heart.png";
+			}
+		}
+		
+		
+		
+		
+		
+		//즐겨찾기 여부
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo); //코스정보
 		coMap.put("pointVo", pointVo); //코스좌표
 		coMap.put("userName", userVo.getName()); //유저이름
 		coMap.put("recCnt", recCnt); //총 기록수
+		coMap.put("likeCnt", likeCnt); //좋아요 갯수
+		coMap.put("liked", liked); //좋아요 여부
 		
 		return coMap;
 	}

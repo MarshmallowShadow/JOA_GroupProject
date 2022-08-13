@@ -31,8 +31,10 @@ public class RecordController {
 	
 	//기록 상세보기
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordViewForm() {
+	public String recordViewForm(Model model, @RequestParam int courseNo) {
 		System.out.println("RecordController->recordViewForm");
+		int likedCnt = recService.recordViewForm(courseNo);
+		model.addAttribute("likedCnt", likedCnt);
 		return "course/view-record";
 	}
 }

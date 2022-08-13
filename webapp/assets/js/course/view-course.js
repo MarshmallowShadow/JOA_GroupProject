@@ -12,7 +12,7 @@ $(document).ready(function() {
 		$("#title-update").modal("show");
 	});
 	
-	$("#modTitle-btn").on("click", function() {
+	/*$("#modTitle-btn").on("click", function() {
 		
 		var modTitle = $("#title-update").val();
 		var courseNo = $("#courseNo").val();
@@ -41,9 +41,7 @@ $(document).ready(function() {
 			}
 		});
 		
-	});
-	
-	
+	});*/
 	
 	
 	/*즐겨찾기 버튼 클릭*/
@@ -51,6 +49,9 @@ $(document).ready(function() {
 		//모달창 띄우기
 		$("#bookmark-list").modal("show");
 	});
+	
+	
+	
 	
 	
 	

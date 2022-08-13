@@ -3,6 +3,8 @@ package com.javaex.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.CourseService;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value = "/course")
@@ -42,9 +45,15 @@ public class CourseController {
 	
 	//코스 상세보기
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
-	public String courseViewForm(Model model, @RequestParam(value = "courseNo") int courseNo) {
+	public String courseViewForm(Model model, HttpSession session,
+								@RequestParam(value = "courseNo") int courseNo) {
 		System.out.println("CourseController->courseViewForm()");
-		Map<String, Object> coMap = coService.getCourseInfo(courseNo);		
+		UserVo userVo = (UserVo) session.getAttribute("authUser");
+		int userNo = 0;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}
+		Map<String, Object> coMap = coService.getCourseInfo(courseNo, userNo);
 		model.addAttribute("coMap", coMap);		
 		return "course/view-course";
 	}

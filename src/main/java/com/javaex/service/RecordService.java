@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.dao.CourseDao;
+import com.javaex.dao.LikedCourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.RecordImgDao;
@@ -33,6 +34,8 @@ public class RecordService {
 	private PointDao pointDao;
 	@Autowired
 	private RecordImgDao imgDao;
+	@Autowired
+	private LikedCourseDao likeDao;
 
 	
 	//코스기록 등록하기
@@ -154,6 +157,12 @@ public class RecordService {
 	public int getCoUserNo(int courseNo) {
 		//System.out.println("RecordService->getCoUserNo");
 		return coDao.getCoUserNo(courseNo);
+	}
+
+	//(기록상세보기) 좋아요 갯수 가져오기
+	public int recordViewForm(int courseNo) {
+		System.out.println("RecordService->recordViewForm");
+		return likeDao.getLikeCnt(courseNo);
 	}
 
 
