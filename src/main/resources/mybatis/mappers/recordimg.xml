@@ -3,6 +3,7 @@
 
 <mapper namespace="recordimg">
 
+	<!-- 이미지 추가 -->
 	<insert id="insert" parameterType="rimgVo">
 		<![CDATA[
 			insert into record_img

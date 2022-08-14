@@ -31,6 +31,13 @@ public class CourseService {
 	private LikedCourseDao likeDao;
 	
 	
+	//코스 좌표 가져오기
+	public List<PointVo> getPoint(int courseNo) {
+		System.out.println("CourseService->getPoint");
+		return pointDao.getPoint(courseNo);
+	}
+	
+	
 	//코스 등록하기
 	public int courseWrite(List<Double> xList, List<Double> yList, int hour, int minute, CourseVo coVo) {
 		System.out.println("CourseService->courseWrite");
@@ -57,19 +64,7 @@ public class CourseService {
 		return courseNo;
 	}
 	
-	//코스 제목 수정
-	public String modifyTitle(String modTitle, int courseNo) {
-		System.out.println("CourseService->modifyTitle");
-		Map<String , Object> map = new HashMap<String, Object>();
-		map.put("modTitle", modTitle);
-		map.put("courseNo", courseNo);
-		int count = coDao.updateTitle(map);
-		if(count > 0) {
-			return "success";
-		}
-		
-		return "fail";
-	}
+	
 	
 	//종목 차트 데이터 가져오기
 	public int[] getCateData(int courseNo) {
@@ -99,15 +94,8 @@ public class CourseService {
 		
 		return diffiData;
 	}
-	
-	
-	//코스 좌표 가져오기
-	public List<PointVo> getPoint(int courseNo) {
-		System.out.println("CourseService->getPoint");
-		return pointDao.getPoint(courseNo);
-	}
 
-
+	
 	//(코스상세보기) 코스 정보 가져오기
 	public Map<String, Object> getCourseInfo(int courseNo, int userNo) {
 		System.out.println("CourseService->getCourseInfo");
@@ -141,7 +129,23 @@ public class CourseService {
 		
 		return coMap;
 	}
+	
+	
+	//코스 제목 수정
+	public String modifyTitle(String modTitle, int courseNo) {
+		System.out.println("CourseService->modifyTitle");
+		Map<String , Object> map = new HashMap<String, Object>();
+		map.put("modTitle", modTitle);
+		map.put("courseNo", courseNo);
+		int count = coDao.updateTitle(map);
+		if(count > 0) {
+			return "success";
+		}
+		
+		return "fail";
+	}
 
+	
 	//좋아요 버튼 클릭
 	public Map<String, Object> likeBtnClick(int courseNo, int userNo) {
 		System.out.println("CourseService->getCourseInfo");

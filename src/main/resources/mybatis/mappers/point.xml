@@ -11,7 +11,7 @@
 		]]>
 	</insert>
 	
-	<!-- (기록등록) 코스 좌표 가져오기 -->
+	<!-- 코스 좌표 가져오기 -->
 	<select id="getPoint" resultType="pointVo" parameterType="int">
 		<![CDATA[
 			select point_no pointNo

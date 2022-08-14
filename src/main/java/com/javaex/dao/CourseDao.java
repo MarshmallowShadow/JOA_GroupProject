@@ -21,14 +21,8 @@ public class CourseDao {
 		return sqlSession.insert("course.insert", coVo);		
 	}
 	
-	//코스 제목 수정
-	public int updateTitle(Map<String, Object> map) {
-		System.out.println("CourseDao->updateTitle");
-		return sqlSession.update("course.updateTitle", map);
-	}
 
-
-	//(기록등록, 코스상세보기) 코스 가져오기
+	//코스 가져오기
 	public CourseVo selectCourse(int courseNo) {
 		System.out.println("CourseDao->selectCourse");
 		return sqlSession.selectOne("course.selectCourse", courseNo);
@@ -41,7 +35,12 @@ public class CourseDao {
 		return sqlSession.selectOne("course.getUserNo", courseNo);
 	}
 
-
+	
+	//코스 제목 수정
+	public int updateTitle(Map<String, Object> map) {
+		System.out.println("CourseDao->updateTitle");
+		return sqlSession.update("course.updateTitle", map);
+	}
 	
 
 }

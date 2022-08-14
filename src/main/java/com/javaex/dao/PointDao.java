@@ -22,7 +22,7 @@ public class PointDao {
 	}
 
 
-	//(기록등록, 코스상세보기) 코스 좌표 가져오기
+	//코스 좌표 가져오기
 	public List<PointVo> getPoint(int courseNo) {
 		System.out.println("PointDao->getPoint");
 		return sqlSession.selectList("point.getPoint", courseNo);

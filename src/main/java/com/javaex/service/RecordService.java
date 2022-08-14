@@ -34,6 +34,20 @@ public class RecordService {
 	private LikedCourseDao likeDao;
 
 	
+	//(기록등록) 코스 정보 가져오기
+	public Map<String, Object> getCourseInfo(int courseNo) {
+		System.out.println("RecordService->getCourseInfo");
+		
+		//코스 정보
+		CourseVo coVo = coDao.selectCourse(courseNo);
+		System.out.println(coVo);
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("coVo", coVo);
+
+		return coMap;
+	}
+	
 	
 	//코스기록 등록하기
 	public String recordWrite(RecordVo recVo) {
@@ -46,6 +60,7 @@ public class RecordService {
 			return "false";
 		}
 	}
+	
 	
 	//코스기록 이미지 등록
 	public String recordImgWrite(List<MultipartFile> fileList) {
@@ -106,20 +121,6 @@ public class RecordService {
 	}
 	
 	
-	//(기록등록) 코스 정보 가져오기
-	public Map<String, Object> getCourseInfo(int courseNo) {
-		System.out.println("RecordService->getCourseInfo");
-		
-		//코스 정보
-		CourseVo coVo = coDao.selectCourse(courseNo);
-		System.out.println(coVo);
-		
-		Map<String, Object> coMap = new HashMap<String, Object>();
-		coMap.put("coVo", coVo);
-
-		return coMap;
-	}
-	
 	//(기록상세보기) 기록 리스트 가져오기
 	public Map<String, Object> getRecord(int courseNo, int authUserNo) {
 		System.out.println("RecordService->getRecord");
@@ -144,6 +145,7 @@ public class RecordService {
 		
 		
 	}
+	
 
 	//(기록상세보기) 코스작성자 번호 가져오기
 	public int getCoUserNo(int courseNo) {
@@ -151,6 +153,7 @@ public class RecordService {
 		return coDao.getCoUserNo(courseNo);
 	}
 
+	
 	//(기록상세보기) 좋아요 갯수 가져오기
 	public Map<String, Object> recordViewForm(int courseNo) {
 		System.out.println("RecordService->recordViewForm");
@@ -161,8 +164,5 @@ public class RecordService {
 		
 		return coMap;
 	}
-
-
-	
 
 }
