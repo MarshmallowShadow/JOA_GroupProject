@@ -7,19 +7,14 @@
 <meta charset="UTF-8">
 <title>마이페이지 메인</title>
 
+<!-- favicon.ico 404에러 해결 -->
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
 <!-- CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
-<!-- jquery -->
-<script type="text/javascript">
-	window.userNo = parseInt('1');
-	window.contextPath = '${pageContext.request.contextPath}';
-</script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/menubar.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/bookmark.js"></script>
+
 
 
 </head>
@@ -561,4 +556,14 @@
 
 
 </body>
+<!-- jquery -->
+<script type="text/javascript">
+	window.userNo = parseInt('1');
+	window.contextPath = '${pageContext.request.contextPath}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/menubar.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/my-page/bookmark.js"></script>
+
 </html>

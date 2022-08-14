@@ -24,13 +24,11 @@ function fetchList(){
 	});
 }
 
-
-
 function render(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark/01">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
-	str += '	<img class="editName" src="'+contextPath+'/assets/image/my-page/edit.png">';
+	str += '	<img id="edit-cate-name" class="editName" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
 	$(".categoryArea").append(str);
@@ -70,7 +68,7 @@ $(document).ready(function(){
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
 	fetchList();	
-
+	
 	
 	
 	/*--------------------------------------------------*/
@@ -181,11 +179,12 @@ $(document).ready(function(){
    	
    	
    	
-   	
-   	$(".editName").click(function(){
-      console.log("카테고리이름 수정");
-      $(".category-modify-btn").modal("show");
-   });
+   	/*--------------------------------------------------*/
+	/*카테고리 이름 수정하기*/
+	$(".bookmark-menuList").on("click", "#edit-cate-name", function(){
+	  console.log("카테고리이름 수정");
+      /*$(".category-modify-btn").modal("show");*/
+   	});
    
 });   
 
