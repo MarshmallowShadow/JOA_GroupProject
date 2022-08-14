@@ -50,7 +50,6 @@ public class ApiRecordController {
 		return recService.getRecord(courseNo, authUserNo);
 	}
 	
-	
 	//코스 작성자 번호 가져오기
 	@ResponseBody
 	@RequestMapping(value = "/getCoUserNo", method = {RequestMethod.GET, RequestMethod.POST})

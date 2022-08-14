@@ -15,11 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.dao.CourseDao;
 import com.javaex.dao.LikedCourseDao;
-import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.RecordImgDao;
 import com.javaex.vo.CourseVo;
-import com.javaex.vo.PointVo;
 import com.javaex.vo.RecordImgVo;
 import com.javaex.vo.RecordVo;
 
@@ -31,12 +29,11 @@ public class RecordService {
 	@Autowired
 	private CourseDao coDao;
 	@Autowired
-	private PointDao pointDao;
-	@Autowired
 	private RecordImgDao imgDao;
 	@Autowired
 	private LikedCourseDao likeDao;
 
+	
 	
 	//코스기록 등록하기
 	public String recordWrite(RecordVo recVo) {
@@ -116,18 +113,13 @@ public class RecordService {
 		//코스 정보
 		CourseVo coVo = coDao.selectCourse(courseNo);
 		System.out.println(coVo);
-		//코스 좌표
-		List<PointVo> pointVo = pointDao.selectPoint(courseNo);
-		System.out.println(pointVo);
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo);
-		coMap.put("pointVo", pointVo);
-		
-		return coMap;
-		
-	}
 
+		return coMap;
+	}
+	
 	//(기록상세보기) 기록 리스트 가져오기
 	public Map<String, Object> getRecord(int courseNo, int authUserNo) {
 		System.out.println("RecordService->getRecord");

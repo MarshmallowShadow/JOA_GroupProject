@@ -5,23 +5,11 @@ $(document).ready(function() {
 	
 	console.log(authUserNo);
 	
+	/*지도 그리기*/
+	map();
 	
 	
-/*------------지도-------------------------------------------------------------------*/
-	//지도 정보
-	var mapContainer = document.getElementById('map-info');
-	var mapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
-		level: 3, //지도의 레벨(확대, 축소 정도)
-	};
-	
-	// 이미지 지도 생성
-	//var staticMap = new kakao.maps.StaticMap(mapContainer, mapOption),
-	var staticMap = new kakao.maps.Map(mapContainer, mapOption),
-		overlays = []; //지도에 그릴 선 담을 배열
-	
-	
-/*------------사진모달-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------사진모달-------------------------------------------------------------------*/
 	lightbox.option({
 		/*https://lokeshdhakar.com/projects/lightbox2/*/
 		'alwaysShowNavOnTouchDevices': true, /*이미지 세트 일때 화면 양쪽 누르면 사진 변경*/
@@ -35,7 +23,7 @@ $(document).ready(function() {
 	
 	
 	
-/*------------기록리스트-------------------------------------------------------------------*/	
+/*-------------------------------------------------------------------기록리스트-------------------------------------------------------------------*/	
 
 	/*스크롤 변화가 발생할때 호출*/
 	/*$(".record-info-content").scroll(function() {
@@ -290,4 +278,104 @@ function getCoUserNo(courseNo) {
 	return coUserNo;
 	
 };
+
+
+/*-------------------------------------------------------------------지도-------------------------------------------------------------------*/
+function map() {
+	
+	var courseNo = $("#courseNo").val();
+	
+	//좌표 배열
+	var path = [];
+	//지도 범위정보 객체
+	var bounds = new kakao.maps.LatLngBounds();
+	// 마커 위치
+	var markerPosition = [];
+	
+	/*좌표 가져오기*/
+	$.ajax({
+		//보낼때
+		url : contextPath+"/apiCo/getPoint",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(points){
+			//성공시 처리해야될 코드 작성
+			console.log(points);
+			
+			for(var i=0; i<points.length; i++) {
+				var latlng = new kakao.maps.LatLng(points[i].y, points[i].x);
+				
+				//좌표 배열에 추가
+				path.push(latlng);
+				
+				//범위정보에 마커 좌표 추가
+				bounds.extend(latlng);
+			}
+			
+			//지도 범위 재설정
+			map.setBounds(bounds);
+			
+			
+			/*마커 생성*/
+			//시작 마커와 마지막 마커 배열 저장
+			var firstMk = {
+				title: 'start',
+				latlng: new kakao.maps.LatLng(points[0].y, points[0].x)
+			};
+			markerPosition.push(firstMk);
+			var lastMk = {
+				title: 'end',
+				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x)
+			};
+			markerPosition.push(lastMk);
+			
+			// 마커 생성
+			for(var i=0; i<markerPosition.length; i++) {
+				var marker = new kakao.maps.Marker({
+					map: map,
+				    position: markerPosition[i].latlng,
+				    title: markerPosition[i].title
+				});
+				console.log(marker);
+			}
+			
+			/*라인 그리기*/
+			//선 생성
+			var polyline = new kakao.maps.Polyline({
+				map: map, //표시할 지도
+				path: path, //선의 좌표
+				strokeWeight: 5, //선 두께
+				strokeColor: 'rgb(50, 108, 249)', //선 색깔
+				strokeOpacity: 1, //선의 불투명도 (0~1)
+				strokeStyle: 'solid' //선 스타일
+			});
+
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+		
+	//지도 정보
+	var mapContainer = document.getElementById('map-info');
+	var mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+		level: 3, //지도의 레벨(확대, 축소 정도)
+		//정적 지도로 바꿀수 있으면 없애기
+		draggable: false, //마우스 휠 이동, 확대, 축소 여부
+		disableDoubleClick: false, //더블클릭 이벤트 여부
+		keyboardShortcuts: false //키보드 이동, 확대, 축소 여부
+	};
+	
+	// 이미지 지도 생성
+	//var map = new kakao.maps.StaticMap(mapContainer, mapOption);
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+
+}
+
 
