@@ -121,6 +121,7 @@ $(document).ready(function(){
 	/*카테고리 삭제하기*/
 	$(".minus-btn").click(function(){
 		console.log("카테고리삭제");
+		$("option").remove();
 		
 		/*삭제리스트 가져오기*/
 		$.ajax({
