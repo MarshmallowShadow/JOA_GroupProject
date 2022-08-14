@@ -15,7 +15,7 @@
 
 
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
 <!-- 차트 api -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>

@@ -33,8 +33,8 @@ public class RecordController {
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
 	public String recordViewForm(Model model, @RequestParam int courseNo) {
 		System.out.println("RecordController->recordViewForm");
-		int likedCnt = recService.recordViewForm(courseNo);
-		model.addAttribute("likedCnt", likedCnt);
+		Map<String, Object> coMap = recService.recordViewForm(courseNo);
+		model.addAttribute("coMap", coMap);
 		return "course/view-record";
 	}
 }

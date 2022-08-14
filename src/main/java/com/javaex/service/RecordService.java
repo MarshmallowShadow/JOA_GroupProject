@@ -160,9 +160,14 @@ public class RecordService {
 	}
 
 	//(기록상세보기) 좋아요 갯수 가져오기
-	public int recordViewForm(int courseNo) {
+	public Map<String, Object> recordViewForm(int courseNo) {
 		System.out.println("RecordService->recordViewForm");
-		return likeDao.getLikeCnt(courseNo);
+		int likeCnt = likeDao.getLikeCnt(courseNo);
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("likeCnt", likeCnt); //좋아요 갯수
+		
+		return coMap;
 	}
 
 

@@ -46,6 +46,8 @@ $(document).ready(function() {
 	// Drawing Manager 생성
 	var manager = new kakao.maps.drawing.DrawingManager(options);
 	
+	getDataFromDrawingMap();
+	
 	// 데이터 그리기
 	function getDataFromDrawingMap() {
 	    // Drawing Manager에서 그려진 데이터 정보를 가져옵니다 
@@ -63,7 +65,7 @@ $(document).ready(function() {
 		/*var	pointFirst_x = '${coMap.pointVo[0].x}';
 		var	pointFirst_y = '${coMap.pointVo[0].y}';*/
 		
-		//시작 좌표
+		/*//시작 좌표
 		var pointFirst_x = 127.1154720072476;
 		var pointFirst_y = 37.52690948940164;
 		
@@ -83,7 +85,9 @@ $(document).ready(function() {
             position: new kakao.maps.LatLng(pointLast_x, pointLast_y), 
         });
 
-        overlays.push(markerLast);
+        overlays.push(markerLast);*/
+        
+        
 	}
 	
 	

@@ -99,6 +99,13 @@ public class CourseService {
 		
 		return diffiData;
 	}
+	
+	
+	//코스 좌표 가져오기
+	public List<PointVo> getPoint(int courseNo) {
+		System.out.println("CourseService->getPoint");
+		return pointDao.getPoint(courseNo);
+	}
 
 
 	//(코스상세보기) 코스 정보 가져오기
@@ -106,7 +113,6 @@ public class CourseService {
 		System.out.println("CourseService->getCourseInfo");
 		
 		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
-		List<PointVo> pointVo = pointDao.selectPoint(courseNo); //코스좌표
 		UserVo userVo = userDao.getUserName(coVo.getUserNo()); //유저이름
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
 		int likeCnt = likeDao.getLikeCnt(courseNo);//좋아요 갯수
@@ -128,7 +134,6 @@ public class CourseService {
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo); //코스정보
-		coMap.put("pointVo", pointVo); //코스좌표
 		coMap.put("userName", userVo.getName()); //유저이름
 		coMap.put("recCnt", recCnt); //총 기록수
 		coMap.put("likeCnt", likeCnt); //좋아요 갯수
@@ -165,6 +170,8 @@ public class CourseService {
 		
 		return resultMap;
 	}
+
+	
 
 	
 

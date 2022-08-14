@@ -108,7 +108,7 @@ $(document).ready(function() {
 	        // 선 생성
 	        clickLine = new kakao.maps.Polyline({
 	            map: map, // 표시할 지도
-	            path: [clickPosition], // 좌표 배열!!!!!!!!
+	            path: [clickPosition], // 좌표 배열
 	            strokeWeight: 3, // 선 두께
 	            strokeColor: 'rgb(255, 52, 120)', // 선 색깔
 	            strokeOpacity: 1, // 선 불투명도 (0~1)

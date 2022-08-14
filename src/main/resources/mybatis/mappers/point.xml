@@ -12,7 +12,7 @@
 	</insert>
 	
 	<!-- (기록등록) 코스 좌표 가져오기 -->
-	<select id="selectPoint" resultType="pointVo" parameterType="int">
+	<select id="getPoint" resultType="pointVo" parameterType="int">
 		<![CDATA[
 			select point_no pointNo
 			        ,course_no courseNo

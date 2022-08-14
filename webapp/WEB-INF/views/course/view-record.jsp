@@ -84,7 +84,7 @@
 						<a href="./write?courseNo=${param.courseNo }" class="link-btn">기록 작성하기</a>
 						<a class="like-btn">
 							<img src="${pageContext.request.contextPath }/assets/image/main/heart-off.png">
-							<span>${likedCnt }</span>
+							<span>${coMap.likeCnt }</span>
 						</a>
 					</div>
 				</div>
