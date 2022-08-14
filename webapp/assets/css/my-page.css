@@ -61,7 +61,7 @@ input[type=radio] {display:none;}
 			left: 0;
 			text-align:left; line-height: 50px; 
 			background-color:white; border-right:solid 1px gray;}
-#menuBar a:hover {color: #f1f1f1;}
+#menuBar a:hover {color: #c0c0c0;}
 #menuBar #menuList {font-size: 14px; line-height:50px;}
 
 
@@ -78,7 +78,7 @@ input[type=radio] {display:none;}
 #menuBar .menu2 .bookmark-btn {text-align:right;}
 #menuBar .plus-btn {width: 20px; height: 20px;}
 #menuBar .minus-btn {width: 20px; height: 20px;}
-#menuBar #menuList .editName {width: 16px; height: 16px; float:right; color: gray; margin-top:17px;}
+#menuBar #menuList .editName {width: 16px; height: 16px; /* float:right; */ color: gray; margin-top:17px;}
 
 
 #menuBar .menu3 {width:(100%-padding); height: (20%-padding); text-align:left;  padding:20px 30px; }
