@@ -78,7 +78,7 @@ input[type=radio] {display:none;}
 #menuBar .menu2 .bookmark-btn {text-align:right;}
 #menuBar .plus-btn {width: 20px; height: 20px;}
 #menuBar .minus-btn {width: 20px; height: 20px;}
-#menuBar #menuList .editName {width: 16px; height: 16px; /* float:right; */ color: gray; margin-top:17px;}
+#menuBar #menuList .editName {width: 16px; height: 16px; float:right; color: gray; margin-top:17px;}
 
 
 #menuBar .menu3 {width:(100%-padding); height: (20%-padding); text-align:left;  padding:20px 30px; }
