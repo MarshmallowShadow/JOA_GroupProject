@@ -22,6 +22,7 @@ function fetchList(){
 			console.error(status + " : " + error);
 		}
 	});
+	
 }
 
 function render(categoryList) {
@@ -40,8 +41,6 @@ function render2(categoryList) {
 	
 	$(".sel-delCategory").append(str);
 }
-
-
 
 $(document).ready(function(){
 	console.log("준비")
@@ -176,14 +175,13 @@ $(document).ready(function(){
 		});
 		$(".category-del-btn").modal("hide");
 	});
-   	
-   	
-   	
-   	/*--------------------------------------------------*/
+	
+	
+	/*--------------------------------------------------*/
 	/*카테고리 이름 수정하기*/
-	$(".bookmark-menuList").on("click", "#edit-cate-name", function(){
+	$("body").on("click", "#edit-cate-name", function(){
 	  console.log("카테고리이름 수정");
-      /*$(".category-modify-btn").modal("show");*/
+      $(".category-modify-btn").modal("show");
    	});
    
 });   
