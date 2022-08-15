@@ -83,7 +83,10 @@ input[type=radio] {display:none;}
 
 
 /* -------------------------텍스트박스----------------------------- */
-.course-form input[type="text"], .course-form input[type="number"] {
+.course-form input[type="text"],
+.course-form input[type="number"],
+.course-form input[type="date"],
+.course-form input[type="time"] {
 	height: 46px;
 	padding: 0px 15px;
 	box-sizing: border-box;
@@ -91,6 +94,7 @@ input[type=radio] {display:none;}
 }
 .txt-long {width: 100%;}
 .txt-short {width: 110px; margin: 0px 12px 0px 0px;}
+.datetime {width: 150px; margin: 0px 12px 0px 0px;}
 input[name="address"] {width: 89%;}
 input[type="datetime-local"] {border:  1px solid rgb(223, 223, 223);}
 

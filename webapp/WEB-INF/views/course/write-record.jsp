@@ -157,8 +157,8 @@
 					<tr>
 						<th>날짜</th>
 						<td colspan="3">
-							<input class="txt-short" id="date" type="date" name="regDate">
-							<input class="txt-short" id="time" type="time" name="regTime">
+							<input class="datetime" id="date" type="date" name="regDate">
+							<input class="datetime" id="time" type="time" name="regTime">
 							<!-- <input type="datetime-local" id="date" name="regDate"> -->
 						</td>
 					</tr>
@@ -168,7 +168,7 @@
 						<th>날씨</th>
 						<td>
 							<div class="course-radio">
-								<input type="radio" name="weather" id="sun" value="sun" checked>
+								<input type="radio" name="weather" id="sun" value="sun">
 								<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
 								
 								<input type="radio" name="weather" id="moon" value="moon">
@@ -187,7 +187,7 @@
 						
 						<th>기온</th>
 						<td>
-							<input class="txt-short" type="text" name="temperature" id="tem">
+							<input class="txt-short" type="number" name="temperature" id="tem" min="-45" max="45">
 							<p class="bold">℃</p>
 						</td>
 					</tr>
@@ -221,9 +221,9 @@
 					<tr>
 						<th>시간</th>
 						<td colspan="3">
-							<input type="text" class="txt-short" name="hour" id="hour">
+							<input type="number" class="txt-short" name="hour" id="hour" min="0" max="24">
 							<p>시간</p>
-							<input type="text" class="txt-short" name="minute" id="minute">
+							<input type="number" class="txt-short" name="minute" id="minute" min="0" max="59">
 							<p>분</p>
 						</td>
 					</tr>
@@ -247,7 +247,7 @@
 					<tr>
 						<th>한줄평</th>
 						<td colspan="3">
-							<input class="txt-long" type="text" id="review" name="review" value="">
+							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="200">
 						</td>
 					</tr>
 					

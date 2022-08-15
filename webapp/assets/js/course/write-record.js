@@ -44,6 +44,42 @@ $(document).ready(function() {
 		var review = $("#review").val();
 		var courseNo = $("#courseNo").val();
 		var userNo = $("#userNo").val();
+		
+		/*유효성 검사*/
+		if(regDate == " " || regDate == null) {
+			alert("날짜를 입력해주세요");
+			$("#date").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#time").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("#date").css("border", "solid 1px rgb(223, 223, 223)");
+			$("#time").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(courseCate == "" || courseCate == null) {
+			alert("종목을 선택해주세요");
+			$("input[name='courseCate']").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(hour == "" || hour == null || min == "" || min == null) {
+			alert("시간을 입력해주세요");
+			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#minute").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("#hour").css("border", "solid 1px rgb(223, 223, 223)");
+			$("#minute").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(difficulty == "" || difficulty == null) {
+			alert("난이도를 선택해주세요");
+			return false;
+		}
+		
+		
 		//recVo 생성
 		var recVo = {
 			regDate: regDate,

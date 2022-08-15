@@ -44,8 +44,11 @@ $(document).ready(function() {
 		if(hour == "" || hour == null || min == "" || min == null) {
 			alert("시간을 입력해주세요");
 			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
-			$("#min").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#minute").css("border", "solid 3px rgb(255, 52, 120)");
 			return false;
+		} else {
+			$("#hour").css("border", "solid 1px rgb(223, 223, 223)");
+			$("#minute").css("border", "solid 1px rgb(223, 223, 223)");
 		}
 		
 		if(diffi == "" || diffi == null) {
