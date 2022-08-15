@@ -83,7 +83,7 @@ input[type=radio] {display:none;}
 
 
 /* -------------------------텍스트박스----------------------------- */
-.course-form input[type="text"] {
+.course-form input[type="text"], .course-form input[type="number"] {
 	height: 46px;
 	padding: 0px 15px;
 	box-sizing: border-box;

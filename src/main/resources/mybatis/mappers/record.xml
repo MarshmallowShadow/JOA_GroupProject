@@ -15,7 +15,7 @@
 		]]>
 	</insert>
 	
-	<!-- (이미지추가) 기록번호 가져오기 -->
+	<!-- 기록번호 가져오기 -->
 	<select id="getrecNo" resultType="int">
 		<![CDATA[
 			select last_number
@@ -24,7 +24,7 @@
 		]]>
 	</select>
 	
-	<!-- (코스상세보기) 기록수 가져오기 -->
+	<!-- 기록수 가져오기 -->
 	<select id="recCnt" parameterType="int" resultType="int">
 		<![CDATA[
 			select  count(*)
@@ -33,7 +33,7 @@
 		]]>
 	</select>
 	
-	<!-- (기록상세보기) 기록리스트 가져오기 -->
+	<!-- 기록리스트 가져오기 -->
 	<select id="getRec" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			select  record_no recordNo
@@ -57,7 +57,7 @@
 		</if>
 	</select>
 	
-	<!-- (기록상세보기) 기록이미지 가져오기 -->
+	<!-- 기록이미지 가져오기 -->
 	<select id="getImg" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			select  course_no

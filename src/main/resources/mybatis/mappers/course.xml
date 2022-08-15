@@ -25,7 +25,7 @@
 	</update>
 	
 	
-	<!-- (기록등록) 코스 가져오기 -->
+	<!-- 코스 가져오기 -->
 	<select id="selectCourse" resultType="coVo" parameterType="int">
 		<![CDATA[
 			select course_no courseNo
@@ -42,7 +42,7 @@
 	</select>
 	
 	
-	<!-- (코스상세보기) 기록작성자 번호 가져오기 -->
+	<!-- 기록작성자 번호 가져오기 -->
 	<select id="getUserNo" resultType="int" parameterType="int">
 		<![CDATA[
 			select user_no

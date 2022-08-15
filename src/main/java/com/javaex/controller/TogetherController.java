@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javaex.service.TogetherService;
 
 @Controller
+@RequestMapping(value="/together")
 public class TogetherController {
 	
 	//필드

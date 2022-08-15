@@ -97,7 +97,7 @@
 							<!-- 코스 이름 -->
 							<tr>
 								<th>코스 이름</th>
-								<td><input type="text" class="txt-long" id="course-title" name="title"></td>
+								<td><input type="text" class="txt-long" id="course-title" name="title" maxlength="11"></td>
 							</tr>
 							
 							<!-- 종목 -->
@@ -130,7 +130,7 @@
 								<th>거리</th>
 								<td>
 									<div>
-										<input type="text" class="txt-short" name="distance" value="" readonly>
+										<input type="number" class="txt-short" id="distance" name="distance" value="" readonly>
 										<p>km</p>
 											
 									</div>
@@ -146,9 +146,9 @@
 										마라톤, 그림 종목은 직접 입력해주세요.
 									</div>
 									
-									<input type="text" class="txt-short" name="hour" id="hour" value="">
+									<input type="number" class="txt-short" name="hour" id="hour" value="" min="0" max="24">
 									<p>시간</p>
-									<input type="text" class="txt-short" name="minute" id="minute" value="">
+									<input type="number" class="txt-short" name="minute" id="minute" value="" min="0" max="59">
 									<p>분</p>
 									
 								</td>

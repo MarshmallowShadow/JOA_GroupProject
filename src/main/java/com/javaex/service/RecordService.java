@@ -15,11 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.dao.CourseDao;
 import com.javaex.dao.LikedCourseDao;
-import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.RecordImgDao;
 import com.javaex.vo.CourseVo;
-import com.javaex.vo.PointVo;
 import com.javaex.vo.RecordImgVo;
 import com.javaex.vo.RecordVo;
 
@@ -31,12 +29,25 @@ public class RecordService {
 	@Autowired
 	private CourseDao coDao;
 	@Autowired
-	private PointDao pointDao;
-	@Autowired
 	private RecordImgDao imgDao;
 	@Autowired
 	private LikedCourseDao likeDao;
 
+	
+	//(기록등록) 코스 정보 가져오기
+	public Map<String, Object> getCourseInfo(int courseNo) {
+		System.out.println("RecordService->getCourseInfo");
+		
+		//코스 정보
+		CourseVo coVo = coDao.selectCourse(courseNo);
+		System.out.println(coVo);
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("coVo", coVo);
+
+		return coMap;
+	}
+	
 	
 	//코스기록 등록하기
 	public String recordWrite(RecordVo recVo) {
@@ -49,6 +60,7 @@ public class RecordService {
 			return "false";
 		}
 	}
+	
 	
 	//코스기록 이미지 등록
 	public String recordImgWrite(List<MultipartFile> fileList) {
@@ -109,25 +121,6 @@ public class RecordService {
 	}
 	
 	
-	//(기록등록) 코스 정보 가져오기
-	public Map<String, Object> getCourseInfo(int courseNo) {
-		System.out.println("RecordService->getCourseInfo");
-		
-		//코스 정보
-		CourseVo coVo = coDao.selectCourse(courseNo);
-		System.out.println(coVo);
-		//코스 좌표
-		List<PointVo> pointVo = pointDao.selectPoint(courseNo);
-		System.out.println(pointVo);
-		
-		Map<String, Object> coMap = new HashMap<String, Object>();
-		coMap.put("coVo", coVo);
-		coMap.put("pointVo", pointVo);
-		
-		return coMap;
-		
-	}
-
 	//(기록상세보기) 기록 리스트 가져오기
 	public Map<String, Object> getRecord(int courseNo, int authUserNo) {
 		System.out.println("RecordService->getRecord");
@@ -152,6 +145,7 @@ public class RecordService {
 		
 		
 	}
+	
 
 	//(기록상세보기) 코스작성자 번호 가져오기
 	public int getCoUserNo(int courseNo) {
@@ -159,13 +153,28 @@ public class RecordService {
 		return coDao.getCoUserNo(courseNo);
 	}
 
-	//(기록상세보기) 좋아요 갯수 가져오기
-	public int recordViewForm(int courseNo) {
-		System.out.println("RecordService->recordViewForm");
-		return likeDao.getLikeCnt(courseNo);
-	}
-
-
 	
+	//(기록상세보기) 좋아요 가져오기
+	public Map<String, Object> recordViewForm(int courseNo, int userNo) {
+		System.out.println("RecordService->recordViewForm");
+		int likeCnt = likeDao.getLikeCnt(courseNo); //좋아요 갯수
+		//좋아요 여부
+		String liked = "heart-off";
+		if(userNo != 0) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("courseNo", courseNo);
+			map.put("userNo", userNo);
+			
+			if(likeDao.getLiked(map) > 0) {
+				liked = "heart";
+			}
+		}
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("likeCnt", likeCnt); //좋아요 갯수
+		coMap.put("liked", liked); //좋아요 여부
+		
+		return coMap;
+	}
 
 }

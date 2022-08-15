@@ -2,6 +2,8 @@ package com.javaex.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.RecordService;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value="/record")
@@ -31,10 +34,15 @@ public class RecordController {
 	
 	//기록 상세보기
 	@RequestMapping(value="/view", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordViewForm(Model model, @RequestParam int courseNo) {
+	public String recordViewForm(HttpSession session, Model model, @RequestParam int courseNo) {
 		System.out.println("RecordController->recordViewForm");
-		int likedCnt = recService.recordViewForm(courseNo);
-		model.addAttribute("likedCnt", likedCnt);
+		UserVo userVo = (UserVo) session.getAttribute("authUser");
+		int userNo = 0;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}
+		Map<String, Object> coMap = recService.recordViewForm(courseNo, userNo);
+		model.addAttribute("coMap", coMap);
 		return "course/view-record";
 	}
 }
