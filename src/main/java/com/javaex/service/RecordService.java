@@ -154,13 +154,25 @@ public class RecordService {
 	}
 
 	
-	//(기록상세보기) 좋아요 갯수 가져오기
-	public Map<String, Object> recordViewForm(int courseNo) {
+	//(기록상세보기) 좋아요 가져오기
+	public Map<String, Object> recordViewForm(int courseNo, int userNo) {
 		System.out.println("RecordService->recordViewForm");
-		int likeCnt = likeDao.getLikeCnt(courseNo);
+		int likeCnt = likeDao.getLikeCnt(courseNo); //좋아요 갯수
+		//좋아요 여부
+		String liked = "heart-off";
+		if(userNo != 0) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("courseNo", courseNo);
+			map.put("userNo", userNo);
+			
+			if(likeDao.getLiked(map) > 0) {
+				liked = "heart";
+			}
+		}
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("likeCnt", likeCnt); //좋아요 갯수
+		coMap.put("liked", liked); //좋아요 여부
 		
 		return coMap;
 	}

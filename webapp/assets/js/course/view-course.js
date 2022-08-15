@@ -70,7 +70,7 @@ $(document).ready(function() {
 		
 		var courseNo = $("#courseNo").val();
 		
-		if(userNo != null || userNo != ""){
+		if(authUserNo != null || authUserNo != ""){
 			$.ajax({
 				//보낼때
 				url : contextPath+"/apiCo/likeBtnClick",

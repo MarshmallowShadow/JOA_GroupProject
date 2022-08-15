@@ -6,6 +6,68 @@
 $(document).ready(function() {
 	console.log("페이지 준비");
 	
+	/*지도*/
+	map();
+	
+	/*등록 버튼 클릭 했을 때 유효성 검사*/
+	$("#courseForm").on("submit", function() {
+		
+		var title = $("#course-title").val();
+		var cate = $("input[name='courseCate']:checked").val();
+		var dis = $("#distance").val();
+		var hour = $("#hour").val();
+		var min = $("#minute").val();
+		var diffi = $("input[name='difficulty']:checked").val();
+		
+		if(title == "" || title == null) {
+			alert("제목을 입력해주세요");
+			$("#course-title").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("#course-title").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(cate == "" || cate == null) {
+			alert("종목을 선택해주세요");
+			$("input[name='courseCate']").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(dis == "" || dis == null) {
+			alert("코스를 입력해주세요");
+			$("#map").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		}
+		
+		if(hour == "" || hour == null || min == "" || min == null) {
+			alert("시간을 입력해주세요");
+			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#min").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		}
+		
+		if(diffi == "" || diffi == null) {
+			alert("난이도를 선택해주세요");
+			return false;
+		}
+	});
+
+	
+   
+	
+
+
+
+});
+
+
+
+/********************************************************지도********************************************************/
+function map() {
+		
+	
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
@@ -14,7 +76,7 @@ $(document).ready(function() {
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); //지도 생성
 	
-/***********************현재 위치 찍기********************************************************/	
+/********************************************************현재 위치********************************************************/
 	// HTML5의 geolocation으로 사용할 수 있는지 확인
 	if (navigator.geolocation) {
 	    
@@ -39,10 +101,8 @@ $(document).ready(function() {
 	    map.setCenter(locPosition); 
 	}
 	
-   
-/***********************현재 위치 찍기********************************************************/	
 	
-/***********************키워드 검색********************************************************/
+/********************************************************키워드 검색********************************************************/
 	
 	$('#address-btn').on("click", function() {
 		//주소 가져오기
@@ -72,12 +132,8 @@ $(document).ready(function() {
 		}
 		
 	});
-
-
-/***********************키워드 검색********************************************************/	
-
-/***********************코스 그리기********************************************************/	
-
+	
+/********************************************************코스 그리기********************************************************/
 	var drawingFlag = false; // 그리고 있는 상태 체크
 	var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체
 	var clickLine; // 마우스로 클릭한 좌표로 그려질 선 객체
@@ -354,8 +410,5 @@ $(document).ready(function() {
 	
 	    return content;
 	}
-/***********************코스 그리기********************************************************/
-});
-
-
+}
 

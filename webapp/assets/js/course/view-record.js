@@ -23,6 +23,45 @@ $(document).ready(function() {
 	
 	
 	
+/*-------------------------------------------------------------------좋아요 버튼-------------------------------------------------------------------*/
+	
+	$(".like-btn").on("click", function() {
+		
+		var courseNo = $("#courseNo").val();
+		
+		if(authUserNo != null || authUserNo != ""){
+			$.ajax({
+				//보낼때
+				url : contextPath+"/apiCo/likeBtnClick",
+				type : "post",
+				//contentType : "application/json",
+				data : {courseNo},
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					var heart = result.heart;
+					var cnt = result.cnt;
+					
+					var src = contextPath + "/assets/image/main/"+heart+".png";
+					
+					$("#like").attr("src", src);
+					$("#like-cnt").text(cnt);
+					
+		
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+		}
+		
+		
+	});
+	
+	
+	
 /*-------------------------------------------------------------------기록리스트-------------------------------------------------------------------*/	
 
 	/*스크롤 변화가 발생할때 호출*/
