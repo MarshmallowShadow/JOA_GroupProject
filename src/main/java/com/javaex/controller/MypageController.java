@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
 import com.javaex.vo.CategoryVo;
@@ -21,11 +22,22 @@ public class MypageController {
 	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypage() {
+	public String mypage() { 
 		System.out.println("MypageController>mypage");
-		
-		return "my-page/main";
+		return "my-page/main"; 
 	}
+	
+	
+	/*
+	 * @RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
+	 * public String mypage(Model model, @RequestParam("no") int no) {
+	 * System.out.println("MypageController>mypage"); List<CategoryVo> categoryList
+	 * = mypageService.getCategoryList(1); model.addAttribute("categoryList",
+	 * categoryList);
+	 * 
+	 * return "my-page/main"; }
+	 */
+	
 	
 	
 	//마이페이지-내 코스

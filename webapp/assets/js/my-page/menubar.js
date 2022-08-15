@@ -29,7 +29,7 @@ function render(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark/01">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
-	str += '	<img id="edit-cate-name" class="editName" src="'+contextPath+'/assets/image/my-page/edit.png">';
+	str += '	<img id="edit-cate-name" class="editName" data-cateNo="'+categoryList.cateNo+'" value="'+categoryList.cateNo+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
 	$(".categoryArea").append(str);
@@ -41,6 +41,16 @@ function render2(categoryList) {
 	
 	$(".sel-delCategory").append(str);
 }
+
+function render3(categoryList){
+	var str = '';
+	str += '<input type="text" placeholder="'+categoryList.cateName+'">';
+	
+	$("#cateName-modal").append(str);
+}
+
+
+
 
 $(document).ready(function(){
 	console.log("준비")
@@ -180,8 +190,40 @@ $(document).ready(function(){
 	/*--------------------------------------------------*/
 	/*카테고리 이름 수정하기*/
 	$("body").on("click", "#edit-cate-name", function(){
-	  console.log("카테고리이름 수정");
-      $(".category-modify-btn").modal("show");
+		console.log("카테고리이름 수정");
+		var cateNo = $(".bookmark-menuList").data("cateNo");
+		console.log(cateNo);
+		/*var cateNo = $(".bookmark-menuList").val();*/
+	
+				
+		/*수정리스트 가져오기*/
+		/*$.ajax({
+			url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(categoryList){
+				//컨트롤러 함수 실행 후 코드
+				console.log(categoryList);
+				//화면에 data + html로 띄운다(그린다).
+				render3(categoryList);
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});*/
+		//모달창 띄우기
+		$(".category-modify-btn").modal("show");	  
+	  
+	  
+	  
+	  /*//수정버튼의 cateNo/ name값 꺼내기
+	  var cateNo = $(".bookmark-menuList").val();
+	  console.log(cateNo);*/
+	  
+      
    	});
    
 });   
