@@ -50,15 +50,16 @@ public class ListController {
 		return "list/listWrite";
 	}
 	
-	//메인
+	//메인(리스트)
 	@RequestMapping(value="/list", method = {RequestMethod.GET, RequestMethod.POST})
 	public String list () {
 		System.out.println("ListController");
 		
+		//데이터 가져오기 
+		
+		//model.addAttribute("lList", lList);
+		
 		return "list/list";
 	}
-
-	
-	
 
 }

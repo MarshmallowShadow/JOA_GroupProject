@@ -7,25 +7,17 @@
 	<insert id="listWrite" parameterType="ListVo">
 		<![CDATA[
 			insert into q_list
-			values(SEQ_BOARD_NO.nextval, #{userNo}, #{courseNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+			values(SEQ_Q_LIST_NO.nextval, #{userNo}, #{listCategory}, #{title}, #{content}, sysdate, #{view_count})
 		]]>
 	</insert>
 
-	<!--리스트 출력 -->
-<!-- 	<select id="listList" parameterType="String" resultType="ListVo">
+
+	<!-- 리스트 출력 -->
+ 	<select id="listList" parameterType="String" resultType="ListVo">
 		<![CDATA[
-			SELECT board_category,
-			        user_no,
-			        course_no,
-			        event_no,
-			        board_no,
-			        title,
-			        content,
-			        reg_date,
-			        view_count
-			FROM board		
+			SELECT q_list_no,user_no,board_category,title,content,reg_date,view_count
+			FROM q_list	
 		]]>
 	</select>
- -->
  
 </mapper>
