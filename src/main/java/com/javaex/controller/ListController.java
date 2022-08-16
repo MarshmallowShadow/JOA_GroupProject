@@ -10,8 +10,12 @@ import com.javaex.vo.ListVo;
 @Controller
 public class ListController {
 	
-	//삭제
+	/***************** 삭제  ****************/
 	
+	
+	
+	
+	/***************** 글쓰기  ****************/
 	//글쓰기 등록
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute ListVo listVo) {

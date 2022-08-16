@@ -17,10 +17,4 @@ public class MapController {
 		
 		return "map/map";
 	}
-	
-	public static void main(String[] args) {
-		Map<String, String> cateMap = new HashMap<>();
-		cateMap.put("commute", "소통");
-		cateMap.put("review", "후기");
-	}
 }

@@ -29,6 +29,18 @@
 					<span id="icon-cate" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
+				<div id="menu-cate" class="filter-menu">
+					<h3>종목</h3>
+					<p>중복선택이 가능합니다<p>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">산책</div>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">조깅</div>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">런닝</div>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">마라톤</div>
+					<hr>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">자전거</div>
+					<hr>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">그림그리기</div>
+				</div>
 			</div>
 			
 			<div id="filter-dist">
@@ -45,6 +57,13 @@
 					<span id="icon-diff" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
+				<div id="menu-diff" class="filter-menu">
+					<h3>난이도</h3>
+					<p>중복선택이 가능합니다<p>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">쉬움</div>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">보통</div>
+					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">어려움</div>
+				</div>
 			</div>
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">

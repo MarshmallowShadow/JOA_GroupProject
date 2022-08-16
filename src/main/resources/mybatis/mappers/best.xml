@@ -4,19 +4,43 @@
 
 <mapper namespace="best">
 
-<!-- Top 1 ~ 3 -->
-<!-- 좋아요 -->
+	<!-- 좋아요/즐겨찾기/기록별 -->
+	<select id="maincategory" parameterType="map" resultType="map">
 
-<!-- 즐겨찾기 -->
+<![CDATA[
+		select *
+		from(select rownum rn, l_count, f_count, r_count, x, y, file_path, distance
+		     from (select l_count, f_count, r_count, x, y, file_path, distance
+		           from (SELECT count(*) l_count, course_no
+		                 FROM liked_course
+		                 GROUP by course_no)lc,
+		                 (SELECT count(*) f_count, course_no
+		                 from favorite_course
+		                 group by course_no) fc,
+		                 (SELECT count(*) r_count, course_no
+		                 FROM record
+		                 group by course_no) rc,
+		                 (SELECT file_path, course_no
+		                 FROM record_img i, record r, (SELECT MAX(reg_date) "ma" 
+		                                                FROM record
+		                                                GROUP BY course_no) d
+		                where i.record_no = i.record_no
+		                and order_no = 0                 
+		                and r.reg_date = d."ma") i,
+		        course c, point p
+		        
+		        where lc.course_no = fc.course_no
+		        and fc.course_no = rc.course_no
+		        and rc.course_no = i.course_no
+		        and i.course_no = c.course_no
+		        and c.course_no = p.course_no
+		        and course_category like '%#{course_cate}%'
+		        order by #{count_cate}))
+		where rn >=1 
+		and rn <=15
+]]>
+</select>
 
-<!-- 기록별 -->
 
-
-
-
-<!-- 한줄평 총 개수 -->
-
-<!-- 좋아요 총 개수 -->
-<!-- 즐찾 총 개수 -->
 
 </mapper>

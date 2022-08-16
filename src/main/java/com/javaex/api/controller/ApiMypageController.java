@@ -70,4 +70,15 @@ public class ApiMypageController {
 	
 	
 	
+	
+	/*
+	 * //6. 수정***
+	 * 
+	 * @RequestMapping(value="/board/modify", method = {RequestMethod.GET,
+	 * RequestMethod.POST}) public String modify(@ModelAttribute BoardVo boardVo) {
+	 * System.out.println("BoardController>modify()");
+	 * boardService.boardUpdate(boardVo); return "redirect:/board/list"; }
+	 */
+	
+	
 }

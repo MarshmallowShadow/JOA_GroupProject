@@ -87,7 +87,7 @@
 		<!-- 글쓰기 버튼 -->
 		<div>
 			<c:if test="${authUser != null}">
-				<button type="submit" id="write" onclick="location.href='http://localhost:8088/JOA/writeform';">글쓰기</button>
+				<button type="submit" id="write" onclick="location.href='http://localhost:8088/JOA/board/writeform';">글쓰기</button>
 			</c:if>
 		</div>
 		
