@@ -45,6 +45,8 @@ $(document).ready(function() {
 		var courseNo = $("#courseNo").val();
 		var userNo = $("#userNo").val();
 		
+
+		
 		/*유효성 검사*/
 		if(regDate == " " || regDate == null) {
 			alert("날짜를 입력해주세요");
@@ -79,6 +81,12 @@ $(document).ready(function() {
 			return false;
 		}
 		
+		if(weather == null || weather == '' || weather == undefined) {
+			weather = "null";
+		}
+		if(temperature == null || temperature == '' || temperature == undefined) {
+			temperature = -100;
+		}
 		
 		//recVo 생성
 		var recVo = {
