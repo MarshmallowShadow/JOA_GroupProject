@@ -377,7 +377,7 @@ CREATE TABLE Q_LIST (
 	view_count NUMBER NOT NULL, /* 조회수 */
 	Primary Key (q_list_no),
 	CONSTRAINT q_list_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
 );
 
 /* 1:1 게시판 댓글 */
