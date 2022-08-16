@@ -190,4 +190,16 @@ public class RecordService {
 		return recMap;
 	}
 
+	//기록 수정하기
+	public String recordModify(RecordVo recVo) {
+		System.out.println("RecordService->recordModify");
+		int cnt = recDao.updateRecord(recVo);
+		
+		if(cnt > 0) {
+			return "success";
+		}
+		
+		return "fail";
+	}
+
 }

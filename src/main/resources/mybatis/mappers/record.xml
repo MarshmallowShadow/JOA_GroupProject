@@ -73,7 +73,21 @@
 			where record_no = #{recordNo}
 		]]>
 	</select>
-
+	
+	<!-- 기록 수정하기 -->
+	<update id="update" parameterType="recVo">
+		<![CDATA[
+			update record
+			set review = #{review}
+				,weather = #{weather}
+				,temperature = #{temperature}
+				,course_category = #{courseCate}
+				,course_time = #{courseTime}
+				,difficulty = #{difficulty}
+				,reg_date = to_date(#{regDate}, 'yyyy-mm-dd hh24:mi')
+			where record_no = #{recordNo}
+		]]>
+	</update>
 	
 	
 <!-- ************************************************************************************** -->	

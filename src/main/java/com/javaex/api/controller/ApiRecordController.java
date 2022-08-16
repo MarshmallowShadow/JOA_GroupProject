@@ -57,4 +57,12 @@ public class ApiRecordController {
 		//System.out.println("ApiRecordController->getCoUserNo");
 		return recService.getCoUserNo(courseNo);
 	}
+	
+	//기록 수정
+	@ResponseBody
+	@RequestMapping(value = "/recordModify", method = {RequestMethod.GET, RequestMethod.POST})
+	public String recordModify(@ModelAttribute RecordVo recVo) {
+		System.out.println("ApiRecordController->recordModify");
+		return recService.recordModify(recVo);
+	}
 }

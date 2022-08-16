@@ -46,6 +46,12 @@ public class RecordDao {
 		return sqlSession.selectOne("record.getRec", recordNo);
 	}
 	
+	//기록 수정하기
+	public int updateRecord(RecordVo recVo) {
+		System.out.println("RecordDao->updateRecord");
+		return sqlSession.update("record.update", recVo);
+	}
+	
 
 	
 	
@@ -149,6 +155,8 @@ public class RecordDao {
 			return hard;
 		}
 	}
+
+
 
 
 

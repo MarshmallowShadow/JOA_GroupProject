@@ -21,6 +21,7 @@
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/modify-record.js"></script>
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
 </head>
@@ -482,9 +483,9 @@
 			
 			<div id="btn-wrap">
 				<input type="hidden" id="courseNo" value="${param.courseNo }">
-				<input type="hidden" id="userNo" value="2">
+				<input type="hidden" id="recordNo" value="${param.recordNo }">
 				<a class="cancel" href="./view?courseNo=${param.courseNo }">취소</a>
-				<a class="add">기록 등록</a>
+				<a class="add">기록 수정</a>
 			</div>
 		<!-- </form>	 -->
 	</div>
