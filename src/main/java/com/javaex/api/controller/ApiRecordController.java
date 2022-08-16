@@ -47,7 +47,7 @@ public class ApiRecordController {
 	public Map<String, Object> getRecord(@RequestParam(value = "courseNo", required = false) int courseNo,
 									@RequestParam(value = "authUserNo", required = false, defaultValue = "0") int authUserNo) {
 		System.out.println("ApiRecordController->getRecord");
-		return recService.getRecord(courseNo, authUserNo);
+		return recService.getRecordList(courseNo, authUserNo);
 	}
 	
 	//코스 작성자 번호 가져오기

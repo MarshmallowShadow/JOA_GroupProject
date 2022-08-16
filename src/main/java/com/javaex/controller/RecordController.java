@@ -1,5 +1,6 @@
 package com.javaex.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -44,5 +45,21 @@ public class RecordController {
 		Map<String, Object> coMap = recService.recordViewForm(courseNo, userNo);
 		model.addAttribute("coMap", coMap);
 		return "course/view-record";
+	}
+	
+	
+	//기록 수정폼
+	@RequestMapping(value="/modify", method = {RequestMethod.GET, RequestMethod.POST})
+	public String recordModifyForm(Model model,
+								@RequestParam(value = "courseNo", required = false) int courseNo,
+								@RequestParam(value = "recordNo", required = false) int recordNo) {
+		System.out.println("RecordController->recordWriteForm");
+		Map<String, Object> coMap = recService.getCourseInfo(courseNo); //코스정보
+		Map<String, Object> recMap = recService.getRecord(recordNo);
+		Map<String, Object> modMap = new HashMap<String, Object>();
+		modMap.put("coMap", coMap);
+		modMap.put("recMap", recMap);
+		model.addAttribute("modMap", modMap);
+		return "course/modify-record";
 	}
 }

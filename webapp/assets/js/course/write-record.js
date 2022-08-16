@@ -64,7 +64,7 @@ $(document).ready(function() {
 			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
 		}
 		
-		if(hour == "" || hour == null || min == "" || min == null) {
+		if(hour == "" || hour == null || minute == "" || minute == null) {
 			alert("시간을 입력해주세요");
 			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
 			$("#minute").css("border", "solid 3px rgb(255, 52, 120)");
