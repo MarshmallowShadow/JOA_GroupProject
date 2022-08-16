@@ -35,16 +35,20 @@ public class RecordDao {
 	}
 	
 	//(기록상세보기) 기록 리스트 가져오기
-	public List<Map<String, Object>> getRecord(Map<String, Object> map) {
-		System.out.println("RecordDao->getRecord");
-		return sqlSession.selectList("record.getRec", map);
+	public List<Map<String, Object>> getRecordList(Map<String, Object> map) {
+		System.out.println("RecordDao->getRecordList");
+		return sqlSession.selectList("record.getRecList", map);
 	}
 	
-	//(기록상세보기) 기록 이미지 가져오기
-	public List<Map<String, Object>> getImg(Map<String, Object> map) {
-		System.out.println("RecordDao->getImg");
-		return sqlSession.selectList("record.getImg", map);
+	//(기록수정) 기록 가져오기
+	public RecordVo getRecord(int recordNo) {
+		System.out.println("RecordDao->getRecord");
+		return sqlSession.selectOne("record.getRec", recordNo);
 	}
+	
+
+	
+	
 	
 //////차트 통계////////////////////////////////////////////////////////////////////////////////
 	//종목-산책
@@ -145,6 +149,10 @@ public class RecordDao {
 			return hard;
 		}
 	}
+
+
+
+
 
 	
 

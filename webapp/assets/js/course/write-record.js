@@ -12,7 +12,7 @@ $(document).ready(function() {
 	map();
 
 	
-	/*----------------------사진 드래그앤 드롭------------------------------------*/ 
+/********************************************************사진 드래그앤 드롭********************************************************/ 
 	
 	$("#input-file").bind('change', function() {
 		selectFile(this.files);
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	});
 	
 	
-	/*----------------------기록 등록------------------------------------*/ 
+/********************************************************기록 등록********************************************************/ 
 	$(".add").on("click", function() {
 		
 		//폼 데이터 가져오기
@@ -44,6 +44,42 @@ $(document).ready(function() {
 		var review = $("#review").val();
 		var courseNo = $("#courseNo").val();
 		var userNo = $("#userNo").val();
+		
+		/*유효성 검사*/
+		if(regDate == " " || regDate == null) {
+			alert("날짜를 입력해주세요");
+			$("#date").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#time").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("#date").css("border", "solid 1px rgb(223, 223, 223)");
+			$("#time").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(courseCate == "" || courseCate == null) {
+			alert("종목을 선택해주세요");
+			$("input[name='courseCate']").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(hour == "" || hour == null || minute == "" || minute == null) {
+			alert("시간을 입력해주세요");
+			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#minute").css("border", "solid 3px rgb(255, 52, 120)");
+			return false;
+		} else {
+			$("#hour").css("border", "solid 1px rgb(223, 223, 223)");
+			$("#minute").css("border", "solid 1px rgb(223, 223, 223)");
+		}
+		
+		if(difficulty == "" || difficulty == null) {
+			alert("난이도를 선택해주세요");
+			return false;
+		}
+		
+		
 		//recVo 생성
 		var recVo = {
 			regDate: regDate,
@@ -223,7 +259,7 @@ function preview(file, idx) {
 }
 
 
-/*-------------------------------------------------------------------지도-------------------------------------------------------------------*/
+/********************************************************지도********************************************************/
 function map() {
 	
 	var courseNo = $("#courseNo").val();

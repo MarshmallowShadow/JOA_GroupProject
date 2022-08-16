@@ -25,11 +25,30 @@
 			left outer join (select * from record_img where order_no = 0) i
 			on r.record_no = i.record_no 
 			where r.course_no = c.course_no
-			and r.user_no =  #{userNo}
+				and r.user_no =  #{userNo}
 			order by r.reg_date asc
 		]]>
 	</select>
 	
+	
+	<!-- 나의 코스보기 - 리스트 가져오기 -->
+	<select id="getCourseList" parameterType="map" resultType="map">
+		<![CDATA[
+			select  c.course_no courseNo,
+        			c.user_no userNo,
+        			c.title,
+        			u.id,
+        			(select count(course_no)
+            			from board where course_no = #{courseNo}) bcount,
+        			to_char(c.reg_date, 'YYYY-MM-DD') regDate,
+        			c.open_status openStatus
+			from course c, users u, board b
+			where c.user_no = u.user_no
+    			and c.course_no = b.course_no
+    			and c.user_no = #{userNo}
+    		order by c.reg_date asc
+		]]>
+	</select>
 	
 	
 	

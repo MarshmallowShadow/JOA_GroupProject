@@ -37,8 +37,6 @@
 	</div>
 	<!-- 헤더자리 -->	
 	
-	
-	
 	<!-- content -->
 	<div id="content">
 		
@@ -505,7 +503,9 @@
     <div class="modal-body">
     	<p>목록의 이름을 변경해주세요.</p>
     	<br>
-    	<input type="text" placeholder="카테고리 기존 이름">
+    	<div id="cateName-modal">
+    		<%-- <input type="text" placeholder="${categoryVo.cateName}"> --%>
+    	</div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>

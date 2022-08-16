@@ -10,4 +10,40 @@
 			values(SEQ_RECORD_IMG_NO.nextval, #{recordNo}, #{saveName}, #{filePath}, #{orderNo})
 		]]>
 	</insert>
+	
+	<!-- 기록이미지 가져오기 -->
+	<select id="getImg" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			select  course_no
+			        ,record_img_no
+			        ,ri.record_no
+			        ,save_name
+			        ,file_path
+			        ,order_no
+			from record_img ri, record r
+			where ri.record_no = r.record_no
+			and course_no = #{courseNo}
+		]]>
+		<if test="authUserNo != 0">
+			and r.user_no = ${authUserNo}
+		</if>
+		<![CDATA[
+			order by record_no, record_img_no, order_no
+		]]>
+	</select>
+	
+	
+	<!-- (기록수정) 기록 이미지 가져오기 -->
+	<select id="getRecImg" parameterType="int" resultType="rimgVo">
+		<![CDATA[
+			select  record_img_no recordImgNo
+			        ,record_no recordNo
+			        ,save_name saveName
+			        ,file_path filePath
+			        ,order_no orderNo
+			from record_img
+			where record_no = #{recordNo}
+			order by order_no
+		]]>
+	</select>
 </mapper>

@@ -22,12 +22,6 @@ public class MypageService {
 		return myReportDao.getRecordList(userNo); 
 	}
 	
-	
-	
-	
-	
-	
-	
 	//즐겨찾기 카테고리 list 가져오기1
 	public List <CategoryVo> getCategoryList(int userNo){
 		System.out.println("MypageService>CateList"); 
@@ -45,6 +39,7 @@ public class MypageService {
 		System.out.println("MypageService>deleteCategory()");
 		return categoryDao.deleteCategory(cateNo);
 	}
+	
 	
 	
 }

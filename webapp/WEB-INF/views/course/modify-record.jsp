@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<fmt:parseNumber var="hour" value="${coMap.coVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<fmt:parseNumber var="hour" value="${modMap.coMap.coVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
+<fmt:parseNumber var="Rhour" value="${modMap.recMap.recVo.courseTime/60 }" integerOnly="true" /> <!-- 시간 정수로 표시 -->
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기록 작성</title>
+<title>기록 수정</title>
 <!-- css -->
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
@@ -19,7 +21,6 @@
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
 <!-- 카카오지도 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
 </head>
@@ -32,14 +33,12 @@
 	
 	
 	
-	
-	
 	<!-- content -->
 	<div id="content">
 		
 		<!-- 타이틀 -->
 		<div>
-			<h1 id="title">기록 작성하기</h1>
+			<h1 id="title">기록 수정하기</h1>
 		</div>
 		
 		<!-- 코스정보 -->
@@ -61,30 +60,30 @@
 						<div class="course-info">
 							<div>
 								<p>코스 제목</p>
-								<span>${coMap.coVo.title }</span>
+								<span>${modMap.coMap.coVo.title }</span>
 							</div>
 							
 							<div>
 								<p>종목</p>
 								
 								<c:choose>
-									<c:when test="${coMap.coVo.courseCate eq 'walk' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'walk' }">
 										<span>산책</span>
 									</c:when>
-									<c:when test="${coMap.coVo.courseCate eq 'jogging' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'jogging' }">
 										<span>조깅</span>
 									</c:when>
-									<c:when test="${coMap.coVo.courseCate eq 'running' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'running' }">
 										<span>러닝</span>
 									</c:when>
 									
-									<c:when test="${coMap.coVo.courseCate eq 'marathon' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'marathon' }">
 										<span>마라톤</span>
 									</c:when>
-									<c:when test="${coMap.coVo.courseCate eq 'bicycle' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'bicycle' }">
 										<span>자전거</span>
 									</c:when>
-									<c:when test="${coMap.coVo.courseCate eq 'draw' }">
+									<c:when test="${modMap.coMap.coVo.courseCate eq 'draw' }">
 										<span>그림</span>
 									</c:when>
 								</c:choose>
@@ -92,7 +91,7 @@
 							
 							<div>
 								<p>거리</p>
-								<span>${coMap.coVo.distance }</span>
+								<span>${modMap.coMap.coVo.distance }</span>
 								<span>km</span>
 								<!-- <p>m</p> -->
 							</div>
@@ -101,7 +100,7 @@
 								<p>예상 시간</p>
 								<span>${hour }</span>
 								<span>시간</span>
-								<span>${coMap.coVo.courseTime%60 }</span>
+								<span>${modMap.coMap.coVo.courseTime%60 }</span>
 								<span>분</span>
 							</div>
 							
@@ -109,13 +108,13 @@
 								<p>예상 난이도</p>
 								
 								<c:choose>
-									<c:when test="${coMap.coVo.difficulty eq 'easy' }">
+									<c:when test="${modMap.coMap.coVo.difficulty eq 'easy' }">
 										<span>쉬움</span>
 									</c:when>
-									<c:when test="${coMap.coVo.difficulty eq 'normal' }">
+									<c:when test="${modMap.coMap.coVo.difficulty eq 'normal' }">
 										<span>보통</span>
 									</c:when>
-									<c:when test="${coMap.coVo.difficulty eq 'hard' }">
+									<c:when test="${modMap.coMap.coVo.difficulty eq 'hard' }">
 										<span>어려움</span>
 									</c:when>
 								</c:choose>
@@ -157,8 +156,8 @@
 					<tr>
 						<th>날짜</th>
 						<td colspan="3">
-							<input class="datetime" id="date" type="date" name="regDate">
-							<input class="datetime" id="time" type="time" name="regTime">
+							<input class="datetime" id="date" type="date" name="regDate" value="${fn:substring(modMap.recMap.recVo.regDate, 0, 10) }">
+							<input class="datetime" id="time" type="time" name="regTime" value="${fn:substring(modMap.recMap.recVo.regDate,11, 17) }">
 							<!-- <input type="datetime-local" id="date" name="regDate"> -->
 						</td>
 					</tr>
@@ -168,26 +167,99 @@
 						<th>날씨</th>
 						<td>
 							<div class="course-radio">
-								<input type="radio" name="weather" id="sun" value="sun">
-								<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+								<c:choose>
+									<c:when test="${modMap.recMap.recVo.weather eq 'sun' }">
+										<input type="radio" name="weather" id="sun" value="sun" checked>
+										<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+										
+										<input type="radio" name="weather" id="moon" value="moon">
+										<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+										
+										<input type="radio" name="weather" id="cloud" value="cloud">
+										<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+										
+										<input type="radio" name="weather" id="rain" value="rain">
+										<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+										
+										<input type="radio" name="weather" id="snow" value="snow">
+										<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+									</c:when>
+									
+									<c:when test="${modMap.recMap.recVo.weather eq 'moon' }">
+										<input type="radio" name="weather" id="sun" value="sun">
+										<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+										
+										<input type="radio" name="weather" id="moon" value="moon" checked>
+										<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+										
+										<input type="radio" name="weather" id="cloud" value="cloud">
+										<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+										
+										<input type="radio" name="weather" id="rain" value="rain">
+										<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+										
+										<input type="radio" name="weather" id="snow" value="snow">
+										<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+									</c:when>
+									
+									<c:when test="${modMap.recMap.recVo.weather eq 'cloud' }">
+										<input type="radio" name="weather" id="sun" value="sun">
+										<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+										
+										<input type="radio" name="weather" id="moon" value="moon">
+										<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+										
+										<input type="radio" name="weather" id="cloud" value="cloud" checked>
+										<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+										
+										<input type="radio" name="weather" id="rain" value="rain">
+										<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+										
+										<input type="radio" name="weather" id="snow" value="snow">
+										<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+									</c:when>
+									
+									<c:when test="${modMap.recMap.recVo.weather eq 'rain' }">
+										<input type="radio" name="weather" id="sun" value="sun">
+										<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+										
+										<input type="radio" name="weather" id="moon" value="moon">
+										<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+										
+										<input type="radio" name="weather" id="cloud" value="cloud">
+										<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+										
+										<input type="radio" name="weather" id="rain" value="rain" checked>
+										<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+										
+										<input type="radio" name="weather" id="snow" value="snow">
+										<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+									</c:when>
+									
+									<c:when test="${modMap.recMap.recVo.weather eq 'snow' }">
+										<input type="radio" name="weather" id="sun" value="sun">
+										<label for="sun"><img src="${pageContext.request.contextPath }/assets/image/course/sun.png"></label>
+										
+										<input type="radio" name="weather" id="moon" value="moon">
+										<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
+										
+										<input type="radio" name="weather" id="cloud" value="cloud">
+										<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
+										
+										<input type="radio" name="weather" id="rain" value="rain">
+										<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
+										
+										<input type="radio" name="weather" id="snow" value="snow" checked>
+										<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
+									</c:when>
+								</c:choose>
 								
-								<input type="radio" name="weather" id="moon" value="moon">
-								<label for="moon"><img src="${pageContext.request.contextPath }/assets/image/course/moon.png"></label>
-								
-								<input type="radio" name="weather" id="cloud" value="cloud">
-								<label for="cloud"><img src="${pageContext.request.contextPath }/assets/image/course/cloud.png"></label>
-								
-								<input type="radio" name="weather" id="rain" value="rain">
-								<label for="rain"><img src="${pageContext.request.contextPath }/assets/image/course/rain.png"></label>
-								
-								<input type="radio" name="weather" id="snow" value="snow">
-								<label for="snow"><img src="${pageContext.request.contextPath }/assets/image/course/snow.png"></label>
 							</div>
 						</td>
 						
 						<th>기온</th>
 						<td>
-							<input class="txt-short" type="number" name="temperature" id="tem" min="-45" max="45">
+							<input class="txt-short" type="number" name="temperature" id="tem" value="${modMap.recMap.recVo.temperature }" min="-45" max="45">
 							<p class="bold">℃</p>
 						</td>
 					</tr>
@@ -198,7 +270,7 @@
 						<th>종목</th>
 						<td colspan="3">
 							<c:choose>
-								<c:when test="${coMap.coVo.courseCate eq 'walk' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'walk' }">
 									<input type="radio" name="courseCate" id="walk" value="walk" checked>
 									<label for="walk">산책</label>
 									
@@ -218,7 +290,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 								
-								<c:when test="${coMap.coVo.courseCate eq 'jogging' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'jogging' }">
 									<input type="radio" name="courseCate" id="walk" value="walk">
 									<label for="walk">산책</label>
 									
@@ -238,7 +310,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 								
-								<c:when test="${coMap.coVo.courseCate eq 'running' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'running' }">
 									<input type="radio" name="courseCate" id="walk" value="walk">
 									<label for="walk">산책</label>
 									
@@ -258,7 +330,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 								
-								<c:when test="${coMap.coVo.courseCate eq 'marathon' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'marathon' }">
 									<input type="radio" name="courseCate" id="walk" value="walk">
 									<label for="walk">산책</label>
 									
@@ -278,7 +350,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 								
-								<c:when test="${coMap.coVo.courseCate eq 'bicycle' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'bicycle' }">
 									<input type="radio" name="courseCate" id="walk" value="walk">
 									<label for="walk">산책</label>
 									
@@ -298,7 +370,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 								
-								<c:when test="${coMap.coVo.courseCate eq 'draw' }">
+								<c:when test="${modMap.recMap.recVo.courseCate eq 'draw' }">
 									<input type="radio" name="courseCate" id="walk" value="walk">
 									<label for="walk">산책</label>
 									
@@ -318,6 +390,7 @@
 									<label for="draw">그림</label>
 								</c:when>
 							</c:choose>
+							
 						</td>
 					</tr>
 					
@@ -325,9 +398,9 @@
 					<tr>
 						<th>시간</th>
 						<td colspan="3">
-							<input type="number" class="txt-short" name="hour" id="hour" min="0" max="24">
+							<input type="number" class="txt-short" name="hour" id="hour" value="${Rhour }" min="0" max="24">
 							<p>시간</p>
-							<input type="number" class="txt-short" name="minute" id="minute" min="0" max="59">
+							<input type="number" class="txt-short" name="minute" id="minute" value="${modMap.recMap.recVo.courseTime%60 }" min="0" max="59">
 							<p>분</p>
 						</td>
 					</tr>
@@ -336,14 +409,41 @@
 					<tr>
 						<th>난이도</th>
 						<td colspan="3">
-							<input type="radio" name="difficulty" id="easy" value="easy" checked>
-							<label for="easy">쉬움</label>
+							<c:choose>
+								<c:when test="${modMap.recMap.recVo.difficulty eq 'easy' }">
+									<input type="radio" name="difficulty" id="easy" value="easy" checked>
+									<label for="easy">쉬움</label>
+									
+									<input type="radio" name="difficulty" id="normal" value="normal">
+									<label for="normal">보통</label>
+									
+									<input type="radio" name="difficulty" id="hard" value="hard">
+									<label for="hard">어려움</label>
+								</c:when>
+								
+								<c:when test="${modMap.recMap.recVo.difficulty eq 'normal' }">
+									<input type="radio" name="difficulty" id="easy" value="easy">
+									<label for="easy">쉬움</label>
+									
+									<input type="radio" name="difficulty" id="normal" value="normal" checked>
+									<label for="normal">보통</label>
+									
+									<input type="radio" name="difficulty" id="hard" value="hard">
+									<label for="hard">어려움</label>
+								</c:when>
+								
+								<c:when test="${modMap.recMap.recVo.difficulty eq 'hard' }">
+									<input type="radio" name="difficulty" id="easy" value="easy">
+									<label for="easy">쉬움</label>
+									
+									<input type="radio" name="difficulty" id="normal" value="normal">
+									<label for="normal">보통</label>
+									
+									<input type="radio" name="difficulty" id="hard" value="hard" checked>
+									<label for="hard">어려움</label>
+								</c:when>
+							</c:choose>
 							
-							<input type="radio" name="difficulty" id="normal" value="normal">
-							<label for="normal">보통</label>
-							
-							<input type="radio" name="difficulty" id="hard" value="hard">
-							<label for="hard">어려움</label>
 						</td>
 					</tr>
 					
@@ -351,7 +451,7 @@
 					<tr>
 						<th>한줄평</th>
 						<td colspan="3">
-							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="200">
+							<input class="txt-long" type="text" id="review" name="review" value="${modMap.recMap.recVo.review }"  maxlength="200">
 						</td>
 					</tr>
 					

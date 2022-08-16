@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- 기록리스트 가져오기 -->
-	<select id="getRec" parameterType="hashmap" resultType="hashmap">
+	<select id="getRecList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			select  record_no recordNo
 			        , course_no courseNo
@@ -46,7 +46,7 @@
 			        , course_category courseCate
 			        , course_time courseTime
 			        , difficulty
-			        , to_char(reg_date, 'YY.MM.DD HH:Mi') regDate
+			        , to_char(reg_date, 'YY.MM.DD HH24:Mi') regDate
 			        
 			from record r, users u
 			where r.user_no = u.user_no
@@ -57,27 +57,23 @@
 		</if>
 	</select>
 	
-	<!-- 기록이미지 가져오기 -->
-	<select id="getImg" parameterType="hashmap" resultType="hashmap">
+	<!-- 기록 가져오기 -->
+	<select id="getRec" parameterType="int" resultType="recVo">
 		<![CDATA[
-			select  course_no
-			        ,record_img_no
-			        ,ri.record_no
-			        ,save_name
-			        ,file_path
-			        ,order_no
-			from record_img ri, record r
-			where ri.record_no = r.record_no
-			and course_no = #{courseNo}
-		]]>
-		<if test="authUserNo != 0">
-			and r.user_no = ${authUserNo}
-		</if>
-		<![CDATA[
-			order by record_no, record_img_no, order_no
+			select record_no recordNo
+			        ,course_no courseNo
+			        ,review
+			        ,weather
+			        ,temperature
+			        ,course_category courseCate
+			        ,course_time courseTime
+			        ,difficulty
+			        ,to_char(reg_date, 'YYYY-MM-DD HH24:Mi') regDate
+			from record
+			where record_no = #{recordNo}
 		]]>
 	</select>
-	
+
 	
 	
 <!-- ************************************************************************************** -->	

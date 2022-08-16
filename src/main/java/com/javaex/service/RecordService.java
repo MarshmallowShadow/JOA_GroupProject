@@ -122,19 +122,19 @@ public class RecordService {
 	
 	
 	//(기록상세보기) 기록 리스트 가져오기
-	public Map<String, Object> getRecord(int courseNo, int authUserNo) {
-		System.out.println("RecordService->getRecord");
+	public Map<String, Object> getRecordList(int courseNo, int authUserNo) {
+		System.out.println("RecordService->getRecordList");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("courseNo", courseNo);
 		map.put("authUserNo", authUserNo);
 		System.out.println(map);
 		
 		//기록 리스트 가져오기
-		List<Map<String, Object>> recList = recDao.getRecord(map);
+		List<Map<String, Object>> recList = recDao.getRecordList(map);
 		System.out.println(recList);
 		
 		//기록 이미지 가져오기
-		List<Map<String, Object>> recImgs = recDao.getImg(map);
+		List<Map<String, Object>> recImgs = imgDao.getImg(map);
 		
 		Map<String, Object> recMap = new HashMap<String, Object>();
 		recMap.put("recList", recList);
@@ -175,6 +175,19 @@ public class RecordService {
 		coMap.put("liked", liked); //좋아요 여부
 		
 		return coMap;
+	}
+
+	//(기록수정) 기록 가져오기
+	public Map<String, Object> getRecord(int recordNo) {
+		System.out.println("RecordService->getRecord");
+		//기록 가져오기
+		RecordVo recVo = recDao.getRecord(recordNo);
+		//기록 이미지 가져오기
+		//List<RecordImgVo> recImgs = imgDao.getRecImg(recordNo);
+		
+		Map<String, Object> recMap = new HashMap<String, Object>();
+		recMap.put("recVo", recVo);
+		return recMap;
 	}
 
 }

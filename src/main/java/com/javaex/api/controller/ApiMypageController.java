@@ -31,7 +31,18 @@ public class ApiMypageController {
 	 return calendarList; 
 	}
 	
-	
+	//나의 코스 보기////////////////////////////////////////////////////////////////////////////
+	//나의 코스보기 - 코스 list 가져오기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/get-course-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public List <Map<String,Object>> getCourseList(@RequestBody int userNo) {
+		/*
+		 * System.out.println("ApiMypageController>record-list()");
+		 * List<Map<String,Object>> calendarList = mypageService.getRecordList(userNo);
+		 * System.out.println(calendarList);
+		 */
+	 return null; 
+	}
 	
 	
 	
@@ -68,6 +79,14 @@ public class ApiMypageController {
 		return delCate;
 	}
 	
+	/*
+	 * //6. 수정***
+	 * 
+	 * @RequestMapping(value="/board/modify", method = {RequestMethod.GET,
+	 * RequestMethod.POST}) public String modify(@ModelAttribute BoardVo boardVo) {
+	 * System.out.println("BoardController>modify()");
+	 * boardService.boardUpdate(boardVo); return "redirect:/board/list"; }
+	 */
 	
 	
 }
