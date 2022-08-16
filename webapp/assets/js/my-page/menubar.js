@@ -44,7 +44,7 @@ function render2(categoryList) {
 
 function render3(categoryList){
 	var str = '';
-	str += '<input type="text" placeholder="'+categoryList.cateName+'">';
+	str = '<input id="input-cateName-edit" type="text" data-cateNo="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
 	
 	$("#cateName-modal").append(str);
 }
@@ -191,7 +191,30 @@ $(document).ready(function(){
 	/*카테고리 이름 수정하기*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
-		var cateNo = $(".bookmark-menuList").data("cateNo");
+		
+		/*수정리스트 가져오기*/
+		$.ajax({
+			url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(categoryList){
+				//컨트롤러 함수 실행 후 코드
+				//리스트니까 for문으로 그리기!
+				for(var i=0; i<categoryList.length; i++){
+					render3(categoryList[i], "down");	//vo --> 화면에 그린다.
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+		
+		
+		var cateNo = $("#input-cateName-edit").data("cateNo");
 		console.log(cateNo);
 		/*var cateNo = $(".bookmark-menuList").val();*/
 	
