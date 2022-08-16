@@ -337,9 +337,9 @@ function map() {
 			var polyline = new kakao.maps.Polyline({
 				map: map, //표시할 지도
 				path: path, //선의 좌표
-				strokeWeight: 5, //선 두께
+				strokeWeight: 10, //선 두께
 				strokeColor: 'rgb(50, 108, 249)', //선 색깔
-				strokeOpacity: 1, //선의 불투명도 (0~1)
+				strokeOpacity: 0.9, //선의 불투명도 (0~1)
 				strokeStyle: 'solid' //선 스타일
 			});
 
@@ -355,9 +355,10 @@ function map() {
 	var mapOption = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
 		level: 3, //지도의 레벨(확대, 축소 정도)
-		//정적 지도로 바꿀수 있으면 없애기
 		draggable: false, //마우스 휠 이동, 확대, 축소 여부
+		scrollwheel: false, //마우스 휠 확대 축소 여부
 		disableDoubleClick: false, //더블클릭 이벤트 여부
+		disableDoubleClickZoom: true, //더블클릭 줌 이벤트 여부
 		keyboardShortcuts: false //키보드 이동, 확대, 축소 여부
 	};
 	

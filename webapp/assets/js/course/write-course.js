@@ -168,7 +168,7 @@ function map() {
 	        clickLine = new kakao.maps.Polyline({
 	            map: map, // 표시할 지도
 	            path: [clickPosition], // 좌표 배열
-	            strokeWeight: 3, // 선 두께
+	            strokeWeight: 5, // 선 두께
 	            strokeColor: 'rgb(255, 52, 120)', // 선 색깔
 	            strokeOpacity: 1, // 선 불투명도 (0~1)
 	            strokeStyle: 'solid' // 선 스타일
@@ -176,7 +176,7 @@ function map() {
 	        
 	        // 마우스 움직일때 선
 	        moveLine = new kakao.maps.Polyline({
-	            strokeWeight: 3, // 선 두께
+	            strokeWeight: 5, // 선 두께
 	            strokeColor: 'rgb(255, 52, 120)', // 선 색깔
 	            strokeOpacity: 0.5, // 선 불투명도 (0~1)
 	            strokeStyle: 'solid' // 선 스타일   
