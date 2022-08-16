@@ -129,9 +129,7 @@
 }
 
 .footer-text {
-	padding-top: 20px;
-	padding-left: 15px;
-
+	padding: 20px 15px 0px 15px;
 }
 
 #footer-Copyright {
