@@ -23,9 +23,17 @@
 #content #btn-start-stop {
 	display: flex;
 	justify-content: center;
-	font-size: 50px;
+	font-size: 40px;
+}
+
+.btn-blue {
 	color: rgb(50, 108, 249);
 }
+
+.btn-pink {
+	color: rgb(255, 52, 120);
+}
+
 
 #content #buttons {
 	display: flex;
@@ -40,7 +48,7 @@ button {
 
 #content #buttons button {
 	width: 80px;
-	height: 40px;
+	height: 30px;
 	margin: 0px 20px;
 	border: 2px solid rgb(172, 172, 172);
 	font-weight: 900;

@@ -18,16 +18,20 @@
 		<div id="content">
 			<div id="display">00:00:00.0</div>
 			
-			<div id="btn-start-stop"><button type="button" class="glyphicon glyphicon-off"></button></div>
+			<div id="btn-start-stop"><button id="btn-start" type="button" class="glyphicon glyphicon-off btn-blue"></button></div>
 			
 			<div id="buttons">
-				<button type="button">초기화</button>
-				<button type="button">코스 기록</button>
+				<button id="" type="button">초기화</button>
+				<a href="${pageContext.request.contextPath }/course/write" target="_blank"><button id="" type="button">코스 기록</button></a>
 			</div>
 		</div>
 		
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	</div>
 </body>
+
+<!-- js -->
+<script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/mobile/timer.js"></script>
 
 </html>
