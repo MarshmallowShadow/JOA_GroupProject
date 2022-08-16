@@ -7,16 +7,19 @@
 <meta charset="UTF-8">
 <title>나의 기록들</title>
 
+<!-- favicon.ico 404에러 해결 -->
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
 <!-- CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/calendar.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
+
 <!-- jquery -->
 <script type="text/javascript">
 	window.userNo = parseInt('1');
 	window.contextPath = '${pageContext.request.contextPath}';
-	window.eList = null;
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
@@ -39,6 +42,7 @@
 		
 		<!-- 마이페이지 메뉴바 자리 -->
 		<div id="menuBar">
+			<!-- 메뉴1-나의코스보기/나의기록보기 -->
 			<div class="menu1">
 				<ol>
 					<li id="mypage">
@@ -52,6 +56,7 @@
 				</ol>
 			</div>
 			
+			<!-- 메뉴2-즐겨찾기 -->
 			<div class="menu2">
 				<ol>
 					<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
@@ -59,27 +64,25 @@
 						<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
 						<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 					</li>
-					<li id="menuList">
+				</ol>	
+				<ol class="categoryArea">	
+					<%-- <li id="menuList">
 						<a href="${pageContext.request.contextPath}/my-page/bookmark/01">서울 근교 코스 </a>
 						<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">				
-					</li>
-					<li id="menuList">
-						<a href="${pageContext.request.contextPath}/my-page/bookmark/01">웃겨 자빠질 코스</a>
-						<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
-					</li>
-					<li id="menuList">
-						<a href="${pageContext.request.contextPath}/my-page/bookmark/01">기어가는 코스</a>
-						<img class="editName" src="${pageContext.request.contextPath}/assets/image/my-page/edit.png">
-					</li>
+					</li>--%>
 				</ol>
 			</div>
 			
+			<!-- 메뉴3-회원정보수정 -->
 			<div class="menu3">
 				<ol>
 					<li id="members"><p><a href="">회원정보수정 <img id="setting" src="${pageContext.request.contextPath}/assets/image/my-page/setting.png"></a></p></li>
 				</ol>
 			</div>
 		</div>
+		
+		
+		
 		
 		<div class="subHeader">
 			<span onclick="openNav()"><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></span>
@@ -127,6 +130,7 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->
 
+
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
 <div class="modal category-add-btn">
   <div class="modal-dialog">
@@ -140,11 +144,11 @@
       <div class="modal-body">
         <p>새 목록 이름</p>
         <br>
-        <input type="text" placeholder="즐겨찾기 이름을 입력하세요">
+        <input type="text" name="catename" value="" placeholder="즐겨찾기 이름을 입력하세요">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">목록 만들기</button>
+        <button type="button" class="btn btn-primary" id="add-bookmark-category">목록 만들기</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -165,19 +169,16 @@
         <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
       </div>
       <div class="modal-body">
-        <select>
-        	<option>즐겨찾기1</option>
-        	<option>즐겨찾기2</option>
-        	<option>즐겨찾기3</option>
-        	<option>으아아아앙</option>
+        <select id="del-select-list" class="sel-delCategory" >
+        	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
         <br>
         <br>
-        <p class="modal-body-detail">목록을 삭제할 경우, 목록 안의 내용들도 삭제됩니다!!</p>
+        <p <%--  class="modal-body-detail" --%>>목록을 삭제할 경우, <br>목록 안의 내용들도 삭제됩니다!!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">목록 삭제</button>
+        <button type="button" class="btn btn-primary" id="del-bookmark-category">목록 삭제</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -198,7 +199,9 @@
     <div class="modal-body">
     	<p>목록의 이름을 변경해주세요.</p>
     	<br>
-    	<input type="text" placeholder="카테고리 기존 이름">
+    	<div id="cateName-modal">
+    		<%-- <input type="text" placeholder="${categoryVo.cateName}"> --%>
+    	</div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
@@ -211,6 +214,7 @@
 
 
 <!-- 모달-즐겨찾기 이름변경 끝!! ***************************************************************************************** -->
+
 
 
 
@@ -255,6 +259,7 @@
 </div><!-- /.modal -->
 
 <!-- 즐겨찾기 해제 모달 끝!! ************************************************************************************* -->
+
 
 
 </body>

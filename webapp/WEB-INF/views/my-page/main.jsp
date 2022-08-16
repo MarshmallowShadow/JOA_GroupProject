@@ -37,8 +37,6 @@
 	</div>
 	<!-- 헤더자리 -->	
 	
-	
-	
 	<!-- content -->
 	<div id="content">
 		

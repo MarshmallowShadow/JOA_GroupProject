@@ -31,8 +31,6 @@
 	</select>
 	
 	
-	
-	
 	<!-- 카테고리-1.리스트 가져오기 -->
 	<select id="getCategoryList" parameterType="int" resultType="CategoryVo">
 		<![CDATA[

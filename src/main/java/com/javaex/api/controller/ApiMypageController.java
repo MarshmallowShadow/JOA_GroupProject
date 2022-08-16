@@ -68,9 +68,6 @@ public class ApiMypageController {
 		return delCate;
 	}
 	
-	
-	
-	
 	/*
 	 * //6. 수정***
 	 * 

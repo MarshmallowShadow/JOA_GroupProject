@@ -1,16 +1,11 @@
 package com.javaex.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
-import com.javaex.vo.CategoryVo;
 
 @Controller
 @RequestMapping(value="/my-page")
@@ -18,27 +13,12 @@ public class MypageController {
 	
 	@Autowired private MypageService mypageService;
 	
-	
-	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypage() { 
 		System.out.println("MypageController>mypage");
 		return "my-page/main"; 
 	}
-	
-	
-	/*
-	 * @RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
-	 * public String mypage(Model model, @RequestParam("no") int no) {
-	 * System.out.println("MypageController>mypage"); List<CategoryVo> categoryList
-	 * = mypageService.getCategoryList(1); model.addAttribute("categoryList",
-	 * categoryList);
-	 * 
-	 * return "my-page/main"; }
-	 */
-	
-	
 	
 	//마이페이지-내 코스
 	@RequestMapping(value="/my-course", method = {RequestMethod.GET, RequestMethod.POST})
@@ -55,10 +35,6 @@ public class MypageController {
 		return "my-page/my-report";
 	}
 	
-	
-	
-	
-	
 	//즐겨찾기////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bookmark() {
@@ -66,7 +42,6 @@ public class MypageController {
 		
 		return "my-page/bookmark-main";
 	}
-	
 	
 	//즐겨찾기-예시
 	@RequestMapping(value="/bookmark/01", method = {RequestMethod.GET, RequestMethod.POST})

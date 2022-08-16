@@ -188,7 +188,7 @@ $(document).ready(function(){
 	
 	
 	/*--------------------------------------------------*/
-	/*카테고리 이름 수정하기*/
+	/*카테고리 이름 수정하기 - 보류*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
 		
@@ -212,42 +212,13 @@ $(document).ready(function(){
 			}
 		});
 		
-		
-		
 		var cateNo = $("#input-cateName-edit").data("cateNo");
 		console.log(cateNo);
 		/*var cateNo = $(".bookmark-menuList").val();*/
 	
-				
-		/*수정리스트 가져오기*/
-		/*$.ajax({
-			url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
-			type : "post",
-			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-			dataType : "json",
-			success : function(categoryList){
-				//컨트롤러 함수 실행 후 코드
-				console.log(categoryList);
-				//화면에 data + html로 띄운다(그린다).
-				render3(categoryList);
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-		});*/
 		//모달창 띄우기
 		$(".category-modify-btn").modal("show");	  
-	  
-	  
-	  
-	  /*//수정버튼의 cateNo/ name값 꺼내기
-	  var cateNo = $(".bookmark-menuList").val();
-	  console.log(cateNo);*/
-	  
-      
-   	});
+	});
    
 });   
 
