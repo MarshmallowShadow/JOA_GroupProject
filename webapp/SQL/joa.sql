@@ -325,7 +325,7 @@ CREATE TABLE BOARD (
 	content VARCHAR2(4000) NOT NULL, /* 내용 */
 	reg_date DATE NOT NULL, /* 등록일 */
 	view_count NUMBER NOT NULL, /* 조회수 */
-	Primary Key (board_no),
+	Primary Key (q_list_no),
 	CONSTRAINT board_user_fk Foreign Key(user_no)
 	references users(user_no),
 	CONSTRAINT board_course_fk Foreign Key(course_no)
@@ -370,37 +370,31 @@ CREATE TABLE BOARD_IMG (
 CREATE TABLE Q_LIST (
 	q_list_no NUMBER, /* 게시판 번호 */
 	user_no NUMBER, /* 회원번호 */
-	course_no NUMBER NULL, /* 코스번호 */
-	event_no NUMBER NULL, /* 이벤트 번호 */
 	board_category VARCHAR2(100) NOT NULL, /* 항목 */
 	title VARCHAR2(200) NOT NULL, /* 제목 */
 	content VARCHAR2(4000) NOT NULL, /* 내용 */
 	reg_date DATE NOT NULL, /* 등록일 */
 	view_count NUMBER NOT NULL, /* 조회수 */
-	Primary Key (board_no),
-	CONSTRAINT board_user_fk Foreign Key(user_no)
-	references users(user_no),
-	CONSTRAINT board_course_fk Foreign Key(course_no)
-	references course(course_no),
-	CONSTRAINT board_event_fk Foreign Key(event_no)
-	references event(event_no)
+	Primary Key (q_list_no),
+	CONSTRAINT q_list_fk Foreign Key(user_no)
+	references users(user_no)
 );
 
 /* 1:1 게시판 댓글 */
 CREATE TABLE Q_LIST_COMMENT (
 	q_comment_no NUMBER, /* 댓글번호 */
-	board_no NUMBER, /* 게시판 번호 */
+	q_list_no NUMBER, /* 게시판 번호 */
 	user_no NUMBER, /* 작성자 회원번호 */
 	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
 	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
 	order_no NUMBER NOT NULL, /* 답글 순서 */
 	depth NUMBER NOT NULL, /* 댓글 계층 */
-	Primary Key (b_comment_no),
-	CONSTRAINT b_comment_board_fk Foreign Key(board_no)
-	references board(board_no),
-	CONSTRAINT b_comment_user_fk Foreign Key(user_no)
+	Primary Key (q_comment_no),
+	CONSTRAINT q_comment_list_fk Foreign Key(q_list_no)
+	references q_list(q_list_no),
+	CONSTRAINT q_comment_user_fk Foreign Key(user_no)
 	references users(user_no),
-	CONSTRAINT b_comment_mention_fk Foreign Key(user_no)
+	CONSTRAINT q_comment_mention_fk Foreign Key(user_no)
 	references users(user_no)
 );
