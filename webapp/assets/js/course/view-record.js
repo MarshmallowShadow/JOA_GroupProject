@@ -203,6 +203,11 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 function render(recVo, coUserNo, recImgs) {
 	//console.log("render");
 	
+	
+	if(recVo.REVIEW == undefined || recVo.REVIEW == null || recVo.REVIEW == "") {
+		recVo.REVIEW = "";
+	}
+	
 	var str="";	
 	str = '	<li>';
 	str +=	'<div class="record-full-content">';
@@ -213,7 +218,7 @@ function render(recVo, coUserNo, recImgs) {
 	
 	//코스 작성자 표시
 	if(coUserNo == recVo.USERNO) {
-		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" style="width: 12px;">';
+		str += '<img src="'+contextPath+'/assets/image/course/footprint.png" style="width: 15px;">';
 	}
 	
 	str +=	recVo.NAME+'	</span>';
@@ -222,8 +227,12 @@ function render(recVo, coUserNo, recImgs) {
 	str +=	'		</div>';
 	str +=	'		<div class="record-info">';
 	str +=	'			<span>'+recVo.REGDATE+'</span>';
-	str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
-	str +=	'			<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
+	if(recVo.WEATHER != "null") {
+		str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
+	}
+	if(recVo.TEMPERATURE != -100) {
+		str +=	'			<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
+	}
 	str +=	'			<span class="box blue">';
 	
 	//종목
@@ -277,15 +286,7 @@ function render(recVo, coUserNo, recImgs) {
 	str +=	'</li>';
 		
 	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
-	$(".record-list").append(str);
+
 	
 }
 

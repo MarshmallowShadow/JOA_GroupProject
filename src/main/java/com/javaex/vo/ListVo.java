@@ -3,26 +3,24 @@ package com.javaex.vo;
 public class ListVo {
 	
 	//필드
-	private int boardNo; /* 게시판 번호 */
+	private int qListNo; /* 게시판 번호 */
 	private int userNo; /* 회원번호 */
-	private int courseNo; /* 코스번호 */
-	private int eventNo; /* 이벤트 번호 */
-	private String boardCategory; /* 항목 */
+	private String boardCategory; /* 코스번호 */
 	private String title; /* 제목 */
 	private String content; /* 내용 */
 	private String regDate; /* 등록일 */
 	private int viewCount; /* 조회수 */
 	
 	//생성자
-	public ListVo() {}
+	public ListVo() {
+		
+	}
 	
-	public ListVo(int boardNo, int userNo, int courseNo, int eventNo, String boardCategory, String title,
-			String content, String regDate, int viewCount) {
+	public ListVo(int qListNo, int userNo, String boardCategory, String title, String content, String regDate,
+			int viewCount) {
 		super();
-		this.boardNo = boardNo;
+		this.qListNo = qListNo;
 		this.userNo = userNo;
-		this.courseNo = courseNo;
-		this.eventNo = eventNo;
 		this.boardCategory = boardCategory;
 		this.title = title;
 		this.content = content;
@@ -31,12 +29,12 @@ public class ListVo {
 	}
 
 	//메소드
-	public int getBoardNo() {
-		return boardNo;
+	public int getqListNo() {
+		return qListNo;
 	}
 
-	public void setBoardNo(int boardNo) {
-		this.boardNo = boardNo;
+	public void setqListNo(int qListNo) {
+		this.qListNo = qListNo;
 	}
 
 	public int getUserNo() {
@@ -45,22 +43,6 @@ public class ListVo {
 
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
-	}
-
-	public int getCourseNo() {
-		return courseNo;
-	}
-
-	public void setCourseNo(int courseNo) {
-		this.courseNo = courseNo;
-	}
-
-	public int getEventNo() {
-		return eventNo;
-	}
-
-	public void setEventNo(int eventNo) {
-		this.eventNo = eventNo;
 	}
 
 	public String getBoardCategory() {
@@ -102,12 +84,12 @@ public class ListVo {
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-
-	//메소드 - 일반
+	
+	
+	//메소드 일반
 	@Override
 	public String toString() {
-		return "ListVo [boardNo=" + boardNo + ", userNo=" + userNo + ", courseNo=" + courseNo + ", eventNo=" + eventNo
-				+ ", boardCategory=" + boardCategory + ", title=" + title + ", content=" + content + ", regDate="
-				+ regDate + ", viewCount=" + viewCount + "]";
+		return "ListVo [qListNo=" + qListNo + ", userNo=" + userNo + ", boardCategory=" + boardCategory + ", title="
+				+ title + ", content=" + content + ", regDate=" + regDate + ", viewCount=" + viewCount + "]";
 	}
 }
