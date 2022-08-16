@@ -434,9 +434,11 @@ $(window).ready(function(){
 			success : function(categoryList){
 				//컨트롤러 함수 실행 후 코드
 				//리스트니까 for문으로 그리기!
-				for(var i=0; i<categoryList.length; i++){
-					cateEditRender(categoryList[i], "down");	//vo --> 화면에 그린다.
-				}
+				/*for(var i=0; i < categoryList.length; i++){
+					if(todaydate == eList[i].REGDATE){
+						cateEditRender(categoryList[i]	, "down");	
+					}
+				}*/
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
