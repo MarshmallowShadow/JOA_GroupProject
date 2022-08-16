@@ -4,6 +4,7 @@
 
 #wrap {
 	min-width: 360px;
+	height: 100vh;
 }
 
 #header {
@@ -15,15 +16,15 @@
 	display: flex;
 	justify-content: center;
 	border: 2px solid rgb(172, 172, 172);
-	margin: 50px 0px;
-	font-size: 45px;
+	margin: 100px 0;
+	font-size: 60px;
 	font-weight: 900;
 }
 
 #content #btn-start-stop {
 	display: flex;
 	justify-content: center;
-	font-size: 40px;
+	font-size: 100px;
 }
 
 .btn-blue {
@@ -38,7 +39,8 @@
 #content #buttons {
 	display: flex;
 	justify-content: center;
-	margin: 50px 0px 250px 0px;
+	height: 30px;
+	margin: 100px 0;
 }
 
 button {
@@ -47,10 +49,11 @@ button {
 }
 
 #content #buttons button {
-	width: 80px;
-	height: 30px;
+	width: 150px;
+	height: 60px;
 	margin: 0px 20px;
 	border: 2px solid rgb(172, 172, 172);
+	font-size: 25px;
 	font-weight: 900;
 }
 

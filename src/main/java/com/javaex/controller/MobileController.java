@@ -14,6 +14,9 @@ public class MobileController {
 	
 	@RequestMapping(value="/timer", method= {RequestMethod.GET, RequestMethod.POST})
 	public String timer(HttpSession session) {
+		/*
+		//System.out.println("MobileController>timer");
+		
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		
 		if(authUser != null) {
@@ -21,5 +24,8 @@ public class MobileController {
 		} else {
 			return "redirect:/user/loginForm";
 		}
+		*/
+		
+		return "mobile/timer";
 	}
 }
