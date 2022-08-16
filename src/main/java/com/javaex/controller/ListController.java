@@ -21,10 +21,15 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	
 	/***************** 삭제  ****************/
-	
-	
-	
+	@RequestMapping(value="/delete", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete() {
+		
+		System.out.println("ListController>delete");
+		
+		return "list/listWrite";
+	}
 	
 	/***************** 글쓰기  ****************/
 	//글쓰기 등록
