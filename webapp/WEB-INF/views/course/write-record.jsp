@@ -276,21 +276,6 @@
 			<!-- course-form -->
 			
 			
-			<!-- 일반 사진 등록
-			<div class="course-form">
-				<h2>사진 등록</h2>
-				
-				<div id="course-pic">
-					<div>
-						<img id="photo-icon" src="../../../assets/image/course/photo.png">
-						<p>코스와 관련된 사진을 등록해주세요.</p>
-						<label for="input-file">사진 추가하기</label>
-						<input type="file" id="input-file">
-					</div>
-				</div>
-			</div> -->
-			
-			
 			<div id="btn-wrap">
 				<input type="hidden" id="courseNo" value="${param.courseNo }">
 				<input type="hidden" id="userNo" value="2">
