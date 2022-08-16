@@ -15,9 +15,9 @@ public class MyCourseDao {
 	
 	
 	//나의코스 list 가져오기
-	public List<Map<String, Object>> getCourseList(Map<String, Object> cMap){
+	public List<Map<String, Object>> getCourseList(int userNo){
 		System.out.println("MyCourseDao>MyCourseList"); 
-		return sqlSession.selectList("mypage.getCourseList", cMap); 
+		return sqlSession.selectList("mypage.getCourseList", userNo); 
 	}
 
 }

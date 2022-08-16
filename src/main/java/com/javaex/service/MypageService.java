@@ -25,9 +25,9 @@ public class MypageService {
 	}
 	
 	//나의기록 list 가져오기
-	public List <Map<String,Object>> getCourseList(Map<String, Object> cMap){
+	public List <Map<String,Object>> getCourseList(int userNo){
 		System.out.println("MypageService>MyCourseList"); 
-		return myCourseDao.getCourseList(cMap); 
+		return myCourseDao.getCourseList(userNo); 
 	}
 	
 	

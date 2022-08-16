@@ -1,6 +1,5 @@
-/*준비가 끝나면*/
-function fetchList(){
-	
+/*사이드메뉴*/
+function categoryList(){
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
 	$.ajax({
@@ -16,17 +15,16 @@ function fetchList(){
 			//화면에 data + html로 띄운다(그린다).
 			//리스트니까 for문으로 그리기!
 			for(var i=0; i<categoryList.length; i++){
-				render(categoryList[i], "down");	//vo --> 화면에 그린다.
+				categoryRender(categoryList[i], "down");	//vo --> 화면에 그린다.
 			}
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
 		}
 	});
-	
 }
 
-function render(categoryList) {
+function categoryRender(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark/01">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
@@ -36,14 +34,15 @@ function render(categoryList) {
 	$(".categoryArea").append(str);
 }
 
-function render2(categoryList) {
+
+function cateDelRender(categoryList) {
 	var str = '';
 	str += '<option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
 	
 	$(".sel-delCategory").append(str);
 }
 
-function render3(categoryList){
+function cateEditRender(categoryList){
 	var str = '';
 	str = '<input id="input-cateName-edit" type="text" data-cateNo="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
 	
@@ -53,7 +52,175 @@ function render3(categoryList){
 
 
 
-$(document).ready(function(){
+
+
+
+/*달력 API*/
+var rList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
+				{
+					title: '테스트 코스',
+					start: '2022-08-01',
+				}
+			];
+
+function calendarRender(rMap) {
+	var str = '';
+	str += '<li class="reportContent">';
+	str += '	<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
+	str += '		<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
+	str += '		<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
+	str += '		<p class="content">'+rMap.REVIEW+'</p>';
+	str += '		<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
+	str += '		<div class="modify-del-icons">';
+	str += '			<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
+	str += '			<span class="glyphicon glyphicon-trash"></span>';
+	str += '		</div>';
+	str += '	</div>';
+	str += '</li>';
+	
+	$(".reportBox").append(str);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*나의 코스*/
+var cList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
+				{	courseNo: '1',
+					userNo: '1',
+					title: '테스트',
+					id: 'joa123',
+					regDate: '2022-08-08',
+					openStatus: '공개'
+				}
+			];
+
+function mycourseRender(cMap) {
+	var str = '';
+	str += '<li class="course-list-result">';
+	str += '	<div class="listBox" style="cursor: pointer;" >'; /*onclick="window.location='';"*/
+	str += '	  	<img class="courseImg" src="'+contextPath+'/assets/image/my-page/sample.jpg">';
+	str += '	  	<div id="textBox">';
+	str += '			<div class="courseTitle">';
+	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
+	str += '				<div class="img-icons">';
+	str += '					<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart.png">';
+	str += '					<img class="bookmark-cancel-btn" src="'+contextPath+'/assets/image/main/star.png">';
+	str += '				</div>';
+	str += '			</div>';
+	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
+	str += '			<p id="courseInfo">조회수123 * '+cMap.REGDATE+'</p>';
+	str += '			<p id="courseInfo">후기글123 &nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png"></p>';
+	str += '	  	</div>';
+	str += '	</div>';
+	str += '</li>';
+	
+	$(".my-course-list-box").append(str);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+	/*//달력폼/////////////////////////////////////////////////////////////*/
+	console.log(userNo)
+    $.ajax({
+		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
+		type : "post",
+		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+		dataType : "json",
+		success : function(result){
+			$(".reportBox").empty();
+			eList = result;
+			//컨트롤러 함수 실행 후 코드
+			for (var i = 0; i < result.length; i++) {
+				var rMap = result[i];
+				rList.push(
+					{
+						title: rMap.TITLE,
+						start: rMap.REGDATE
+					}
+				);
+				calendarRender(rMap, "down");
+			}
+			console.log(rList);
+			
+			var calendarEl = document.getElementById('calendarApi');
+    	    var calendar = new FullCalendar.Calendar(calendarEl, {
+		    	locale: 'ko',
+		    	/*dayPopoverFormat: 'event-popover',*/
+		    	editable: false,
+				selectable: true,
+				businessHours: true,	//주말 구분;
+				dayMaxEvents: false, // allow "more" link when too many events
+				events: rList
+			});
+			calendar.render();
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+	
+	/*//////달력폼 준비가 끝나면//////////////////////////////////////////////////*/
+	$("#calendarApi").on("click", ".fc-daygrid-day.fc-day", function(){	
+		console.log("this", this);
+		var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
+		var todaydate = $this.data('date');
+		console.log(todaydate);
+		/*alert("날짜는???   " + todaydate);*/
+		
+		$(".monthReport").css('background', 'white');
+		$(".monthReport").css('color', 'black');
+		$(".monthReport").css('border', 'rgb(101,101,101) 1px solid');
+		
+		$(".todayReport").css('background', 'rgb(50, 108, 249)');
+		$(".todayReport").css('color', 'white');
+		$(".todayReport").css('border', 'rgb(50, 108, 249) 1px solid');
+		
+		$(".reportContent").remove();
+		for(var i=0; i < eList.length; i++){
+			if(todaydate == eList[i].REGDATE){
+				calendarRender(eList[i]	, "down");	
+			}
+		}
+	});
+});	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+$(window).ready(function(){	
+	/*///////사이드메뉴/////////////////////////////////////////////*/
 	console.log("준비");
 	var userNo = window.userNo;
 	console.log(userNo);
@@ -79,10 +246,31 @@ $(document).ready(function(){
     
 
 	
+	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
+	console.log('즐겨찾기');
+	$(".course-like-cancel").hide();
+	$(".course-bookmark-cancel").hide();
+    
+	
+	$(".like-cancel-btn").click(function(){
+		console.log("좋아요해제");
+		$(".course-like-cancel").modal("show");
+   	});
+   
+	$(".bookmark-cancel-btn").click(function(){
+		console.log("즐겨찾기해제");
+		$(".course-bookmark-cancel").modal("show");
+	});
+	
+	
+	
+	
+	
+	
+	
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
-	fetchList();	
-	
+	categoryList();
 	
 	
 	/*--------------------------------------------------*/
@@ -114,7 +302,7 @@ $(document).ready(function(){
 					console.log(categoryVo);
 				
 					//1개의 데이터 리스트에 추가(그리기)
-					render(categoryVo, "up");
+					categoryRender(categoryVo, "up");
 				
 					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
 					$("[name=catename]").val("");
@@ -150,7 +338,7 @@ $(document).ready(function(){
 				//화면에 data + html로 띄운다(그린다).
 				//리스트니까 for문으로 그리기!
 				for(var i=0; i<categoryList.length; i++){
-					render2(categoryList[i], "down");	//vo --> 화면에 그린다.
+					cateDelRender(categoryList[i], "down");	//vo --> 화면에 그린다.
 				}
 			},
 			error : function(XHR, status, error) {
@@ -182,7 +370,7 @@ $(document).ready(function(){
 				/*성공시 처리해야될 코드 작성*/
 				console.log(result);
 				$(".bookmark-menuList").remove();
-				fetchList();
+				categoryList();
 				/*location.reload(true);*/
 			},
 			error : function(XHR, status, error) {
@@ -210,7 +398,7 @@ $(document).ready(function(){
 				//컨트롤러 함수 실행 후 코드
 				//리스트니까 for문으로 그리기!
 				for(var i=0; i<categoryList.length; i++){
-					render3(categoryList[i], "down");	//vo --> 화면에 그린다.
+					cateEditRender(categoryList[i], "down");	//vo --> 화면에 그린다.
 				}
 			},
 			error : function(XHR, status, error) {
@@ -225,6 +413,53 @@ $(document).ready(function(){
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
 	});
-   
-});   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*--------------------------------------------------*/
+	/*나의 코스 리스트 가져오기*/
+	$.ajax({
+		url : contextPath + "/api/my-page/get-course-list", //컨트롤러 RequestMapping url 작성하기
+		type : "post",
+		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+		dataType : "json",
+		success : function(result){
+			//컨트롤러 함수 실행 후 코드
+			console.log(result);
+			$(".my-course-list-box").empty();
+			
+			//리스트니까 for문으로 그리기!
+			for (var i = 0; i < result.length; i++) {
+				var cMap = result[i];
+				cList.push(
+					{	courseNo: cMap.COURSENO,
+						userNo: cMap.USERNO,
+						title: cMap.TITLE,
+						id: cMap.ID,
+						regDate: cMap.REGDATE,
+						openStatus: cMap.OPENSTATUS
+					}
+				);
+				mycourseRender(cMap, "down");
+			}
+			console.log(cList);
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	console.log(cList);
+});
+
+
+
 
