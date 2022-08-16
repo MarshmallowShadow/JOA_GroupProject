@@ -310,15 +310,27 @@ function map() {
 			
 			
 			/*마커 생성*/
+			
+			//마커 이미지 설정
+			var imageSrc1 = contextPath+'/assets/image/course/location-bl.png', // 마커이미지 주소
+				imageSrc2 = contextPath+'/assets/image/course/location-b.png', // 마커이미지 주소
+		    imageSize = new kakao.maps.Size(64, 64), // 마커이미지 크기
+		    imageOption = {offset: new kakao.maps.Point(32, 64)}; // 마커 위치
+		    
+		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize, imageOption);
+		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
+		    
 			//시작 마커와 마지막 마커 배열 저장
 			var firstMk = {
 				title: 'start',
-				latlng: new kakao.maps.LatLng(points[0].y, points[0].x)
+				latlng: new kakao.maps.LatLng(points[0].y, points[0].x),
+				image: markerImage1
 			};
 			markerPosition.push(firstMk);
 			var lastMk = {
 				title: 'end',
-				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x)
+				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x),
+				image: markerImage2
 			};
 			markerPosition.push(lastMk);
 			
@@ -327,7 +339,8 @@ function map() {
 				var marker = new kakao.maps.Marker({
 					map: map,
 				    position: markerPosition[i].latlng,
-				    title: markerPosition[i].title
+				    title: markerPosition[i].title,
+				    image: markerPosition[i].image
 				});
 				console.log(marker);
 			}
