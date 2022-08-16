@@ -3,6 +3,7 @@ package com.javaex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,17 +24,19 @@ public class ListController {
 	//메소드 일반
 	
 	/***************** 삭제  ****************/
-	@RequestMapping(value="/delete", method = {RequestMethod.GET, RequestMethod.POST})
-	public String delete() {
+	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@PathVariable("no") int no) {
 		
 		System.out.println("ListController>delete");
 		
-		return "list/listWrite";
+		//listService.delete(no);
+		
+		return "redirect:/list/listWrite";
 	}
 	
 	/***************** 글쓰기  ****************/
 	//글쓰기 등록
-	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute ListVo listVo) {
 		System.out.println("ListController>write");
 		
@@ -43,7 +46,7 @@ public class ListController {
 	}
 	
 	//글쓰기폼
-	@RequestMapping(value="/listWrite", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/listWrite", method = {RequestMethod.GET, RequestMethod.POST})
 	public String listWrite () {
 		System.out.println("ListController>listWirte");
 		

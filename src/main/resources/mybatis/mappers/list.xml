@@ -7,7 +7,7 @@
 	<insert id="listWrite" parameterType="ListVo">
 		<![CDATA[
 			insert into q_list
-			values(SEQ_Q_LIST_NO.nextval, #{userNo}, #{listCategory}, #{title}, #{content}, sysdate, #{view_count})
+			values(SEQ_Q_LIST_NO.nextval, #{userNo}, #{board_category}, #{title}, #{content}, sysdate, #{view_count})
 		]]>
 	</insert>
 
@@ -15,7 +15,7 @@
 	<!-- 리스트 출력 -->
  	<select id="listList" parameterType="String" resultType="ListVo">
 		<![CDATA[
-			SELECT q_list_no,user_no,board_category,title,content,reg_date,view_count
+			SELECT q_list_no, user_no, board_category, title, content, reg_date,view_count
 			FROM q_list	
 		]]>
 	</select>
