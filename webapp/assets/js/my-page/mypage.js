@@ -220,10 +220,35 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	
 $(window).ready(function(){	
-	/*///////사이드메뉴/////////////////////////////////////////////*/
 	console.log("준비");
 	var userNo = window.userNo;
 	console.log(userNo);
+	
+	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
+	console.log('즐겨찾기');
+	$(".course-like-cancel").hide();
+	$(".course-bookmark-cancel").hide();
+    
+	
+	$(".like-cancel-btn").click(function(){
+		console.log("좋아요해제");
+		$(".course-like-cancel").modal("show");
+   	});
+   
+	$(".bookmark-cancel-btn").click(function(){
+		console.log("즐겨찾기해제");
+		$(".course-bookmark-cancel").modal("show");
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*///////사이드메뉴/////////////////////////////////////////////*/
 	$("#menuBar").hide();
 	
 	/*메뉴창 열기*/
@@ -246,21 +271,7 @@ $(window).ready(function(){
     
 
 	
-	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
-	console.log('즐겨찾기');
-	$(".course-like-cancel").hide();
-	$(".course-bookmark-cancel").hide();
-    
 	
-	$(".like-cancel-btn").click(function(){
-		console.log("좋아요해제");
-		$(".course-like-cancel").modal("show");
-   	});
-   
-	$(".bookmark-cancel-btn").click(function(){
-		console.log("즐겨찾기해제");
-		$(".course-bookmark-cancel").modal("show");
-	});
 	
 	
 	
@@ -313,6 +324,15 @@ $(window).ready(function(){
 			});
 			$(".category-add-btn").hide('modal');
 		});
+		//모달창의 닫기버튼 클릭할때
+		$("#add-bookmark-category-close").on("click", function(){
+			$("[name=catename]").val("");
+			$(".category-add-btn").hide('modal');
+		});
+		$("#add-bookmark-category-cancel").on("click", function(){
+			$("[name=catename]").val("");
+			$(".category-add-btn").hide('modal');
+		});
 	});
 	
 	
@@ -347,44 +367,61 @@ $(window).ready(function(){
 		});
 		//모달창 띄우기
 		$(".category-del-btn").show('modal');
+		
+		
+		//모달창의 삭제버튼 클릭할때
+		$("#del-bookmark-category").on("click", function(){
+			console.log("모달>삭제버튼 클릭")
+			/*$(".bookmark-menuList").remove();*/
+					
+			//삭제할 데이터 모으기
+			var cateNo = $("#del-select-list").val();
+	        console.log("cateNo", cateNo);
+			
+			//서버로 데이터 전송(ajax)
+			$.ajax({
+				url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
+				type : "post",
+				contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+				data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+					//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+				dataType : "json",
+				success : function(result){
+					/*성공시 처리해야될 코드 작성*/
+					console.log(result);
+					$(".bookmark-menuList").remove();
+					categoryList();
+					/*location.reload(true);*/
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+			$(".category-del-btn").hide('modal');
+		});
+		
+		//모달창의 닫기버튼 클릭할때
+		$("#del-bookmark-category-close").on("click", function(){
+			$(".category-del-btn").hide('modal');
+		});
+		$("#del-bookmark-category-cancel").on("click", function(){
+			$(".category-del-btn").hide('modal');
+		});
 	});
 	
-	//모달창의 삭제버튼 클릭할때
-	$("#del-bookmark-category").on("click", function(){
-		console.log("모달>삭제버튼 클릭")
-		/*$(".bookmark-menuList").remove();*/
-				
-		//삭제할 데이터 모으기
-		var cateNo = $("#del-select-list").val();
-        console.log("cateNo", cateNo);
-		
-		//서버로 데이터 전송(ajax)
-		$.ajax({
-			url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
-			type : "post",
-			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-			dataType : "json",
-			success : function(result){
-				/*성공시 처리해야될 코드 작성*/
-				console.log(result);
-				$(".bookmark-menuList").remove();
-				categoryList();
-				/*location.reload(true);*/
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-		});
-		$(".category-del-btn").hide('modal');
-	});
+	
+	
+	
+	
+	
+	
 	
 	
 	/*--------------------------------------------------*/
 	/*카테고리 이름 수정하기 - 보류*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
+		$("#cateName-modal input").remove();
 		
 		/*수정리스트 가져오기*/
 		$.ajax({
@@ -413,6 +450,18 @@ $(window).ready(function(){
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
 	});
+	
+	
+	//모달창의 닫기버튼 클릭할때
+	$("#edit-bookmark-category-close").on("click", function(){
+		$(".category-modify-btn").hide('modal');
+	});
+	$("#edit-bookmark-category-cancel").on("click", function(){
+		$(".category-modify-btn").hide('modal');
+	});
+	
+	
+	
 	
 	
 	
