@@ -33,6 +33,7 @@ function render(rMap) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+	console.log(userNo)
     $.ajax({
 		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
 		type : "post",

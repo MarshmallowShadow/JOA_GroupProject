@@ -1,5 +1,6 @@
 /*준비가 끝나면*/
 function fetchList(){
+	
 	/*--------------------------------------------------*/
 	/*카테고리 리스트 가져오기*/
 	$.ajax({
@@ -53,7 +54,9 @@ function render3(categoryList){
 
 
 $(document).ready(function(){
-	console.log("준비")
+	console.log("준비");
+	var userNo = window.userNo;
+	console.log(userNo);
 	$("#menuBar").hide();
 	
 	/*메뉴창 열기*/
@@ -62,6 +65,7 @@ $(document).ready(function(){
 		$("#menuBar").show();
 	});
 	
+	
 	/*메뉴창 닫기*/
 	$(".menuBar-close-btn").click(function(){
 		$("#menuBar").hide();
@@ -69,9 +73,10 @@ $(document).ready(function(){
 	});
 	
 	/*메뉴창 안의 모달들 숨겨두기*/
-    $(".category-add-btn").modal('hide');
-    $(".category-del-btn").modal('hide');
-    $(".category-modify-btn").modal('hide');
+    $(".category-add-btn").hide('modal');
+    $(".category-del-btn").hide('modal');
+    $(".category-modify-btn").hide('modal');
+    
 
 	
 	/*--------------------------------------------------*/
@@ -85,7 +90,7 @@ $(document).ready(function(){
 	$(".plus-btn").click(function(){
 		console.log("카테고리추가");
 		$("[name=catename]").val("");
-		$(".category-add-btn").modal("show");
+		$(".category-add-btn").show('modal');
 	  
 		$("#add-bookmark-category").on("click", function(){
 			console.log("즐겨찾기 추가 버튼 클릭");
@@ -118,7 +123,7 @@ $(document).ready(function(){
 					console.error(status + " : " + error);
 				}
 			});
-			$(".category-add-btn").modal('hide');
+			$(".category-add-btn").hide('modal');
 		});
 	});
 	
@@ -153,7 +158,7 @@ $(document).ready(function(){
 			}
 		});
 		//모달창 띄우기
-		$(".category-del-btn").modal("show");
+		$(".category-del-btn").show('modal');
 	});
 	
 	//모달창의 삭제버튼 클릭할때
@@ -184,7 +189,7 @@ $(document).ready(function(){
 				console.error(status + " : " + error);
 			}
 		});
-		$(".category-del-btn").modal("hide");
+		$(".category-del-btn").hide('modal');
 	});
 	
 	
@@ -218,7 +223,7 @@ $(document).ready(function(){
 		/*var cateNo = $(".bookmark-menuList").val();*/
 	
 		//모달창 띄우기
-		$(".category-modify-btn").modal("show");	  
+		$(".category-modify-btn").show('modal');
 	});
    
 });   
