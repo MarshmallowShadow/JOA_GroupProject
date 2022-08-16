@@ -84,6 +84,7 @@ $(document).ready(function(){
 	/*카테고리 추가하기*/
 	$(".plus-btn").click(function(){
 		console.log("카테고리추가");
+		$("[name=catename]").val("");
 		$(".category-add-btn").modal("show");
 	  
 		$("#add-bookmark-category").on("click", function(){

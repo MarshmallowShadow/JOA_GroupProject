@@ -100,7 +100,7 @@
 		<div class="resultView">
 			<div class="resultList">
 				<p id="listTitle">나의 코스 보기</p>
-				<ol>
+				<ol class="my-course-list-box">
 					<li>
 						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
 						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
@@ -269,7 +269,7 @@
         <input type="text" name="catename" value="" placeholder="즐겨찾기 이름을 입력하세요">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-default" id="add-bookmark-category-close" data-dismiss="modal">취소</button>
         <button type="button" class="btn btn-primary" id="add-bookmark-category">목록 만들기</button>
       </div>
     </div><!-- /.modal-content -->
