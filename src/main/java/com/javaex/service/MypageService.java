@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CategoryDao;
+import com.javaex.dao.MyCourseDao;
 import com.javaex.dao.MyReportDao;
 import com.javaex.vo.CategoryVo;
 
@@ -14,6 +15,7 @@ import com.javaex.vo.CategoryVo;
 public class MypageService {
 	
 	@Autowired private MyReportDao myReportDao;
+	@Autowired private MyCourseDao myCourseDao;
 	@Autowired private CategoryDao categoryDao;
 	
 	//나의기록 list 가져오기
@@ -21,6 +23,16 @@ public class MypageService {
 		System.out.println("MypageService>calendarList"); 
 		return myReportDao.getRecordList(userNo); 
 	}
+	
+	//나의기록 list 가져오기
+	public List <Map<String,Object>> getCourseList(Map<String, Object> cMap){
+		System.out.println("MypageService>MyCourseList"); 
+		return myCourseDao.getCourseList(cMap); 
+	}
+	
+	
+	
+	
 	
 	//즐겨찾기 카테고리 list 가져오기1
 	public List <CategoryVo> getCategoryList(int userNo){
