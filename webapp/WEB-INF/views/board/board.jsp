@@ -24,7 +24,7 @@
 		
 		<!-- 필터링 옵션 항목 -->
 		<div id="top_aside">
-			<form action="${pageContext.request.contextPath}/board" method="get">
+			<form action="${pageContext.request.contextPath}/board/board" method="get">
 				<select id="option" name="boardCategory">
 					<option value=""></option>
 					<option value="question">질문</option>
@@ -69,7 +69,7 @@
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${categoryMap[bMap.BOARDCATEGORY]}</td>
-								<td><a href="${pageContext.request.contextPath}/read/${bMap.BOARDNO}">${bMap.TITLE} 
+								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
 									<!--<c:if test="${Map.board_img_no eq true}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if>-->
@@ -98,7 +98,7 @@
 				<li class="li"><a href="#">◀</a></li>
 			</c:if>
 			<c:forEach begin="${startPageBtnNo}" end="${endPageBtnNo}" step="1" var="i">
-				<li class="active li"><a href="${pageContext.request.contextPath}/board?crtPage=${i}">${i}</a></li>
+				<li class="active li"><a href="${pageContext.request.contextPath}/board/board?crtPage=${i}">${i}</a></li>
 			</c:forEach>
 			<c:if test="${next}">
 				<li class="li"><a href="#">▶</a></li>

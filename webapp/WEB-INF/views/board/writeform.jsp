@@ -20,7 +20,7 @@
 	
 		<h1>게시판</h1>
 		
-		<form action="${pageContext.request.contextPath}/write" method="get">
+		<form action="${pageContext.request.contextPath}/board/write" method="get">
 		
 			<div id="writebox">
 
@@ -73,7 +73,7 @@
 					<div id="drop">
 						
 						<div id="fileDragDesc">
-							<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
+							<img id="photo-icon" src="${pageContext.request.contextPath}/assets/image/course/photo.png">
 						</div>
 						
 						<div id="filesList">
@@ -90,7 +90,7 @@
 				<br><br><br>
 	
 				<div id="user_btn">
-					<a id="cancel" href="${pageContext.request.contextPath}/board">취소</a>
+					<a id="cancel" href="${pageContext.request.contextPath}/board/board">취소</a>
 					<button type="submit" id="post">등록</button>
 				</div>
 				
