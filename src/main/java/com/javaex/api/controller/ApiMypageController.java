@@ -35,9 +35,9 @@ public class ApiMypageController {
 	//나의 코스보기 - 코스 list 가져오기
 	@ResponseBody
 	@RequestMapping(value="/api/my-page/get-course-list", method= {RequestMethod.GET, RequestMethod.POST}) 
-	public List <Map<String,Object>> getCourseList(@RequestBody Map<String, Object> cMap) {
+	public List <Map<String,Object>> getCourseList(@RequestBody int userNo) {
 		System.out.println("ApiMypageController>course-list()");
-		List<Map<String,Object>> myCourseList = mypageService.getCourseList(cMap);
+		List<Map<String,Object>> myCourseList = mypageService.getCourseList(userNo);
 		System.out.println(myCourseList);
 	 return myCourseList; 
 	}

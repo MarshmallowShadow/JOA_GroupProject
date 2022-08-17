@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.service.RecordService;
+import com.javaex.vo.RecordImgVo;
 import com.javaex.vo.RecordVo;
 
 @Controller
@@ -58,6 +59,14 @@ public class ApiRecordController {
 		return recService.getCoUserNo(courseNo);
 	}
 	
+	//기록사진 가져오기
+	@ResponseBody
+	@RequestMapping(value = "/getImgs", method = {RequestMethod.GET, RequestMethod.POST})
+	public List<RecordImgVo> getImgs(@RequestParam(value = "recordNo", required = false) int recordNo) {
+		System.out.println("ApiRecordController->getImgs");
+		return recService.getImgs(recordNo);
+	}
+	
 	//기록 수정
 	@ResponseBody
 	@RequestMapping(value = "/recordModify", method = {RequestMethod.GET, RequestMethod.POST})
@@ -65,4 +74,5 @@ public class ApiRecordController {
 		System.out.println("ApiRecordController->recordModify");
 		return recService.recordModify(recVo);
 	}
+	
 }

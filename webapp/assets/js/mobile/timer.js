@@ -20,8 +20,12 @@ $("#btn-start").on("click", function(){
 	//console.log($("#btn-start").attr("class"));
 	
 	if($("#btn-start").hasClass("btn-pink")) {
+		$("#btn-reset").css("display", "none");
+		$("#btn-course-write").css("display", "none");
 		interval = window.setInterval(stopWatch, 100);
 	} else if($("#btn-start").hasClass("btn-blue")) {
+		$("#btn-reset").css("display", "inline");
+		$("#btn-course-write").css("display", "inline");
 		window.clearInterval(interval);
 	}
 });
@@ -62,3 +66,18 @@ function stopWatch() {
 	
 	$("#display").html(disHr + hours + ":" + disMin + minutes + ":" + disSec + seconds + "." + deciseconds);
 }
+
+$("#btn-reset").on("click", function(){
+	window.clearInterval(interval);
+	
+	deciseconds = 0;
+	seconds = 0;
+	minutes = 0;
+	hours = 0;
+	
+	disSec = "0";
+	disMin = "0";
+	disHr = "0";
+	
+	$("#display").html("00:00:00.0");
+});

@@ -87,6 +87,7 @@
 
 #header #user-menu #check-btn, .menubars { 
 	display: none;
+	outline: none;
 }
 
 #header #user-menu #check-btn:checked ~ .menubars { 

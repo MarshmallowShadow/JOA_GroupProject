@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>코스 정보 상세보기</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- css -->
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-view.css">

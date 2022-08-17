@@ -33,17 +33,19 @@
 		
 	<!-- 필터링 옵션 항목 -->
 	<div id="top_aside">
-		<select id="option">
-			<option value="default"></option>
-			<option value="question">개인</option>
-			<option value="commute">사업</option>
-			<option value="commute">서비스</option>
-		</select>
-
-		<!-- 검색창과 버튼 -->
-		<input type="text" id="textbox">
-		<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
-		</button>
+		<form action="${pageContext.request.contextPath}/list/list" method="get">
+			<select id="option" name="listCategory">
+				<option value="default"></option>
+				<option value="question">개인</option>
+				<option value="commute">사업</option>
+				<option value="commute">서비스</option>
+			</select>
+	
+			<!-- 검색창과 버튼 -->
+			<input type="text" id="textbox">
+			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
+			</button>
+		</form>
 	</div>
 		<br>
 
@@ -61,86 +63,18 @@
 					</tr>
 				</thead>
 				<tbody>
+				
+				<c:forEach items="${list}" var="listVo">
 					<tr>
-						<th>1</th>
-						<td class="center">[개인]</td>
-						<td>내가 그렇게 만만하니 <span class="glyphicon glyphicon-picture"></span></td>
-						<td class="center">유키스</td>
-						<td class="center">47</td>
-						<td class="center">2022.07.25</td>
+						<th>${listVo.qListNo}</th>
+						<td class="center">${listVo.boardCategory}</td>	<!-- 항목 -->
+						<td><a href="./read/${listVo.qListNo}">${listVo.title}</a></td><!-- 제목 -->
+						<td class="center">${listVo.id}</td>			<!-- 작성자 -->
+						<td class="center">${listVo.viewCount}</td>		<!-- 조회수 -->
+						<td class="center">${listVo.regDate}</td>		<!-- 날짜 -->
 					</tr>
-
-					<tr>
-						<th>2</th>
-						<td class="center">[사업]</td>
-						<td>한강 사진 공유~[14] <span class="glyphicon glyphicon-picture"></span></td>
-						<td class="center">아이유</td>
-						<td class="center">10000</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-
-					<tr>
-						<th>3</th>
-						<td class="center">[사업]</td>
-						<td>너랑 나[4] <span class="glyphicon glyphicon-picture"></span></td>
-						<td class="center">나이키</td>
-						<td class="center">17</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-
-					<tr>
-						<th>4</th>
-						<td class="center">[개인]</td>
-						<td>이의 있습니다.[16] <span class="glyphicon glyphicon-picture"></span></td>
-						<td class="center">권모술수</td>
-						<td class="center">54</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-
-					<tr>
-						<th>5</th>
-						<td class="center">[개인]</td>
-						<td>음.. 고래 얘기가 꼭 필요한 상황이라면?[96]</td>
-						<td class="center">우영우</td>
-						<td class="center">168</td>
-						<td class="center">2022.07.25</td>
-					</tr>
-
-					<tr>
-						<th>7</th>
-						<td class="center">[소통]</td>
-						<td>거 우영우 변호사 글 그만쓰세요.[5]</td>
-						<td class="center">정뿡뿡</td>
-						<td class="center">33</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-
-					<tr>
-						<th>8</th>
-						<td class="center">[질문]</td>
-						<td>등산 배낭 공구하실 분??[186]</td>
-						<td class="center">장비빨</td>
-						<td class="center">78</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-
-					<tr>
-						<th>9</th>
-						<td class="center">[질문]</td>
-						<td>ㅇㅇ빌딩 옆 top1 산책 코스에서 차키 보신 분ㅜㅠ[19]</td>
-						<td class="center">매직핸드</td>
-						<td class="center">34</td>
-						<td class="center">2022.07.24</td>
-					</tr>
-
-					<tr>
-						<th>10</th>
-						<td class="center">[후기]</td>
-						<td>내일 폭염이라네요ㅜ][2]</td>
-						<td class="center">날씨예민러</td>
-						<td class="center">18</td>
-						<td class="center">2022.07.23</td>
-					</tr>
+				</c:forEach>
+				
 				</tbody>
 			</table>
 		</div>

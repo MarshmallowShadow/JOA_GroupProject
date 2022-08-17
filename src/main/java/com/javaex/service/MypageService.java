@@ -24,10 +24,10 @@ public class MypageService {
 		return myReportDao.getRecordList(userNo); 
 	}
 	
-	//나의기록 list 가져오기
-	public List <Map<String,Object>> getCourseList(Map<String, Object> cMap){
+	//나의코스 list 가져오기
+	public List <Map<String,Object>> getCourseList(int userNo){
 		System.out.println("MypageService>MyCourseList"); 
-		return myCourseDao.getCourseList(cMap); 
+		return myCourseDao.getCourseList(userNo); 
 	}
 	
 	

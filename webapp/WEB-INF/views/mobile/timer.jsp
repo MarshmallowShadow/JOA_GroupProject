@@ -5,6 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>운동하기</title>
 	<!-- css -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css">
@@ -14,20 +15,22 @@
 
 <body>
 	<div id="wrap">
-		<div id="header"><a href="${pageContext.request.contextPath }/"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a></div>
+		<div id="header">
+			<a href="${pageContext.request.contextPath }/"><img id="logo" src="${pageContext.request.contextPath }/assets/image/main/logo.jpg"></a>
+		</div> <!-- header -->
 		<div id="content">
 			<div id="display">00:00:00.0</div>
 			
 			<div id="btn-start-stop"><button id="btn-start" type="button" class="glyphicon glyphicon-off btn-blue"></button></div>
 			
 			<div id="buttons">
-				<button id="" type="button">초기화</button>
-				<a href="${pageContext.request.contextPath }/course/write" target="_blank"><button id="" type="button">코스 기록</button></a>
-			</div>
-		</div>
-		
-		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-	</div>
+				<button id="btn-reset" type="button">초기화</button>
+				<a href="${pageContext.request.contextPath }/course/write" target="_blank"><button id="btn-course-write" type="button">코스 기록</button></a>
+			</div> <!-- content -->
+		</div> 
+	</div> <!-- wrap -->
+	
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 </body>
 
 <!-- js -->

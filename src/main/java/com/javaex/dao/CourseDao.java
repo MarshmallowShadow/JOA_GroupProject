@@ -1,5 +1,6 @@
 package com.javaex.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,5 +43,13 @@ public class CourseDao {
 		return sqlSession.update("course.updateTitle", map);
 	}
 	
-
+	//지역별 검색
+	public List<Map<String, Object>> locationList(Map<String, Object> kMap){
+		return null;
+	}
+	
+	//키워드별 검색
+	public List<Map<String, Object>> titleList(Map<String, Object> kMap){
+		return null;
+	}
 }

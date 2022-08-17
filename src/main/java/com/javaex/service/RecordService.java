@@ -178,16 +178,16 @@ public class RecordService {
 	}
 
 	//(기록수정) 기록 가져오기
-	public Map<String, Object> getRecord(int recordNo) {
+	public RecordVo getRecord(int recordNo) {
 		System.out.println("RecordService->getRecord");
-		//기록 가져오기
-		RecordVo recVo = recDao.getRecord(recordNo);
-		//기록 이미지 가져오기
-		//List<RecordImgVo> recImgs = imgDao.getRecImg(recordNo);
-		
-		Map<String, Object> recMap = new HashMap<String, Object>();
-		recMap.put("recVo", recVo);
-		return recMap;
+		return recDao.getRecord(recordNo);
+
+	}
+	
+	//기록사진 가져오기
+	public List<RecordImgVo> getImgs(int recordNo) {
+		System.out.println("RecordService->getImgs");
+		return imgDao.getRecImg(recordNo);
 	}
 
 	//기록 수정하기
@@ -201,5 +201,7 @@ public class RecordService {
 		
 		return "fail";
 	}
+
+	
 
 }

@@ -260,7 +260,7 @@ function preview(file, idx) {
 							'<div class="close" data-idx="'+idx+'">'+
 								'<span class="glyphicon glyphicon-remove">' +
 							'</div>'+
-							'<img src="'+e.target.result+'"title="'+escape(f.name)+'"/>'+
+							'<img src="'+e.target.result+'"/>'+
 						'</div>';
 			$("#filesList").append(div);
 		};						
@@ -309,15 +309,26 @@ function map(courseNo) {
 			
 			
 			/*마커 생성*/
+			//마커 이미지 설정
+			var imageSrc1 = contextPath+'/assets/image/course/pin-b.png', // 마커이미지 주소
+				imageSrc2 = contextPath+'/assets/image/course/pin-r.png', // 마커이미지 주소
+		    imageSize = new kakao.maps.Size(32, 32), // 마커이미지 크기
+		    imageOption = {offset: new kakao.maps.Point(16, 32)}; // 마커 위치
+		    
+		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize, imageOption);
+		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
+		    
 			//시작 마커와 마지막 마커 배열 저장
 			var firstMk = {
 				title: 'start',
-				latlng: new kakao.maps.LatLng(points[0].y, points[0].x)
+				latlng: new kakao.maps.LatLng(points[0].y, points[0].x),
+				image: markerImage1
 			};
 			markerPosition.push(firstMk);
 			var lastMk = {
 				title: 'end',
-				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x)
+				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x),
+				image: markerImage2
 			};
 			markerPosition.push(lastMk);
 			
@@ -326,7 +337,8 @@ function map(courseNo) {
 				var marker = new kakao.maps.Marker({
 					map: map,
 				    position: markerPosition[i].latlng,
-				    title: markerPosition[i].title
+				    title: markerPosition[i].title,
+				    image: markerPosition[i].image
 				});
 				console.log(marker);
 			}
@@ -336,7 +348,7 @@ function map(courseNo) {
 			var polyline = new kakao.maps.Polyline({
 				map: map, //표시할 지도
 				path: path, //선의 좌표
-				strokeWeight: 10, //선 두께
+				strokeWeight: 6, //선 두께
 				strokeColor: 'rgb(50, 108, 249)', //선 색깔
 				strokeOpacity: 0.9, //선의 불투명도 (0~1)
 				strokeStyle: 'solid' //선 스타일
