@@ -44,8 +44,10 @@
 		
 		
 		<div class="subHeader">
-			<img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png">
-			<p id="title">마이페이지 <img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/house.png"></p>
+			<span onclick="openNav()"><img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png"></span>
+			<p id="title">즐겨찾기 
+				<img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/star.png">
+			</p>
 		</div>
 		
 		
