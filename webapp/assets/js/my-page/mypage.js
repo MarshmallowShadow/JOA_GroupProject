@@ -66,11 +66,13 @@ var rList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 function calendarRender(rMap) {
 	var str = '';
 	str += '<li class="reportContent">';
-	str += '	<div style="cursor: pointer;" >'; /*onclick="window.location='';"*/
-	str += '		<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
-	str += '		<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
-	str += '		<p class="content">'+rMap.REVIEW+'</p>';
-	str += '		<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
+	str += '	<div>';
+	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'">';
+	str += '			<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
+	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
+	str += '			<p class="content">'+rMap.REVIEW+'</p>';
+	str += '			<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
+	str += '		</a>';
 	str += '		<div class="modify-del-icons">';
 	str += '			<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
 	str += '			<span class="glyphicon glyphicon-trash"></span>';
@@ -106,8 +108,8 @@ var cList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 function mycourseRender(cMap) {
 	var str = '';
 	str += '<li class="course-list-result">';
-	str += '	<div class="listBox" style="cursor: pointer;" >'; /*onclick="window.location='';"*/
-	str += '	  	<img class="courseImg" src="'+contextPath+'/assets/image/my-page/sample.jpg">';
+	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"*/
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'"><img class="courseImg" src="'+contextPath+'/assets/image/my-page/sample.jpg" ></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
@@ -433,22 +435,14 @@ $(window).ready(function(){
 			dataType : "json",
 			success : function(categoryList){
 				//컨트롤러 함수 실행 후 코드
-				//리스트니까 for문으로 그리기!
-				/*for(var i=0; i < categoryList.length; i++){
-					if(todaydate == eList[i].REGDATE){
-						cateEditRender(categoryList[i]	, "down");	
-					}
-				}*/
+				for(var i=0; i<categoryList.length; i++){
+					cateEditRender(categoryList[i], "down");	
+				}
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
 		});
-		
-		var cateNo = $("#input-cateName-edit").data("cateNo");
-		console.log(cateNo);
-		/*var cateNo = $(".bookmark-menuList").val();*/
-	
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
 	});

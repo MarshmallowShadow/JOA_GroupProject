@@ -17,7 +17,8 @@ public class MypageController {
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypage() { 
 		System.out.println("MypageController>mypage");
-		return "my-page/main"; 
+		
+		return "my-page/main";
 	}
 	
 	//마이페이지-내 코스
