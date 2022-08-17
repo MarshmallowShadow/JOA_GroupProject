@@ -22,6 +22,14 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	/***************** 읽기  ****************/
+	@RequestMapping(value = "/read", method = {RequestMethod.GET, RequestMethod.POST})
+	public String read () {
+		System.out.println("ListController>read");
+		
+		return "/list/list";
+	}
+	
 	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
@@ -31,7 +39,7 @@ public class ListController {
 		
 		//listService.delete(no);
 		
-		return "redirect:/list/listWrite";
+		return "redirect:/list/list";
 	}
 	
 	/***************** 글쓰기  ****************/
@@ -42,7 +50,8 @@ public class ListController {
 		
 		listService.write(listVo);
 		
-		return "redirect:/list/listWrite";
+		return "list/list";
+		//return "redirect:/list/list";
 	}
 	
 	//글쓰기폼
