@@ -20,10 +20,10 @@
 			        c.title,
 			        r.review,
 			        to_char(r.reg_date, 'YYYY-MM-DD') regDate,
-			        i.file_path filePath
+			        i.save_name saveName
 			from course c, record r 
 			left outer join (select * from record_img where order_no = 0) i
-			on r.record_no = i.record_no 
+			on r.record_no = i.record_no
 			where r.course_no = c.course_no
 				and r.user_no =  #{userNo}
 			order by r.reg_date asc

@@ -1,11 +1,18 @@
 package com.javaex.controller;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value="/my-page")
@@ -37,19 +44,35 @@ public class MypageController {
 	}
 	
 	//즐겨찾기////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
-	public String bookmark() {
+	@RequestMapping(value="/bookmark/main", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bookmarkMain() {
 		System.out.println("MypageController>bookmark");
 		
 		return "my-page/bookmark-main";
 	}
 	
 	//즐겨찾기-예시
-	@RequestMapping(value="/bookmark/01", method = {RequestMethod.GET, RequestMethod.POST})
-	public String bookmark01() {
-		System.out.println("MypageController>bookmark01");
+	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bookmarks(Model model, HttpSession session,
+							@RequestParam(value = "cateNo") int cateNo) {
+		System.out.println("MypageController>bookmarks-category");
 		
 		return "my-page/bookmark-ex";
 	}
+	
+	
+	
+	/*
+	 * @RequestMapping(value="/view", method = {RequestMethod.GET,
+	 * RequestMethod.POST}) public String courseViewForm(Model model, HttpSession
+	 * session,
+	 * 
+	 * @RequestParam(value = "courseNo") int courseNo) {
+	 * System.out.println("CourseController->courseViewForm()"); UserVo userVo =
+	 * (UserVo) session.getAttribute("authUser"); int userNo = 0; if(userVo != null)
+	 * { userNo = userVo.getUserNo(); } Map<String, Object> coMap =
+	 * coService.getCourseInfo(courseNo, userNo); model.addAttribute("coMap",
+	 * coMap); return "course/view-course"; }
+	 */
 	
 }

@@ -63,7 +63,7 @@
 					
 					<div id="reportList">
 						<div class="listTitle">
-							<a href="${pageContext.request.contextPath}/my-page/my-report"><p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p></a>
+							<p id="category1" class="monthReport" data-ex0="ex1"><a href="${pageContext.request.contextPath}/my-page/my-report">이달의 기록</a></p>
 							<p id="category2" class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	

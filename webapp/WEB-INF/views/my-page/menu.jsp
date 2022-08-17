@@ -17,7 +17,7 @@
 <!-- 메뉴2-즐겨찾기 -->
 <div class="menu2">
 	<ol>
-		<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
+		<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark/main">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
 		<li class="bookmark-btn">
 			<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
 			<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">

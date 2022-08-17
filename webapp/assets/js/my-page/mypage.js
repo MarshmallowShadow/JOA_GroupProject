@@ -27,7 +27,7 @@ function categoryList(){
 function categoryRender(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList">';
-	str += '	<a href="'+contextPath+'/my-page/bookmark/01">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
+	str += '	<a href="'+contextPath+'/my-page/bookmark?cateNo='+categoryList.cateNo+'">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
 	str += '	<img id="edit-cate-name" class="editName" data-cateNo="'+categoryList.cateNo+'" value="'+categoryList.cateNo+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
@@ -68,7 +68,7 @@ function calendarRender(rMap) {
 	str += '<li class="reportContent">';
 	str += '	<div>';
 	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'">';
-	str += '			<img class="contentImg" src="'+contextPath+'/assets/image/my-page/sample2.jpg">';
+	str += '			<img class="contentImg" src="'+contextPath+'/upload/'+rMap.SAVENAME+'">';
 	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
 	str += '			<p class="content">'+rMap.REVIEW+'</p>';
 	str += '			<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
