@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.RecordService;
+import com.javaex.vo.RecordVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -55,10 +56,10 @@ public class RecordController {
 								@RequestParam(value = "recordNo", required = false) int recordNo) {
 		System.out.println("RecordController->recordWriteForm");
 		Map<String, Object> coMap = recService.getCourseInfo(courseNo); //코스정보
-		Map<String, Object> recMap = recService.getRecord(recordNo);
+		RecordVo recVo = recService.getRecord(recordNo);
 		Map<String, Object> modMap = new HashMap<String, Object>();
 		modMap.put("coMap", coMap);
-		modMap.put("recMap", recMap);
+		modMap.put("recVo", recVo);
 		model.addAttribute("modMap", modMap);
 		return "course/modify-record";
 	}

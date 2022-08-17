@@ -260,7 +260,7 @@ function preview(file, idx) {
 							'<div class="close" data-idx="'+idx+'">'+
 								'<span class="glyphicon glyphicon-remove">' +
 							'</div>'+
-							'<img src="'+e.target.result+'"title="'+escape(f.name)+'"/>'+
+							'<img src="'+e.target.result+'"/>'+
 						'</div>';
 			$("#filesList").append(div);
 		};						
