@@ -1,5 +1,7 @@
 package com.javaex.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,11 +66,20 @@ public class ListController {
 	
 	//메인(리스트)
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
-	public String list (Model model) {
-		System.out.println("ListController");
+	public String list (String keyword, Model model) {
+		System.out.println("ListController>list");
+		
+		//검색
+		if (keyword == null) {
+			keyword = "";
+		}
+		keyword = "%" + keyword + "%";
+		
+		// lList 데이터 가져오기
+		List<ListVo> lList = listService.getlist(keyword);
 		
 		//데이터 가져오기 
-		//model.addAttribute("lList", lList);
+		model.addAttribute("lList", lList);
 		
 		return "list/list";
 	}

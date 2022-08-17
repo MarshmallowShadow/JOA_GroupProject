@@ -82,7 +82,7 @@
 
 		<!-- 문의하기 버튼 -->
 		<div>
-			<button type="submit" id="write" onclick="window.location='${pageContext.request.contextPath}/listWrite';">문의하기</button>
+			<button type="button" id="write" onclick="window.location='${pageContext.request.contextPath}/list/listWrite';">문의하기</button>
 		</div>
 
 		<!-- 페이지 -->

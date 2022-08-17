@@ -3,21 +3,27 @@
 
 <mapper namespace="list">
 
-	<!-- 글쓰기 -->
-	<insert id="listWrite" parameterType="ListVo">
-		<![CDATA[
-			insert into q_list
-			values(seq_q_list_no.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
-		]]>
-	</insert>
+<!-- 글쓰기 -->
+<insert id="listWrite" parameterType="ListVo">
+	<![CDATA[
+		insert into q_list
+		values(seq_q_list_no.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+	]]>
+</insert>
 
 
-	<!-- 리스트 출력 -->
- 	<select id="listList" parameterType="String" resultType="ListVo">
-		<![CDATA[
-			SELECT q_list_no, user_no, board_category, title, content, reg_date, view_count
-			FROM q_list	
-		]]>
-	</select>
+<!-- 리스트 출력 -->
+<select id="selectList" parameterType="String" resultType="ListVo">
+	<![CDATA[
+		select q_list_no, 
+				user_no userNo, 
+				board_category boardCategory, 
+				title, 
+				content, 
+				reg_date, 
+				view_count
+		from q_list	
+	]]>
+</select>
  
 </mapper>
