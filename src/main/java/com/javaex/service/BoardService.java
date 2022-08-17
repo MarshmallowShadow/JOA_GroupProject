@@ -30,6 +30,7 @@ public class BoardService {
 	
 	
 	//메소드-일반
+	//게시판 리스트 + 페이징 + 검색
 	public Map<String, Object> board(String boardCategory, String keyword, int crtPage) {
 		
 		System.out.println("BoardService > board");
