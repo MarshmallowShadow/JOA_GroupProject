@@ -16,11 +16,14 @@
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
 	<div id="sub-header">
+	<form id="search-form">
 		<div id="searchbar">
 			<span class="glyphicon glyphicon-search"></span>
-			<input id="search-input" type="text">
-			<button id="btn-loc" class="btn-blue">지역</button>
-			<button id="btn-title" class="btn-grey">제목</button>
+			<input id="search-input" type="text" name="keyword">
+			<label for="rdo-loc" id="btn-loc" class="btn-blue">지역</label>
+			<label for="rdo-title" id="btn-title" class="btn-grey">제목</label>
+			<input type="radio" id="rdo-loc" name="searchCate" value="location">
+			<input type="radio" id="rdo-title" name="searchCate" value="title">
 		</div> <!-- searchbar -->
 		<div id="filter-menu">
 			<div id="filter-cate">
@@ -29,7 +32,7 @@
 					<span id="icon-cate" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
-				<div id="menu-cate" class="filter-menu">
+				<div id="menu-cate" class="filter-menu" tabindex='-1'>
 					<h3>종목</h3>
 					<p>중복선택이 가능합니다<p>
 					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">산책</div>
@@ -41,7 +44,7 @@
 					<hr>
 					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">그림그리기</div>
 				</div>
-			</div>
+			</div> <!-- filter-cate -->
 			
 			<div id="filter-dist">
 				<button type="button" id="btn-dist" class="fmenu-btn">
@@ -49,7 +52,7 @@
 					<span id="icon-dist" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
-			</div>
+			</div> <!-- filter-dist -->
 			
 			<div id="filter-diff">
 				<button type="button" id="btn-diff" class="fmenu-btn">
@@ -57,22 +60,24 @@
 					<span id="icon-diff" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
-				<div id="menu-diff" class="filter-menu">
+				<div id="menu-diff" class="filter-menu" tabindex='-1'>
 					<h3>난이도</h3>
 					<p>중복선택이 가능합니다<p>
 					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">쉬움</div>
 					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">보통</div>
 					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">어려움</div>
 				</div>
-			</div>
+			</div><!-- filter-diff -->
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
 			
 		</div> <!-- filter-buttons -->
+	</form>
 	</div> <!-- sub-header -->
 	
 	<div id="content">
 		<div id="result-list">
+			
 			<ul>
 				<li>
 					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
@@ -87,7 +92,8 @@
 					<c:import url="/WEB-INF/views/includes/course-container.jsp"></c:import>
 				</li>
 			</ul>
-		</div> <!-- result-mask -->
+			
+		</div> <!-- result-list -->
 		<div id="map-info">
 		</div> <!-- map-info -->
 	</div><!-- content -->

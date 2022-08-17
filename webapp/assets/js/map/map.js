@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+	$("#rdo-loc").prop("checked", true);
+	
 	/*------------지도------------*/
 	//지도 정보
 	var mapContainer = document.getElementById('map-info');
@@ -36,56 +38,39 @@ $(document).ready(function(){
 	}
 });
 
+
 $("#btn-cate").on("click", function(){
-	$("#btn-cate").toggleClass("fmenu-btn-selected");
-	$("#btn-cate").toggleClass("fmenu-btn");
-	$("#icon-cate").toggleClass("glyphicon-menu-down");
-	$("#icon-cate").toggleClass("glyphicon-menu-up");
-	//console.log("cate");
+	showMenu("cate");
+});
+$("#btn-cate").on("mousedown", function(e){
+	e.preventDefault();
 });
 
 $("#btn-dist").on("click", function(){
-	$("#btn-dist").toggleClass("fmenu-btn-selected");
-	$("#btn-dist").toggleClass("fmenu-btn");
-	$("#icon-dist").toggleClass("glyphicon-menu-down");
-	$("#icon-dist").toggleClass("glyphicon-menu-up");
-	//console.log("dist");
+	showMenu("dist");
+});
+$("#btn-dist").on("mousedown", function(e){
+	e.preventDefault();
 });
 
 $("#btn-diff").on("click", function(){
-	$("#btn-diff").toggleClass("fmenu-btn-selected");
-	$("#btn-diff").toggleClass("fmenu-btn");
-	$("#icon-diff").toggleClass("glyphicon-menu-down");
-	$("#icon-diff").toggleClass("glyphicon-menu-up");
-	//console.log("diff");
+	showMenu("diff");
+});
+$("#btn-diff").on("mousedown", function(e){
+	e.preventDefault();
 });
 
 
-
-
-
-$("#btn-cate").on("focusout", function(){
-	$("#btn-cate").removeClass("fmenu-btn-selected");
-	$("#btn-cate").addClass("fmenu-btn");
-	$("#icon-cate").addClass("glyphicon-menu-down");
-	$("#icon-cate").removeClass("glyphicon-menu-up");
-	//console.log("cate out");
+$("#menu-cate").on("focusout", function(){
+	hideMenu("cate");
 });
 
-$("#btn-dist").on("focusout", function(){
-	$("#btn-dist").removeClass("fmenu-btn-selected");
-	$("#btn-dist").addClass("fmenu-btn");
-	$("#icon-dist").addClass("glyphicon-menu-down");
-	$("#icon-dist").removeClass("glyphicon-menu-up");
-	//console.log("dist out");
+$("#menu-dist").on("focusout", function(){
+	hideMenu("dist");
 });
 
-$("#btn-diff").on("focusout", function(){
-	$("#btn-diff").removeClass("fmenu-btn-selected");
-	$("#btn-diff").addClass("fmenu-btn");
-	$("#icon-diff").addClass("glyphicon-menu-down");
-	$("#icon-diff").removeClass("glyphicon-menu-up");
-	//console.log("diff out");
+$("#menu-diff").on("focusout", function(){
+	hideMenu("diff");
 });
 
 
@@ -93,7 +78,6 @@ $("#btn-diff").on("focusout", function(){
 
 
 $("#btn-loc").on("click", function(){
-	$("#search-input").data("cate", "location");
 	$(this).removeClass("btn-grey");
 	$(this).addClass("btn-blue");
 	$("#btn-title").removeClass("btn-blue");
@@ -101,7 +85,6 @@ $("#btn-loc").on("click", function(){
 });
 
 $("#btn-title").on("click", function(){
-	$("#search-input").data("cate", "title");
 	$(this).removeClass("btn-grey");
 	$(this).addClass("btn-blue");
 	$("#btn-loc").removeClass("btn-blue");
@@ -109,3 +92,101 @@ $("#btn-title").on("click", function(){
 });
 
 
+
+$("#search-form").on("submit", function(){
+	
+	
+	return false;
+});
+
+
+
+//--------------------functions--------------------//
+
+var showMenu = function(type){
+	$("#btn-" + type).toggleClass("fmenu-btn-selected");
+	$("#btn-" + type).toggleClass("fmenu-btn");
+	$("#icon-" + type).toggleClass("glyphicon-menu-down");
+	$("#icon-" + type).toggleClass("glyphicon-menu-up");
+	
+	if($("#btn-" + type).hasClass("fmenu-btn-selected")) {
+		$("#menu-" + type).css("display", "block");
+		$("#menu-" + type).focus();
+	} else {
+		$("#menu-" + type).css("display", "none");
+	}
+};
+
+var hideMenu = function(type){
+	$("#btn-" + type).removeClass("fmenu-btn-selected");
+	$("#btn-" + type).addClass("fmenu-btn");
+	$("#icon-" + type).addClass("glyphicon-menu-down");
+	$("#icon-" + type).removeClass("glyphicon-menu-up");
+	
+	$("#menu-" + type).css("display", "none");
+}
+
+var showList = function(kMap) {
+	$.ajax({
+		url : "${pageContext.request.contextPath}/api/map/getList",
+		type : "post",
+		contentType : "application/json",
+		data : JSON.stringify(kMap),
+		dataType : "json",
+		success : function(result){
+			//컨트롤러 함수 실행 후 코드
+			if(result.length > 0){
+				$("#result-list").html("<ul></ul>");
+				for(var i=0; i<result.length; i++){
+					render(result[i]);
+					
+					
+				}
+			} else {
+				$("#result-list").html("");
+			}
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+};
+
+var render = function(cMap){
+	
+	var hr = cMap.COURSE_TIME / 60;
+	var min = cMap.COURSE_TIME % 60;
+	var time = "";
+	
+	if(hr > 0) {
+		time += hr + "시간 ";
+	}
+	if (min > 0 || hr == 0) {
+		time += min + "분";
+	}
+	
+	var item = "";
+	item += '<div class="course-container" onclick="window.open(\'${pageContext.request.contextPath }/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
+	item += '	<div class="course-info">';
+	item += '	<div class="course-icon">';
+	item += '		<img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg">';
+	item += '	</div>';
+	item += '		<h3 class="course-title">' + cMap.TITLE + '</h3>';
+	item += '		<p class="p-info">';
+	item += '			작성자:' + cMap.ID + ' <br>';
+	item += '			거리: ' + cMap.DISTANCE + 'km' + ' <br>';
+	item += '			시간: ' + time;
+	item += '		</p>';
+	item += '		<div class="tag-blue"><p>' + cMap.COURSE_CATEGORY + '</p></div>';
+	item += '		<div class="tag-pink"><p>' + cMap.DIFFICULTY + '</p></div>';
+	item += '	</div>';
+	item += '</div>';
+	
+	
+	$("#result-list ul").append(item);
+}
+
+
+var addPoint = function(x, y){
+	
+}

@@ -42,5 +42,9 @@ public class CourseDao {
 		return sqlSession.update("course.updateTitle", map);
 	}
 	
-
+	//지역별 검색
+	
+	
+	//키워드별 검색
+	
 }
