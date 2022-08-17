@@ -33,17 +33,19 @@
 		
 	<!-- 필터링 옵션 항목 -->
 	<div id="top_aside">
-		<select id="option">
-			<option value="default"></option>
-			<option value="question">개인</option>
-			<option value="commute">사업</option>
-			<option value="commute">서비스</option>
-		</select>
-
-		<!-- 검색창과 버튼 -->
-		<input type="text" id="textbox">
-		<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
-		</button>
+		<form action="${pageContext.request.contextPath}/list/list" method="get">
+			<select id="option" name="listCategory">
+				<option value="default"></option>
+				<option value="question">개인</option>
+				<option value="commute">사업</option>
+				<option value="commute">서비스</option>
+			</select>
+	
+			<!-- 검색창과 버튼 -->
+			<input type="text" id="textbox">
+			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
+			</button>
+		</form>
 	</div>
 		<br>
 
@@ -61,15 +63,18 @@
 					</tr>
 				</thead>
 				<tbody>
+				
+				<c:forEach items="${list}" var="listVo">
 					<tr>
-						<th>1</th>
-						<td class="center">[개인]</td>
-						<td>내가 그렇게 만만하니 <span class="glyphicon glyphicon-picture"></span></td>
-						<td class="center">유키스</td>
-						<td class="center">47</td>
-						<td class="center">2022.07.25</td>
+						<th>${listVo.qListNo}</th>
+						<td class="center">${listVo.boardCategory}</td>	<!-- 항목 -->
+						<td><a href="./read/${listVo.qListNo}">${listVo.title}</a></td><!-- 제목 -->
+						<td class="center">${listVo.id}</td>			<!-- 작성자 -->
+						<td class="center">${listVo.viewCount}</td>		<!-- 조회수 -->
+						<td class="center">${listVo.regDate}</td>		<!-- 날짜 -->
 					</tr>
-
+				</c:forEach>
+				
 				</tbody>
 			</table>
 		</div>

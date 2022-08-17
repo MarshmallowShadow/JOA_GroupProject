@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.javaex.service.ListService;
 import com.javaex.vo.ListVo;
 
 @Controller
+@RequestMapping(value = "/list")
 public class ListController {
 	
 	//필드
@@ -27,10 +29,8 @@ public class ListController {
 	public String read () {
 		System.out.println("ListController>read");
 		
-		return "/list/list";
+		return "list/list";
 	}
-	
-	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String delete(@PathVariable("no") int no) {
@@ -63,15 +63,13 @@ public class ListController {
 	}
 	
 	//메인(리스트)
-	@RequestMapping(value="/list", method = {RequestMethod.GET, RequestMethod.POST})
-	public String list () {
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
+	public String list (Model model, Object lList) {
 		System.out.println("ListController");
 		
 		//데이터 가져오기 
-		
-		//model.addAttribute("lList", lList);
+		model.addAttribute("lList", lList);
 		
 		return "list/list";
 	}
-
 }
