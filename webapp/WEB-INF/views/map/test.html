@@ -8,30 +8,57 @@
 <body>
 
 
-				<div id="menu-cate" class="filter-menu">
+				<div id="menu-cate" class="filter-menu" tabindex='-1'>
 					<h3>종목</h3>
 					<p>중복선택이 가능합니다<p>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">산책</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">조깅</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">런닝</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">마라톤</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-walk">산책</label>
+					</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-jogging">조깅</label>
+					</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-running">런닝</label>
+					</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-marathon">마라톤</label>
+					</div>
 					<hr>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">자전거</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-bicycle">자전거</label>
+					</div>
 					<hr>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">그림그리기</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-draw">그림그리기</label>
+					</div>
 				</div>
 
 				<div id="menu-dist" class="filter-menu">
 					<h3>거리</h3>
-					
+					<div class="menu-range"></div>
 				</div>
 				
-				<div id="menu-diff" class="filter-menu">
+				<div id="menu-diff" class="filter-menu" tabindex='-1'>
 					<h3>난이도</h3>
 					<p>중복선택이 가능합니다<p>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">쉬움</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">보통</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">어려움</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-">쉬움</label>
+					</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-">보통</label>
+					</div>
+					<div class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">
+						<label for="chk-">어려움</label>
+					</div>
 				</div>
 
 

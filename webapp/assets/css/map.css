@@ -12,7 +12,7 @@
 
 
 /**************************sub-header**************************/
-#sub-header {
+#sub-header #search-form {
 	display: flex; /* 필터 메뉴 길이 flex-grow로 크기 조절*/
 	width: 100%;
 	height: 64px;
@@ -39,6 +39,17 @@
 	width: 205px;
 	margin: 0px 15px;
 	border: 0px solid transparent;
+}
+
+#sub-header #searchbar input[type=radio] {
+	display:none;
+}
+
+#sub-header #searchbar label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #sub-header #searchbar .btn-blue {
@@ -159,6 +170,10 @@
 	border: 1px solid rgb(174, 174, 174);
 	margin-top: 10px;
 	background-color: #fff;
+}
+
+.filter-menu {
+	outline: none;
 }
 
 .filter-menu h3 {
