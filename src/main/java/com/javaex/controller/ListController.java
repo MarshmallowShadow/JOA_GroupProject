@@ -31,7 +31,7 @@ public class ListController {
 		
 		//listService.delete(no);
 		
-		return "redirect:/list/listWrite";
+		return "redirect:/list/list";
 	}
 	
 	/***************** 글쓰기  ****************/

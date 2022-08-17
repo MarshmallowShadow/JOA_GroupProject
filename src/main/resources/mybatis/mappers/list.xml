@@ -7,7 +7,7 @@
 	<insert id="listWrite" parameterType="ListVo">
 		<![CDATA[
 			insert into q_list
-			values(SEQ_Q_LIST_NO.nextval, #{userNo}, #{board_category}, #{title}, #{content}, sysdate, #{view_count})
+			values(seq_q_list_no.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 
