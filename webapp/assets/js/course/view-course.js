@@ -312,10 +312,10 @@ function map() {
 			/*마커 생성*/
 			
 			//마커 이미지 설정
-			var imageSrc1 = contextPath+'/assets/image/course/location-bl.png', // 마커이미지 주소
-				imageSrc2 = contextPath+'/assets/image/course/location-b.png', // 마커이미지 주소
-		    imageSize = new kakao.maps.Size(64, 64), // 마커이미지 크기
-		    imageOption = {offset: new kakao.maps.Point(32, 64)}; // 마커 위치
+			var imageSrc1 = contextPath+'/assets/image/course/pin-b.png', // 마커이미지 주소
+				imageSrc2 = contextPath+'/assets/image/course/pin-r.png', // 마커이미지 주소
+		    imageSize = new kakao.maps.Size(32, 32), // 마커이미지 크기
+		    imageOption = {offset: new kakao.maps.Point(16, 32)}; // 마커 위치
 		    
 		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize, imageOption);
 		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
@@ -350,7 +350,7 @@ function map() {
 			var polyline = new kakao.maps.Polyline({
 				map: map, //표시할 지도
 				path: path, //선의 좌표
-				strokeWeight: 10, //선 두께
+				strokeWeight: 6, //선 두께
 				strokeColor: 'rgb(50, 108, 249)', //선 색깔
 				strokeOpacity: 0.9, //선의 불투명도 (0~1)
 				strokeStyle: 'solid' //선 스타일
