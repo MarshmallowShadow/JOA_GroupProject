@@ -64,11 +64,11 @@ public class ListController {
 	
 	//메인(리스트)
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
-	public String list (Model model, Object lList) {
+	public String list (Model model) {
 		System.out.println("ListController");
 		
 		//데이터 가져오기 
-		model.addAttribute("lList", lList);
+		//model.addAttribute("lList", lList);
 		
 		return "list/list";
 	}
