@@ -321,15 +321,18 @@ function map() {
 		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
 		    
 			//시작 마커와 마지막 마커 배열 저장
+			var firstLocation = new kakao.maps.LatLng(points[0].y, points[0].x); //시작위치
+			var lastLocation = new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x); //끝위치
+			
 			var firstMk = {
 				title: 'start',
-				latlng: new kakao.maps.LatLng(points[0].y, points[0].x),
+				latlng: firstLocation,
 				image: markerImage1
 			};
 			markerPosition.push(firstMk);
 			var lastMk = {
 				title: 'end',
-				latlng: new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x),
+				latlng: lastLocation,
 				image: markerImage2
 			};
 			markerPosition.push(lastMk);
@@ -340,10 +343,28 @@ function map() {
 					map: map,
 				    position: markerPosition[i].latlng,
 				    title: markerPosition[i].title,
-				    image: markerPosition[i].image
+				    image: markerPosition[i].image,
+				    clickable: true
 				});
 				console.log(marker);
 			}
+			
+			//인포윈도우
+			/*var iwContent = '<div class="mk-info">시작</div>',
+			    iwPosition = firstLocation,
+			    iwRemoveable = true;
+			    
+			var infowindow = new kakao.maps.InfoWindow({
+			    position : iwPosition, 
+			    content : iwContent,
+			    removable : iwRemoveable
+			});
+			
+			
+			kakao.maps.event.addListener(marker, 'click', function() {
+			      // 마커 위에 인포윈도우를 표시합니다
+			      infowindow.open(map, marker);  
+			});*/
 			
 			/*라인 그리기*/
 			//선 생성
