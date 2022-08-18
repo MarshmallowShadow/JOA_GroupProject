@@ -212,7 +212,7 @@
         
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-primary">추가</button>
+      	<button type="button" class="btn btn-primary" id="bookmark-add">추가</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
       </div>
     </div><!-- modal-content -->

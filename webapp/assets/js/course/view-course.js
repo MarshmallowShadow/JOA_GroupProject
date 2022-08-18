@@ -57,6 +57,8 @@ $(document).ready(function() {
 	/*즐겨찾기 버튼 클릭*/
 	$("#bookmark").on("click", function() {
 		
+		$("#fevList").empty();
+		
 		//즐겨찾기 목록 가져오기
 		$.ajax({
 			//보낼때
@@ -83,6 +85,21 @@ $(document).ready(function() {
 		
 		//모달창 띄우기
 		$("#bookmark-list").modal("show");
+	});
+	
+	
+	/*즐겨찾기 추가 버튼 클릭*/
+	$("#bookmark-add").on("click", function() {
+		
+		var bmkList = new Array();
+		
+		$("input[name=bookmark]:checked").each(function() {
+			var bmk = $(this).val();
+			bmkList.put(bmk);
+		});
+		
+		console.log(bmkList);
+		
 	});
 	
 	
