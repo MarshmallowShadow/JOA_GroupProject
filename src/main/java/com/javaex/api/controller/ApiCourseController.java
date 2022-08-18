@@ -79,5 +79,6 @@ public class ApiCourseController {
 	@RequestMapping(value="/getFavCate", method = {RequestMethod.GET, RequestMethod.POST})
 	public void getFavCate(@RequestParam(value="authUserNo", required = false) int userNo) {
 		System.out.println("ApiCourseController->getFavCate");
+		coService.getFavCate(userNo);
 	}
 }

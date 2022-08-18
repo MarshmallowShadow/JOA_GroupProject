@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
+import com.javaex.dao.FavoriteCategoryDao;
 import com.javaex.dao.LikedCourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
@@ -29,6 +30,8 @@ public class CourseService {
 	private UserDao userDao;
 	@Autowired
 	private LikedCourseDao likeDao;
+	@Autowired
+	private FavoriteCategoryDao favCateDao;
 	
 	
 	//코스 좌표 가져오기
@@ -173,6 +176,12 @@ public class CourseService {
 		resultMap.put("cnt", cnt);
 		
 		return resultMap;
+	}
+
+	//즐겨찾기 리스트 가져오기
+	public void getFavCate(int userNo) {
+		System.out.println("CourseService->getFavCate");
+		favCateDao.getFavCate(userNo);
 	}
 
 	
