@@ -58,7 +58,6 @@
 						<!-- 주소 검색 -->
 						<tr>
 							<td>
-								
 								<p class="guide">
 									<span class="glyphicon glyphicon-info-sign"></span>
 									주소를 검색하면 아래에 지도가 표시됩니다.
@@ -225,8 +224,8 @@
 			
 			<!-- 하단 버튼 -->
 			<div id="btn-wrap">
-				<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together';">취소</button>
-				<button class="add" onclick="location.href='http://localhost:8088/JOA/together-read';">코스 등록</button>
+				<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
+				<button class="add" onclick="location.href='http://localhost:8088/JOA/together/read';">코스 등록</button>
 			</div>
 			
 		</div>
@@ -238,6 +237,58 @@
 	<!-- 푸터 -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->
+	
+	<!-- ////////////////////////////////////////////////////////////////// -->
+	<div id="courseModal" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">코스 등록하기</h4>
+	      </div>
+	      <div class="modal-body">
+	        
+	        <div class="courseCate">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    카테고리
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  </ul>
+			</div>
+			
+			<div class="courseChoose">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    코스
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  </ul>
+			</div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="save">Save</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- ////////////////////////////////////////////////////////////////// -->
 
 </body>
+
+<!-- 자바스크립트 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/writeform.js"></script>
+
 </html>

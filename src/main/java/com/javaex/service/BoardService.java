@@ -155,6 +155,7 @@ public class BoardService {
 		//System.out.println(count);
 
 		return count;
+		
 	}
 
 }

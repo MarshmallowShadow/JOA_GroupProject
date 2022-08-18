@@ -149,6 +149,7 @@ h1 {
 .modal-dialog{
 	display: flex;
 	justify-content: center;
+	margin-top: 150px;
 }
 .modal-title {
 	margin-left: 15px;
