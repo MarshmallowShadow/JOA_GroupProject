@@ -25,12 +25,19 @@ table {
 	border-bottom: solid 2px; 
 	border-collapse: collapse;
 }
+
 #board_title {
 	padding: 18px 10px;
 	font-size : 13pt;
 }
-#top {border-bottom: solid 2px;}
-tr>#id {font-weight : bold;}
+
+#top {
+	border-bottom: solid 2px;
+}
+	
+tr>#id {
+	font-weight : bold;
+}
 tr>#id, #date, #up {
 	padding-bottom: 18px;
 	padding-left: 10px;
@@ -40,7 +47,12 @@ tr>#date, #up {
 	text-align: right;
 	margin-left: 500px;
 }
-#up {padding-right: 10px;}
+#date{
+	padding-left: 900px;
+}
+#up {
+	padding-right: 10px;
+}
 #content {
 	padding: 25px 0px;
 	padding-left: 10px;
@@ -66,12 +78,12 @@ tr>#date, #up {
 	color: #9e9e9e;
 	font-size : 13pt;
 }
+
 /** 북마크 버튼 **/
 .top {
 	height: 36px;
 	border-bottom: solid 1px #ccc;
 }
-
 .join {
 	background-color: #fff;
 	border: solid 1px #9e9e9e;
@@ -96,6 +108,7 @@ tr>#date, #up {
 	color: #fff;
 	border:none;
 }
+
 /******/
 #writer_btnS {margin-top: 2px;}
 #modify_s {
@@ -115,6 +128,7 @@ tr>#date, #up {
 	font-size : 10pt;
 	border:none;
 }
+
 /******/
 #writer_btnXS {margin-top: 16px;}
 #modify_xs {
@@ -194,9 +208,11 @@ tr>#date, #up {
 #reply_btn {
 	position: static;
 	display: block;
-	width: 40px;
-	height: 35px;
-	padding-top: 3px;
+	margin-left: 95%;
+	margin-bottom: 10px;
+	width:30px;
+	height: 30px;
+	padding: 3px 0px;
 	font-size: 10pt;
 	border: none;
 	border: solid 1px #000;
@@ -204,6 +220,7 @@ tr>#date, #up {
 	color: #000;
 	border-radius: 3px;
 }
+
 .glyphicon glyphicon-open {
 	width: 300px;
 	height: 305px;
