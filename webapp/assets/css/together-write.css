@@ -3,16 +3,21 @@
 @import "includes.css";
 @import "main.css";
 
-/* =======================공통======================= */
+/********************** 공통 **********************/
+
 body {font-size: 14px;}
 .bold {font-weight: 700;}
 .pointer {cursor: pointer;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
-/* =======================레이아웃======================= */
+
+/********************** 레이아웃 **********************/
+
 #wrap {max-width:1200px;}
 #wrap>#content {padding: 10px 0px; margin-bottom: 150px;}
-/* =======================타이틀======================= */
+
+/********************** 타이틀 **********************/
+
 #wrap #title {
 	margin: 80px 0px 64px 0px;
 	font-size: 46px;
@@ -22,7 +27,8 @@ input[type=radio] {display:none;}
 	text-align: center;
 }
 
-/* =======================content======================= */
+/********************* content *********************/
+
 /* p 태그 공통 */
 #content .together-form p {
 	display: inline-block;
@@ -30,7 +36,9 @@ input[type=radio] {display:none;}
 	margin-right: 10px;
 	padding: 0px;
 }
-/* -----------------------테이블 설정---------------------- */
+
+/********************* 테이블 설정 *********************/
+
 /* 테이블 선 */
 #content .together-form table {
 	margin-bottom: 50px;
@@ -69,7 +77,8 @@ input[type=radio] {display:none;}
 	border-top: none;
 }
 
-/* -------------------------텍스트박스----------------------------- */
+/********************* 텍스트 박스 *********************/
+
 .together-form input[type="text"] {
 	height: 46px;
 	padding: 0px 15px;
@@ -80,7 +89,8 @@ input[type=radio] {display:none;}
 .txt-short {width: 110px; margin: 0px 12px 0px 0px;}
 input[name="address"] {width: 89%;}
 
-/* ---------------------버튼설정-------------------- */
+/********************** 버튼 설정 **********************/
+
 /* 검은색 버튼 */
 .together-form #address-btn, .course-form #course-pic div label {
 	border-radius: 3px;
@@ -119,7 +129,8 @@ label {
 	margin-right: 12px;
 }
 
-/* -------------------코스지정----------------------- */
+/********************** 코스 지정 **********************/
+
 /* 코스 불러오기 버튼 */
 .together-form #course-load {
 	font-size: 15px;
@@ -142,7 +153,8 @@ label {
 	
 }
 
-/* -------------------코스정보----------------------- */
+/********************** 코스 정보 **********************/
+
 /* 인원 폼 */
 .together-form input[type="number"] {height:46px; width: 110px;}
 /* 상세내용 폼 */
@@ -152,7 +164,8 @@ label {
 	resize: none;
 }
 
-/* -------------------하단 버튼----------------------- */
+/********************** 하단 버튼 **********************/
+
 #btn-wrap {text-align: center;}
 #btn-wrap>button {
 	width: 160px;
@@ -160,3 +173,67 @@ label {
 	font-size: 15px;
 }
 #btn-wrap>.add {margin-left: 12px;}
+
+/*********************** 모달 ***********************/
+
+#courseModal {margin: auto;}
+.modal-dialog{
+	display: flex;
+	justify-content: center;
+	margin-top: 150px;
+}
+.modal-title {
+	margin-left: 15px;
+	font-size : 13pt;
+}
+.modal-content {
+	width: 380px;
+}
+.courseCate {
+	margin-top: 35px;
+	margin-left: 55px;
+	height: 50px;
+	overflow: visible;
+	font-size : 12pt;
+}
+.dropdown-toggle {
+	width: 230px;
+	height: 40px;
+	text-align: left;
+}
+.dropdown-menu {
+	position: relative;
+	top: 0;
+	z-index: 1050;
+	float: none;
+	width: 230px;
+}
+.caret {
+	float: right;
+	margin-top: 10px;
+}
+.courseChoose {
+	height: 50px;
+	margin-top: 45px;
+	margin-bottom: 35px;
+	margin-left: 55px;
+	font-size : 12pt;
+}
+#close {
+	margin-bottom: 3px;
+	margin-left: 38px;
+	float: left;
+	border: none;
+	background-color: #fff;
+	color: #c0c0c0;
+	font-size : 13pt;
+}
+#save {
+	margin-bottom: 3px;
+	margin-right: 38px;
+	float: right;
+	border: none;
+	background-color: #fff;
+	color: rgb(50, 108, 249);
+	font-size : 13pt;
+}
