@@ -39,10 +39,13 @@
         			c.title,
         			u.id,
         			to_char(c.reg_date, 'YYYY-MM-DD') regDate,
-        			c.open_status openStatus
-			from course c, users u
-			where c.user_no = u.user_no
-    			and c.user_no = #{userNo}
+        			c.open_status openStatus,
+                    lc.user_no liked
+            from users u, course c 
+                    left outer join (select * from liked_course where user_no=#{userNo}) lc
+            on c.course_no = lc.course_no
+            where c.user_no = u.user_no
+                and c.user_no = #{userNo}
     		order by c.reg_date asc
 		]]>
 	</select>
@@ -76,6 +79,18 @@
 			where cate_no = #{cateNo}
 		]]>
 	</delete>
+	
+	
+	<!-- 카테고리-4.카테고리 수정 리스트 가져오기 -->
+	<select id="getEditCateList" parameterType="int" resultType="CategoryVo">
+		<![CDATA[
+			select  cate_no cateNo,
+			        user_no userNo,
+			        cate_name cateName
+			from favorite_category
+			where cate_no = #{cateNo}
+		]]>
+	</select>
 	
 	
 	
