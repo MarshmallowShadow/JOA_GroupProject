@@ -50,4 +50,39 @@
 			where course_no = #{courseNo}
 		]]>
 	</select>
+	
+	<!-- 지역별 검색 -->
+	<select id="locationList" parameterType="map" resultType="map">
+	<![CDATA[
+		select	c.course_no, title, distance, course_time, course_category, difficulty,
+				id,
+				p.order_no, x, y
+		from course c, users u, point p,
+				(select max(order_no) order_no, course_no from point p group by course_no) mp
+		where c.user_no = u.user_no
+		and c.course_no = p.course_no
+		and (p.order_no = 0 or (p.course_no = mp.course_no and p.order_no = mp.order_no))
+		and x > #{x} - 9
+		and x < #{x} + 9
+		and y > #{y} - 6
+		and y < #{y} + 6
+	]]>
+	</select>
+	
+	<!-- 키워드별 검색 -->
+	<select id="titleList" parameterType="map" resultType="map">
+	<![CDATA[
+		select	c.course_no, title, distance, course_time, course_category, difficulty,
+				id,
+				p.order_no, x, y
+		from course c, users u, point p,
+				(select max(order_no) order_no, course_no from point p group by course_no) mp
+		where c.user_no = u.user_no
+		and c.course_no = p.course_no
+		and (p.order_no = 0 or (p.course_no = mp.course_no and p.order_no = mp.order_no))
+		and keyword like '%#{keyword}%'
+	]]>
+	</select>
+	
+	
 </mapper>

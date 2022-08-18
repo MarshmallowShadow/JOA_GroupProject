@@ -35,7 +35,7 @@ public class CourseDao {
 		System.out.println("CourseDao->getCoUserNo");
 		return sqlSession.selectOne("course.getUserNo", courseNo);
 	}
-
+	
 	
 	//코스 제목 수정
 	public int updateTitle(Map<String, Object> map) {
@@ -45,11 +45,14 @@ public class CourseDao {
 	
 	//지역별 검색
 	public List<Map<String, Object>> locationList(Map<String, Object> kMap){
-		return null;
+		System.out.println("CourseDao>locationList");
+		
+		return sqlSession.selectList("course.locationList", kMap);
 	}
 	
 	//키워드별 검색
 	public List<Map<String, Object>> titleList(Map<String, Object> kMap){
-		return null;
+		System.out.println("CourseDao>titleList");
+		return sqlSession.selectList("course.titleList", kMap);
 	}
 }
