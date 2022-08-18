@@ -21,8 +21,15 @@ public class ListDao {
 	
 	//메소드 일반
 	
-	//삭제
-	
+	//읽기 (한 명 정보 가져오기)
+/*	public List<ListVo> getList(String keyword) {
+		System.out.println("ListDao>getList");
+		
+		ListVo lVo = sqlSession.selectOne("list.getList", no);
+		
+		return lVo;
+	}
+*/	
 	//글쓰기 등록
 	public int write(ListVo listVo) {
 		System.out.println("ListDao>write");
