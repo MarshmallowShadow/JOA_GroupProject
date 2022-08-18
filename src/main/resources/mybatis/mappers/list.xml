@@ -2,11 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="list">
+
 <!-- 상세페이지 읽기 -->
 <select id="getList" parameterType="int" resultType="ListVo">
 	<![CDATA[
-		select
-		from q_list
+		select u.id,
+		        q.q_list_no,
+		        q.board_category,
+		        q.title,
+		        q.content,
+		        q.reg_date,
+		        q.view_count
+		from users u, q_list q
+		where u.user_no = q.user_no
+		and q_list_no = #{no}
 	]]>
 </select>
 
@@ -22,14 +31,14 @@
 <!-- 리스트 출력 -->
 <select id="selectList" parameterType="String" resultType="map">
 	<![CDATA[
-		select q_list_no, 
-				user_no userNo, 
-				board_category boardCategory, 
-				title, 
-				content, 
-				reg_date, 
-				view_count
-		from q_list	
+		select q.q_list_no, 
+				q.board_category, 
+				u.id,
+				q.title, 
+				q.reg_date, 
+				q.view_count
+		from q_list q, users u
+		where u.user_no = q.user_no
 	]]>
 </select>
  
