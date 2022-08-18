@@ -21,7 +21,7 @@
 
 		<h1>1:1 문의 게시판</h1>
 
-		<form action="${pageContext.request.contextPath}/write" method="get">
+		<form action="${pageContext.request.contextPath}/list/write" method="get">
 
 			<div id="writebox">
 

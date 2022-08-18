@@ -21,7 +21,18 @@ public class ListService {
 	
 	//메소드 일반
 
-	//삭제
+	//조회수 (hitUpdate)
+	
+	
+	
+	//읽기 (한 명 정보 가져오기)
+	public ListVo getList(int no) {
+		System.out.println("ListService>read");
+		
+		ListVo lVo = listDao.getList(no);
+		
+		return lVo;
+	}
 	
 	//글쓰기 등록
 	public int write(ListVo listVo) {
