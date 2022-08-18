@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.javaex.dao.ListDao;
 import com.javaex.vo.ListVo;
 
@@ -27,13 +26,13 @@ public class ListService {
 	
 	
 	//읽기 (한 명 정보 가져오기)
-	/*public ListVo getList() {
-		System.out.println("ListService>getList");
+	public ListVo getList(int no) {
+		System.out.println("ListService>read");
 		
 		ListVo lVo = listDao.getList(no);
 		
 		return lVo;
-	}*/
+	}
 	
 	//글쓰기 등록
 	public int write(ListVo listVo) {

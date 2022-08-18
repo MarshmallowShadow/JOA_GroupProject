@@ -22,14 +22,15 @@ public class ListDao {
 	//메소드 일반
 	
 	//읽기 (한 명 정보 가져오기)
-/*	public List<ListVo> getList(String keyword) {
-		System.out.println("ListDao>getList");
+	public ListVo getList(int no) {
+		System.out.println("ListDao>read");
 		
 		ListVo lVo = sqlSession.selectOne("list.getList", no);
 		
 		return lVo;
 	}
-*/	
+	
+	
 	//글쓰기 등록
 	public int write(ListVo listVo) {
 		System.out.println("ListDao>write");
@@ -38,6 +39,7 @@ public class ListDao {
 		
 		return count;
 	}
+	
 	
 	//리스트 출력
 	public List<ListVo> getList(String keyword) {

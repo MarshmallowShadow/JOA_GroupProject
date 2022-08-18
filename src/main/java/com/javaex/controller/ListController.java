@@ -37,9 +37,9 @@ public class ListController {
 		
 		//listService.hitUpdate(no);
 		
-	//	ListVo lVo = listService.getList(no);
+		ListVo lVo = listService.getList(no);
 		
-		//model.addAttribute("lVo",lVo);
+		model.addAttribute("lVo",lVo);
 		
 		return "list/read";
 	}
