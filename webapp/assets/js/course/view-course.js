@@ -56,6 +56,29 @@ $(document).ready(function() {
 /********************************************************즐겨찾기 모달********************************************************/
 	/*즐겨찾기 버튼 클릭*/
 	$("#bookmark").on("click", function() {
+		
+		//즐겨찾기 목록 가져오기
+		$.ajax({
+			//보낼때
+			url : contextPath+"/apiCo/getFavCate",
+			type : "post",
+			//contentType : "application/json",
+			data : {authUserNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(result){
+				//성공시 처리해야될 코드 작성
+				console.log(result);
+				
+				
+	
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
 		//모달창 띄우기
 		$("#bookmark-list").modal("show");
 	});

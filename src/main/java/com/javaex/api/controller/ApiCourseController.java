@@ -73,4 +73,11 @@ public class ApiCourseController {
 		}
 		return null;
 	}
+	
+	//즐겨찾기 목록 가져오기
+	@ResponseBody
+	@RequestMapping(value="/getFavCate", method = {RequestMethod.GET, RequestMethod.POST})
+	public void getFavCate(@RequestParam(value="authUserNo", required = false) int userNo) {
+		System.out.println("ApiCourseController->getFavCate");
+	}
 }

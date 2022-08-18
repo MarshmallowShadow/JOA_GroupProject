@@ -91,6 +91,8 @@
 
 //업로드할 파일 목록
 var uploadFiles = [];
+//삭제할 파일 목록
+var deleteFiles = [];
 
 
 /*사진 가져오기*/

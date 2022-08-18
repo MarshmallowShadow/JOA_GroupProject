@@ -63,8 +63,9 @@
 						</c:if>
 						
 						<!-- 즐겨찾기 별 -->
-						<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
-						
+						<c:if test="${not empty authUser }">
+							<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
+						</c:if>
 						<div class="article-info">
 							<span class="bold">${coMap.userName }</span>
 							<span>${coMap.coVo.regDate }</span>
