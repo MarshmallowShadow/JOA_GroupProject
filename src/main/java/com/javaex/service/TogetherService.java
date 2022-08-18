@@ -66,7 +66,7 @@ public class TogetherService {
 		
 		//전체 글갯수
 		int totalCnt = togetherDao.selectTotalCnt();
-		System.out.println("service = " + totalCnt);
+		System.out.println("service 글갯수 = " + totalCnt);
 		
 		//페이지당 버튼 갯수
 		int pageBtnCount = 10;
@@ -95,14 +95,14 @@ public class TogetherService {
 		
 		System.out.println("페이지" + crtPage + ", 시작 버튼 번호" + startPageBtnNo + ", 마지막 버튼 번호" + endPageBtnNo + ", 이전" + prev + ", 다음" + next);
 		
-		Map<String, Object> pMap = new HashMap<String, Object>();
-		pMap.put("togetherList", togetherList);
-		pMap.put("prev", prev);
-		pMap.put("next", next);
-		pMap.put("endPageBtnNo", endPageBtnNo);
-		pMap.put("startPageBtnNo", startPageBtnNo);
+		Map<String, Object> xMap = new HashMap<String, Object>();
+		xMap.put("togetherList", togetherList);
+		xMap.put("prev", prev);
+		xMap.put("next", next);
+		xMap.put("endPageBtnNo", endPageBtnNo);
+		xMap.put("startPageBtnNo", startPageBtnNo);
 		
-		return pMap;
+		return xMap;
 		
 	}
 

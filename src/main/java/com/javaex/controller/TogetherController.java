@@ -34,13 +34,13 @@ public class TogetherController {
 		
 		 System.out.println("TogetherController > together");
 		 
-		 Map<String, Object> pMap = togetherService.together(crtPage);
+		 Map<String, Object> xMap = togetherService.together(crtPage);
 			
-			model.addAttribute("boardList", pMap.get("boardList"));
-			model.addAttribute("prev", pMap.get("prev"));
-			model.addAttribute("next", pMap.get("next"));
-			model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
-			model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
+			model.addAttribute("togetherList", xMap.get("togetherList"));
+			model.addAttribute("prev", xMap.get("prev"));
+			model.addAttribute("next", xMap.get("next"));
+			model.addAttribute("startPageBtnNo", xMap.get("startPageBtnNo"));
+			model.addAttribute("endPageBtnNo", xMap.get("endPageBtnNo"));
 		
 		return "together/together";
 		
