@@ -384,7 +384,7 @@
 				<input type="hidden" id="courseNo" value="${param.courseNo }">
 				<input type="hidden" id="userNo" value="${authUser.userNo }">
 				<a class="cancel" href="./view?courseNo=${param.courseNo }">취소</a>
-				<a class="add">기록 등록</a>
+				<button class="add">기록 등록</button>
 			</div>
 		<!-- </form>	 -->
 	</div>

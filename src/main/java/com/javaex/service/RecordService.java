@@ -40,7 +40,6 @@ public class RecordService {
 		
 		//코스 정보
 		CourseVo coVo = coDao.selectCourse(courseNo);
-		System.out.println(coVo);
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo);
@@ -178,9 +177,17 @@ public class RecordService {
 	}
 
 	//(기록수정) 기록 가져오기
-	public RecordVo getRecord(int recordNo) {
+	public Map<String, Object> getRecord(int courseNo, int recordNo) {
 		System.out.println("RecordService->getRecord");
-		return recDao.getRecord(recordNo);
+
+		CourseVo coVo = coDao.selectCourse(courseNo); //코스정보
+		RecordVo recVo = recDao.getRecord(recordNo); //기록정보
+		
+		Map<String, Object> recMap = new HashMap<String, Object>();
+		recMap.put("coVo", coVo);
+		recMap.put("recVo", recVo);
+		
+		return recMap;
 
 	}
 	

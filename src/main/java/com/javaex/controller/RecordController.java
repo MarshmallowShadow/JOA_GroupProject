@@ -1,6 +1,5 @@
 package com.javaex.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.RecordService;
-import com.javaex.vo.RecordVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -55,12 +53,8 @@ public class RecordController {
 								@RequestParam(value = "courseNo", required = false) int courseNo,
 								@RequestParam(value = "recordNo", required = false) int recordNo) {
 		System.out.println("RecordController->recordWriteForm");
-		Map<String, Object> coMap = recService.getCourseInfo(courseNo); //코스정보
-		RecordVo recVo = recService.getRecord(recordNo);
-		Map<String, Object> modMap = new HashMap<String, Object>();
-		modMap.put("coMap", coMap);
-		modMap.put("recVo", recVo);
-		model.addAttribute("modMap", modMap);
+		Map<String, Object> recMap = recService.getRecord(courseNo, recordNo);
+		model.addAttribute("recMap", recMap);
 		return "course/modify-record";
 	}
 }

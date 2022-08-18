@@ -204,27 +204,8 @@
       <div class="modal-body">
         
         <div>
-        	<ul>
-        		<li>
-        			<div>
-        				<input type="checkbox" id="bookmark1" name="bookmark" value="">
-        				<label for="bookmark1">서울 근교 코스</label>
-        			</div>
-        		</li>
-        	
-        		<li>
-        			<div>
-        				<input type="checkbox" id="bookmark2" name="bookmark" value="">
-        				<label for="bookmark2">웃겨 자빠질 코스</label>
-        			</div>
-        		</li>
+        	<ul id="fevList">
         		
-        		<li>
-        			<div>
-        				<input type="checkbox" id="bookmark3" name="bookmark" value="">
-        				<label for="bookmark3">기어가는 코스</label>
-        			</div>
-        		</li>
         		
         	</ul>
         </div>

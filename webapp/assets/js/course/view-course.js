@@ -71,7 +71,9 @@ $(document).ready(function() {
 				//성공시 처리해야될 코드 작성
 				console.log(favList);
 				
-				
+				for(var i=0; i<favList.length; i++) {
+					render(favList[i]);
+				}
 	
 			},
 			error : function(XHR, status, error) {
@@ -193,6 +195,12 @@ function category(courseNo) {
 				type: 'bar',
 				data: data,
 			    options: {
+					scale: {
+						ticks: {
+							min: 0,
+							stepSize: 1
+						}
+					},
 			    	maintainAspectRatio: false,
 			    	plugins: {
 			    		legend: {
@@ -291,6 +299,22 @@ function difficult(courseNo) {
 	});
 }
 
+
+/********************************************************즐겨찾기********************************************************/
+/*즐겨찾기 리스트 출력*/
+function render(fevVo) {
+	console.log(fevVo);
+	
+	var str = "";
+    str += '<li>';
+    str += '	<div>';
+    str += '		<input type="checkbox" id="bookmark'+fevVo.cateNo+'" name="bookmark" value="'+fevVo.cateNo+'">';
+    str += '		<label for="bookmark'+fevVo.cateNo+'">'+fevVo.cateName+'</label>';
+    str += '	</div>';
+    str += '</li>';	
+    
+    $("#fevList").append(str);
+}
 
 /********************************************************지도********************************************************/
 function map() {
