@@ -57,7 +57,7 @@
 			<br>
 
 			<div id="user_btn">
-				<a id="cancel" href="${pageContext.request.contextPath}/list">취소</a>
+				<a id="cancel" href="${pageContext.request.contextPath}/list/list">취소</a>
 				<button type="submit" id="post">등록</button>
 			</div>
 		</form>

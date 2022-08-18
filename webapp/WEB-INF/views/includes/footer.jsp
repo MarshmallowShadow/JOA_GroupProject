@@ -17,7 +17,7 @@
 	<br>
 	<div class="footer-btn">
 		<button id="footerbtn" type="button" name="" value="">자주묻는 질문</button>
-		<button id="footerbtn" type="button" name="" value="" onclick="window.location='${pageContext.request.contextPath}/list';">1:1 문의</button>
+		<button id="footerbtn" type="button" name="" value="" onclick="window.location='${pageContext.request.contextPath}/list/list';">1:1 문의</button>
 	</div>
 	<br>
 	<hr class="my-hr1">

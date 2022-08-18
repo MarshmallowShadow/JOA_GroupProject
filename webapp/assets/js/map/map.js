@@ -1,4 +1,8 @@
 
+
+var lat = 33.450701;
+var lon = 126.570667;
+
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
 	
@@ -19,8 +23,10 @@ $(document).ready(function(){
 		// GeoLocation을 이용해서 접속 위치를 얻어옴
 		navigator.geolocation.getCurrentPosition(function(position) {
 		
-			var lat = position.coords.latitude, // 위도
-				lon = position.coords.longitude; // 경도
+			lat = position.coords.latitude; // 위도
+			lon = position.coords.longitude; // 경도
+			console.log(lat);
+			console.log(lon);
 			
 			var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
 	
@@ -31,11 +37,25 @@ $(document).ready(function(){
 		
 	} else { // HTML5의 GeoLocation을 사용할 수 없을때
 		
-		var locPosition = new kakao.maps.LatLng(33.450701, 126.570667); 
+		var locPosition = new kakao.maps.LatLng(lat, lon); 
 		
 		// 접속 위치 변경
 		map.setCenter(locPosition); 
 	}
+});
+
+$(window).load(function(){
+	/*------------주변 추천------------*/
+	
+	var kMap = {
+		searchCate: "location",
+		x: lat,
+		y: lon
+	}
+	
+	console.log(kMap);
+	
+	showList(kMap);
 });
 
 
@@ -128,7 +148,7 @@ var hideMenu = function(type){
 
 var showList = function(kMap) {
 	$.ajax({
-		url : "${pageContext.request.contextPath}/api/map/getList",
+		url : contextPath + "/api/map/getList",
 		type : "post",
 		contentType : "application/json",
 		data : JSON.stringify(kMap),

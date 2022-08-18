@@ -14,13 +14,18 @@ public class MapService {
 	private CourseDao cDao;
 	
 	public List<Map<String, Object>> getList(Map<String, Object> kMap){
+		System.out.println("MapService>getList");
+		
 		List<Map<String, Object>> cList = null;
 		
 		if(((String)kMap.get("searchCate")).equals("location")) {
+			System.out.println("locationSearch");
 			cList = cDao.locationList(kMap);
 		} else {
 			cList = cDao.titleList(kMap);
 		}
+		
+		System.out.println(cList);
 		
 		if(cList != null) {
 			for(int i=0; i < cList.size(); i++) {
@@ -64,6 +69,8 @@ public class MapService {
 				}
 			}
 		}
+		
+		
 		
 		return cList;
 	}
