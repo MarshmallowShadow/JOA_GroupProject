@@ -3,7 +3,7 @@
 <mapper namespace="together">
 
 	<!-- 리스트 불러오기 + 페이징 -->
-	<!--<select id="together" parameterType="String" resultType="map">
+	<select id="together" parameterType="String" resultType="map">
 		<![CDATA[
 			select ort.rn
 		           , ort.eventNo
@@ -15,6 +15,7 @@
 		           , ort.orderNoMax
 		           , ort.courseCategory
 		           , ort.joinMax
+		           , ort.count
 			from (select rownum rn
 	                     , ot.eventNo
 	                     , ot.regStart
@@ -25,34 +26,48 @@
 	                     , ot.orderNoMax
 	                     , ot.courseCategory
 	                     , ot.joinMax
+	                     , ot.count
 		          from (select e.event_no eventNo
 		          			   , e.reg_Start regStart
 	                           , e.reg_end regEnd
 	                           , e.title
-	                           , c.course_no courseNo
+	                           , p.course_no courseNo
 	                           , p.order_no orderNo
-	                           , max(p.order_no) orderNoMax
+	                           , mp.order_no orderNoMax
 	                           , c.course_category courseCategory
 	                           , e.join_max joinMax
-	                  from event e, course c, point p
-	                  where c.course_no = e.course_no
-	                  and p.course_no = c.course_no
-	                  order by e.event_no desc)ot
-	                  )ort
+	                           , j.count
+	                  	from course c
+	                  	  	 ,(select max(order_no) order_no
+	                  		 		  , course_no
+	                  		   from point p
+	                  		   group by course_no)mp
+	                  	   	 , point p
+	                 	  	 , event e
+	                  	  	 ,(select count(*) count
+	                  		  		  , event_no
+	                  		   from event_joined
+	                  		   group by event_no)j
+	                    where c.course_no = e.course_no
+	                    and c.course_no = p.course_no
+	                    and e.event_no = j.event_no
+	                    and (p.order_no = 0 or (p.course_no = mp.course_no and p.order_no = mp.order_no))
+	                    order by e.event_no desc)ot
+	                    )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}
 		]]>
-	</select>-->
+	</select>
 	
 	
 	<!-- 전체 글갯수 구하기 -->
-	<!--<select id="selectTotalCnt" resultType="int">
+	<select id="selectTotalCnt" resultType="int">
 		<![CDATA[
 			select count(*) count
 			from event e, course c, point p
 			where c.course_no = e.course_no
-	        and p.course_no = c.course_no
+	        and c.course_no = p.course_no
 		]]>
-	</select>-->
+	</select>
 
 </mapper>
