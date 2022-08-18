@@ -46,7 +46,7 @@ public class ListDao {
 		System.out.println("ListDao>getlist");
 		
 		List<ListVo> lList = sqlSession.selectList("list.selectList",keyword);
-		
+		System.out.println(lList);
 		return lList;
 	}
 }
