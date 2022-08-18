@@ -58,7 +58,7 @@ public class TogetherService {
 		
 		List<EventVo> togetherList = togetherDao.together(startRnum, endRnum);
 		
-		//System.out.println(boardList);
+		//System.out.println(togetherList);
 		
 		//////////////////////////////////////////////
 		//                  페이징 계산                 //
