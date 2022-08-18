@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.dao.CategoryDao;
 import com.javaex.dao.MyCourseDao;
@@ -50,6 +53,13 @@ public class MypageService {
 	public int deleteCategory(int cateNo) {
 		System.out.println("MypageService>deleteCategory()");
 		return categoryDao.deleteCategory(cateNo);
+	}
+	
+	
+	//즐겨찾기 카테고리 4- 카테고리 수정폼
+	public List <CategoryVo> modifyCategory(int cateNo) {
+		System.out.println("MypageService>modify-cate()");
+		return categoryDao.modifyCategory(cateNo);
 	}
 	
 	
