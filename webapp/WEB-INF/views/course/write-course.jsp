@@ -187,7 +187,7 @@
 				<!-- 하단 버튼 영역 -->
 				<div id="btn-wrap">
 					<!-- 사용자 번호 -->
-					<input type="hidden" name="userNo" value="1">
+					<input type="hidden" name="userNo" value="${authUser.userNo }">
 					
 					<button class="cancel">취소</button>
 					<button type="submit" class="add">코스 등록</button>

@@ -14,6 +14,7 @@ import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.UserDao;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.FavoriteCategoryVo;
 import com.javaex.vo.PointVo;
 import com.javaex.vo.UserVo;
 
@@ -179,9 +180,9 @@ public class CourseService {
 	}
 
 	//즐겨찾기 리스트 가져오기
-	public void getFavCate(int userNo) {
+	public List<FavoriteCategoryVo> getFavCate(int userNo) {
 		System.out.println("CourseService->getFavCate");
-		favCateDao.getFavCate(userNo);
+		return favCateDao.getFavCate(userNo);
 	}
 
 	

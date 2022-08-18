@@ -3,4 +3,14 @@
 
 <mapper namespace="favcate">
 
+	<!-- 즐겨찾기 리스트 가져오기 -->
+	<select id="getFavCate" parameterType="int" resultType="favCateVo">
+		<![CDATA[
+			select cate_no cateNo
+			        ,user_no userNo
+			        ,cate_name cateName
+			from favorite_category
+			where user_no = #{userNo}
+		]]>
+	</select>
 </mapper>

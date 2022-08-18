@@ -67,9 +67,9 @@ $(document).ready(function() {
 			
 			//받을때
 			//dataType : "json",
-			success : function(result){
+			success : function(favList){
 				//성공시 처리해야될 코드 작성
-				console.log(result);
+				console.log(favList);
 				
 				
 	

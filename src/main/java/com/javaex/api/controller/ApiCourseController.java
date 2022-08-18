@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.CourseService;
+import com.javaex.vo.FavoriteCategoryVo;
 import com.javaex.vo.PointVo;
 import com.javaex.vo.UserVo;
 
@@ -77,8 +78,9 @@ public class ApiCourseController {
 	//즐겨찾기 목록 가져오기
 	@ResponseBody
 	@RequestMapping(value="/getFavCate", method = {RequestMethod.GET, RequestMethod.POST})
-	public void getFavCate(@RequestParam(value="authUserNo", required = false) int userNo) {
+	public List<FavoriteCategoryVo> getFavCate(@RequestParam(value="authUserNo", required = false) int userNo) {
 		System.out.println("ApiCourseController->getFavCate");
-		coService.getFavCate(userNo);
+		System.out.println(userNo);
+		return coService.getFavCate(userNo);
 	}
 }
