@@ -146,9 +146,9 @@
 										마라톤, 그림 종목은 직접 입력해주세요.
 									</div>
 									
-									<input type="number" class="txt-short" name="hour" id="hour" value="" min="0" max="24">
+									<input type="number" class="txt-short" name="hour" id="hour" value="0" min="0" max="24">
 									<p>시간</p>
-									<input type="number" class="txt-short" name="minute" id="minute" value="" min="0" max="59">
+									<input type="number" class="txt-short" name="minute" id="minute" value="0" min="0" max="59">
 									<p>분</p>
 									
 								</td>

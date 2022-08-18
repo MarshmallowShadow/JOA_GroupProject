@@ -325,9 +325,9 @@
 					<tr>
 						<th>시간</th>
 						<td colspan="3">
-							<input type="number" class="txt-short" name="hour" id="hour" min="0" max="24">
+							<input type="number" class="txt-short" name="hour" id="hour" value="0" min="0" max="24">
 							<p>시간</p>
-							<input type="number" class="txt-short" name="minute" id="minute" min="0" max="59">
+							<input type="number" class="txt-short" name="minute" id="minute" value="0" min="0" max="59">
 							<p>분</p>
 						</td>
 					</tr>
