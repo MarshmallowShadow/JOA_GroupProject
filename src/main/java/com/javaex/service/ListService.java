@@ -20,6 +20,8 @@ public class ListService {
 	//메소드
 	
 	//메소드 일반
+
+	//삭제
 	
 	//글쓰기 등록
 	public int write(ListVo listVo) {
