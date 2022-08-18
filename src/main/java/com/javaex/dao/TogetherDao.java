@@ -1,8 +1,17 @@
 package com.javaex.dao;
 
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import com.javaex.vo.EventVo;
+
+@Repository
 public class TogetherDao {
 	
 	//필드
@@ -15,12 +24,34 @@ public class TogetherDao {
 	
 	
 	//메소드-일반
-	public int together() {
+	//리스트 불러오기 + 페이징
+	public List<EventVo> together(int startRnum, int endRnum) {
 		
 		System.out.println("TogetherDao > together");
 		
-		return 1;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
 		
+		List<EventVo> togetherList = sqlSession.selectList("together.together", map);
+		
+		System.out.println(togetherList);
+		
+		return togetherList;
+		
+	}
+	
+	//전체 글갯수
+	public int selectTotalCnt() {
+		
+		System.out.println("TogetherDao > selectTotalCnt");
+	      
+		int totalCount = sqlSession.selectOne("together.selectTotalCnt");
+		
+		System.out.println(totalCount);
+	      
+		return totalCount;
+	      
 	}
 
 }
