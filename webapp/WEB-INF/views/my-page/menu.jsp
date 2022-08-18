@@ -51,7 +51,6 @@
       </div>
       <div class="modal-body">
         <p>새 목록 이름</p>
-        <br>
         <input type="text" name="catename" value="" placeholder="즐겨찾기 이름을 입력하세요">
       </div>
       <div class="modal-footer">
@@ -104,9 +103,8 @@
     </div>
     <div class="modal-body">
     	<p>목록의 이름을 변경해주세요.</p>
-    	<br>
     	<div id="cateName-modal">
-    		<%-- <input type="text" placeholder="${categoryVo.cateName}"> --%>
+    		<%-- <input type="text" value="" placeholder="${categoryVo.cateName}"><input type="text" value="${categoryVo.cateNo}"> --%>
     	</div>
     </div>
     <div class="modal-footer">

@@ -62,7 +62,11 @@ input[type=radio] {display:none;}
 			text-align:left; line-height: 50px; 
 			background-color:white; border-right:solid 1px gray;}
 #menuBar a:hover {color: #c0c0c0;}
-#menuBar #menuList {font-size: 14px; line-height:50px;}
+#menuBar #menuList {font-size: 14px; line-height:50px;
+					-ms-overflow-style: none; /* IE and Edge */
+   					scrollbar-width: none; /* Firefox */
+   					object-fit: cover;
+   					}
 
 
 #menuBar .menu1 {width:(100%-padding); height:(20%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
@@ -72,7 +76,7 @@ input[type=radio] {display:none;}
 #menuBar .menu1 .menuBar-close-btn {width: 20px; height: 20px; }
 
 
-#menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; overflow:scroll;}
+#menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 #menuBar .menu2 #bookmark {font-size: 18px; float:left; font-weight:bold;}
 #menuBar .bmStar {width: 20px; height: 20px;}
 #menuBar .menu2 .bookmark-btn {text-align:right;}
@@ -93,6 +97,7 @@ input[type=radio] {display:none;}
 
 
 
+
 /**************************************************************************/
 /* 마이페이지-나의 기록 *************************************************************/
 /**************************************************************************/
@@ -100,6 +105,10 @@ input[type=radio] {display:none;}
 			width:1200px; height:700px; padding:0px 30px;}
 
 .myReport #calendar {float:left; width:750px; line-height: 50px;}
+.myReport #calendar #calendarApi { -ms-overflow-style: none; /* IE and Edge */
+   									scrollbar-width: none; /* Firefox */
+   									object-fit: cover;}/* 스크롤바 없애는게 안됨... */
+
 /* .myReport #calendar #dateForm {width:750px; height:50px; }
 .myReport #calendar #calDate {font-size: 28px; font-weight:bold; float:left; text-align:left;}
 .myReport #calendar #dateSearch {font-size: 20px; float:right;}
@@ -112,7 +121,10 @@ input[type=radio] {display:none;}
 .myReport #reportList .listTitle .todayReport {font-size:18px; float:right; width:190px;border:rgb(101,101,101) 1px solid;}
 
 
-.myReport #reportList .reportBox {overflow:scroll; width:380px; height:600px;}
+.myReport #reportList .reportBox {width:380px; height:600px; border:#ccc 0.5px solid;
+									-ms-overflow-style: none; /* IE and Edge */
+   									scrollbar-width: none; /* Firefox */
+   									object-fit: cover;}
 .myReport #reportList .reportContent {width:380px; height:120px; border:solid 0.5px rgb(101,101,101); border-top:none; margin:0px; padding:10px 0px 0px 10px;}
 .myReport #reportList .contentImg {width:100px; height:100px; border:solid 1px #000000; float:left; margin-right:20px; }
 .myReport #reportList .contentTitle {font-size:16px; width:360px; font-weight:bold;line-height:28px; }

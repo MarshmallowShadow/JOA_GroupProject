@@ -1,6 +1,6 @@
 package com.javaex.controller;
 
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
-import com.javaex.vo.UserVo;
+import com.javaex.vo.CategoryVo;
 
 @Controller
 @RequestMapping(value="/my-page")

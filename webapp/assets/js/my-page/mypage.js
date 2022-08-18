@@ -67,7 +67,7 @@ function calendarRender(rMap) {
 	var str = '';
 	str += '<li class="reportContent">';
 	str += '	<div>';
-	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'">';
+	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'" target="_blank">';
 	str += '			<img class="contentImg" src="'+contextPath+'/upload/'+rMap.SAVENAME+'">';
 	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
 	str += '			<p class="content">'+rMap.REVIEW+'</p>';
@@ -222,12 +222,12 @@ function mycourseRender(cMap) {
 	var str = '';
 	str += '<li class="course-list-result">';
 	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"   */
-	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'"><div id="courseMapImg" class="courseImg"><img src="'+contextPath+'/assets/image/my-page/sample.jpg" ></div></a>';
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'" target="_blank"><div id="courseMapImg" class="courseImg"><img src="'+contextPath+'/assets/image/my-page/sample.jpg" ></div></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart.png">';
+	str += '					<img class="like-cancel-btn" src="'+contextPath+'/assets/image/my-page/heart'+cMap.LIKED+'.png">';
 	str += '					<img class="bookmark-cancel-btn" src="'+contextPath+'/assets/image/main/star.png">';
 	str += '				</div>';
 	str += '			</div>';
@@ -266,6 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
 			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
 		dataType : "json",
+		
 		success : function(result){
 			$(".reportBox").empty();
 			eList = result;
@@ -405,50 +406,51 @@ $(window).ready(function(){
 		console.log("카테고리추가");
 		$("[name=catename]").val("");
 		$(".category-add-btn").show('modal');
-	  
-		$("#add-bookmark-category").on("click", function(){
-			console.log("즐겨찾기 추가 버튼 클릭");
-			//데이터 수집
-			var catename = $("[name=catename]").val();
-			var categoryVo = {
-				/*cateNo: cateNo,*/
-				userNo: userNo,
-				cateName: catename
-			};
-			console.log(categoryVo);
-		
-			$.ajax({
-				url : contextPath + "/api/my-page/add-category-list",		
-				type : "post",
-				contentType : "application/json",
-				data : JSON.stringify(categoryVo),		//js객체를 JSON문자열로 변경->그래야 controller에서 @RequestBody로 받을 수 있음
-				dataType : "json",
-				success : function(categoryVo){
-					//성공시 처리해야될 코드 작성
-					console.log(categoryVo);
-				
-					//1개의 데이터 리스트에 추가(그리기)
-					categoryRender(categoryVo, "up");
-				
-					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
-					$("[name=catename]").val("");
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : " + error);
-				}
-			});
-			$(".category-add-btn").hide('modal');
+	 }); 
+	 
+	$("#add-bookmark-category").on("click", function(){
+		console.log("즐겨찾기 추가 버튼 클릭");
+		//데이터 수집
+		var catename = $("[name=catename]").val();
+		var categoryVo = {
+			/*cateNo: cateNo,*/
+			userNo: userNo,
+			cateName: catename
+		};
+		console.log(categoryVo);
+	
+		$.ajax({
+			url : contextPath + "/api/my-page/add-category-list",		
+			type : "post",
+			contentType : "application/json",
+			data : JSON.stringify(categoryVo),		//js객체를 JSON문자열로 변경->그래야 controller에서 @RequestBody로 받을 수 있음
+			dataType : "json",
+			success : function(categoryList){
+				//성공시 처리해야될 코드 작성
+				console.log(categoryList);
+			
+				//1개의 데이터 리스트에 추가(그리기)
+				categoryRender(categoryList, "up");
+			
+				//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
+				$("[name=catename]").val("");
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
 		});
-		//모달창의 닫기버튼 클릭할때
-		$("#add-bookmark-category-close").on("click", function(){
-			$("[name=catename]").val("");
-			$(".category-add-btn").hide('modal');
-		});
-		$("#add-bookmark-category-cancel").on("click", function(){
-			$("[name=catename]").val("");
-			$(".category-add-btn").hide('modal');
-		});
+		$(".category-add-btn").hide('modal');
 	});
+	//모달창의 닫기버튼 클릭할때
+	$("#add-bookmark-category-close").on("click", function(){
+		$("[name=catename]").val("");
+		$(".category-add-btn").hide('modal');
+	});
+	$("#add-bookmark-category-cancel").on("click", function(){
+		$("[name=catename]").val("");
+		$(".category-add-btn").hide('modal');
+	});
+	
 	
 	
 	
@@ -482,47 +484,45 @@ $(window).ready(function(){
 		});
 		//모달창 띄우기
 		$(".category-del-btn").show('modal');
-		
-		
-		//모달창의 삭제버튼 클릭할때
-		$("#del-bookmark-category").on("click", function(){
-			console.log("모달>삭제버튼 클릭")
-			/*$(".bookmark-menuList").remove();*/
-					
-			//삭제할 데이터 모으기
-			var cateNo = $("#del-select-list").val();
-	        console.log("cateNo", cateNo);
-			
-			//서버로 데이터 전송(ajax)
-			$.ajax({
-				url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
-				type : "post",
-				contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-				data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-					//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-				dataType : "json",
-				success : function(result){
-					/*성공시 처리해야될 코드 작성*/
-					console.log(result);
-					$(".bookmark-menuList").remove();
-					categoryList();
-					/*location.reload(true);*/
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : " + error);
-				}
-			});
-			$(".category-del-btn").hide('modal');
-		});
-		
-		//모달창의 닫기버튼 클릭할때
-		$("#del-bookmark-category-close").on("click", function(){
-			$(".category-del-btn").hide('modal');
-		});
-		$("#del-bookmark-category-cancel").on("click", function(){
-			$(".category-del-btn").hide('modal');
-		});
 	});
+		
+	//모달창의 삭제버튼 클릭할때
+	$("#del-bookmark-category").on("click", function(){
+		console.log("모달>삭제버튼 클릭")
+		//삭제할 데이터 모으기
+		var cateNo = $("#del-select-list").val();
+        console.log("cateNo", cateNo);
+		
+		//서버로 데이터 전송(ajax)
+		$.ajax({
+			url : contextPath + "/api/my-page/del-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+				console.log(result);
+				$(".bookmark-menuList").remove();
+				categoryList();
+				/*location.reload(true);*/
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		$(".category-del-btn").hide('modal');
+	});
+	
+	//모달창의 닫기버튼 클릭할때
+	$("#del-bookmark-category-close").on("click", function(){
+		$(".category-del-btn").hide('modal');
+	});
+	$("#del-bookmark-category-cancel").on("click", function(){
+		$(".category-del-btn").hide('modal');
+	});
+
 	
 	
 	
@@ -536,32 +536,13 @@ $(window).ready(function(){
 	/*카테고리 이름 수정하기 - 보류*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
-		var cateNo = $(".editName").val();
+		var cateNo = $(".bookmark-menuList").val();
 		console.log(cateNo);
-		/*수정리스트 가져오기*/
-		$.ajax({
-			url : contextPath + "/api/my-page/edit-category-list", //컨트롤러 RequestMapping url 작성하기
-			type : "post",
-			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-			dataType : "json",
-			success : function(categoryList){
-				//컨트롤러 함수 실행 후 코드
-				for(var i=0; i<categoryList.length; i++){
-					cateEditRender(categoryList[i], "down");	//vo --> 화면에 그린다.
-				}
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-			
-		});
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
+		
+		
 	});
-	
-	
 	
 	//모달창의 변경버튼 클릭할때
 	$("#edit-bookmark-category").on("click", function(){
@@ -578,7 +559,7 @@ $(window).ready(function(){
 		
 	});
 		
-		//모달창의 닫기버튼 클릭할때
+	//모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
@@ -629,11 +610,7 @@ $(window).ready(function(){
 					}
 				);
 				mycourseRender(cMap, "down");
-				if(cMap.LIKED == 1){
-					$(".like-cancel-btn").replace ( '<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart.png">' );
-				}else {
-			        $(".like-cancel-btn").replace ( '<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart-off.png">' );
-			    }
+				
 			}
 			console.log(cList);
 		},
