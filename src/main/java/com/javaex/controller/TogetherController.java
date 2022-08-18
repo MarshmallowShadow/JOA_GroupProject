@@ -43,6 +43,7 @@ public class TogetherController {
 			model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
 		
 		return "together/together";
+		
 	}
 	
 	//함께하기 글쓰기폼
@@ -52,6 +53,7 @@ public class TogetherController {
 		 System.out.println("TogetherController > writeform");
 		
 		return "together/writeform";
+		
 	}
 	
 	//함께하기 상세페이지
@@ -61,6 +63,7 @@ public class TogetherController {
 		 System.out.println("TogetherController > read");
 		
 		return "together/read";
+		
 	}
 	
 }

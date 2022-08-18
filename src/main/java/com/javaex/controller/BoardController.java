@@ -50,6 +50,7 @@ public class BoardController {
 		model.addAttribute("boardCategory", pMap.get("boardCategory"));
 		
 		return "board/board";
+		
 	}
 	
 	//게시판 글쓰기폼
@@ -59,6 +60,7 @@ public class BoardController {
 		 System.out.println("BoardController > writeform");
 		
 		return "board/writeform";
+		
 	}
 	
 	//게시판 글쓰기
@@ -77,6 +79,7 @@ public class BoardController {
 		boardService.write(boardVo);
 		
 		return "redirect:board/read" + boardVo.getBoardNo();
+		
 	}
 	
 	//게시판 상세페이지
@@ -86,6 +89,7 @@ public class BoardController {
 		 System.out.println("BoardController > read");
 		
 		return "board/read";
+		
 	}
 	
 	//게시판 수정폼
@@ -95,6 +99,7 @@ public class BoardController {
 		 System.out.println("BoardController > modifyform");
 		
 		return "board/modifyform";
+		
 	}
 
 }
