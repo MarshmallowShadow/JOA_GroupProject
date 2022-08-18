@@ -32,15 +32,7 @@ public class TogetherController {
 	@RequestMapping(value="/together", method = {RequestMethod.GET, RequestMethod.POST})
 	public String together(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage) {
 		
-		 System.out.println("TogetherController > together");
-		 
-		 Map<String, Object> xMap = togetherService.together(crtPage);
-			
-			model.addAttribute("togetherList", xMap.get("togetherList"));
-			model.addAttribute("prev", xMap.get("prev"));
-			model.addAttribute("next", xMap.get("next"));
-			model.addAttribute("startPageBtnNo", xMap.get("startPageBtnNo"));
-			model.addAttribute("endPageBtnNo", xMap.get("endPageBtnNo"));
+		 System.out.println("TogetherController > together");			
 		
 		return "together/together";
 		
