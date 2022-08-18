@@ -203,6 +203,14 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 function render(recVo, coUserNo, recImgs) {
 	//console.log("render");
 	
+	var hour = Math.floor(recVo.COURSETIME/60);
+	hour = "00" + hour;
+	hour = hour.slice(-2);
+	
+	var minute = recVo.COURSETIME%60;
+	minute = "00" + minute;
+	minute = minute.slice(-2);
+	
 	
 	if(recVo.REVIEW == undefined || recVo.REVIEW == null || recVo.REVIEW == "") {
 		recVo.REVIEW = "";
@@ -226,14 +234,9 @@ function render(recVo, coUserNo, recImgs) {
 	str +=	'			</span>';
 	str +=	'		</div>';
 	str +=	'		<div class="record-info">';
-	str +=	'			<span>'+recVo.REGDATE+'</span>';
-	if(recVo.WEATHER != "null") {
-		str +=	'			<span><img src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
-	}
-	if(recVo.TEMPERATURE != -100) {
-		str +=	'			<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
-	}
-	str +=	'			<span class="box blue">';
+	
+	str +=	'			<div>';
+	str +=	'				<span class="box blue">';
 	
 	//종목
 	if(recVo.COURSECATE === 'walk') {
@@ -250,8 +253,9 @@ function render(recVo, coUserNo, recImgs) {
 		str += '그림';
 	}
 	
-	str +=	'			</span>';
-	str +=	'			<span class="box pink">';
+	//시간
+	str +=	' | '+hour+':'+minute+'</span>';
+	str +=	'				<span class="box pink">';
 	
 	//난이도
 	if(recVo.DIFFICULTY === 'easy') {
@@ -262,7 +266,19 @@ function render(recVo, coUserNo, recImgs) {
 		str += '어려움'
 	}
 	
-	str +=	'			</span>';
+	str +=	'				</span>';
+	str +=	'			</div>';
+	
+	str +=	'			<div>';
+	str +=	'				<span>'+recVo.REGDATE+'</span>';
+	if(recVo.WEATHER != "null") {
+		str +=	'				<span><img class="weather" src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
+	}
+	if(recVo.TEMPERATURE != -100) {
+		str +=	'				<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
+	}
+	str +=	'			</div>';
+	
 	str +=	'		</div>';
 	str +=	'	</div>';
 				

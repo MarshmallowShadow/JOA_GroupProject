@@ -253,11 +253,15 @@ input[type=radio] {display:none;}
 	width: 270px;
 }
 .record-txt .record-content .name {margin-right: 5px;}
-.record-txt .record-info {
+/* .record-txt .record-info {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-}
+} */
+
+/* .record-txt .record-info div {
+	float: left;
+} */
 
 /* 글씨 */
 .record-txt .record-info span {
@@ -273,18 +277,22 @@ input[type=radio] {display:none;}
 }
 /* 박스 설정 */
 .record-txt .record-info .box {
-	width: 48px;
-	height: 18px;
+	
+	height: 16px;
 	border-radius: 10px;
 	text-align: center;
 	color: rgb(255,255,255);
 	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: inline-block;
 }
-.pink {background-color: rgb(255, 52, 120);}
-.blue {background-color: rgb(50, 108, 249);}
+.pink {background-color: rgb(255, 52, 120); width: 48px;}
+.blue {background-color: rgb(50, 108, 249); width: 80px;}
+/* 날씨 아이콘 */
+.record-txt .record-info span .weather {
+	position: relative;
+	top: 6px;
+}
+
 /* 기록 사진 */
 .record-img .recordImg {
 	width: 24px;
