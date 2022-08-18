@@ -85,8 +85,8 @@
 								</tr>
 								<tr>
 									<th colspan="2" class="content_course">
-										<span class="glyphicon glyphicon-map-marker" class="marking"></span>신림 - 잠실
-										<!-- <input type="hidden" name="courseNo"> -->
+										<span class="glyphicon glyphicon-map-marker" class="marking"></span>${tMap.ORDERNO} - ${tMap.ORDERNOMAX}
+										<input type="hidden" name="courseNo">
 									</th>
 								</tr>
 								<tr>
