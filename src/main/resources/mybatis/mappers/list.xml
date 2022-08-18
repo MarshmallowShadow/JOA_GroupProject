@@ -13,7 +13,7 @@
 
 
 <!-- 리스트 출력 -->
-<select id="selectList" parameterType="String" resultType="ListVo">
+<select id="selectList" parameterType="String" resultType="map">
 	<![CDATA[
 		select q_list_no, 
 				user_no userNo, 

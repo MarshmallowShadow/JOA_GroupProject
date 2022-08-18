@@ -2,6 +2,8 @@ package com.javaex.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.service.ListService;
 import com.javaex.vo.ListVo;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value = "/list")
@@ -29,15 +32,17 @@ public class ListController {
 	/***************** 읽기  ****************/
 	@RequestMapping(value = "/read", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read () {
-		System.out.println("ListController>read");
 		
-		return "list/list";
+		System.out.println("ListController > read");
+		
+		return "list/read";
 	}
+	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String delete(@PathVariable("no") int no) {
 		
-		System.out.println("ListController>delete");
+		System.out.println("ListController > delete");
 		
 		//listService.delete(no);
 		
@@ -47,27 +52,31 @@ public class ListController {
 	/***************** 글쓰기  ****************/
 	//글쓰기 등록
 	@RequestMapping(value = "/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String write(@ModelAttribute ListVo listVo) {
-		System.out.println("ListController>write");
+	public String write(@ModelAttribute ListVo listVo, HttpSession session) {
+		System.out.println("ListController > write");
 		
 		listService.write(listVo);
 		
-		return "list/list";
-		//return "redirect:/list/list";
+		//ID 출력
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		listVo.setUserNo(authUser.getUserNo());
+		System.out.println(authUser.getUserNo());
+		
+		return "redirect:/list/list";
 	}
 	
 	//글쓰기폼
 	@RequestMapping(value = "/listWrite", method = {RequestMethod.GET, RequestMethod.POST})
 	public String listWrite () {
-		System.out.println("ListController>listWirte");
+		System.out.println("ListController > listWirte");
 		
 		return "list/listWrite";
 	}
 	
 	//메인(리스트)
-	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
 	public String list (String keyword, Model model) {
-		System.out.println("ListController>list");
+		System.out.println("ListController > list");
 		
 		//검색
 		if (keyword == null) {
@@ -77,6 +86,7 @@ public class ListController {
 		
 		// lList 데이터 가져오기
 		List<ListVo> lList = listService.getlist(keyword);
+		//System.out.println(lList); 
 		
 		//데이터 가져오기 
 		model.addAttribute("lList", lList);

@@ -21,6 +21,8 @@ public class ListDao {
 	
 	//메소드 일반
 	
+	//삭제
+	
 	//글쓰기 등록
 	public int write(ListVo listVo) {
 		System.out.println("ListDao>write");
@@ -32,7 +34,7 @@ public class ListDao {
 	
 	//리스트 출력
 	public List<ListVo> getList(String keyword) {
-		System.out.println("ListService>getlist");
+		System.out.println("ListDao>getlist");
 		
 		List<ListVo> lList = sqlSession.selectList("list.selectList",keyword);
 		
