@@ -79,10 +79,13 @@
 				id,
 				p.order_no, x, y
 		from course c, users u, point p,
-				(select max(order_no) order_no, course_no from point p group by course_no) mp
+				(select max_order_no, min_order_no, min.course_no 
+                    from(select max(order_no) max_order_no, course_no from point p group by course_no) max,
+                        (select min(order_no) min_order_no, course_no from point p group by course_no) min
+                         where max.course_no = min.course_no) mp
 		where c.user_no = u.user_no
 		and c.course_no = p.course_no
-		and (p.order_no = 0 or (p.course_no = mp.course_no and p.order_no = mp.order_no))
+		and (p.course_no = mp.course_no and (p.order_no = mp.min_order_no or p.order_no = mp.max_order_no));
 		and keyword like '%#{keyword}%'
 	]]>
 	</select>
