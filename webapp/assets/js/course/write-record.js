@@ -226,6 +226,7 @@ function selectFile(fileObject) {
 	} else {
 		//직접 파일 등록시
 		files = $('#multipaartFileList_' + fileIndex)[0].files;
+		console.log(files);
 	}
 	
 	//다중파일 등록
@@ -253,6 +254,7 @@ function selectFile(fileObject) {
 
 //미리보기 생성
 function preview(file, idx) {
+	console.log(uploadFiles);
 	var reader = new FileReader();
 	reader.onload = (function(f, idx) {
 		return function(e) {
