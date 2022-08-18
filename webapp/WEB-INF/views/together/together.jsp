@@ -6,12 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>함께하기 리스트</title>
+
 <!-- css -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/together.css" rel="stylesheet" type="text/css">
-<!-- 자바스크립트 -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+
 </head>
 <body>
 
@@ -109,15 +108,7 @@
 			<!-- 페이지 -->
 			<div id="page">
 				<ul class="ul">
-					<c:if test="${prev}">
-						<li class="li"><a href="#">◀</a></li>
-					</c:if>
-					<c:forEach begin="${startPageBtnNo}" end="${endPageBtnNo}" step="1" var="i">
-						<li class="active li"><a href="${pageContext.request.contextPath}/together/together?crtPage=${i}">${i}</a></li>
-					</c:forEach>
-					<c:if test="${next}">
-						<li class="li"><a href="#">▶</a></li>
-					</c:if>
+					
 				</ul>
 			</div><!-- Together button -->
 			
@@ -130,4 +121,14 @@
 	</div><!-- wrap -->
 
 </body>
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.pageContext = '${pageContext.request.contextPath}';
+	window.crtPage = '${param.crtPage}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/together.js"></script>
+
 </html>
