@@ -26,7 +26,7 @@ function categoryList(){
 
 function categoryRender(categoryList) {
 	var str = '';
-	str += '<li id="menuList" class="bookmark-menuList">';
+	str += '<li id="menuList" class="bookmark-menuList" value="'+categoryList.cateNo+'">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark?cateNo='+categoryList.cateNo+'">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
 	str += '	<img id="edit-cate-name" class="editName" data-cateNo="'+categoryList.cateNo+'" value="'+categoryList.cateNo+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
@@ -44,7 +44,7 @@ function cateDelRender(categoryList) {
 
 function cateEditRender(categoryList){
 	var str = '';
-	str = '<input id="input-cateName-edit" type="text" data-cateNo="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
+	str += '<input id="input-cateName-edit" type="text" value="'+categoryList.cateName+'" data-cateNo="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
 	
 	$("#cateName-modal").append(str);
 }
@@ -87,8 +87,120 @@ function calendarRender(rMap) {
 
 
 
+/*지도 이미지 가져오기*/
+function map(cMap) {
+	/*var courseNo = $("#courseNo").val();*/
+	var courseNo = cMap.COURSENO;
+	//좌표 배열
+	var path = [];
+	//지도 범위정보 객체
+	var bounds = new kakao.maps.LatLngBounds();
+	// 마커 위치
+	var markerPosition = [];
+	
+	/*좌표 가져오기*/
+	$.ajax({
+		//보낼때
+		url : contextPath+"/apiCo/getPoint",
+		type : "post",
+		//contentType : "application/json",
+		data : {courseNo},
+		
+		//받을때
+		//dataType : "json",
+		success : function(points){
+			//성공시 처리해야될 코드 작성
+			console.log(points);
+			
+			for(var i=0; i<points.length; i++) {
+				var latlng = new kakao.maps.LatLng(points[i].y, points[i].x);
+				
+				//좌표 배열에 추가
+				path.push(latlng);
+				
+				//범위정보에 마커 좌표 추가
+				bounds.extend(latlng);
+			}
+			
+			//지도 범위 재설정
+			map.setBounds(bounds);
+			
+			
+			/*마커 생성*/
+			
+			//마커 이미지 설정
+			var imageSrc1 = contextPath+'/assets/image/course/pin-b.png', // 마커이미지 주소
+				imageSrc2 = contextPath+'/assets/image/course/pin-r.png', // 마커이미지 주소
+		    imageSize = new kakao.maps.Size(32, 32), // 마커이미지 크기
+		    imageOption = {offset: new kakao.maps.Point(16, 32)}; // 마커 위치
+		    
+		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize, imageOption);
+		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
+		    
+			//시작 마커와 마지막 마커 배열 저장
+			var firstLocation = new kakao.maps.LatLng(points[0].y, points[0].x); //시작위치
+			var lastLocation = new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x); //끝위치
+			
+			var firstMk = {
+				title: 'start',
+				latlng: firstLocation,
+				image: markerImage1
+			};
+			markerPosition.push(firstMk);
+			var lastMk = {
+				title: 'end',
+				latlng: lastLocation,
+				image: markerImage2
+			};
+			markerPosition.push(lastMk);
+			
+			// 마커 생성
+			for(var i=0; i<markerPosition.length; i++) {
+				var marker = new kakao.maps.Marker({
+					map: map,
+				    position: markerPosition[i].latlng,
+				    title: markerPosition[i].title,
+				    image: markerPosition[i].image,
+				    clickable: true
+				});
+				console.log(marker);
+			}
+			
+			/*라인 그리기*/
+			//선 생성
+			var polyline = new kakao.maps.Polyline({
+				map: map, //표시할 지도
+				path: path, //선의 좌표
+				strokeWeight: 6, //선 두께
+				strokeColor: 'rgb(50, 108, 249)', //선 색깔
+				strokeOpacity: 0.9, //선의 불투명도 (0~1)
+				strokeStyle: 'solid' //선 스타일
+			});
 
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+		
+	//지도 정보
+	var mapContainer = document.getElementById('courseMapImg');
+	var mapOption = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+		level: 3, //지도의 레벨(확대, 축소 정도)
+		draggable: false, //마우스 휠 이동, 확대, 축소 여부
+		scrollwheel: false, //마우스 휠 확대 축소 여부
+		disableDoubleClick: false, //더블클릭 이벤트 여부
+		disableDoubleClickZoom: true, //더블클릭 줌 이벤트 여부
+		keyboardShortcuts: false //키보드 이동, 확대, 축소 여부
+	};
+	
+	// 이미지 지도 생성
+	//var map = new kakao.maps.StaticMap(mapContainer, mapOption);
+	var map = new kakao.maps.Map(mapContainer, mapOption);
 
+}
 
 
 
@@ -105,11 +217,12 @@ var cList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 				}
 			];
 
+
 function mycourseRender(cMap) {
 	var str = '';
 	str += '<li class="course-list-result">';
-	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"*/
-	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'"><img class="courseImg" src="'+contextPath+'/assets/image/my-page/sample.jpg" ></a>';
+	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"   */
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'"><div id="courseMapImg" class="courseImg"><img src="'+contextPath+'/assets/image/my-page/sample.jpg" ></div></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
@@ -423,38 +536,58 @@ $(window).ready(function(){
 	/*카테고리 이름 수정하기 - 보류*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
-		$("#cateName-modal input").remove();
-		
+		var cateNo = $(".editName").val();
+		console.log(cateNo);
 		/*수정리스트 가져오기*/
 		$.ajax({
-			url : contextPath + "/api/my-page/get-category-list", //컨트롤러 RequestMapping url 작성하기
+			url : contextPath + "/api/my-page/edit-category-list", //컨트롤러 RequestMapping url 작성하기
 			type : "post",
 			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-			data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
 				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
 			dataType : "json",
 			success : function(categoryList){
 				//컨트롤러 함수 실행 후 코드
 				for(var i=0; i<categoryList.length; i++){
-					cateEditRender(categoryList[i], "down");	
+					cateEditRender(categoryList[i], "down");	//vo --> 화면에 그린다.
 				}
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
+			
 		});
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
 	});
 	
 	
-	//모달창의 닫기버튼 클릭할때
+	
+	//모달창의 변경버튼 클릭할때
+	$("#edit-bookmark-category").on("click", function(){
+		console.log("모달>변경버튼 클릭")
+		//삭제할 데이터 모으기
+		var cateName = $("#input-cateName-edit").val();
+		var cateNo = $("#input-cateName-edit").data("cateNo");
+        console.log(cateName, cateNo);
+		
+		//서버로 데이터 전송(ajax)
+		
+		/*(".bookmark-menuList").remove();
+		$(".category-modify-btn").hide('modal');*/
+		
+	});
+		
+		//모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
 	$("#edit-bookmark-category-cancel").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
+	
+	
+	
 	
 	
 	
@@ -491,10 +624,16 @@ $(window).ready(function(){
 						title: cMap.TITLE,
 						id: cMap.ID,
 						regDate: cMap.REGDATE,
-						openStatus: cMap.OPENSTATUS
+						openStatus: cMap.OPENSTATUS,
+						liked: cMap.LIKED
 					}
 				);
 				mycourseRender(cMap, "down");
+				if(cMap.LIKED == 1){
+					$(".like-cancel-btn").replace ( '<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart.png">' );
+				}else {
+			        $(".like-cancel-btn").replace ( '<img class="like-cancel-btn" src="'+contextPath+'/assets/image/main/heart-off.png">' );
+			    }
 			}
 			console.log(cList);
 		},

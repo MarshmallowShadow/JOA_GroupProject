@@ -78,7 +78,8 @@ public class BoardController {
 		
 		boardService.write(boardVo);
 		
-		return "redirect:board/read" + boardVo.getBoardNo();
+		//return "redirect:board/read" + boardVo.getBoardNo();
+		return "redirect:board/board";
 		
 	}
 	

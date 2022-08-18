@@ -77,14 +77,15 @@ public class ApiMypageController {
 		return delCate;
 	}
 	
-	/*
-	 * //6. 수정***
-	 * 
-	 * @RequestMapping(value="/board/modify", method = {RequestMethod.GET,
-	 * RequestMethod.POST}) public String modify(@ModelAttribute BoardVo boardVo) {
-	 * System.out.println("BoardController>modify()");
-	 * boardService.boardUpdate(boardVo); return "redirect:/board/list"; }
-	 */
+	//즐겨찾기 카테고리 4- 카테고리 수정폼
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/edit-category-list", method = {RequestMethod.GET, RequestMethod.POST}) 
+	public List <CategoryVo> modifyCategory(@RequestBody int cateNo) {
+		System.out.println("ApiMypageController>modify-cate()");
+		List <CategoryVo> editCate = mypageService.modifyCategory(cateNo);
+		return editCate; 
+	}
+	
 	
 	
 }

@@ -131,6 +131,10 @@ label {
 
 /********************** 코스 지정 **********************/
 
+#map {
+   width: 100%;
+   height: 500px;
+}
 /* 코스 불러오기 버튼 */
 .together-form #course-load {
 	font-size: 15px;

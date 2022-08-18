@@ -33,6 +33,11 @@ public class CategoryDao {
 		return sqlSession.delete("mypage.deleteCategory", cateNo);
 	}
 	
+	//즐겨찾기 카테고리 4- 카테고리 수정폼
+	public List <CategoryVo> modifyCategory(int cateNo) {
+		System.out.println("CategoryDao>modify-cate()");
+		return sqlSession.selectList("mypage.getEditCateList", cateNo);
+	}
 	
 	
 	
