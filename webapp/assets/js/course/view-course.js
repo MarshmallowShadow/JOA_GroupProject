@@ -95,7 +95,7 @@ $(document).ready(function() {
 		
 		var courseNo = $("#courseNo").val();
 		
-		var bmkList = new Array();
+		var bmkList = [];
 		
 		$("input[name='bookmark']:checked").each(function() {
 			var bmk = parseInt($(this).val());
@@ -110,7 +110,7 @@ $(document).ready(function() {
 			url : contextPath+"/apiFav/addFav",
 			type : "post",
 			//contentType : "application/json",
-			data : {bmkList, courseNo},
+			data : {courseNo, bmkList},
 			
 			//받을때
 			//dataType : "json",
@@ -126,6 +126,20 @@ $(document).ready(function() {
 		});
 		
 	});
+	
+	/*즐겨찾기 리스트 출력*/
+	function render(fevVo) {
+		
+		var str = "";
+	    str += '<li>';
+	    str += '	<div>';
+	    str += '		<input type="checkbox" id="bookmark'+fevVo.cateNo+'" name="bookmark" value="'+fevVo.cateNo+'">';
+	    str += '		<label for="bookmark'+fevVo.cateNo+'">'+fevVo.cateName+'</label>';
+	    str += '	</div>';
+	    str += '</li>';	
+	    
+	    $("#fevList").append(str);
+	}
 	
 	
 	
@@ -156,7 +170,7 @@ $(document).ready(function() {
 					
 					$("#like").attr("src", src);
 					$("#like-cnt").text(cnt);
-					
+						
 		
 				},
 				error : function(XHR, status, error) {
@@ -342,21 +356,7 @@ function difficult(courseNo) {
 }
 
 
-/********************************************************즐겨찾기********************************************************/
-/*즐겨찾기 리스트 출력*/
-function render(fevVo) {
-	console.log(fevVo);
-	
-	var str = "";
-    str += '<li>';
-    str += '	<div>';
-    str += '		<input type="checkbox" id="bookmark'+fevVo.cateNo+'" name="bookmark" value="'+fevVo.cateNo+'">';
-    str += '		<label for="bookmark'+fevVo.cateNo+'">'+fevVo.cateName+'</label>';
-    str += '	</div>';
-    str += '</li>';	
-    
-    $("#fevList").append(str);
-}
+
 
 /********************************************************지도********************************************************/
 function map() {

@@ -3,4 +3,11 @@
 
 <mapper namespace="favcourse">
 
+	<!-- 즐겨찾기 추가 -->
+	<insert id="insert" parameterType="favCoVo">
+		<![CDATA[
+			insert into favorite_course
+			values(#{courseNo}, #{cateNo}, sysdate)
+		]]>
+	</insert>
 </mapper>

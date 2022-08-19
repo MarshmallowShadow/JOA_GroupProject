@@ -28,14 +28,15 @@ public class ApiFavoriteController {
 		return favService.getFavCate(userNo);
 	}
 	
+	
 	//즐겨찾기 추가
 	@ResponseBody
 	@RequestMapping(value = "/addFav", method = {RequestMethod.GET, RequestMethod.POST})
-	public String addFav(@RequestParam(value = "courseNo", required = false) int courseNo,
-						@RequestParam(value = "bmkList", required = false) List<Integer> bmkList) {
+	public String addFav(@RequestParam(value = "courseNo") int courseNo,
+						@RequestParam(value = "bmkList[]") List<Integer> bmkList) {
 		System.out.println("ApiFavoriteController->addFav");
 		System.out.println(courseNo);
 		System.out.println(bmkList);
-		return "";
+		return favService.addFav(courseNo, bmkList);
 	}
 }
