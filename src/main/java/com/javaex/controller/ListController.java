@@ -30,6 +30,10 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	/***************** 페이징  ****************/
+	
+	/***************** 수정  ****************/
+	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String delete (@PathVariable("no") int no) {
@@ -47,7 +51,6 @@ public class ListController {
 		System.out.println("ListController > read");
 		
 		//listService.hitUpdate(no);
-		
 		//ListVo lVo = listService.getList(no);
 		
 		Map<String, Object> rMap = listService.getList(no);
