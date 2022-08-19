@@ -31,6 +31,11 @@ public class ListController {
 	
 	//메소드 일반
 	
+	/***************** 댓글  ****************/
+	
+	
+	
+	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String delete (@PathVariable("no") int no) {
