@@ -151,21 +151,25 @@ $("#search-form").on("submit", function(){
 		kMap["keyword"] = "%" + keyword + "%";
 		
 		showList(kMap);
+		
 	} else {
 		//카카오로 좌표 가져오기
 		var ps = new kakao.maps.services.Places();
 		ps.keywordSearch(keyword, function(result, status){
+			//지역별 검색
 			var x1 = 0;
 			var x2 = 0;
 			var y1 = 0;
 			var y2 = 0;
 			
 			if (status === kakao.maps.services.Status.OK) {
-				x1 = result[0].x - 0.05;
-				y1 = result[0].y - 0.03;
-				x2 = result[0].x + 0.05;
-				y2 = result[0].y + 0.03;
+				//결과 있으면 기본값 설정
+				x1 = parseInt(result[0].x) - 0.05;
+				y1 = parseInt(result[0].y) - 0.03;
+				x2 = parseInt(result[0].x) + 0.05;
+				y2 = parseInt(result[0].y) + 0.03;
 				
+				//최대 최소값 조절하기
 				for(var i=1; i<result.length; i++){
 					if(result[i].x < x1){
 						x1 = result[i].x;
@@ -179,15 +183,18 @@ $("#search-form").on("submit", function(){
 					if(result[i].y > y2) {
 						y2 = result[i].y;
 					}
+					
+					//console.log(result[i].x);
+					//console.log(result[i].y);
 				}
-				
-				kMap["x1"] = x1;
-		    	kMap["x2"] = x1;
-				kMap["y1"] = y1;
-				kMap["y2"] = y2;
-				
-				showList(kMap);
         	}
+        	
+        	kMap["x1"] = x1;
+		    kMap["x2"] = x2;
+			kMap["y1"] = y1;
+			kMap["y2"] = y2;
+			
+        	showList(kMap);	
 		});
 	}
 	
@@ -227,6 +234,7 @@ var showList = function(kMap) {
 	
 	$.ajax({
 		url : contextPath + "/api/map/getList",
+		async: false,
 		type : "post",
 		contentType : "application/json",
 		data : JSON.stringify(kMap),
