@@ -57,7 +57,7 @@ public class MapService {
 					case("easy"):
 						cList.get(i).put("DIFFICULTY", "쉬움");
 						break;
-					case("medium"):
+					case("normal"):
 						cList.get(i).put("DIFFICULTY", "보통");
 						break;
 					case("hard"):
