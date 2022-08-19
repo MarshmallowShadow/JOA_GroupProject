@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -37,9 +38,10 @@ public class ListController {
 		
 		//listService.hitUpdate(no);
 		
-		ListVo lVo = listService.getList(no);
+		//ListVo lVo = listService.getList(no);
 		
-		model.addAttribute("lVo",lVo);
+		Map<String, Object> rMap = listService.getList(no);
+		model.addAttribute("rMap",rMap);
 		
 		return "list/read";
 	}
