@@ -116,7 +116,11 @@ h1 {
 .mark {background-color: #fff;}
 .content {
 	font-size : 13pt;
-	padding: 20px 90px 20px 100px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-left: 27px;
+	display: flex; /* 가운데 정렬 */
+	justify-content: center; /* 가운데 정렬 */
 }
 .content_course {
 	font-size : 13pt;

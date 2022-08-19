@@ -54,10 +54,11 @@
 	<!-- 지역별 검색 -->
 	<select id="locationList" parameterType="map" resultType="map">
 	<![CDATA[
-		select	c.course_no, title, distance, course_time, course_category, difficulty,
+		select	c.course_no, c.title, c.distance, c.course_time, c.course_category, c.difficulty,
 				id,
+                file_path,
 				x1, x2, y1, y2, max_order_no, min_order_no
-		from course c, users u, 
+		from users u,
 				(select x1, x2, y1, y2, max_order_no, min_order_no, omax.course_no
                 from(select x x2, y y2, p.course_no, p.order_no max_order_no 
                      from(select max(order_no) order_no, course_no from point p group by course_no) max,
@@ -65,23 +66,29 @@
                     (select x x1, y y1, p.course_no, p.order_no min_order_no 
                      from(select min(order_no) order_no, course_no from point p group by course_no) min,
                      point p where min.course_no = p.course_no and min.order_no = p.order_no) omin
-                where omax.course_no = omin.course_no) p
+                where omax.course_no = omin.course_no) p, course c
+        left outer join (select file_path, course_no
+                from record_img i, (select min(record_no) record_no, course_no from record group by course_no) j
+                where j.record_no = i.record_no
+                and order_no = 0) i
+        on i.course_no = c.course_no
 		where c.user_no = u.user_no
 		and c.course_no = p.course_no
-		and x1 > #{x} - 0.2
-		and x1 < #{x} + 0.2
-		and y1 > #{y} - 0.1
-		and y1 < #{y} + 0.1
+		and x1 >= #{x1}
+		and x1 <= #{x2}
+		and y1 >= #{y1}
+		and y1 <= #{y2}
 	]]>
 	</select>
 	
 	<!-- 키워드별 검색 -->
 	<select id="titleList" parameterType="map" resultType="map">
 	<![CDATA[
-		select	c.course_no, title, distance, course_time, course_category, difficulty,
+		select	c.course_no, c.title, c.distance, c.course_time, c.course_category, c.difficulty,
 				id,
+                file_path,
 				x1, x2, y1, y2, max_order_no, min_order_no
-		from course c, users u, 
+		from users u,
 				(select x1, x2, y1, y2, max_order_no, min_order_no, omax.course_no
                 from(select x x2, y y2, p.course_no, p.order_no max_order_no 
                      from(select max(order_no) order_no, course_no from point p group by course_no) max,
@@ -89,10 +96,15 @@
                     (select x x1, y y1, p.course_no, p.order_no min_order_no 
                      from(select min(order_no) order_no, course_no from point p group by course_no) min,
                      point p where min.course_no = p.course_no and min.order_no = p.order_no) omin
-                where omax.course_no = omin.course_no) p
+                where omax.course_no = omin.course_no) p, course c
+        left outer join (select file_path, course_no
+                from record_img i, (select min(record_no) record_no, course_no from record group by course_no) j
+                where j.record_no = i.record_no
+                and order_no = 0) i
+        on i.course_no = c.course_no
 		where c.user_no = u.user_no
 		and c.course_no = p.course_no
-		and keyword like '%#{keyword}%'
+		and c.title like #{keyword}
 	]]>
 	</select>
 	

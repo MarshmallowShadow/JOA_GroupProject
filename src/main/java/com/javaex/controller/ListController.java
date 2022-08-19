@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.ListService;
 import com.javaex.vo.ListVo;
@@ -30,9 +31,7 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
-	/***************** 페이징  ****************/
 	
-	/***************** 수정  ****************/
 	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
@@ -72,7 +71,7 @@ public class ListController {
 		listVo.setUserNo(authUser.getUserNo());
 		System.out.println(authUser.getUserNo());
 		
-		return "redirect:/list/list";
+		return "redirect:/list/list"; 
 	}
 	
 	//글쓰기폼
@@ -83,9 +82,9 @@ public class ListController {
 		return "list/listWrite";
 	}
 	
-	//메인(리스트)
+	//메인(리스트) + 페이징/검색
 	@RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
-	public String list (String keyword, Model model) {
+	public String list (String keyword, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
 		System.out.println("ListController > list");
 		
 		//검색
@@ -95,11 +94,15 @@ public class ListController {
 		keyword = "%" + keyword + "%";
 		
 		// lList 데이터 가져오기
-		List<ListVo> lList = listService.getlist(keyword);
+		Map<String, Object> pMap = listService.getListPage(crtPage);
 		//System.out.println(lList); 
 		
 		//데이터 가져오기 
-		model.addAttribute("lList", lList);
+		model.addAttribute("lList", pMap.get("lList"));
+		model.addAttribute("next", pMap.get("next"));
+		model.addAttribute("prev", pMap.get("prev"));
+		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
+		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
 		
 		return "list/list";
 	}

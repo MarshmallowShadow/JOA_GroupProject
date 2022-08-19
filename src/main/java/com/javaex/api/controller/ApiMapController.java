@@ -25,6 +25,8 @@ public class ApiMapController {
 	public List<Map<String, Object>> getList(@RequestBody Map<String, Object> kMap) {
 		System.out.println("ApiMapController>getList");
 		
+		//System.out.println(kMap);
+		
 		List<Map<String, Object>> cList = mService.getList(kMap);
 		
 		return cList;

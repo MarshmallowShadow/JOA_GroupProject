@@ -28,17 +28,17 @@
 		<table>
 			<thead>
 				<tr>
-					<th colspan="3" id="board_title">${lVo.TITLE}</th>
+					<th colspan="3" id="board_title">${rMap.TITLE}</th>
 				</tr>
 				<tr id="top">
-					<th id="id">${lVo.ID}</th>
-					<th id="date">${lVo.REGDATE}</th>
-					<th id="up">${lVo.VIEWCOUNT}</th>
+					<th id="id">${rMap.ID}</th>
+					<th id="date">${rMap.REGDATE}</th>
+					<th id="up">${rMap.VIEWCOUNT}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="3" id="content">${lVo.CONTENT}</td>
+					<td colspan="3" id="content">${rMap.CONTENT}</td>
 				</tr>
 			</tbody>
 		</table>
