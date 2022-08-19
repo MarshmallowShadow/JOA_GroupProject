@@ -34,7 +34,7 @@ public class TogetherService {
 		//////////////////////////////////////////////
 		
 		//페이지당 글 갯수
-		int listCnt = 10;
+		int listCnt = 15;
 		
 		//현재 페이지
 		//             조건문       true일 때 : false일 때
