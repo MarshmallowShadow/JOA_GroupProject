@@ -69,6 +69,7 @@
 						<!-- 지도 -->
 						<tr>
 							<td>
+								<p class="map-guide">지도를 마우스로 클릭하면 선 그리기가 시작되고, 오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다</p>
 								<!-- 지도 -->
 								<div id="map"></div>
 							</td>
@@ -96,7 +97,7 @@
 								<!-- 코스 이름 -->
 								<tr>
 									<th>코스 이름</th>
-									<td><input type="text" class="txt-long"  name="courseName"></td>
+									<td><input type="text" class="txt-long" id="course-title" name="title" maxlength="11"></td>
 								</tr>
 								
 								
@@ -104,22 +105,22 @@
 								<tr>
 									<th>종목</th>
 									<td>
-										<input type="radio" name="events" id="walk" checked>
+										<input type="radio" name="courseCate" id="walk" value="walk" checked>
 										<label for="walk">산책</label>
 										
-										<input type="radio" name="events" id="jogging">
+										<input type="radio" name="courseCate" id="jogging" value="jogging">
 										<label for="jogging">조깅</label>
 										
-										<input type="radio" name="events" id="running">
+										<input type="radio" name="courseCate" id="running" value="running">
 										<label for="running">러닝</label>
 										
-										<input type="radio" name="events" id="marathon">
+										<input type="radio" name="courseCate" id="marathon" value="marathon">
 										<label for="marathon">마라톤</label>
 										
-										<input type="radio" name="events" id="bicycle">
+										<input type="radio" name="courseCate" id="bicycle" value="bicycle">
 										<label for="bicycle">자전거</label>
 										
-										<input type="radio" name="events" id="draw">
+										<input type="radio" name="courseCate" id="draw" value="draw">
 										<label for="draw">그림</label>
 										
 									</td>
@@ -131,13 +132,8 @@
 									<th>거리</th>
 									<td>
 										<div>
-											<input type="text" class="txt-short">
-			
-											<input type="radio" name="distance" id="km" checked>
-											<label for="km">km</label>
-											
-											<input type="radio" name="distance" id="m">
-											<label for="m">m</label>
+											<input type="number" class="txt-short" id="distance" name="distance" value="" readonly>
+											<p>km</p>
 												
 										</div>
 									</td>
@@ -148,9 +144,9 @@
 								<tr>
 									<th>예상 시간</th>
 									<td>
-										<input type="text" class="txt-short">
+										<input type="number" class="txt-short" name="hour" id="hour" value="0" min="0" max="24">
 										<p>시간</p>
-										<input type="text" class="txt-short">
+										<input type="number" class="txt-short" name="minute" id="minute" value="0" min="0" max="59">
 										<p>분</p>
 									</td>
 								</tr>
@@ -159,13 +155,13 @@
 								<tr>
 									<th>예상 난이도</th>
 									<td>
-										<input type="radio" name="level" id="easy" checked>
+										<input type="radio" name="difficulty" id="easy" value="easy" checked>
 										<label for="easy">쉬움</label>
 										
-										<input type="radio" name="level" id="nomal">
-										<label for="nomal">보통</label>
+										<input type="radio" name="difficulty" id="normal" value="normal">
+										<label for="normal">보통</label>
 										
-										<input type="radio" name="level" id="hard">
+										<input type="radio" name="difficulty" id="hard" value="hard">
 										<label for="hard">어려움</label>
 									</td>
 								</tr>
@@ -174,10 +170,10 @@
 								<tr>
 									<th>코스 공개여부</th>
 									<td>
-										<input type="radio" name="open-status" id="open" checked>
+										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
 										
-										<input type="radio" name="open-status" id="close">
+										<input type="radio" name="openStatus" id="close" value="close">
 										<label for="close">비공개</label>
 									</td>
 								</tr>
