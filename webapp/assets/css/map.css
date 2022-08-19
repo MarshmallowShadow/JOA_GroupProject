@@ -232,7 +232,12 @@
 	border-bottom: 1px solid rgb(174, 174, 174);
 }
 
+#content #result-list li .selected {
+	background-color: rgb(217, 217, 217);
+}
+
 #content #map-info {
 	float: left;
 	width: calc(100% - 400px);
 }
+

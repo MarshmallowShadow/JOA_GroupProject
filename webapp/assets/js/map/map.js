@@ -9,6 +9,9 @@ var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
 //마커 배열
 var markerList = [];
 
+//선택 마커
+var selectedMarker = null;
+
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
 	
@@ -261,8 +264,11 @@ var showList = function(kMap) {
 					//리스트 생성
 					render(result[i]);
 					
+					//마커 생성
+					var marker = addPoint(result[i].X1, result[i].Y1, result[i].COURSE_NO);
+					
 					//지도에 마커 추가
-					markerList.push(addPoint(result[i].X1, result[i].Y1));
+					markerList.push(marker);
 					
 					//범위 넓이기
 					bounds.extend(new kakao.maps.LatLng(result[i].Y1, result[i].X1));
@@ -302,7 +308,7 @@ var render = function(cMap) {
 	
 	var item = "";
 	item += '<li>';
-	item += '<div class="course-container" onclick="window.open(\'' + contextPath + '/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
+	item += '<div id="c' + cMap.COURSE_NO + '" class="course-container" onclick="window.open(\'' + contextPath + '/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
 	item += '	<div class="course-icon">';
 	item += '		<img src="' + imgPath + '">';
 	item += '	</div>';
@@ -324,13 +330,37 @@ var render = function(cMap) {
 }
 
 
-var addPoint = function(x, y){
+var addPoint = function(x, y, courseNo){
 	var coords = new kakao.maps.LatLng(y, x);
 	var marker = new kakao.maps.Marker({
             map: map,
             position: coords,
-            image: blueMarker
+            image: blueMarker,
+            clickable: true
     });
+    
+    kakao.maps.event.addListener(marker, 'click', function(){
+		if(selectedMarker != marker) {
+			if(selectedMarker != null) {
+				selectedMarker.setImage(blueMarker);
+			}
+			
+			marker.setImage(pinkMarker);
+			$(".course-container").removeClass("selected");
+			$("#c" + courseNo).addClass("selected");
+			
+			$('#result-list').animate({ scrollTop: $('.selected').offset().top }, 'slow');
+			
+			selectedMarker = marker;
+			console.log("clicked blue");
+		} else {
+			marker.setImage(blueMarker);
+			$("#c" + courseNo).removeClass("selected");
+			selectedMarker = null;
+			console.log("clicked pink");
+		}
+	});
     
     return marker;
 }
+
