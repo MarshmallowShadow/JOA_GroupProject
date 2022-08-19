@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,6 +30,20 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	/***************** 페이징  ****************/
+	
+	/***************** 수정  ****************/
+	
+	/***************** 삭제  ****************/
+	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete (@PathVariable("no") int no) {
+		System.out.println("ListController>delete");
+		
+		listService.delete(no);
+		
+		return "redirect:/list/list";
+	}
+	
 	/***************** 상세페이지 읽기  ****************/
 	@RequestMapping(value = "/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read (@PathVariable("no") int no, Model model) {
@@ -36,10 +51,10 @@ public class ListController {
 		System.out.println("ListController > read");
 		
 		//listService.hitUpdate(no);
+		//ListVo lVo = listService.getList(no);
 		
-		ListVo lVo = listService.getList(no);
-		
-		model.addAttribute("lVo",lVo);
+		Map<String, Object> rMap = listService.getList(no);
+		model.addAttribute("rMap",rMap);
 		
 		return "list/read";
 	}

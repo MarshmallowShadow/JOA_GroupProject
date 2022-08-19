@@ -2,6 +2,7 @@
 
 var lat = 33.450701;
 var lon = 126.570667;
+var map;
 
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
@@ -11,12 +12,12 @@ $(document).ready(function(){
 	var mapContainer = document.getElementById('map-info');
 	var mapOption = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
-		level: 3, //지도의 레벨(확대, 축소 정도)
+		level: 6, //지도의 레벨(확대, 축소 정도)
 	};
 	
 	// 이미지 지도 생성
 	//var map = new kakao.maps.StaticMap(mapContainer, mapOption);
-	var map = new kakao.maps.Map(mapContainer, mapOption); //지도에 그릴 선 담을 배열
+	map = new kakao.maps.Map(mapContainer, mapOption); //지도에 그릴 선 담을 배열
 	
 	if (navigator.geolocation) {
 		
@@ -49,8 +50,8 @@ $(window).load(function(){
 	
 	var kMap = {
 		searchCate: "location",
-		x: lat,
-		y: lon
+		x: lon,
+		y: lat
 	}
 	
 	console.log(kMap);
@@ -155,16 +156,30 @@ var showList = function(kMap) {
 		dataType : "json",
 		success : function(result){
 			//컨트롤러 함수 실행 후 코드
+			var center_x = 0;
+			var center_y = 0;
+			
 			if(result.length > 0){
 				$("#result-list").html("<ul></ul>");
 				for(var i=0; i<result.length; i++){
 					render(result[i]);
 					
+					addPoint(result[i].X1, result[i].Y1);
 					
+					center_x += result[i].X1;
+					center_y += result[i].Y1;
 				}
+				
+				center_x /= result.length;
+				center_y /= result.length;
+				
+				var center = new kakao.maps.LatLng(center_y, center_x);
+				
+				map.setCenter(center);
 			} else {
 				$("#result-list").html("");
 			}
+			
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
@@ -174,7 +189,7 @@ var showList = function(kMap) {
 
 var render = function(cMap){
 	
-	var hr = cMap.COURSE_TIME / 60;
+	var hr = Math.floor(cMap.COURSE_TIME / 60);
 	var min = cMap.COURSE_TIME % 60;
 	var time = "";
 	
@@ -186,11 +201,12 @@ var render = function(cMap){
 	}
 	
 	var item = "";
-	item += '<div class="course-container" onclick="window.open(\'${pageContext.request.contextPath }/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
-	item += '	<div class="course-info">';
+	item += '<li>';
+	item += '<div class="course-container" onclick="window.open(\'' + contextPath + '/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
 	item += '	<div class="course-icon">';
-	item += '		<img src="${pageContext.request.contextPath }/assets/image/map/map-icon.jpg">';
+	item += '		<img src="' + contextPath + '/assets/image/map/map-icon.jpg">';
 	item += '	</div>';
+	item += '	<div class="course-info">';
 	item += '		<h3 class="course-title">' + cMap.TITLE + '</h3>';
 	item += '		<p class="p-info">';
 	item += '			작성자:' + cMap.ID + ' <br>';
@@ -201,6 +217,7 @@ var render = function(cMap){
 	item += '		<div class="tag-pink"><p>' + cMap.DIFFICULTY + '</p></div>';
 	item += '	</div>';
 	item += '</div>';
+	item += '</li>';
 	
 	
 	$("#result-list ul").append(item);
@@ -208,5 +225,12 @@ var render = function(cMap){
 
 
 var addPoint = function(x, y){
-	
+	var coords = new kakao.maps.LatLng(y, x);
+	var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+    });
+    
+    
 }
+
