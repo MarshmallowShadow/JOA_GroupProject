@@ -88,14 +88,25 @@
 		<!-- 페이지 -->
 		<div id="page">
 			<ul>
-				<c:if test="${prev}">
-					<li class="li"><a href="#">◀</a></li>
+				<c:if test="${pMap.prev}">
+					<li><a href="${pageContext.request.contextPath}/list/list?crtPage=${pMap.startPageBtnNo-1}">◀</a></li>
 				</c:if>
+				
 				<c:forEach begin="${startPageBtnNo}" end="${endPageBtnNo}" step="1" var="i">
-					<li class="active li"><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}">${i}</a></li>
+					<c:choose>
+						<c:when test="${param.crtPage==i}">
+							<li class="active"><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}">${i}</a></li>
+						</c:when>
+						
+						<c:otherwise>
+							<li><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}">${i}</a></li>
+						</c:otherwise>						
+											
+					</c:choose>				
 				</c:forEach>
-					<c:if test="${next}">
-					<li class="li"><a href="#">▶</a></li>
+				
+				<c:if test="${pMap.next}">
+					<li><a href="${pageContext.request.contextPath}/list/list?crtPage=${pMap.endPageBtnNo+1}">▶</a></li>
 				</c:if>
 			</ul>
 		</div>

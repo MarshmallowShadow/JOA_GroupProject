@@ -3,36 +3,47 @@
 
 <mapper namespace="list">
 
+<!-- 전체글 갯수 -->
+<select id="selectTotalCnt" resultType="int">
+	<![CDATA[
+		select count(*) count
+		from q_list	
+	]]>
+</select>
+	
 
 <!-- 페이지 + 검색 -->
-<select id="getListPage" parameterType="map" resultType="ListVo">
+<select id="getListPage" parameterType="map" resultType="map">
 	<![CDATA[
-		SELECT ort.rn,
-		        ort.q_list_no,
+		SELECT ort.q_list_no,
+		        ort.id,
 		        ort.user_no,
 		        ort.board_category,
 		        ort.title,
 		        ort.content,
 		        ort.reg_date,
 		        ort.view_count
-		FROM (SELECT rownum rn,
-		                ot.q_list_no,
-		                ot.user_no,
-		                ot.board_category,
-		                ot.title,
-		                ot.content,
-		                ot.reg_date,
-		                ot.view_count
-		        FROM (SELECT q_list_no,
-		                        user_no,
-		                        board_category,
-		                        title,
-		                        content,
-		                        reg_date,
-		                        view_count
-		                FROM q_list
-		                ORDER BY reg_date)ot
-		                )ort
+		FROM(SELECT rownum rn,
+			        ot.id,
+			        ot.q_list_no,
+			        ot.user_no,
+			        ot.board_category,
+			        ot.title,
+			        ot.content,
+			        ot.reg_date,
+			        ot.view_count
+			FROM (SELECT u.id ,
+		                q.q_list_no,
+		                q.user_no,
+		                q.board_category,
+		                q.title,
+		                q.content,
+		                q.reg_date,
+		                q.view_count
+			        FROM q_list q, users u
+			        where u.user_no = q.user_no
+			        ORDER BY reg_date)ot
+			        )ort
          where rn>=#{startRnum}
          and rn<=#{endRnum}
 	]]>

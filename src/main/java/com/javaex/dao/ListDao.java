@@ -31,7 +31,7 @@ public class ListDao {
 		System.out.println(map);
 		
 		List<ListVo> lList = sqlSession.selectList("list.getListPage", map);
-		System.out.println("lList");
+		System.out.println(lList);
 		
 		return lList;
 	}

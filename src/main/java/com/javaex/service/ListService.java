@@ -37,13 +37,13 @@ public class ListService {
 		
 		// 현재 페이지(crtPage) -> 페이지가 -1 페이지 될 수 없음 (즉 0보다 작으면 무조건 1페이지로 돌아가라~)
 		// 아래와 같은 코드 => if(crtPage>0) { }else{crtPage=1;}
-		crtPage = (crtPage > 0) ? crtPage : (crtPage = 1);
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
 		
 		// 시작글 번호 ->(listCnt)에 따라 startRnum가 변함
-		int startRnum = (crtPage - 1) * listCnt + 1;
+		int startRnum = (crtPage-1)*listCnt + 1;
 		
 		// 마지막글 번호
-		int endRnum = (startRnum + listCnt) - 1;		
+		int endRnum = (startRnum+listCnt) - 1;		
 		
 		// page 찍어보기
 		System.out.println(listCnt);
@@ -62,18 +62,18 @@ public class ListService {
 		int pageBtnCount = 5;
 		
 		// 마지막 버튼 번호
-		int endPageBtnNo = (int) Math.ceil(crtPage / (double) pageBtnCount) * pageBtnCount;
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
 
 		// 마지막 버튼 번호
-		int startPageBtnNo = (endPageBtnNo - pageBtnCount) + 1;
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount) + 1;
 		
 		// 다음 화살표 유무
 		boolean next = false;
-		if ((listCnt * endPageBtnNo) < totalCnt) {
+		if ((listCnt*endPageBtnNo) < totalCnt) {
 			next = true;
 
 		} else {
-			endPageBtnNo = (int) Math.ceil(totalCnt / (double) listCnt);
+			endPageBtnNo = (int)Math.ceil(totalCnt/(double)listCnt);
 		}
 
 		// 이전 화살표 유무
@@ -86,7 +86,7 @@ public class ListService {
 		
 		// 리스트 페이징 정보 묶기
 		Map<String, Object> pMap = new HashMap<String, Object>();
-		pMap.put("listList", lList);
+		pMap.put("lList", lList);
 		pMap.put("prev", prev);
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);

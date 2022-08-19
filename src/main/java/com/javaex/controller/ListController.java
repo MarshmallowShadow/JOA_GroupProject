@@ -32,21 +32,6 @@ public class ListController {
 	
 	//메소드 일반
 	
-	/***************** 페이징 (페이징 + 검색) ****************/
-	@RequestMapping(value = "/page", method = {RequestMethod.GET, RequestMethod.POST})
-	public String page(Model model,
-			@RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-			//required = false 오류 발생을 줄여주는 역할, defaultValue는 crtPage(현재페이지)라는 정보가 없을 경우 1페이지로 가라는 의미
-			
-		System.out.println("ListController>page");
-		
-		Map<String, Object> pMap = listService.getListPage(crtPage);
-		model.addAttribute("pMap", pMap);
-		
-		System.out.println(pMap);
-
-		return "list/list";
-	}
 	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
@@ -97,9 +82,9 @@ public class ListController {
 		return "list/listWrite";
 	}
 	
-	//메인(리스트)
+	//메인(리스트) + 페이징/검색
 	@RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
-	public String list (String keyword, Model model) {
+	public String list (String keyword, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
 		System.out.println("ListController > list");
 		
 		//검색
@@ -109,11 +94,15 @@ public class ListController {
 		keyword = "%" + keyword + "%";
 		
 		// lList 데이터 가져오기
-		List<ListVo> lList = listService.getlist(keyword);
+		Map<String, Object> pMap = listService.getListPage(crtPage);
 		//System.out.println(lList); 
 		
 		//데이터 가져오기 
-		model.addAttribute("lList", lList);
+		model.addAttribute("lList", pMap.get("lList"));
+		model.addAttribute("next", pMap.get("next"));
+		model.addAttribute("prev", pMap.get("prev"));
+		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
+		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
 		
 		return "list/list";
 	}
