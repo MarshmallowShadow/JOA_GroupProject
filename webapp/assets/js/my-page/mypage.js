@@ -536,12 +536,38 @@ $(window).ready(function(){
 	/*카테고리 이름 수정하기 - 보류*/
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
-		var cateNo = $(".bookmark-menuList").val();
+		console.log("this", this);
+		var $this = $(this); // a[name=btnUrl] 을 this로 가져온다
+		var cateNo = $this.data("cateno");
 		console.log(cateNo);
+		
+		
+		$.ajax({
+			url : contextPath + "/api/my-page/edit-category-list", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(cateNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(categoryList){
+				//컨트롤러 함수 실행 후 코드
+				console.log(categoryList);
+				//화면에 data + html로 띄운다(그린다).
+				//리스트니까 for문으로 그리기!
+				$("#cateName-modal input").remove();
+				for(var i=0; i<categoryList.length; i++){
+					cateEditRender(categoryList[i], "down");	//vo --> 화면에 그린다.
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		var cateName = $("#input-cateName-edit").val();
+		var cateNo = $("#input-cateName-edit").data("cateNo");
+        console.log(cateName, cateNo);
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
-		
-		
 	});
 	
 	//모달창의 변경버튼 클릭할때
