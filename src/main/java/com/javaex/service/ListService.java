@@ -22,6 +22,7 @@ public class ListService {
 	//메소드
 	
 	//메소드 일반
+	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
 	public Map<String, Object> getListPage(int crtPage) {
@@ -32,7 +33,7 @@ public class ListService {
 		//////////////////////////////////////////////
 
 		// 페이지당 글 개수(총 10페이지 기준)		
-		int listCnt = 10;
+		int listCnt = 5;
 		
 		// 현재 페이지(crtPage) -> 페이지가 -1 페이지 될 수 없음 (즉 0보다 작으면 무조건 1페이지로 돌아가라~)
 		// 아래와 같은 코드 => if(crtPage>0) { }else{crtPage=1;}
@@ -44,10 +45,54 @@ public class ListService {
 		// 마지막글 번호
 		int endRnum = (startRnum + listCnt) - 1;		
 		
+		// page 찍어보기
 		System.out.println(listCnt);
+	
+		List<ListVo> lList = listDao.getListPage(startRnum, endRnum);
 		
-		return null;
-		//return pMap;
+		
+		//////////////////////////////////////////////
+		// 페이징 계산
+		//////////////////////////////////////////////
+		
+		// 전체 글개수
+		int totalCnt = listDao.selectTotalCnt();
+		
+		// 페이지당 버튼 갯수
+		int pageBtnCount = 5;
+		
+		// 마지막 버튼 번호
+		int endPageBtnNo = (int) Math.ceil(crtPage / (double) pageBtnCount) * pageBtnCount;
+
+		// 마지막 버튼 번호
+		int startPageBtnNo = (endPageBtnNo - pageBtnCount) + 1;
+		
+		// 다음 화살표 유무
+		boolean next = false;
+		if ((listCnt * endPageBtnNo) < totalCnt) {
+			next = true;
+
+		} else {
+			endPageBtnNo = (int) Math.ceil(totalCnt / (double) listCnt);
+		}
+
+		// 이전 화살표 유무
+		boolean prev = false;
+		if (startPageBtnNo != 1) {
+			prev = true;
+		}
+
+		
+		
+		// 리스트 페이징 정보 묶기
+		Map<String, Object> pMap = new HashMap<String, Object>();
+		pMap.put("listList", lList);
+		pMap.put("prev", prev);
+		pMap.put("startPageBtnNo", startPageBtnNo);
+		pMap.put("endPageBtnNo", endPageBtnNo);
+		pMap.put("next", next);
+
+		return pMap;
 	}
 	
 	//삭제
