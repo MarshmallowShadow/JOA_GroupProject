@@ -3,6 +3,21 @@
 
 <mapper namespace="favcourse">
 
+	<!-- 즐겨찾기 리스트 가져오기 -->
+	<select id="getFavCate" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			select ca.cate_no cateNo
+					, cate_name cateName
+					, nvl(course_no, 0) courseNo
+			from favorite_category ca, (select * 
+										from favorite_course 
+										where course_no = #{courseNo}) co
+			where ca.cate_no = co.cate_no(+)
+			and user_no = #{userNo}
+			order by ca.cate_no
+		]]>
+	</select>
+
 	<!-- 즐겨찾기 추가 -->
 	<insert id="insert" parameterType="favCoVo">
 		<![CDATA[
