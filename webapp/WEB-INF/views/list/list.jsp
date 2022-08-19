@@ -34,7 +34,7 @@
 	<!-- 필터링 옵션 항목 -->
 	<div id="top_aside">
 		<form action="${pageContext.request.contextPath}/list/list" method="get">
-			<select id="option" name="listCategory">
+			<select id="option" name="boardCategory">
 				<option value="default"></option>
 				<option value="question">개인</option>
 				<option value="commute">사업</option>
@@ -42,7 +42,7 @@
 			</select>
 	
 			<!-- 검색창과 버튼 -->
-			<input type="text" id="textbox">
+			<input type="text" id="textbox" name="keyword">
 			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
 			</button>
 		</form>

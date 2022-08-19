@@ -25,9 +25,14 @@ public class ListService {
 	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
-	public Map<String, Object> getListPage(int crtPage) {
-		System.out.println("ListService>page");
+	public Map<String, Object> getListPage(int crtPage, String keyword, String boardCategory) {
+		System.out.println("ListService>List/Page/Search");
 		
+		//keyword 검색
+		
+		
+		
+				
 		//////////////////////////////////////////////
 		// 리스트 가져오기
 		//////////////////////////////////////////////
@@ -48,8 +53,7 @@ public class ListService {
 		// page 찍어보기
 		System.out.println(listCnt);
 	
-		List<ListVo> lList = listDao.getListPage(startRnum, endRnum);
-		
+		List<ListVo> lList = listDao.getListPage(startRnum, endRnum, keyword, boardCategory);
 		
 		//////////////////////////////////////////////
 		// 페이징 계산
@@ -82,8 +86,6 @@ public class ListService {
 			prev = true;
 		}
 
-		
-		
 		// 리스트 페이징 정보 묶기
 		Map<String, Object> pMap = new HashMap<String, Object>();
 		pMap.put("lList", lList);
@@ -94,6 +96,8 @@ public class ListService {
 
 		return pMap;
 	}
+	
+	//******************************************************************************************************* //	
 	
 	//삭제
 	public int delete(int no) {
@@ -132,13 +136,5 @@ public class ListService {
 		
 		return count;
 	}
-	
-	//리스트 출력
-	public List<ListVo> getlist(String keyword) {
-		System.out.println("ListService>getlist");
-		
-		List<ListVo> lList = listDao.getList(keyword);
-		
-		return lList;
-	}
+
 }
