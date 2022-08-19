@@ -22,7 +22,16 @@ public class ListService {
 	//메소드
 	
 	//메소드 일반
-
+	
+	//삭제
+	public int delete(int no) {
+		System.out.println("ListService>delete");
+		
+		int count = listDao.delete(no);
+		
+		return count;
+	}
+	
 	//조회수 (hitUpdate)
 	/*public int hitUpdate(int no) {
 		System.out.println("ListService>hitUpdate");

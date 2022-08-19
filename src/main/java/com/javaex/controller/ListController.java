@@ -30,6 +30,16 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	/***************** 삭제  ****************/
+	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete (@PathVariable("no") int no) {
+		System.out.println("ListController>delete");
+		
+		listService.delete(no);
+		
+		return "redirect:/list/list";
+	}
+	
 	/***************** 상세페이지 읽기  ****************/
 	@RequestMapping(value = "/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read (@PathVariable("no") int no, Model model) {

@@ -20,6 +20,15 @@ public class ListDao {
 	
 	//메소드
 	
+	//삭제
+	public int delete(int no) {
+		System.out.println("ListService>delete");
+		
+		int count = sqlSession.delete("list.listDelete",no);
+		
+		return count;
+	}
+	
 	//메소드 일반
 	//조회수 (hitUpdate)
 	/*public int hitUpdate(int no) {
