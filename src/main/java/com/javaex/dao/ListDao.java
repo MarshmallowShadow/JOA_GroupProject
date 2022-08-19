@@ -41,10 +41,9 @@ public class ListDao {
 	
 	
 	//읽기 (한 명 정보 가져오기)
-	public int getList(int no) {
+	public Map<String,Object> getList(int no) {
 		System.out.println("ListDao>read");
 		
-		//ListVo lVo = sqlSession.selectOne("list.getList", no);
 		return sqlSession.selectOne("list.getList", no);
 	}
 	
