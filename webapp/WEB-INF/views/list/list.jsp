@@ -93,7 +93,7 @@
 				<li>2</li>
 				<li>3</li>
 				<li>4</li>
-				<li class="active">5</li>
+				<li class="active"><a href="">5</a></li>
 				<li>6</li>
 				<li>7</li>
 				<li>8</li>
