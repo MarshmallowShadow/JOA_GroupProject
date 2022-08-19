@@ -22,25 +22,31 @@ public class ListDao {
 	//메소드
 	
 	//페이징 (페이징 + 검색) 
-	public List<ListVo> getListPage(int startRnum, int endRnum){
-		System.out.println("ListDao>page");
+	public List<ListVo> getListPage(int startRnum, int endRnum, String keyword, String boardCategory){
+		System.out.println("ListDao>List/Page/Search");
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
-		System.out.println(map);
+		map.put("keyword", keyword);
+		map.put("boardCategory", boardCategory);
+		//System.out.println(map);
 		
 		List<ListVo> lList = sqlSession.selectList("list.getListPage", map);
-		System.out.println(lList);
+		//System.out.println(lList);
 		
 		return lList;
 	}
 	
 	// 전체글 갯수
-	public int selectTotalCnt() {
+	public int selectTotalCnt(String keyword, String boardCategory) {
 		System.out.println("ListDao>selectTotalCnt");
 		
-		int totalCnt = sqlSession.selectOne("list.selectTotalCnt");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("keyword", keyword);
+		map.put("boardCategory", boardCategory);
+		
+		int totalCnt = sqlSession.selectOne("list.selectTotalCnt", map);
 		
 		return totalCnt;
 		
@@ -83,15 +89,5 @@ public class ListDao {
 		int count = sqlSession.insert("list.listWrite", listVo);
 		
 		return count;
-	}
-	
-	
-	//리스트 출력
-	public List<ListVo> getList(String keyword) {
-		System.out.println("ListDao>getlist");
-		
-		List<ListVo> lList = sqlSession.selectList("list.selectList",keyword);
-		//System.out.println(lList);
-		return lList;
 	}
 }

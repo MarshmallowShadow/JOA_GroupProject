@@ -25,9 +25,14 @@ public class ListService {
 	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
-	public Map<String, Object> getListPage(int crtPage) {
-		System.out.println("ListService>page");
+	public Map<String, Object> getListPage(int crtPage, String keyword, String boardCategory) {
+		System.out.println("ListService>List/Page/Search");
 		
+		//keyword 검색
+		
+		
+		
+				
 		//////////////////////////////////////////////
 		// 리스트 가져오기
 		//////////////////////////////////////////////
@@ -48,7 +53,7 @@ public class ListService {
 		// page 찍어보기
 		System.out.println(listCnt);
 	
-		List<ListVo> lList = listDao.getListPage(startRnum, endRnum);
+		List<ListVo> lList = listDao.getListPage(startRnum, endRnum, keyword, boardCategory);
 		
 		
 		//////////////////////////////////////////////
@@ -56,7 +61,7 @@ public class ListService {
 		//////////////////////////////////////////////
 		
 		// 전체 글개수
-		int totalCnt = listDao.selectTotalCnt();
+		int totalCnt = listDao.selectTotalCnt(keyword, boardCategory);
 		
 		// 페이지당 버튼 갯수
 		int pageBtnCount = 5;
@@ -81,9 +86,13 @@ public class ListService {
 		if (startPageBtnNo != 1) {
 			prev = true;
 		}
+		
+		Map<String, String> cateMap = new HashMap<>();
+		cateMap.put("question", "개인");
+		cateMap.put("commute", "사업");
+		cateMap.put("service", "서비스");
+		
 
-		
-		
 		// 리스트 페이징 정보 묶기
 		Map<String, Object> pMap = new HashMap<String, Object>();
 		pMap.put("lList", lList);
@@ -91,9 +100,12 @@ public class ListService {
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("next", next);
+		pMap.put("cateMap", cateMap);
 
 		return pMap;
 	}
+	
+	//******************************************************************************************************* //	
 	
 	//삭제
 	public int delete(int no) {
@@ -132,13 +144,5 @@ public class ListService {
 		
 		return count;
 	}
-	
-	//리스트 출력
-	public List<ListVo> getlist(String keyword) {
-		System.out.println("ListService>getlist");
-		
-		List<ListVo> lList = listDao.getList(keyword);
-		
-		return lList;
-	}
+
 }

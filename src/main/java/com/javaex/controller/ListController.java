@@ -1,6 +1,5 @@
 package com.javaex.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -31,6 +30,10 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
+	
+	/***************** 댓글  ****************/
+	
+	
 	
 	
 	/***************** 삭제  ****************/
@@ -82,19 +85,27 @@ public class ListController {
 		return "list/listWrite";
 	}
 	
-	//메인(리스트) + 페이징/검색
+	//메인(리스트) + 페이징 + 검색
 	@RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
-	public String list (String keyword, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-		System.out.println("ListController > list");
+	public String list (Model model, 
+		@RequestParam(value="keyword", required=false, defaultValue="") String keyword,
+		@RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage,
+		@RequestParam(value="boardCategory", required=false, defaultValue="") String boardCategory) {
+		System.out.println("ListController>List/Page/Search");
 		
-		//검색
+		//keyword 검색
 		if (keyword == null) {
 			keyword = "";
 		}
 		keyword = "%" + keyword + "%";
 		
-		// lList 데이터 가져오기
-		Map<String, Object> pMap = listService.getListPage(crtPage);
+		//boardCategory 검색
+		if (boardCategory == null) {
+			boardCategory = "";
+		}
+		boardCategory = "%" + boardCategory + "%";
+		
+		Map<String, Object> pMap = listService.getListPage(crtPage, keyword, boardCategory);
 		//System.out.println(lList); 
 		
 		//데이터 가져오기 
@@ -103,6 +114,7 @@ public class ListController {
 		model.addAttribute("prev", pMap.get("prev"));
 		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
 		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
+		model.addAttribute("cateMap", pMap.get("cateMap"));
 		
 		return "list/list";
 	}

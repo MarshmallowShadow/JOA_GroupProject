@@ -9,7 +9,7 @@
 
 <!-- css -->
 <link href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath }/assets/css/read.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/assets/css/listRead.css" rel="stylesheet" type="text/css">
 
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>

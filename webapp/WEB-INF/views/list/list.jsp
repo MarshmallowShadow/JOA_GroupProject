@@ -34,15 +34,15 @@
 	<!-- 필터링 옵션 항목 -->
 	<div id="top_aside">
 		<form action="${pageContext.request.contextPath}/list/list" method="get">
-			<select id="option" name="listCategory">
-				<option value="default"></option>
+			<select id="option" name="boardCategory">
+				<option value=""></option>
 				<option value="question">개인</option>
 				<option value="commute">사업</option>
-				<option value="commute">서비스</option>
+				<option value="service">서비스</option>
 			</select>
 	
 			<!-- 검색창과 버튼 -->
-			<input type="text" id="textbox">
+			<input type="text" id="textbox" name="keyword">
 			<button type="submit" id="search"><span class="glyphicon glyphicon-search"></span>
 			</button>
 		</form>
@@ -67,7 +67,7 @@
 				<c:forEach items="${lList}" var="listVo">
 					<tr>
 						<th>${listVo.Q_LIST_NO}</th>
-						<td class="center">${listVo.BOARD_CATEGORY}</td>	<!-- 항목 -->
+						<td class="center">${cateMap[listVo.BOARD_CATEGORY]}</td>	<!-- 항목 -->
 						<td><a href="./read/${listVo.Q_LIST_NO}">${listVo.TITLE}</a></td><!-- 제목 -->
 						<td class="center">${listVo.ID}</td>			<!-- 작성자 -->
 						<td class="center">${listVo.VIEW_COUNT}</td>		<!-- 조회수 -->
@@ -95,11 +95,11 @@
 				<c:forEach begin="${startPageBtnNo}" end="${endPageBtnNo}" step="1" var="i">
 					<c:choose>
 						<c:when test="${param.crtPage==i}">
-							<li class="active"><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}">${i}</a></li>
+							<li class="active"><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}&title=${param.keyword}">${i}</a></li>
 						</c:when>
 						
 						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}">${i}</a></li>
+							<li><a href="${pageContext.request.contextPath}/list/list?crtPage=${i}&title=${param.keyword}&boardCategory=${param.boardCategory}">${i}</a></li>
 						</c:otherwise>						
 											
 					</c:choose>				

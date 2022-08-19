@@ -131,6 +131,7 @@ label {
 
 /********************** 코스 지정 **********************/
 
+.map-guide {margin-bottom: 12px; color: rgb(255, 52, 120);}
 #map {
    width: 100%;
    height: 500px;

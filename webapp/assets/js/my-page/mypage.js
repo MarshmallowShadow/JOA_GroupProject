@@ -28,7 +28,7 @@ function categoryRender(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList" value="'+categoryList.cateNo+'">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark?cateNo='+categoryList.cateNo+'">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
-	str += '	<img id="edit-cate-name" class="editName" data-cateNo="'+categoryList.cateNo+'" value="'+categoryList.cateNo+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
+	str += '	<img id="edit-cate-name" class="editName" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
 	$(".categoryArea").append(str);
@@ -44,7 +44,7 @@ function cateDelRender(categoryList) {
 
 function cateEditRender(categoryList){
 	var str = '';
-	str += '<input id="input-cateName-edit" type="text" value="'+categoryList.cateName+'" data-cateNo="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
+	str += '<input id="input-cateName-edit" type="text" value="" data-catename="'+categoryList.cateName+'" data-cateno="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
 	
 	$("#cateName-modal").append(str);
 }
@@ -563,8 +563,8 @@ $(window).ready(function(){
 				console.error(status + " : " + error);
 			}
 		});
-		var cateName = $("#input-cateName-edit").val();
-		var cateNo = $("#input-cateName-edit").data("cateNo");
+		var cateName = $this.data("catename");
+		var cateNo = $this.data("cateno");
         console.log(cateName, cateNo);
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');

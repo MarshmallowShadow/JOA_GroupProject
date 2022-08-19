@@ -4,15 +4,17 @@
 <mapper namespace="list">
 
 <!-- 전체글 갯수 -->
-<select id="selectTotalCnt" resultType="int">
+<select id="selectTotalCnt" parameterType="map" resultType="int">
 	<![CDATA[
 		select count(*) count
-		from q_list	
+		from q_list
+		where title like #{keyword}
+		and board_category like #{boardCategory}
 	]]>
 </select>
 	
 
-<!-- 페이지 + 검색 -->
+<!-- 리스트 출력 + 페이지 + 검색 -->
 <select id="getListPage" parameterType="map" resultType="map">
 	<![CDATA[
 		SELECT ort.q_list_no,
@@ -42,6 +44,8 @@
 		                q.view_count
 			        FROM q_list q, users u
 			        where u.user_no = q.user_no
+			        and title like #{keyword}
+		 			and board_category like #{boardCategory}
 			        ORDER BY reg_date)ot
 			        )ort
          where rn>=#{startRnum}
@@ -91,21 +95,5 @@
 		insert into q_list
 		values(seq_q_list_no.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 	]]>
-</insert>
-
-
-<!-- 리스트 출력 -->
-<select id="selectList" parameterType="String" resultType="map">
-	<![CDATA[
-		select q.q_list_no, 
-				q.board_category, 
-				u.id,
-				q.title, 
-				q.reg_date, 
-				q.view_count
-		from q_list q, users u
-		where u.user_no = q.user_no
-	]]>
-</select>
- 
+</insert> 
 </mapper>
