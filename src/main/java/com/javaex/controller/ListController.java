@@ -31,10 +31,13 @@ public class ListController {
 	
 	//메소드 일반
 	
-	/***************** 댓글  ****************/
-	
-	
-	
+	/***************** 댓글 기능 ****************/
+	/*@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
+	public String comment() {
+		System.out.println("ListController>comment");
+		
+		return null;
+	}*/
 	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})

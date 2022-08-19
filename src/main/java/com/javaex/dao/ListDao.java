@@ -53,7 +53,6 @@ public class ListDao {
 	}
 	
 	
-	
 	//삭제
 	public int delete(int no) {
 		System.out.println("ListService>delete");
