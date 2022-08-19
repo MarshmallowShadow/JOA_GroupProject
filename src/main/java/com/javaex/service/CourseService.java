@@ -31,8 +31,7 @@ public class CourseService {
 	private UserDao userDao;
 	@Autowired
 	private LikedCourseDao likeDao;
-	@Autowired
-	private FavoriteCategoryDao favCateDao;
+
 	
 	
 	//코스 좌표 가져오기
@@ -179,11 +178,7 @@ public class CourseService {
 		return resultMap;
 	}
 
-	//즐겨찾기 리스트 가져오기
-	public List<FavoriteCategoryVo> getFavCate(int userNo) {
-		System.out.println("CourseService->getFavCate");
-		return favCateDao.getFavCate(userNo);
-	}
+
 
 	
 

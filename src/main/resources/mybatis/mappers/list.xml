@@ -4,6 +4,40 @@
 <mapper namespace="list">
 
 
+<!-- 페이지 + 검색 -->
+<select id="getListPage" parameterType="map" resultType="ListVo">
+	<![CDATA[
+		SELECT ort.rn,
+		        ort.q_list_no,
+		        ort.user_no,
+		        ort.board_category,
+		        ort.title,
+		        ort.content,
+		        ort.reg_date,
+		        ort.view_count
+		FROM (SELECT rownum rn,
+		                ot.q_list_no,
+		                ot.user_no,
+		                ot.board_category,
+		                ot.title,
+		                ot.content,
+		                ot.reg_date,
+		                ot.view_count
+		        FROM (SELECT q_list_no,
+		                        user_no,
+		                        board_category,
+		                        title,
+		                        content,
+		                        reg_date,
+		                        view_count
+		                FROM q_list
+		                ORDER BY reg_date)ot
+		                )ort
+         where rn>=#{startRnum}
+         and rn<=#{endRnum}
+	]]>
+</select>
+
 
 <!-- 삭제 -->
 <delete id="delete">

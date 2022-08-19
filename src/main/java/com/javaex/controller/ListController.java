@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.ListService;
 import com.javaex.vo.ListVo;
@@ -30,9 +31,22 @@ public class ListController {
 	//메소드
 	
 	//메소드 일반
-	/***************** 페이징  ****************/
 	
-	/***************** 수정  ****************/
+	/***************** 페이징 (페이징 + 검색) ****************/
+	@RequestMapping(value = "/page", method = {RequestMethod.GET, RequestMethod.POST})
+	public String page(Model model,
+			@RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+			//required = false 오류 발생을 줄여주는 역할, defaultValue는 crtPage(현재페이지)라는 정보가 없을 경우 1페이지로 가라는 의미
+			
+		System.out.println("ListController>page");
+		
+		Map<String, Object> pMap = listService.getListPage(crtPage);
+		model.addAttribute("pMap", pMap);
+		
+		System.out.println(pMap);
+
+		return "list/list";
+	}
 	
 	/***************** 삭제  ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
@@ -72,7 +86,7 @@ public class ListController {
 		listVo.setUserNo(authUser.getUserNo());
 		System.out.println(authUser.getUserNo());
 		
-		return "redirect:/list/list";
+		return "redirect:/list/list"; 
 	}
 	
 	//글쓰기폼

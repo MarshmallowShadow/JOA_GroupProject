@@ -64,8 +64,8 @@
 			<p>
 				<br>
 				<br>
-				<span>J<marquee width="35px" height="15px" scrolldelay="400" direction="up">oyful</marquee> O<marquee width="45px"
-						height="15px" scrolldelay="400" direction="up">utdoor</marquee> A<marquee width="40px" height="15px" scrolldelay="400" direction="up">ctivity</marquee></span>
+				<span>J<marquee width="45px" height="15px" scrolldelay="400" direction="up">oyful</marquee> O<marquee width="57px"
+						height="15px" scrolldelay="400" direction="up">utdoor</marquee> A<marquee width="49px" height="15px" scrolldelay="400" direction="up">ctivity</marquee></span>
 			</p>
 		</div>
 	</div>

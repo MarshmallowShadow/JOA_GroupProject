@@ -62,7 +62,7 @@ $(document).ready(function() {
 		//즐겨찾기 목록 가져오기
 		$.ajax({
 			//보낼때
-			url : contextPath+"/apiCo/getFavCate",
+			url : contextPath+"/apiFav/getFavCate",
 			type : "post",
 			//contentType : "application/json",
 			data : {authUserNo},
@@ -76,6 +76,9 @@ $(document).ready(function() {
 				for(var i=0; i<favList.length; i++) {
 					render(favList[i]);
 				}
+				
+				//모달창 띄우기
+				$("#bookmark-list").modal("show");
 	
 			},
 			error : function(XHR, status, error) {
@@ -83,22 +86,44 @@ $(document).ready(function() {
 			}
 		});
 		
-		//모달창 띄우기
-		$("#bookmark-list").modal("show");
+		
 	});
 	
 	
 	/*즐겨찾기 추가 버튼 클릭*/
 	$("#bookmark-add").on("click", function() {
 		
+		var courseNo = $("#courseNo").val();
+		
 		var bmkList = new Array();
 		
-		$("input[name=bookmark]:checked").each(function() {
-			var bmk = $(this).val();
-			bmkList.put(bmk);
+		$("input[name='bookmark']:checked").each(function() {
+			var bmk = parseInt($(this).val());
+			bmkList.push(bmk);
 		});
 		
 		console.log(bmkList);
+		
+		//즐겨찾기 목록 가져오기
+		$.ajax({
+				//보낼때
+			url : contextPath+"/apiFav/addFav",
+			type : "post",
+			//contentType : "application/json",
+			data : {bmkList, courseNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(result){
+				//성공시 처리해야될 코드 작성
+				console.log(result);
+				
+	
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
 		
 	});
 	
