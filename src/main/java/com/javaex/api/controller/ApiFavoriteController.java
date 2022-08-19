@@ -23,7 +23,7 @@ public class ApiFavoriteController {
 	@ResponseBody
 	@RequestMapping(value="/getFavCate", method = {RequestMethod.GET, RequestMethod.POST})
 	public List<FavoriteCategoryVo> getFavCate(@RequestParam(value="authUserNo", required = false) int userNo) {
-		System.out.println("ApiCourseController->getFavCate");
+		System.out.println("ApiCourseController->getFavCate"); 
 		System.out.println(userNo);
 		return favService.getFavCate(userNo);
 	}

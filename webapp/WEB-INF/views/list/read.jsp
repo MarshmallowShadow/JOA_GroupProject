@@ -28,22 +28,17 @@
 		<table>
 			<thead>
 				<tr>
-					<th colspan="3" id="board_title">[소통]도림천 다녀오는 길</th>
+					<th colspan="3" id="board_title">${lVo.TITLE}</th>
 				</tr>
 				<tr id="top">
-					<th id="id">신림러</th>
-					<th id="date">2022.07.24</th>
-					<th id="up">조회수: 47</th>
+					<th id="id">${lVo.ID}</th>
+					<th id="date">${lVo.REGDATE}</th>
+					<th id="up">${lVo.VIEWCOUNT}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="3" id="content">
-						오늘 도림천 다녀오면서 저번에 같이 달리기했던 깜이님 만났어요!<br>
-						그래서 같이 마트도 다녀왔어요~~~~~<br>
-						오늘 날씨 너무 덥고 힘들고 심심했는데 무척 재미있었어요!<br>
-						다음에 같이 또 달리는 날이 있으면 좋겠네요!
-					</td>
+					<td colspan="3" id="content">${lVo.CONTENT}</td>
 				</tr>
 			</tbody>
 		</table>

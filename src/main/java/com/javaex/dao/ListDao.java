@@ -1,6 +1,7 @@
 package com.javaex.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +20,32 @@ public class ListDao {
 	
 	//메소드
 	
+	//삭제
+	public int delete(int no) {
+		System.out.println("ListService>delete");
+		
+		int count = sqlSession.delete("list.listDelete",no);
+		
+		return count;
+	}
+	
 	//메소드 일반
+	//조회수 (hitUpdate)
+	/*public int hitUpdate(int no) {
+		System.out.println("ListDao>hitUpdate");
+		
+		int count = sqlSession.update("list.hitUpdate", no);
+		
+		return count;
+	}*/
+	
 	
 	//읽기 (한 명 정보 가져오기)
-	public ListVo getList(int no) {
+	public int getList(int no) {
 		System.out.println("ListDao>read");
 		
-		ListVo lVo = sqlSession.selectOne("list.getList", no);
-		
-		return lVo;
+		//ListVo lVo = sqlSession.selectOne("list.getList", no);
+		return sqlSession.selectOne("list.getList", no);
 	}
 	
 	
@@ -46,7 +64,7 @@ public class ListDao {
 		System.out.println("ListDao>getlist");
 		
 		List<ListVo> lList = sqlSession.selectList("list.selectList",keyword);
-		System.out.println(lList);
+		//System.out.println(lList);
 		return lList;
 	}
 }

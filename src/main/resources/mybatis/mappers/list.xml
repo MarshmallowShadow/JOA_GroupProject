@@ -3,16 +3,37 @@
 
 <mapper namespace="list">
 
+
+
+<!-- 삭제 -->
+<delete id="delete">
+	<![CDATA[
+		delete list
+		where no = #{no}
+	]]>
+</delete>
+
+<!-- //조회수 (hitUpdate) -->
+<!-- <update id="hitUpdate" parameterType="int">
+	<![CDATA[
+		update list
+		set hit = hit+1
+		where no = #{no}
+	]]>
+
+</update>
+ -->
+ 
 <!-- 상세페이지 읽기 -->
-<select id="getList" parameterType="int" resultType="ListVo">
+<select id="getList" parameterType="int" resultType="map">
 	<![CDATA[
 		select u.id,
-		        q.q_list_no,
-		        q.board_category,
+		        q.q_list_no qListNo,
+		        q.board_category boardCategory,
 		        q.title,
 		        q.content,
-		        q.reg_date,
-		        q.view_count
+		        to_char(q.reg_date, 'YYYY-MM-DD'),
+		        q.view_count viewCount
 		from users u, q_list q
 		where u.user_no = q.user_no
 		and q_list_no = #{no}

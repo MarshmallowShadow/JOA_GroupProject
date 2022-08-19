@@ -1,6 +1,8 @@
 package com.javaex.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,18 +22,34 @@ public class ListService {
 	//메소드
 	
 	//메소드 일반
-
-	//조회수 (hitUpdate)
 	
+	//삭제
+	public int delete(int no) {
+		System.out.println("ListService>delete");
+		
+		int count = listDao.delete(no);
+		
+		return count;
+	}
+	
+	//조회수 (hitUpdate)
+	/*public int hitUpdate(int no) {
+		System.out.println("ListService>hitUpdate");
+		
+		int count = listDao.hitUpdate(no);
+		
+		return count;
+	}*/
 	
 	
 	//읽기 (한 명 정보 가져오기)
-	public ListVo getList(int no) {
+	public Map<String, Object> getList(int no) {
 		System.out.println("ListService>read");
 		
-		ListVo lVo = listDao.getList(no);
-		
-		return lVo;
+		Map<String, Object> rmap = new HashMap<String, Object>();
+		//ListVo lVo = listDao.getList(no);
+
+		return rmap;
 	}
 	
 	//글쓰기 등록
