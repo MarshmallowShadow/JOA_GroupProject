@@ -4,10 +4,12 @@
 <mapper namespace="list">
 
 <!-- 전체글 갯수 -->
-<select id="selectTotalCnt" resultType="int">
+<select id="selectTotalCnt" parameterType="map" resultType="int">
 	<![CDATA[
 		select count(*) count
-		from q_list	
+		from q_list
+		where title like #{keyword}
+		and board_category like #{boardCategory}
 	]]>
 </select>
 	
@@ -42,12 +44,12 @@
 		                q.view_count
 			        FROM q_list q, users u
 			        where u.user_no = q.user_no
+			        and title like #{keyword}
+		 			and board_category like #{boardCategory}
 			        ORDER BY reg_date)ot
 			        )ort
          where rn>=#{startRnum}
-         and rn<=#{endRnum}  		
-         and title like #{keyword}
-		 and board_category like #{boardCategory}	
+         and rn<=#{endRnum}
 	]]>
 </select>
 

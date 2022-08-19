@@ -55,12 +55,13 @@ public class ListService {
 	
 		List<ListVo> lList = listDao.getListPage(startRnum, endRnum, keyword, boardCategory);
 		
+		
 		//////////////////////////////////////////////
 		// 페이징 계산
 		//////////////////////////////////////////////
 		
 		// 전체 글개수
-		int totalCnt = listDao.selectTotalCnt();
+		int totalCnt = listDao.selectTotalCnt(keyword, boardCategory);
 		
 		// 페이지당 버튼 갯수
 		int pageBtnCount = 5;
@@ -85,6 +86,12 @@ public class ListService {
 		if (startPageBtnNo != 1) {
 			prev = true;
 		}
+		
+		Map<String, String> cateMap = new HashMap<>();
+		cateMap.put("question", "개인");
+		cateMap.put("commute", "사업");
+		cateMap.put("service", "서비스");
+		
 
 		// 리스트 페이징 정보 묶기
 		Map<String, Object> pMap = new HashMap<String, Object>();
@@ -93,6 +100,7 @@ public class ListService {
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("next", next);
+		pMap.put("cateMap", cateMap);
 
 		return pMap;
 	}

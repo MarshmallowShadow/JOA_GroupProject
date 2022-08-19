@@ -109,6 +109,7 @@ public class ListController {
 		model.addAttribute("prev", pMap.get("prev"));
 		model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
 		model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
+		model.addAttribute("cateMap", pMap.get("cateMap"));
 		
 		return "list/list";
 	}

@@ -39,10 +39,14 @@ public class ListDao {
 	}
 	
 	// 전체글 갯수
-	public int selectTotalCnt() {
+	public int selectTotalCnt(String keyword, String boardCategory) {
 		System.out.println("ListDao>selectTotalCnt");
 		
-		int totalCnt = sqlSession.selectOne("list.selectTotalCnt");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("keyword", keyword);
+		map.put("boardCategory", boardCategory);
+		
+		int totalCnt = sqlSession.selectOne("list.selectTotalCnt", map);
 		
 		return totalCnt;
 		
