@@ -12,6 +12,9 @@ var markerList = [];
 //선택 마커
 var selectedMarker = null;
 
+//인포윈도우
+var overlay = null;
+
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
 	
@@ -265,7 +268,7 @@ var showList = function(kMap) {
 					render(result[i]);
 					
 					//마커 생성
-					var marker = addPoint(result[i].X1, result[i].Y1, result[i].COURSE_NO);
+					var marker = addPoint(result[i].X1, result[i].Y1, result[i].COURSE_NO, result[i].TITLE);
 					
 					//지도에 마커 추가
 					markerList.push(marker);
@@ -346,7 +349,7 @@ var renderEmpty = function(){
 };
 
 
-var addPoint = function(x, y, courseNo){
+var addPoint = function(x, y, courseNo, title){
 	var coords = new kakao.maps.LatLng(y, x);
 	var marker = new kakao.maps.Marker({
             map: map,
@@ -357,7 +360,11 @@ var addPoint = function(x, y, courseNo){
     
     kakao.maps.event.addListener(marker, 'click', function(){
 		if(selectedMarker != marker) {
-			highlight(marker, courseNo);
+			
+			highlight(marker, courseNo, title);
+			
+			//선택된 코스로 이동 (animation needs checking)
+			$('#result-list').animate({ scrollTop: $('.selected').offset().top - ($('#result-list').offset().top - $('#result-list').scrollTop())}, 'slow');
 		} else {
 			highlightOff(marker, courseNo);
 		}
@@ -365,7 +372,10 @@ var addPoint = function(x, y, courseNo){
 	
 	$('#c' + courseNo).on('click', function(){
 		if(selectedMarker != marker) {
-			highlight(marker, courseNo);
+			highlight(marker, courseNo, title);
+			
+			//마커 위치로 이동
+			map.panTo(coords);
 		} else {
 			window.open(contextPath + '/course/view?courseNo=' + courseNo, '_blank');
 		}
@@ -375,29 +385,55 @@ var addPoint = function(x, y, courseNo){
 };
 
 //마커 코스 컨테이너 색 변경
-var highlight = function(marker, courseNo){
+var highlight = function(marker, courseNo, title){
+	//기존 선택된 마커 파랑색으로 바꾸기
 	if(selectedMarker != null) {
 		selectedMarker.setImage(blueMarker);
 	}
+	
+	//열려있는 인포윈도우 닫기
+	if(overlay != null){
+		overlay.setMap(null);
+	}
+	
+	var coords = marker.getPosition();
+	
+	//커스텀 인포윈도우 만들기
+	overlay = new kakao.maps.CustomOverlay({
+	    content: mapInfo(title, courseNo),
+	    map: map,
+	    position: coords,
+	    yAnchor: 1.6
+	});
+	overlay.setMap(map);
 	
 	marker.setImage(pinkMarker);
 	$(".course-container").removeClass("selected");
 	$("#c" + courseNo).addClass("selected");
 	
-	//선택된 코스로 이동 (animation needs checking)
-	$('#result-list').animate({ scrollTop: $('.selected').offset().top - ($('#result-list').offset().top - $('#result-list').scrollTop())}, 'slow');
-	
 	selectedMarker = marker;
-	console.log("clicked blue");
+	//console.log("clicked blue");
 };
 
 var highlightOff = function(marker, courseNo){
+	overlay.setMap(null);
 	marker.setImage(blueMarker);
 	$("#c" + courseNo).removeClass("selected");
 	selectedMarker = null;
-	console.log("clicked pink");
+	//console.log("clicked pink");
 };
 
-
+var mapInfo = function(title, courseNo){
+	var str = '';
+	
+	str += '<div class="overlay-wrap">';
+	str += '	<div class="info-cont">';
+	str += '		<h4>' + title + '</h4>';
+	str += '		<button class="btn-map-course-view" type="button" onclick="window.open(\'' + contextPath + '/course/view?courseNo=' + courseNo + '\', \'_blank\');">코스 상세보기 ></button>';
+	str += '	</div>';
+	str += '</div>';
+	
+	return str;
+};
 
 
