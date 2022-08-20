@@ -142,6 +142,9 @@ $("#btn-title").on("click", function(){
 
 
 $("#search-form").on("submit", function(){
+	//마커 창 초기화
+	resetMap();
+	
 	var searchCate = $("input[name=searchCate]:checked").val();
 	var keyword = $("input[name=keyword]").val();
 	
@@ -386,15 +389,7 @@ var addPoint = function(x, y, courseNo, title){
 
 //마커 코스 컨테이너 색 변경
 var highlight = function(marker, courseNo, title){
-	//기존 선택된 마커 파랑색으로 바꾸기
-	if(selectedMarker != null) {
-		selectedMarker.setImage(blueMarker);
-	}
-	
-	//열려있는 인포윈도우 닫기
-	if(overlay != null){
-		overlay.setMap(null);
-	}
+	resetMap();
 	
 	var coords = marker.getPosition();
 	
@@ -416,11 +411,23 @@ var highlight = function(marker, courseNo, title){
 };
 
 var highlightOff = function(marker, courseNo){
-	overlay.setMap(null);
+	resetMap();
+	
 	marker.setImage(blueMarker);
 	$("#c" + courseNo).removeClass("selected");
-	selectedMarker = null;
 	//console.log("clicked pink");
+};
+
+var resetMap = function(){
+	//기존 선택된 마커 파랑색으로 바꾸기
+	if(selectedMarker != null) {
+		selectedMarker.setImage(blueMarker);
+	}
+	
+	//열려있는 인포윈도우 닫기
+	if(overlay != null){
+		overlay.setMap(null);
+	}
 };
 
 var mapInfo = function(title, courseNo){
