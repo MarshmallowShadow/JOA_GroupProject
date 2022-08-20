@@ -30,12 +30,12 @@
 	                           , b.user_no userNo
 	                  from board b, users u
 	                  where u.user_no = b.user_no
+	                  and title like #{keyword}
+				      and boardCategory like #{boardCategory}
 	                  order by b.board_no desc)ot
 	                  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}
-			and title like #{keyword}
-			and boardCategory like #{boardCategory}
 		]]>
 	</select>
 	
