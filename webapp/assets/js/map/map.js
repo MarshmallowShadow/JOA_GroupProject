@@ -303,7 +303,7 @@ var render = function(cMap) {
 	
 	var imgPath = contextPath + '/assets/image/map/map-icon.jpg';
 	if(cMap.FILE_PATH != undefined) {
-		imgPath = cMap.FILE_PATH;
+		imgPath = contextPath + cMap.FILE_PATH;
 	}
 	
 	var item = "";
