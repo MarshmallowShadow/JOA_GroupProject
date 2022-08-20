@@ -46,7 +46,7 @@ public class MapService {
 						cList.get(i).put("COURSE_CATEGORY", "자전거");
 						break;
 					case("draw"):
-						cList.get(i).put("COURSE_CATEGORY", "그림그리기");
+						cList.get(i).put("COURSE_CATEGORY", "그림");
 						break;
 					default:
 						cList.get(i).put("COURSE_CATEGORY", "기타");

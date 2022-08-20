@@ -277,7 +277,7 @@ var showList = function(kMap) {
 				//범위 재설정
 				map.setBounds(bounds);
 			} else {
-				$("#result-list").html("");
+				renderEmpty();
 			}
 			
 		},
@@ -306,18 +306,23 @@ var render = function(cMap) {
 		imgPath = contextPath + cMap.FILE_PATH;
 	}
 	
+	var id = cMap.ID;
+	if(id.length > 9) {
+		id = id.substring(0,7) + '...';
+	}
+	
 	var item = "";
 	item += '<li>';
-	item += '<div id="c' + cMap.COURSE_NO + '" class="course-container" onclick="window.open(\'' + contextPath + '/course/view?courseNo=' + cMap.COURSE_NO + '\', \'_blank\');">';
+	item += '<div id="c' + cMap.COURSE_NO + '" class="course-container">';
 	item += '	<div class="course-icon">';
 	item += '		<img src="' + imgPath + '">';
 	item += '	</div>';
 	item += '	<div class="course-info">';
 	item += '		<h3 class="course-title">' + cMap.TITLE + '</h3>';
 	item += '		<p class="p-info">';
-	item += '			작성자:' + cMap.ID + ' <br>';
-	item += '			거리: ' + cMap.DISTANCE + 'km' + ' <br>';
-	item += '			시간: ' + time;
+	item += '			작성자 | ' + id + ' <br>';
+	item += '			거리 | ' + cMap.DISTANCE + 'km' + ' <br>';
+	item += '			시간 | ' + time;
 	item += '		</p>';
 	item += '		<div class="tag-blue"><p>' + cMap.COURSE_CATEGORY + '</p></div>';
 	item += '		<div class="tag-pink"><p>' + cMap.DIFFICULTY + '</p></div>';
@@ -327,7 +332,18 @@ var render = function(cMap) {
 	
 	
 	$("#result-list ul").append(item);
-}
+};
+
+var renderEmpty = function(){
+	var str = "";
+	str += '<div id="no-result">';
+	str += '	<h3>코스가 없습니다 ㅠㅠ</h3>';
+	str += '	<p>코스를 새로 등록해보세요!</p>';
+	str += '	<button id="btn-write-form" onclick="">코스 등록하기</button>';
+	str += '</div>';
+	
+	$("#result-list").html(str);
+};
 
 
 var addPoint = function(x, y, courseNo){
@@ -341,26 +357,47 @@ var addPoint = function(x, y, courseNo){
     
     kakao.maps.event.addListener(marker, 'click', function(){
 		if(selectedMarker != marker) {
-			if(selectedMarker != null) {
-				selectedMarker.setImage(blueMarker);
-			}
-			
-			marker.setImage(pinkMarker);
-			$(".course-container").removeClass("selected");
-			$("#c" + courseNo).addClass("selected");
-			
-			$('#result-list').animate({ scrollTop: $('.selected').offset().top }, 'slow');
-			
-			selectedMarker = marker;
-			console.log("clicked blue");
+			highlight(marker, courseNo);
 		} else {
-			marker.setImage(blueMarker);
-			$("#c" + courseNo).removeClass("selected");
-			selectedMarker = null;
-			console.log("clicked pink");
+			highlightOff(marker, courseNo);
+		}
+	});
+	
+	$('#c' + courseNo).on('click', function(){
+		if(selectedMarker != marker) {
+			highlight(marker, courseNo);
+		} else {
+			window.open(contextPath + '/course/view?courseNo=' + courseNo, '_blank');
 		}
 	});
     
     return marker;
-}
+};
+
+//마커 코스 컨테이너 색 변경
+var highlight = function(marker, courseNo){
+	if(selectedMarker != null) {
+		selectedMarker.setImage(blueMarker);
+	}
+	
+	marker.setImage(pinkMarker);
+	$(".course-container").removeClass("selected");
+	$("#c" + courseNo).addClass("selected");
+	
+	//선택된 코스로 이동 (animation needs checking)
+	$('#result-list').animate({ scrollTop: $('.selected').offset().top - ($('#result-list').offset().top - $('#result-list').scrollTop())}, 'slow');
+	
+	selectedMarker = marker;
+	console.log("clicked blue");
+};
+
+var highlightOff = function(marker, courseNo){
+	marker.setImage(blueMarker);
+	$("#c" + courseNo).removeClass("selected");
+	selectedMarker = null;
+	console.log("clicked pink");
+};
+
+
+
 

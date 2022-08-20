@@ -76,7 +76,9 @@
 	</div> <!-- sub-header -->
 	
 	<div id="content">
-		<div id="result-list"></div> <!-- result-list -->
+		<div id="result-list">
+			
+		</div> <!-- result-list -->
 		<div id="map-info"></div> <!-- map-info -->
 	</div><!-- content -->
 </div> <!-- wrap -->

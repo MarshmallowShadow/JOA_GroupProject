@@ -221,19 +221,50 @@
 #content #result-list {
 	width: 400px;
 	border-right: 1px solid rgb(174, 174, 174);
-	overflow: scroll; /* 세로로 스크롤링 가능하게 설정 */
+	overflow-y: scroll; /* 세로로 스크롤링 가능하게 설정 */
 }
 
 #content #result-list::-webkit-scrollbar {
   display: none;
 }
 
-#content #result-list li{
+#content #result-list li .course-container{
+	box-sizing: border-box;
+	border: 2px solid #fff;
 	border-bottom: 1px solid rgb(174, 174, 174);
 }
 
 #content #result-list li .selected {
-	background-color: rgb(230, 230, 230);
+	border: 2px solid rgb(50, 108, 249);
+	color: rgb(50, 108, 249);
+}
+
+#content #result-list #no-result {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#content #result-list #no-result h3 {
+	font-size: 18px;
+	font-weight: 900;
+}
+
+#content #result-list #no-result p {
+	font-size: 12px;
+	margin-bottom: 12px;
+}
+
+#content #result-list #no-result #btn-write-form {
+	border: 1px solid rgb(50, 108, 249);
+	background-color: rgb(50, 108, 249);
+	padding: 10px;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 900;
 }
 
 #content #map-info {
