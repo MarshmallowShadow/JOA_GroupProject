@@ -58,8 +58,8 @@
 		<div id="commentbox">
 			
 		<c:forEach items="${cList}"  var="listCommentVo">
-			<p class="id">${listCommentVo.id}</p>
-			<p class="comment">${listCommentVo.comment}</p>
+			<p class="id">${listCommentVo.ID}</p>
+			<p class="comment">${listCommentVo.CONTENT}</p>
 		</c:forEach>
 		
 			<!-- 수정, 삭제 버튼 -->
