@@ -56,17 +56,19 @@
 	<div>
 		<p id="top_comment">댓글</p>
 		<div id="commentbox">
-		
-			<p class="id">히유</p>
-			<p class="comment">-저도 오늘 나갔다가 놀랐어요~</p>
-			<p class="id">쭌</p>
-			<p id="comment_">-</p><p id="bold">@깜이</p><p class="comment">나도 부르지 그랬어~</p>
-			<p class="id">깜이</p>
-			<p id="comment_btn">-망고 샀어ㅎㅎ</p>
 			
+		<c:forEach items="${cList}"  var="listCommentVo">
+			<p class="id">${listCommentVo.id}</p>
+			<p class="comment">${listCommentVo.comment}</p>
+		</c:forEach>
+		
 			<!-- 수정, 삭제 버튼 -->
-			<textarea id="replybox"></textarea>
-			<button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+			<form method="get" action="${pageContext.request.contextPath}/list/comment">
+				<input type="hidden" name="qListNo" value="${rMap.QLISTNO}">
+				<input type="hidden" name="userNo" value="${authUser.userNo}">
+				<textarea id="replybox" name="content"></textarea>
+				<button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+			</form>
 		</div><!-- commentbox -->
 	</div><!-- 댓글 -->
 

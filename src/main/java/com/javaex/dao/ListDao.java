@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.javaex.vo.ListCommentVo;
 import com.javaex.vo.ListVo;
 
 @Repository
@@ -23,16 +22,7 @@ public class ListDao {
 	//메소드
 	
 	//메소드 일반
-	
-	/***************** 댓글 기능 ****************/
-	//댓글 쓰기
-	public int commentWrite(ListCommentVo listCommentVo) {
-		System.out.println("ListService>commentWrite");
-		
-		int count = sqlSession.insert("list.listcomment",listCommentVo);
-		
-		return count;
-	}
+
 	/**********************************************************************************************************/
 	
 	//페이징 (페이징 + 검색) 

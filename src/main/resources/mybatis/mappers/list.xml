@@ -2,16 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="list">
-<!-- 댓글 쓰기 -->
-
-
-<!-- 댓글 불러오기 -->
-<insert id="listcomment" parameterType="ListCommentVo">
-	<![CDATA[
-		INSERT into q_list_comment
-		VALUES (seq_q_comment_no.nextval, #{qListNo}, #{userNo}, null, #{content}, 0, 0, 0)
-	]]>
-</insert>
 
 <!-- 전체글 갯수 -->
 <select id="selectTotalCnt" parameterType="map" resultType="int">

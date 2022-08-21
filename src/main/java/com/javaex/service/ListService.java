@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javaex.dao.ListCommentDao;
 import com.javaex.dao.ListDao;
 import com.javaex.vo.ListCommentVo;
 import com.javaex.vo.ListVo;
@@ -17,6 +18,9 @@ public class ListService {
 	//필드
 	@Autowired
 	ListDao listDao;
+	
+	@Autowired
+	ListCommentDao listCommentDao;
 	
 	//생성자
 	
@@ -29,7 +33,7 @@ public class ListService {
 	public int commentWrite(ListCommentVo listCommentVo) {
 		System.out.println("ListService>commentWrite");
 		
-		int count = listDao.commentWrite(listCommentVo);
+		int count = listCommentDao.commentWrite(listCommentVo);
 		
 		return count;
 	}
@@ -135,13 +139,21 @@ public class ListService {
 	
 	
 	//읽기 (한 명 정보 가져오기)
-	public Map<String, Object> getList(int no) {
+	public Map<String, Object> read(int no) {
 		System.out.println("ListService>read");
 		
+		//Map + List 묶기
+		Map<String, Object> readMap = new HashMap<>();
+		
 		Map<String, Object> rMap = listDao.getList(no);
+		List<ListCommentVo> cList = listCommentDao.getComment(no);
+		
+		readMap.put("rMap", rMap);
+		readMap.put("cList", cList);
+		
 		//System.out.println(rMap);
 		
-		return rMap;
+		return readMap;
 	}
 	
 	//글쓰기 등록

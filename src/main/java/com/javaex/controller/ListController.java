@@ -40,7 +40,7 @@ public class ListController {
 		
 		listService.commentWrite(listCommentVo);
 		
-		return "redirect:/list/list";
+		return "redirect:/list/read/" + listCommentVo.getqListNo();
 	}
 	
 	/***************** 삭제(@PathVariable) ****************/
@@ -67,8 +67,9 @@ public class ListController {
 		//listService.hitUpdate(no);
 		//ListVo lVo = listService.getList(no);
 		
-		Map<String, Object> rMap = listService.getList(no);
-		model.addAttribute("rMap",rMap);
+		Map<String, Object> readMap = listService.read(no);
+		model.addAttribute("rMap", readMap.get("rMap"));
+		model.addAttribute("cList", readMap.get("cList"));
 		
 		return "list/read";
 	}
