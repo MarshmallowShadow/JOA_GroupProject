@@ -6,6 +6,9 @@ var lat = 33.450701;
 var lon = 126.570667;
 var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
 
+//검색 결과물 배열
+var resultList = [];
+
 //마커 배열
 var markerList = [];
 
@@ -17,6 +20,17 @@ var overlay = null;
 
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
+	
+	$("#chk-walk").prop("checked", false);
+	$("#chk-jogging").prop("checked", false);
+	$("#chk-running").prop("checked", false);
+	$("#chk-marathon").prop("checked", false);
+	$("#chk-bicycle").prop("checked", false);
+	$("#chk-draw").prop("checked", false);
+	
+	$("#chk-easy").prop("checked", false);
+	$("#chk-normal").prop("checked", false);
+	$("#chk-hard").prop("checked", false);
 	
 	/*------------지도------------*/
 	
@@ -104,11 +118,13 @@ $("#btn-dist").on("mousedown", function(e){
 $("#btn-diff").on("click", function(){
 	showMenu("diff");
 });
-$("#btn-diff").on("mousedown", function(e){
+
+$("#btn-diff, .menu-option, .menu-chk").on("mousedown", function(e){
 	e.preventDefault();
 });
 
 
+//필터 메뉴창 숨기기
 $("#menu-cate").on("focusout", function(){
 	hideMenu("cate");
 });
@@ -121,10 +137,20 @@ $("#menu-diff").on("focusout", function(){
 	hideMenu("diff");
 });
 
+//필터 옵션 선택 시
+$("#filter-cate, #filter-dist, #filter-diff").on("click", ".menu-option", function(){
+	if($(this).children(".menu-chk").is(":checked") == true) {
+		$(this).children("img").attr("src", contextPath + "/assets/image/map/check_on.png");
+		
+	} else {
+		$(this).children("img").attr("src", contextPath + "/assets/image/map/check_off.png");
+		
+	}
+	
+});
 
 
-
-
+//검색 항목 바꾸기
 $("#btn-loc").on("click", function(){
 	$(this).removeClass("btn-grey");
 	$(this).addClass("btn-blue");
@@ -140,7 +166,7 @@ $("#btn-title").on("click", function(){
 });
 
 
-
+//검색
 $("#search-form").on("submit", function(){
 	//마커 창 초기화
 	resetMap();
@@ -250,6 +276,17 @@ var showList = function(kMap) {
 		dataType : "json",
 		success : function(result){
 			//컨트롤러 함수 실행 후 코드
+			
+			//배열을 저장하기 (필터링 기능 구현에 필수)
+			resultList = result;
+			
+			//필터링
+			if($('#rdo-easy').is(':checked') == false && $('#rdo-normal').is(':checked') == false && 
+					$('#rdo-hard').is(':checked') == false) {
+				
+				
+				console.log("unchecked");
+			}
 			
 			//마커 배열 지우기
 			for( var i=0; i < markerList.length; i++) {
@@ -422,6 +459,7 @@ var resetMap = function(){
 	//기존 선택된 마커 파랑색으로 바꾸기
 	if(selectedMarker != null) {
 		selectedMarker.setImage(blueMarker);
+		selectedMarker = null;
 	}
 	
 	//열려있는 인포윈도우 닫기

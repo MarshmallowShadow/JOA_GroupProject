@@ -8,8 +8,13 @@
 }
 
 #header {
+	min-width: 360px;
 	display: flex;
 	justify-content: center;
+}
+
+.footer {
+	min-width: 360px;
 }
 
 #content #display {

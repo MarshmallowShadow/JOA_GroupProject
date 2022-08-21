@@ -11,6 +11,7 @@
 /* ----------- 네비 ----------- */
 #header {
 	max-width: 100%;
+	min-width: 1200px;
 	height: 80px;
 	padding: 0px 20px;
 	border-bottom: 1px solid rgb(174, 174, 174);
@@ -120,6 +121,7 @@
 
 /* 푸터 스타일 */
 .footer{
+	min-width: 1200px;
 	justify-content: space-between;
 	line-height: 18px;		/*줄 높이 설정값*/
 	font-size: 12px;

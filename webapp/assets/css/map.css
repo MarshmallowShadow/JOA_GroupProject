@@ -188,13 +188,18 @@
 	border: 1px solid rgb(230, 230, 230);
 }
 .filter-menu .menu-option {
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	margin: 10px 0px;
 }
 .filter-menu .menu-option img {
-	cursor: pointer;
+	width: 20px;
 	margin-right: 10px;
+}
+
+.filter-menu .menu-chk {
+	display: none;
 }
 
 #sub-header #filter-buttons {

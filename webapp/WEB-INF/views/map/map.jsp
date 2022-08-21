@@ -34,15 +34,33 @@
 				
 				<div id="menu-cate" class="filter-menu" tabindex='-1'>
 					<h3>종목</h3>
-					<p>중복선택이 가능합니다<p>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">산책</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">조깅</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">런닝</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">마라톤</div>
+					<p>중복선택이 가능합니다</p>
+					<label for="chk-walk" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">산책
+						<input type="checkbox" class="menu-chk" id="chk-walk" name="courseCategory" value="hard">
+					</label>
+					<label for="chk-jogging" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">조깅
+						<input type="checkbox" class="menu-chk" id="chk-jogging" name="courseCategory" value="hard">
+					</label>
+					<label for="chk-running" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">런닝
+						<input type="checkbox" class="menu-chk" id="chk-running" name="courseCategory" value="hard">
+					</label>
+					<label for="chk-marathon" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">마라톤
+						<input type="checkbox" class="menu-chk" id="chk-marathon" name="courseCategory" value="hard">
+					</label>
 					<hr>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">자전거</div>
+					<label for="chk-bicycle" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">자전거
+						<input type="checkbox" class="menu-chk" id="chk-bicycle" name="courseCategory" value="hard">
+					</label>
 					<hr>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">그림그리기</div>
+					<label for="chk-draw" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">그림그리기
+						<input type="checkbox" class="menu-chk" id="chk-draw" name="courseCategory" value="draw">
+					</label>
 				</div>
 			</div> <!-- filter-cate -->
 			
@@ -62,10 +80,19 @@
 				
 				<div id="menu-diff" class="filter-menu" tabindex='-1'>
 					<h3>난이도</h3>
-					<p>중복선택이 가능합니다<p>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">쉬움</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">보통</div>
-					<div class="menu-option"><img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">어려움</div>
+					<p>중복선택이 가능합니다</p>
+					<label for="chk-easy" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">쉬움
+						<input type="checkbox" class="menu-chk" id="chk-easy" name="difficulty" value="easy">
+					</label>
+					<label for="chk-normal" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">보통
+						<input type="checkbox" class="menu-chk" id="chk-normal" name="difficulty" value="normal">
+					</label>
+					<label for="chk-hard" class="menu-option">
+						<img src="${pageContext.request.contextPath }/assets/image/map/check_off.png">어려움
+						<input type="checkbox" class="menu-chk" id="chk-hard" name="difficulty" value="hard">
+					</label>
 				</div>
 			</div><!-- filter-diff -->
 		</div> <!-- filter-menu -->
