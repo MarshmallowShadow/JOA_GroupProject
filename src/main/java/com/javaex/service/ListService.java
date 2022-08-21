@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.ListDao;
+import com.javaex.vo.ListCommentVo;
 import com.javaex.vo.ListVo;
 
 @Service
@@ -23,16 +24,23 @@ public class ListService {
 	
 	//메소드 일반
 	
+	/***************** 댓글 기능 ****************/
+	//댓글 쓰기
+	public int commentWrite(ListCommentVo listCommentVo) {
+		System.out.println("ListService>commentWrite");
+		
+		int count = listDao.commentWrite(listCommentVo);
+		
+		return count;
+	}
+	
+	/**********************************************************************************************************/
+	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
 	public Map<String, Object> getListPage(int crtPage, String keyword, String boardCategory) {
 		System.out.println("ListService>List/Page/Search");
 		
-		//keyword 검색
-		
-		
-		
-				
 		//////////////////////////////////////////////
 		// 리스트 가져오기
 		//////////////////////////////////////////////
@@ -111,9 +119,9 @@ public class ListService {
 	public int delete(int no) {
 		System.out.println("ListService>delete");
 		
-		int count = listDao.delete(no);
+		//int count = listDao.delete(no);
 		
-		return count;
+		return listDao.delete(no);
 	}
 	
 	//조회수 (hitUpdate)

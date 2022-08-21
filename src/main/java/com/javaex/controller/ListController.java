@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.ListService;
+import com.javaex.vo.ListCommentVo;
 import com.javaex.vo.ListVo;
 import com.javaex.vo.UserVo;
 
@@ -32,19 +33,27 @@ public class ListController {
 	//메소드 일반
 	
 	/***************** 댓글 기능 ****************/
-	/*@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
-	public String comment() {
+	//댓글 쓰기
+	@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
+	public String comment(@ModelAttribute ListCommentVo listCommentVo, HttpSession session) {
 		System.out.println("ListController>comment");
 		
-		return null;
-	}*/
+		listService.commentWrite(listCommentVo);
+		
+		return "redirect:/list/list";
+	}
 	
-	/***************** 삭제  ****************/
+	/***************** 삭제(@PathVariable) ****************/
 	@RequestMapping(value = "/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
-	public String delete (@PathVariable("no") int no) {
+	public String delete(@PathVariable("no") int no) {
 		System.out.println("ListController>delete");
 		
-		listService.delete(no);
+		//주소에서 값 꺼내기
+		System.out.println(no);
+		
+		//서비스를 통해서 삭제
+		int count = listService.delete(no);
+		System.out.println(count);		
 		
 		return "redirect:/list/list";
 	}
@@ -53,7 +62,7 @@ public class ListController {
 	@RequestMapping(value = "/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read (@PathVariable("no") int no, Model model) {
 		
-		System.out.println("ListController > read");
+		System.out.println("ListController>read");
 		
 		//listService.hitUpdate(no);
 		//ListVo lVo = listService.getList(no);
@@ -68,7 +77,7 @@ public class ListController {
 	//글쓰기 등록
 	@RequestMapping(value = "/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String write(@ModelAttribute ListVo listVo, HttpSession session) {
-		System.out.println("ListController > write");
+		System.out.println("ListController>write");
 		
 		listService.write(listVo);
 		
@@ -83,7 +92,7 @@ public class ListController {
 	//글쓰기폼
 	@RequestMapping(value = "/listWrite", method = {RequestMethod.GET, RequestMethod.POST})
 	public String listWrite () {
-		System.out.println("ListController > listWirte");
+		System.out.println("ListController>listWirte");
 		
 		return "list/listWrite";
 	}
