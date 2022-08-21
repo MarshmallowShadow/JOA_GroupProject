@@ -568,22 +568,53 @@ $(window).ready(function(){
         console.log(cateName, cateNo);
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
+		
+		
+		
+		
+		
+		//모달창의 변경버튼 클릭할때
+		$("#edit-bookmark-category").on("click", function(){
+			console.log("모달>변경버튼 클릭")
+			//삭제할 데이터 모으기
+			/*var cateName = $("#input-cateName-edit").val();
+			var cateNo = $("#input-cateName-edit").data("cateNo");
+	        console.log(cateName, cateNo);*/
+			
+			var updateCateVo = {
+				cateName: cateName, 
+				cateNo: cateNo
+			};
+			console.log(updateCateVo)
+			
+			//서버로 데이터 전송(ajax)
+			$.ajax({
+				url : contextPath + "/api/my-page/modify-category", //컨트롤러 RequestMapping url 작성하기
+				type : "post",
+				contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+				data : JSON.stringify(updateCateVo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+					//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+				dataType : "json",
+				success : function(result){
+					/*성공시 처리해야될 코드 작성*/
+					console.log(result);
+					$(".bookmark-menuList").remove();
+					categoryList();
+					
+					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
+					//$("#input-cateName-edit").val("");
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+			$(".category-modify-btn").hide('modal');
+		});
+		
 	});
 	
-	//모달창의 변경버튼 클릭할때
-	$("#edit-bookmark-category").on("click", function(){
-		console.log("모달>변경버튼 클릭")
-		//삭제할 데이터 모으기
-		var cateName = $("#input-cateName-edit").val();
-		var cateNo = $("#input-cateName-edit").data("cateNo");
-        console.log(cateName, cateNo);
-		
-		//서버로 데이터 전송(ajax)
-		
-		/*(".bookmark-menuList").remove();
-		$(".category-modify-btn").hide('modal');*/
-		
-	});
+	
+	
 		
 	//모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){

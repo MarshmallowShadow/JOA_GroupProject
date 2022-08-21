@@ -93,6 +93,15 @@
 	</select>
 	
 	
+	<!-- 카테고리-5.카테고리 수정(업데이트) -->
+	<update id="updateCate" parameterType="CategoryVo">
+		<![CDATA[
+			update favorite_category
+			set cate_name = #{cateName}
+			where cate_no = #{cateNo}
+		]]>
+	</update>
+	
 	
 	
 	

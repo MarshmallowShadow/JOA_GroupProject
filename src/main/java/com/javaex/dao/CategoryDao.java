@@ -39,6 +39,12 @@ public class CategoryDao {
 		return sqlSession.selectList("mypage.getEditCateList", cateNo);
 	}
 	
+	//즐겨찾기 카테고리 5- 카테고리 수정폼
+	public int updateCategory(CategoryVo categoryVo) {
+		System.out.println("CategoryDao>update-cate()");
+		return sqlSession.update("mypage.updateCate", categoryVo);
+	}
+	
 	
 	
 	

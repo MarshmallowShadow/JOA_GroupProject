@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -86,6 +85,14 @@ public class ApiMypageController {
 		return editCate; 
 	}
 	
+	//즐겨찾기 카테고리 5- 카테고리 수정
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/modify-category", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public int updateCategory(@RequestBody CategoryVo categoryVo) {
+		System.out.println("ApiMypageController>update-cate()");
+		int modifyCate = mypageService.updateCategory(categoryVo);
+		return modifyCate;
+	}
 	
 	
 }
