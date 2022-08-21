@@ -90,7 +90,7 @@ public class RecordService {
 				RecordImgVo imgVo = new RecordImgVo();
 				imgVo.setRecordNo(recNo);
 				imgVo.setSaveName(saveName);
-				imgVo.setFilePath(filePath);
+				imgVo.setFilePath("/upload/"+saveName);
 				imgVo.setOrderNo(index);
 				imgDao.insertImg(imgVo);
 				
