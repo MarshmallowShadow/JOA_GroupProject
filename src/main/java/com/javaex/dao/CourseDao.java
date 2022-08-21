@@ -43,6 +43,12 @@ public class CourseDao {
 		return sqlSession.update("course.updateTitle", map);
 	}
 	
+	//베스트
+	public List<Map<String,Object>> getBest(Map<String, Object> map){
+		System.out.println("CourseDao>getBest");
+		return sqlSession.selectList("course.getBest", map);
+	}
+	
 	//지역별 검색
 	public List<Map<String, Object>> locationList(Map<String, Object> kMap){
 		System.out.println("CourseDao>locationList");
