@@ -15,7 +15,9 @@ public class BestController {
 	BoardService boardService;
 	
 	//생성자
+	
 	//메소드 g/s
+	
 	//메소드 일반
 	
 	//게시물 불러오기
