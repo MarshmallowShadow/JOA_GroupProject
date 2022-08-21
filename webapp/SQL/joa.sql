@@ -281,6 +281,7 @@ CREATE TABLE EVENT_COMMENT (
 	user_no NUMBER, /* 작성자 회원번호 */
 	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
+	reg_date DATE NOT NULL, /* 등록일 */
 	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
 	order_no NUMBER NOT NULL, /* 답글 순서 */
 	depth NUMBER NOT NULL, /* 댓글 계층 */
@@ -341,6 +342,7 @@ CREATE TABLE BOARD_COMMENT (
 	user_no NUMBER, /* 작성자 회원번호 */
 	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
+	reg_date DATE NOT NULL, /* 등록일 */
 	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
 	order_no NUMBER NOT NULL, /* 답글 순서 */
 	depth NUMBER NOT NULL, /* 댓글 계층 */
@@ -385,11 +387,8 @@ CREATE TABLE Q_LIST_COMMENT (
 	q_comment_no NUMBER, /* 댓글번호 */
 	q_list_no NUMBER, /* 게시판 번호 */
 	user_no NUMBER, /* 작성자 회원번호 */
-	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
-	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
-	order_no NUMBER NOT NULL, /* 답글 순서 */
-	depth NUMBER NOT NULL, /* 댓글 계층 */
+	reg_date DATE NOT NULL, /* 등록일 */
 	Primary Key (q_comment_no),
 	CONSTRAINT q_comment_list_fk Foreign Key(q_list_no)
 	references q_list(q_list_no),
