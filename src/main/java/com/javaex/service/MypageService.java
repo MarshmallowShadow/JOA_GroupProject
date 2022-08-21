@@ -62,6 +62,12 @@ public class MypageService {
 		return categoryDao.modifyCategory(cateNo);
 	}
 	
+	//즐겨찾기 카테고리 5- 카테고리 수정
+	public int updateCategory(CategoryVo categoryVo) {
+		System.out.println("MypageService>update-cate()");
+		return categoryDao.updateCategory(categoryVo);
+	}
+	
 	
 	
 }
