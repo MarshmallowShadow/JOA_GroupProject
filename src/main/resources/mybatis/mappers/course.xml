@@ -84,7 +84,7 @@
 		        and i.course_no = c.course_no
 		        and c.course_no = p.course_no
 		        and course_category like '%#{course_cate}%'
-		        order by #{count_cate}))
+		        order by #{count_cate}) asc)
 		where rn >=1 
 		and rn <=15
 	]]>
