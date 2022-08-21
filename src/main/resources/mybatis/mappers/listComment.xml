@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="listComment">
+
+<!-- 댓글 불러오기 -->
+<select id="selectComment" parameterType="int" resultType="map">
+	<![CDATA[
+		SELECT co.q_comment_no,
+		        co.q_list_no,
+		        u.id,
+		        to_char(co.reg_date, 'YYYY-MM-DD'),
+		        co.content
+		FROM q_list_comment co, users u
+		where co.user_no = u.user_no
+		and co.q_list_no = #{q_list_no}
+	]]>	
+</select>
+
+<!-- 댓글 쓰기 -->
+<insert id="listcomment" parameterType="ListCommentVo">
+	<![CDATA[
+		INSERT into q_list_comment
+		VALUES (seq_q_comment_no.nextval, #{qListNo}, #{userNo}, #{content}, sysdate)
+	]]>
+</insert>
+
+
+</mapper>

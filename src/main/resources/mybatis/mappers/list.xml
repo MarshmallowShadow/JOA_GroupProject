@@ -3,21 +3,6 @@
 
 <mapper namespace="list">
 
-<!-- 댓글 불러오기 -->
-<!--<select id="comment" parameterType="ListCommentVo" resultType="String">
-	<![CDATA[
-		SELECT q_comment_no,
-		       q_list_no,
-		       user_no,
-		       mention_user,
-		       content,
-		       group_no,
-		       order_no,
-		       depth
-		FROM q_list_comment
-	]]>
-</select>
--->
 <!-- 전체글 갯수 -->
 <select id="selectTotalCnt" parameterType="map" resultType="int">
 	<![CDATA[
@@ -70,10 +55,10 @@
 
 
 <!-- 삭제 -->
-<delete id="delete">
+<delete id="listDelete" parameterType="int">
 	<![CDATA[
-		delete list
-		where no = #{no}
+		delete q_list
+		where q_list_no = #{no}
 	]]>
 </delete>
 

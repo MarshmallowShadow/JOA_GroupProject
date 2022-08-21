@@ -272,3 +272,34 @@
 	width: calc(100% - 400px);
 }
 
+/****************************카카오 지도****************************/
+.overlay-wrap {
+	box-sizing: border-box;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 2px solid rgb(174, 174, 174);
+}
+
+.overlay-wrap .info-cont {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay-wrap .info-cont h4 {
+	font-weight: 900;
+	font-size: 15px;
+}
+
+.overlay-wrap .info-cont .btn-map-course-view {
+	border: transparent;
+	background-color: rgb(50, 108, 249);
+	padding: 5px;
+	margin-top: 5px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 900;
+}

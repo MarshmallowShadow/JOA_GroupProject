@@ -7,7 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javaex.dao.ListCommentDao;
 import com.javaex.dao.ListDao;
+import com.javaex.vo.ListCommentVo;
 import com.javaex.vo.ListVo;
 
 @Service
@@ -17,22 +19,32 @@ public class ListService {
 	@Autowired
 	ListDao listDao;
 	
+	@Autowired
+	ListCommentDao listCommentDao;
+	
 	//생성자
 	
 	//메소드
 	
 	//메소드 일반
 	
+	/***************** 댓글 기능 ****************/
+	//댓글 쓰기
+	public int commentWrite(ListCommentVo listCommentVo) {
+		System.out.println("ListService>commentWrite");
+		
+		int count = listCommentDao.commentWrite(listCommentVo);
+		
+		return count;
+	}
+	
+	/**********************************************************************************************************/
+	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
 	public Map<String, Object> getListPage(int crtPage, String keyword, String boardCategory) {
 		System.out.println("ListService>List/Page/Search");
 		
-		//keyword 검색
-		
-		
-		
-				
 		//////////////////////////////////////////////
 		// 리스트 가져오기
 		//////////////////////////////////////////////
@@ -111,9 +123,9 @@ public class ListService {
 	public int delete(int no) {
 		System.out.println("ListService>delete");
 		
-		int count = listDao.delete(no);
+		//int count = listDao.delete(no);
 		
-		return count;
+		return listDao.delete(no);
 	}
 	
 	//조회수 (hitUpdate)
@@ -127,13 +139,21 @@ public class ListService {
 	
 	
 	//읽기 (한 명 정보 가져오기)
-	public Map<String, Object> getList(int no) {
+	public Map<String, Object> read(int no) {
 		System.out.println("ListService>read");
 		
+		//Map + List 묶기
+		Map<String, Object> readMap = new HashMap<>();
+		
 		Map<String, Object> rMap = listDao.getList(no);
+		List<ListCommentVo> cList = listCommentDao.getComment(no);
+		
+		readMap.put("rMap", rMap);
+		readMap.put("cList", cList);
+		
 		//System.out.println(rMap);
 		
-		return rMap;
+		return readMap;
 	}
 	
 	//글쓰기 등록

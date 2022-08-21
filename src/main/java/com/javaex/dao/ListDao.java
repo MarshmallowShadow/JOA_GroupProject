@@ -21,6 +21,10 @@ public class ListDao {
 	
 	//메소드
 	
+	//메소드 일반
+
+	/**********************************************************************************************************/
+	
 	//페이징 (페이징 + 검색) 
 	public List<ListVo> getListPage(int startRnum, int endRnum, String keyword, String boardCategory){
 		System.out.println("ListDao>List/Page/Search");
@@ -55,7 +59,7 @@ public class ListDao {
 	
 	//삭제
 	public int delete(int no) {
-		System.out.println("ListService>delete");
+		System.out.println("ListDao>delete");
 		
 		int count = sqlSession.delete("list.listDelete",no);
 		

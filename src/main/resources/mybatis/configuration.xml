@@ -13,6 +13,7 @@
 		<typeAlias alias="CategoryVo" type="com.javaex.vo.CategoryVo"/>
 		<typeAlias alias="likeVo" type="com.javaex.vo.LikedCourseVo"/>
 		<typeAlias alias="listVo" type="com.javaex.vo.ListVo"/>
+		<typeAlias alias="listCommentVo" type="com.javaex.vo.ListCommentVo"/>
 		<typeAlias alias="favCateVo" type="com.javaex.vo.FavoriteCategoryVo"/>
 		<typeAlias alias="favCoVo" type="com.javaex.vo.FavoriteCourseVo"/>
 	</typeAliases>
@@ -27,6 +28,7 @@
 		<mapper resource="mybatis/mappers/recordimg.xml"/>
 		<mapper resource="mybatis/mappers/liked.xml"/>
 		<mapper resource="mybatis/mappers/list.xml"/>
+		<mapper resource="mybatis/mappers/listComment.xml"/>
 		<mapper resource="mybatis/mappers/best.xml"/>
 		<mapper resource="mybatis/mappers/favoritecategory.xml"/>
 		<mapper resource="mybatis/mappers/favoritecourse.xml"/>
