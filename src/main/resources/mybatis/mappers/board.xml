@@ -78,5 +78,23 @@
 			values(SEQ_BOARD_NO.nextval, #{userNo}, #{courseNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
+	
+	
+	<!-- 게시판 내용 읽기 -->
+	<select id="read" parameterType="int" resultType="map">
+		<![CDATA[
+			select b.board_no boardNo
+			        , b.board_category boardCategory
+                    , b.title
+                    , u.id
+                    , b.content
+                    , b.view_count viewCount
+                    , to_char(b.reg_date,'YYYY-MM-DD') regDate
+                    , b.user_no userNo
+			from board b, users u
+	        where u.user_no = b.user_no
+			and b.board_no = #{no}
+		]]>
+	</select>
 
 </mapper>

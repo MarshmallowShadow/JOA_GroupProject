@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -83,11 +84,18 @@ public class BoardController {
 		
 	}
 	
-	//게시판 상세페이지
-	@RequestMapping(value="/read", method = {RequestMethod.GET, RequestMethod.POST})
-	public String read() {
+	//게시판 상세페이지 + 조회수
+	@RequestMapping(value="/read/{no}", method= {RequestMethod.GET, RequestMethod.POST})
+	public String read(Model model, @PathVariable int no) {
 		
-		 System.out.println("BoardController > read");
+		System.out.println("BoardController > read");
+				
+		//내용 읽기
+		Map<String, Object> bMap = boardService.read(no);
+		model.addAttribute("bMap", bMap);
+		model.addAttribute("categoryMap", bMap.get("categoryMap"));
+		
+		System.out.println(bMap);
 		
 		return "board/read";
 		

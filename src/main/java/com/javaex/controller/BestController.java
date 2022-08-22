@@ -25,10 +25,10 @@ public class BestController {
 	//메소드 일반
 		
 	//게시글 불러오기
-	@RequestMapping(value="/", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 	public String best(Model model,
-						@RequestParam(value="course_cate", required=false, defaultValue="") String course_cate,
-					    @RequestParam(value="count_cate") String count_cate) {
+						@RequestParam(value="course_cate", defaultValue="") String course_cate,
+					    @RequestParam(value="count_cate", required=true, defaultValue="l_count") String count_cate) {
 		System.out.println("BestController");
 		
 		bestService.getBest(course_cate, count_cate);

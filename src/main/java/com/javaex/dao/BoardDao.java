@@ -77,5 +77,16 @@ public class BoardDao {
 		return count;
 		
 	}
+	
+	//게시판 내용 읽기
+	public Map<String, Object> read(int no) {
+		
+		System.out.println("BoardDao > read");
+		
+		Map<String, Object> rMap = sqlSession.selectOne("board.read", no);
+		
+		return rMap;
+		
+	}
 
 }

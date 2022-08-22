@@ -23,12 +23,12 @@ public class BestService {
 	
 	//메소드 일반
 	public Map<String, Object> getBest(String course_cate, String count_cate) {
-		System.out.println("BestService");
+		System.out.println("BestService>getBest");
 		
+		//빈통 생성
 		Map<String, Object> bestMap = new HashMap<>();
 		
-		List<Map<String, Object>> courseList = null; //---------------수정하세요 제발!!!!---------------//
-		
+		List<Map<String, Object>> courseList = courseDao.getBest(bestMap); //---------------수정하세요 제발!!!!---------------//
 		List<List<String>> recordList = new ArrayList<>();
 		
 		for(int i=0; i<courseList.size(); i++) {
