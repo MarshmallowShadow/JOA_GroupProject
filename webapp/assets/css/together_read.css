@@ -20,7 +20,8 @@ h1 {
 
 #title {
 	margin-top: 115px;
-	margin-left: 42%;
+	display: flex; /* 가운데 정렬 */
+	justify-content: center; /* 가운데 정렬 */
 	font-size : 23pt;
 	font-weight : bold;
 }
