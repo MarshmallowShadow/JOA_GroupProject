@@ -11,6 +11,12 @@ public class CategoryVo {
 	//
 	public CategoryVo() {
 	}
+	
+	public CategoryVo(int cateNo, String cateName) {
+		this.cateNo = cateNo;
+		this.cateName = cateName;
+	}
+
 	public CategoryVo(int cateNo, int userNo, String cateName) {
 		this.cateNo = cateNo;
 		this.userNo = userNo;

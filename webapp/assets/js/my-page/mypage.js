@@ -577,8 +577,8 @@ $(window).ready(function(){
 		$("#edit-bookmark-category").on("click", function(){
 			console.log("모달>변경버튼 클릭")
 			//삭제할 데이터 모으기
-			/*var cateName = $("#input-cateName-edit").val();
-			var cateNo = $("#input-cateName-edit").data("cateNo");
+			var cateName = $("#input-cateName-edit").val();
+			/*var cateNo = $("#input-cateName-edit").data("cateNo");
 	        console.log(cateName, cateNo);*/
 			
 			var updateCateVo = {
