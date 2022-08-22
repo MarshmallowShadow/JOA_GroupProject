@@ -271,11 +271,14 @@ function render(recVo, coUserNo, recImgs) {
 	
 	str +=	'			<div>';
 	str +=	'				<span>'+recVo.REGDATE+'</span>';
-	if(recVo.WEATHER != "null") {
-		str +=	'				<span><img class="weather" src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
-	}
+	
+	//기온
 	if(recVo.TEMPERATURE != -100) {
 		str +=	'				<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
+	}
+	//날씨
+	if(recVo.WEATHER != "null") {
+		str +=	'				<span><img class="weather" src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
 	}
 	str +=	'			</div>';
 	

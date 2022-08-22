@@ -286,7 +286,7 @@ input[type=radio] {display:none;}
 	display: inline-block;
 }
 .pink {background-color: rgb(255, 52, 120); width: 48px;}
-.blue {background-color: rgb(50, 108, 249); width: 80px;}
+.blue {background-color: rgb(50, 108, 249); width: 90px;}
 /* 날씨 아이콘 */
 .record-txt .record-info span .weather {
 	position: relative;
