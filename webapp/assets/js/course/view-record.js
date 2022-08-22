@@ -29,7 +29,11 @@ $(document).ready(function() {
 		
 		var courseNo = $("#courseNo").val();
 		
-		if(authUserNo != null || authUserNo != ""){
+		if(isNaN(authUserNo)) {
+			authUserNo = 0;
+		}
+		
+		if(authUserNo != 0){
 			$.ajax({
 				//보낼때
 				url : contextPath+"/apiCo/likeBtnClick",
