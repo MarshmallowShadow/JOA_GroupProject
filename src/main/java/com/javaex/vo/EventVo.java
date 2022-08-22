@@ -6,8 +6,9 @@ public class EventVo {
 	private int eventNo; /* 이벤트 번호 */
 	private int userNo; /* 회원번호 */
 	private int courseNo; /* 코스번호 */
-	private String title; /* 제목 */
+	private String eventTitle; /* 제목 */
 	private String content; /* 내용 */
+	private String place; /* 모임 장소 */
 	private int joinMax; /* 최대 인원수 */
 	private String regStart; /* 등록 시작일 */
 	private String regEnd; /* 등록 마감일 */
@@ -16,13 +17,14 @@ public class EventVo {
 	//생성자
 	public EventVo() {}
 	
-	public EventVo(int eventNo, int userNo, int courseNo, String title, String content, int joinMax, String regStart,
-			String regEnd, String eventStart) {
+	public EventVo(int eventNo, int userNo, int courseNo, String eventTitle, String content, String place, int joinMax,
+			String regStart, String regEnd, String eventStart) {
 		this.eventNo = eventNo;
 		this.userNo = userNo;
 		this.courseNo = courseNo;
-		this.title = title;
+		this.eventTitle = eventTitle;
 		this.content = content;
+		this.place = place;
 		this.joinMax = joinMax;
 		this.regStart = regStart;
 		this.regEnd = regEnd;
@@ -54,12 +56,12 @@ public class EventVo {
 		this.courseNo = courseNo;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getEventTitle() {
+		return eventTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setEventTitle(String eventTitle) {
+		this.eventTitle = eventTitle;
 	}
 
 	public String getContent() {
@@ -68,6 +70,14 @@ public class EventVo {
 
 	public void setContent(String content) {
 		this.content = content;
+	}	
+	
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
 	}
 
 	public int getJoinMax() {
@@ -105,8 +115,8 @@ public class EventVo {
 	//메소드-일반
 	@Override
 	public String toString() {
-		return "EventVo [eventNo=" + eventNo + ", userNo=" + userNo + ", courseNo=" + courseNo + ", title=" + title
-				+ ", content=" + content + ", joinMax=" + joinMax + ", regStart=" + regStart + ", regEnd=" + regEnd
+		return "EventVo [eventNo=" + eventNo + ", userNo=" + userNo + ", courseNo=" + courseNo + ", eventTitle=" + eventTitle
+				+ ", content=" + content + ", place=" + place + ", joinMax=" + joinMax + ", regStart=" + regStart + ", regEnd=" + regEnd
 				+ ", eventStart=" + eventStart + "]";
 	}
 	
