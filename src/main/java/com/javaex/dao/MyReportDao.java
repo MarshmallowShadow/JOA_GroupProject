@@ -21,6 +21,12 @@ public class MyReportDao {
 		return sqlSession.selectList("mypage.getRecordList", userNo); 
 	}
 	
+	//나의기록 삭제 delete
+	public int deleteRecord(int recordNo) {
+		System.out.println("MyReportDao>deleteRecord()");
+		return sqlSession.delete("mypage.deleteRecord", recordNo);
+	}
+	
 	
 	
 }

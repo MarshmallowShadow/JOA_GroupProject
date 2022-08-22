@@ -94,6 +94,25 @@
 	<!-- footer -->
 
 
+<!-- 기록 삭제 모달!! ************************************************************************************* -->
+<div class="modal myrecord-del-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="byebye-record-close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">나의 기록 삭제</h5>
+      </div>
+      <div class="modal-body">
+        <p>나의 기록을 삭제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="byebye-record-cancel" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="byebye-record">삭제</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
+<!-- 기록 삭제 모달!!  끝!! ************************************************************************************* -->
 </body>
 </html>

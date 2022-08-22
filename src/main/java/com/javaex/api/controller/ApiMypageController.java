@@ -30,6 +30,29 @@ public class ApiMypageController {
 	 return calendarList; 
 	}
 	
+	
+	
+	//나의 기록보기 - 나의 기록 삭제하기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/delete-record", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public int deleteRecord(@RequestBody int recordNo) {
+		System.out.println("ApiMypageController>update-cate()");
+		int delRec = mypageService.deleteRecord(recordNo);
+		return delRec;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//나의 코스 보기////////////////////////////////////////////////////////////////////////////
 	//나의 코스보기 - 코스 list 가져오기
 	@ResponseBody

@@ -27,6 +27,18 @@ public class MypageService {
 		return myReportDao.getRecordList(userNo); 
 	}
 	
+	//나의기록 - 나의 기록 삭제하기
+	public int deleteRecord(int recordNo) {
+		System.out.println("MypageService>del-rec()");
+		return myReportDao.deleteRecord(recordNo);
+	}
+	
+	
+	
+	
+	
+	
+	
 	//나의코스 list 가져오기
 	public List <Map<String,Object>> getCourseList(int userNo){
 		System.out.println("MypageService>MyCourseList"); 

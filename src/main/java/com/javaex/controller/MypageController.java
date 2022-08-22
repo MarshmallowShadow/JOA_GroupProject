@@ -62,17 +62,6 @@ public class MypageController {
 	
 	
 	
-	/*
-	 * @RequestMapping(value="/view", method = {RequestMethod.GET,
-	 * RequestMethod.POST}) public String courseViewForm(Model model, HttpSession
-	 * session,
-	 * 
-	 * @RequestParam(value = "courseNo") int courseNo) {
-	 * System.out.println("CourseController->courseViewForm()"); UserVo userVo =
-	 * (UserVo) session.getAttribute("authUser"); int userNo = 0; if(userVo != null)
-	 * { userNo = userVo.getUserNo(); } Map<String, Object> coMap =
-	 * coService.getCourseInfo(courseNo, userNo); model.addAttribute("coMap",
-	 * coMap); return "course/view-course"; }
-	 */
+	
 	
 }
