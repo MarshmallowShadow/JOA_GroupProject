@@ -144,7 +144,6 @@
             where c.course_no = e.course_no
             and c.course_no = p.course_no
             and e.event_no = #{no}
-            order by e.event_no desc
 		]]>
 	</select>
 
