@@ -635,7 +635,7 @@ $(window).ready(function(){
 		});
 		$(".category-modify-btn").hide('modal');
 	});
-	 
+	
 	//카테고리 수정 모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){
 		$(".category-modify-btn").hide('modal');
