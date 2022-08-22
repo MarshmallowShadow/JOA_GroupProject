@@ -180,7 +180,9 @@ public class BoardService {
 		rMap.put("bMap", bMap);
 		rMap.put("categoryMap", categoryMap);
 		
-		return bMap;
+		System.out.println(rMap);
+		
+		return rMap;
 		
 	}
 

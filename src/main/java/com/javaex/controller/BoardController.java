@@ -91,11 +91,11 @@ public class BoardController {
 		System.out.println("BoardController > read");
 				
 		//내용 읽기
-		Map<String, Object> bMap = boardService.read(no);
-		model.addAttribute("bMap", bMap);
-		model.addAttribute("categoryMap", bMap.get("categoryMap"));
+		Map<String, Object> rMap = boardService.read(no);
+		model.addAttribute("bMap", rMap.get("bMap"));
+		model.addAttribute("categoryMap", rMap.get("categoryMap"));
 		
-		System.out.println(bMap);
+		System.out.println(rMap);
 		
 		return "board/read";
 		
