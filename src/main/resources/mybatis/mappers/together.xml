@@ -105,6 +105,7 @@
 	<select id="read" parameterType="int" resultType="map">
 		<![CDATA[
 			select e.event_no eventNo
+				   , e.user_no userNo
 	   			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
                    , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
                    , e.event_title eventTitle
