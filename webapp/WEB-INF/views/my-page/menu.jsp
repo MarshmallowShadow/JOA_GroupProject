@@ -120,9 +120,26 @@
 <!-- 모달-즐겨찾기 이름변경 끝!! ***************************************************************************************** -->
 
 
+<!-- 기록 삭제 모달!! ************************************************************************************* -->
+<div class="modal myrecord-del-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="edit-bookmark-category-close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">기록 삭제</h5>
+      </div>
+      <div class="modal-body">
+        <p class="modal-body-detail">기록을 삭제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="edit-bookmark-category-cancel" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="byebye-record">기록삭제</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-
-
+<!-- 좋아요 해제 모달 끝!! ************************************************************************************* -->
 
 
 
