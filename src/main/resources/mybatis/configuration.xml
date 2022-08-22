@@ -6,6 +6,7 @@
 		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
 		<typeAlias alias="BoardVo" type="com.javaex.vo.BoardVo"/>
 		<typeAlias alias="EventVo" type="com.javaex.vo.EventVo"/>
+		<typeAlias alias="EventJoinedVo" type="com.javaex.vo.EventJoinedVo"/>
 		<typeAlias alias="recVo" type="com.javaex.vo.RecordVo"/>
 		<typeAlias alias="rimgVo" type="com.javaex.vo.RecordImgVo"/>
 		<typeAlias alias="pointVo" type="com.javaex.vo.PointVo"/>
