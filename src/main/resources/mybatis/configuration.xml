@@ -29,7 +29,6 @@
 		<mapper resource="mybatis/mappers/liked.xml"/>
 		<mapper resource="mybatis/mappers/list.xml"/>
 		<mapper resource="mybatis/mappers/listComment.xml"/>
-		<mapper resource="mybatis/mappers/best.xml"/>
 		<mapper resource="mybatis/mappers/favoritecategory.xml"/>
 		<mapper resource="mybatis/mappers/favoritecourse.xml"/>
 	</mappers>
