@@ -29,13 +29,13 @@
 
 /*------------------------------ 지도 --------------------------------*/ 
 
-function map() {
+	function map() {
 		
 	
-	var mapContainer = document.getElementById('map');
-	var mapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
-		level: 3 //지도의 레벨(확대, 축소 정도)
+		var mapContainer = document.getElementById('map');
+		var mapOption = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+			level: 3 //지도의 레벨(확대, 축소 정도)
 	}
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); //지도 생성
