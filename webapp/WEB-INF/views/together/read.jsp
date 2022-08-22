@@ -55,7 +55,7 @@
 						<tr>
 							<th>
 								<img id="stopwatch" src="${pageContext.request.contextPath}/assets/image/together/stopwatch.png">
-								<div id="distance">${tMap.DISTANCE}</div>
+								<div id="distance">${tMap.DISTANCE}KM</div>
 							</th>
 							<th colspan="2">
 								<img id="user" src="${pageContext.request.contextPath}/assets/image/together/user.png">
