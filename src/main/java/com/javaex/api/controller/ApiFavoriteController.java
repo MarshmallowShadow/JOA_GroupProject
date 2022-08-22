@@ -32,11 +32,11 @@ public class ApiFavoriteController {
 	//즐겨찾기 추가
 	@ResponseBody
 	@RequestMapping(value = "/addFav", method = {RequestMethod.GET, RequestMethod.POST})
-	public String addFav(@RequestParam(value = "courseNo") int courseNo,
-						@RequestParam(value = "bmkList[]") List<Integer> bmkList) {
+	public int addFav(@RequestParam(value = "authUserNo") int userNo,
+						@RequestParam(value = "courseNo") int courseNo,
+						@RequestParam(value = "bmkList[]", required = false) List<Integer> bmkList,
+						@RequestParam(value = "notBmkList[]", required = false) List<Integer> notBmkList) {
 		System.out.println("ApiFavoriteController->addFav");
-		System.out.println(courseNo);
-		System.out.println(bmkList);
-		return favService.addFav(courseNo, bmkList);
+		return favService.addFav(userNo, courseNo, bmkList, notBmkList);
 	}
 }

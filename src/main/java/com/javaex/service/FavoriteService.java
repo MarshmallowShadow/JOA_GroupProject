@@ -28,24 +28,38 @@ public class FavoriteService {
 	}
 
 	//즐겨찾기 추가
-	public String addFav(int courseNo, List<Integer> bmkList) {
+	public int addFav(int userNo, int courseNo, List<Integer> bmkList, List<Integer> notBmkList) {
 		System.out.println("FavoriteService->addFav");
 		
-		int count = 0;
-		for(int i=0; i<bmkList.size(); i++) {
-			FavoriteCourseVo fcVo = new FavoriteCourseVo();
-			fcVo.setCourseNo(courseNo);
-			fcVo.setCateNo(bmkList.get(i));
-			
-			count += favCoDao.insertFav(fcVo);
+		//즐겨찾기 추가
+		if(bmkList != null) {
+			for(int i=0; i<bmkList.size(); i++) {
+				FavoriteCourseVo fcVo = new FavoriteCourseVo();
+				fcVo.setCourseNo(courseNo);
+				fcVo.setCateNo(bmkList.get(i));
+				
+				int ck = favCoDao.chkFav(fcVo);
+				if(ck == 0) {
+					favCoDao.insertFav(fcVo);
+				}
+			}
 		}
 		
-		if(count > 0) {
-			return "success";
+		//체크 안된것 즐겨찾기에서 삭제
+		if(notBmkList != null) {
+			for(int i=0; i<notBmkList.size(); i++) {
+				FavoriteCourseVo fcVo = new FavoriteCourseVo();
+				fcVo.setCourseNo(courseNo);
+				fcVo.setCateNo(notBmkList.get(i));
+				
+				favCoDao.deleteFav(fcVo);
+			}
 		}
 		
-		return "fail";
-		
-		
+		//즐겨찾기 되어있는지 확인
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userNo", userNo);
+		map.put("courseNo", courseNo);
+		return favCoDao.getFavChk(map);
 	}
 }

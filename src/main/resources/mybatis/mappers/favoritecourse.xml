@@ -17,6 +17,16 @@
 			order by ca.cate_no
 		]]>
 	</select>
+	
+	<!-- 추가 되어있는 즐겨찾기가 있는지 확인 -->
+	<select id="chkFav" parameterType="favCoVo" resultType="int">
+		<![CDATA[
+			select count(*)
+			from favorite_course
+			where course_no = #{courseNo}
+			and cate_no = #{cateNo}
+		]]>
+	</select>
 
 	<!-- 즐겨찾기 추가 -->
 	<insert id="insert" parameterType="favCoVo">
@@ -25,4 +35,25 @@
 			values(#{courseNo}, #{cateNo}, sysdate)
 		]]>
 	</insert>
+	
+	<!-- 즐겨찾기에서 빼기 -->
+	<delete id="delete" parameterType="favCoVo">
+		<![CDATA[
+			delete favorite_course
+			where course_no = #{courseNo}
+			and cate_no = #{cateNo}
+		]]>
+	</delete>
+	
+	<!-- 즐겨찾기 했는지 확인 -->
+	<select id="getFavChk" parameterType="hashmap" resultType="int">
+		<![CDATA[
+			select count(*)
+			from favorite_category ca, favorite_course co
+			where ca.cate_no = co.cate_no
+			and user_no = #{userNo}
+			and course_no = #{courseNo}
+		]]>
+	</select>
+	
 </mapper>

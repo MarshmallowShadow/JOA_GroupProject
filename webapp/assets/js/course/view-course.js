@@ -98,13 +98,19 @@ $(document).ready(function() {
 		
 		
 		var bmkList = [];
+		var notBmkList = [];
 		
 		$("input[name='bookmark']:checked").each(function() {
 			var bmk = parseInt($(this).val());
 			bmkList.push(bmk);
 		});
 		
-		console.log(bmkList);
+		$("input[name='bookmark']:not(:checked)").each(function() {
+			var bmk = parseInt($(this).val());
+			notBmkList.push(bmk);
+		});
+		
+		console.log(notBmkList);
 		
 		//즐겨찾기 목록 가져오기
 		$.ajax({
@@ -112,15 +118,23 @@ $(document).ready(function() {
 			url : contextPath+"/apiFav/addFav",
 			type : "post",
 			//contentType : "application/json",
-			data : {courseNo, bmkList},
+			data : {authUserNo, courseNo, bmkList, notBmkList},
 			
 			//받을때
 			//dataType : "json",
 			success : function(result){
 				//성공시 처리해야될 코드 작성
-				console.log(result);
 				
-	
+				if(result > 0) {
+					var src = contextPath + "/assets/image/main/star.png";
+					$("#bookmark").attr("src", src);
+				} else {
+					var src = contextPath + "/assets/image/main/star-off.png";
+					$("#bookmark").attr("src", src);
+				}
+				
+				//모달창 닫기
+				$("#bookmark-list").modal("hide");
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
@@ -132,18 +146,18 @@ $(document).ready(function() {
 	/*즐겨찾기 리스트 출력*/
 	function render(fevVo) {
 		
-		console.log(typeof fevVo.COURSENO);
+		console.log(fevVo.COURSENO);
 		
 		var str = "";
 	    str += '<li>';
 	    str += '	<div>';
-	    str += '		<input type="checkbox" id="bookmark'+fevVo.CATENO+'" name="bookmark" value="'+fevVo.CATENO;
+	    str += '		<input type="checkbox" id="bookmark'+fevVo.CATENO+'" name="bookmark" value="'+fevVo.CATENO + '"';
 	    
 	    if(fevVo.COURSENO != 0) {
-			str += ' checked';
+			str += 'checked';
 		}
 	    
-	    str += '">';
+	    str += '>';
 	    str += '		<label for="bookmark'+fevVo.CATENO+'">'+fevVo.CATENAME+'</label>';
 	    str += '	</div>';
 	    str += '</li>';	

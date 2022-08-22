@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
 import com.javaex.dao.FavoriteCategoryDao;
+import com.javaex.dao.FavoriteCourseDao;
 import com.javaex.dao.LikedCourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
@@ -31,6 +32,8 @@ public class CourseService {
 	private UserDao userDao;
 	@Autowired
 	private LikedCourseDao likeDao;
+	@Autowired
+	private FavoriteCourseDao fcDao;
 
 	
 	
@@ -108,8 +111,9 @@ public class CourseService {
 		int recCnt = recDao.getRecCnt(courseNo); //총 기록수
 		int likeCnt = likeDao.getLikeCnt(courseNo);//좋아요 갯수
 		
-		//좋아요 여부
+		//좋아요, 즐겨찾기 여부
 		String liked = "heart-off";
+		String star = "star-off";
 		if(userNo != 0) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("courseNo", courseNo);
@@ -118,10 +122,14 @@ public class CourseService {
 			if(likeDao.getLiked(map) > 0) {
 				liked = "heart";
 			}
+			
+			if(fcDao.getFavChk(map) > 0) {
+				star = "star";
+			}
 
 		}
 		
-		//즐겨찾기 여부
+		
 		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo); //코스정보
@@ -129,7 +137,7 @@ public class CourseService {
 		coMap.put("recCnt", recCnt); //총 기록수
 		coMap.put("likeCnt", likeCnt); //좋아요 갯수
 		coMap.put("liked", liked); //좋아요 여부
-		
+		coMap.put("star", star); //즐겨찾기 여부
 		return coMap;
 	}
 	
