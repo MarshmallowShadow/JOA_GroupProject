@@ -169,6 +169,15 @@ label {
 	resize: none;
 }
 
+/********************** 이벤트 정보 **********************/
+
+#reg-end {margin-left: 11px;}
+#maxPerson {
+	color: #a9a9a9;
+	font-size: 9pt;
+	margin-left: 7px;
+}
+
 /********************** 하단 버튼 **********************/
 
 #btn-wrap {text-align: center;}

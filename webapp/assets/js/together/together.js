@@ -30,7 +30,7 @@
 				
 				//컨트롤러 함수 실행 후 코드
 				for(var i=0; i<result.togetherList.length; i++){
-					render(result.togetherList[i], "down");  //vo --> 화면에 그린다.
+					render(result.togetherList[i], result.courseCate, "down");  //vo --> 화면에 그린다.
 				}
 				
 				if(result.prev == true){
@@ -54,7 +54,7 @@
 	}
  
  	/* 리스트 그리기 1개씩*/
-	function render(Map, opt) {
+	function render(Map, courseCate, opt) {
 		
 		var start = '송파'; //카카오 api로 위치 칮기 (togetherList.X1, togetherList.Y1)
 		var finish = '강남'; //카카오 api로 위치 칮기 (togetherList.X2, togetherList.Y2)
@@ -77,7 +77,7 @@
 		str += ' 		</thead> ' ;
 		str += ' 		<tbody> ' ;
 		str += ' 			<tr> ' ;
-		str += ' 				<th colspan="2" class="content">'+Map.TITLE+'</th> ' ;
+		str += ' 				<th colspan="2" class="content">'+Map.EVENTTITLE+'</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="content_course"> ' ;
@@ -87,8 +87,8 @@
 		str += ' 			</tr> ' ;
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="line_bottom"> ' ;
-		str += ' 					'+Map.COURSECATEGORY+' ' ;
-		str += ' 					<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+Map.COUNT+'/'+Map.JOINMAX+'</button> ' ;
+		str += ' 					'+courseCate[Map.COURSECATEGORY];
+		str += ' 					<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+parseInt(Map.COUNT)+'/'+Map.JOINMAX+'</button> ' ;
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tbody> ' ;

@@ -53,5 +53,25 @@ public class TogetherDao {
 		return totalCount;
 	      
 	}
+	
+	//전체 글갯수
+	public int write(EventVo eventVo) {
+		
+		System.out.println("TogetherDao > write");
+	      
+		return sqlSession.insert("together.write", eventVo);
+	      
+	}
+	
+	//내용 읽기
+	public Map<String, Object> read(int no) {
+		
+		System.out.println("TogetherDao > read");
+		
+		Map<String, Object> tMap = sqlSession.selectOne("board.read", no);
+		
+		return tMap;
+		
+	}
 
 }

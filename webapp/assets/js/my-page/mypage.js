@@ -452,6 +452,8 @@ $(window).ready(function(){
 			
 				//1개의 데이터 리스트에 추가(그리기)
 				categoryRender(categoryList, "up");
+				
+				
 			
 				//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
 				$("[name=catename]").val("");
@@ -460,6 +462,8 @@ $(window).ready(function(){
 				console.error(status + " : " + error);
 			}
 		});
+		$(".bookmark-menuList").remove();
+		categoryList();
 		$(".category-add-btn").hide('modal');
 	});
 	//모달창의 닫기버튼 클릭할때
@@ -589,50 +593,49 @@ $(window).ready(function(){
         console.log(cateName, cateNo);
 		//모달창 띄우기
 		$(".category-modify-btn").show('modal');
-		
-		
-		
-		
-		
-		//모달창의 변경버튼 클릭할때
-		$("#edit-bookmark-category").on("click", function(){
-			console.log("모달>변경버튼 클릭")
-			//삭제할 데이터 모으기
-			var cateName = $("#input-cateName-edit").val();
-			/*var cateNo = $("#input-cateName-edit").data("cateNo");
-	        console.log(cateName, cateNo);*/
-			
-			var updateCateVo = {
-				cateName: cateName, 
-				cateNo: cateNo
-			};
-			console.log(updateCateVo)
-			
-			//서버로 데이터 전송(ajax)
-			$.ajax({
-				url : contextPath + "/api/my-page/modify-category", //컨트롤러 RequestMapping url 작성하기
-				type : "post",
-				contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
-				data : JSON.stringify(updateCateVo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
-					//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
-				dataType : "json",
-				success : function(result){
-					/*성공시 처리해야될 코드 작성*/
-					console.log(result);
-					$(".bookmark-menuList").remove();
-					categoryList();
-					
-					//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
-					//$("#input-cateName-edit").val("");
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : " + error);
-				}
-			});
-			$(".category-modify-btn").hide('modal');
-		});
-		
 	});
+		
+		
+		
+		
+	//모달창의 변경버튼 클릭할때
+	$("#edit-bookmark-category").click(function(){
+		console.log("모달>변경버튼 클릭")
+				
+		//변경할 데이터 모으기
+		var cateName = $("#input-cateName-edit").val();
+		var cateNo = $("#input-cateName-edit").data("cateno");
+        console.log(cateName, cateNo);
+		
+		var updateCateVo = {
+			cateName: cateName, 
+			cateNo: cateNo
+		};
+		console.log(updateCateVo)
+		
+		//서버로 데이터 전송(ajax)
+		$.ajax({
+			url : contextPath + "/api/my-page/modify-category", //컨트롤러 RequestMapping url 작성하기
+			type : "post",
+			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+			data : JSON.stringify(updateCateVo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+				console.log(result);
+				
+				/*$("#input-cateName-edit").val("")*/
+				$(".bookmark-menuList").remove();
+				categoryList();
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		$(".category-modify-btn").hide('modal');
+	});
+	
 	//카테고리 수정 모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){
 		$(".category-modify-btn").hide('modal');
@@ -640,6 +643,8 @@ $(window).ready(function(){
 	$("#edit-bookmark-category-cancel").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
+	
+	
 	
 	
 	
@@ -681,13 +686,14 @@ $(window).ready(function(){
 					/*성공시 처리해야될 코드 작성*/
 					console.log(result);
 					
-					$(".reportContent").remove();
-					calendarRender(rMap, "down");
+					/*$(".reportContent").remove();
+					calendarRender(rMap, "down");*/
 				},
 				error : function(XHR, status, error) {
 					console.error(status + " : " + error);
 				}
 			});
+			location.reload();
 			$(".myrecord-del-modal").hide('modal');
 		});
 		

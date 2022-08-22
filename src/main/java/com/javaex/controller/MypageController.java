@@ -22,7 +22,7 @@ public class MypageController {
 	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypage() { 
+	public String mypage(HttpSession session) { 
 		System.out.println("MypageController>mypage");
 		
 		return "my-page/main";
@@ -30,7 +30,7 @@ public class MypageController {
 	
 	//마이페이지-내 코스
 	@RequestMapping(value="/my-course", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mycourse() {
+	public String mycourse(HttpSession session) {
 		System.out.println("MypageController>mycourse");
 		
 		return "my-page/my-course";
@@ -38,7 +38,7 @@ public class MypageController {
 	
 	//마이페이지-내 기록
 	@RequestMapping(value="/my-report", method = {RequestMethod.GET, RequestMethod.POST})
-	public String myreport() {
+	public String myreport(HttpSession session) {
 		System.out.println("MypageController>myreport");
 		return "my-page/my-report";
 	}
