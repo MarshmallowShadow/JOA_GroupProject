@@ -157,5 +157,31 @@ public class BoardService {
 		return count;
 		
 	}
+	
+	//게시판 내용 읽기 + 조회수
+	public Map<String, Object> read(int no) {
+		
+		System.out.println("BoardService > read");
+		
+		//조회수 올리기
+		//boardDao.boardHit(no);
+		
+		Map<String, String> categoryMap = new HashMap<String, String>();
+		categoryMap.put("commute", "소통");
+		categoryMap.put("question", "질문");
+		categoryMap.put("post", "후기");
+		categoryMap.put("together", "함께");
+		categoryMap.put("map", "코스");
+		
+		//게시판 내용 읽기
+		Map<String, Object> bMap = boardDao.read(no);
+		
+		Map<String, Object> rMap = new HashMap<String, Object>();
+		rMap.put("bMap", bMap);
+		rMap.put("categoryMap", categoryMap);
+		
+		return bMap;
+		
+	}
 
 }
