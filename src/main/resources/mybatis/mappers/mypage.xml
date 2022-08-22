@@ -31,6 +31,18 @@
 		]]>
 	</select>
 	
+	<!-- 나의 기록 보기 - 나의 기록 삭제하기 -->
+	<delete id="deleteRecord" parameterType="int">
+		<![CDATA[
+			delete from record
+			where record_no = #{recordNo}
+		]]>
+	</delete>
+	
+	
+	
+	
+	
 	
 	<!-- 나의 코스보기 - 리스트 가져오기 -->
 	<select id="getCourseList" parameterType="int" resultType="map">

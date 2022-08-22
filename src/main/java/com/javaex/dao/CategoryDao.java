@@ -21,6 +21,7 @@ public class CategoryDao {
 		return sqlSession.selectList("mypage.getCategoryList", userNo);
 	}
 	
+	
 	//즐겨찾기 카테고리 추가 insert
 	public int insertCategory(CategoryVo categoryVo) {
 		System.out.println("CategoryDao>insertCategory()");

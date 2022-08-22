@@ -338,15 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 	});
 	
-	$(".myrecord-del-modal").hide('modal');
-	/*--------------------------------------------------*/
-	/*나의 기록보기, 삭제*/
-	//삭제 버튼 눌렀을때,
-	$("body").on("click", "#record-del-button", function(){
-		console.log("기록 삭제!");
-		$(".myrecord-del-modal").show('modal');
-		
-	});
+	
 	
 });	
 	
@@ -365,6 +357,7 @@ $(window).ready(function(){
 	console.log(userNo);
 	
 	
+	$(".myrecord-del-modal").hide();
 	
 	
 	
@@ -561,7 +554,7 @@ $(window).ready(function(){
 	
 	
 	/*--------------------------------------------------*/
-	/*카테고리 이름 수정하기 - 보류*/
+	/*카테고리 이름 수정하기 */
 	$("body").on("click", "#edit-cate-name", function(){
 		console.log("카테고리이름 수정");
 		console.log("this", this);
@@ -640,11 +633,7 @@ $(window).ready(function(){
 		});
 		
 	});
-	
-	
-	
-		
-	//모달창의 닫기버튼 클릭할때
+	//카테고리 수정 모달창의 닫기버튼 클릭할때
 	$("#edit-bookmark-category-close").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
@@ -660,19 +649,62 @@ $(window).ready(function(){
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	//기록삭제 버튼 눌렀을때, 
-	$("#byebye-record").on("click", function(){
-		console.log("기록삭제-모달");
+	/*--------------------------------------------------*/
+	/*나의 기록보기,- 삭제*/
+	//삭제 버튼 눌렀을때,
+	$("body").on("click", "#record-del-button", function(){
+		console.log("기록 삭제!");
 		var $this = $(this); 
 		var recordNo = $this.data("recordno");
 		console.log("기록삭제", recordNo);
+		//모달창 열기
+		$(".myrecord-del-modal").show('modal');
+		
+		
+		
+		
+		
+		
+		//기록삭제 버튼 눌렀을때, 
+		$("#byebye-record").on("click", function(){
+			console.log("기록삭제-모달");
+			console.log(recordNo);
+			//서버로 데이터 전송(ajax)
+			$.ajax({
+				url : contextPath + "/api/my-page/delete-record", //컨트롤러 RequestMapping url 작성하기
+				type : "post",
+				contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+				data : JSON.stringify(recordNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+					//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+				dataType : "json",
+				success : function(result){
+					/*성공시 처리해야될 코드 작성*/
+					console.log(result);
+					
+					$(".reportContent").remove();
+					calendarRender(rMap, "down");
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+			$(".myrecord-del-modal").hide('modal');
+		});
+		
+		//나의 기록 삭제 모달창의 닫기버튼 클릭할때
+		$("#byebye-record-close").on("click", function(){
+			$(".myrecord-del-modal").hide('modal');
+		});
+		$("#byebye-record-cancel").on("click", function(){
+			$(".myrecord-del-modal").hide('modal');
+		});
 	});
+	
+	
+	
+	
+	
+	
 	
 	
 	
