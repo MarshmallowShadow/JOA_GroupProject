@@ -82,6 +82,8 @@
 				
 				<!-- 코스 정보 -->
 				<form action="${pageContext.request.contextPath}/together/write" method="get">
+				<div id="point"></div>
+				<input type="hidden" name="userNo" value="${authUser.userNo}">
 					<div class="together-content">
 						<h2>코스 정보</h2>
 						
@@ -93,7 +95,8 @@
 							</colgroup>
 							
 							<tbody>
-							
+								
+								
 								<!-- 코스 이름 -->
 								<tr>
 									<th>코스 이름</th>
@@ -151,6 +154,7 @@
 									</td>
 								</tr>
 								
+								
 								<!-- 예상 난이도 -->
 								<tr>
 									<th>예상 난이도</th>
@@ -166,6 +170,7 @@
 									</td>
 								</tr>
 								
+								
 								<!-- 코스 공개여부 -->
 								<tr>
 									<th>코스 공개여부</th>
@@ -178,50 +183,75 @@
 									</td>
 								</tr>
 								
+								
+								<!-- 이벤트 이름 -->
+								<tr>
+									<th>이벤트 이름</th>
+									<td><input type="text" class="txt-long" id="together-title" name="eventTitle" maxlength="11"></td>
+								</tr>
+								
+								
+								<!-- 모집 기간 -->
+								<tr>
+									<th>모집 기간</th>
+									<td>
+										<input class="txt-short" type="date" name="regStart">
+										-
+										<input class="txt-short" type="date" id="reg-end" name="regEnd">
+									</td>
+								</tr>
+								
+								
 								<!-- 모임 장소 -->
 								<tr>
 									<th>모임장소</th>
 									<td>
-										<input type="text" class="txt-long">
+										<input type="text" class="txt-long" name="place">
 									</td>
 								</tr>
+								
 								
 								<!-- 인원 -->
 								<tr>
 									<th>인원</th>
 									<td>
-										<input type="number" name="personNum" value="1" min="1">
-										<!-- 초기값:value="1", 최소:min="1", 최대: max="10" -->
+										<input type="number" name="joinMax" value="1" min="1"  max="15">
+										<p id="maxPerson">최대 인원은 15명입니다.</p>
+										<!-- 초기값:value="1", 최소:min="1", 최대: max="15" -->
 									</td>
 								</tr>
+								
 								
 								<!-- 함께 하는 날 -->
 								<tr>
 									<th>함께 하는 날</th>
 									<td>
-										<input class="txt-short" type="date">
+										<input class="txt-short" type="date" name="eventStart">
+										<p><input type="time" name="eventStart"></p>
 									</td>
 								</tr>
+								
 								
 								<!-- 상세내용 -->
 								<tr>
 									<th>상세내용</th>
 									<td>
-										<textarea placeholder="내용을 입력해주세요."></textarea>
+										<textarea name="content" placeholder="내용을 입력해주세요."></textarea>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div><!-- 코스 정보 -->
+					
+					<!-- 하단 버튼 -->
+					<div id="btn-wrap">
+						<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
+						<button type="submit" class="add">코스 등록</button>
+					</div>
+					
 				</form>
 				
 			</div><!-- together-form -->
-			
-			<!-- 하단 버튼 -->
-			<div id="btn-wrap">
-				<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
-				<button class="add" onclick="location.href='http://localhost:8088/JOA/together/read';">코스 등록</button>
-			</div>
 			
 		</div><!-- content -->
 	
