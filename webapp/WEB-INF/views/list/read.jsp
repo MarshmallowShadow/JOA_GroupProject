@@ -49,7 +49,7 @@
 	<!-- 수정, 삭제 버튼 -->
 	<div id="writer_btnM">
 	<c:forEach items="pMap" var="listVo">
-		<c:if test="${authUser.userNo == pMap.USER_NO}">
+		<c:if test="${authUser.userNo == rMap.USER_NO}">
 			<button type="submit" id="modify_m">수정</button>
 			<button type="button" id="delete" onclick="window.location='${pageContext.request.contextPath}/list/delete/${rMap.QLISTNO}';">삭제</button>
 		</c:if>
