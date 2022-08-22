@@ -108,34 +108,39 @@
 	   			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
                    , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
                    , e.event_title eventTitle
+                   , e.content
                    , p.course_no courseNo
                    , p.min_order_no minOrderNo
                    , p.max_order_no maxOrderNo
-                   , c.course_category courseCategory
+                   , c.distance
+                   , e.reg_start regStart
+                   , e.reg_end regEnd
+                   , e.place
+                   , to_char(e.event_start, 'YYYY-MM-DD HH24:MI') eventStart
                    , e.join_max joinMax
                    , j.count
           	from course c
           	  	 ,(select x1, x2, y1, y2, max_order_no, min_order_no, omax.course_no
-      				   from(select x x2, y y2, p.course_no, p.order_no max_order_no 
-            				from(select max(order_no) order_no, course_no 
-            					 from point p 
-            					 group by course_no) max,
-           					 point p 
+   				   from(select x x2, y y2, p.course_no, p.order_no max_order_no 
+           				from(select max(order_no) order_no, course_no 
+           					 from point p 
+           					 group by course_no) max,
+          					 point p 
            				where max.course_no = p.course_no 
            				and max.order_no = p.order_no) omax,
            				(select x x1, y y1, p.course_no, p.order_no min_order_no 
-            				from(select min(order_no) order_no, course_no 
-            					 from point p 
-            					 group by course_no) min,
-            					 point p 
-            					 where min.course_no = p.course_no 
-            					 and min.order_no = p.order_no) omin
-       					where omax.course_no = omin.course_no) p
-         	  	 		, event e left outer join (select count(*) count
+           				 from(select min(order_no) order_no, course_no 
+           					  from point p 
+           					  group by course_no) min,
+           					  point p 
+           					  where min.course_no = p.course_no 
+           					  and min.order_no = p.order_no) omin
+      					 where omax.course_no = omin.course_no) p
+         	  	 		 , event e left outer join (select count(*) count
           		  		  						      	  , event_no
           		   								   from event_joined
           		   								   group by event_no) j
-            			on e.event_no = j.event_no
+            			 on e.event_no = j.event_no
             where c.course_no = e.course_no
             and c.course_no = p.course_no
             and e.event_no = #{no}
