@@ -176,6 +176,7 @@ CREATE TABLE COURSE (
 	Primary Key (course_no),
 	CONSTRAINT course_user_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE CASCADE
 );
 
 /* 기록 */
@@ -192,9 +193,11 @@ CREATE TABLE RECORD (
 	reg_date DATE NOT NULL, /* 등록일 */
 	Primary Key (record_no),
 	CONSTRAINT record_course_fk Foreign Key(course_no)
-	references course(course_no),
+	references course(course_no)
+	ON DELETE CASCADE,
 	CONSTRAINT record_user_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE CASCADE
 );
 
 /* 기록사진 */
@@ -207,6 +210,7 @@ CREATE TABLE RECORD_IMG (
 	Primary Key (record_img_no),
 	CONSTRAINT record_img_fk Foreign Key(record_no)
 	references record(record_no)
+	ON DELETE CASCADE
 );
 
 /* 방향 */
@@ -219,6 +223,7 @@ CREATE TABLE POINT (
 	Primary Key (point_no),
 	CONSTRAINT point_course_fk Foreign Key(course_no)
 	references course(course_no)
+	ON DELETE CASCADE
 );
 
 /* ********************** 경애누나 ********************** */
@@ -231,6 +236,7 @@ CREATE TABLE FAVORITE_CATEGORY (
 	Primary Key(cate_no),
 	CONSTRAINT cate_user_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE CASCADE
 );
 
 /* 즐겨찾기 코스 */
@@ -239,9 +245,11 @@ CREATE TABLE FAVORITE_COURSE (
 	cate_no NUMBER, /* 카테고리 번호 */
 	fav_date DATE NOT NULL, /* 즐겨찾기 추가 시간 */
 	CONSTRAINT fav_course_fk Foreign Key(course_no)
-	references course(course_no),
+	references course(course_no)
+	ON DELETE CASCADE,
 	CONSTRAINT fav_cate_fk Foreign Key(cate_no)
 	references favorite_category(cate_no)
+	ON DELETE CASCADE
 );
 
 /* 좋아요 코스 */
@@ -250,9 +258,11 @@ CREATE TABLE LIKED_COURSE (
 	course_no NUMBER, /* 코스번호 */
 	like_date DATE NOT NULL, /* 좋아요 누른 시간 */
 	CONSTRAINT liked_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT liked_course_fk Foreign Key(course_no)
 	references course(course_no)
+	ON DELETE CASCADE
 );
 
 /* ********************** 가은이누나 ********************** */
@@ -261,17 +271,20 @@ CREATE TABLE EVENT (
 	event_no NUMBER, /* 이벤트 번호 */
 	user_no NUMBER, /* 회원번호 */
 	course_no NUMBER, /* 코스번호 */
-	title VARCHAR2(1000) NOT NULL, /* 제목 */
+	event_title VARCHAR2(1000) NOT NULL, /* 제목 */
 	content VARCHAR2(4000) NOT NULL, /* 내용 */
+	place VARCHAR2(100) NOT NULL, /*모임 장소*/
 	join_max NUMBER NOT NULL, /* 최대 인원수 */
 	reg_start DATE NOT NULL, /* 등록 시작일 */
 	reg_end DATE NOT NULL, /* 등록 마감일 */
 	event_start DATE NOT NULL, /* 함께 하는 날 */
 	Primary Key (event_no),
 	CONSTRAINT event_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT event_course_fk Foreign Key(course_no)
 	references course(course_no)
+	ON DELETE CASCADE
 );
 
 /* 이벤트 댓글 */
@@ -287,11 +300,14 @@ CREATE TABLE EVENT_COMMENT (
 	depth NUMBER NOT NULL, /* 댓글 계층 */
 	Primary Key (e_comment_no),
 	CONSTRAINT e_comment_event_fk Foreign Key(event_no)
-	references event(event_no),
+	references event(event_no)
+	ON DELETE CASCADE,
 	CONSTRAINT e_comment_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT e_comment_mention_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE SET NULL
 );
 
 /* 참여한 이벤트 */
@@ -299,9 +315,11 @@ CREATE TABLE EVENT_JOINED (
 	user_no NUMBER, /* 회원번호 */
 	event_no NUMBER, /* 이벤트 번호 */
 	CONSTRAINT join_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT join_event_fk Foreign Key(event_no)
 	references event(event_no)
+	ON DELETE CASCADE
 );
 
 /* 태그한 이벤트 */
@@ -309,9 +327,11 @@ CREATE TABLE EVENT_TAGGED (
 	user_no NUMBER, /* 회원번호 */
 	event_no NUMBER, /* 이벤트 번호 */
 	CONSTRAINT tagged_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT tagged_event Foreign Key(event_no)
 	references event(event_no)
+	ON DELETE CASCADE
 );
 
 
@@ -328,11 +348,14 @@ CREATE TABLE BOARD (
 	view_count NUMBER NOT NULL, /* 조회수 */
 	Primary Key (q_list_no),
 	CONSTRAINT board_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT board_course_fk Foreign Key(course_no)
-	references course(course_no),
+	references course(course_no)
+	ON DELETE SET NULL,
 	CONSTRAINT board_event_fk Foreign Key(event_no)
 	references event(event_no)
+	ON DELETE SET NULL
 );
 
 /* 게시판 댓글 */
@@ -348,11 +371,14 @@ CREATE TABLE BOARD_COMMENT (
 	depth NUMBER NOT NULL, /* 댓글 계층 */
 	Primary Key (b_comment_no),
 	CONSTRAINT b_comment_board_fk Foreign Key(board_no)
-	references board(board_no),
+	references board(board_no)
+	ON DELETE CASCADE,
 	CONSTRAINT b_comment_user_fk Foreign Key(user_no)
-	references users(user_no),
+	references users(user_no)
+	ON DELETE CASCADE,
 	CONSTRAINT b_comment_mention_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE SET NULL
 );
 
 /* 게시판 사진 */
@@ -365,6 +391,7 @@ CREATE TABLE BOARD_IMG (
 	Primary Key (board_img_no),
 	CONSTRAINT board_img_fk Foreign Key(board_no)
 	references board(board_no)
+	ON DELETE CASCADE
 );
 
 /* ********************** 수빈이누나 ********************** */
@@ -380,6 +407,7 @@ CREATE TABLE Q_LIST (
 	Primary Key (q_list_no),
 	CONSTRAINT q_list_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE CASCADE
 );
 
 /* 1:1 게시판 댓글 */
@@ -391,9 +419,9 @@ CREATE TABLE Q_LIST_COMMENT (
 	reg_date DATE NOT NULL, /* 등록일 */
 	Primary Key (q_comment_no),
 	CONSTRAINT q_comment_list_fk Foreign Key(q_list_no)
-	references q_list(q_list_no),
+	references q_list(q_list_no)
+	ON DELETE CASCADE,
 	CONSTRAINT q_comment_user_fk Foreign Key(user_no)
-	references users(user_no),
-	CONSTRAINT q_comment_mention_fk Foreign Key(user_no)
 	references users(user_no)
+	ON DELETE CASCADE
 );
