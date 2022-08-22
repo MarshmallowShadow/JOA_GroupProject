@@ -19,7 +19,8 @@
 			        r.user_no userNo,
 			        c.title,
 			        r.review,
-			        to_char(r.reg_date, 'YYYY-MM-DD') regDate,
+			        to_char(r.reg_date, 'YYYY-MM-DD HH24:MI') regDate1,
+			        to_char(r.reg_date, 'YYYY-MM-DD') regDate2,
 			        i.save_name saveName
 			from course c, record r 
 			left outer join (select * from record_img where order_no = 0) i
@@ -46,7 +47,7 @@
             on c.course_no = lc.course_no
             where c.user_no = u.user_no
                 and c.user_no = #{userNo}
-    		order by c.reg_date asc
+        	order by c.reg_date asc
 		]]>
 	</select>
 	

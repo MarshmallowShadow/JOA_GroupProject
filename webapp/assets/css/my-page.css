@@ -125,8 +125,8 @@ input[type=radio] {display:none;}
 									-ms-overflow-style: none; /* IE and Edge */
    									scrollbar-width: none; /* Firefox */
    									object-fit: cover;}
-.myReport #reportList .reportContent {width:380px; height:120px; border:solid 0.5px rgb(101,101,101); border-top:none; margin:0px; padding:10px 0px 0px 10px;}
-.myReport #reportList .contentImg {width:100px; height:100px; border:solid 1px #000000; float:left; margin-right:20px; }
+.myReport #reportList .reportContent {width:380px; height:120px; border-bottom:#ccc 0.5px solid;  margin:0px; padding:10px 0px 0px 10px;}
+.myReport #reportList .contentImg {width:100px; height:100px; border:none; float:left; margin-right:20px; }
 .myReport #reportList .contentTitle {font-size:16px; width:360px; font-weight:bold;line-height:28px; }
 .myReport #reportList .modify-del-icons {margin:10px 20px 0px 0px;}
 .myReport #reportList .content {font-size:14px; line-height:20px; }

@@ -64,18 +64,23 @@ var rList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 			];
 
 function calendarRender(rMap) {
+	var imgPath = contextPath + '/assets/image/map/map-icon.jpg';
+	if(rMap.SAVENAME != undefined) {
+		imgPath = contextPath+'/upload/' + rMap.SAVENAME;
+	}
+	
 	var str = '';
 	str += '<li class="reportContent">';
 	str += '	<div>';
 	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'" target="_blank">';
-	str += '			<img class="contentImg" src="'+contextPath+'/upload/'+rMap.SAVENAME+'">';
+	str += '			<img class="contentImg" src="'+imgPath+'">';
 	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
 	str += '			<p class="content">'+rMap.REVIEW+'</p>';
-	str += '			<p class="contentDate">'+rMap.REGDATE+' &nbsp; 10:03</p>';
+	str += '			<p class="contentDate">'+rMap.REGDATE1+'</p>';
 	str += '		</a>';
 	str += '		<div class="modify-del-icons">';
-	str += '			<span class="glyphicon glyphicon-pencil"></span>&nbsp;';
-	str += '			<span class="glyphicon glyphicon-trash"></span>';
+	str += '			<a href="'+contextPath+'/record/modify?courseNo='+rMap.COURSENO+'&recordNo='+rMap.RECORDNO+'"><span class="glyphicon glyphicon-pencil" style="cursor:pointer"></span></a>&nbsp;';
+	str += '			<span id="record-del-button" class="glyphicon glyphicon-trash" data-recordno="'+rMap.RECORDNO+'" style="cursor:pointer"></span>';
 	str += '		</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -219,6 +224,12 @@ var cList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 
 
 function mycourseRender(cMap) {
+	var heartonoff = contextPath + '/assets/image/main/heart-off.png';
+	if(cMap.LIKED != undefined) {
+		heartonoff = contextPath + '/assets/image/main/heart.png';
+	}
+	
+	
 	var str = '';
 	str += '<li class="course-list-result">';
 	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"   */
@@ -227,7 +238,7 @@ function mycourseRender(cMap) {
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+contextPath+'/assets/image/my-page/heart'+cMap.LIKED+'.png">';
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';
 	str += '					<img class="bookmark-cancel-btn" src="'+contextPath+'/assets/image/main/star.png">';
 	str += '				</div>';
 	str += '			</div>';
@@ -276,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				rList.push(
 					{
 						title: rMap.TITLE,
-						start: rMap.REGDATE
+						start: rMap.REGDATE2
 					}
 				);
 				calendarRender(rMap, "down");
@@ -319,11 +330,24 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		$(".reportContent").remove();
 		for(var i=0; i < eList.length; i++){
-			if(todaydate == eList[i].REGDATE){
+			if(todaydate == eList[i].REGDATE2){
 				calendarRender(eList[i]	, "down");	
 			}
 		}
+		
+		
 	});
+	
+	$(".myrecord-del-modal").hide('modal');
+	/*--------------------------------------------------*/
+	/*나의 기록보기, 삭제*/
+	//삭제 버튼 눌렀을때,
+	$("body").on("click", "#record-del-button", function(){
+		console.log("기록 삭제!");
+		$(".myrecord-del-modal").show('modal');
+		
+	});
+	
 });	
 	
 	
@@ -340,11 +364,15 @@ $(window).ready(function(){
 	var userNo = window.userNo;
 	console.log(userNo);
 	
+	
+	
+	
+	
+	
 	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
 	console.log('즐겨찾기');
 	$(".course-like-cancel").hide();
 	$(".course-bookmark-cancel").hide();
-    
 	
 	$(".like-cancel-btn").click(function(){
 		console.log("좋아요해제");
@@ -627,6 +655,24 @@ $(window).ready(function(){
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//기록삭제 버튼 눌렀을때, 
+	$("#byebye-record").on("click", function(){
+		console.log("기록삭제-모달");
+		var $this = $(this); 
+		var recordNo = $this.data("recordno");
+		console.log("기록삭제", recordNo);
+	});
 	
 	
 	
