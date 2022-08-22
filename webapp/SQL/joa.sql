@@ -346,7 +346,7 @@ CREATE TABLE BOARD (
 	content VARCHAR2(4000) NOT NULL, /* 내용 */
 	reg_date DATE NOT NULL, /* 등록일 */
 	view_count NUMBER NOT NULL, /* 조회수 */
-	Primary Key (q_list_no),
+	Primary Key (board_no),
 	CONSTRAINT board_user_fk Foreign Key(user_no)
 	references users(user_no)
 	ON DELETE CASCADE,
