@@ -73,6 +73,7 @@ th, td {
 	margin-top: 50px;
 	vertical-align : middle;
 }
+.title_margin {margin-left: 10px;}
 /** 글쓰기 버튼 **/
 #write {
 	width: 87px;

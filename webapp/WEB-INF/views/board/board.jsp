@@ -59,7 +59,7 @@
 					<tr>
 						<th>공지</th>
 						<td class="center">공지</td>
-						<td><a href="">욕.비방글은 삼가하고 많은 소통으로 활성화 부탁드립니다.</a></td>
+						<td><a class="title_margin" href="">{ 욕.비방글은 삼가시고 많은 소통으로 활성화 부탁드립니다. }</a></td>
 						<td class="center">관리자</td>
 						<td class="center">0</td>
 						<td class="center">2022.02.15</td>
@@ -69,7 +69,7 @@
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${categoryMap[bMap.BOARDCATEGORY]}</td>
-								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} []
+								<td><a class="title_margin" href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} [${bMap.COUNT}]
 									<!--<c:if test="${ㅠMap.board_img_no != null}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if>-->

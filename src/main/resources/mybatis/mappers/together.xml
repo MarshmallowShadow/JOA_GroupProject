@@ -57,10 +57,10 @@
                      					 where min.course_no = p.course_no 
                      					 and min.order_no = p.order_no) omin
                 					where omax.course_no = omin.course_no) p
-	                 	  	 		, event e left outer join (select count(*) count
-	                  		  		  						      	  , event_no
-	                  		   								   from event_joined
-	                  		   								   group by event_no) j
+	                 	  	  , event e left outer join (select count(*) count
+                		  		  						      	, event_no
+                		   								 from event_joined
+                		   								 group by event_no) j  
 	                    			on e.event_no = j.event_no
 	                    where c.course_no = e.course_no
 	                    and c.course_no = p.course_no

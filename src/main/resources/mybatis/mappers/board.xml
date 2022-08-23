@@ -13,6 +13,7 @@
 		           , ort.viewCount
 		           , ort.regDate
 		           , ort.userNo
+		           , ort.count
 			from (select rownum rn
 	                     , ot.boardNo
 	                     , ot.boardCategory
@@ -21,6 +22,7 @@
 	                     , ot.viewCount
 	                     , ot.regDate
 	                     , ot.userNo
+	                     , ot.count
 		          from (select b.board_no boardNo
 		          			   , b.board_category boardCategory
 	                           , b.title
@@ -28,7 +30,12 @@
 	                           , b.view_count viewCount
 	                           , to_char(b.reg_date,'YYYY-MM-DD') regDate
 	                           , b.user_no userNo
-	                  from board b, users u
+	                           , cn.count
+	                  from users u, board b left outer join (select count(*) count
+					                  							    , board_no
+					                  						 from board_comment
+					                  						 group by board_no) cn
+					  on cn.board_no = b.board_no
 	                  where u.user_no = b.user_no
 	                  and title like #{keyword}
 				      and board_category like #{boardCategory}
