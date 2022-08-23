@@ -181,6 +181,12 @@
 									<td>
 										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
+										
+										<input type="radio" name="openStatus" id="close" value="close">
+										<label for="close">비공개</label>
+										
+										<p class="gray">함께하기 등록을 위해서는 코스 공개가 필수입니다.</p>
+										
 									</td>
 								</tr>
 								
@@ -217,7 +223,7 @@
 									<th>인원</th>
 									<td>
 										<input type="number" name="joinMax" value="1" min="1"  max="15">
-										<p id="maxPerson">최대 인원은 15명입니다.</p>
+										<p class="gray">최대 인원은 15명입니다.</p>
 										<!-- 초기값:value="1", 최소:min="1", 최대: max="15" -->
 									</td>
 								</tr>
