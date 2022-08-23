@@ -9,7 +9,11 @@
 
 <!-- css -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/together-write.css" rel="stylesheet" type="text/css">
+
+
+
 
 </head>
 <body>
@@ -195,9 +199,9 @@
 								<tr>
 									<th>모집 기간</th>
 									<td>
-										<input class="txt-short" type="date" name="regStart">
+										<input class="txt-short" type="text" id="reg-start" name="regStart">
 										-
-										<input class="txt-short" type="date" id="reg-end" name="regEnd">
+										<input class="txt-short" type="text" id="reg-end" name="regEnd">
 									</td>
 								</tr>
 								
@@ -226,7 +230,7 @@
 								<tr>
 									<th>함께 하는 날</th>
 									<td>
-										<input class="txt-short" type="date" name="eventStart">
+										<input class="txt-short" type="text" id="event-start" name="eventStart">
 										<p><input type="time" name="eventStart"></p>
 									</td>
 								</tr>
@@ -314,6 +318,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/writeform.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
 
