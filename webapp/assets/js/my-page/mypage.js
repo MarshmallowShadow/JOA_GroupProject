@@ -147,6 +147,19 @@ function mycourseRender(cMap) {
 	$(".my-course-list-box").append(str);
 }
 
+/*나의 즐겨찾기(전체리스트)*/
+var fList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
+				{	courseNo: '1',
+					userNo: '1',
+					title: '테스트',
+					id: 'joa123',
+					regDate: '2022-08-08',
+					openStatus: '공개'
+				}
+			];
+
+
+
 function myfavRender(fMap){
 	var img = contextPath + '/assets/image/map/map-icon.jpg';
 	if(fMap.SAVENAME != undefined) {
@@ -717,7 +730,7 @@ $(window).ready(function(){
 		success : function(result){
 			//컨트롤러 함수 실행 후 코드
 			console.log(result);
-			$("..my-fav-all-list-box").empty();
+			$(".my-fav-all-list-box").empty();
 			
 			//리스트니까 for문으로 그리기!
 			for (var i = 0; i < result.length; i++) {

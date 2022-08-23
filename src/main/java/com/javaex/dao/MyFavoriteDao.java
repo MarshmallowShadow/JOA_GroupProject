@@ -19,4 +19,12 @@ public class MyFavoriteDao {
 		System.out.println("MyFavoriteDao>getFavAllList"); 
 		return sqlSession.selectList("mypage.getFavAllList", userNo); 
 	}
+	
+	
+	//즐겨찾기 카테고리별 list 가져오기
+	public List<Map<String, Object>> getFavCourseList(Map<String, Object> fcMap){
+		System.out.println("MyFavoriteDao>getFavCourseList"); 
+		return sqlSession.selectList("mypage.getFavCourseList", fcMap); 
+	}
+	
 }

@@ -1,5 +1,6 @@
 package com.javaex.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,16 @@ public class MypageService {
 		return myFavoriteDao.getFavAllList(userNo); 
 	}
 
-	
+	//즐겨찾기 카테고리별 리스트 가져오기
+	public List<Map<String, Object>> getFavCourseList(int userNo, int cateNo){
+		System.out.println("MypageService>getFav-cate");
+		
+		Map<String, Object> fcMap = new HashMap<String, Object>();
+		fcMap.put("userNo", userNo); //코스정보
+		fcMap.put("cateNo", cateNo); //유저이름
+		
+		return myFavoriteDao.getFavCourseList(fcMap);
+	}
 	
 	
 	
