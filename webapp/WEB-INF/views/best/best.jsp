@@ -350,70 +350,44 @@
 		<div class="img-total2">
 			<div class="img-line">
 				<p> <span>ε♡з</span> Top 13 ~ 15</p>
-
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
+				
+				<!-- items:Vo, var:저장된 데이타 의미, varStatus: jstl의 i (status.index) -->
+				<c:forEach items="${bList}" var="map" varStatus="status">
+				<c:choose>
+					<c:when test="${status.index == 0 }">
+						<div class="img-1">		
+							<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
+							<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
+							<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
+						</div>
+					</c:when>	
+				</c:choose>
+				
+						<div class="img-list">
+							<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/map.jpg" />
+								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
+						
+							<div class="comment-text">
+							<c:forEach items="${map.recordList}" var="record">
+								<div class="comment-text1">${record.review}</div>
+								<div class="comment-text1">${record.review}</div>
+								<div class="comment-text1">${record.review}</div>
+								<br>
+							</c:forEach>
+								
+								<div class="button-ttl">
+									<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+									
+									<div class="imgbutton">
+										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
+										<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+									</div>
+								</div>
+							</div>
+						</div>
+				</c:forEach>	
 					
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
-					
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/poo613.jpg" />
-							<span id="best-text"> 지역 : <span>인천</span> | 거리 : <span>1km</span></span></a>
-
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			</div>
 		</div>		
 	</div>			
 				
@@ -423,4 +397,14 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 </body>	
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.contextPath = '${pageContext.request.contextPath}';
+	window.count_cate = '${param.count_cate}';
+	window.course_cate = '${param.course_cate}';
+	
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/best/best.js"></script>
 </html>

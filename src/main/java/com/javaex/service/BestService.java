@@ -29,21 +29,19 @@ public class BestService {
 	public List<Map<String, Object>> getBest(String course_cate, String count_cate) {
 		System.out.println("BestService>getBest");
 		
+		Map<String, String> map = new HashMap<>();
+		map.put("count_cate", count_cate);
+		
 		if(course_cate == null) {
-			course_cate="";
+			map.put("course_cate", "%%");
+		} else {
+			map.put("course_cate", "%" + course_cate + "%");
 		}
-		course_cate = "%" + course_cate + "%";
 		
 		//System.out.println(count_cate);
 		
-		//빈통 생성
-		Map<String, Object> bestMap = new HashMap<>();
 		
-		//빈통에 넣기
-		bestMap.put("course_cate", course_cate);
-		bestMap.put("count_cate", count_cate);
-		
-		List<Map<String, Object>> courseList = courseDao.getBest(bestMap);
+		List<Map<String, Object>> courseList = courseDao.getBest(map);
 		
 		//3개씩 15개 기록 반복문 사용 
 		for(int i=0; i<courseList.size(); i++) {

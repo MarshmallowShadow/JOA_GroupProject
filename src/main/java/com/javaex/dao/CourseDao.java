@@ -44,7 +44,7 @@ public class CourseDao {
 	}
 	
 	//베스트
-	public List<Map<String,Object>> getBest(Map<String, Object> map){
+	public List<Map<String,Object>> getBest(Map<String, String> map){
 		System.out.println("CourseDao>getBest");
 		return sqlSession.selectList("course.getBest", map);
 	}
