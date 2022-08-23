@@ -65,11 +65,6 @@ public class ApiMypageController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	//즐겨찾기////////////////////////////////////////////////////////////////////////////
 	//나의 즐겨찾기 - 즐겨찾기 메인(전체) list 가져오기
 	@ResponseBody
@@ -81,7 +76,15 @@ public class ApiMypageController {
 	 return myFavoriteList; 
 	}
 	
-	
+	//나의 즐겨찾기 - 즐겨찾기 개별(카테고리별) list 가져오기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/get-Fav-Course-List", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public List <Map<String,Object>> getFavCourseList(@RequestBody Map<String, Object> fcVo) {
+		System.out.println("ApiMypageController>get-Fav-Course-List()");
+		List<Map<String,Object>> myFavCourseList = mypageService.getFavCourseList(fcVo);
+		System.out.println(myFavCourseList);
+	 return myFavCourseList; 
+	}
 	
 	
 	

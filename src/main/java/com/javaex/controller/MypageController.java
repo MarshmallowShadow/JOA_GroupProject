@@ -1,5 +1,6 @@
 package com.javaex.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,7 +64,11 @@ public class MypageController {
 			userNo = userVo.getUserNo(); 
 		} 
 		
-		List <Map<String, Object>> favCourseList = mypageService.getFavCourseList(cateNo, userNo);
+		Map<String, Object> fcVo = new HashMap<String, Object>();
+		fcVo.put("userNo", userNo); 
+		fcVo.put("cateNo", cateNo); 
+		
+		List <Map<String, Object>> favCourseList = mypageService.getFavCourseList(fcVo);
 		
 		model.addAttribute("favCourseList", favCourseList); 
 		return "my-page/bookmark-ex"; 

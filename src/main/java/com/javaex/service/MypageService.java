@@ -35,14 +35,14 @@ public class MypageService {
 	}
 
 	//즐겨찾기 카테고리별 리스트 가져오기
-	public List<Map<String, Object>> getFavCourseList(int userNo, int cateNo){
+	public List<Map<String, Object>> getFavCourseList(Map<String, Object> fcVo){
 		System.out.println("MypageService>getFav-cate");
 		
-		Map<String, Object> fcMap = new HashMap<String, Object>();
-		fcMap.put("userNo", userNo); //코스정보
-		fcMap.put("cateNo", cateNo); //유저이름
-		
-		return myFavoriteDao.getFavCourseList(fcMap);
+		/*
+		 * Map<String, Object> fcMap = new HashMap<String, Object>();
+		 * fcMap.put("userNo", userNo); //코스정보 fcMap.put("cateNo", cateNo); //유저이름
+		 */		
+		return myFavoriteDao.getFavCourseList(fcVo);
 	}
 	
 	
