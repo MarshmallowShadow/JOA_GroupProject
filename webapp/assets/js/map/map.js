@@ -6,9 +6,6 @@ var lat = 33.450701;
 var lon = 126.570667;
 var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
 
-//검색 결과물 배열
-var resultList = [];
-
 //마커 배열
 var markerList = [];
 
@@ -17,6 +14,16 @@ var selectedMarker = null;
 
 //인포윈도우
 var overlay = null;
+
+//지도 검색 정보
+var kMap = {
+	searchCate: "title",
+	keyword: '',
+	x1: 0,
+	x2: 0,
+	y1: 0,
+	y2: 0
+};
 
 $(document).ready(function(){
 	$("#rdo-loc").prop("checked", true);
@@ -86,7 +93,7 @@ $(document).ready(function(){
 $(window).load(function(){
 	/*------------주변 추천------------*/
 	
-	var kMap = {
+	kMap = {
 		searchCate: "location",
 		x1: lon - 0.05,
 		y1: lat - 0.03,
@@ -145,7 +152,7 @@ $("#filter-cate, #filter-dist, #filter-diff").on("click", ".menu-option", functi
 		$(this).children("img").attr("src", contextPath + "/assets/image/map/check_off.png");
 	}
 	
-	showList();	
+	getList(kMap);
 });
 
 
@@ -176,9 +183,7 @@ $("#search-form").on("submit", function(){
 	console.log(searchCate);
 	console.log(keyword);
 	
-	var kMap = {
-		searchCate: searchCate
-	};
+	kMap["searchCate"] = searchCate;
 	
 	if(searchCate == "title") {
 		//제목별 검색
@@ -276,111 +281,115 @@ var getList = function(kMap) {
 		success : function(result){
 			//컨트롤러 함수 실행 후 코드
 			
-			//배열을 저장하기 (필터링 기능 구현에 필수)
-			resultList = result;
+			//마커 배열 지우기
+			for( var i=0; i < markerList.length; i++) {
+				markerList[i].setMap(null);
+			}
+			markerList = [];
 			
-			showList();
+			var diffFilter = [];
+			var cateFilter = [];
 			
+			//난이도 필터링
+			if($('#chk-easy').is(':checked') == false){
+				diffFilter.push("쉬움");
+			} 
+			if($('#chk-normal').is(':checked') == false){
+				diffFilter.push("보통");
+			} 
+			if($('#chk-hard').is(':checked') == false){
+				diffFilter.push("어려움");
+			}
+			
+			if($('#chk-walk').is(':checked') == false){
+				cateFilter.push("산책");
+			} 
+			if($('#chk-jogging').is(':checked') == false){
+				cateFilter.push("조깅");
+			} 
+			if($('#chk-running').is(':checked') == false){
+				cateFilter.push("러닝");
+			} 
+			if($('#chk-marathon').is(':checked') == false){
+				cateFilter.push("마라톤");
+			} 
+			if($('#chk-bicycle').is(':checked') == false){
+				cateFilter.push("자저거");
+			} 
+			if($('#chk-draw').is(':checked') == false){
+				cateFilter.push("그림");
+			}
+			
+			//필터링
+			for(var i=0; i<result.length; i++){
+				var deleted = false;
+				
+				for(var j=0; j<diffFilter.length; j++){
+					console.log(result[i]);
+					console.log(diffFilter[j]);
+					
+					if(result[i].DIFFICULTY == diffFilter[j]){
+						
+						result.splice(i, 1);
+						i--;
+						
+						console.log("REDACTED");
+						
+						break;
+					}
+				}
+				
+				if(deleted == true){
+					continue;
+				}
+				
+				for(var j=0; j<cateFilter.length; j++){
+					if(result[i].COURSE_CATEGORY == cateFilter[j]){
+						result.splice(i, 1);
+						i--;
+						
+						console.log("CLOSE BUT REDACTED");
+						
+						break;
+					}
+				}
+			}
+			
+			
+			if(result.length > 0){
+				//리스트 비우기
+				$("#result-list").html("<ul></ul>");
+				
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+				// LatLngBounds 객체에 좌표를 추가합니다
+				var bounds = new kakao.maps.LatLngBounds();
+				
+				//리스트 하나씩 생성
+				for(var i=0; i<result.length; i++){
+					//리스트 생성
+					render(result[i]);
+					
+					//마커 생성
+					var marker = addPoint(result[i].X1, result[i].Y1, result[i].COURSE_NO, result[i].TITLE);
+					
+					//지도에 마커 추가
+					markerList.push(marker);
+					
+					//범위 넓이기
+					bounds.extend(new kakao.maps.LatLng(result[i].Y1, result[i].X1));
+				}
+				
+				//범위 재설정
+				map.setBounds(bounds);
+			} else {
+				renderEmpty();
+			}
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
 		}
 	});
-	
 };
-
-var showList = function(){
-	
-	//마커 배열 지우기
-	for( var i=0; i < markerList.length; i++) {
-		markerList[i].setMap(null);
-	}
-	markerList = [];
-	
-	var diffFilter = [];
-	var cateFilter = [];
-	
-	//난이도 필터링
-	if($('#chk-easy').is(':checked') == false){
-		diffFilter.push("easy");
-	} else if($('#chk-normal').is(':checked') == false){
-		diffFilter.push("normal");
-	} else if($('#chk-hard').is(':checked') == false){
-		diffFilter.push("hard");
-	}
-	
-	if($('#chk-walk').is(':checked') == false){
-		cateFilter.push("walk");
-	} else if($('#chk-jogging').is(':checked') == false){
-		cateFilter.push("jogging");
-	} else if($('#chk-running').is(':checked') == false){
-		cateFilter.push("running");
-	} else if($('#chk-marathon').is(':checked') == false){
-		cateFilter.push("marathon");
-	} else if($('#chk-bicycle').is(':checked') == false){
-		cateFilter.push("bicycle");
-	} else if($('#chk-draw').is(':checked') == false){
-		cateFilter.push("draw");
-	}
-	
-	var displayList = resultList;
-	console.log(displayList);
-	
-	//필터링
-	for(var i=0; i<displayList.length; i++){
-		var deleted = false;
-		
-		for(var j=0; j<diffFilter.length; j++){
-			if(displayList[i].DIFFICULTY = diffFilter[j]){
-				displayList.splice(i, 1);
-				i--;
-				break;
-			}
-		}
-		
-		if(deleted == true){
-			continue;
-		}
-		
-		for(var j=0; j<cateFilter.length; j++){
-			if(displayList[i].COURSE_CATEGORY = cateFilter[j]){
-				displayList.splice(i, 1);
-				i--;
-				break;
-			}
-		}
-	}
-	
-	
-	if(displayList.length > 0){
-		//리스트 비우기
-		$("#result-list").html("<ul></ul>");
-		
-		// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-		// LatLngBounds 객체에 좌표를 추가합니다
-		var bounds = new kakao.maps.LatLngBounds();
-		
-		//리스트 하나씩 생성
-		for(var i=0; i<displayList.length; i++){
-			//리스트 생성
-			render(displayList[i]);
-			
-			//마커 생성
-			var marker = addPoint(displayList[i].X1, displayList[i].Y1, displayList[i].COURSE_NO, displayList[i].TITLE);
-			
-			//지도에 마커 추가
-			markerList.push(marker);
-			
-			//범위 넓이기
-			bounds.extend(new kakao.maps.LatLng(displayList[i].Y1, displayList[i].X1));
-		}
-		
-		//범위 재설정
-		map.setBounds(bounds);
-	} else {
-		renderEmpty();
-	}
-}
 
 var render = function(cMap) {
 	
