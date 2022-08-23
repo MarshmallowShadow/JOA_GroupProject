@@ -35,7 +35,7 @@
 						<option value="default"></option>
 						<option value="question">개인</option>
 						<option value="commute">사업</option>
-						<option value="commute">서비스</option>
+						<option value="service">서비스</option>
 					</select>
 				</div>
 
