@@ -1,6 +1,6 @@
 package com.javaex.service;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,7 @@ public class BestService {
 		for(int i=0; i<courseList.size(); i++) {
 			//recordList.add(/*레코드다오 부르기*/);
 			//기록 리스트 가져오기
-			courseList.get(i).put("recordList", (recordDao.getBestRecord((int)(courseList.get(i).get("COURSE_NO")))));
+			courseList.get(i).put("recordList", (recordDao.getBestRecord(((BigDecimal)(courseList.get(i).get("COURSE_NO"))).intValue())));
 		}
 		return courseList;
 	}

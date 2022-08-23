@@ -1,5 +1,8 @@
 package com.javaex.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BestService;
-import com.javaex.service.BoardService;
 
 @RequestMapping(value="/best")
 @Controller
@@ -31,7 +33,13 @@ public class BestController {
 					    @RequestParam(value="count_cate", required=true, defaultValue="l_count") String count_cate) {
 		System.out.println("BestController");
 		
-		bestService.getBest(course_cate, count_cate);
+		List<Map<String, Object>> bList = bestService.getBest(course_cate, count_cate);
+		
+		//데이터 저장후 출력해보기
+		System.out.println(bList);
+		
+		//모델에 저장 
+		model.addAttribute("bList", bList);
 		
 		return "best/best";
 		
