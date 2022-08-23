@@ -11,6 +11,14 @@
 		]]>
 	</insert>
 	
+	<!-- 이미지 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete record_img
+			where record_img_no = #{no}
+		]]>
+	</delete>
+	
 	<!-- 기록이미지 가져오기 -->
 	<select id="getImg" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
@@ -44,6 +52,15 @@
 			from record_img
 			where record_no = #{recordNo}
 			order by order_no
+		]]>
+	</select>
+	
+	<!-- 기록 이미지 번호 가져오기 -->
+	<select id="getOrderNo" parameterType="int" resultType="int">
+		<![CDATA[
+			select nvl(max(order_no), -1)
+			from record_img
+			where record_no = #{recNo}
 		]]>
 	</select>
 </mapper>

@@ -113,43 +113,44 @@ $(document).ready(function() {
 	
 			//받을때
 			//dataType : "json",
-			success : function(recResult){
+			success : function(recNo){
 				//성공시 처리해야될 코드 작성
-				console.log("record:"+recResult);
+				console.log("recordNo:"+recNo);
 				
-				//업로드할 사진이 있을때 사진 업로드
-				if(uploadFiles.length > 0) { 
-					var formData = new FormData();
-					
-					for(var i=0; i < uploadFiles.length; i++) {
-						formData.append('file', uploadFiles[i]);
+				if(recNo > 0) {
+									
+					//업로드할 사진이 있을때 사진 업로드
+					if(uploadFiles.length > 0) { 
+						var formData = new FormData();
+						
+						for(var i=0; i < uploadFiles.length; i++) {
+							formData.append('file', uploadFiles[i]);
+						}
+						
+						formData.append('recNo', recNo);
+						
+						$.ajax({
+							//보낼때
+							url : contextPath+"/apiRec/recordImgWrite",
+							type : "post",
+							//contentType : "application/json",
+							data : formData,
+							processData: false,
+							contentType: false,
+							enctype : 'multipart/form-data',
+							
+							//받을때
+							//dataType : "json",
+							success : function(imgResult){
+								//성공시 처리해야될 코드 작성
+								console.log("img:"+imgResult);
+							},
+							error : function(XHR, status, error) {
+								console.error(status + " : " + error);
+							}
+						});
 					}
 					
-					console.log(formData);
-					
-					$.ajax({
-						//보낼때
-						url : contextPath+"/apiRec/recordImgWrite",
-						type : "post",
-						//contentType : "application/json",
-						data : formData,
-						processData: false,
-						contentType: false,
-						enctype : 'multipart/form-data',
-						
-						//받을때
-						//dataType : "json",
-						success : function(imgResult){
-							//성공시 처리해야될 코드 작성
-							console.log("img:"+imgResult);
-						},
-						error : function(XHR, status, error) {
-							console.error(status + " : " + error);
-						}
-					});
-				}
-				
-				if(recResult == "success") {
 					location.href = contextPath+"/record/view?courseNo="+courseNo;
 				}
 			},

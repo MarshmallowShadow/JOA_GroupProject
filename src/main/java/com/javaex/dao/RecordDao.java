@@ -21,12 +21,6 @@ public class RecordDao {
 		System.out.println("RecordDao->insertRecord");
 		return sqlSession.insert("record.insert", recVo);
 	}
-	
-	//기록번호 가져오기
-	public int getrecNo() {
-		System.out.println("RecordDao->getrecNo");
-		return sqlSession.selectOne("record.getrecNo");
-	}
 
 	//(코스상세보기) 기록수 가져오기
 	public int getRecCnt(int courseNo) {

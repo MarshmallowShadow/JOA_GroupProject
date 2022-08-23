@@ -28,7 +28,7 @@ public class ApiRecordController {
 	//기록 등록
 	@ResponseBody
 	@RequestMapping(value="/recordWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWrite(@ModelAttribute RecordVo recVo) {
+	public int recordWrite(@ModelAttribute RecordVo recVo) {
 		System.out.println("RecordController->recordWrite");
 		return recService.recordWrite(recVo);
 	}
@@ -36,10 +36,21 @@ public class ApiRecordController {
 	//기록사진 등록
 	@ResponseBody
 	@RequestMapping(value = "/recordImgWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWrite(@RequestPart(value = "file", required = false) List<MultipartFile> fileList) {
+	public String recordWrite(@RequestPart(value = "file", required = false) List<MultipartFile> fileList,
+					@RequestParam(value = "recNo", required = false) int recNo) {
 		System.out.println("ApiRecordController->recordWrite");
 		System.out.println(fileList);
-		return recService.recordImgWrite(fileList);
+		System.out.println(recNo);
+		return recService.recordImgWrite(fileList, recNo);
+	}
+	
+	//기록 이미지 삭제
+	@ResponseBody
+	@RequestMapping(value = "/deleteImgs", method = {RequestMethod.GET, RequestMethod.POST})
+	public String deleteImgs(@RequestParam(value = "deleteFiles[]", required = false) List<Integer> deleteFiles) {
+		System.out.println("ApiRecordController->recordModify");
+		System.out.println(deleteFiles);
+		return recService.deleteImgs(deleteFiles);
 	}
 	
 	//기록 리스트 가져오기
@@ -59,7 +70,7 @@ public class ApiRecordController {
 		return recService.getCoUserNo(courseNo);
 	}
 	
-	//기록사진 가져오기
+	//(기록수정) 기록사진 가져오기
 	@ResponseBody
 	@RequestMapping(value = "/getImgs", method = {RequestMethod.GET, RequestMethod.POST})
 	public List<RecordImgVo> getImgs(@RequestParam(value = "recordNo", required = false) int recordNo) {

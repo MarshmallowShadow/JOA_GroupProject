@@ -88,8 +88,61 @@
 				//성공시 처리해야될 코드 작성
 				console.log("record:"+recResult);
 				
-				
 				if(recResult == "success") {
+					
+					if(deleteFiles.length > 0) {
+						
+						$.ajax({
+							//보낼때
+							url : contextPath+"/apiRec/deleteImgs",
+							type : "post",
+							//contentType : "application/json",
+							data : {deleteFiles},
+					
+							//받을때
+							//dataType : "json",
+							success : function(delResult){
+								//성공시 처리해야될 코드 작성
+								console.log("delImgs:"+delResult);
+							},
+							error : function(XHR, status, error) {
+								console.error(status + " : " + error);
+							}
+						});
+						
+					}
+					
+					//업로드할 사진이 있을때 사진 업로드
+					if(uploadFiles.length > 0) { 
+						var formData = new FormData();
+						
+						for(var i=0; i < uploadFiles.length; i++) {
+							formData.append('file', uploadFiles[i]);
+						}
+						
+						formData.append('recNo', recordNo);
+						
+						$.ajax({
+							//보낼때
+							url : contextPath+"/apiRec/recordImgWrite",
+							type : "post",
+							//contentType : "application/json",
+							data : formData,
+							processData: false,
+							contentType: false,
+							enctype : 'multipart/form-data',
+							
+							//받을때
+							//dataType : "json",
+							success : function(imgResult){
+								//성공시 처리해야될 코드 작성
+								console.log("img:"+imgResult);
+							},
+							error : function(XHR, status, error) {
+								console.error(status + " : " + error);
+							}
+						});
+					}
 					location.href = contextPath+"/record/view?courseNo="+courseNo;
 				}
 			},

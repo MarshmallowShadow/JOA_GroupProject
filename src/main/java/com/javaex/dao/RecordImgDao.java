@@ -14,11 +14,23 @@ public class RecordImgDao {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
+	//이미지 번호 가져오기
+	public int getOrderNo(int recNo) {
+		System.out.println("RecordDao->getOrderNo");
+		return sqlSession.selectOne("recordimg.getOrderNo", recNo);
+	}
 
 	//기록 이미지 추가
 	public int insertImg(RecordImgVo imgVo) {
 		System.out.println("RecordImgDao->insertImg");
 		return sqlSession.insert("recordimg.insert", imgVo);
+	}
+	
+	//기록 이미지 삭제
+	public int deleteImgs(int no) {
+		System.out.println("RecordImgDao->deleteImgs");
+		return sqlSession.delete("recordimg.delete", no);
 	}
 	
 	//(기록상세보기) 기록 이미지 가져오기
@@ -32,4 +44,5 @@ public class RecordImgDao {
 		System.out.println("RecordDao->getRecImg");
 		return sqlSession.selectList("recordimg.getRecImg", recordNo);
 	}
+
 }

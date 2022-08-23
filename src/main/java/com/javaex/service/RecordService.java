@@ -49,31 +49,26 @@ public class RecordService {
 	
 	
 	//코스기록 등록하기
-	public String recordWrite(RecordVo recVo) {
+	public int recordWrite(RecordVo recVo) {
 		System.out.println("RecordService->recordWrite");
 		System.out.println(recVo);
-		int count = recDao.insertRecord(recVo);
-		if(count > 0) {
-			return "success";
-		} else {
-			return "false";
-		}
+		recDao.insertRecord(recVo);
+		System.out.println(recVo.getRecordNo());
+		return recVo.getRecordNo();
 	}
 	
 	
 	//코스기록 이미지 등록
-	public String recordImgWrite(List<MultipartFile> fileList) {
+	public String recordImgWrite(List<MultipartFile> fileList, int recNo) {
 		System.out.println("RecordService->recordImgWrite");
 		
 		String saveDir = "C:\\javaStudy\\upload";
 		
-		int index = 0;
+		//기록 이미지 번호가 있는지 찾음
+		int index = imgDao.getOrderNo(recNo)+1;
+		System.out.println(index);
 		
 		for(MultipartFile file : fileList) {
-			
-			//기록번호 가져오기
-			int recNo = recDao.getrecNo()-1;
-			System.out.println(recNo);
 			
 			if(file.getSize() > 0) {
 				//오리지날 파일명
@@ -191,13 +186,13 @@ public class RecordService {
 
 	}
 	
-	//기록사진 가져오기
+	//(기록수정) 기록사진 가져오기
 	public List<RecordImgVo> getImgs(int recordNo) {
 		System.out.println("RecordService->getImgs");
 		return imgDao.getRecImg(recordNo);
 	}
 
-	//기록 수정하기
+	//(기록수정) 기록 수정하기
 	public String recordModify(RecordVo recVo) {
 		System.out.println("RecordService->recordModify");
 		int cnt = recDao.updateRecord(recVo);
@@ -207,6 +202,23 @@ public class RecordService {
 		}
 		
 		return "fail";
+	}
+
+	//(기록수정) 기록 이미지 삭제
+	public String deleteImgs(List<Integer> deleteFiles) {
+		System.out.println("RecordService->deleteImgs");
+		
+		int cnt = 0;
+		for(int i=0; i<deleteFiles.size(); i++) {
+			cnt += imgDao.deleteImgs(deleteFiles.get(i));
+		}
+		
+		if(cnt > 0) {
+			return "success";
+		}
+		
+		return "fail";
+		
 	}
 
 	

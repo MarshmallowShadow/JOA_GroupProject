@@ -15,15 +15,6 @@
 		]]>
 	</insert>
 	
-	<!-- 기록번호 가져오기 -->
-	<select id="getrecNo" resultType="int">
-		<![CDATA[
-			select last_number
-			from user_sequences
-			where sequence_name = 'SEQ_RECORD_NO'
-		]]>
-	</select>
-	
 	<!-- 기록수 가져오기 -->
 	<select id="recCnt" parameterType="int" resultType="int">
 		<![CDATA[
