@@ -75,9 +75,9 @@
 			
 			<!-- 수정, 삭제 버튼 -->
 			<div id="writer_btnM">
-				<c:if test="${authUser.no eq tMap.USERNO}">
-					<button type="submit" id="modify_m">수정</button>
-					<button type="submit" id="delete_m">삭제</button>
+				<c:if test="${authUser.userNo eq tMap.USERNO}">
+					<button type="button" id="modify_m">수정</button>
+					<button type="button" id="delete_m">삭제</button>
 				</c:if>
 			</div><!-- writer_btn -->
 		</form>
