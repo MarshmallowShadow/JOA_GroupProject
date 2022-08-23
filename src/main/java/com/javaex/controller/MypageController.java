@@ -46,26 +46,26 @@ public class MypageController {
 	
 	//즐겨찾기////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/bookmark/main", method = {RequestMethod.GET, RequestMethod.POST})
-	public String bookmarkMain() {
+	public String bookmarkMain(HttpSession session) {
 		System.out.println("MypageController>bookmark");
 		
 		return "my-page/bookmark-main";
 	}
 	
 	//즐겨찾기-예시
-	@RequestMapping(value="/bookmark", method = {RequestMethod.GET, RequestMethod.POST})
-	public String bookmarks(Model model, HttpSession session,
-							@RequestParam(value = "cateNo") int cateNo) {
-		System.out.println("MypageController>bookmarks-category");
-		UserVo userVo = (UserVo) session.getAttribute("authUser");
-		int userNo = 0;
-		if(userVo != null) {
-			userNo = userVo.getUserNo();
-		}
-		List <Map<String, Object>> bookmarkList = mypageService.getFavCourseList(cateNo, userNo);
-		model.addAttribute("bookmarkList", bookmarkList);		
-		return "my-page/bookmark-ex";
-	}
+	/*
+	 * @RequestMapping(value="/bookmark", method = {RequestMethod.GET,
+	 * RequestMethod.POST}) public String bookmarks(Model model, HttpSession
+	 * session,
+	 * 
+	 * @RequestParam(value = "cateNo") int cateNo) {
+	 * System.out.println("MypageController>bookmarks-category"); UserVo userVo =
+	 * (UserVo) session.getAttribute("authUser"); int userNo = 0; if(userVo != null)
+	 * { userNo = userVo.getUserNo(); } List <Map<String, Object>> bookmarkList =
+	 * mypageService.getFavCourseList(cateNo, userNo);
+	 * model.addAttribute("bookmarkList", bookmarkList); return
+	 * "my-page/bookmark-ex"; }
+	 */
 	
 	
 	

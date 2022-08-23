@@ -73,7 +73,7 @@
 						  	</div>
 						</div>
 					</li>
-					<li>
+					<%-- <li>
 						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
 						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
 						  	<div id="textBox">
@@ -298,7 +298,7 @@
 								<p id="courseInfo">후기글0</p>
 						  	</div>
 						</div>
-					</li>
+					</li> --%>
 					
 				</ol>
 			</div>
@@ -325,7 +325,7 @@
 						  	</div>
 						</div>
 					</li>
-					<li>
+					<%-- <li>
 						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
 						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample2.jpg">
 						  	<div id="textBox">
@@ -375,7 +375,7 @@
 								<p id="courseInfo">후기글0</p>
 						 	</div>
 						</div>
-					</li>
+					</li> --%>
 				</ol>
 			</div>
 		</div>

@@ -5,12 +5,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.dao.CategoryDao;
 import com.javaex.dao.MyCourseDao;
+import com.javaex.dao.MyFavoriteDao;
 import com.javaex.dao.MyReportDao;
 import com.javaex.vo.CategoryVo;
 
@@ -20,6 +18,7 @@ public class MypageService {
 	@Autowired private MyReportDao myReportDao;
 	@Autowired private MyCourseDao myCourseDao;
 	@Autowired private CategoryDao categoryDao;
+	@Autowired private MyFavoriteDao myFavoriteDao;
 	
 	
 	//나의코스 list 가져오기
@@ -28,12 +27,15 @@ public class MypageService {
 		return myCourseDao.getCourseList(userNo); 
 	}
 	
-	//북마크
-	public List <Map<String, Object>> getFavCourseList(int userNo, int cateNo){
-		System.out.println("MypageService>getFavCourse"); 
-		return myCourseDao.getFavCourseList(userNo, cateNo); 
+	//즐겨찾기 전체 리스트 가져오기
+	public List <Map<String, Object>> getFavAllList(int userNo){
+		System.out.println("MypageService>getFav-All"); 
+		return myFavoriteDao.getFavAllList(userNo); 
 	}
 
+	
+	
+	
 	
 	
 	

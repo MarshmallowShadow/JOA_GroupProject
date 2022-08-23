@@ -69,6 +69,37 @@ public class ApiMypageController {
 	
 	
 	
+	
+	//즐겨찾기////////////////////////////////////////////////////////////////////////////
+	//나의 즐겨찾기 - 즐겨찾기 메인(전체) list 가져오기
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/get-fav-all-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public List <Map<String,Object>> getFavAllList(@RequestBody int userNo) {
+		System.out.println("ApiMypageController>all-fav-list()");
+		List<Map<String,Object>> myFavoriteList = mypageService.getFavAllList(userNo);
+		System.out.println(myFavoriteList);
+	 return myFavoriteList; 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//메뉴탭///////////////////////////////////////////////////////////
 	//즐겨찾기 카테고리 1- 카테고리 list 가져오기
 	@ResponseBody

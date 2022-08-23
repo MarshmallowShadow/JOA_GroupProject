@@ -147,6 +147,49 @@ function mycourseRender(cMap) {
 	$(".my-course-list-box").append(str);
 }
 
+function myfavRender(fMap){
+	var img = contextPath + '/assets/image/map/map-icon.jpg';
+	if(fMap.SAVENAME != undefined) {
+		img = contextPath+'/upload/' + fMap.SAVENAME;
+	}
+	
+	var heartonoff = contextPath + '/assets/image/main/heart-off.png';
+	if(fMap.LIKED != undefined) {
+		heartonoff = contextPath + '/assets/image/main/heart.png';
+	}
+	
+	var favorite = contextPath + '/assets/image/main/star-off.png';
+	if(fMap.FAVORITE != undefined) {
+		favorite = contextPath + '/assets/image/main/star.png';
+	}
+	
+	var pCount = contextPath + '/assets/image/main/new.png';
+	if(fMap.PCOUNT == undefined) {
+		pCount = '0';
+	}
+	
+	
+	var str = '';
+	str += '<li class="course-list-result" id="my-favorite-all-result-list">';
+	str += '	<div class="listBox" >';
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+fMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
+	str += '	  	<div id="textBox">';
+	str += '			<div class="courseTitle">';
+	str += '				<p id="courseName">['+fMap.OPENSTATUS+']'+fMap.TITLE+' </p>';
+	str += '				<div class="img-icons">';
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '				</div>';
+	str += '			</div>';
+	str += '			<p id="courseInfo">'+fMap.ID+'</p>';
+	str += '			<p id="courseInfo">'+fMap.REGDATE+'</p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '	  	</div>';
+	str += '	</div>';
+	str += '</li>';
+	
+	$(".my-fav-all-list-box").append(str);
+}
 
 
 
@@ -658,6 +701,50 @@ $(window).ready(function(){
 		}
 	});
 	console.log(cList);
+	
+	
+	
+	
+	/*--------------------------------------------------*/
+	/*즐겨찾기 메인 리스트 가져오기*/
+	$.ajax({
+		url : contextPath + "/api/my-page/get-fav-all-list", //컨트롤러 RequestMapping url 작성하기
+		type : "post",
+		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+		dataType : "json",
+		success : function(result){
+			//컨트롤러 함수 실행 후 코드
+			console.log(result);
+			$("..my-fav-all-list-box").empty();
+			
+			//리스트니까 for문으로 그리기!
+			for (var i = 0; i < result.length; i++) {
+				var fMap = result[i];
+				fList.push(
+					{	courseNo: fMap.COURSENO,
+						userNo: fMap.USERNO,
+						title: fMap.TITLE,
+						id: fMap.ID,
+						regDate: fMap.REGDATE,
+						openStatus: fMap.OPENSTATUS,
+						liked: fMap.LIKED,
+						favorite: fMap.FAVORITE,
+						pCount: fMap.PCOUNT,
+						saveName: fMap.SAVENAME
+					}
+				);
+				myfavRender(fMap, "down");
+				
+			}
+			console.log(fList);
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	console.log(fList);
 });
 
 

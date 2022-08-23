@@ -103,6 +103,58 @@
 	
 	
 	
+	<!-- 나의 즐겨찾기 - 메인리스트(전체) 가져오기 -->
+	<select id="getFavAllList" parameterType="int" resultType="map">
+		<![CDATA[
+			select  c.course_no courseNo,
+        			c.user_no userNo,
+        			c.title,
+        			u.id,
+        			to_char(c.reg_date, 'YYYY-MM-DD') regDate,
+        			c.open_status openStatus,
+                    lc.user_no liked,
+                    fc.course_no favorite,
+                    pc.count pcount,
+                    i.saveName
+            from users u,
+            course c 
+            left outer join (select * from liked_course where user_no=#{userNo}) lc
+            on c.course_no = lc.course_no
+            left outer join (select max(cate_no), course_no 
+            				from (select fca.cate_no, course_no 
+            						from favorite_course fco, favorite_category fca where fco.cate_no=fca.cate_no and user_no = #{userNo}) group by course_no) fc
+            on c.course_no = fc.course_no
+            left outer join (select count(*) count, course_no 
+            				from (select course_no 
+            						from board where board_category = 'post') group by course_no) pc
+            on c.course_no = pc.course_no
+            left outer join (SELECT save_name saveName, course_no
+		                 FROM record_img i, record r, (SELECT MAX(reg_date) "ma" 
+		                                                FROM record
+		                                                GROUP BY course_no) d
+		                where i.record_no = r.record_no
+		                and order_no = 0                 
+		                and r.reg_date = d."ma") i
+            on i.course_no = c.course_no
+            where c.user_no = u.user_no
+                and c.user_no = #{userNo}
+        	order by c.reg_date asc
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- 카테고리-1.리스트 가져오기 -->
 	<select id="getCategoryList" parameterType="int" resultType="CategoryVo">
 		<![CDATA[
