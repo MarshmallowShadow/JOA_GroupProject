@@ -117,16 +117,11 @@
                     pc.count pcount,
                     i.saveName
             from users u,
+            (select max(cate_no), course_no from (select fca.cate_no, course_no from favorite_course fco, favorite_category fca where fco.cate_no=fca.cate_no and user_no = #{userNo}) group by course_no) fc,
             course c 
             left outer join (select * from liked_course where user_no=#{userNo}) lc
             on c.course_no = lc.course_no
-            left outer join (select max(cate_no), course_no 
-            				from (select fca.cate_no, course_no 
-            						from favorite_course fco, favorite_category fca where fco.cate_no=fca.cate_no and user_no = #{userNo}) group by course_no) fc
-            on c.course_no = fc.course_no
-            left outer join (select count(*) count, course_no 
-            				from (select course_no 
-            						from board where board_category = 'post') group by course_no) pc
+            left outer join (select count(*) count, course_no from (select course_no from board where board_category = 'post') group by course_no) pc
             on c.course_no = pc.course_no
             left outer join (SELECT save_name saveName, course_no
 		                 FROM record_img i, record r, (SELECT MAX(reg_date) "ma" 
@@ -137,7 +132,7 @@
 		                and r.reg_date = d."ma") i
             on i.course_no = c.course_no
             where c.user_no = u.user_no
-                and c.user_no = #{userNo}
+                and fc.course_no = c.course_no
         	order by c.reg_date asc
 		]]>
 	</select>
@@ -158,16 +153,11 @@
                     pc.count pcount,
                     i.saveName
             from users u,
+            (select fca.cate_no, course_no from favorite_course fco, favorite_category fca where fco.cate_no=fca.cate_no and user_no = #{userNo}) fc,
             course c 
             left outer join (select * from liked_course where user_no=#{userNo}) lc
             on c.course_no = lc.course_no
-            left outer join (select max(cate_no), course_no 
-            				from (select fca.cate_no, course_no 
-            						from favorite_course fco, favorite_category fca where fco.cate_no=fca.cate_no and user_no = #{userNo}) group by course_no) fc
-            on c.course_no = fc.course_no
-            left outer join (select count(*) count, course_no 
-            				from (select course_no 
-            						from board where board_category = 'post') group by course_no) pc
+            left outer join (select count(*) count, course_no from (select course_no from board where board_category = 'post') group by course_no) pc
             on c.course_no = pc.course_no
             left outer join (SELECT save_name saveName, course_no
 		                 FROM record_img i, record r, (SELECT MAX(reg_date) "ma" 
@@ -178,8 +168,8 @@
 		                and r.reg_date = d."ma") i
             on i.course_no = c.course_no
             where c.user_no = u.user_no
-                and c.user_no = #{userNo}
-                
+            	and c.course_no = fc.course_no
+                and fc.cate_no = #{cate_no}
         	order by c.reg_date asc
 		]]>
 	</select>
