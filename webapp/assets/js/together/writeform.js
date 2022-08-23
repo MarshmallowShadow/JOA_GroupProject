@@ -10,9 +10,6 @@
 		
 		map();
 		
-		//리스트 요청 + 그리기
-		//fetchList();
-		
 	});
 	
 	/* 코스 버튼을 클릭했을 때 */
@@ -29,7 +26,7 @@
 
 /*------------------------------ 지도 --------------------------------*/ 
 
-	function map() {
+function map() {
 		
 	
 		var mapContainer = document.getElementById('map');
@@ -377,6 +374,71 @@
 	    return content;
 	}
 }
+
+ /*---------------------------- 달력 날짜 ------------------------------*/ 
+
+
+	$(function(){
+		
+		$("#event-start").datepicker({
+			minDate: 0
+		});
+		
+		var dateFormat = "yy/mm/dd", from = $( "#reg-start" ).datepicker({
+			
+			defaultDate: "+1w",
+			changeMonth: true,
+			dateFormat: 'yy/mm/dd',
+			minDate: 0
+	          
+		}).on( "change", function() {
+		
+			to.datepicker( "option", "minDate", getDate( this ) );
+	          
+		}), to = $( "#reg-end" ).datepicker({
+		
+			defaultDate: "+1w",
+			changeMonth: true,
+	        dateFormat: 'yy/mm/dd',
+	        minDate: 0
+	        
+		}).on( "change", function() {
+		
+	        from.datepicker( "option", "maxDate", getDate( this ) );
+	        $("#event-start").datepicker( "option", "minDate", getDate( this ) );
+	        
+		});
+        
+	    function getDate( element ) {
+		
+			var date;
+			
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+		        date = null;
+			}
+		 
+		      return date;
+		      
+		    }
+		    
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
