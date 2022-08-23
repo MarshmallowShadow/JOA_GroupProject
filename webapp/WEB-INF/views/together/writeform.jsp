@@ -181,9 +181,6 @@
 									<td>
 										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
-										
-										<input type="radio" name="openStatus" id="close" value="close">
-										<label for="close">비공개</label>
 									</td>
 								</tr>
 								
