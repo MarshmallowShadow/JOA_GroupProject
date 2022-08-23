@@ -136,13 +136,6 @@ public class ListService {
 		return count;
 	}
 	
-	/*public Map<String, Object> gethitList(int no){
-		Map<String, Object> hitMap = listDao.gethitList(no);
-		
-		return hitMap;
-	}*/
-	
-	
 	//읽기 (한 명 정보 가져오기)
 	public Map<String, Object> read(int no) {
 		System.out.println("ListService>read");
