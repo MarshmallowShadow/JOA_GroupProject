@@ -222,16 +222,16 @@
 								<tr>
 									<th>인원</th>
 									<td>
-										<input type="number" name="joinMax" value="1" min="1"  max="15">
-										<p class="gray">최대 인원은 15명입니다.</p>
+										<input type="number" name="joinMax" value="1" min="1"  max="30">
+										<p class="gray">최대 인원은 30명입니다.</p>
 										<!-- 초기값:value="1", 최소:min="1", 최대: max="15" -->
 									</td>
 								</tr>
 								
 								
-								<!-- 함께 하는 날 -->
+								<!-- 함께하는 날 -->
 								<tr>
-									<th>함께 하는 날</th>
+									<th>함께하는 날</th>
 									<td>
 										<input class="txt-short" type="text" id="event-start" name="eventStart">
 										<p><input type="time" name="eventStart"></p>
@@ -253,7 +253,7 @@
 					<!-- 하단 버튼 -->
 					<div id="btn-wrap">
 						<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
-						<button type="submit" class="add">코스 등록</button>
+						<button type="submit" class="add">함께 등록</button>
 					</div>
 					
 				</form>

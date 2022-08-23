@@ -88,5 +88,14 @@ public class BoardDao {
 		return rMap;
 		
 	}
+	
+	//게시판 조회수
+	public int boardHit(int no) {
+		
+		System.out.println("BoardDao > boardHit");
+		
+		return sqlSession.update("board.boardHit", no);
+		
+	}
 
 }

@@ -96,5 +96,15 @@
 			and b.board_no = #{no}
 		]]>
 	</select>
+	
+	
+	<!-- 게시판 조회수 -->
+	<update id="boardHit" parameterType="int">
+		<![CDATA[
+			update board
+			set view_count = view_count + 1
+			where board_no = #{no}
+		]]>
+	</update>
 
 </mapper>

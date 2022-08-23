@@ -165,7 +165,7 @@ public class BoardService {
 		System.out.println("BoardService > read");
 		
 		//조회수 올리기
-		//boardDao.boardHit(no);
+		boardDao.boardHit(no);
 		
 		Map<String, String> categoryMap = new HashMap<String, String>();
 		categoryMap.put("commute", "소통");

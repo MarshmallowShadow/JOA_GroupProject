@@ -32,7 +32,7 @@
 							<tr id="top">
 								<th id="id">${bMap.ID}</th>
 								<th id="date">${bMap.REGDATE}</th>
-								<th id="up">조회수: 47</th>
+								<th id="up">조회수: ${bMap.VIEWCOUNT}</th>
 							</tr>
 						</thead>
 						<tbody>
