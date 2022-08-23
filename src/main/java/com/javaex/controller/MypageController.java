@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
-import com.javaex.vo.CategoryVo;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value="/my-page")
@@ -56,7 +57,13 @@ public class MypageController {
 	public String bookmarks(Model model, HttpSession session,
 							@RequestParam(value = "cateNo") int cateNo) {
 		System.out.println("MypageController>bookmarks-category");
-		
+		UserVo userVo = (UserVo) session.getAttribute("authUser");
+		int userNo = 0;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}
+		List <Map<String, Object>> bookmarkList = mypageService.getFavCourseList(cateNo, userNo);
+		model.addAttribute("bookmarkList", bookmarkList);		
 		return "my-page/bookmark-ex";
 	}
 	
