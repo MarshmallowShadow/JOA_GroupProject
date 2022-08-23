@@ -105,6 +105,7 @@
 			<div class="img-line">
 				<div class="img-list">
 					<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/sw1.jpg" />
+					
 						<span id="best-text"> 지역 : <span>서울</span> | 거리 : <span>1km</span> <span id="new">🅽</span></span></a>
 
 						<div class="comment-text">

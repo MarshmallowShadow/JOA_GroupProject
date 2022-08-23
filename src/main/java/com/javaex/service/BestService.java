@@ -39,23 +39,29 @@ public class BestService {
 		Map<String, String> map = new HashMap<>();
 		map.put("count_cate", count_cate);
 		
-		if(course_cate == null) {
+		if(course_cate == null || course_cate.equals("")) {
 			map.put("course_cate", "%%");
 		} else {
 			map.put("course_cate", "%" + course_cate + "%");
 		}
 		
-		//System.out.println(count_cate);
+		
+		//System.out.println(map);
 		
 		
 		List<Map<String, Object>> courseList = courseDao.getBest(map);
+		
+		System.out.println(courseList);
+		
 		
 		//3개씩 15개 기록 반복문 사용 
 		for(int i=0; i<courseList.size(); i++) {
 			//recordList.add(/*레코드다오 부르기*/);
 			//좌표 가져오기 (x, y 선언)
-			double x =  ((BigDecimal)courseList.get(i).get("x")).doubleValue();
-			double y =  ((BigDecimal)courseList.get(i).get("y")).doubleValue();
+			
+			double x =  ((BigDecimal)courseList.get(i).get("X")).doubleValue();
+			double y =  ((BigDecimal)courseList.get(i).get("Y")).doubleValue();
+			
 			//좌표로 위치 변환
 			String LOCATION = localApiDao.getLocation(x, y);
 			
