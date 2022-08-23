@@ -131,11 +131,13 @@
 						</div>
 					</c:forEach>
 					
-					<!-- 수정, 삭제 버튼 -->
-					<form method="get" action="${pageContext.request.contextPath}/together/comment">
-						<input type="hidden" name="eventNo" value="${bMap.EVENTNO}">
+					<!-- 댓글 상자 -->
+					<form method="get" action="${pageContext.request.contextPath}/board/comment">
+						<input type="hidden" name="eventNo" value="${bMap.BOARDNO}">
 						<input type="hidden" name="userNo" value="${authUser.userNo}">
-						<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+						<div id="comment-box">
+							<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+						</div>
 					</form>
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->

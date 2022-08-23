@@ -53,7 +53,7 @@
 		
 	}
  
- 	/* 리스트 그리기 1개씩*/
+ 	/* 리스트 그리기 1개씩 */
 	function render(Map, courseCate, opt) {
 		
 		var start = '송파'; //카카오 api로 위치 칮기 (togetherList.X1, togetherList.Y1)

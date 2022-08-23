@@ -103,7 +103,9 @@
 				<form method="get" action="${pageContext.request.contextPath}/together/comment">
 					<input type="hidden" name="eventNo" value="${tMap.EVENTNO}">
 					<input type="hidden" name="userNo" value="${authUser.userNo}">
-					<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+					<div id="comment-box">
+						<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+					</div>
 				</form>
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
