@@ -144,6 +144,11 @@ tr>#date, #up {
 
 /******************** 작성자 버튼 ********************/
 
+.comment-inline {display :inline-block;}
+.comment {
+	display :inline-block;
+	margin-right: 8px;
+}
 #writer_btnM {margin-left: 79.5%;}
 #modify_m {
 	width : 82px;
@@ -161,7 +166,11 @@ tr>#date, #up {
 	border:none;
 }
 /******/
-#writer_btnS {margin-top: 2px;}
+#writer_btnS {
+	margin-top: 2px;
+	margin-bottom: 15px;
+	display :inline-block;
+}
 #modify_s {
 	width : 23px;
 	height: 30px;
@@ -179,25 +188,6 @@ tr>#date, #up {
 	font-size : 10pt;
 	border:none;
 }
-/******/
-#writer_btnXS {margin-top: 16px;}
-#modify_xs {
-	width : 20px;
-	height: 25px;
-	background-color: #fff;
-	color: #666;
-	font-size : 9pt;
-	border: none;
-}
-#delete_xs {
-	margin-left: 0.5px;
-	width : 20px;
-	height: 25px;
-	background-color: #fff;
-	color: #666;
-	font-size : 9pt;
-	border: none;
-}
 
 /********************** 댓글 **********************/
 
@@ -208,6 +198,7 @@ tr>#date, #up {
 	font-size : 16pt;
 	font-weight : bold;
 }
+#comment-box {padding-top: 25px;}
 #commentbox {
 	margin-left: 9.5%;
 	width : 83%;
