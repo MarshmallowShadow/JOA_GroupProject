@@ -134,7 +134,7 @@
 					
 					<!-- 통계그래프 -->
 					<div class="record-status">
-						<h3>일기 작성 현황</h3>
+						<h3>기록 작성 현황</h3>
 						<div class="chart-choose">
 						
 							<input type="radio" name="chart-choose" id="category" value="category" checked>

@@ -23,7 +23,7 @@ public class ApiRecordController {
 	
 	@Autowired
 	private RecordService recService;
-	
+
 	
 	//기록 등록
 	@ResponseBody
