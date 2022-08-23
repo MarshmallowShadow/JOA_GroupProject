@@ -4,6 +4,8 @@ package com.javaex.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.TogetherService;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.EventCommentVo;
 import com.javaex.vo.EventVo;
 
 @Controller
@@ -65,7 +68,7 @@ public class TogetherController {
 		
 		 System.out.println("TogetherController > write");
 		 
-		 int courseNo = togetherService.write(xList, yList, hour, minute, coVo, eventVo);
+		 togetherService.write(xList, yList, hour, minute, coVo, eventVo);
 		
 		 return "redirect:together";
 		
@@ -80,8 +83,21 @@ public class TogetherController {
 		//내용 읽기
 		Map<String, Object> tMap = togetherService.read(no);
 		model.addAttribute("tMap", tMap);
+		model.addAttribute("eventCommentList", tMap.get("eventCommentList"));
 		
 		return "together/read";
+		
+	}
+	
+	//댓글 쓰기
+	@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
+	public String comment(@ModelAttribute EventCommentVo eventCommentVo, HttpSession session) {
+		
+		System.out.println("TogetherController > comment");
+		
+		togetherService.commentWrite(eventCommentVo);
+		
+		return "redirect:/together/read/" + eventCommentVo.getEventNo();
 		
 	}
 	
