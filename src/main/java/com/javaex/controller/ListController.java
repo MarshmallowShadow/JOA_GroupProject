@@ -64,8 +64,8 @@ public class ListController {
 		
 		System.out.println("ListController>read");
 		
-		//listService.hitUpdate(no);
-		//ListVo lVo = listService.getList(no);
+		//조회수 +1 (서비스에 넣어도 무관함!)
+		listService.hitUpdate(no);
 		
 		Map<String, Object> readMap = listService.read(no);
 		model.addAttribute("rMap", readMap.get("rMap"));

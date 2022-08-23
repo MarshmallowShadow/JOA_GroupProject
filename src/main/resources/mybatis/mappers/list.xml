@@ -67,7 +67,7 @@
 	<![CDATA[
 		update q_list
 		set view_count = view_count + 1
-		where no = #{no}
+		where q_list_no = #{no}
 	]]>
 
 </update>

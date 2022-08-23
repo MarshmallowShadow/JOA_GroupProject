@@ -68,7 +68,7 @@
 					<tr>
 						<th>${listVo.Q_LIST_NO}</th>
 						<td class="center">${cateMap[listVo.BOARD_CATEGORY]}</td>	<!-- 항목 -->
-						<td><a href="./read/${listVo.Q_LIST_NO}">${listVo.TITLE}</a></td><!-- 제목 -->
+						<td><a href="${pageContext.request.contextPath}/list/read/${listVo.Q_LIST_NO}">${listVo.TITLE}</a></td><!-- 제목 -->
 						<td class="center">${listVo.ID}</td>			<!-- 작성자 -->
 						<td class="center">${listVo.VIEW_COUNT}</td>		<!-- 조회수 -->
 						<td class="center">${listVo.REG_DATE}</td>		<!-- 날짜 -->

@@ -129,18 +129,26 @@ public class ListService {
 	}
 	
 	//조회수 (hitUpdate)
-	public int hitUpdate(int no) {
-		System.out.println("ListService>hitUpdate");
-		
+	public int hitUpdate(int no){
+		System.out.println("ListService>view_counts");
 		int count = listDao.hitUpdate(no);
-		
+
 		return count;
 	}
+	
+	/*public Map<String, Object> gethitList(int no){
+		Map<String, Object> hitMap = listDao.gethitList(no);
+		
+		return hitMap;
+	}*/
 	
 	
 	//읽기 (한 명 정보 가져오기)
 	public Map<String, Object> read(int no) {
 		System.out.println("ListService>read");
+		
+		//조회수 +1 (컨트롤러에서 적용)
+		//listDao.hitUpdate(no);
 		
 		//Map + List 묶기
 		Map<String, Object> readMap = new HashMap<>();

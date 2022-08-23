@@ -69,12 +69,13 @@ public class ListDao {
 	//메소드 일반
 	//조회수 (view_counts)
 	public int hitUpdate(int no) {
-		System.out.println("ListDao>hitUpdate");
+		System.out.println("ListDao>view_counts");
 		
 		int count = sqlSession.update("list.hitUpdate", no);
 		
 		return count;
 	}	
+	
 	
 	//읽기 (한 명 정보 가져오기)
 	public Map<String,Object> getList(int no) {
