@@ -22,7 +22,8 @@
 			type : "post",
 			contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼 거 없으면 필요없음)
 			data : JSON.stringify(crtPage), //@RequestBody로 데이터 보낼때 필수 (정보 보낼 거 없으면 필요없음)
-				//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼 거 없으면 필요없음)
+			
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼 거 없으면 필요없음)
 			dataType : "json",
 			success : function(result){
 				

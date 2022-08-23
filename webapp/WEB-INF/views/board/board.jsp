@@ -59,9 +59,9 @@
 					<tr>
 						<th>공지</th>
 						<td class="center">공지</td>
-						<td><a href="">(필독)글쓰기 전 확인해 주세요.[1985]</a></td>
+						<td><a href="">욕.비방글은 삼가하고 많은 소통으로 활성화 부탁드립니다.</a></td>
 						<td class="center">관리자</td>
-						<td class="center">35482</td>
+						<td class="center">0</td>
 						<td class="center">2022.02.15</td>
 					</tr>
 
@@ -69,8 +69,8 @@
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${categoryMap[bMap.BOARDCATEGORY]}</td>
-								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
-									<!--<c:if test="${Map.board_img_no eq true}">
+								<td><a href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} []
+									<!--<c:if test="${ㅠMap.board_img_no != null}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if>-->
 								</a></td>
