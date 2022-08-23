@@ -73,6 +73,11 @@ th, td {
 	margin-top: 50px;
 	vertical-align : middle;
 }
+.bold {font-weight: bold;}
+.notice_margin {
+	display: flex; /* 가운데 정렬 */
+	justify-content: center; /* 가운데 정렬 */
+}
 .title_margin {margin-left: 10px;}
 /** 글쓰기 버튼 **/
 #write {
