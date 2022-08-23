@@ -41,12 +41,12 @@ function fetchList(){
 		var str = '';
 		str += '<div class="img-list">';
 		str += '	<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/map.jpg" />';
-		str += '		<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>';
+		str += '		<span id="best-text"> 지역 : <span>' + cMap.LOCATION + '</span> | 거리 : <span>${map.DISTANCE}</span></span></a>';
 		str += '	<div class="comment-text"> ';
 		
 		//기록 필터링 if문 넣을 예정
-		if(result <= 3) {
-			$( )
+		for(var i=0; i<cMap.RECORDLIST.length; i++) {
+			
 		}
 		
 		str += '	<c:forEach items="${map.recordList}" var="review">';
