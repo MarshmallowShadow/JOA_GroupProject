@@ -21,6 +21,25 @@ public class MypageService {
 	@Autowired private MyCourseDao myCourseDao;
 	@Autowired private CategoryDao categoryDao;
 	
+	
+	//나의코스 list 가져오기
+	public List <Map<String,Object>> getCourseList(int userNo){
+		System.out.println("MypageService>MyCourseList"); 
+		return myCourseDao.getCourseList(userNo); 
+	}
+	
+	//북마크
+	public List <Map<String, Object>> getFavCourseList(int userNo, int cateNo){
+		System.out.println("MypageService>getFavCourse"); 
+		return myCourseDao.getFavCourseList(userNo, cateNo); 
+	}
+
+	
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
 	//나의기록 list 가져오기
 	public List <Map<String,Object>> getRecordList(int userNo){
 		System.out.println("MypageService>calendarList"); 
@@ -39,16 +58,12 @@ public class MypageService {
 	
 	
 	
-	//나의코스 list 가져오기
-	public List <Map<String,Object>> getCourseList(int userNo){
-		System.out.println("MypageService>MyCourseList"); 
-		return myCourseDao.getCourseList(userNo); 
-	}
 	
 	
 	
 	
 	
+	////////////////////////////////////////////////////////////////////////////
 	//즐겨찾기 카테고리 list 가져오기1
 	public List <CategoryVo> getCategoryList(int userNo){
 		System.out.println("MypageService>CateList"); 
@@ -79,6 +94,19 @@ public class MypageService {
 		System.out.println("MypageService>update-cate()");
 		return categoryDao.updateCategory(categoryVo);
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	////////////////////////////////////////////////////////////////////////////
 	
 	
 	

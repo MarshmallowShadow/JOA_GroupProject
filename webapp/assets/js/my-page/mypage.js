@@ -91,126 +91,6 @@ function calendarRender(rMap) {
 
 
 
-
-/*지도 이미지 가져오기*/
-function map(cMap) {
-	/*var courseNo = $("#courseNo").val();*/
-	var courseNo = cMap.COURSENO;
-	//좌표 배열
-	var path = [];
-	//지도 범위정보 객체
-	var bounds = new kakao.maps.LatLngBounds();
-	// 마커 위치
-	var markerPosition = [];
-	
-	/*좌표 가져오기*/
-	$.ajax({
-		//보낼때
-		url : contextPath+"/apiCo/getPoint",
-		type : "post",
-		//contentType : "application/json",
-		data : {courseNo},
-		
-		//받을때
-		//dataType : "json",
-		success : function(points){
-			//성공시 처리해야될 코드 작성
-			console.log(points);
-			
-			for(var i=0; i<points.length; i++) {
-				var latlng = new kakao.maps.LatLng(points[i].y, points[i].x);
-				
-				//좌표 배열에 추가
-				path.push(latlng);
-				
-				//범위정보에 마커 좌표 추가
-				bounds.extend(latlng);
-			}
-			
-			//지도 범위 재설정
-			map.setBounds(bounds);
-			
-			
-			/*마커 생성*/
-			
-			//마커 이미지 설정
-			var imageSrc1 = contextPath+'/assets/image/course/pin-b.png', // 마커이미지 주소
-				imageSrc2 = contextPath+'/assets/image/course/pin-r.png', // 마커이미지 주소
-		    imageSize = new kakao.maps.Size(32, 32), // 마커이미지 크기
-		    imageOption = {offset: new kakao.maps.Point(16, 32)}; // 마커 위치
-		    
-		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize, imageOption);
-		    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize, imageOption);
-		    
-			//시작 마커와 마지막 마커 배열 저장
-			var firstLocation = new kakao.maps.LatLng(points[0].y, points[0].x); //시작위치
-			var lastLocation = new kakao.maps.LatLng(points[points.length-1].y, points[points.length-1].x); //끝위치
-			
-			var firstMk = {
-				title: 'start',
-				latlng: firstLocation,
-				image: markerImage1
-			};
-			markerPosition.push(firstMk);
-			var lastMk = {
-				title: 'end',
-				latlng: lastLocation,
-				image: markerImage2
-			};
-			markerPosition.push(lastMk);
-			
-			// 마커 생성
-			for(var i=0; i<markerPosition.length; i++) {
-				var marker = new kakao.maps.Marker({
-					map: map,
-				    position: markerPosition[i].latlng,
-				    title: markerPosition[i].title,
-				    image: markerPosition[i].image,
-				    clickable: true
-				});
-				console.log(marker);
-			}
-			
-			/*라인 그리기*/
-			//선 생성
-			var polyline = new kakao.maps.Polyline({
-				map: map, //표시할 지도
-				path: path, //선의 좌표
-				strokeWeight: 6, //선 두께
-				strokeColor: 'rgb(50, 108, 249)', //선 색깔
-				strokeOpacity: 0.9, //선의 불투명도 (0~1)
-				strokeStyle: 'solid' //선 스타일
-			});
-
-		},
-		error : function(XHR, status, error) {
-			console.error(status + " : " + error);
-		}
-	});
-	
-		
-	//지도 정보
-	var mapContainer = document.getElementById('courseMapImg');
-	var mapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
-		level: 3, //지도의 레벨(확대, 축소 정도)
-		draggable: false, //마우스 휠 이동, 확대, 축소 여부
-		scrollwheel: false, //마우스 휠 확대 축소 여부
-		disableDoubleClick: false, //더블클릭 이벤트 여부
-		disableDoubleClickZoom: true, //더블클릭 줌 이벤트 여부
-		keyboardShortcuts: false //키보드 이동, 확대, 축소 여부
-	};
-	
-	// 이미지 지도 생성
-	//var map = new kakao.maps.StaticMap(mapContainer, mapOption);
-	var map = new kakao.maps.Map(mapContainer, mapOption);
-
-}
-
-
-
-
-
 /*나의 코스*/
 var cList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
 				{	courseNo: '1',
@@ -224,27 +104,42 @@ var cList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 
 
 function mycourseRender(cMap) {
+	var img = contextPath + '/assets/image/map/map-icon.jpg';
+	if(cMap.SAVENAME != undefined) {
+		img = contextPath+'/upload/' + cMap.SAVENAME;
+	}
+	
 	var heartonoff = contextPath + '/assets/image/main/heart-off.png';
 	if(cMap.LIKED != undefined) {
 		heartonoff = contextPath + '/assets/image/main/heart.png';
+	}
+	
+	var favorite = contextPath + '/assets/image/main/star-off.png';
+	if(cMap.FAVORITE != undefined) {
+		favorite = contextPath + '/assets/image/main/star.png';
+	}
+	
+	var pCount = contextPath + '/assets/image/main/new.png';
+	if(cMap.PCOUNT == undefined) {
+		pCount = '0';
 	}
 	
 	
 	var str = '';
 	str += '<li class="course-list-result">';
 	str += '	<div class="listBox" >'; /*style="cursor: pointer;" onclick="window.location='';"   */
-	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'" target="_blank"><div id="courseMapImg" class="courseImg"><img src="'+contextPath+'/assets/image/my-page/sample.jpg" ></div></a>';
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
-	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' &nbsp;<img class="besticon" src="'+contextPath+'/assets/image/best/cgold.jpg"></p>';
+	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';
-	str += '					<img class="bookmark-cancel-btn" src="'+contextPath+'/assets/image/main/star.png">';
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
-	str += '			<p id="courseInfo">조회수123 * '+cMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글123 &nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png"></p>';
+	str += '			<p id="courseInfo">'+cMap.REGDATE+'</p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -747,7 +642,10 @@ $(window).ready(function(){
 						id: cMap.ID,
 						regDate: cMap.REGDATE,
 						openStatus: cMap.OPENSTATUS,
-						liked: cMap.LIKED
+						liked: cMap.LIKED,
+						favorite: cMap.FAVORITE,
+						pCount: cMap.PCOUNT,
+						saveName: cMap.SAVENAME
 					}
 				);
 				mycourseRender(cMap, "down");
