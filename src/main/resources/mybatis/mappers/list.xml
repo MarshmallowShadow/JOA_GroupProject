@@ -63,15 +63,15 @@
 </delete>
 
 <!-- //조회수 (hitUpdate) -->
-<!-- <update id="hitUpdate" parameterType="int">
+<update id="hitUpdate" parameterType="int">
 	<![CDATA[
-		update list
-		set hit = hit+1
+		update q_list
+		set view_count = view_count + 1
 		where no = #{no}
 	]]>
 
 </update>
- -->
+ 
  
 <!-- 상세페이지 읽기 -->
 <select id="getList" parameterType="int" resultType="map">

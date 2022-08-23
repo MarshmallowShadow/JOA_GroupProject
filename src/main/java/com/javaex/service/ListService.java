@@ -129,13 +129,13 @@ public class ListService {
 	}
 	
 	//조회수 (hitUpdate)
-	/*public int hitUpdate(int no) {
+	public int hitUpdate(int no) {
 		System.out.println("ListService>hitUpdate");
 		
 		int count = listDao.hitUpdate(no);
 		
 		return count;
-	}*/
+	}
 	
 	
 	//읽기 (한 명 정보 가져오기)
