@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.BoardDao;
 import com.javaex.dao.CourseDao;
-import com.javaex.dao.TogetherDao;
+
 import com.javaex.vo.BoardVo;
 
 @Service
@@ -20,8 +20,6 @@ public class BoardService {
 	BoardDao boardDao;
 	//@Autowired
 	//CourseDao courseDao;
-	//@Autowired
-	//TogetherDao togetherDao;
 	
 	//생성자
 	

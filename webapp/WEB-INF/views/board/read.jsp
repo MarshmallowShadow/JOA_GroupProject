@@ -117,28 +117,26 @@
 			<!-- 댓글 -->
 			<div>
 				<p id="top_comment">댓글</p>
+				
 				<div id="commentbox">
-					<p class="id">히유</p>
-					<p class="comment">-저도 오늘 나갔다가 놀랐어요~</p>
-					<p class="id">쭌</p>
-					<p id="comment_">-</p><p id="bold">@깜이</p><p class="comment">나도 부르지 그랬어~</p>
-					<p class="id">깜이</p>
-					<p id="comment_btn">-망고 샀어ㅎㅎ</p>
-					<!-- 수정, 삭제 버튼 -->
-					<div id="writer_btnS">
-						<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>
-						<button type="submit" id="delete_s"><span class="glyphicon glyphicon-trash"></span></button>
-					</div><!-- writer_btn -->
-					<p class="REcomment">&nbsp &nbsp ㄴ쭌:망고 얼마야?</p>
-					<p id="REcomment_btn">&nbsp &nbsp ㄴ깜이:할인해서 만원</p>
-					<!-- 수정, 삭제 버튼 -->
-					<div id="writer_btnXS">
-						<button type="submit" id="modify_xs"><span class="glyphicon glyphicon-pencil"></span></button>
-						<button type="submit" id="delete_xs"><span class="glyphicon glyphicon-trash"></span></button>
-					</div><!-- writer_btn -->
-					<p id="REcomment_bottom">&nbsp &nbsp ㄴ쭈쭈:나는 두개 샀어!</p>
+			
+					<c:forEach items="${boardCommentList}"  var="boardCommentVo">
+						<p class="id">${boardCommentVo.ID}</p>
+						<div id="comment-inline">
+							<p class="comment">${boardCommentVo.CONTENT}</p>
+							<div id="writer_btnS">
+								<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>
+								<button type="submit" id="delete_s"><span class="glyphicon glyphicon-trash"></span></button>
+							</div><!-- writer_btn -->
+						</div>
+					</c:forEach>
 					
-					<textarea id="replybox"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+					<!-- 수정, 삭제 버튼 -->
+					<form method="get" action="${pageContext.request.contextPath}/together/comment">
+						<input type="hidden" name="eventNo" value="${bMap.EVENTNO}">
+						<input type="hidden" name="userNo" value="${authUser.userNo}">
+						<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+					</form>
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
