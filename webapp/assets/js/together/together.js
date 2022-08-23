@@ -28,52 +28,10 @@
 				
 				console.log(result);
 				
-					
 				
 				//컨트롤러 함수 실행 후 코드
 				for(var i=0; i<result.togetherList.length; i++){
-					//X1, Y1로 시작점 구하기
-					$.ajax({
-						url: "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json",
-						headers : { 'Authorization' : 'KakaoAK {8bbcad9e632e2bc7dd8eec481e015cfe}'	},
-						type: 'GET',
-						data: {
-							input_coord: 'WGS84',
-							x: result.togetherList[i].x1,
-							y: result.togetherList[i].y1
-						},
-						success: function(data1){
-							//시작점을 지도에 넣기
-							result.togetherList[i]["START"] = data1.documents[0].road_address.region_3depth_name;
-							console.log(data1.documents[0].road_address.region_3depth_name);
-							
-							//X2, Y2로 끝지점 구하기
-							$.ajax({
-								url: "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json",
-								headers : { 'Authorization' : 'KakaoAK {8bbcad9e632e2bc7dd8eec481e015cfe}'	},
-								type: 'GET',
-								data: {
-									input_coord: 'WGS84',
-									x: result.togetherList[i].x2,
-									y: result.togetherList[i].y2
-								},
-								success: function(data2){
-									//끝지점을 지도에 넣기
-									result.togetherList[i]["end"] = data2.documents[0].road_address.region_3depth_name;
-									console.log(data2.documents[0].road_address.region_3depth_name);
-									
-									//브라우저에 정보 출력
-									render(result.togetherList[i], result.courseCate, "down");  //vo --> 화면에 그린다.
-								},
-								error: function(request, status, error){
-								    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-								}
-							});
-						},
-						error: function(request, status, error){
-						    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						}
-					});
+					render(result.togetherList[i], result.courseCate, "down");  //vo --> 화면에 그린다.
 				}
 				
 				if(result.prev == true){

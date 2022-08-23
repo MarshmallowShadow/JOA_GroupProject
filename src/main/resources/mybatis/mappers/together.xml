@@ -7,6 +7,7 @@
 		<![CDATA[
 			select ort.rn
 		           , ort.eventNo
+		           , x1, x2, y1, y2
 		           , ort.regStart
 		           , ort.regEnd
 		           , ort.eventTitle
@@ -18,6 +19,7 @@
 		           , ort.count
 			from (select rownum rn
 	                     , ot.eventNo
+	                     , x1, x2, y1, y2
 	                     , ot.regStart
 	                     , ot.regEnd
 	                     , ot.eventTitle
@@ -28,6 +30,7 @@
 	                     , ot.joinMax
 	                     , ot.count
 		          from (select e.event_no eventNo
+		          			   , x1, x2, y1, y2
 		          			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
 	                           , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
 	                           , e.event_title eventTitle

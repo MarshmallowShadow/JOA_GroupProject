@@ -24,7 +24,7 @@ public class EventDao {
 	
 	//메소드-일반
 	//리스트 불러오기 + 페이징
-	public List<EventVo> together(int startRnum, int endRnum) {
+	public List<Map<String, Object>> together(int startRnum, int endRnum) {
 		
 		System.out.println("EventDao > together");
 		
@@ -32,7 +32,7 @@ public class EventDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<EventVo> togetherList = sqlSession.selectList("together.together", map);
+		List<Map<String, Object>> togetherList = sqlSession.selectList("together.together", map);
 		
 		System.out.println(togetherList);
 		

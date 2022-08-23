@@ -1,7 +1,7 @@
 package com.javaex.service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +12,7 @@ import com.javaex.dao.CourseDao;
 import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
+import com.javaex.dao.LocalApiDao;
 import com.javaex.dao.PointDao;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.EventCommentVo;
@@ -32,6 +33,8 @@ public class TogetherService {
 	private EventJoinedDao eventJoinedDao;
 	@Autowired
 	private EventCommentDao eventCommentDao;
+	@Autowired
+	private LocalApiDao localApiDao;
 	
 	//생성자
 	
@@ -72,7 +75,24 @@ public class TogetherService {
 		
 		//System.out.println("글갯수" + listCnt + ",페이지" + crtPage + ",시작글" + startRnum + ",끝글" + endRnum);
 		
-		List<EventVo> togetherList = eventDao.together(startRnum, endRnum);
+		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum);
+		
+		//반복문으로 좌표 이용해서 위치 가져오기
+		for(int i=0; i<togetherList.size(); i++) {
+			double x1 = ((BigDecimal)togetherList.get(i).get("X1")).doubleValue();
+			double y1 = ((BigDecimal)togetherList.get(i).get("Y1")).doubleValue();
+			
+			String START = localApiDao.getLocation(x1, y1);
+			togetherList.get(i).put("START", START);
+			
+			double x2 = ((BigDecimal)togetherList.get(i).get("X2")).doubleValue();
+			double y2 = ((BigDecimal)togetherList.get(i).get("Y2")).doubleValue();
+			
+			String END = localApiDao.getLocation(x2, y2);
+			togetherList.get(i).put("END", END);
+			
+			
+		}
 		
 		//System.out.println(togetherList);
 		
