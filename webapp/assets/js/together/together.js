@@ -57,9 +57,6 @@
  	/* 리스트 그리기 1개씩 */
 	function render(Map, courseCate, opt) {
 		
-		var start = '송파'; //카카오 api로 위치 칮기 (togetherList.X1, togetherList.Y1)
-		var finish = '강남'; //카카오 api로 위치 칮기 (togetherList.X2, togetherList.Y2)
-		
 		console.log("render");
 		console.log(Map);
 		
@@ -83,7 +80,7 @@
 		str += ' 				</tr> ' ;
 		str += ' 				<tr> ' ;
 		str += ' 					<th colspan="2" class="content_course"> ' ;
-		str += ' 						<span class="glyphicon glyphicon-map-marker" class="marking"></span>'+ start +' - '+ finish +' ' ;
+		str += ' 						<span class="glyphicon glyphicon-map-marker" class="marking"></span>'+ Map.START +' - '+ Map.END +' ' ;
 		str += ' 						<input type="hidden" name="courseNo"> ' ;
 		str += ' 					</th> ' ;
 		str += ' 				</tr> ' ;

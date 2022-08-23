@@ -14,11 +14,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class LocalApiDao {
-	private static String GEOCODE_URL="http://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84";
+	private static String GEOCODE_URL="https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84";
     private static String GEOCODE_USER_INFO="KakaoAK 8bbcad9e632e2bc7dd8eec481e015cfe"; 
     
     public String getLocation(double x, double y) {
-		
+		System.out.println("LocalApiDao>getLocation");
+    	
+    	
         URL obj;
 	
         try{
@@ -41,15 +43,24 @@ public class LocalApiDao {
             
         	JSONParser parser = new JSONParser();
     		JSONObject localJson = (JSONObject)parser.parse(br);
+    		
+    		System.out.println(localJson);
 			
-            List<Object> documents = (List<Object>)localJson.get("documents");
-            Map<String, Object> roadAddress = (Map<String, Object>)documents.get(0);
+            Map<String, Object> documents = (Map<String, Object>)((List<Object>)localJson.get("documents")).get(0);
+            Map<String, Object> roadAddress = (Map<String, Object>)documents.get("roadAddress");
+            Map<String, Object> address = (Map<String, Object>)documents.get("address");
             
-            String street = (String)roadAddress.get("region_3depth_name");
+            String street = (String)address.get("region_3depth_name");
             
             if(street == null || street.equals("")) {
-            	street = (String)roadAddress.get("road_name");
+            	street = (String)roadAddress.get("region_3depth_name");
             }
+            
+            if(street == null || street.equals("")) {
+            	street = (String)address.get("road_name");
+            }
+            
+            System.out.println(street);
             
 			return street;
 			
