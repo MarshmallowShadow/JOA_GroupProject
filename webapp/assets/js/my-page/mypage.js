@@ -119,9 +119,9 @@ function mycourseRender(cMap) {
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
-	var pCount = '';
-	if(cMap.PCOUNT != undefined) {
-		pCount = contextPath + '/assets/image/main/new.png';
+	var pCount = contextPath + '/assets/image/main/new.png';
+	if(cMap.PCOUNT == undefined) {
+		pCount = '0';
 	}
 	
 	
@@ -139,7 +139,7 @@ function mycourseRender(cMap) {
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+cMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+cMap.PCOUNT+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
