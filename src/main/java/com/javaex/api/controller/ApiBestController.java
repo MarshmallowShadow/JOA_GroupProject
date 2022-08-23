@@ -28,7 +28,8 @@ public class ApiBestController {
 	//지도 api 가져오기
 	@ResponseBody
 	@RequestMapping(value="/apiBest", method = {RequestMethod.GET, RequestMethod.POST})
-	public List<Map<String, Object>> apiBest(@RequestParam(value="course_cate", defaultValue="") String course_cate,
+	public List<Map<String, Object>> apiBest(
+			@RequestParam(value="course_cate", defaultValue="") String course_cate,
 		    @RequestParam(value="count_cate", required=true, defaultValue="l_count") String count_cate) {
 		System.out.println("apiBest");
 		

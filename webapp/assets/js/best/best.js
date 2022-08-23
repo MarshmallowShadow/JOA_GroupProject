@@ -27,9 +27,41 @@ function fetchList(){
 			
 			console.log(result);
 			
-			
-			
-			
+		//반복문으로 Top1~15 + 게시물
+		for(var i=0; i<=15; i++){
+			render(result[i]);
+			} 
 		}
 	});
+	
+	//게시물 3개씩 커팅
+	var render = function(cMap) {
+		
+		//for(var i=0; i<cMap.recordList.length; i++) { }
+		var str = '';
+		str += '<div class="img-list">';
+		str += '	<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/map.jpg" />';
+		str += '		<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>';
+		str += '	<div class="comment-text"> ';
+		
+		//기록 필터링 if문 넣을 예정
+		if(result <= 3) {
+			$( )
+		}
+		
+		str += '	<c:forEach items="${map.recordList}" var="review">';
+		str += '		<div class="comment-text1">${review}</div>';
+		str += '	</c:forEach>';
+		str += '		<div class="button-ttl">';
+		str += '			<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text">${map.R_COUNT}</span>';
+		str += '			<div class="imgbutton">';
+		str += '				<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : ${map.L_COUNT}</span> ';
+		str += '				<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : ${map.F_COUNT}</span>';
+		str +='				</div>';
+		str +='			</div>';
+		str +='		</div>';
+		str +='	</div>';
+		
+		
+	}
 }

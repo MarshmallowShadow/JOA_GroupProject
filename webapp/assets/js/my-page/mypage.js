@@ -259,8 +259,80 @@ function myfavCateRender(fcMap){
 	str += '	</div>';
 	str += '</li>';
 	
+	$(".my-fav-cate-list-title").html('<p id="listTitle" class="my-fav-cate-list-title">'+fcMap.CATENAME+'</p>');
 	$(".my-fav-cate-list-box").append(str);
 }
+
+
+
+
+
+
+
+
+
+
+
+/*나의 즐겨찾기(카테고리별리스트)*/
+var lcList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
+				{	courseNo: '1',
+					userNo: '1',
+					title: '테스트',
+					id: 'joa123',
+					regDate: '2022-08-08',
+					openStatus: '공개'
+				}
+			];
+
+
+
+function mylikedCoRender(lcMap){
+	var img = contextPath + '/assets/image/map/map-icon.jpg';
+	if(lcMap.SAVENAME != undefined) {
+		img = contextPath+'/upload/' + lcMap.SAVENAME;
+	}
+	
+	var heartonoff = contextPath + '/assets/image/main/heart-off.png';
+	if(lcMap.LIKED != undefined) {
+		heartonoff = contextPath + '/assets/image/main/heart.png';
+	}
+	
+	var favorite = contextPath + '/assets/image/main/star-off.png';
+	if(lcMap.FAVORITE != undefined) {
+		favorite = contextPath + '/assets/image/main/star.png';
+	}
+	
+	var pCount = contextPath + '/assets/image/main/new.png';
+	if(lcMap.PCOUNT == undefined) {
+		pCount = '0';
+	}
+	
+	
+	var str = '';
+	str += '<li class="course-list-result" id="my-favorite-cate-result-list">';
+	str += '	<div class="listBox" >';
+	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+lcMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
+	str += '	  	<div id="textBox">';
+	str += '			<div class="courseTitle">';
+	str += '				<p id="courseName">['+lcMap.OPENSTATUS+']'+lcMap.TITLE+' </p>';
+	str += '				<div class="img-icons">';
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '				</div>';
+	str += '			</div>';
+	str += '			<p id="courseInfo">'+lcMap.ID+'</p>';
+	str += '			<p id="courseInfo">'+lcMap.REGDATE+'</p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '	  	</div>';
+	str += '	</div>';
+	str += '</li>';
+	
+	$(".my-liked-course-list").append(str);
+}
+
+
+
+
 
 
 
@@ -864,6 +936,51 @@ $(window).ready(function(){
 		}
 	});
 	console.log(fcList);
+	
+	
+	
+	
+	/*--------------------------------------------------*/
+	/*좋아요한 코스들 리스트 가져오기*/
+	$.ajax({
+		url : contextPath + "/api/my-page/get-liked-list", //컨트롤러 RequestMapping url 작성하기
+		type : "post",
+		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
+		data : JSON.stringify(userNo), //@RequestBody로 데이터 보낼때 필수 (정보 보낼거 없으면 필요없음)
+			//data: Vo //@ModelAttribute나 @RequestParam으로 데이터 보낼때 이용 (정보 보낼거 없으면 필요없음)
+		dataType : "json",
+		success : function(result){
+			//컨트롤러 함수 실행 후 코드
+			console.log(result);
+			$(".my-liked-course-list").empty();
+			
+			//리스트니까 for문으로 그리기!
+			for (var i = 0; i < result.length; i++) {
+				var lcMap = result[i];
+				lcList.push(
+					{	cateName: lcMap.CATENAME,
+						courseNo: lcMap.COURSENO,
+						userNo: lcMap.USERNO,
+						title: lcMap.TITLE,
+						id: lcMap.ID,
+						regDate: lcMap.REGDATE,
+						openStatus: lcMap.OPENSTATUS,
+						liked: lcMap.LIKED,
+						favorite: lcMap.FAVORITE,
+						pCount: lcMap.PCOUNT,
+						saveName: lcMap.SAVENAME
+					}
+				);
+				mylikedCoRender(lcMap, "down");
+				
+			}
+			console.log(lcList);
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	console.log(lcList);
 });
 
 

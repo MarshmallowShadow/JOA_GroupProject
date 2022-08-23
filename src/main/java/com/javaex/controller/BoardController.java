@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BoardService;
+import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardVo;
 import com.javaex.vo.UserVo;
 
@@ -94,10 +95,23 @@ public class BoardController {
 		Map<String, Object> rMap = boardService.read(no);
 		model.addAttribute("bMap", rMap.get("bMap"));
 		model.addAttribute("categoryMap", rMap.get("categoryMap"));
+		model.addAttribute("boardCommentList", rMap.get("boardCommentList"));
 		
 		System.out.println(rMap);
 		
 		return "board/read";
+		
+	}
+	
+	//댓글 쓰기
+	@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
+	public String comment(@ModelAttribute BoardCommentVo boardCommentVo, HttpSession session) {
+		
+		System.out.println("BoardController > comment");
+		
+		boardService.commentWrite(boardCommentVo);
+		
+		return "redirect:/board/read/" + boardCommentVo.getBoardNo();
 		
 	}
 	

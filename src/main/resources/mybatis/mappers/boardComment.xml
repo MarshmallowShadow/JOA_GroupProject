@@ -1,0 +1,28 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardComment">
+
+	<!-- 댓글 쓰기 -->
+	<insert id="commentWrite" parameterType="BoardCommentVo">
+		<![CDATA[
+			INSERT into BOARD_COMMENT
+			VALUES (SEQ_BOARD_COMMENT_NO.nextval, #{boardNo}, #{userNo}, 0, #{content}, sysdate)
+		]]>
+	</insert>
+	
+	
+	<!-- 댓글 불러오기 -->
+	<select id="comment" parameterType="int" resultType="map">
+		<![CDATA[
+			SELECT bo.b_comment_no
+			       , bo.board_no boardNo
+			       , u.id
+			       , to_char(bo.reg_date, 'YYYY-MM-DD') regDate
+			       , bo.content
+			FROM board_comment bo, users u
+			where bo.user_no = u.user_no
+			and bo.board_no = #{boardNo}
+		]]>	
+	</select>
+
+</mapper>

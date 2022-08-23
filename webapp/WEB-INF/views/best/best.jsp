@@ -354,7 +354,7 @@
 				<!-- items:Vo, var:저장된 데이타 의미, varStatus: jstl의 i (status.index) -->
 				<c:forEach items="${bList}" var="map" varStatus="status">
 				<c:choose>
-					<c:when test="${status.index == 0 }">
+					<c:when test="${status.index == 0}">
 						<div class="img-1">		
 							<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
 							<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
@@ -365,22 +365,19 @@
 				
 						<div class="img-list">
 							<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/map.jpg" />
-								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
+								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
 						
-							<div class="comment-text">
-							<c:forEach items="${map.recordList}" var="record">
-								<div class="comment-text1">${record.review}</div>
-								<div class="comment-text1">${record.review}</div>
-								<div class="comment-text1">${record.review}</div>
-								<br>
+							<div class="comment-text"> 		<!-- 기록 3개 반복문 -->
+							<c:forEach items="${map.recordList}" var="review">
+								<div class="comment-text1">${review}</div>
 							</c:forEach>
-								
+							
 								<div class="button-ttl">
-									<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
+									<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text">${map.R_COUNT}</span>
 									
 									<div class="imgbutton">
-										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : 103개</span> 
-										<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : 10개</span>
+										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : ${map.L_COUNT}</span> 
+										<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : ${map.F_COUNT}</span>
 									</div>
 								</div>
 							</div>
@@ -403,8 +400,8 @@
 	window.contextPath = '${pageContext.request.contextPath}';
 	window.count_cate = '${param.count_cate}';
 	window.course_cate = '${param.course_cate}';
-	
 </script>
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/best/best.js"></script>
 </html>

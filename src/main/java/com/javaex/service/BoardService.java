@@ -7,10 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javaex.dao.BoardCommentDao;
 import com.javaex.dao.BoardDao;
-import com.javaex.dao.CourseDao;
-
+import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardVo;
+import com.javaex.vo.EventCommentVo;
 
 @Service
 public class BoardService {
@@ -18,6 +19,8 @@ public class BoardService {
 	//필드
 	@Autowired
 	BoardDao boardDao;
+	@Autowired
+	private BoardCommentDao boardCommentDao;
 	//@Autowired
 	//CourseDao courseDao;
 	
@@ -174,14 +177,28 @@ public class BoardService {
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
 		
+		//댓글
+		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
+		
 		Map<String, Object> rMap = new HashMap<String, Object>();
 		rMap.put("bMap", bMap);
 		rMap.put("categoryMap", categoryMap);
+		rMap.put("boardCommentList", boardCommentList);
 		
 		System.out.println(rMap);
 		
 		return rMap;
 		
+	}
+	
+	//댓글 쓰기
+	public int commentWrite(BoardCommentVo boardCommentVo) {
+		
+		System.out.println("BoardService > commentWrite");
+		
+		System.out.println(boardCommentVo);
+		
+		return boardCommentDao.commentWrite(boardCommentVo);
 	}
 
 }

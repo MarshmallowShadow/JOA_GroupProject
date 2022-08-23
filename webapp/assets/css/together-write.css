@@ -172,7 +172,7 @@ label {
 /********************** 이벤트 정보 **********************/
 
 #reg-end {margin-left: 11px;}
-#maxPerson {
+.gary {
 	color: #a9a9a9;
 	font-size: 9pt;
 	margin-left: 7px;
