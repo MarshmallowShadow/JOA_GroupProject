@@ -381,7 +381,10 @@ function map() {
 	$(function(){
 		
 		$("#event-start").datepicker({
+			
+			dateFormat: 'yy/mm/dd',
 			minDate: 0
+			
 		});
 		
 		var dateFormat = "yy/mm/dd", from = $( "#reg-start" ).datepicker({
