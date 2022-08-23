@@ -60,7 +60,7 @@
 		
 		<div class="resultView">
 			<div class="resultList">
-				<p id="listTitle">카테고리이름..슈바...</p>
+				<p id="listTitle" class="my-fav-cate-list-title"><%-- ${fcMap.CATENAME} --%></p>
 				
 				<ol class="my-fav-cate-list-box">
 					<%-- 

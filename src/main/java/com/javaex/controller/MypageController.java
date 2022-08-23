@@ -71,6 +71,7 @@ public class MypageController {
 		List <Map<String, Object>> favCourseList = mypageService.getFavCourseList(fcVo);
 		
 		model.addAttribute("favCourseList", favCourseList); 
+		System.out.println(favCourseList);
 		return "my-page/bookmark-ex"; 
 	}
 	

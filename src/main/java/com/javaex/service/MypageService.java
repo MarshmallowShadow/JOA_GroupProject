@@ -1,6 +1,5 @@
 package com.javaex.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.javaex.dao.CategoryDao;
 import com.javaex.dao.MyCourseDao;
 import com.javaex.dao.MyFavoriteDao;
+import com.javaex.dao.MyPageDao;
 import com.javaex.dao.MyReportDao;
 import com.javaex.vo.CategoryVo;
 
@@ -20,6 +20,21 @@ public class MypageService {
 	@Autowired private MyCourseDao myCourseDao;
 	@Autowired private CategoryDao categoryDao;
 	@Autowired private MyFavoriteDao myFavoriteDao;
+	@Autowired private MyPageDao myPageDao;
+	
+	
+	//좋아요한 코스들 가져오기
+	public List <Map<String,Object>> likedCoList(int userNo){
+		System.out.println("MypageService>likedCoList"); 
+		return myPageDao.likedCoList(userNo); 
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//나의코스 list 가져오기

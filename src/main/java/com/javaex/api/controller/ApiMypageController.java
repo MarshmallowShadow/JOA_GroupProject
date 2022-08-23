@@ -19,6 +19,27 @@ public class ApiMypageController {
 	private MypageService mypageService;
 	
 	
+	//마이페이지///////////////////////////////////////////////////////////////////////////
+	//좋아요한 코스들 리스트
+	@ResponseBody
+	@RequestMapping(value="/api/my-page/get-liked-list", method= {RequestMethod.GET, RequestMethod.POST}) 
+	public List <Map<String,Object>> likedCoList(@RequestBody int userNo) {
+		System.out.println("ApiMypageController>liked-list()");
+		List<Map<String,Object>> lcList = mypageService.likedCoList(userNo);
+	 	System.out.println(lcList);
+	 return lcList; 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//나의 기록 보기////////////////////////////////////////////////////////////////////////////
 	//나의 기록보기 - 기록 list 가져오기
 	@ResponseBody
