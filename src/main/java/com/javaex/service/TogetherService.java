@@ -1,7 +1,7 @@
 package com.javaex.service;
 
-
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
+import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
 import com.javaex.dao.PointDao;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.EventCommentVo;
 import com.javaex.vo.EventVo;
 import com.javaex.vo.PointVo;
 
@@ -28,6 +30,8 @@ public class TogetherService {
 	private PointDao pointDao;
 	@Autowired
 	private EventJoinedDao eventJoinedDao;
+	@Autowired
+	private EventCommentDao eventCommentDao;
 	
 	//생성자
 	
@@ -159,9 +163,9 @@ public class TogetherService {
 		
 		
 		//이벤트 참여
-		eventJoinedDao.wrtieJoin(eventVo);	
+		int event = eventJoinedDao.wrtieJoin(eventVo);	
 		
-		return 1;
+		return event;
 		
 	}
 	
@@ -173,14 +177,29 @@ public class TogetherService {
 		//조회수 올리기
 		//togetherDao.togetherHit(no);
 		
-		//게시판 내용 읽기
+		//내용 읽기
 		Map<String, Object> tMap = eventDao.read(no);
+		
+		//댓글
+		List<EventCommentVo> eventCommentList = eventCommentDao.comment(no);
+		
+		tMap.put("eventCommentList", eventCommentList);
 		
 		System.out.println(no);
 		System.out.println(tMap);
 		
 		return tMap;
 		
+	}
+	
+	//댓글 쓰기
+	public int commentWrite(EventCommentVo eventCommentVo) {
+		
+		System.out.println("TogetherService > commentWrite");
+		
+		System.out.println(eventCommentVo);
+		
+		return eventCommentDao.commentWrite(eventCommentVo);
 	}
 
 }
