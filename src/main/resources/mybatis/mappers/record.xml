@@ -189,5 +189,20 @@
 			and difficulty = 'hard')
 		]]>
 	</select>
+	
+	
+	
+	<!-- **************************************김수빙************************************** -->
+	<select id="getBestRecord" parameterType="int" resultType="String">
+	<![CDATA[
+		SELECT review 
+		FROM (SELECT rownum rn, review
+		        FROM (SELECT *
+		                FROM record
+		                WHERE course_no = #{course_no}
+		                ORDER BY reg_date) re)
+		where rn<=3
+	]]>	
+	</select>
 
 </mapper>

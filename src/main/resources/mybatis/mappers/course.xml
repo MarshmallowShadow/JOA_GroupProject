@@ -54,12 +54,12 @@
 	
 	<!-- **************************************김수빙************************************** -->
 	<!-- 좋아요/즐겨찾기/기록별 -->
-	<select id="maincategory" parameterType="map" resultType="map">
+	<select id="getBest" parameterType="map" resultType="map">
 
 	<![CDATA[
-		select *
+select *
 		from(select rownum rn, l_count, f_count, r_count, x, y, file_path, distance
-		     from (select l_count, f_count, r_count, x, y, file_path, distance
+		     from (select c.course_no, l_count, f_count, r_count, x, y, file_path, distance
 		           from (SELECT count(*) l_count, course_no
 		                 FROM liked_course
 		                 GROUP by course_no)lc,
@@ -77,14 +77,13 @@
 		                and order_no = 0                 
 		                and r.reg_date = d."ma") i,
 		        course c, point p
-		        
 		        where lc.course_no = fc.course_no
 		        and fc.course_no = rc.course_no
 		        and rc.course_no = i.course_no
 		        and i.course_no = c.course_no
 		        and c.course_no = p.course_no
-		        and course_category like '%#{course_cate}%'
-		        order by #{count_cate}) asc)
+		        and course_category like #{course_cate}
+		        order by #{count_cate} desc))
 		where rn >=1 
 		and rn <=15
 	]]>

@@ -157,11 +157,10 @@ public class RecordDao {
 	}
 
 
-
-
-
-
-
-	
-
+	//////////////////////////////////////// 수빈 ////////////////////////////////////////
+	//기록 가져오기
+	public List<String> getBestRecord(int course_no) {
+		System.out.println("getBestRecord");
+		return sqlSession.selectList("record.getBestRecord", course_no);
+	}
 }
