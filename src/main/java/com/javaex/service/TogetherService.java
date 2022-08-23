@@ -194,11 +194,19 @@ public class TogetherService {
 		
 		System.out.println("TogetherService > read");
 		
-		//조회수 올리기
-		//togetherDao.togetherHit(no);
-		
 		//내용 읽기
 		Map<String, Object> tMap = eventDao.read(no);
+		double x1 = ((BigDecimal)tMap.get("X1")).doubleValue();
+		double y1 = ((BigDecimal)tMap.get("Y1")).doubleValue();
+		
+		String START = localApiDao.getLocation(x1, y1);
+		tMap.put("START", START);
+		
+		double x2 = ((BigDecimal)tMap.get("X2")).doubleValue();
+		double y2 = ((BigDecimal)tMap.get("Y2")).doubleValue();
+		
+		String END = localApiDao.getLocation(x2, y2);
+		tMap.put("END", END);
 		
 		//댓글
 		List<EventCommentVo> eventCommentList = eventCommentDao.comment(no);

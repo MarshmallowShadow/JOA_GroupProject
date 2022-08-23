@@ -41,7 +41,7 @@
 						<tr>
 							<th>
 								<img id="marking" src="${pageContext.request.contextPath}/assets/image/together/marking.png">
-								<div id="route">신림 - 잠실</div>
+								<div id="route">${tMap.START} - ${tMap.END}</div>
 							</th>
 							<th>
 								<img id="map_icon" src="${pageContext.request.contextPath}/assets/image/together/map.png">
