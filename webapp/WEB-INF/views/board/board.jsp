@@ -57,12 +57,12 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th>공지</th>
-						<td class="center">공지</td>
-						<td><a class="title_margin" href="">{ 욕.비방글은 삼가시고 많은 소통으로 활성화 부탁드립니다. }</a></td>
-						<td class="center">관리자</td>
-						<td class="center">0</td>
-						<td class="center">2022.02.15</td>
+						<th class="bold">*</th>
+						<td class="center bold">공지</td>
+						<td><a class="notice_margin bold" href="">{ 욕.비방글은 삼가시고 많은 소통으로 활성화 부탁드립니다. }</a></td>
+						<td class="center bold">관리자</td>
+						<td class="center bold">*</td>
+						<td class="center bold">2022.02.15</td>
 					</tr>
 
 					<c:forEach items="${boardList}" var="bMap">
