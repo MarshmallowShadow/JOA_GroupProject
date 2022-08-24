@@ -172,9 +172,9 @@ label {
 /********************** 이벤트 정보 **********************/
 
 #reg-end {margin-left: 11px;}
-.gary {
-	color: #a9a9a9;
+p>.gary {
 	font-size: 9pt;
+	color: #a9a9a9;
 	margin-left: 7px;
 }
 

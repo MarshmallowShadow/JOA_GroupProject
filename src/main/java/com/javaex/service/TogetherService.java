@@ -79,6 +79,7 @@ public class TogetherService {
 		
 		//반복문으로 좌표 이용해서 위치 가져오기
 		for(int i=0; i<togetherList.size(); i++) {
+			
 			double x1 = ((BigDecimal)togetherList.get(i).get("X1")).doubleValue();
 			double y1 = ((BigDecimal)togetherList.get(i).get("Y1")).doubleValue();
 			
@@ -90,8 +91,7 @@ public class TogetherService {
 			
 			String END = localApiDao.getLocation(x2, y2);
 			togetherList.get(i).put("END", END);
-			
-			
+					
 		}
 		
 		//System.out.println(togetherList);
@@ -196,6 +196,8 @@ public class TogetherService {
 		
 		//내용 읽기
 		Map<String, Object> tMap = eventDao.read(no);
+		
+		//지명 가져오기
 		double x1 = ((BigDecimal)tMap.get("X1")).doubleValue();
 		double y1 = ((BigDecimal)tMap.get("Y1")).doubleValue();
 		

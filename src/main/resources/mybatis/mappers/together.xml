@@ -76,9 +76,8 @@
 	<select id="selectTotalCnt" resultType="int">
 		<![CDATA[
 			select count(*) count
-			from event e, course c, point p
+			from event e, course c
 			where c.course_no = e.course_no
-	        and c.course_no = p.course_no
 		]]>
 	</select>
 	

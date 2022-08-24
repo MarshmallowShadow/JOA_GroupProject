@@ -22,27 +22,10 @@
 		$("#courseModal").modal("show");
 		
 	});
-	
-	//$("input[name='openStatus'][value='open']").prop("checked", true);
-	
-	/* 코스 공개 여부 확인 */
-	$("#add").on("submit", function() {
-		
-		console.log("코스 공개 여부 확인");
-		
-		var open = $("input[name='openStatus']:checked").val();
-		
-		if (open == "close") {		    
-		    alert("코스 공개 여부를 공개로 해주시기 바랍니다.");
-		    return false;
-		}
-		
-	});
 
 /*------------------------------ 지도 --------------------------------*/ 
 
 function map() {
-		
 	
 		var mapContainer = document.getElementById('map');
 		var mapOption = {

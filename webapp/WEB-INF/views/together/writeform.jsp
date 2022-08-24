@@ -85,7 +85,7 @@
 				
 				
 				<!-- 코스 정보 -->
-				<form action="${pageContext.request.contextPath}/together/write" method="get">
+				<form id="t-form" action="${pageContext.request.contextPath}/together/write" method="get">
 				<div id="point"></div>
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
 					<div class="together-content">
@@ -181,10 +181,6 @@
 									<td>
 										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
-										
-										<input type="radio" name="openStatus" id="close" value="close">
-										<label for="close">비공개</label>
-										
 										<p class="gray">함께하기 등록을 위해서는 코스 공개가 필수입니다.</p>
 										
 									</td>
