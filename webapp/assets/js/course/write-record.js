@@ -6,6 +6,12 @@
 $(document).ready(function() {
 	console.log("페이지 준비");
 	
+	//로그인 안했을때 로그인창으로 이동
+	var userNo = $("#userNo").val();
+	if(userNo == null || userNo == "" || userNo == undefined || isNaN(userNo)) {
+		location.href = contextPath+"/user/loginForm";
+	}
+	
 	var courseNo = $("#courseNo").val();
 	
 	/*지도 그리기*/

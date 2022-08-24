@@ -58,12 +58,12 @@
 						
 						<!-- 제목 수정 버튼 -->
 						<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
-							<span id="update-btn" class="glyphicon glyphicon-pencil"></span>
+							<span id="update-btn" class="glyphicon glyphicon-pencil pointer"></span>
 						</c:if>
 						
 						<!-- 즐겨찾기 별 -->
 						<c:if test="${not empty authUser }">
-							<img class="right" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/${coMap.star }.png">
+							<img class="right pointer" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/${coMap.star }.png">
 						</c:if>
 						<div class="article-info">
 							<span class="bold">${coMap.userName }</span>

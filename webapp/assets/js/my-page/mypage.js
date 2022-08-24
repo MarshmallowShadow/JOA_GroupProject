@@ -64,6 +64,8 @@ var rList = [	//ajax 데이터 불러올 부분(배열)/////////////////////////
 			];
 
 function calendarRender(rMap) {
+	
+	
 	var imgPath = contextPath + '/assets/image/map/map-icon.jpg';
 	if(rMap.SAVENAME != undefined) {
 		imgPath = contextPath+'/upload/' + rMap.SAVENAME;
@@ -119,8 +121,20 @@ function mycourseRender(cMap) {
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
-	var pCount = contextPath + '/assets/image/main/new.png';
-	if(cMap.PCOUNT == undefined) {
+	/*var pCount = contextPath + '/assets/image/main/star-off.png';
+	if(cMap.PCOUNT != undefined) {
+		pCount = contextPath + '/assets/image/main/new.png';
+	}else{
+		cMap.PCOUNT = '0';
+	}
+	*/
+	
+	
+	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
+	var pCount;
+	if(cMap.PCOUNT != undefined){
+		pCount = cMap.PCOUNT + newpost;
+	}else{
 		pCount = '0';
 	}
 	
@@ -139,7 +153,7 @@ function mycourseRender(cMap) {
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+cMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -176,8 +190,11 @@ function myfavRender(fMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
-	var pCount = contextPath + '/assets/image/main/new.png';
-	if(fMap.PCOUNT == undefined) {
+	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
+	var pCount;
+	if(fMap.PCOUNT != undefined){
+		pCount = fMap.PCOUNT + newpost;
+	}else{
 		pCount = '0';
 	}
 	
@@ -196,7 +213,7 @@ function myfavRender(fMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+fMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -234,8 +251,11 @@ function myfavCateRender(fcMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
-	var pCount = contextPath + '/assets/image/main/new.png';
-	if(fcMap.PCOUNT == undefined) {
+	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
+	var pCount;
+	if(fcMap.PCOUNT != undefined){
+		pCount = fcMap.PCOUNT + newpost;
+	}else{
 		pCount = '0';
 	}
 	
@@ -254,7 +274,7 @@ function myfavCateRender(fcMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fcMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+fcMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -302,8 +322,11 @@ function mylikedCoRender(lcMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
-	var pCount = contextPath + '/assets/image/main/new.png';
-	if(lcMap.PCOUNT == undefined) {
+	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
+	var pCount;
+	if(lcMap.PCOUNT != undefined){
+		pCount = lcMap.PCOUNT + newpost;
+	}else{
 		pCount = '0';
 	}
 	
@@ -322,7 +345,7 @@ function mylikedCoRender(lcMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+lcMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+lcMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' &nbsp;<img class="newpost" src="'+pCount+'"></p>';
+	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -347,8 +370,8 @@ function mylikedCoRender(lcMap){
 
 document.addEventListener('DOMContentLoaded', function() {
 	/*//달력폼/////////////////////////////////////////////////////////////*/
-	console.log(userNo)
-    $.ajax({
+	console.log(userNo);
+	$.ajax({
 		url : contextPath + "/api/my-page/get-record-list", //컨트롤러 RequestMapping url 작성하기
 		type : "post",
 		contentType : "application/json", //@RequestBody로 파라미터 가져오기 위해 필수 (정보 보낼거 없으면 필요없음)
@@ -470,15 +493,20 @@ $(window).ready(function(){
 	
 	/*메뉴창 열기*/
 	$(".menuBar-open").click(function(){
-		$(".menuBar-open").hide();
-		$("#menuBar").show();
+		//$(".menuBar-open").attr("src", "");
+		if($("#menuBar").css("display") == "none") {
+			$("#menuBar").show();
+		} else {
+			$("#menuBar").hide();
+		}
+		
 	});
 	
 	
 	/*메뉴창 닫기*/
 	$(".menuBar-close-btn").click(function(){
 		$("#menuBar").hide();
-		$(".menuBar-open").show();
+		//$(".menuBar-open").show();
 	});
 	
 	/*메뉴창 안의 모달들 숨겨두기*/
@@ -937,6 +965,7 @@ $(window).ready(function(){
 	});
 	console.log(fcList);
 	
+	  
 	
 	
 	

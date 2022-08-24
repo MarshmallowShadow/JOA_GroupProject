@@ -71,6 +71,7 @@
 			        r.review,
 			        to_char(r.reg_date, 'YYYY-MM-DD HH24:MI') regDate1,
 			        to_char(r.reg_date, 'YYYY-MM-DD') regDate2,
+			        to_char(r.reg_date, 'YYYY-MM') regDate3,
 			        i.save_name saveName
 			from course c, record r 
 			left outer join (select * from record_img where order_no = 0) i

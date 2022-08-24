@@ -10,7 +10,11 @@ body {font-size: 14px;}
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #header {left:0; z-index: 1;  top:0; position: fixed; width:100%; background-color:white;}
-#wrap>#content {position: relative; top:80px; padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px; height:900px;}
+#wrap {position: relative; top:80px; padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px;  }
+#content {/* position: relative; */ top:80px; padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px; min-height:70vh; 
+				-ms-overflow-style: none; /* IE and Edge */
+   					scrollbar-width: none; /* Firefox */
+   					object-fit: cover; }
 
 
 
@@ -26,7 +30,7 @@ input[type=radio] {display:none;}
 .subHeader .edit-btn {width: 40px; height:40px; vertical-align:center;}
 
 
-.resultView {min-width:1200px; position: absolute; left: 50%; transform: translateX(-50%); display: center;}
+.resultView {min-width:1200px; margin:auto;}
 .resultList {display:inline-block; text-align:center;  padding: 50px 33px 0px 33px;}
 
 .resultList #listTitle {display:center; font-size: 18px; text-align:left;  padding:0px; margin-bottom:10px;}
@@ -56,11 +60,16 @@ input[type=radio] {display:none;}
 /**************************************************************************/
 /* .menuBar-display {width:1200px; background-color:none;} */
 #menuBar { width:400px; height:100%; position: fixed; 
-			z-index: 1; /* Stay on top */
+			z-index: 900; /* Stay on top */
 			top: 80px;  /* Stay at the top */
 			left: 0;
 			text-align:left; line-height: 50px; 
-			background-color:white; border-right:solid 1px gray;}
+			background-color:white; border-right:solid 1px gray;
+			overflow-x: scroll; }
+#menuBar::-webkit-scrollbar {
+  display: none;
+}
+
 #menuBar a:hover {color: #c0c0c0;}
 #menuBar #menuList {font-size: 14px; line-height:50px;
 					-ms-overflow-style: none; /* IE and Edge */
@@ -69,14 +78,14 @@ input[type=radio] {display:none;}
    					}
 
 
-#menuBar .menu1 {width:(100%-padding); height:(20%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
+#menuBar .menu1 { border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 #menuBar .menu1 #mypage {font-size: 18px; font-weight:bold;float:left; }
 #menuBar .menu1 .myHome {width: 20px; height: 20px; }
 #menuBar .menu1 .menuBar-close {text-align:right; }
 #menuBar .menu1 .menuBar-close-btn {width: 20px; height: 20px; }
 
 
-#menuBar .menu2 {width:(100%-padding); height:(60%-padding); border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
+#menuBar .menu2 { border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 #menuBar .menu2 #bookmark {font-size: 18px; float:left; font-weight:bold;}
 #menuBar .bmStar {width: 20px; height: 20px;}
 #menuBar .menu2 .bookmark-btn {text-align:right;}
@@ -85,7 +94,7 @@ input[type=radio] {display:none;}
 #menuBar #menuList .editName {width: 16px; height: 16px; float:right; color: gray; margin-top:17px;}
 
 
-#menuBar .menu3 {width:(100%-padding); height: (20%-padding); text-align:left;  padding:20px 30px; }
+#menuBar .menu3 { height: 200px; padding:20px 30px; }
 #menuBar .menu3 #members {font-size: 18px; font-weight:bold; }
 #menuBar #setting {width: 20px; height: 20px; vertical-align:center;}
 
@@ -122,8 +131,10 @@ input[type=radio] {display:none;}
 
 
 .myReport #reportList .reportBox {width:380px; height:600px; border:#ccc 0.5px solid;
+									overflow-y: scroll;
+									overflow-x: hidden;
 									-ms-overflow-style: none; /* IE and Edge */
-   									scrollbar-width: none; /* Firefox */
+									scrollbar-width: none; /* Firefox */
    									object-fit: cover;}
 .myReport #reportList .reportContent {width:380px; height:120px; border-bottom:#ccc 0.5px solid;  margin:0px; padding:10px 0px 0px 10px;}
 .myReport #reportList .contentImg {width:100px; height:100px; border:none; float:left; margin-right:20px; }

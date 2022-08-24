@@ -48,81 +48,32 @@
 
 		<hr id="hr">
 		
-		
-		
-		
-		<!-- items:Vo, var:저장된 데이타 의미, varStatus: jstl의 i (status.index) -->
-			<c:forEach items="${bList}" var="map" varStatus="status">
-			<c:choose>
-				<c:when test="${status.index == 0}">
-					<div class="img-1">		
-						<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
-						<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
-						<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
-					</div>
-				</c:when>	
-				
-				<c:when test="${status.index == 3}">
-					<p><span>ε♡з</span> Top 4 ~ 6</p>
-				</c:when>
-				
-				<c:when test="${status.index == 6}">
-					<p><span>ε♡з</span> Top 7 ~ 9</p>
-				</c:when>
-				
-				<c:when test="${status.index == 9}">
-					<p><span>ε♡з</span> Top 10 ~ 12</p>
-				</c:when>
-				
-				<c:when test="${status.index == 12}">
-					<p><span>ε♡з</span> Top 13 ~ 15</p>
-				</c:when>
-			</c:choose>
-			
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
-					
-						<div class="comment-text"> 		<!-- 기록 3개 반복문 -->
-						<c:forEach items="${map.recordList}" var="review">
-							<div class="comment-text1">${review}</div>
-						</c:forEach>
-						
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text">${map.R_COUNT}</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : ${map.L_COUNT}</span> 
-									<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : ${map.F_COUNT}</span>
-								</div>
-							</div>
-						</div>
-					</div>
-			</c:forEach>
-
-	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
-	
 		<!-- Top1~3 -->
-		<div class="img-total">
+			<div class="img-total">
 
-			<!-- 왕관 이미지 -->
-			<c:choose>
-				<c:when test="${status.index == 0}">
-					<div class="img-1">		
-						<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
-						<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
-						<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
-					</div>
-				</c:when>
-			</c:choose>
-			<br> <br> <br>
-			
-			<!-- Top 1~3 게시물 -->
-			<div class="img-line">
-					<c:forEach items="${bList}" var="map" varStatus="status">
+				<!-- 왕관 이미지 -->
+				<c:choose>
+					<c:when test="${status.index == 0}">
+						<div class="img-1">
+							<p>
+								Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" />
+							</p>
+							<p>
+								Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" />
+							</p>
+							<p>
+								Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" />
+							</p>
+						</div>
+					</c:when>
+				</c:choose>
+				<br> <br> <br>
+
+				<!-- Top 1~3 게시물(15개 반복) -->
+				<c:forEach items="${bList}" var="map" varStatus="status">
+					<div class="img-line">
 						<div class="img-list">
 							<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/sw1.jpg" />
-
 								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
 
 							<div class="comment-text">
@@ -132,23 +83,21 @@
 								</c:forEach>
 
 								<div class="button-ttl">
-									<span class="bi bi-calendar4-week"></span> <span
-										class="imgbutton-text">${map.R_COUNT}</span>
-
+									<span class="bi bi-calendar4-week"></span><span class="imgbutton-text">${map.R_COUNT}</span>
 									<div class="imgbutton">
-										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : ${map.L_COUNT}</span> 
-										<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : ${map.F_COUNT}</span>
+										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png">
+										<span>좋아요 : ${map.L_COUNT}</span> 
+										<img src="${pageContext.request.contextPath}/assets/image/main/star.png">
+										<span>즐겨찾기 : ${map.F_COUNT}</span>
 									</div>
 								</div>
-							</div>
+							</div>		<!-- 기록 3개 반복문 끝/ class="comment-text" -->
 						</div>
-					</c:forEach>
+					</div>
+				</c:forEach>
+			</div>
 
-
-				</div>
-		</div>
-		<!-- //Top 1~3 게시물// -->
-		<br> <br> <br>
+			<br> <br> <br>
 
 		<hr id="hr">
 
@@ -221,7 +170,7 @@
 					</div>
 				</div>
 			</div>
-			<hr id="hr">
+		<hr id="hr">
 		
 		<!-- Top 7~9 -->
 		<div class="img-total2">
