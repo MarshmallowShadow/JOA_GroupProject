@@ -8,6 +8,9 @@ $(document).ready(function() {
 	/*지도 그리기*/
 	map();
 	
+
+
+	
 	
 /********************************************************사진모달********************************************************/
 	lightbox.option({
@@ -110,6 +113,20 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+/*기록 작성 이동 전 로그인 확인*/
+function service() {
+	console.log("클릭");
+	
+	
+	if(isNaN(authUserNo)) {
+		location.href = contextPath+"/user/loginForm";
+	} else {
+		var courseNo = $("#courseNo").val();
+		location.href = contextPath+"/record/write?courseNo="+courseNo;
+	}
+}
 
 
 /*전체 기록 리스트 가져오기*/
@@ -240,34 +257,32 @@ function render(recVo, coUserNo, recImgs) {
 	str +=	'		<div class="record-info">';
 	
 	str +=	'			<div>';
-	str +=	'				<span class="box blue">';
 	
 	//종목
 	if(recVo.COURSECATE === 'walk') {
-		str += '산책';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/walk.png">산책</span>';
 	} else if(recVo.COURSECATE === 'jogging') {
-		str += '조깅';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/jog.png">조깅</span>';
 	} else if(recVo.COURSECATE === 'running') {
-		str += '러닝';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/run.png">러닝</span>';
 	} else if(recVo.COURSECATE === 'marathon') {
-		str += '마라톤';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/marathon.png">마라톤</span>';
 	} else if(recVo.COURSECATE === 'bicycle') {
-		str += '자전거';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/bicycle.png">자전거</span>';
 	} else if(recVo.COURSECATE === 'draw') {
-		str += '그림';
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/draw.png">그림</span>';
 	}
 	
 	//시간
-	str +=	' | '+hour+':'+minute+'</span>';
-	str +=	'				<span class="box pink">';
+	str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/time.png">'+hour+':'+minute+'</span>';
 	
 	//난이도
 	if(recVo.DIFFICULTY === 'easy') {
-		str += '쉬움'
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/difficulty.png">쉬움</span>';
 	} else if(recVo.DIFFICULTY === 'normal') {
-		str += '보통'
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/difficulty.png">보통</span>';
 	} else if(recVo.DIFFICULTY === 'hard') {
-		str += '어려움'
+		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/difficulty.png">어려움</span>';
 	}
 	
 	str +=	'				</span>';

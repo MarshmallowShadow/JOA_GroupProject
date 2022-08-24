@@ -73,7 +73,7 @@
 					<!-- 기록 리스트 -->
 					<div class="record-info-content">
 						<ul class="record-list">
-							
+								
 						</ul>
 					</div>
 					
@@ -81,7 +81,7 @@
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
 						<input type="hidden" id="courseNo" value="${param.courseNo }">
-						<a href="./write?courseNo=${param.courseNo }" class="link-btn">기록 작성하기</a>
+						<a class="link-btn" onclick="service()">기록 작성하기</a>
 						<a class="like-btn">
 							<img id="like" src="${pageContext.request.contextPath }/assets/image/main/${coMap.liked }.png">
 							<span id="like-cnt">${coMap.likeCnt }</span>
