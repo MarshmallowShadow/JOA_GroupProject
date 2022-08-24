@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/course-write.css">
 
 <!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.contextPath = '${pageContext.request.contextPath}';
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-course.js"></script>
@@ -187,7 +190,7 @@
 				<!-- 하단 버튼 영역 -->
 				<div id="btn-wrap">
 					<!-- 사용자 번호 -->
-					<input type="hidden" name="userNo" value="${authUser.userNo }">
+					<input type="hidden" id="userNo" name="userNo" value="${authUser.userNo }">
 					
 					<button class="cancel">취소</button>
 					<button type="submit" class="add">코스 등록</button>
