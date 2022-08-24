@@ -182,7 +182,7 @@ public class BoardService {
 		
 		String saveDir = "C:\\javaStudy\\upload";
 		
-		//기록 이미지 번호가 있는지 찾음
+		//이미지 번호가 있는지 찾음
 		int index = 0;
 		
 		for(MultipartFile file : fileList) {
