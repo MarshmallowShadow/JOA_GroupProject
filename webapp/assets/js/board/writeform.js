@@ -169,21 +169,21 @@
 			//드롭다운 영역 css
 			//dropZone.css('background-color', '#FFFFFF');
 		});
-		//drag 뺐을때
+		//drag 뺐을 때
 		dropZone.on('dragleave', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			//드롭다운 영역 css
 			//dropZone.css('background-color', '#FFFFFF');
 		});
-		//drag 끝났을때
+		//drag 끝났을 때
 		dropZone.on('dragover', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			//드롭다운 영역 css
 			//dropZone.css('background-color', '#FFFFFF');
 		});
-		//drag한 파일 떨어뜨렸을때
+		//drag한 파일 떨어뜨렸을 때
 		dropZone.on('drop', function(e) {
 			e.preventDefault();
 			//드롭다운 영역 css
@@ -203,7 +203,7 @@
 		});
 	}
 	
-	//파일 선택시
+	//파일 선택 시
 	function selectFile(fileObject) {
 		var files = null;
 		
@@ -211,11 +211,11 @@
 			//파일 Drag 이용하여 등록시
 			files = fileObject;
 		} else {
-			//직접 파일 등록시
+			//직접 파일 등록 시
 			files = $('#multipaartFileList_' + fileIndex)[0].files;
 		}
 		
-		//다중파일 등록
+		//다중 파일 등록
 		if(files != null) {
 			
 			if(files != null && files.length > 0) {
