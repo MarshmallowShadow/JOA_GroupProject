@@ -48,11 +48,13 @@
 	
 	
 	<!-- 전체 글갯수 구하기 -->
-	<select id="selectTotalCnt" resultType="int">
+	<select id="selectTotalCnt" parameterType="map" resultType="int">
 		<![CDATA[
 			select count(*) count
 			from board b, users u
 			where b.user_no = u.user_no
+			and title like #{keyword}
+			and board_category like #{boardCategory}
 		]]>
 	</select>
 	
