@@ -4,7 +4,7 @@
 
 /* =======================공통======================= */
 body {font-size: 14px;}
-.pointer {cursor: pointer;}
+button, a, label, .pointer {cursor: pointer;}
 .bold {font-weight: 700;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}

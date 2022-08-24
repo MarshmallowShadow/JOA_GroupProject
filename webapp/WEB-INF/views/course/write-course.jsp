@@ -192,7 +192,7 @@
 					<!-- 사용자 번호 -->
 					<input type="hidden" id="userNo" name="userNo" value="${authUser.userNo }">
 					
-					<button class="cancel">취소</button>
+					<button type="button" class="cancel" onclick="cancel()">취소</button>
 					<button type="submit" class="add">코스 등록</button>
 				</div>
 		
