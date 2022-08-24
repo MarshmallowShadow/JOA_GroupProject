@@ -34,8 +34,8 @@
 		$("#togetherModal").modal("show");
 		
 	});
- 
- /*----------------------------- 사진 드래그앤 드롭 ------------------------------*/ 
+	
+ /*------------------------------ 사진 드래그앤 드롭 -----------------------------*/ 
 	
 	$(document).ready(function() {
 		
@@ -65,6 +65,90 @@
 		
 	});
 	
+ /*----------------------------- 게시판 글쓰기 등록하기 ----------------------------*/ 
+ 
+	$("#post").on("click", function() {
+		
+		//데이터 가져오기
+		var boardCategory = $("[name='boardCategory']").val();
+		var title = $("[name='title']").val();
+		var content = $("[name='content']").val();
+		var userNo = $("#userNo").val();
+		
+		//boardVo 생성
+		var boardVo = {
+			boardCategory: boardCategory
+			, title: title
+			, content: content
+			, userNo: userNo
+		};
+		
+		console.log(boardVo);
+		
+		//boardVo 전송
+		$.ajax({
+			
+			//보낼 때
+			url : pageContext +"/apiBoard/write",
+			type : "post",
+			//contentType : "application/json",
+			data : boardVo,
+	
+			//받을 때
+			//dataType : "json",
+			success : function(boardNo){
+				
+				//성공 시 처리해야 될 코드 작성
+				console.log("boardNo:"+boardNo);
+				
+				if(boardNo > 0) {
+									
+					//업로드할 사진이 있을 때 사진 업로드
+					if(uploadFiles.length > 0) { 
+						var formData = new FormData();
+						
+						for(var i=0; i < uploadFiles.length; i++) {
+							formData.append('file', uploadFiles[i]);
+						}
+						
+						formData.append('boardNo', boardNo);
+						
+						$.ajax({
+							
+							//보낼 때
+							url : pageContext + "/apiBoard/boardImgWrite",
+							type : "post",
+							//contentType : "application/json",
+							data : formData,
+							processData: false,
+							contentType: false,
+							enctype : 'multipart/form-data',
+							
+							//받을 때
+							//dataType : "json",
+							success : function(imgResult){
+								//성공 시 처리해야 될 코드 작성
+								console.log("img:"+imgResult);
+							},
+							error : function(XHR, status, error) {
+								console.error(status + " : " + error);
+							}
+							
+						});
+						
+					}
+					
+					location.href = pageContext + "/board/read/" + boardNo;
+				}
+			},
+			
+			error : function(XHR, status, error) {console.error(status + " : " + error);}
+			
+		});
+		
+	});
+ 
+ /*------------------------------ 사진 드래그앤 드롭 -----------------------------*/ 
 	
 	//업로드할 파일 목록
 	var uploadFiles = [];
@@ -170,3 +254,6 @@
 		})(file,idx);
 		reader.readAsDataURL(file);
 	}
+	
+	
+	

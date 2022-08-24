@@ -59,30 +59,42 @@
 	
 	<!-- 게시판 글쓰기(둘 다 null) -->
 	<insert id="insertBoth" parameterType="BoardVo">
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+			select SEQ_BOARD_NO.nextval from dual
+		</selectKey>
 		<![CDATA[
 			insert into board (board_no, user_no, board_category, title, content, reg_date, view_count)
-			values(SEQ_BOARD_NO.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+			values(#{boardNo}, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 	<!-- 게시판 글쓰기(코스 null) -->
 	<insert id="insertCourse" parameterType="BoardVo">
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+			select SEQ_BOARD_NO.nextval from dual
+		</selectKey>
 		<![CDATA[
 			insert into board (board_no, user_no, event_no, board_category, title, content, reg_date, view_count)
-			values(SEQ_BOARD_NO.nextval, #{userNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+			values(#{boardNo}, #{userNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 	<!-- 게시판 글쓰기(함께하기 null) -->
 	<insert id="insertTogether" parameterType="BoardVo">
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+			select SEQ_BOARD_NO.nextval from dual
+		</selectKey>
 		<![CDATA[
 			insert into board (board_no, user_no, course_no, board_category, title, content, reg_date, view_count)
-			values(SEQ_BOARD_NO.nextval, #{userNo}, #{courseNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+			values(#{boardNo}, #{userNo}, #{courseNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 	<!-- 게시판 글쓰기(전체) -->
 	<insert id="insertAll" parameterType="BoardVo">
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+			select SEQ_BOARD_NO.nextval from dual
+		</selectKey>
 		<![CDATA[
 			insert into board (board_no, user_no, course_no, event_no, board_category, title, content, reg_date, view_count)
-			values(SEQ_BOARD_NO.nextval, #{userNo}, #{courseNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
+			values(#{boardNo}, #{userNo}, #{courseNo}, #{eventNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 		]]>
 	</insert>
 	

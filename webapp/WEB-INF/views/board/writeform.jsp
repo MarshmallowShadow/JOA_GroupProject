@@ -20,7 +20,7 @@
 	
 		<h1>게시판</h1>
 		
-		<form action="${pageContext.request.contextPath}/board/write" method="get">
+		<!-- <form action="${pageContext.request.contextPath}/board/write" method="get"> -->
 		
 			<div id="writebox">
 
@@ -61,6 +61,7 @@
 					<button type="button" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
 					<!-- <input type="hidden" name="eventNo"> -->
 				</div>
+				
 				<!-- 사진 등록 (드래그앤 드롭) -->
 				<div class="course-form">
 					
@@ -86,15 +87,14 @@
 			</div><!-- writebox -->
 			
 				
+			<br><br><br>
+
+			<div id="user_btn">
+				<a id="cancel" href="${pageContext.request.contextPath}/board/board">취소</a>
+				<button type="button" id="post">등록</button>
+			</div>
 				
-				<br><br><br>
-	
-				<div id="user_btn">
-					<a id="cancel" href="${pageContext.request.contextPath}/board/board">취소</a>
-					<button type="submit" id="post">등록</button>
-				</div>
-				
-		</form>
+		<!-- </form> -->
 
 
 	</div><!-- wrap -->
@@ -202,6 +202,9 @@
 </body>
 
 <!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.pageContext = '${pageContext.request.contextPath}';
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/board/writeform.js"></script>
