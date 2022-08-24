@@ -43,15 +43,15 @@ public class BoardDao {
 	}
 	
 	//전체 글갯수
-	public int selectTotalCnt() {
+	public int selectTotalCnt(String boardCategory, String keyword) {
 		
 		System.out.println("BoardDao > selectTotalCnt");
-	      
-		int totalCount = sqlSession.selectOne("board.selectTotalCnt");
 		
-		System.out.println(totalCount);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardCategory", boardCategory);
+		map.put("keyword", keyword);
 	      
-		return totalCount;
+		return sqlSession.selectOne("board.selectTotalCnt");
 	      
 	}
 	
@@ -72,9 +72,7 @@ public class BoardDao {
 			sqlSession.insert("board.insertCourse", boardVo);
 		}
 		
-		int count = sqlSession.insert("board.insertBoth", boardVo);
-		
-		return count;
+		return sqlSession.insert("board.insertBoth", boardVo);
 		
 	}
 	
