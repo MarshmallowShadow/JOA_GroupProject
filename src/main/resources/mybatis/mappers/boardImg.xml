@@ -1,0 +1,28 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardImg">
+
+	<!-- 게시판 이미지 등록 -->
+	<insert id="insert" parameterType="BoardImgVo">
+		<![CDATA[
+			insert into board_img
+			values(SEQ_BOARD_IMG_NO.nextval, #{boardNo}, #{saveName}, #{filePath}, #{orderNo})
+		]]>
+	</insert>
+	
+	
+	<!-- 이미지 가져오기 -->
+	<select id="getImage" resultType="BoardImgVo">
+		<![CDATA[
+			select bi.board_img_no boardImgNo
+				   , b.board_no boardNo
+			       , bi.save_name saveName
+			       , bi.file_path filePath
+			       , bi.order_no orderNo
+			from board b, board_img bi
+			where b.board_no = bi.board_no
+			and bi.board_no = #{boardNo}
+		]]>
+	</select>
+
+</mapper>
