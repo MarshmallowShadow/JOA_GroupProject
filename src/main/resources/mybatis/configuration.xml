@@ -6,6 +6,7 @@
 		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
 		<typeAlias alias="BoardVo" type="com.javaex.vo.BoardVo"/>
 		<typeAlias alias="BoardCommentVo" type="com.javaex.vo.BoardCommentVo"/>
+		<typeAlias alias="BoardImgVo" type="com.javaex.vo.BoardImgVo"/>
 		<typeAlias alias="EventVo" type="com.javaex.vo.EventVo"/>
 		<typeAlias alias="EventJoinedVo" type="com.javaex.vo.EventJoinedVo"/>
 		<typeAlias alias="EventCommentVo" type="com.javaex.vo.EventCommentVo"/>
@@ -25,6 +26,7 @@
 		<mapper resource="mybatis/mappers/mypage.xml" />
 		<mapper resource="mybatis/mappers/board.xml" />
 		<mapper resource="mybatis/mappers/boardComment.xml"/>
+		<mapper resource="mybatis/mappers/boardImg.xml"/>
 		<mapper resource="mybatis/mappers/together.xml" />
 		<mapper resource="mybatis/mappers/eventComment.xml"/>
 		<mapper resource="mybatis/mappers/record.xml"/>
