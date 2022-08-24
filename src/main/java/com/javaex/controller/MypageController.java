@@ -9,11 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.MypageService;
+import com.javaex.service.UserService;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -21,6 +23,7 @@ import com.javaex.vo.UserVo;
 public class MypageController {
 	
 	@Autowired private MypageService mypageService;
+	
 	
 	//마이페이지-메인
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
