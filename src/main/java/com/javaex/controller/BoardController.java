@@ -25,6 +25,7 @@ public class BoardController {
 	//필드
 	@Autowired
 	BoardService boardService;
+	
 	//생성자
 	
 	
@@ -96,6 +97,7 @@ public class BoardController {
 		model.addAttribute("bMap", rMap.get("bMap"));
 		model.addAttribute("categoryMap", rMap.get("categoryMap"));
 		model.addAttribute("boardCommentList", rMap.get("boardCommentList"));
+		model.addAttribute("imgList", rMap.get("imgList"));
 		
 		System.out.println(rMap);
 		
