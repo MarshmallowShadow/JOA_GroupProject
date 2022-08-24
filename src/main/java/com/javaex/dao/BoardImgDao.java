@@ -21,9 +21,7 @@ public class BoardImgDao {
 	
 	
 	//메소드-일반
-	//이미지 번호 가져오기
-
-	//기록 이미지 추가
+	//이미지 추가
 	public int boardImg(BoardImgVo boardImgVo) {
 		
 		System.out.println("BoardImgDao > boardImg");
