@@ -66,26 +66,6 @@ public class BoardController {
 		
 	}
 	
-	//게시판 글쓰기
-	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String write(@ModelAttribute BoardVo boardVo, HttpSession session) {
-		
-		System.out.println("BoardController > write");
-		
-		UserVo authUser = (UserVo)session.getAttribute("authUser");
-		boardVo.setUserNo(authUser.getUserNo());
-		System.out.println(authUser.getUserNo());
-		
-		//줄바꿈
-		boardVo.setContent(boardVo.getContent().replace("\n", "<br>"));
-		
-		boardService.write(boardVo);
-		
-		//return "redirect:board/read" + boardVo.getBoardNo();
-		return "redirect:board";
-		
-	}
-	
 	//게시판 상세페이지 + 조회수
 	@RequestMapping(value="/read/{no}", method= {RequestMethod.GET, RequestMethod.POST})
 	public String read(Model model, @PathVariable int no) {
