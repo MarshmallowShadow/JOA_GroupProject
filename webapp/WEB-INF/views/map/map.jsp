@@ -70,6 +70,27 @@
 					<span id="icon-dist" class="glyphicon glyphicon-menu-down"></span>
 				</button>
 				
+				<div id="menu-dist" class="filter-menu" tabindex='-1'>
+					<div>
+						<h3>거리</h3>
+						<span class="values">
+				            <span id="range1">
+				                0
+				            </span>
+				            <span id="range-sign"> ~ </span>
+				            <span id="range2">
+				                50
+				            </span>
+				        </span>
+			        </div>
+					<div class="menu-range">
+						<div class="slider-track"></div>
+						<input id="slider-1" class="slider" type="range" min="1" max="50" value="1" name="minDist" oninput="slideOne()">
+						<input id="slider-2" class="slider" type="range" min="1" max="50" value="50" name="maxDist" oninput="slideTwo()">
+					</div>
+				</div>
+				
+				
 			</div> <!-- filter-dist -->
 			
 			<div id="filter-diff">

@@ -61,6 +61,12 @@
 		console.log("render");
 		console.log(Map);
 		
+		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
+		
+		if(Map.tagged != null) {
+			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
+		}
+		
 		var str = '' ;
 		str += ' <div class="chart"> ' ;
 		str += '	<a href="'+ pageContext +'/together/read/'+Map.EVENTNO+'"> ';
@@ -70,7 +76,7 @@
 		str += ' 					<th class="line_top">'+Map.REGSTART+' - '+Map.REGEND+'</th> ' ;
 		str += ' 					<th class="mark"> ' ;
 		str += ' 						<button class="bookmark"> ' ;
-		str += ' 							<img class="image" src="'+ pageContext +'/assets/image/together/bookmarks_black.png"> ' ;
+		str += ' 							<img class="image" src="'+ tagImg + '"> ' ;
 		str += ' 						</button> ' ;
 		str += ' 					</th> ' ;
 		str += ' 				</tr> ' ;
