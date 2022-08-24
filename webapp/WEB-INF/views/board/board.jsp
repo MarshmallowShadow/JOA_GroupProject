@@ -69,8 +69,12 @@
 							<tr>
 								<td class="center">${bMap.BOARDNO}</td>
 								<td class="center">${categoryMap[bMap.BOARDCATEGORY]}</td>
-								<td><a class="title_margin" href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} [${bMap.COUNT}]
-									<!--<c:if test="${ㅠMap.board_img_no != null}">
+								<td><a class="title_margin" href="${pageContext.request.contextPath}/board/read/${bMap.BOARDNO}">${bMap.TITLE} 
+									<c:if test="${bMap.COUNT != null}">
+										[${bMap.COUNT}]
+									</c:if>
+									
+									<!--<c:if test="${Map.board_img_no != null}">
 										<span class="glyphicon glyphicon-picture"></span>
 									</c:if>-->
 								</a></td>
