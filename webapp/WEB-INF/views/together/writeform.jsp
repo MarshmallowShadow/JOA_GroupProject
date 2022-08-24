@@ -177,7 +177,7 @@
 								
 								<!-- 코스 공개여부 -->
 								<tr>
-									<th>코스 공개여부</th>
+									<th>코스 공개 여부</th>
 									<td>
 										<input type="radio" name="openStatus" id="open" value="open" checked>
 										<label for="open">공개</label>
@@ -222,7 +222,7 @@
 								<tr>
 									<th>인원</th>
 									<td>
-										<input type="number" name="joinMax" value="1" min="1"  max="30">
+										<input type="number" name="joinMax" id="joinMax" value="1" min="1"  max="30">
 										<p class="gray">최대 인원은 30명입니다.</p>
 										<!-- 초기값:value="1", 최소:min="1", 최대: max="15" -->
 									</td>
@@ -253,7 +253,7 @@
 					<!-- 하단 버튼 -->
 					<div id="btn-wrap">
 						<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
-						<button type="submit" class="add">함께 등록</button>
+						<button type="submit" class="add" id="add">함께 등록</button>
 					</div>
 					
 				</form>
