@@ -51,7 +51,7 @@ public class BoardDao {
 		map.put("boardCategory", boardCategory);
 		map.put("keyword", keyword);
 	      
-		return sqlSession.selectOne("board.selectTotalCnt");
+		return sqlSession.selectOne("board.selectTotalCnt", map);
 	      
 	}
 	
