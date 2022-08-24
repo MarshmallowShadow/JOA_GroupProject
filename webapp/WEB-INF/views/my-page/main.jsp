@@ -11,6 +11,7 @@
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
 <!-- CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my-page.css">
 
@@ -40,7 +41,7 @@
 	<div id="content">
 		
 		<!-- 마이페이지 메뉴바 자리 -->
-			<div id="menuBar">
+			<div id="menuBar" class="w3-container w3-center w3-animate-left">
 				<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
 			</div>
 		
