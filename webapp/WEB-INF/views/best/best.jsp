@@ -55,14 +55,27 @@
 			<c:forEach items="${bList}" var="map" varStatus="status">
 			<c:choose>
 				<c:when test="${status.index == 0}">
+					<div class="img-1">		
+						<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
+						<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
+						<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
+					</div>
 				</c:when>	
+				
 				<c:when test="${status.index == 3}">
+					<p><span>ε♡з</span> Top 4 ~ 6</p>
 				</c:when>
+				
 				<c:when test="${status.index == 6}">
+					<p><span>ε♡з</span> Top 7 ~ 9</p>
 				</c:when>
+				
 				<c:when test="${status.index == 9}">
+					<p><span>ε♡з</span> Top 10 ~ 12</p>
 				</c:when>
+				
 				<c:when test="${status.index == 12}">
+					<p><span>ε♡з</span> Top 13 ~ 15</p>
 				</c:when>
 			</c:choose>
 			
@@ -93,81 +106,46 @@
 		<div class="img-total">
 
 			<!-- 왕관 이미지 -->
-			<div class="img-1">		
-				<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
-				<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
-				<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
-			</div>
-			
+			<c:choose>
+				<c:when test="${status.index == 0}">
+					<div class="img-1">		
+						<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
+						<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
+						<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
+					</div>
+				</c:when>
+			</c:choose>
 			<br> <br> <br>
 			
 			<!-- Top 1~3 게시물 -->
 			<div class="img-line">
-				<div class="img-list">
-					<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/sw1.jpg" />
-					
-						<span id="best-text"> 지역 : <span>서울</span> | 거리 : <span>1km</span> <span id="new">🅽</span></span></a>
+					<c:forEach items="${bList}" var="map" varStatus="status">
+						<div class="img-list">
+							<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/sw1.jpg" />
 
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
+								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
 
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
+							<div class="comment-text">
+								<!-- 기록 3개 반복문 -->
+								<c:forEach items="${map.recordList}" var="review">
+									<div class="comment-text1">${review}</div>
+								</c:forEach>
+
+								<div class="button-ttl">
+									<span class="bi bi-calendar4-week"></span> <span
+										class="imgbutton-text">${map.R_COUNT}</span>
+
+									<div class="imgbutton">
+										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png"><span>좋아요 : ${map.L_COUNT}</span> 
+										<img src="${pageContext.request.contextPath}/assets/image/main/star.png"><span>즐겨찾기 : ${map.F_COUNT}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
-					
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
+					</c:forEach>
 
-							<div class="button-ttl">
-							<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-								
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="img-list">
-						<a href=""> <img src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
-					
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
 
-							<div class="button-ttl">
-							<span class="bi bi-calendar4-week"></span> <span class="imgbutton-text"> 3개</span>
-
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>103개</span> 
-									<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-			
-			</div>
+				</div>
 		</div>
 		<!-- //Top 1~3 게시물// -->
 		<br> <br> <br>
