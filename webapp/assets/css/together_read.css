@@ -26,10 +26,10 @@ h1 {
 	font-weight : bold;
 }
 #date {
-	margin-left: 71%;
+	margin-left: 70%;
 	margin-top: 5px;
 	margin-bottom: 10px;
-	font-size : 19pt;
+	font-size : 16pt;
 	font-weight : bold;
 	color: rgb(50, 108, 249);
 }
@@ -40,15 +40,15 @@ h1 {
 	width : 90%;
 	height: 750px
 }
-#map_sample {margin-left: 10%;}
+#map_sample {margin-left: 15%;}
 
 /********************** 테이블 **********************/
 
 table {
 	margin-top: 25px;
-	width : 90%;
-	height: 470px;
-	margin-left: 11%;
+	width : 83%;
+	height: 450px;
+	margin-left: 17.2%;
 }
 tr {height: 100px}
 /** 아이콘 **/
@@ -67,8 +67,8 @@ tr {height: 100px}
 	font-weight : bold;
 }
 #content {
-	padding-top: 17px;
-	font-size : 15pt;
+	padding-top: 3px;
+	font-size : 14pt;
 	padding-left: 6px;
 	line-height: 180%
 }
@@ -122,16 +122,16 @@ tr {height: 100px}
 /********************** 댓글 **********************/
 
 #top_comment {
-	margin-left: 10%;
-	margin-top: 90px;
+	margin-left: 15.5%;
+	margin-top: 85px;
 	margin-bottom: 10px;
-	font-size : 16pt;
+	font-size : 15pt;
 	font-weight : bold;
 }
 #comment-box {padding-top: 25px;}
 #commentbox {
-	margin-left: 10%;
-	width : 82%;
+	margin-left: 15%;
+	width : 75%;
 	border-top: solid 2px #ccc;
 	border-bottom: solid 2px #ccc;
 }

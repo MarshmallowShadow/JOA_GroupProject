@@ -75,6 +75,7 @@ th, td {
 }
 .bold {font-weight: bold;}
 .notice_margin {
+	margin-top: 0px;
 	display: flex; /* 가운데 정렬 */
 	justify-content: center; /* 가운데 정렬 */
 }
