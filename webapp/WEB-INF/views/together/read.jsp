@@ -6,13 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>함께하기 상세페이지</title>
+
 <!-- css -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/together_read.css" rel="stylesheet" type="text/css">
 
-<!-- 자바스크립트 -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 
@@ -30,8 +28,9 @@
 			</div>
 			
 			<!-- 상세지도 -->
-			<div id="map_sample">
-				<img class="map" src="${pageContext.request.contextPath}/assets/image/map/map-sample.jpg"><!-- a링크 걸어서 상세지도 연결 -->
+			<div class="map_sample">
+				<!-- 지도 영역 -->
+				<div id="map-info" class="map"></div><!-- a링크 걸어서 상세지도 연결 -->
 			</div>
 			
 			<!-- 상세정보 -->
@@ -120,4 +119,16 @@
 	</div><!-- wrap -->
 
 </body>
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+	window.pageContext = '${pageContext.request.contextPath}';
+	window.eventNo = '${tMap.EVENTNO}';
+</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/read.js"></script>
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
+
 </html>
