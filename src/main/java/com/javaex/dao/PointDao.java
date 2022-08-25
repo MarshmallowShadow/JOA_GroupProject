@@ -28,6 +28,13 @@ public class PointDao {
 		return sqlSession.selectList("point.getPoint", courseNo);
 	}
 	
-	
+	//함께하기 코스 좌표 가져오기
+	public List<PointVo> getTogetherCourse(int eventNo) {
+		
+		System.out.println("PointDao > getTogetherCourse");
+		
+		return sqlSession.selectList("point.getTogetherCourse", eventNo);
+		
+	}
 	
 }
