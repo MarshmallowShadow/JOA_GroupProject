@@ -103,9 +103,18 @@
 
 					<div class="img-line">
 						<div class="img-list">
-							<a href=""> <img src="${pageContext.request.contextPath}/assets/image/best/sw1.jpg" />
-								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
-
+							<a href="">
+							<c:choose>
+								<c:when test="${map.FILE_PATH == null}">
+									<img src="${pageContext.request.contextPath}/assets/image/best/sw1.jpg" />
+								</c:when>
+								<c:otherwise>
+									<img src="${pageContext.request.contextPath}/${map.FILE_PATH}"/>
+								</c:otherwise>
+							</c:choose>
+							</a>
+							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span>
+							
 							<div class="comment-text">
 								<!-- 기록 3개 반복문 -->
 								<c:forEach items="${map.RECORDLIST}" var="review">
@@ -127,93 +136,6 @@
 						</div>
 					</div>
 				</c:forEach>
-			</div>
-			<br> <br> <br>
-			<hr id="hr">
-
-			<!-- Top 4~6 -->
-			<div class="img-total2">
-				<div class="img-line">
-					<p>
-						<span>ε♡з</span> Top 4 ~ 6
-					</p>
-
-					<div class="img-list">
-						<a href=""> <img
-							src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>서울</span> | 거리 : <span>1km</span></span></a>
-
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span
-									class="imgbutton-text"> 3개</span>
-
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
-										: 103개</span> 
-										<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
-										: 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="img-list">
-						<a href=""> <img
-							src="${pageContext.request.contextPath }/assets/image/best/map.jpg" />
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>1km</span></span></a>
-
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span
-									class="imgbutton-text"> 3개</span>
-
-								<div class="imgbutton">
-									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
-										: 103개</span> 
-										<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
-										: 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="img-list">
-						<a href=""> <img
-							src="${pageContext.request.contextPath }/assets/image/best/poo613.jpg" />
-							<span id="best-text"> 지역 : <span>인천</span> | 거리 : <span>1km</span></span></a>
-
-						<div class="comment-text">
-							<div class="comment-text1">私の名前はウヨンウです</div>
-							<div class="comment-text1">댓글이오</div>
-							<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>
-							<br>
-
-							<div class="button-ttl">
-								<span class="bi bi-calendar4-week"></span> <span
-									class="imgbutton-text"> 3개</span>
-
-								<div class="imgbutton">
-									<img
-										src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
-										: 103개</span> <img
-										src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
-										: 10개</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<hr id="hr">
 		</div>
