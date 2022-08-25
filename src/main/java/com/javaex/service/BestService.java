@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
 import com.javaex.dao.RecordDao;
-import com.javaex.utl.LocalApiController;
+import com.javaex.utl.LocalApiComponent;
 
 @Service
 public class BestService {
@@ -23,7 +23,7 @@ public class BestService {
 	RecordDao recordDao;
 	
 	@Autowired
-	private LocalApiController localApiController;
+	private LocalApiComponent localApiComponent;
 	
 	//생성자
 	
@@ -63,7 +63,7 @@ public class BestService {
 			double y =  ((BigDecimal)courseList.get(i).get("Y")).doubleValue();
 			
 			//좌표로 위치 변환
-			String LOCATION = localApiController.getLocation(x, y);
+			String LOCATION = localApiComponent.getLocation(x, y);
 			
 			//위치 저장
 			courseList.get(i).put("LOCATION", LOCATION);

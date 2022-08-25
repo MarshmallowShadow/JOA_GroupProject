@@ -13,7 +13,7 @@ import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
 import com.javaex.dao.PointDao;
-import com.javaex.utl.LocalApiController;
+import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.EventCommentVo;
 import com.javaex.vo.EventVo;
@@ -34,7 +34,7 @@ public class TogetherService {
 	@Autowired
 	private EventCommentDao eventCommentDao;
 	@Autowired
-	private LocalApiController localApiController;
+	private LocalApiComponent localApiComponent;
 	
 	//생성자
 	
@@ -83,13 +83,13 @@ public class TogetherService {
 			double x1 = ((BigDecimal)togetherList.get(i).get("X1")).doubleValue();
 			double y1 = ((BigDecimal)togetherList.get(i).get("Y1")).doubleValue();
 			
-			String START = localApiController.getLocation(x1, y1);
+			String START = localApiComponent.getLocation(x1, y1);
 			togetherList.get(i).put("START", START);
 			
 			double x2 = ((BigDecimal)togetherList.get(i).get("X2")).doubleValue();
 			double y2 = ((BigDecimal)togetherList.get(i).get("Y2")).doubleValue();
 			
-			String END = localApiController.getLocation(x2, y2);
+			String END = localApiComponent.getLocation(x2, y2);
 			togetherList.get(i).put("END", END);
 					
 		}
@@ -201,13 +201,13 @@ public class TogetherService {
 		double x1 = ((BigDecimal)tMap.get("X1")).doubleValue();
 		double y1 = ((BigDecimal)tMap.get("Y1")).doubleValue();
 		
-		String START = localApiController.getLocation(x1, y1);
+		String START = localApiComponent.getLocation(x1, y1);
 		tMap.put("START", START);
 		
 		double x2 = ((BigDecimal)tMap.get("X2")).doubleValue();
 		double y2 = ((BigDecimal)tMap.get("Y2")).doubleValue();
 		
-		String END = localApiController.getLocation(x2, y2);
+		String END = localApiComponent.getLocation(x2, y2);
 		tMap.put("END", END);
 		
 		//댓글

@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LocalApiController {
+public class LocalApiComponent {
 	private static String GEOCODE_URL="https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84";
     private static String GEOCODE_USER_INFO="KakaoAK 8bbcad9e632e2bc7dd8eec481e015cfe"; 
     
