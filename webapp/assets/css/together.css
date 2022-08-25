@@ -105,8 +105,9 @@ h1 {
 	font-weight: bold;
 }
 .line_bottom {
-	padding-left: 117px;
-	padding-right: 95px;
+	justify-content: center; /* 가운데 정렬 */
+	padding-left: 115px;
+	padding-right: 80px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top: solid 1px #ccc;
@@ -180,8 +181,9 @@ h1 {
 	border:none;
 }
 .line_bottomOver {
-	padding-left: 117px;
-	padding-right: 95px;
+	justify-content: center; /* 가운데 정렬 */
+	padding-left: 115px;
+	padding-right: 80px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top: solid 1px #ccc;
