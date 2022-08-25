@@ -558,6 +558,7 @@ $(window).ready(function(){
 					var src = contextPath + "/assets/image/main/"+heart+".png";
 					$(".like-cancel-btn").attr("src", src);
 					*/
+					
 					location.reload();
 				},
 				error : function(XHR, status, error) {
