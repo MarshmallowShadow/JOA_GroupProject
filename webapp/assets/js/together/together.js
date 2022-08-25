@@ -62,44 +62,53 @@
 		console.log(Map);
 		
 		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
+		var now = new Date();
+		var gray = "notYet";
+		var black = "line_top";
+		var over = "line_bottom";
 		
 		if(Map.tagged != null) {
 			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
 		}
+		if(Map.REGEND < now) {
+			gray = "over";
+			black = "date_over";
+			over = "line_bottomOver";
+		}
 		
 		var str = '' ;
 		str += ' <div class="chart"> ' ;
-		str += '	<a href="'+ pageContext +'/together/read/'+Map.EVENTNO+'"> ';
-		str += ' 		<table> ' ;
-		str += ' 			<thead> ' ;
-		str += ' 				<tr class="top"> ' ;
-		str += ' 					<th class="line_top">'+Map.REGSTART+' - '+Map.REGEND+'</th> ' ;
-		str += ' 					<th class="mark"> ' ;
-		str += ' 						<button class="bookmark"> ' ;
-		str += ' 							<img class="image" src="'+ tagImg + '"> ' ;
-		str += ' 						</button> ' ;
-		str += ' 					</th> ' ;
-		str += ' 				</tr> ' ;
-		str += ' 			</thead> ' ;
-		str += ' 			<tbody> ' ;
-		str += ' 				<tr> ' ;
-		str += ' 					<th colspan="2" class="content">'+Map.EVENTTITLE+'</th> ' ;
-		str += ' 				</tr> ' ;
-		str += ' 				<tr> ' ;
-		str += ' 					<th colspan="2" class="content_course"> ' ;
-		str += ' 						<span class="glyphicon glyphicon-map-marker" class="marking"></span>'+ Map.START +' - '+ Map.END +' ' ;
-		str += ' 						<input type="hidden" name="courseNo"> ' ;
-		str += ' 					</th> ' ;
-		str += ' 				</tr> ' ;
-		str += ' 				<tr> ' ;
-		str += ' 					<th colspan="2" class="line_bottom"> ' ;
-		str += ' 						'+courseCate[Map.COURSECATEGORY];
-		str += ' 						<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+parseInt(Map.COUNT)+'/'+Map.JOINMAX+'</button> ' ;
-		str += ' 					</th> ' ;
-		str += ' 				</tr> ' ;
-		str += ' 			</tbody> ' ;
-		str += ' 		</table> ' ;
-		str += ' 	</a> ' ;
+		str += ' 	<table class='+ gray +'> ' ;
+		str += ' 		<thead> ' ;
+		str += ' 			<tr class="top"> ' ;
+		str += ' 				<th class='+ black +'>'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
+		str += ' 				<th class="mark"> ' ;
+		str += ' 					<button class="bookmark"> ' ;
+		str += ' 						<img class="image" src="'+ tagImg + '"> ' ;
+		str += ' 					</button> ' ;
+		str += ' 				</th> ' ;
+		str += ' 			</tr> ' ;
+		str += ' 		</thead> ' ;
+		str += ' 		<tbody onClick="window.open(\''+ pageContext +'/together/read/'+ Map.EVENTNO +'\', \'_self\');"> ' ;
+		str += ' 			<tr> ' ;
+		str += ' 				<th colspan="2" class="content">'+ Map.EVENTTITLE +'</th> ' ;
+		str += ' 			</tr> ' ;
+		str += ' 			<tr> ' ;
+		str += ' 				<th colspan="2" class="content_course"> ' ;
+		str += ' 					<span class="glyphicon glyphicon-map-marker" class="marking"></span>'+ Map.START +' - '+ Map.END +' ' ;
+		str += ' 					<input type="hidden" name="courseNo"> ' ;
+		str += ' 				</th> ' ;
+		str += ' 			</tr> ' ;
+		str += ' 		</tbody> ' ;
+		str += ' 		<tfoot> ' ;
+		str += ' 			<tr> ' ;
+		str += ' 				<th colspan="2" class='+ over +'> ' ;
+		str += ' 					'+ courseCate[Map.COURSECATEGORY];
+		str += ' 					<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		str += ' 				</th> ' ;
+		str += ' 			</tr> ' ;
+		str += ' 		</tfoot> ' ;
+		str += ' 	</table> ' ;
 		str += ' </div> ' ;
 		
 		if(opt == "down") {
