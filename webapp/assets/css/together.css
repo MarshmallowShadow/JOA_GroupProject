@@ -100,7 +100,7 @@ h1 {
 	margin-left: 78px;
 	font-size : 12pt;
 	text-align: center;
-	margin-top: 8px;
+	margin-top: 9px;
 	color: rgb(50, 108, 249);
 	font-weight: bold;
 }
@@ -118,25 +118,32 @@ h1 {
 	height: 36px;
 	border-bottom: solid 1px #ccc;
 }
-.mark {background-color: #fff;}
+.mark {
+	background-color: #fff;
+	padding: 0px;
+}
 .content {
 	font-size : 13pt;
 	padding-bottom: 20px;
 	padding-top: 20px;
-	margin-left: 27px;
+	padding-left: 30px;
+	padding-right: 30px;
 	display: flex; /* 가운데 정렬 */
 	justify-content: center; /* 가운데 정렬 */
 }
 .content_course {
+	width: 320px;
 	font-size : 13pt;
-	padding: 20px 50px 20px 50px;
-	margin-left: 30px;
+	padding: 20px 30px 20px 30px;
 	display: flex; /* 가운데 정렬 */
 	justify-content: center; /* 가운데 정렬 */
 }
 .bookmark {
-	margin-left: 12%;
-	margin-top: 5px;
+	margin-left: 10%;
+	margin-top: 3px;
+	margin-right: 8px;
+	margin-bottom: 5px;
+	padding: 0px;
 	background-color: #fff;
 	border:none;
 }
@@ -164,6 +171,9 @@ h1 {
 .bookmark_over {
 	margin-left: 12%;
 	margin-top: 5px;
+	margin-right: 8px;
+	margin-bottom: 5px;
+	padding: 0px;
 	background-color: #757575;
 	border:none;
 }
@@ -186,7 +196,7 @@ h1 {
 	margin-left: 78px;
 	font-size : 12pt;
 	text-align: center;
-	margin-top: 8px;
+	margin-top: 9px;
 	color: #000;
 	font-weight: bold;
 }
