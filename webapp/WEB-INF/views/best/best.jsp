@@ -9,13 +9,9 @@
 <title>Best</title>
 
 <!-- CSS -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-<link
-	href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/bestplus.css"
-	rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/best.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -72,29 +68,33 @@
 						</c:when>
 
 						<c:when test="${status.index == 3}">
+						<hr id="hr">
 							<div class="img-line">
-								<p><span>ε♡з</span> Top 4 ~ 6</p>
+								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 4 ~ 6</p>
 							</div>
 							<br> <br> <br>
 						</c:when>
 
 						<c:when test="${status.index == 6}">
+						<hr id="hr">
 							<div class="img-line">
-								<p><span>ε♡з</span> Top 7 ~ 9</p>
+								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 7 ~ 9</p>
 							</div>
 							<br> <br> <br>
 						</c:when>
 
 						<c:when test="${status.index == 9}">
+						<hr id="hr">
 							<div class="img-line">
-								<p><span>ε♡з</span> Top 10 ~ 12</p>
+								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 10 ~ 12</p>
 							</div>
 							<br> <br> <br>
 						</c:when>
 
 						<c:when test="${status.index == 12}">
+						<hr id="hr">
 							<div class="img-line">
-								<p><span>ε♡з</span> Top 13 ~ 15</p>
+								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 13 ~ 15</p>
 							</div>
 							<br> <br> <br>
 						</c:when>
@@ -107,11 +107,8 @@
 								<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span></a>
 
 							<div class="comment-text">
-									<div class="comment-text1">私の名前はウヨンウです</div>
-									<div class="comment-text1">댓글이오</div>
-									<div class="comment-text1">와타시노 나마에와 우투더여응투더우!</div>	
 								<!-- 기록 3개 반복문 -->
-								<c:forEach items="${map.recordList}" var="review">
+								<c:forEach items="${map.RECORDLIST}" var="review">
 									<div class="comment-text1">${review}</div>
 								</c:forEach>
 
@@ -157,10 +154,9 @@
 									class="imgbutton-text"> 3개</span>
 
 								<div class="imgbutton">
-									<img
-										src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
-										: 103개</span> <img
-										src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
+										: 103개</span> 
+										<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
 										: 10개</span>
 								</div>
 							</div>
@@ -183,10 +179,9 @@
 									class="imgbutton-text"> 3개</span>
 
 								<div class="imgbutton">
-									<img
-										src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
-										: 103개</span> <img
-										src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
+									<img src="${pageContext.request.contextPath }/assets/image/main/heart.png"><span>좋아요
+										: 103개</span> 
+										<img src="${pageContext.request.contextPath }/assets/image/main/star.png"><span>즐겨찾기
 										: 10개</span>
 								</div>
 							</div>
@@ -230,7 +225,6 @@
 </body>
 
 <!-- 자바스크립트 -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 
 </html>
