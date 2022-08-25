@@ -161,7 +161,11 @@ function displayRange(){
 		displayValTwo.textContent = '무제한';
 	}
 	
-	
+	if(sliderOne.value == 50){
+		$("#slider-2").css("z-index", "900");
+	} else {
+		$("#slider-2").css("z-index", "902");
+	}
 }
 
 function fillColor(){
@@ -171,44 +175,32 @@ function fillColor(){
 }
 /* *************************!menu-slider!************************* */
 
-$("#btn-cate").on("click", function(){
-	showMenu("cate");
-});
-$("#btn-cate").on("mousedown", function(e){
-	e.preventDefault();
-});
-
-$("#btn-dist").on("click", function(){
-	showMenu("dist");
-});
-$("#btn-dist").on("mousedown", function(e){
-	e.preventDefault();
-});
-
-$("#btn-diff").on("click", function(){
-	showMenu("diff");
-});
-
-$("#btn-diff, .menu-option, .menu-chk").on("mousedown", function(e){
-	e.preventDefault();
-});
-
-
-//필터 메뉴창 숨기기
-$("#menu-cate").on("focusout", function(){
+$(window).click(function() {
 	hideMenu("cate");
-});
-
-$("#menu-dist, .slider").on("focusout", function(){
 	hideMenu("dist");
-});
-
-$("#menu-diff").on("focusout", function(){
 	hideMenu("diff");
 });
 
+$("#btn-cate").on("click", function(){
+	hideMenu("dist");
+	hideMenu("diff");
+	showMenu("cate");
+});
+
+$("#btn-dist").on("click", function(){
+	hideMenu("cate");
+	hideMenu("diff");
+	showMenu("dist");
+});
+
+$("#btn-diff").on("click", function(){
+	hideMenu("cate");
+	hideMenu("dist");
+	showMenu("diff");
+});
+
 //필터 옵션 선택 시
-$("#filter-cate, #filter-dist, #filter-diff").on("click", ".menu-option", function(){
+$(".menu-option").on("click", function(){
 	if($(this).children(".menu-chk").is(":checked") == true) {
 		$(this).children("img").attr("src", contextPath + "/assets/image/map/check_on.png");
 	} else {
@@ -216,6 +208,19 @@ $("#filter-cate, #filter-dist, #filter-diff").on("click", ".menu-option", functi
 	}
 	
 	getList(kMap);
+});
+
+$(".slider").on("mouseup", function(){
+	//console.log("YESSSSSSSSSS");
+	getList(kMap);
+});
+
+$(".menu-option, .menu-chk").on("mousedown", function(e){
+	e.preventDefault();
+});
+
+$("#btn-cate, #btn-dist, #btn-diff, #menu-cate, #menu-dist, #menu-diff").on("click", function(event){
+	event.stopPropagation();
 });
 
 
@@ -383,7 +388,7 @@ var getList = function(kMap) {
 				cateFilter.push("그림");
 			}
 			
-			//필터링
+			//필터링 (종목, 난이도)
 			for(var i=0; i<result.length; i++){
 				var deleted = false;
 				
@@ -392,32 +397,48 @@ var getList = function(kMap) {
 					console.log(diffFilter[j]);
 					
 					if(result[i].DIFFICULTY == diffFilter[j]){
-						
 						result.splice(i, 1);
 						i--;
-						
-						console.log("REDACTED");
-						
+						deleted = true;
+						//console.log("REDACTED");
 						break;
 					}
 				}
-				
 				if(deleted == true){
 					continue;
 				}
-				
 				for(var j=0; j<cateFilter.length; j++){
 					if(result[i].COURSE_CATEGORY == cateFilter[j]){
 						result.splice(i, 1);
 						i--;
-						
-						console.log("CLOSE BUT REDACTED");
-						
+						//console.log("CLOSE BUT REDACTED");
 						break;
 					}
 				}
+				if(deleted == true){
+					continue;
+				}
 			}
 			
+			//필터링 (길이)
+			var min = $("#slider-1").val();
+			var max = $("#slider-2").val();
+			
+			console.log(min);
+			console.log(max);
+			
+			for(var i=0; i<result.length; i++){
+				if(result[i].DISTANCE < min && min != 1){
+					result.splice(i, 1);
+					i--;
+					continue;
+				}
+				if(result[i].DISTANCE > max && max != 50){
+					result.splice(i, 1);
+					i--;
+					continue;
+				}
+			}
 			
 			if(result.length > 0){
 				//리스트 비우기

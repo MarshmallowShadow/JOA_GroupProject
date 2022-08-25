@@ -1,4 +1,4 @@
-package com.javaex.dao;
+package com.javaex.utl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,10 +10,10 @@ import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
-public class LocalApiDao {
+@Component
+public class LocalApiController {
 	private static String GEOCODE_URL="https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84";
     private static String GEOCODE_USER_INFO="KakaoAK 8bbcad9e632e2bc7dd8eec481e015cfe"; 
     

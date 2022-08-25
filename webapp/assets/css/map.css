@@ -204,13 +204,14 @@
 
 #sub-header #filter-buttons {
 	display: flex;
-	margin-right: auto;
-	margin-left: 15px;
+	margin-right: 15px;
 	height: 100%;
 }
 
-#sub-header #filter-buttons img {
-	margin: auto;
+#sub-header #filter-buttons #btn-reset {
+	width: 34px;
+	height: 34px;
+	
 }
 
 
@@ -393,4 +394,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     font-weight: 500;
     font-size: 18px;
     color: rgb(50, 108, 249);
+}
+#slider-1 {
+	z-index: 901;
+}
+#slider-2 {
+	z-index: 902;
 }

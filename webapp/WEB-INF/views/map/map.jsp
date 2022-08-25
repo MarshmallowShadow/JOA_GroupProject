@@ -74,13 +74,9 @@
 					<div>
 						<h3>거리</h3>
 						<span class="values">
-				            <span id="range1">
-				                0
-				            </span>
-				            <span id="range-sign"> ~ </span>
-				            <span id="range2">
-				                50
-				            </span>
+				            <span id="range1"></span>
+				            <span id="range-sign"></span>
+				            <span id="range2"></span>
 				        </span>
 			        </div>
 					<div class="menu-range">
@@ -118,15 +114,13 @@
 			</div><!-- filter-diff -->
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
-			
+			<button id="btn-reset" type="button" class="glyphicon glyphicon-refresh"></button>
 		</div> <!-- filter-buttons -->
 	</form>
 	</div> <!-- sub-header -->
 	
 	<div id="content">
-		<div id="result-list">
-			
-		</div> <!-- result-list -->
+		<div id="result-list"></div> <!-- result-list -->
 		<div id="map-info"></div> <!-- map-info -->
 	</div><!-- content -->
 </div> <!-- wrap -->

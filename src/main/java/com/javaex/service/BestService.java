@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
-import com.javaex.dao.LocalApiDao;
+import com.javaex.dao.LocalApiController;
 import com.javaex.dao.RecordDao;
 
 @Service
@@ -23,7 +23,7 @@ public class BestService {
 	RecordDao recordDao;
 	
 	@Autowired
-	private LocalApiDao localApiDao;
+	private LocalApiController localApiDao;
 	
 	//생성자
 	
