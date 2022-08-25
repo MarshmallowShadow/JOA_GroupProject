@@ -23,7 +23,14 @@ public class ListDao {
 	
 	//메소드 일반
 
-	/**********************************************************************************************************/
+	//수정
+	/*public ListVo getList(int no) {
+		System.out.println("ListDao>getList");
+		
+		ListVo lVo = sqlSession.getList(no);
+		
+		return lVo;
+	}*/
 	
 	//페이징 (페이징 + 검색) 
 	public List<ListVo> getListPage(int startRnum, int endRnum, String keyword, String boardCategory){
@@ -41,6 +48,7 @@ public class ListDao {
 		
 		return lList;
 	}
+	
 	
 	// 전체글 갯수
 	public int selectTotalCnt(String keyword, String boardCategory) {
@@ -66,7 +74,7 @@ public class ListDao {
 		return count;
 	}
 	
-	//메소드 일반
+	
 	//조회수 (view_counts)
 	public int hitUpdate(int no) {
 		System.out.println("ListDao>view_counts");

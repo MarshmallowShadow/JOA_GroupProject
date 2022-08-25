@@ -39,6 +39,15 @@ public class ListService {
 	}
 	
 	/**********************************************************************************************************/
+	//수정
+	/*public ListVo getList(int no) {
+		System.out.println("ListService>getList");
+		
+		ListVo lVo = listDao.getList(no);
+		
+		return lVo;
+	}*/
+	
 	
 	//페이징 (페이징 + 검색) 
 	// crtPage : 현재페이지
@@ -165,5 +174,4 @@ public class ListService {
 		
 		return count;
 	}
-
 }
