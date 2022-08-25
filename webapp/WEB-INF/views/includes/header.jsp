@@ -44,7 +44,7 @@
 	<div id="nav">
 		<ul>
 			<li><a href="${pageContext.request.contextPath }/together/together">함께하기</a></li>
-			<li><a href="${pageContext.request.contextPath }/board/board">게시판</a></li>
+			<li><a href="${pageContext.request.contextPath }/board/board">소통하기</a></li>
 			<li><a href="${pageContext.request.contextPath }/best">베스트</a></li>
 			<li><a href="${pageContext.request.contextPath }/map">코스 탐색</a></li>
 			<li><a href="${pageContext.request.contextPath }/mobile/timer">시간 기록</a></li>
