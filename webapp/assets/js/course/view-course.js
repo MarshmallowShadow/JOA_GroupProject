@@ -2,8 +2,6 @@
 /*차트 https://www.chartjs.org/docs/latest/*/
 
 $(document).ready(function() {
-	console.log("tq");
-	
 	var courseNo = $("#courseNo").val();
 	
 	/*지도 그리기*/
