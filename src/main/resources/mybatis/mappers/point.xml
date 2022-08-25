@@ -24,4 +24,22 @@
 			order by order_no asc
 		]]>
 	</select>
+	
+	<!-- 함께하기 코스 좌표 가져오기 -->
+	<select id="getTogetherCourse" resultType="pointVo" parameterType="int">
+		<![CDATA[
+			select p.point_no pointNo
+			       , c.course_no courseNo
+			       , p.order_no orderNo
+			       , p.x
+			       , p.y
+			       , e.event_no eventNo
+			from point p, event e, course c
+			where c.course_no = e.course_no
+			and c.course_no = p.course_no
+			and event_no = #{event_no}
+			order by order_no asc
+		]]>
+	</select>
+	
 </mapper>
