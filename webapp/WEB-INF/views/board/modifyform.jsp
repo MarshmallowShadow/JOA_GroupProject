@@ -20,7 +20,7 @@
 		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		<!-- header -->
 	
-		<h1>게시판</h1>
+		<h1>소통하기</h1>
 		
 		<div id="writebox">
 		
