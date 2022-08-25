@@ -78,7 +78,7 @@ public class TogetherController {
 	@RequestMapping(value="/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read(Model model, @PathVariable int no) {
 		
-		 System.out.println("TogetherController > read");
+		 System.out.println("TogetherController > read"+no);
 		 
 		//내용 읽기
 		Map<String, Object> tMap = togetherService.read(no);
@@ -88,7 +88,7 @@ public class TogetherController {
 		return "together/read";
 		
 	}
-	
+
 	//댓글 쓰기
 	@RequestMapping(value = "/comment", method = {RequestMethod.GET, RequestMethod.POST})
 	public String comment(@ModelAttribute EventCommentVo eventCommentVo, HttpSession session) {
