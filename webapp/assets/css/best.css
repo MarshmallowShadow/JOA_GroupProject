@@ -129,12 +129,12 @@ table td:hover {
 }
 
 /*------------------------- 댓글 comment -------------------------*/
+/* 기록 3개 반복문 */
 .comment-text {
 	width: 80px;
 	padding: 0px 35px 50px;
 	text-align: left;
 	display: inline;
-	
 }
 
 .comment-text input {

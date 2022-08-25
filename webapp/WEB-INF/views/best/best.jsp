@@ -113,14 +113,9 @@
 								</c:otherwise>
 							</c:choose>
 							</a>
-							<span id="best-text"> 지역 : <span>부산</span> | 거리 : <span>${map.DISTANCE}</span></span>
+								<span id="best-text"> 지역 : <span>${map.LOCATION}</span> | 거리 : <span>${map.DISTANCE}</span></span>
 							
-							<div class="comment-text">
-								<!-- 기록 3개 반복문 -->
-								<c:forEach items="${map.RECORDLIST}" var="review">
-									<div class="comment-text1">${review}</div>
-								</c:forEach>
-
+							<!-- 기록/좋아요/즐찾 -->
 								<div class="button-ttl">
 									<span class="bi bi-calendar4-week"></span>
 									<span class="imgbutton-text">${map.R_COUNT}</span>
@@ -131,6 +126,14 @@
 										<span>즐겨찾기 : ${map.F_COUNT}</span>
 									</div>
 								</div>
+								
+							<!-- 기록 3개 반복문 -->
+							<div class="comment-text">
+								<c:forEach items="${map.RECORDLIST}" var="review">
+									<div class="comment-text1">${review}</div>
+								</c:forEach>
+
+
 							</div>
 							<!-- 기록 3개 반복문 끝/ class="comment-text" -->
 						</div>
