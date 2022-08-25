@@ -18,17 +18,7 @@
 	letter-spacing: -1px;
 }
 
-#wrap h2 {
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: 70px;
-	margin-bottom: 30px;
-	padding: 10px 0px 10px 500px;
-	border-top: 1px solid rgb(50, 108, 249);  
-	border-bottom: 1px solid rgb(50, 108, 249); 
-}
-
-#wrap h2 span {
+.img-line span {
 	color: rgb(255, 52, 120);
 }
 
@@ -40,54 +30,13 @@
 	padding: 0px;	
 }
 
-
-/* 더보기 Go 버튼 */
-#Go { 			/* 위치 조정 */
-	left: 0px;
-	float: right;
-	transform: translate(-30px, -10px);
-	position: relative;
-		
-	/* 폰트 */
-	font-size: 14px;
-	color: rgb(50, 108, 249);
-	font-weight: bold;
-}
-
-#h2-2 {			/* float 해제 */
-	clear: both;
-}
-
 .footer {
 	clear: both;
-}
-
-#Go img {
-	width: 15px;
-	height: 15px;
-	margin: 0 0 0 10px;
 }
 
 .best {
 	margin-right: 35px;
 }
-
-.btn-next {
-	left: 400px;
-	bottom: 190px;	
-	transform: translate(-50%, -50%);
-	position: relative;
-	border: none;
-}
-
-.btn-prev {
-	left: 10px;
-	top: 180px;	
-	transform: translate(-50%, -50%);
-	position: relative;
-	border: none;
-}
-
 
 /* 사진 */
 .best-listtext .best-list img {
