@@ -9,8 +9,8 @@ body {font-size: 14px;}
 /* radio 버튼 초기화 */
 input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
-#header {left:0; z-index: 1;  top:0; position: fixed; width:100%; background-color:white;}
-#wrap {position: relative; top:80px; padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px;  }
+#header {left:0; z-index: 1;  /* top:0; */ /* position: fixed; */ width:100%; background-color:white;}
+#wrap {position: relative; top:80px; padding:50px 0px; /* margin:auto; */ margin-bottom:150px; max-width:1200px;  }
 #content {/* position: relative; */ top:80px; padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px; min-height:70vh; 
 				-ms-overflow-style: none; /* IE and Edge */
    					scrollbar-width: none; /* Firefox */
@@ -59,10 +59,10 @@ input[type=radio] {display:none;}
 /* 마이페이지-메뉴바 *************************************************************/
 /**************************************************************************/
 /* .menuBar-display {width:1200px; background-color:none;} */
-#menuBar { width:400px; height:100%; position: fixed; 
+#menuBar { width:400px; height:100%; position: relative; /*fixed*/ 
 			z-index: 900; /* Stay on top */
-			top: 80px;  /* Stay at the top */
-			left: 0;
+			/* top: 80px; */  /* Stay at the top */
+			/* left: 0; */
 			text-align:left; line-height: 50px; 
 			background-color:white; border-right:solid 1px gray;
 			overflow-x: scroll; }
@@ -77,6 +77,8 @@ input[type=radio] {display:none;}
    					object-fit: cover;
    					}
 
+
+.entireMenu{position:fixed}
 
 #menuBar .menu1 { border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 #menuBar .menu1 #mypage {font-size: 18px; font-weight:bold;float:left; }
