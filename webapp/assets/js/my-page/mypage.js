@@ -369,6 +369,15 @@ function mylikedCoRender(lcMap){
 
 
 document.addEventListener('DOMContentLoaded', function() {
+	var nowDate     = new Date();
+	var nowDay      = ((nowDate.getDate().toString().length) == 1) ? '0'+(nowDate.getDate()) : (nowDate.getDate());
+	var nowMonth    = ((nowDate.getMonth().toString().length) == 1) ? '0'+(nowDate.getMonth()+1) : (nowDate.getMonth()+1);
+	var nowYear     = nowDate.getFullYear();
+	var formatDate1  = nowYear + "-" + nowMonth;
+	var formatDate2  = nowYear + "-" + nowMonth + "-" + nowDay;
+	console.log(formatDate1, "+", formatDate2);
+	
+	
 	/*//달력폼/////////////////////////////////////////////////////////////*/
 	console.log(userNo);
 	$.ajax({
@@ -384,14 +393,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			eList = result;
 			//컨트롤러 함수 실행 후 코드
 			for (var i = 0; i < result.length; i++) {
-				var rMap = result[i];
-				rList.push(
-					{
-						title: rMap.TITLE,
-						start: rMap.REGDATE2
-					}
-				);
-				calendarRender(rMap, "down");
+				if(formatDate1 == eList[i].REGDATE3){
+					var rMap = result[i];
+					rList.push(
+						{
+							title: rMap.TITLE,
+							start: rMap.REGDATE2
+						}
+					);
+					calendarRender(rMap, "down");
+				}
 			}
 			console.log(rList);
 			
@@ -441,6 +452,37 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	
 	
+	
+	/*//////달력폼 준비가 끝나면2222//////////////////////////////////////////////////*/
+	$(".todayReport").click(function(){
+		/*var nowDate     = new Date();
+		var nowDay      = ((nowDate.getDate().toString().length) == 1) ? '0'+(nowDate.getDate()) : (nowDate.getDate());
+		var nowMonth    = ((nowDate.getMonth().toString().length) == 1) ? '0'+(nowDate.getMonth()+1) : (nowDate.getMonth()+1);
+		var nowYear     = nowDate.getFullYear();
+		var formatDate1  = nowYear + "-" + nowMonth;
+		var formatDate2  = nowYear + "-" + nowMonth + "-" + nowDay;
+		console.log(formatDate1, "+", formatDate2);*/
+		
+		
+		$(".monthReport").css('background', 'white');
+		$(".monthReport").css('color', 'black');
+		$(".monthReport").css('border', 'rgb(101,101,101) 1px solid');
+		
+		$(".todayReport").css('background', 'rgb(50, 108, 249)');
+		$(".todayReport").css('color', 'white');
+		$(".todayReport").css('border', 'rgb(50, 108, 249) 1px solid');
+		
+		$(".reportContent").remove();
+		for(var i=0; i < eList.length; i++){
+			if(formatDate2 == eList[i].REGDATE2){
+				calendarRender(eList[i]	, "down");	
+			}
+		}
+	});
+	
+	
+	
+	
 });	
 	
 	
@@ -454,10 +496,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 $(window).ready(function(){	
 	console.log("준비");
+	
 	var userNo = window.userNo;
 	var cateNo = window.cateNo;
 	console.log(userNo);
 	console.log("cateNo", cateNo);
+	
 	
 	
 	$(".myrecord-del-modal").hide();

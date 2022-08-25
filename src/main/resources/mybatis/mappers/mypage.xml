@@ -47,7 +47,7 @@
             where c.user_no = u.user_no
             	and c.course_no = lc.course_no
                 and lc.user_no = #{userNo}
-        	order by c.reg_date asc
+        	order by c.reg_date desc
 		]]>
 	</select>
 	
@@ -137,7 +137,7 @@
             on i.course_no = c.course_no
             where c.user_no = u.user_no
                 and c.user_no = #{userNo}
-        	order by c.reg_date asc
+        	order by c.reg_date desc
 		]]>
 	</select>
 	
@@ -184,7 +184,7 @@
             on i.course_no = c.course_no
             where c.user_no = u.user_no
                 and fc.course_no = c.course_no
-        	order by c.reg_date asc
+        	order by c.reg_date desc
 		]]>
 	</select>
 	
@@ -222,7 +222,7 @@
             where c.user_no = u.user_no
             	and c.course_no = fc.course_no
                 and fc.cate_no = #{cateNo}
-        	order by c.reg_date asc
+        	order by c.reg_date desc
 		]]>
 	</select>
 	
