@@ -470,14 +470,18 @@ $(window).ready(function(){
 	$(".course-like-cancel").hide();
 	$(".course-bookmark-cancel").hide();
 	
-	$(".like-cancel-btn").click(function(){
+	$("body").on("click", ".like-cancel-btn", function(){
 		console.log("좋아요해제");
-		$(".course-like-cancel").modal("show");
+		/*$(".course-like-cancel").show("modal");*/
+		
+		
    	});
    
-	$(".bookmark-cancel-btn").click(function(){
+	$("body").on("click", ".bookmark-cancel-btn", function(){
 		console.log("즐겨찾기해제");
-		$(".course-bookmark-cancel").modal("show");
+		/*$(".modal course-bookmark-cancel").show("modal");*/
+		
+		
 	});
 	
 	
