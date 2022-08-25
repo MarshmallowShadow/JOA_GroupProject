@@ -52,18 +52,18 @@ table {
 }
 tr {height: 100px}
 /** 아이콘 **/
-#map_icon, #stopwatch, #calendar,#marking, #user {
-	width: 50px;
-	height: 50px;
+#map_icon, #stopwatch, #calendar, #marking, #user {
+	width: 30px;
+	height: 30px;
 	float: left;
 }
 #stopwatch, #calendar, #map_icon , #user {margin-right: 15px;}
 #marking {margin-right: 8px;}
 /** 글씨 **/
 #route, #d-date, #distance, #user_num, #location{
-	margin-top: 10px;
+	margin-top: 4px;
 	width: 300px;
-	font-size : 18pt;
+	font-size : 13pt;
 	font-weight : bold;
 }
 #content {
