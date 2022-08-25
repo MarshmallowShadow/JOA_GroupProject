@@ -37,10 +37,12 @@ h1 {
 /********************* 지도 사진 *********************/
 
 .map {
-	width : 90%;
-	height: 750px
+	width: 85%;
+	height: 530px;
 }
-#map_sample {margin-left: 15%;}
+.map_sample {
+	margin-left: 15%;
+}
 
 /********************** 테이블 **********************/
 
@@ -123,7 +125,7 @@ tr {height: 100px}
 
 #top_comment {
 	margin-left: 15.5%;
-	margin-top: 85px;
+	margin-top: 80px;
 	margin-bottom: 10px;
 	font-size : 15pt;
 	font-weight : bold;
