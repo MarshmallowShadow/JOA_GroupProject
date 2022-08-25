@@ -123,7 +123,6 @@
 .footer{
 	min-width: 1200px;
 	position: relative;
-	z-index: 901;
 	justify-content: space-between;
 	line-height: 18px;		/*줄 높이 설정값*/
 	font-size: 12px;

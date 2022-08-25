@@ -3,7 +3,7 @@
 @import "includes.css";
 
 /* =======================공통======================= */
-body {font-size: 14px;}
+body {font-size: 14px; }
 .pointer {cursor: pointer;}
 .bold {font-weight: 700;}
 /* radio 버튼 초기화 */
@@ -59,13 +59,12 @@ input[type=radio] {display:none;}
 /* 마이페이지-메뉴바 *************************************************************/
 /**************************************************************************/
 /* .menuBar-display {width:1200px; background-color:none;} */
-#menuBar { width:400px; height: 100%; position: absolute; /*fixed*/ 
+#menuBar { width:400px; min-height: 100%; position: absolute; /*fixed*/ 
 			z-index: 900; /* Stay on top */
 			/* top: 80px; */  /* Stay at the top */
 			/* left: 0; */
 			text-align:left; line-height: 50px; 
-			background-color:white; border-right:solid 1px gray;
-			overflow-x: scroll; }
+			background-color:white; border-right:solid 1px gray; }
 #menuBar::-webkit-scrollbar {
   display: none;
 }
@@ -78,7 +77,7 @@ input[type=radio] {display:none;}
    					}
 
 
-.entireMenu{position: sticky; top: 0;}
+.entireMenu{ position: sticky; top: 0; overflow: scroll;}
 
 #menuBar .menu1 { border-bottom:solid 1px #000000; text-align:left;  padding:20px 30px; }
 #menuBar .menu1 #mypage {font-size: 18px; font-weight:bold;float:left; }
@@ -96,7 +95,7 @@ input[type=radio] {display:none;}
 #menuBar #menuList .editName {width: 16px; height: 16px; float:right; color: gray; margin-top:17px;}
 
 
-#menuBar .menu3 { height: 200px; padding:20px 30px; }
+#menuBar .menu3 { padding:20px 30px; }
 #menuBar .menu3 #members {font-size: 18px; font-weight:bold; }
 #menuBar #setting {width: 20px; height: 20px; vertical-align:center;}
 
