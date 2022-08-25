@@ -54,6 +54,8 @@
 		});
 		
 	}
+	
+	
  
  	/* 리스트 그리기 1개씩 */
 	function render(Map, courseCate, opt) {
@@ -61,12 +63,14 @@
 		console.log("render");
 		console.log(Map);
 		
+		$(".btn").data("eventNo");
+		
 		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
 		var now = new Date();
 		var gray = "notYet";
 		var black = "line_top";
 		var over = "line_bottom";
-		
+
 		if(Map.tagged != null) {
 			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
 		}
@@ -83,9 +87,13 @@
 		str += ' 			<tr class="top"> ' ;
 		str += ' 				<th class='+ black +'>'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
 		str += ' 				<th class="mark"> ' ;
-		str += ' 					<button class="bookmark"> ' ;
-		str += ' 						<img class="image" src="'+ tagImg + '"> ' ;
-		str += ' 					</button> ' ;
+		
+		if(userNo != '') {
+			str += ' 					<button class="bookmark btn" data-eventNo="'+ Map.eventNo +'"> ' ;
+			str += ' 						<img class="image" src="'+ tagImg + '"> ' ;
+			str += ' 					</button> ' ;
+		}
+		
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</thead> ' ;
