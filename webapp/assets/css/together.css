@@ -128,13 +128,15 @@ h1 {
 	padding-top: 20px;
 	padding-left: 30px;
 	padding-right: 30px;
+	margin-left: 5px;
 	display: flex; /* 가운데 정렬 */
 	justify-content: center; /* 가운데 정렬 */
 }
 .content_course {
-	width: 320px;
+	width: 310px;
 	font-size : 13pt;
 	padding: 20px 30px 20px 30px;
+	margin-left: 10px;
 	display: flex; /* 가운데 정렬 */
 	justify-content: center; /* 가운데 정렬 */
 }
