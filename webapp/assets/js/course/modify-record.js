@@ -3,8 +3,6 @@
  */
  
  $(document).ready(function() {
-	console.log("페이지준비");
-	
 	var courseNo = $("#courseNo").val();
 	var recordNo = $("#recordNo").val();
 	
