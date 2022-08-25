@@ -2,13 +2,10 @@
 
 
 $(document).ready(function() {
-	
 	console.log(authUserNo);
 	
 	/*지도 그리기*/
 	map();
-	
-
 
 	
 	

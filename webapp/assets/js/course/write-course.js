@@ -4,8 +4,6 @@
  
  
 $(document).ready(function() {
-	console.log("페이지 준비");
-	
 	//로그인 안했을때 로그인창으로 이동
 	var userNo = $("#userNo").val();
 	if(userNo == null || userNo == "" || userNo == undefined || isNaN(userNo)) {
@@ -147,6 +145,7 @@ function map() {
 	var drawingFlag = false; // 그리고 있는 상태 체크
 	var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체
 	var clickLine; // 마우스로 클릭한 좌표로 그려질 선 객체
+	var distanceOverlay; //선의 거리정보를 표시할 커스텀 오버레이
 	var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열
 
 
@@ -229,10 +228,10 @@ function map() {
 	        
 	        //거리 계산
 	        var distance = Math.round(clickLine.getLength() + moveLine.getLength()),
-	            content = '<div class="dotOverlay distanceInfo">총거리 <span class="number">' + distance + '</span>m</div>'; //// 커스텀오버레이에 추가될 내용입니다
+	            content = '<div class="dotOverlay distanceInfo">총거리 <span class="number">' + distance + '</span>m</div>';
 	        
 	        // 거리정보를 코스정보에 입력
-	        showDistance(content);   
+	        showDistance(content, mousePosition);   
 	    }             
 	});                 
 	
@@ -251,18 +250,28 @@ function map() {
 	    
 	        // 선을 구성하는 좌표의 개수가 2개 이상일때
 	        if (path.length > 1) {
+		
+				// 커스텀 오버레이 지움
+	            if (dots[dots.length-1].distance) {
+	                dots[dots.length-1].distance.setMap(null);
+	                dots[dots.length-1].distance = null;    
+	            }
 	
 				//선의 총 거리 계산
 	            var distance = Math.round(clickLine.getLength()), 
-	                content = getTime(distance);
+	                disNtime = getTime(distance),
+	                content = getOveray(disNtime);
 	                
 	            // 선의 거리 정보를 코스정보에 입력
-	            showDistance(content);  
+	            showDistance(content, path[path.length-1]);
+	            showDistanceInfo(disNtime);
 	            console.log(path);
 	            
 	            $('input:radio[name="courseCate"]').change(function() {
-					var content = getTime(distance);
-					showDistance(content);
+					var disNtime = getTime(distance),
+	               		content = getOveray(disNtime);
+					showDistance(content, path[path.length-1]);
+	           		showDistanceInfo(disNtime);
 				});
 				
 				$("#point").empty();
@@ -301,9 +310,31 @@ function map() {
 	    }
 	}
 	
-	// 코스 정보에 값 입력
-	function showDistance(content) {
+	//커스텀 오버레이에 내용 표시
+	function showDistance(content, position) {
 		
+		if (distanceOverlay) { // 커스텀 오버레이가 생성된 상태
+    
+			// 커스텀 오버레이에 내용 표시
+			distanceOverlay.setPosition(position);
+			distanceOverlay.setContent(content);
+    
+		} else { //커스텀 오버레이가 생성되지않은 상태
+    
+			// 커스텀 오버레이를 생성하고 지도에 표시
+			distanceOverlay = new kakao.maps.CustomOverlay({
+				map: map, // 지도
+				content: content,  // 내용
+				position: position, // 위치
+				xAnchor: 0,
+				yAnchor: 0,
+				zIndex: 3  
+			});      
+		}
+	}
+	
+	// 코스 정보에 값 입력
+	function showDistanceInfo(content) {
 		//거리
 	    var dist = content.distance / 1000;
 	    if(isNaN(dist)) {
@@ -328,7 +359,6 @@ function map() {
 		} else {
 			$('#minute').attr('value', minute);
 		}
-		
 	}
 	
 	// 거리 정보 삭제
@@ -339,6 +369,54 @@ function map() {
 		$('#hour').attr('value', '');
 		
 		$('#minute').attr('value', '');
+	}
+	
+	// 선이 그려지고 있는 상태일 때 지도를 클릭하면 호출하여 
+	// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 표출하는 함수입니다
+	function displayCircleDot(position, distance) {
+	
+		// 클릭 지점을 표시할 빨간 동그라미 커스텀오버레이를 생성합니다
+	    var circleOverlay = new kakao.maps.CustomOverlay({
+	        content: '<span class="dot"></span>',
+	        position: position,
+	        zIndex: 1
+	    });
+	
+	    // 지도에 표시합니다
+	    circleOverlay.setMap(map);
+	
+	    if (distance > 0) {
+	        // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
+	        var distanceOverlay = new kakao.maps.CustomOverlay({
+	            content: '<div class="dotOverlay">거리 <span class="number">' + distance + '</span>m</div>',
+	            position: position,
+	            yAnchor: 1,
+	            zIndex: 2
+	        });
+	
+	        // 지도에 표시합니다
+	        distanceOverlay.setMap(map);
+	    }
+	
+	    // 배열에 추가합니다
+	    dots.push({circle:circleOverlay, distance: distanceOverlay});
+	}
+	
+	// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 지도에서 모두 제거하는 함수입니다
+	function deleteCircleDot() {
+	    var i;
+	
+	    for ( i = 0; i < dots.length; i++ ){
+	        if (dots[i].circle) { 
+	            dots[i].circle.setMap(null);
+	        }
+	
+	        if (dots[i].distance) {
+	            dots[i].distance.setMap(null);
+	        }
+	    }
+	
+	    dots = [];
 	}
 	
 	// 클릭 지점에 대한 정보
@@ -376,7 +454,7 @@ function map() {
 	    dots = [];
 	}
 	
-	// 선그리기 종료 했을때 시간, 거리 출력
+	// 선그리기 종료 했을때 시간, 거리 가져옴
 	function getTime(distance) {
 		
 		//총 분단위 시간
@@ -407,18 +485,36 @@ function map() {
 				time = distance / 267 | 0;
 			}
 			
-			//시간, 분 계산
-			hour = Math.floor(time / 60);
-			minute = time % 60;
-			
 		}
 		
-		var content = {
+		var disNtime = {
 			distance: distance,
 			time: time
 		}
+		
+	    return disNtime;
+	}
 	
-	    return content;
+	//오버레이 생성
+	function getOveray(disNtime) {
+		
+		var distance = disNtime.distance;
+		var time = disNtime.time;
+		
+		//시간, 분 계산
+		hour = Math.floor(time / 60);
+		minute = time % 60;
+		
+		var content = '<ul class="dotOverlay distanceInfo">';
+		content += '    <li>';
+		content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
+		content += '    </li>';
+		content += '    <li>';
+		content += '        <span class="label">시간</span><span class="number">' + hour + ' : ' + minute + '</span>';
+		content += '    </li>';
+		content += '</ul>'
+		
+		return content
 	}
 }
 

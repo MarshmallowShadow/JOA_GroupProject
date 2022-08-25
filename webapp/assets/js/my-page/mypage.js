@@ -90,6 +90,16 @@ function calendarRender(rMap) {
 	$(".reportBox").append(str);
 }
 
+function calendarNullRender() {
+	var str = '';
+	str += '<li class="reportContent">';
+	str += '	<p>';
+	str += '		기록이 없어요ㅠㅠ';
+	str += '	</p>';
+	str += '</li>';
+
+	$(".reportBox").append(str);
+}
 
 
 
@@ -147,7 +157,7 @@ function mycourseRender(cMap) {
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+cMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
 	str += '				</div>';
 	str += '			</div>';
@@ -393,16 +403,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			eList = result;
 			//컨트롤러 함수 실행 후 코드
 			for (var i = 0; i < result.length; i++) {
-				if(formatDate1 == eList[i].REGDATE3){
-					var rMap = result[i];
-					rList.push(
-						{
-							title: rMap.TITLE,
-							start: rMap.REGDATE2
-						}
-					);
-					calendarRender(rMap, "down");
-				}
+				var rMap = result[i];
+				rList.push(
+					{
+						title: rMap.TITLE,
+						start: rMap.REGDATE2
+					}
+				);
+				calendarRender(rMap, "down");
 			}
 			console.log(rList);
 			
@@ -455,15 +463,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	/*//////달력폼 준비가 끝나면2222//////////////////////////////////////////////////*/
 	$(".todayReport").click(function(){
-		/*var nowDate     = new Date();
-		var nowDay      = ((nowDate.getDate().toString().length) == 1) ? '0'+(nowDate.getDate()) : (nowDate.getDate());
-		var nowMonth    = ((nowDate.getMonth().toString().length) == 1) ? '0'+(nowDate.getMonth()+1) : (nowDate.getMonth()+1);
-		var nowYear     = nowDate.getFullYear();
-		var formatDate1  = nowYear + "-" + nowMonth;
-		var formatDate2  = nowYear + "-" + nowMonth + "-" + nowDay;
-		console.log(formatDate1, "+", formatDate2);*/
-		
-		
 		$(".monthReport").css('background', 'white');
 		$(".monthReport").css('color', 'black');
 		$(".monthReport").css('border', 'rgb(101,101,101) 1px solid');
@@ -475,6 +474,25 @@ document.addEventListener('DOMContentLoaded', function() {
 		$(".reportContent").remove();
 		for(var i=0; i < eList.length; i++){
 			if(formatDate2 == eList[i].REGDATE2){
+				calendarRender(eList[i]	, "down");	
+			}
+		}
+	});
+	
+	
+	/*//////달력폼 준비가 끝나면2222//////////////////////////////////////////////////*/
+	$(".monthReport").click(function(){
+		$(".todayReport").css('background', 'white');
+		$(".todayReport").css('color', 'black');
+		$(".todayReport").css('border', 'rgb(101,101,101) 1px solid');
+		
+		$(".monthReport").css('background', 'rgb(50, 108, 249)');
+		$(".monthReport").css('color', 'white');
+		$(".monthReport").css('border', 'rgb(50, 108, 249) 1px solid');
+		
+		$(".reportContent").remove();
+		for(var i=0; i < eList.length; i++){
+			if(formatDate1 == eList[i].REGDATE3){
 				calendarRender(eList[i]	, "down");	
 			}
 		}
@@ -516,16 +534,115 @@ $(window).ready(function(){
 	
 	$("body").on("click", ".like-cancel-btn", function(){
 		console.log("좋아요해제");
-		/*$(".course-like-cancel").show("modal");*/
 		
+		var courseNo = $(this).data("courseno");
+		console.log(courseNo);
 		
-   	});
+		if(isNaN(userNo)) {
+			userNo = 0;
+		}
+		
+		if(userNo != 0){
+			$.ajax({
+				//보낼때
+				url : contextPath+"/apiCo/likeBtnClick",
+				type : "post",
+				//contentType : "application/json",
+				data : {courseNo},
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					/*var heart = result.heart;
+					var src = contextPath + "/assets/image/main/"+heart+".png";
+					$(".like-cancel-btn").attr("src", src);
+					*/
+					location.reload();
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+		}
+	});
    
 	$("body").on("click", ".bookmark-cancel-btn", function(){
 		console.log("즐겨찾기해제");
 		/*$(".modal course-bookmark-cancel").show("modal");*/
 		
+		/*즐겨찾기 추가 버튼 클릭*/
+		/*$("#bookmark-add").on("click", function() {
+			
+			
+			
+			var bmkList = [];
+			var notBmkList = [];
+			
+			$("input[name='bookmark']:checked").each(function() {
+				var bmk = parseInt($(this).val());
+				bmkList.push(bmk);
+			});
+			
+			$("input[name='bookmark']:not(:checked)").each(function() {
+				var bmk = parseInt($(this).val());
+				notBmkList.push(bmk);
+			});
+			
+			console.log(notBmkList);
+			
+			//즐겨찾기 목록 가져오기
+			$.ajax({
+					//보낼때
+				url : contextPath+"/apiFav/addFav",
+				type : "post",
+				//contentType : "application/json",
+				data : {authUserNo, courseNo, bmkList, notBmkList},
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					
+					if(result > 0) {
+						var src = contextPath + "/assets/image/main/star.png";
+						$("#bookmark").attr("src", src);
+					} else {
+						var src = contextPath + "/assets/image/main/star-off.png";
+						$("#bookmark").attr("src", src);
+					}
+					
+					//모달창 닫기
+					$("#bookmark-list").modal("hide");
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+			
+		});
 		
+		/*즐겨찾기 리스트 출력*/
+		/*function render(fevVo) {
+			
+			console.log(fevVo.COURSENO);
+			
+			var str = "";
+		    str += '<li>';
+		    str += '	<div>';
+		    str += '		<input type="checkbox" id="bookmark'+fevVo.CATENO+'" name="bookmark" value="'+fevVo.CATENO + '"';
+		    
+		    if(fevVo.COURSENO != 0) {
+				str += 'checked';
+			}
+		    
+		    str += '>';
+		    str += '		<label for="bookmark'+fevVo.CATENO+'">'+fevVo.CATENAME+'</label>';
+		    str += '	</div>';
+		    str += '</li>';	
+		    
+		    $("#fevList").append(str);
+		}*/
 	});
 	
 	
@@ -609,8 +726,6 @@ $(window).ready(function(){
 				//1개의 데이터 리스트에 추가(그리기)
 				categoryRender(categoryList, "up");
 				
-				
-			
 				//데이터 저장후, 입력폼에 있는 내용 사라지게 하기.
 				$("[name=catename]").val("");
 			},

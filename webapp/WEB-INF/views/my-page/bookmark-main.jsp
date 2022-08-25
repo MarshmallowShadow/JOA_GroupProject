@@ -28,32 +28,31 @@
 
 </head>
 <body>
+
+<!-- 헤더자리 -->
+<div id="header">
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+</div>
+<!-- 헤더자리 -->	
+
+<!-- 마이페이지 메뉴바 자리 -->
+<div id="menuBar" class="w3-container w3-center w3-animate-left">
+	<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
+</div>
+
 <div id="wrap">
-	<!-- 헤더자리 -->
-	<div id="header">
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-	</div>
-	<!-- 헤더자리 -->	
+		
 	
 	<!-- content -->
 	<div id="content">
 		
-		<!-- 마이페이지 메뉴바 자리 -->
-			<div id="menuBar" class="w3-container w3-center w3-animate-left">
-				<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
-			</div>
-		
-		
+			
 		<div class="subHeader">
 			<img class="menuBar-open" src="${pageContext.request.contextPath}/assets/image/my-page/menu.png">
 			<p id="title">즐겨찾기 
 				<img class="myHome" src="${pageContext.request.contextPath}/assets/image/my-page/star.png">
 			</p>
 		</div>
-		
-		
-		
-		
 		
 		
 		
@@ -85,9 +84,10 @@
 	<!-- //center-content -->
 </div>
 <!-- wrap -->
-	<!-- 메인 푸터  자리-->
-	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-	<!-- footer -->
+
+<!-- 메인 푸터  자리-->
+<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+<!-- footer -->
 
 
 </body>

@@ -31,20 +31,23 @@
 
 </head>
 <body>
+
+<!-- 헤더자리 -->
+<div id="header">
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+</div>
+<!-- 헤더자리 -->	
+
+<!-- 마이페이지 메뉴바 자리 -->
+<div id="menuBar" class="w3-container w3-center w3-animate-left">
+	<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
+</div>
+
 <div id="wrap">
-	<!-- 헤더자리 -->
-	<div id="header">
-		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-	</div>
-	<!-- 헤더자리 -->	
+	
 	
 	<!-- content -->
 	<div id="content">
-		
-		 <!-- 마이페이지 메뉴바 자리 -->
-			<div id="menuBar" class="w3-container w3-center w3-animate-left">
-				<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
-			</div>
 		
 		
 		<div class="subHeader">
@@ -64,7 +67,7 @@
 					
 					<div id="reportList">
 						<div class="listTitle">
-							<p id="category1" class="monthReport" data-ex0="ex1"><a href="${pageContext.request.contextPath}/my-page/my-report">이달의 기록</a></p>
+							<p id="category1" class="monthReport" data-ex0="ex1">이달의 기록</p>
 							<p id="category2" class="todayReport">오늘의 기록</p>
 						</div>
 						<ul class="reportBox">	
@@ -90,9 +93,11 @@
 	<!-- //center-content -->
 </div>
 <!-- wrap -->
-	<!-- 메인 푸터  자리-->
-	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-	<!-- footer -->
+
+
+<!-- 메인 푸터  자리-->
+<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+<!-- footer -->
 
 
 <!-- 기록 삭제 모달!! ************************************************************************************* -->
