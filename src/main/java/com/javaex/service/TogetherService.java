@@ -155,6 +155,9 @@ public class TogetherService {
 		
 		System.out.println("TogetherService > write");
 		
+		//줄바꿈
+		eventVo.setContent(eventVo.getContent().replace("\n", "<br>"));
+		
 		//코스 시간 계산해서 Vo에 넣음
 		coVo.setCourseTime((hour*60)+minute);
 		System.out.println(coVo);
@@ -219,6 +222,18 @@ public class TogetherService {
 		System.out.println(tMap);
 		
 		return tMap;
+		
+	}
+	
+	//함께하기 지도 불러오기
+	public List<PointVo> map(int no) {
+		
+		System.out.println("TogetherService > map");
+			
+		//코스 불러오기
+		List<PointVo> getTogetherCourse = pointDao.getTogetherCourse(no);
+		
+		return getTogetherCourse;
 		
 	}
 	
