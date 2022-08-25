@@ -66,6 +66,8 @@
 		$(".btn").data("eventNo");
 		
 		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
+		var bookmark = "bookmark";
+		var image = "image";
 		var now = new Date();
 		var gray = "notYet";
 		var black = "line_top";
@@ -73,6 +75,8 @@
 
 		if(Map.tagged != null) {
 			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
+			bookmark = "bookmark_over";
+			image = "image_over";
 		}
 		if(Map.REGEND < now) {
 			gray = "over";
@@ -82,17 +86,17 @@
 		
 		var str = '' ;
 		str += ' <div class="chart"> ' ;
-		str += ' 	<table class='+ gray +'> ' ;
+		str += ' 	<table class="'+ gray +'"> ' ;
 		str += ' 		<thead> ' ;
 		str += ' 			<tr class="top"> ' ;
-		str += ' 				<th class='+ black +'>'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
-		str += ' 				<th class="mark"> ' ;
+		str += ' 				<th class="'+ black +'">'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
+		str += ' 				<th class="mark"> ' ;	
 		
 		if(userNo != '') {
-			str += ' 					<button class="bookmark btn" data-eventNo="'+ Map.eventNo +'"> ' ;
-			str += ' 						<img class="image" src="'+ tagImg + '"> ' ;
+			str += ' 					<button class="'+ bookmark +' btn" data-eventNo="'+ Map.eventNo +'"> ' ;
+			str += ' 						<img class="'+ image +'" src="'+ tagImg + '"> ' ;
 			str += ' 					</button> ' ;
-		}
+		}	
 		
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
@@ -110,9 +114,9 @@
 		str += ' 		</tbody> ' ;
 		str += ' 		<tfoot> ' ;
 		str += ' 			<tr> ' ;
-		str += ' 				<th colspan="2" class='+ over +'> ' ;
+		str += ' 				<th colspan="2" class="'+ over +'"> ' ;
 		str += ' 					'+ courseCate[Map.COURSECATEGORY];
-		str += ' 					<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tfoot> ' ;
