@@ -44,6 +44,17 @@ public class ListController {
 	}
 	
 	/***************** 수정 ****************/
+	//수정
+	@RequestMapping(value = "/listModify", method = {RequestMethod.GET, RequestMethod.POST})
+	public String listModify(@ModelAttribute ListVo listVo) {
+		System.out.println("ListController>listModify");
+		
+		//데이터 불러오기
+		listService.modify(listVo);
+
+		return "redirect:/list/list";
+	}
+	
 	//수정폼
 	@RequestMapping(value = "/listModifyForm/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String listModifyForm(@PathVariable("no") int no, Model model) {
@@ -53,17 +64,6 @@ public class ListController {
 		model.addAttribute("lVo",lVo);
 
 		return "list/listModifyForm";
-	}
-	
-	//수정
-	@RequestMapping(value = "/listModify", method = {RequestMethod.GET, RequestMethod.POST})
-	public String listModify(@ModelAttribute ListVo listVo) {
-		System.out.println("ListController>listModify");
-		
-		//데이터 불러오기
-		
-
-		return "redirect:/list/list";
 	}
 	
 	/***************** 삭제(@PathVariable) ****************/

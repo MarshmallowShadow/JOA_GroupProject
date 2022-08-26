@@ -32,7 +32,7 @@ public class ListDao {
 		return count;
 	}
 
-	//수정폼 정보 불러오기
+	//수정폼 정보 불러오기(수정폼)
 	public ListVo getModify(int no) {
 		System.out.println("ListDao>getList");
 		
