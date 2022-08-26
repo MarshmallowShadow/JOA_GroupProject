@@ -29,6 +29,7 @@
 		<mapper resource="mybatis/mappers/boardImg.xml"/>
 		<mapper resource="mybatis/mappers/together.xml" />
 		<mapper resource="mybatis/mappers/eventComment.xml"/>
+		<mapper resource="mybatis/mappers/eventTagged.xml"/>
 		<mapper resource="mybatis/mappers/record.xml"/>
 		<mapper resource="mybatis/mappers/course.xml"/>
 		<mapper resource="mybatis/mappers/point.xml"/>
