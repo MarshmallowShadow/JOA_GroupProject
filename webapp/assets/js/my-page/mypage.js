@@ -158,7 +158,7 @@ function mycourseRender(cMap) {
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+cMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" >';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
@@ -217,7 +217,7 @@ function myfavRender(fMap){
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+fMap.OPENSTATUS+']'+fMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
 	str += '				</div>';
 	str += '			</div>';
@@ -278,7 +278,7 @@ function myfavCateRender(fcMap){
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+fcMap.OPENSTATUS+']'+fcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fcMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
 	str += '				</div>';
 	str += '			</div>';
@@ -349,7 +349,7 @@ function mylikedCoRender(lcMap){
 	str += '			<div class="courseTitle">';
 	str += '				<p id="courseName">['+lcMap.OPENSTATUS+']'+lcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
-	str += '					<img class="like-cancel-btn" src="'+heartonoff+'">';  
+	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+lcMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
 	str += '				</div>';
 	str += '			</div>';
@@ -532,7 +532,7 @@ $(window).ready(function(){
 	$(".course-like-cancel").hide();
 	$(".course-bookmark-cancel").hide();
 	
-	$("body").on("click", ".like-cancel-btn", function(){
+	$(document).on("click", ".like-cancel-btn", function(){
 		console.log("좋아요해제");
 		
 		var courseNo = $(this).data("courseno");
@@ -554,11 +554,9 @@ $(window).ready(function(){
 				//dataType : "json",
 				success : function(result){
 					//성공시 처리해야될 코드 작성
-					/*var heart = result.heart;
-					var src = contextPath + "/assets/image/main/"+heart+".png";
-					$(".like-cancel-btn").attr("src", src);
+					/*var src = contextPath + "/assets/image/main/heart.png";
+					$(this).attr("src", src);
 					*/
-					
 					location.reload();
 				},
 				error : function(XHR, status, error) {
@@ -569,7 +567,39 @@ $(window).ready(function(){
 	});
    
 	$("body").on("click", ".bookmark-cancel-btn", function(){
-		console.log("즐겨찾기해제");
+		console.log("좋아요해제");
+		
+		/*var courseNo = $(this).data("courseno");
+		console.log(courseNo);
+		
+		if(isNaN(userNo)) {
+			userNo = 0;
+		}
+		
+		if(userNo != 0){
+			$.ajax({
+				//보낼때
+				url : contextPath+"/apiCo/likeBtnClick",
+				type : "post",
+				//contentType : "application/json",
+				data : {courseNo},
+				
+				//받을때
+				//dataType : "json",
+				success : function(result){
+					//성공시 처리해야될 코드 작성
+					/*var src = contextPath + "/assets/image/main/heart.png";
+					$(this).attr("src", src);
+					*/
+				/*	location.reload();
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+		}*/
+		
+		
 		/*$(".modal course-bookmark-cancel").show("modal");*/
 		
 		/*즐겨찾기 추가 버튼 클릭*/
