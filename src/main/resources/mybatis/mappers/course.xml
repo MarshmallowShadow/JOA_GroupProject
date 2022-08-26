@@ -16,10 +16,19 @@
 	
 	
 	<!-- 코스 제목 수정 -->
-	<update id="updateTitle" parameterType="map">
+	<update id="updateTitle" parameterType="coVo">
 		<![CDATA[
 			update course
-			set title = #{modTitle}
+			set title = #{title}
+			where course_no = #{courseNo}
+		]]>
+	</update>
+	
+	<!-- 코스 공개설정 수정 -->
+	<update id="updateOpen" parameterType="coVo">
+		<![CDATA[
+			update course
+			set open_status = #{openStatus}
 			where course_no = #{courseNo}
 		]]>
 	</update>
@@ -36,7 +45,8 @@
 			        ,course_time courseTime
 			        ,difficulty
 			        ,to_char(reg_date, 'YYYY.MM.DD') regDate
-			from course
+			        ,open_status openStatus
+			        from course
 			where course_no = #{courseNo}
 		]]>
 	</select>

@@ -147,8 +147,8 @@ h1 {
 	margin-right: 8px;
 	margin-bottom: 5px;
 	padding: 0px;
-	background-color: #fff;
-	border:none;
+	background-color: transparent;
+	border: none;
 }
 .image {
 	width : 18px;
@@ -172,13 +172,13 @@ h1 {
 }
 .mark_over {background-color: #757575;}
 .bookmark_over {
-	margin-left: 12%;
-	margin-top: 5px;
+	margin-left: 10%;
+	margin-top: 3px;
 	margin-right: 8px;
 	margin-bottom: 5px;
 	padding: 0px;
-	background-color: #757575;
-	border:none;
+	background-color: transparent;
+	border: none;
 }
 .line_bottomOver {
 	justify-content: center; /* 가운데 정렬 */
@@ -208,6 +208,11 @@ h1 {
 	background-color: rgb(50, 108, 249);
 	border: solid 1px #9e9e9e;
 	color: #fff;
+}
+.joinGray {
+	background-color: #757575;
+	border: solid 1px #9e9e9e;
+	color: #9e9e9e;
 }
 
 /********************** 페이지 **********************/

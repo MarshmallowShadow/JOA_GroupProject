@@ -256,6 +256,7 @@ public class BoardService {
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
 		
+		//사진
 		List<BoardImgVo> imgList = boardImgDao.getImage(no);
 		
 		Map<String, Object> rMap = new HashMap<String, Object>();

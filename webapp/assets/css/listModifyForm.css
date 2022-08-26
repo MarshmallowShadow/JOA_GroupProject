@@ -51,21 +51,22 @@ h1 {
 #file {margin-right: 37px;}
 
 /** 버튼 **/
-#folder, #man {margin-right: 10px;}
 #user_btn {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 }
+
 #cancel {
 	width : 100px;
 	height: 40px;
 	display: grid;
 	place-items: center;
 	background-color: #dedede;
-	color: #666;
 	border:none;
+	color: #666;
 }
+
 #post {
 	width : 100px;
 	height: 40px;
@@ -75,68 +76,4 @@ h1 {
 	background-color: rgb(50, 108, 249);
 	border:none;
 	color: white;
-}
-
-/********************** 모달 **********************/
-
-#courseModal {margin: auto;}
-.modal-dialog{
-	display: flex;
-	justify-content: center;
-	margin-top: 150px;
-}
-.modal-title {
-	margin-left: 15px;
-	font-size : 13pt;
-}
-.modal-content {
-	width: 380px;
-}
-.courseCate, .togetherCate {
-	margin-top: 35px;
-	margin-left: 55px;
-	height: 50px;
-	overflow: visible;
-	font-size : 12pt;
-}
-.dropdown-toggle {
-	width: 230px;
-	height: 40px;
-	text-align: left;
-}
-.dropdown-menu {
-	position: relative;
-	top: 0;
-	z-index: 1050;
-	float: none;
-	width: 230px;
-}
-.caret {
-	float: right;
-	margin-top: 10px;
-}
-.courseChoose, .togetherChoose {
-	height: 50px;
-	margin-top: 45px;
-	margin-bottom: 35px;
-	margin-left: 55px;
-	font-size : 12pt;
-}
-#close {
-	margin-bottom: 3px;
-	margin-left: 38px;
-	float: left;
-	border: none;
-	background-color: #fff;
-	color: #c0c0c0;
-	font-size : 13pt;
-}
-#save {
-	margin-bottom: 3px;
-	margin-right: 38px;
-	float: right;
-	border: none;
-	background-color: #fff;
-	color: rgb(50, 108, 249);
-	font-size : 13pt;
 }

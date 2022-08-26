@@ -30,7 +30,7 @@ public class BestService {
 	//메소드 g/s
 	
 	//메소드 일반
-	//지역 불러오기
+	
 	
 	//기록 불러오기
 	public List<Map<String, Object>> getBest(String course_cate, String count_cate) {
