@@ -147,7 +147,7 @@ h1 {
 	margin-right: 8px;
 	margin-bottom: 5px;
 	padding: 0px;
-	background-color: #fff;
+	background-color: transparent;
 	border: none;
 }
 .image {
@@ -177,7 +177,7 @@ h1 {
 	margin-right: 8px;
 	margin-bottom: 5px;
 	padding: 0px;
-	background-color: #757575;
+	background-color: transparent;
 	border: none;
 }
 .line_bottomOver {
