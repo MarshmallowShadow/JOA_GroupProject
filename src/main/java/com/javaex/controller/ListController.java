@@ -60,7 +60,7 @@ public class ListController {
 	public String listModifyForm(@PathVariable("no") int no, Model model) {
 		System.out.println("ListController>listModifyForm");
 		
-		ListVo lVo = listService.getList(no);
+		ListVo lVo = listService.getModify(no);
 		model.addAttribute("lVo",lVo);
 
 		return "list/listModifyForm";

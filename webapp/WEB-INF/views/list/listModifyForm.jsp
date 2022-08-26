@@ -49,7 +49,7 @@
 <br><br><br>
 
 <div id="user_btn">
-	<button type="submit" id="cancel" onclick="location.href='http://localhost:8088/JOA/list/list';">취소</button>
+	<button id="cancel" onclick="location.href='http://localhost:8088/JOA/list/list';">취소</button>
 	<button type="submit" id="post">수정</button>
 </div>
 

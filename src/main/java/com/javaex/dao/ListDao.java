@@ -36,7 +36,7 @@ public class ListDao {
 	public ListVo getModify(int no) {
 		System.out.println("ListDao>getList");
 		
-		ListVo lVo = sqlSession.selectOne("list.getList2",no);
+		ListVo lVo = sqlSession.selectOne("list.getModify",no);
 		
 		return lVo;
 	}
