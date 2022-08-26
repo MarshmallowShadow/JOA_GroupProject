@@ -53,6 +53,47 @@ $(document).ready(function() {
 		$(this).modal("hide");
 	});
 	
+/********************************************************코스제목 수정 모달********************************************************/
+	/*코스 공개 설정 모달창 띄우기*/
+	$("#open-btn").on("click", function() {
+		//모달창 띄우기
+		$("#open-update").modal("show");
+	});
+
+	/*코스 공개 설정 수정 버튼 클릭*/
+	$("#modOpen-btn").on("click", function() {
+		
+		var openStatus = $('input[name="openStatus"]:checked').val();
+		var courseNo = $("#courseNo").val();
+		
+		$.ajax({
+			//보낼때
+			url : contextPath+"/apiCo/modifyOpen",
+			type : "post",
+			//contentType : "application/json",
+			data : {openStatus, courseNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(result){
+				//성공시 처리해야될 코드 작성
+				console.log(result);
+				
+				if(result == 'success') {
+					$("#open-update").modal("hide");
+					location.reload();
+				}
+				
+	
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+	});
+
+	
 /********************************************************즐겨찾기 모달********************************************************/
 	/*즐겨찾기 버튼 클릭*/
 	$("#bookmark").on("click", function() {

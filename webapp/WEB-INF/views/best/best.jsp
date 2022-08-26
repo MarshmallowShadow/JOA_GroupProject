@@ -113,7 +113,7 @@
 								</c:otherwise>
 							</c:choose>
 							</a>
-								<span id="best-text"> 지역 : <span>${map.LOCATION}</span> | 거리 : <span>${map.DISTANCE}</span></span>
+								<span id="best-text"> 지역 : <span>${map.LOCATION}</span> | 거리 : <span>${map.DISTANCE}</span> km</span>
 							
 							<!-- 기록/좋아요/즐찾 -->
 								<div class="button-ttl">
@@ -132,7 +132,6 @@
 								<c:forEach items="${map.RECORDLIST}" var="review">
 									<div class="comment-text1">${review}</div>
 								</c:forEach>
-
 
 							</div>
 							<!-- 기록 3개 반복문 끝/ class="comment-text" -->

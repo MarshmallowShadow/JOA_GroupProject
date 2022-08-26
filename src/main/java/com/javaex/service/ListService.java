@@ -40,13 +40,23 @@ public class ListService {
 	
 	/**********************************************************************************************************/
 	//수정
-	/*public ListVo getList(int no) {
+	public int modify(ListVo listVo) {
+		System.out.println("ListService>modify");
+		
+		int count = listDao.modify(listVo);
+		
+		return count;
+	}
+	
+	
+	//정보 불러오기(수정폼)
+	public ListVo getList(int no) {
 		System.out.println("ListService>getList");
 		
-		ListVo lVo = listDao.getList(no);
+		ListVo lVo = listDao.getModify(no);
 		
 		return lVo;
-	}*/
+	}
 	
 	
 	//페이징 (페이징 + 검색) 
@@ -72,7 +82,7 @@ public class ListService {
 		int endRnum = (startRnum+listCnt) - 1;		
 		
 		// page 찍어보기
-		System.out.println(listCnt);
+		//System.out.println(listCnt);
 	
 		List<ListVo> lList = listDao.getListPage(startRnum, endRnum, keyword, boardCategory);
 		

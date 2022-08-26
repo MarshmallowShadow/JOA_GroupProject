@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.CourseDao;
-import com.javaex.dao.FavoriteCategoryDao;
 import com.javaex.dao.FavoriteCourseDao;
 import com.javaex.dao.LikedCourseDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.RecordDao;
 import com.javaex.dao.UserDao;
 import com.javaex.vo.CourseVo;
-import com.javaex.vo.FavoriteCategoryVo;
 import com.javaex.vo.PointVo;
 import com.javaex.vo.UserVo;
 
@@ -143,12 +141,27 @@ public class CourseService {
 	
 	
 	//코스 제목 수정
-	public String modifyTitle(String modTitle, int courseNo) {
+	public String modifyTitle(String title, int courseNo) {
 		System.out.println("CourseService->modifyTitle");
-		Map<String , Object> map = new HashMap<String, Object>();
-		map.put("modTitle", modTitle);
-		map.put("courseNo", courseNo);
-		int count = coDao.updateTitle(map);
+		CourseVo coVo = new CourseVo();
+		coVo.setTitle(title);
+		coVo.setCourseNo(courseNo);
+		int count = coDao.updateTitle(coVo);
+		if(count > 0) {
+			return "success";
+		}
+		
+		return "fail";
+	}
+	
+	
+	//코스 공개설정 수정
+	public String modifyOpen(String openStatus, int courseNo) {
+		System.out.println("CourseService->modifyOpen");
+		CourseVo coVo = new CourseVo();
+		coVo.setOpenStatus(openStatus);
+		coVo.setCourseNo(courseNo);
+		int count = coDao.updateOpenStatus(coVo);
 		if(count > 0) {
 			return "success";
 		}
@@ -187,12 +200,9 @@ public class CourseService {
 	}
 
 
-
 	
 
-	
 
-	
 
 
 	

@@ -26,18 +26,9 @@ var kMap = {
 };
 
 $(document).ready(function(){
+	//초기화
 	$("#rdo-loc").prop("checked", true);
-	
-	$("#chk-walk").prop("checked", true);
-	$("#chk-jogging").prop("checked", true);
-	$("#chk-running").prop("checked", true);
-	$("#chk-marathon").prop("checked", true);
-	$("#chk-bicycle").prop("checked", true);
-	$("#chk-draw").prop("checked", true);
-	
-	$("#chk-easy").prop("checked", true);
-	$("#chk-normal").prop("checked", true);
-	$("#chk-hard").prop("checked", true);
+	resetFilters();
 	
 	/*------------지도------------*/
 	
@@ -59,8 +50,8 @@ $(document).ready(function(){
 		
 			lat = position.coords.latitude; // 위도
 			lon = position.coords.longitude; // 경도
-			console.log(lat);
-			console.log(lon);
+			//console.log(lat);
+			//console.log(lon);
 			
 			var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
 	
@@ -101,7 +92,7 @@ $(window).load(function(){
 		y2: lat + 0.03
 	}
 	
-	console.log(kMap);
+	//console.log(kMap);
 	
 	//코스 현제 위치 위주로 추천
 	getList(kMap);
@@ -109,10 +100,6 @@ $(window).load(function(){
 
 /* ************************* menu-slider ************************* */
 
-window.onload = function(){
-    slideOne();
-    slideTwo();
-}
 let sliderOne = document.getElementById("slider-1");
 let sliderTwo = document.getElementById("slider-2");
 let displayValOne = document.getElementById("range1");
@@ -173,7 +160,9 @@ function fillColor(){
     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
     sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`;
 }
-/* *************************!menu-slider!************************* */
+
+
+/* ************************* UI Functions ************************* */
 
 $(window).click(function() {
 	hideMenu("cate");
@@ -197,6 +186,14 @@ $("#btn-diff").on("click", function(){
 	hideMenu("cate");
 	hideMenu("dist");
 	showMenu("diff");
+});
+
+$("#btn-reset").on("click", function(){
+	var reset = confirm("필터를 초기화 하시겠습니까?");
+	if(reset) {
+		resetFilters();
+		getList(kMap);
+	}
 });
 
 //필터 옵션 선택 시
@@ -313,6 +310,24 @@ $("#search-form").on("submit", function(){
 
 
 //--------------------functions--------------------//
+var resetFilters = function(){
+	$("#slider-one").val(0);
+	$("#slider-two").val(50);
+	
+	slideOne();
+    slideTwo();
+	
+	$("#chk-walk").prop("checked", true);
+	$("#chk-jogging").prop("checked", true);
+	$("#chk-running").prop("checked", true);
+	$("#chk-marathon").prop("checked", true);
+	$("#chk-bicycle").prop("checked", true);
+	$("#chk-draw").prop("checked", true);
+	
+	$("#chk-easy").prop("checked", true);
+	$("#chk-normal").prop("checked", true);
+	$("#chk-hard").prop("checked", true);
+}
 
 var showMenu = function(type){
 	$("#btn-" + type).toggleClass("fmenu-btn-selected");
@@ -393,8 +408,8 @@ var getList = function(kMap) {
 				var deleted = false;
 				
 				for(var j=0; j<diffFilter.length; j++){
-					console.log(result[i]);
-					console.log(diffFilter[j]);
+					//console.log(result[i]);
+					//console.log(diffFilter[j]);
 					
 					if(result[i].DIFFICULTY == diffFilter[j]){
 						result.splice(i, 1);
@@ -424,8 +439,8 @@ var getList = function(kMap) {
 			var min = $("#slider-1").val();
 			var max = $("#slider-2").val();
 			
-			console.log(min);
-			console.log(max);
+			//console.log(min);
+			//console.log(max);
 			
 			for(var i=0; i<result.length; i++){
 				if(result[i].DISTANCE < min && min != 1){
@@ -476,7 +491,7 @@ var getList = function(kMap) {
 };
 
 var render = function(cMap) {
-	
+	//시간 display 설정
 	var hr = Math.floor(cMap.COURSE_TIME / 60);
 	var min = cMap.COURSE_TIME % 60;
 	var time = "";
@@ -498,6 +513,12 @@ var render = function(cMap) {
 		id = id.substring(0,7) + '...';
 	}
 	
+	//코스 제목 길이 줄이기
+	var title = cMap.TITLE;
+	if(title.length > 7) {
+		title = title.substring(0, 7) + "...";
+	}
+	
 	var item = "";
 	item += '<li>';
 	item += '<div id="c' + cMap.COURSE_NO + '" class="course-container">';
@@ -505,7 +526,7 @@ var render = function(cMap) {
 	item += '		<img src="' + imgPath + '">';
 	item += '	</div>';
 	item += '	<div class="course-info">';
-	item += '		<h3 class="course-title">' + cMap.TITLE + '</h3>';
+	item += '		<h3 class="course-title">' + title + '</h3>';
 	item += '		<p class="p-info">';
 	item += '			작성자 | ' + id + ' <br>';
 	item += '			거리 | ' + cMap.DISTANCE + 'km' + ' <br>';
@@ -526,13 +547,13 @@ var renderEmpty = function(){
 	str += '<div id="no-result">';
 	str += '	<h3>코스가 없습니다 ㅠㅠ</h3>';
 	str += '	<p>코스를 새로 등록해보세요!</p>';
-	str += '	<button id="btn-write-form" onclick="">코스 등록하기</button>';
+	str += '	<button id="btn-write-form" onclick="window.open(\'' + contextPath + '/course/write\');">코스 등록하기</button>';
 	str += '</div>';
 	
 	$("#result-list").html(str);
 };
 
-
+//마커, 마커 클릭 이벤트 추가
 var addPoint = function(x, y, courseNo, title){
 	var coords = new kakao.maps.LatLng(y, x);
 	var marker = new kakao.maps.Marker({

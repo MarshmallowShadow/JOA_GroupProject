@@ -34,7 +34,7 @@
 		
 		<div id="view-content">
 			<!-- 지도 영역 -->
-			<div id="map-info"  style="width:70%;height:662px;"></div>
+			<div id="map-info"  style="width:70%;height:690px;"></div>
 			
 			
 			<!-- 글 영역 -->
@@ -54,17 +54,41 @@
 				<!-- 코스 정보 -->
 				<div class="course-view-info">
 					<div class="course-info-content">
-						<h2 id="course-title">${coMap.coVo.title }</h2>
+						<div class="course-option">
 						
-						<!-- 제목 수정 버튼 -->
-						<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
-							<span id="update-btn" class="glyphicon glyphicon-pencil pointer"></span>
-						</c:if>
+							<!-- 공개/비공개 -->
+							<c:choose>
+								<c:when test="${coMap.coVo.openStatus eq 'close' }">
+									<img alt="비공개" src="${pageContext.request.contextPath }/assets/image/course/lock.png">
+									<span>비공개</span>
+								</c:when>
+								<c:otherwise>
+									<img alt="비공개" src="${pageContext.request.contextPath }/assets/image/course/unlock.png">
+									<span>공개</span>
+								</c:otherwise>
+							</c:choose>
+							
+							
+							<!-- 설정 -->
+							<c:if test="${not empty authUser }">
+								<div class="right btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<img id="option-btn" alt="비공개" src="${pageContext.request.contextPath }/assets/image/course/option.png">
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right" role="menu">
+										<li><a href="#" id="update-btn">제목 수정</a></li>
+										<li><a href="#" id="open-btn">공개 설정</a></li>
+									</ul>
+								</div>
+							</c:if>
+						</div>
 						
 						<!-- 즐겨찾기 별 -->
 						<c:if test="${not empty authUser }">
-							<img class="right pointer" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/${coMap.star }.png">
+							<img class="pointer" id="bookmark" alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/${coMap.star }.png">
 						</c:if>
+						<h2 id="course-title">${coMap.coVo.title }</h2>
+						
 						<div class="article-info">
 							<span class="bold">${coMap.userName }</span>
 							<span>${coMap.coVo.regDate }</span>
@@ -181,7 +205,7 @@
         <h5 class="modal-title">제목 수정</h5>
       </div>
       <div class="modal-body">
-        <input type="text" id="modTitle" name="modTitle" value="${coMap.coVo.title }">
+        <input type="text" id="modTitle" name="modTitle" value="${coMap.coVo.title }" maxlength="11">
       </div>
       <div class="modal-footer">
       	<button type="button" id="modTitle-btn" class="btn btn-primary">수정</button>
@@ -191,6 +215,40 @@
   </div><!-- modal-dialog -->
 </div><!-- modal -->
 
+<!-- 코스 공개 설정 수정 모달창 -->
+<div class="modal" tabindex="-1" role="dialog" id="open-update">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">공개 설정</h5>
+      </div>
+      <div class="modal-body">
+      
+      	<c:choose>
+      		<c:when test="${coMap.coVo.openStatus eq 'close' }">
+	      		<input type="radio" name="openStatus" id="open" value="open">
+				<label for="open">공개</label>
+				
+				<input type="radio" name="openStatus" id="close" value="close" checked>
+				<label for="close">비공개</label>
+      		</c:when>
+      		<c:otherwise>
+      			<input type="radio" name="openStatus" id="open" value="open" checked>
+				<label for="open">공개</label>
+				
+				<input type="radio" name="openStatus" id="close" value="close">
+				<label for="close">비공개</label>
+      		</c:otherwise>
+      	</c:choose>
+      	
+      </div>
+      <div class="modal-footer">
+      	<button type="button" id="modOpen-btn" class="btn btn-primary">수정</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      </div>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
 
 <!-- 즐겨찾기 목록 선택 -->
 <div class="modal" tabindex="-1" role="dialog" id="bookmark-list">
