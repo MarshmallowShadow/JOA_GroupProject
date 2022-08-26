@@ -38,9 +38,15 @@ public class CourseDao {
 	
 	
 	//코스 제목 수정
-	public int updateTitle(Map<String, Object> map) {
+	public int updateTitle(CourseVo coVo) {
 		System.out.println("CourseDao->updateTitle");
-		return sqlSession.update("course.updateTitle", map);
+		return sqlSession.update("course.updateTitle", coVo);
+	}
+	
+	//코스 공개설정 수정
+	public int updateOpenStatus(CourseVo coVo) {
+		System.out.println("CourseDao->updateOpenStatus");
+		return sqlSession.update("course.updateOpen", coVo);
 	}
 	
 	//베스트
@@ -61,4 +67,6 @@ public class CourseDao {
 		System.out.println("CourseDao>titleList");
 		return sqlSession.selectList("course.titleList", kMap);
 	}
+
+	
 }

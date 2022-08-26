@@ -54,10 +54,19 @@ public class ApiCourseController {
 	//코스 제목 수정
 	@ResponseBody
 	@RequestMapping(value = "/modifyTitle", method = {RequestMethod.GET, RequestMethod.POST})
-	public String modifyTitle(@RequestParam(value = "modTitle", required = false) String modTitle,
+	public String modifyTitle(@RequestParam(value = "modTitle", required = false) String title,
 							@RequestParam(value = "courseNo", required = false) int courseNo) {
 		System.out.println("ApiCourseController->modifyTitle");
-		return coService.modifyTitle(modTitle, courseNo);
+		return coService.modifyTitle(title, courseNo);
+	}
+	
+	//코스 공개설정 수정
+	@ResponseBody
+	@RequestMapping(value = "/modifyOpen", method = {RequestMethod.GET, RequestMethod.POST})
+	public String modifyOpen(@RequestParam(value = "openStatus", required = false) String openStatus,
+							@RequestParam(value = "courseNo", required = false) int courseNo) {
+		System.out.println("ApiCourseController->modifyOpen");
+		return coService.modifyOpen(openStatus, courseNo);
 	}
 	
 	//좋아요 버튼 클릭
