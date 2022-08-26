@@ -25,6 +25,7 @@ public class BestController {
 	//메소드 g/s
 	
 	//메소드 일반
+	//좋아요
 		
 	//게시글 불러오기
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})

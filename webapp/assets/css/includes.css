@@ -33,6 +33,10 @@
 	margin-left: 40px;
 }
 
+#header #nav ul li:hover {
+	color: rgb(50, 108, 249);
+}
+
 #header #user-menu { 
 	float: right;
 	width: 160px;
