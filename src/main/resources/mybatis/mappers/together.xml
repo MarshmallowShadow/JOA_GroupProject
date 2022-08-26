@@ -77,9 +77,9 @@
                 		   								 			   group by event_no) j  
 	                    					on e.event_no = j.event_no
 	                    					left outer join (select * from event_tagged where user_no = #{userNo}) t
-	                    					on e.user_no = t.user_no
+	                    					on e.event_no = t.event_no
 	                    					left outer join (select * from EVENT_JOINED where user_no = #{userNo}) ej
-	                    					on e.user_no = ej.user_no
+	                    					on e.event_no = ej.event_no
 	                    where c.course_no = e.course_no
 	                    and c.course_no = p.course_no
 	                    order by e.event_no desc)ot
