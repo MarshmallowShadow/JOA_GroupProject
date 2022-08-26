@@ -68,21 +68,33 @@
 		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
 		var bookmark = "bookmark";
 		var image = "image";
-		var now = new Date();
+		var join = "join";
+		var endDate = new Date(Map.REGEND);
 		var gray = "notYet";
 		var black = "line_top";
 		var over = "line_bottom";
+		var mark = "mark";
+		var joinGray = "";
+		
+		//현재 날짜에서 1일 전
+		var today = new Date();
+		today.setDate(today.getDate() - 1);
+		
+		console.log(today);
 
 		if(Map.tagged != null) {
 			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
-			bookmark = "bookmark_over";
-			image = "image_over";
 		}
-		if(Map.REGEND < now) {
+		if(endDate < today) {
 			gray = "over";
 			black = "date_over";
 			over = "line_bottomOver";
+			image = "image_over";
+			bookmark = "bookmark_over";
+			mark = "mark_over";
+			joinGray = "joinGray";
 		}
+		
 		
 		var str = '' ;
 		str += ' <div class="chart"> ' ;
@@ -90,7 +102,7 @@
 		str += ' 		<thead> ' ;
 		str += ' 			<tr class="top"> ' ;
 		str += ' 				<th class="'+ black +'">'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
-		str += ' 				<th class="mark"> ' ;	
+		str += ' 				<th class="'+ mark +'"> ' ;	
 		
 		if(userNo != '') {
 			str += ' 					<button class="'+ bookmark +' btn" data-eventNo="'+ Map.eventNo +'"> ' ;
@@ -116,7 +128,7 @@
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="'+ over +'"> ' ;
 		str += ' 					'+ courseCate[Map.COURSECATEGORY];
-		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="join '+ joinGray +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tfoot> ' ;
