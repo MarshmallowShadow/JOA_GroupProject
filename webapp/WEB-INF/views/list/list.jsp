@@ -22,12 +22,11 @@
 
 		<div class="content-text">
 			<p>
-				<span id="a">♧</span> 답변은 글 작성해주신 이후 영업시간 기준 <span id="b">최대
-					24시간</span>이 소요되며,
+				<span id="a">♧</span> 답변은 글 작성해주신 이후 영업시간 기준 
+				<span id="b">최대 24시간</span>이 소요되며,
 			</p>
-			<p>
-				&nbsp;&nbsp;&nbsp; 영업시간 외, <span id="b">주말 및 공휴일, 지정 휴일</span>엔 답변이
-				불가할 수 있습니다.
+			<p>&nbsp;&nbsp;&nbsp; 영업시간 외, <span id="b">주말 및 공휴일, 지정 휴일</span>
+			엔 답변이 불가할 수 있습니다.
 			</p>
 		</div>
 		
