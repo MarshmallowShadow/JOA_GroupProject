@@ -44,7 +44,7 @@ public class TogetherService {
 	
 	//메소드-일반
 	//함꼐하기 리스트 + 페이징
-	public Map<String, Object> together(int crtPage) {
+	public Map<String, Object> together(int crtPage, int userNo) {
 		
 		System.out.println("TogetherService > together");
 		
@@ -75,7 +75,7 @@ public class TogetherService {
 		
 		//System.out.println("글갯수" + listCnt + ",페이지" + crtPage + ",시작글" + startRnum + ",끝글" + endRnum);
 		
-		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum);
+		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum, userNo);
 		
 		//반복문으로 좌표 이용해서 위치 가져오기
 		for(int i=0; i<togetherList.size(); i++) {
