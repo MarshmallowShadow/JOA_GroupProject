@@ -40,7 +40,7 @@
 			<input type="text" id="titlebox" value="${lVo.title}">
 		</div>
 		
-		<div id="content_line"><input type="text" id="contentbox" value="${lVo.content}"></div>
+		<div id="content_line"><textarea id="contentbox">${lVo.content}</textarea></div>
 					
 	</div><!-- writebox -->	
 	
@@ -49,7 +49,7 @@
 <br><br><br>
 
 <div id="user_btn">
-	<button type="submit" id="cencle" onclick="location.href='http://localhost:8088/JOA/list/list';">취소</button>
+	<button type="submit" id="cancel" onclick="location.href='http://localhost:8088/JOA/list/list';">취소</button>
 	<button type="submit" id="post">수정</button>
 </div>
 
