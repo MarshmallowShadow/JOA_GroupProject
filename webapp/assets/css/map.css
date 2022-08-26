@@ -97,7 +97,7 @@
 	font-size: 13px;
 }
 
-#sub-header #filter-menu .fmenu-btn:hover {
+#wrap #sub-header #filter-menu .fmenu-btn:hover {
 	background-color: rgb(230, 230, 230);
 }
 
@@ -206,15 +206,19 @@
 	display: flex;
 	margin-right: 15px;
 	height: 100%;
+	align-items: center;
 }
 
 #sub-header #filter-buttons #btn-reset {
 	width: 34px;
 	height: 34px;
-	
+	background-color: transparent;
+	border: 1px solid rgb(230, 230, 230);
 }
 
-
+#wrap #sub-header #filter-buttons .fmenu-btn:hover {
+	background-color: rgb(230, 230, 230);
+}
 
 /****************************content****************************/
 #content {

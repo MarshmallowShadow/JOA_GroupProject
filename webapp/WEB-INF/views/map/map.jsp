@@ -114,7 +114,7 @@
 			</div><!-- filter-diff -->
 		</div> <!-- filter-menu -->
 		<div id="filter-buttons">
-			<button id="btn-reset" type="button" class="glyphicon glyphicon-refresh"></button>
+			<button id="btn-reset" type="button" class="fmenu-btn glyphicon glyphicon-refresh"></button>
 		</div> <!-- filter-buttons -->
 	</form>
 	</div> <!-- sub-header -->
