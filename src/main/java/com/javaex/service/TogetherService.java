@@ -12,6 +12,7 @@ import com.javaex.dao.CourseDao;
 import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
+import com.javaex.dao.EventTaggedDao;
 import com.javaex.dao.PointDao;
 import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.CourseVo;
@@ -35,6 +36,8 @@ public class TogetherService {
 	private EventCommentDao eventCommentDao;
 	@Autowired
 	private LocalApiComponent localApiComponent;
+	@Autowired
+	private EventTaggedDao eventTaggedDao;
 	
 	//생성자
 	
@@ -247,6 +250,19 @@ public class TogetherService {
 		System.out.println(eventCommentVo);
 		
 		return eventCommentDao.commentWrite(eventCommentVo);
+	}
+	
+	//태그
+	public int bookmark(Map<String, Object> map) {
+		
+		System.out.println("TogetherService > bookmark");
+
+		if((boolean)map.get("tagged") == false) {
+			return eventTaggedDao.bookmark(map);
+		}else {
+			return eventTaggedDao.bookmarkDelete(map);
+		}
+		
 	}
 
 }
