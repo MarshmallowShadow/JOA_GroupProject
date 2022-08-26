@@ -173,7 +173,9 @@ function fillColor(){
     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
     sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`;
 }
-/* *************************!menu-slider!************************* */
+
+
+/* ************************* UI Functions ************************* */
 
 $(window).click(function() {
 	hideMenu("cate");
@@ -526,13 +528,13 @@ var renderEmpty = function(){
 	str += '<div id="no-result">';
 	str += '	<h3>코스가 없습니다 ㅠㅠ</h3>';
 	str += '	<p>코스를 새로 등록해보세요!</p>';
-	str += '	<button id="btn-write-form" onclick="">코스 등록하기</button>';
+	str += '	<button id="btn-write-form" onclick="window.open(\'' + contextPath + '/course/write\');">코스 등록하기</button>';
 	str += '</div>';
 	
 	$("#result-list").html(str);
 };
 
-
+//마커, 마커 클릭 이벤트 추가
 var addPoint = function(x, y, courseNo, title){
 	var coords = new kakao.maps.LatLng(y, x);
 	var marker = new kakao.maps.Marker({
