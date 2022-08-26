@@ -82,7 +82,7 @@
 		
 		console.log(today);
 
-		if(Map.tagged != null) {
+		if(Map.TAGGED != null) {
 			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
 		}
 		if(endDate < today) {
@@ -93,6 +93,10 @@
 			bookmark = "bookmark_over";
 			mark = "mark_over";
 			joinGray = "joinGray";
+		}
+		if(userNo == Map.USERNO) {
+			join = "joinOver";
+			joinGray = "";
 		}
 		
 		
@@ -128,7 +132,7 @@
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="'+ over +'"> ' ;
 		str += ' 					'+ courseCate[Map.COURSECATEGORY];
-		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="join '+ joinGray +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="'+ join +' '+ joinGray +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tfoot> ' ;

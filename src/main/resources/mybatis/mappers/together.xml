@@ -7,6 +7,7 @@
 		<![CDATA[
 			select ort.rn
 		           , ort.eventNo
+		           , ort.userNo
 		           , x1, x2, y1, y2
 		           , ort.regStart
 		           , ort.regEnd
@@ -21,6 +22,7 @@
 		           , ort.join
 			from (select rownum rn
 	                     , ot.eventNo
+	                     , ot.userNo
 	                     , x1, x2, y1, y2
 	                     , ot.regStart
 	                     , ot.regEnd
@@ -34,6 +36,7 @@
 	                     , ot.tagged
 	                     , ot.join
 		          from (select e.event_no eventNo
+		          			   , e.user_no userNo
 		          			   , x1, x2, y1, y2
 		          			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
 	                           , to_char(e.reg_end, 'YYYY/MM/DD') regEnd

@@ -145,6 +145,8 @@ public class TogetherService {
 		xMap.put("endPageBtnNo", endPageBtnNo);
 		xMap.put("startPageBtnNo", startPageBtnNo);
 		xMap.put("courseCate", courseCate);
+		xMap.put("userNo", userNo);
+		
 		
 		return xMap;
 		
