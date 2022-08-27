@@ -128,9 +128,6 @@
 					
 						<!-- 지도 -->
 						<div id="map-info"  style="width:500px;height:300px;"></div>
-						<%-- <div id="map-info">
-							<img src="${pageContext.request.contextPath }/assets/image/course/map.jpg">
-						</div> --%>
 					</td>
 				</tr>
 
@@ -156,9 +153,13 @@
 					<tr>
 						<th>날짜</th>
 						<td colspan="3">
-							<input class="datetime" id="date" type="date" name="regDate">
-							<input class="datetime" id="time" type="time" name="regTime">
-							<!-- <input type="datetime-local" id="date" name="regDate"> -->
+							<!-- <input class="datetime" id="date" type="date" name="regDate">
+							<input class="datetime" id="time" type="time" name="regTime"> -->
+							<input class="txt-short" type="number" id="year" value="" min="2000" max="2050"><p>년</p>
+							<input class="txt-short" type="number" id="month" value="" min="1" max="12"><p>월</p>
+							<input class="txt-short" type="number" id="day" value="" min="1" max="31"><p>일</p>
+							<input class="txt-short margin-left" type="number" id="date-hour" value="" min="0" max="23"><p>시</p>
+							<input class="txt-short" type="number" id="date-minute" value="" min="0" max="59"><p>분</p>
 						</td>
 					</tr>
 					

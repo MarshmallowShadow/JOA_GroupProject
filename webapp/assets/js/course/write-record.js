@@ -14,6 +14,16 @@ $(document).ready(function() {
 	
 	/*지도 그리기*/
 	map(courseNo);
+	
+	
+	/*현재 날짜 시간 입력*/
+	var today = new Date();
+	
+	$("#year").val(today.getFullYear()); //년
+	$("#month").val(today.getMonth()); //월
+	$("#day").val(today.getDay()); //일
+	$("#date-hour").val(today.getHours()); //시
+	$("#date-minute").val(today.getMinutes()); //분
 
 	
 /********************************************************사진 드래그앤 드롭********************************************************/ 
@@ -37,7 +47,12 @@ $(document).ready(function() {
 	$(".add").on("click", function() {
 		
 		//폼 데이터 가져오기
-		var regDate = $("#date").val()+" "+$("#time").val();
+		var year = $("#year").val().toString();
+		var month = $("#month").val().toString();
+		var day = $("#day").val().toString();
+		var date_hour = $("#date-hour").val().toString();
+		var date_minute = $("#date-minute").val().toString();
+		var regDate = year+"-"+month+"-"+day+" "+date_hour+":"+date_minute;
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
@@ -52,7 +67,7 @@ $(document).ready(function() {
 
 		
 		/*유효성 검사*/
-		if(regDate == " " || regDate == null) {
+		/*if(regDate == " " || regDate == null) {
 			alert("날짜를 입력해주세요");
 			$("#date").css("border", "solid 3px rgb(255, 52, 120)");
 			$("#time").css("border", "solid 3px rgb(255, 52, 120)");
@@ -60,7 +75,7 @@ $(document).ready(function() {
 		} else {
 			$("#date").css("border", "solid 1px rgb(223, 223, 223)");
 			$("#time").css("border", "solid 1px rgb(223, 223, 223)");
-		}
+		}*/
 		
 		if(courseCate == "" || courseCate == null) {
 			alert("종목을 선택해주세요");

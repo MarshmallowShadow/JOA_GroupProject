@@ -93,10 +93,20 @@ input[type=radio] {display:none;}
 	border:  1px solid rgb(223, 223, 223);
 }
 .txt-long {width: 100%;}
-.txt-short {width: 110px; margin: 0px 12px 0px 0px;}
-.datetime {width: 150px; margin: 0px 12px 0px 0px;}
+.txt-short {width: 100px; margin: 0px 12px 0px 0px;}
+.margin-left{margin-left: 50px;}
 input[name="address"] {width: 89%;}
-input[type="datetime-local"] {border:  1px solid rgb(223, 223, 223);}
+/* input number에 화살표 없애는거 */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 
 /* ---------------------버튼설정-------------------- */
