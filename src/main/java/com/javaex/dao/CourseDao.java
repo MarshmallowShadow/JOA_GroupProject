@@ -55,17 +55,11 @@ public class CourseDao {
 		return sqlSession.selectList("course.getBest", map);
 	}
 	
-	//지역별 검색
-	public List<Map<String, Object>> locationList(Map<String, Object> kMap){
+	//지도 검색
+	public List<Map<String, Object>> getList(Map<String, Object> kMap){
 		System.out.println("CourseDao>locationList");
 		
-		return sqlSession.selectList("course.locationList", kMap);
-	}
-	
-	//키워드별 검색
-	public List<Map<String, Object>> titleList(Map<String, Object> kMap){
-		System.out.println("CourseDao>titleList");
-		return sqlSession.selectList("course.titleList", kMap);
+		return sqlSession.selectList("course.getList", kMap);
 	}
 
 	
