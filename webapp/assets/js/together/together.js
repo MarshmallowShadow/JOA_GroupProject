@@ -38,9 +38,7 @@
 			success : function(eventTaggedVo){
 				
 				//성공 시 처리해야 될 코드 작성
-				console.log(eventTaggedVo);
-				
-				
+				console.log(eventTaggedVo);				
 				
 				if(tagged == true) {
 					$('[data-eventno="' + eventNo + '"]').children().attr("src", pageContext +'/assets/image/together/bookmarks_white.png');
@@ -51,6 +49,7 @@
 					$this.data("tagged", true);
 					$this.attr("data-tagged", "true");
 				}
+				
 			}
 			
 		});
