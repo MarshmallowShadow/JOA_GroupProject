@@ -17,10 +17,9 @@ public class LocalApiComponent {
 	private static String GEOCODE_URL="https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84";
     private static String GEOCODE_USER_INFO="KakaoAK 8bbcad9e632e2bc7dd8eec481e015cfe"; 
     
-    public String getLocation(double x, double y) {
+    @SuppressWarnings("unchecked")
+	public String getLocation(double x, double y) {
 		System.out.println("LocalApiDao>getLocation");
-    	
-    	
         URL obj;
 	
         try{
@@ -51,11 +50,9 @@ public class LocalApiComponent {
             Map<String, Object> address = (Map<String, Object>)documents.get("address");
             
             String street = (String)address.get("region_3depth_name");
-            
             if(street == null || street.equals("")) {
             	street = (String)roadAddress.get("region_3depth_name");
             }
-            
             if(street == null || street.equals("")) {
             	street = (String)address.get("road_name");
             }
