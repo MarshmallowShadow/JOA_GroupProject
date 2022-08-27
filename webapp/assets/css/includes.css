@@ -34,7 +34,7 @@
 }
 
 #header #nav ul li:hover {
-	color: rgb(50, 108, 249);
+	color: rgb(50, 108, 249) !important;
 }
 
 #header #user-menu { 

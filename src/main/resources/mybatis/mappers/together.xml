@@ -7,6 +7,7 @@
 		<![CDATA[
 			select ort.rn
 		           , ort.eventNo
+		           , ort.userNo
 		           , x1, x2, y1, y2
 		           , ort.regStart
 		           , ort.regEnd
@@ -17,8 +18,11 @@
 		           , ort.courseCategory
 		           , ort.joinMax
 		           , ort.count
+		           , ort.tagged
+		           , ort.join
 			from (select rownum rn
 	                     , ot.eventNo
+	                     , ot.userNo
 	                     , x1, x2, y1, y2
 	                     , ot.regStart
 	                     , ot.regEnd
@@ -29,7 +33,10 @@
 	                     , ot.courseCategory
 	                     , ot.joinMax
 	                     , ot.count
+	                     , ot.tagged
+	                     , ot.join
 		          from (select e.event_no eventNo
+		          			   , e.user_no userNo
 		          			   , x1, x2, y1, y2
 		          			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
 	                           , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
@@ -40,28 +47,39 @@
 	                           , c.course_category courseCategory
 	                           , e.join_max joinMax
 	                           , j.count
-	                  	from course c
-	                  	  	 ,(select x1, x2, y1, y2, max_order_no, min_order_no, omax.course_no
-               				   from(select x x2, y y2, p.course_no, p.order_no max_order_no 
-                     				from(select max(order_no) order_no, course_no 
-                     					 from point p 
-                     					 group by course_no) max,
-                    					 point p 
-                    				where max.course_no = p.course_no 
-                    				and max.order_no = p.order_no) omax,
-                    				(select x x1, y y1, p.course_no, p.order_no min_order_no 
-                     				from(select min(order_no) order_no, course_no 
-                     					 from point p 
-                     					 group by course_no) min,
-                     					 point p 
-                     					 where min.course_no = p.course_no 
-                     					 and min.order_no = p.order_no) omin
-                					where omax.course_no = omin.course_no) p
-	                 	  	  , event e left outer join (select count(*) count
-                		  		  						      	, event_no
-                		   								 from event_joined
-                		   								 group by event_no) j  
-	                    			on e.event_no = j.event_no
+	                           , t.user_no tagged
+	                           , ej.user_no join
+	                  	from course c, (select x1, x2, y1, y2
+			                  	  	 		   , max_order_no
+			                  	  	 		   , min_order_no
+			                  	  	 		   , omax.course_no
+		               				    from(select x x2, y y2
+		               				   			    , p.course_no
+		               				   			    , p.order_no max_order_no 
+		                     				 from(select max(order_no) order_no
+		                     							 , course_no 
+		                     					  from point p 
+		                     					  group by course_no) max, point p 
+						                    	  where max.course_no = p.course_no 
+						                    	  and max.order_no = p.order_no) omax, (select x x1, y y1
+						                    												   , p.course_no
+						                    												   , p.order_no min_order_no 
+						                     										    from(select min(order_no) order_no
+						                     										  			    , course_no 
+						                     					 						     from point p 
+						                     											     group by course_no) min, point p 
+						                     					 					    where min.course_no = p.course_no 
+						                     					 					    and min.order_no = p.order_no) omin
+                							where omax.course_no = omin.course_no) p
+	                 	  	  				, event e left outer join (select count(*) count
+                		  		  						      				  , event_no
+                		   								 			   from event_joined
+                		   								 			   group by event_no) j  
+	                    					on e.event_no = j.event_no
+	                    					left outer join (select * from event_tagged where user_no = #{userNo}) t
+	                    					on e.event_no = t.event_no
+	                    					left outer join (select * from EVENT_JOINED where user_no = #{userNo}) ej
+	                    					on e.event_no = ej.event_no
 	                    where c.course_no = e.course_no
 	                    and c.course_no = p.course_no
 	                    order by e.event_no desc)ot

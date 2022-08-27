@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="eventTagged">
+
+	<!-- 함께하기 태그 저장 -->
+	<insert id="tagged" parameterType="map">
+		<![CDATA[
+			insert into EVENT_TAGGED
+			values(#{userNo}, #{eventNo})
+		]]>
+	</insert>
+	
+	<!-- 함께하기 태그 삭제 -->
+	<insert id="taggedDelete" parameterType="map">
+		<![CDATA[
+			delete from EVENT_TAGGED
+			where user_no = #{userNo}
+			and event_no = #{eventNo}
+		]]>
+	</insert>
+
+</mapper>

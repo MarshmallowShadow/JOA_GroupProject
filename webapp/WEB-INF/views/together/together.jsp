@@ -97,7 +97,7 @@
 							<tr>
 								<th colspan="2" class="line_bottomOver">
 									산책
-									<button type="submit" class="joinOver"><span class="glyphicon glyphicon-user" id="join_iconOver"></span>11/15</button>
+									<button type="submit" class="joinOver joinGray"><span class="glyphicon glyphicon-user" id="join_iconOver"></span>11/15</button>
 								</th>
 							</tr>
 						</tbody>

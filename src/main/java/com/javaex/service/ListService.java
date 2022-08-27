@@ -49,8 +49,8 @@ public class ListService {
 	}
 	
 	
-	//정보 불러오기
-	public ListVo getList(int no) {
+	//정보 불러오기(수정폼)
+	public ListVo getModify(int no) {
 		System.out.println("ListService>getList");
 		
 		ListVo lVo = listDao.getModify(no);

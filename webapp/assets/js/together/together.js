@@ -3,7 +3,8 @@
  */
  
   /*------------------------------ 리스트 --------------------------------*/ 
- 
+  
+    /* 준비되었을 때 */
  	$(document).ready(function() {
 		
 		console.log("jquery로 요청 data만 받는 요청");
@@ -12,6 +13,53 @@
 		fetchList();
 		
 	});
+ 
+    /* 북마크 아이콘을 클릭했을 때 */
+    $("#ListArea").on("click", ".bookmark", function(){
+		
+	    var $this = $(this);
+	    
+	    //이벤트 no 알아내기
+	    var eventNo = $this.data("eventno");
+	    var tagged = $this.data("tagged");
+	    
+	    var map = {eventNo: eventNo
+				   , userNo: userNo
+				   , tagged: tagged};
+	    
+	    //서버 보내기 --> 저장
+	    $.ajax({
+		
+			url : pageContext + "/api/together/bookmark",
+			type : "post",
+			contentType : "application/json",
+			data : JSON.stringify(map),
+			dataType : "json",
+			success : function(eventTaggedVo){
+				
+				//성공 시 처리해야 될 코드 작성
+				console.log(eventTaggedVo);
+				
+				
+				
+				if(tagged == true) {
+					$('[data-eventno="' + eventNo + '"]').children().attr("src", pageContext +'/assets/image/together/bookmarks_white.png');
+					$this.data("tagged", false);
+					$this.attr("data-tagged", "false");
+				} else {
+					$('[data-eventno="' + eventNo + '"]').children().attr("src", pageContext +'/assets/image/together/bookmarks_black.png');
+					$this.data("tagged", true);
+					$this.attr("data-tagged", "true");
+				}
+			}
+			
+		});
+	    
+	    //화면에서 변경될 부분을 그린다
+		console.log(eventNo);
+		
+	});
+ 
  
  	/* 리스트 요청 */
 	function fetchList(){
@@ -66,23 +114,52 @@
 		$(".btn").data("eventNo");
 		
 		var tagImg = pageContext +'/assets/image/together/bookmarks_white.png';
+		var NtagImg = pageContext +'/assets/image/together/bookmarks_black.png';
 		var bookmark = "bookmark";
 		var image = "image";
-		var now = new Date();
+		var join = "join";
+		var endDate = new Date(Map.REGEND);
 		var gray = "notYet";
 		var black = "line_top";
 		var over = "line_bottom";
+		var mark = "mark";
+		var joinGray = "";
+		
+		//현재 날짜에서 1일 전
+		var today = new Date();
+		today.setDate(today.getDate() - 1);
+		
+		console.log(today);
+		
+		//사용자 태그 여부 확인
+		var bookmarkTag = '';
+		
+		console.log(Map.TAGGED != '');
 
-		if(Map.tagged != null) {
-			tagImg = pageContext + '/assets/image/together/bookmarks_black.png';
-			bookmark = "bookmark_over";
-			image = "image_over";
+		if(Map.TAGGED == '' || Map.TAGGED == undefined) {
+			bookmarkTag += ' 					<button class="'+ bookmark +' btn" data-tagged="false" data-eventno="'+ Map.EVENTNO +'"> ' ;
+			bookmarkTag += ' 						<img class="'+ image +'" src="'+ tagImg + '"> ' ;
+			bookmarkTag += ' 					</button> ' ;
+		} else {
+			bookmarkTag += ' 					<button class="'+ bookmark +' btn" data-tagged="true" data-eventno="'+ Map.EVENTNO +'"> ' ;
+			bookmarkTag += ' 						<img class="'+ image +'" src="'+ NtagImg + '"> ' ;
+			bookmarkTag += ' 					</button> ' ;
 		}
-		if(Map.REGEND < now) {
+		
+		if(endDate < today) {
 			gray = "over";
 			black = "date_over";
 			over = "line_bottomOver";
+			image = "image_over";
+			bookmark = "bookmark_over";
+			mark = "mark_over";
+			joinGray = "joinGray";
 		}
+		if(userNo == Map.USERNO) {
+			join = "joinOver";
+			joinGray = "";
+		}
+		
 		
 		var str = '' ;
 		str += ' <div class="chart"> ' ;
@@ -90,12 +167,10 @@
 		str += ' 		<thead> ' ;
 		str += ' 			<tr class="top"> ' ;
 		str += ' 				<th class="'+ black +'">'+ Map.REGSTART +' - '+ Map.REGEND +'</th> ' ;
-		str += ' 				<th class="mark"> ' ;	
+		str += ' 				<th class="'+ mark +'"> ' ;	
 		
 		if(userNo != '') {
-			str += ' 					<button class="'+ bookmark +' btn" data-eventNo="'+ Map.eventNo +'"> ' ;
-			str += ' 						<img class="'+ image +'" src="'+ tagImg + '"> ' ;
-			str += ' 					</button> ' ;
+			str += bookmarkTag;
 		}	
 		
 		str += ' 				</th> ' ;
@@ -116,7 +191,7 @@
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="'+ over +'"> ' ;
 		str += ' 					'+ courseCate[Map.COURSECATEGORY];
-		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="'+ join +' '+ joinGray +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tfoot> ' ;

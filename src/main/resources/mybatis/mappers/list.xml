@@ -102,7 +102,7 @@
 
 
 <!-- 상세페이지 읽기2(수정폼 정보 불러오기) -->
-<select id="getList2" parameterType="int" resultType="ListVo">
+<select id="getModify" parameterType="int" resultType="ListVo">
 	<![CDATA[
 		select u.id,
 				q.user_no,

@@ -18,12 +18,7 @@ public class MapService {
 		
 		List<Map<String, Object>> cList = null;
 		
-		if(((String)kMap.get("searchCate")).equals("location")) {
-			System.out.println("locationSearch");
-			cList = cDao.locationList(kMap);
-		} else {
-			cList = cDao.titleList(kMap);
-		}
+		cList = cDao.getList(kMap);
 		
 		System.out.println(cList);
 		

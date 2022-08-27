@@ -465,7 +465,7 @@ var getList = function(kMap) {
 				
 				//리스트 하나씩 생성
 				for(var i=0; i<result.length; i++){
-					//리스트 생성
+					//검색 결과 내용 진열
 					render(result[i]);
 					
 					//마커 생성

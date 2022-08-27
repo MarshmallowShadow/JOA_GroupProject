@@ -12,6 +12,7 @@ import com.javaex.dao.CourseDao;
 import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
+import com.javaex.dao.EventTaggedDao;
 import com.javaex.dao.PointDao;
 import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.CourseVo;
@@ -35,6 +36,8 @@ public class TogetherService {
 	private EventCommentDao eventCommentDao;
 	@Autowired
 	private LocalApiComponent localApiComponent;
+	@Autowired
+	private EventTaggedDao eventTaggedDao;
 	
 	//생성자
 	
@@ -44,7 +47,7 @@ public class TogetherService {
 	
 	//메소드-일반
 	//함꼐하기 리스트 + 페이징
-	public Map<String, Object> together(int crtPage) {
+	public Map<String, Object> together(int crtPage, int userNo) {
 		
 		System.out.println("TogetherService > together");
 		
@@ -75,7 +78,7 @@ public class TogetherService {
 		
 		//System.out.println("글갯수" + listCnt + ",페이지" + crtPage + ",시작글" + startRnum + ",끝글" + endRnum);
 		
-		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum);
+		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum, userNo);
 		
 		//반복문으로 좌표 이용해서 위치 가져오기
 		for(int i=0; i<togetherList.size(); i++) {
@@ -145,6 +148,8 @@ public class TogetherService {
 		xMap.put("endPageBtnNo", endPageBtnNo);
 		xMap.put("startPageBtnNo", startPageBtnNo);
 		xMap.put("courseCate", courseCate);
+		xMap.put("userNo", userNo);
+		
 		
 		return xMap;
 		
@@ -245,6 +250,19 @@ public class TogetherService {
 		System.out.println(eventCommentVo);
 		
 		return eventCommentDao.commentWrite(eventCommentVo);
+	}
+	
+	//태그
+	public int bookmark(Map<String, Object> map) {
+		
+		System.out.println("TogetherService > bookmark");
+
+		if((boolean)map.get("tagged") == false) {
+			return eventTaggedDao.bookmark(map);
+		}else {
+			return eventTaggedDao.bookmarkDelete(map);
+		}
+		
 	}
 
 }
