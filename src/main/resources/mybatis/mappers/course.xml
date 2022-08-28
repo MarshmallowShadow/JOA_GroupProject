@@ -93,7 +93,7 @@
 		        where c.course_no = p.course_no
                 and p.order_no = 0
 		        and course_category like #{course_cate}
-		        order by #{count_cate} desc))
+		        order by ${count_cate} desc))
 		where rn >=1
 		and rn <=15
 	]]>
