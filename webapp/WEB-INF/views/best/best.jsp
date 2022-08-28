@@ -33,18 +33,20 @@
 			</table>
 
 			<!-- 종목테그 -->
-			<div class="best-mini-list">
-				<p>총(개) : 15</p>
-
-				<ul>
-					<li><a href=""><span>산책</span> | </a></li>
-					<li><a href=""><span>조깅</span> | </a></li>
-					<li><a href=""><span>런닝</span> | </a></li>
-					<li><a href=""><span>마라톤</span> | </a></li>
-					<li><a href=""><span>자전거</span> | </a></li>
-					<li><a href=""><span>뛰기</span> | </a></li>
-					<li><a href=""><span>그림그리기</span> </a></li>
-				</ul>
+			<div id="cate-menu">
+				<div class="best-mini-list">
+					<p>총(개) : 15</p>
+	
+					<ul>
+						<li><a href=""><span>산책</span> | </a></li>
+						<li><a href=""><span>조깅</span> | </a></li>
+						<li><a href=""><span>런닝</span> | </a></li>
+						<li><a href=""><span>마라톤</span> | </a></li>
+						<li><a href=""><span>자전거</span> | </a></li>
+						<li><a href=""><span>뛰기</span> | </a></li>
+						<li><a href=""><span>그림그리기</span> </a></li>
+					</ul>
+				</div>
 			</div>
 
 			<hr id="hr">
@@ -100,13 +102,13 @@
 						</c:when>
 					</c:choose>
 
-
 					<div class="img-line">
 						<div class="img-list">
 							<a href="">
 							<c:choose>
 								<c:when test="${map.FILE_PATH == null}">
-									<img src="${pageContext.request.contextPath}/assets/image/best/sw1.jpg" />
+									<%-- 기본이미지 설정 --%>
+									<img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg" />
 								</c:when>
 								<c:otherwise>
 									<img src="${pageContext.request.contextPath}/${map.FILE_PATH}"/>
