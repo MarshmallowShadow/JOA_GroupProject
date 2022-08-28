@@ -68,8 +68,8 @@
 	
 	<![CDATA[
 		select *
-		from(select rownum rn,course_no, l_count, f_count, r_count, x, y, file_path, distance
-		     from (select c.course_no, nvl(l_count, 0) as l_count, nvl(f_count, 0) as f_count, nvl(r_count, 0) as r_count, x, y, file_path, distance
+		from(select rownum rn, course_no, title, l_count, f_count, r_count, x, y, file_path, distance
+		     from (select c.course_no, c.title, nvl(l_count, 0) as l_count, nvl(f_count, 0) as f_count, nvl(r_count, 0) as r_count, x, y, file_path, distance
 		           from point p, course c
                 left outer join (SELECT count(*) l_count, course_no
 		                 FROM liked_course

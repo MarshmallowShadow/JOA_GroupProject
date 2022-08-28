@@ -104,17 +104,18 @@
 
 					<div class="img-line">
 						<div class="img-list">
-							<a href="${pageContext.request.contextPath}/course/view?courseNo=${map.COURSE_NO}" target="_blank">
+							<div class="img-cont" onclick="window.open('${pageContext.request.contextPath}/course/view?courseNo=${map.COURSE_NO}');">
+								<div class="textbox">${map.TITLE}</div>
 							<c:choose>
 								<c:when test="${map.FILE_PATH == null}">
 									<%-- 기본이미지 설정 --%>
-									<img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg" />
+									<img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg" />			
 								</c:when>
 								<c:otherwise>
 									<img src="${pageContext.request.contextPath}/${map.FILE_PATH}"/>
 								</c:otherwise>
 							</c:choose>
-							</a>
+							</div>
 								<span id="best-text"> 지역 : <span>${map.LOCATION}</span> | 거리 : <span>${map.DISTANCE}</span> km</span>
 							
 							<!-- 기록/좋아요/즐찾 -->

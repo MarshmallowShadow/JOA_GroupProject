@@ -82,7 +82,9 @@ table td:hover {
 }
 
 /*------------------------- Top1~3 -------------------------*/
-.img-total .img-1{		
+.img-total .img-1{
+	display: flex;
+	justify-content: center;
 	padding: 0px 20px 0px;
 }
 
@@ -90,10 +92,11 @@ table td:hover {
 .img-total .img-1 p {
 	font-size: 20px;
 	font-weight: bold;
-	display: inline;
-	margin-right:110px;
-	margin-left: 175px;
-	text-align: center;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 30px;
 }
 
 /* new(1주일 이내 올라온 게시물 띄워주기) */
@@ -104,8 +107,8 @@ table td:hover {
 /* 왕관 이미지 */	
 .img-total .img-1 img{
 	width: 30px;
-	height: 30px; 
-	margin-top: 30px;
+	height: 30px;
+	margin-left: 10px;
 }
 
 /*--------------------- 이미지 ---------------------*/
@@ -114,17 +117,42 @@ table td:hover {
 	padding-left: 30px;
 }
 
+.img-line .img-cont {
+	cursor: pointer;
+	display: block;
+	width: 350px;
+	height: 280px;
+}
+
 .img-line img {
 	width: 350px;
 	height: 280px;
 	object-fit: cover;
-	margin: 0px 0px 0px 12px;
 	display: block;
 }
 
 /* 이미지 확대 */
-.img-line img:hover {
+.img-line .img-cont:hover {
 	transform: scale( 1.1 );
+	opacity: 0.7;
+}
+
+.textbox {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 350px;
+	height: 280px;
+	position: absolute;
+	z-index: 900;
+	color: #000;
+	font-size: 20px;
+	font-family:verdana, sans-serif;
+	text-align: center;
+}
+
+.img-line .img-cont:hover .textbox {
+	display: flex;
 }
 
 /* 지역, 거리 설정*/
