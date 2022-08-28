@@ -43,7 +43,7 @@ public class LocalApiComponent {
         	JSONParser parser = new JSONParser();
     		JSONObject localJson = (JSONObject)parser.parse(br);
     		
-    		System.out.println(localJson);
+    		//System.out.println(localJson);
 			
             Map<String, Object> documents = (Map<String, Object>)((List<Object>)localJson.get("documents")).get(0);
             Map<String, Object> roadAddress = (Map<String, Object>)documents.get("roadAddress");
@@ -57,7 +57,7 @@ public class LocalApiComponent {
             	street = (String)address.get("road_name");
             }
             
-            System.out.println(street);
+            //System.out.println(street);
             
 			return street;
 			

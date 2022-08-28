@@ -69,17 +69,17 @@
 	<![CDATA[
 		select *
 		from(select rownum rn,course_no, l_count, f_count, r_count, x, y, file_path, distance
-		     from (select c.course_no, l_count, f_count, r_count, x, y, file_path, distance
+		     from (select c.course_no, nvl(l_count, 0) as l_count, nvl(f_count, 0) as f_count, nvl(r_count, 0) as r_count, x, y, file_path, distance
 		           from point p, course c
-                left outer join (SELECT nvl(count(*), 0) l_count, course_no
+                left outer join (SELECT count(*) l_count, course_no
 		                 FROM liked_course
 		                 GROUP by course_no)lc
                 on  c.course_no = lc.course_no
-                left outer join (SELECT nvl(count(*), 0) f_count, course_no
+                left outer join (SELECT count(*) f_count, course_no
 		                 from favorite_course
 		                 group by course_no) fc
                 on c.course_no = fc.course_no
-                left outer join (SELECT nvl(count(*), 0) r_count, course_no
+                left outer join (SELECT count(*) r_count, course_no
 		                 FROM record
 		                 group by course_no) rc
                 on rc.course_no = c.course_no
@@ -94,7 +94,7 @@
                 and p.order_no = 0
 		        and course_category like #{course_cate}
 		        order by #{count_cate} desc))
-		where rn >=1 
+		where rn >=1
 		and rn <=15
 	]]>
 	</select>

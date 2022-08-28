@@ -20,6 +20,7 @@
 				<ul id="menuitems" class="menubars" tabindex="-1">
 						<li class="a" onclick="window.open('${pageContext.request.contextPath }/course/write', '_blank');">코스 등록하기</li>
 						<li class="a" onclick="window.open('${pageContext.request.contextPath }/my-page');">마이사이트</li>
+						<li class="a" onclick="window.open('${pageContext.request.contextPath }/list/list');">1:1 문의하기</li>
 						<li class="a" onclick="window.open('${pageContext.request.contextPath }/user/logout');">로그아웃</li>
 				</ul>
 				

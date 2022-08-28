@@ -33,7 +33,7 @@
 	margin-left: 40px;
 }
 
-#header #nav ul li:hover {
+#header #nav ul li a:hover {
 	color: rgb(50, 108, 249) !important;
 }
 
@@ -113,6 +113,7 @@
 	height: 30px;
 	width: 100%;
 	border: 1px solid rgb(174, 174, 174);
+	border-top: none;
 	cursor: pointer;
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */	
