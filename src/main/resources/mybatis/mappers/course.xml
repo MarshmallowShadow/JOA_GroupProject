@@ -65,21 +65,21 @@
 	<!-- **************************************김수빙************************************** -->
 	<!-- 좋아요/즐겨찾기/기록별 -->
 	<select id="getBest" parameterType="map" resultType="map">
-
+	
 	<![CDATA[
 		select *
 		from(select rownum rn,course_no, l_count, f_count, r_count, x, y, file_path, distance
 		     from (select c.course_no, l_count, f_count, r_count, x, y, file_path, distance
 		           from point p, course c
-                left outer join (SELECT count(*) l_count, course_no
+                left outer join (SELECT nvl(count(*), 0) l_count, course_no
 		                 FROM liked_course
 		                 GROUP by course_no)lc
                 on  c.course_no = lc.course_no
-                left outer join (SELECT count(*) f_count, course_no
+                left outer join (SELECT nvl(count(*), 0) f_count, course_no
 		                 from favorite_course
 		                 group by course_no) fc
                 on c.course_no = fc.course_no
-                left outer join (SELECT count(*) r_count, course_no
+                left outer join (SELECT nvl(count(*), 0) r_count, course_no
 		                 FROM record
 		                 group by course_no) rc
                 on rc.course_no = c.course_no

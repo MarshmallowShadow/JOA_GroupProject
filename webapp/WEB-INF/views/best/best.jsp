@@ -26,9 +26,9 @@
 			<!-- main list -->
 			<table border="1">
 				<tr>
-					<td onclick="window.location='';">좋아요</td>
-					<td onclick="window.location='';">즐겨찾기</td>
-					<td onclick="window.location='';">기록별</td>
+					<td onclick="window.location='${pageContext.request.contextPath }/best?count_cate=l_count';">좋아요</td>
+					<td onclick="window.location='${pageContext.request.contextPath }/best?count_cate=f_count';">즐겨찾기</td>
+					<td onclick="window.location='${pageContext.request.contextPath }/best?count_cate=r_count';">기록별</td>
 				</tr>
 			</table>
 
@@ -38,13 +38,13 @@
 					<p>총(개) : 15</p>
 	
 					<ul>
-						<li><a href="${pageContext.request.contextPath }/best"><span>전채</span> | </a></li>
-						<li><a href="${pageContext.request.contextPath }/best?course_cate=walk"><span>산책</span> | </a></li>
-						<li><a href=""><span>조깅</span> | </a></li>
-						<li><a href=""><span>런닝</span> | </a></li>
-						<li><a href=""><span>마라톤</span> | </a></li>
-						<li><a href=""><span>자전거</span> | </a></li>
-						<li><a href=""><span>그림그리기</span> </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?count_cate=${param.count_cate}"><span>전체</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=walk&count_cate=${param.count_cate}"><span>산책</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=joggin&count_cate=${param.count_cate}"><span>조깅</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=running&count_cate=${param.count_cate}"><span>런닝</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=marathon&count_cate=${param.count_cate}"><span>마라톤</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=bicycle&count_cate=${param.count_cate}"><span>자전거</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=draw&count_cate=${param.count_cate}"><span>그림그리기</span> </a></li>
 					</ul>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 
 					<div class="img-line">
 						<div class="img-list">
-							<a href="${pageContext.request.contextPath}/course/view?courseNo=${map.COURSE_NO}">
+							<a href="${pageContext.request.contextPath}/course/view?courseNo=${map.COURSE_NO}" target="_blank">
 							<c:choose>
 								<c:when test="${map.FILE_PATH == null}">
 									<%-- 기본이미지 설정 --%>
