@@ -44,7 +44,12 @@
 /********************************************************기록 수정********************************************************/
 	$(".add").on("click", function() {
 		//폼 데이터 가져오기
-		var regDate = $("#date").val()+" "+$("#time").val();
+		var year = $("#year").val().toString();
+		var month = $("#month").val().toString();
+		var day = $("#day").val().toString();
+		var date_hour = $("#date-hour").val().toString();
+		var date_minute = $("#date-minute").val().toString();
+		var regDate = year+"-"+month+"-"+day+" "+date_hour+":"+date_minute;
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
