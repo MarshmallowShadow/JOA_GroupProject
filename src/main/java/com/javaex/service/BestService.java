@@ -31,7 +31,6 @@ public class BestService {
 	
 	//메소드 일반
 	
-	
 	//기록 불러오기
 	public List<Map<String, Object>> getBest(String course_cate, String count_cate) {
 		System.out.println("BestService>getBest");

@@ -38,12 +38,12 @@
 					<p>총(개) : 15</p>
 	
 					<ul>
-						<li><a href=""><span>산책</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best"><span>전채</span> | </a></li>
+						<li><a href="${pageContext.request.contextPath }/best?course_cate=walk"><span>산책</span> | </a></li>
 						<li><a href=""><span>조깅</span> | </a></li>
 						<li><a href=""><span>런닝</span> | </a></li>
 						<li><a href=""><span>마라톤</span> | </a></li>
 						<li><a href=""><span>자전거</span> | </a></li>
-						<li><a href=""><span>뛰기</span> | </a></li>
 						<li><a href=""><span>그림그리기</span> </a></li>
 					</ul>
 				</div>
@@ -104,7 +104,7 @@
 
 					<div class="img-line">
 						<div class="img-list">
-							<a href="">
+							<a href="${pageContext.request.contextPath}/course/view?courseNo=${map.COURSE_NO}">
 							<c:choose>
 								<c:when test="${map.FILE_PATH == null}">
 									<%-- 기본이미지 설정 --%>
