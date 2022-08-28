@@ -25,22 +25,13 @@ public class ListDao {
 	
 	//수정
 	public int modify(ListVo listVo) {
-		System.out.println("ListService>modify");
+		System.out.println("ListDao>modify");
 		
 		int count = sqlSession.update("list.modify",listVo);
 		
 		return count;
 	}
 
-	//수정폼 정보 불러오기(수정폼)
-	public ListVo getModify(int no) {
-		System.out.println("ListDao>getList");
-		
-		ListVo lVo = sqlSession.selectOne("list.getModify",no);
-		
-		return lVo;
-	}
-	
 	//페이징 (페이징 + 검색) 
 	public List<ListVo> getListPage(int startRnum, int endRnum, String keyword, String boardCategory){
 		System.out.println("ListDao>List/Page/Search");

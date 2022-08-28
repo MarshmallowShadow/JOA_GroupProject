@@ -8,7 +8,7 @@
 		update q_list
 		set title = #{title},
 			content = #{content}
-		where q_list_no = #{no}
+		where q_list_no = #{qListNo}
 	]]>
 
 </update>
@@ -85,24 +85,6 @@
  
 <!-- 상세페이지 읽기 -->
 <select id="getList" parameterType="int" resultType="map">
-	<![CDATA[
-		select u.id,
-				q.user_no,
-		        q.q_list_no qListNo,
-		        q.board_category boardCategory,
-		        q.title,
-		        q.content,
-		        to_char(q.reg_date, 'YYYY-MM-DD'),
-		        q.view_count viewCount
-		from users u, q_list q
-		where u.user_no = q.user_no
-		and q_list_no = #{no}
-	]]>
-</select>
-
-
-<!-- 상세페이지 읽기2(수정폼 정보 불러오기) -->
-<select id="getModify" parameterType="int" resultType="ListVo">
 	<![CDATA[
 		select u.id,
 				q.user_no,
