@@ -40,7 +40,7 @@
 		<div id="view-content">
 			
 			<!-- 지도 영역 -->
-			<div id="map-info"  style="width:70%;height:662px;"></div>
+			<div id="map-info"  style="width:70%;height:690px;"></div>
 			
 			
 			<!-- 글 영역 -->

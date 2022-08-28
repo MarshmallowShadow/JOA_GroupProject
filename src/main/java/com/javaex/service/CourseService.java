@@ -127,8 +127,6 @@ public class CourseService {
 
 		}
 		
-		
-		
 		Map<String, Object> coMap = new HashMap<String, Object>();
 		coMap.put("coVo", coVo); //코스정보
 		coMap.put("userName", userVo.getName()); //유저이름

@@ -507,7 +507,7 @@ function map() {
 		
 		var content = '<ul class="dotOverlay distanceInfo">';
 		content += '    <li>';
-		content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
+		content += '        <span class="label">총거리</span><span class="number">' + distance*0.001 + '</span>km';
 		content += '    </li>';
 		content += '    <li>';
 		content += '        <span class="label">시간</span><span class="number">' + hour + ' : ' + minute + '</span>';

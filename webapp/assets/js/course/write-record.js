@@ -20,8 +20,8 @@ $(document).ready(function() {
 	var today = new Date();
 	
 	$("#year").val(today.getFullYear()); //년
-	$("#month").val(today.getMonth()); //월
-	$("#day").val(today.getDay()); //일
+	$("#month").val(today.getMonth()+1); //월
+	$("#day").val(today.getDate()); //일
 	$("#date-hour").val(today.getHours()); //시
 	$("#date-minute").val(today.getMinutes()); //분
 
@@ -199,29 +199,21 @@ function fileDropDown() {
 	dropZone.on('dragenter', function(e){
 		e.stopPropagation();
 		e.preventDefault();
-		//드롭다운 영역 css
-		//dropZone.css('background-color', '#FFFFFF');
 	});
 	//drag 뺐을때
 	dropZone.on('dragleave', function(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		//드롭다운 영역 css
-		//dropZone.css('background-color', '#FFFFFF');
 	});
 	//drag 끝났을때
 	dropZone.on('dragover', function(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		//드롭다운 영역 css
-		//dropZone.css('background-color', '#FFFFFF');
 	});
 	//drag한 파일 떨어뜨렸을때
 	dropZone.on('drop', function(e) {
 		e.preventDefault();
-		//드롭다운 영역 css
-		//dropZone.css('background-color', '#FFFFFF');
-		
+
 		var files = e.originalEvent.dataTransfer.files;
 		if(files != null) {
 			if(files.length < 1) {

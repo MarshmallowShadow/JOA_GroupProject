@@ -72,8 +72,6 @@
 							<p class="map-guide">지도를 마우스로 클릭하면 선 그리기가 시작되고, 오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다</p>
 							<!-- 지도 영역 -->
 							<div id="map"></div>
-								
-							<%-- <img src="${pageContext.request.contextPath }/assets/image/course/map.jpg"> --%>
 						</td>
 					</tr>
 				</table>

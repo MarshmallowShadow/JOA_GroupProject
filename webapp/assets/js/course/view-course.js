@@ -553,7 +553,6 @@ function map() {
 	};
 	
 	// 이미지 지도 생성
-	//var map = new kakao.maps.StaticMap(mapContainer, mapOption);
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 
 }
