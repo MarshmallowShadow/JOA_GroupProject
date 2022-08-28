@@ -117,8 +117,7 @@ table td:hover {
 /* 이미지 확대 */
 .img-line img:hover {
 	transform: scale( 1.1 );
-
-	}
+}
 
 /* 지역, 거리 설정*/
 #best-text {		
