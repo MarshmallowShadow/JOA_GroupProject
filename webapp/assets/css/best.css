@@ -114,6 +114,7 @@ table td:hover {
 	display: block;
 }
 
+/* 이미지 확대 */
 .img-line img:hover {
 	transform: scale( 1.1 );
 
