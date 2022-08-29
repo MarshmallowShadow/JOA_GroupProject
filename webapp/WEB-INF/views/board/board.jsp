@@ -74,9 +74,9 @@
 										[${bMap.COUNT}]
 									</c:if>
 									
-									<!--<c:if test="${Map.board_img_no != null}">
+									<c:if test="${bMap.IMG != null}">
 										<span class="glyphicon glyphicon-picture"></span>
-									</c:if>-->
+									</c:if>
 								</a></td>
 								<td class="center">${bMap.ID}</td>
 								<td class="center">${bMap.VIEWCOUNT}</td>

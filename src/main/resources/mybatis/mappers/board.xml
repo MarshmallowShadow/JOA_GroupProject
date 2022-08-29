@@ -14,6 +14,7 @@
 		           , ort.regDate
 		           , ort.userNo
 		           , ort.count
+		           , ort.img
 			from (select rownum rn
 	                     , ot.boardNo
 	                     , ot.boardCategory
@@ -23,6 +24,7 @@
 	                     , ot.regDate
 	                     , ot.userNo
 	                     , ot.count
+	                     , ot.img
 		          from (select b.board_no boardNo
 		          			   , b.board_category boardCategory
 	                           , b.title
@@ -31,16 +33,24 @@
 	                           , to_char(b.reg_date,'YYYY-MM-DD') regDate
 	                           , b.user_no userNo
 	                           , cn.count
-	                  from users u, board b left outer join (select count(*) count
-					                  							    , board_no
-					                  						 from board_comment
-					                  						 group by board_no) cn
-					  on cn.board_no = b.board_no
-	                  where u.user_no = b.user_no
-	                  and title like #{keyword}
-				      and board_category like #{boardCategory}
-	                  order by b.board_no desc)ot
-	                  )ort
+	                           , bi.board_no img
+	                   from users u, board b left outer join (select count(*) count
+					                  						 	     , board_no
+					                  						  from board_comment
+					                  						  group by board_no) cn
+					   on cn.board_no = b.board_no
+					   left outer join (select board_img_no
+					   						   , board_no
+					   						   , save_name
+					   						   , file_path
+					   						   , order_no
+					   					from BOARD_IMG) bi
+					   on b.board_no = bi.board_no
+	                   where u.user_no = b.user_no
+	                   and title like #{keyword}
+				       and board_category like #{boardCategory}
+	                   order by b.board_no desc)ot
+	                   )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}
 		]]>

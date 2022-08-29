@@ -19,7 +19,7 @@
 		           , ort.joinMax
 		           , ort.count
 		           , ort.tagged
-		           , ort.join
+		           , ort.joined
 			from (select rownum rn
 	                     , ot.eventNo
 	                     , ot.userNo
@@ -34,7 +34,7 @@
 	                     , ot.joinMax
 	                     , ot.count
 	                     , ot.tagged
-	                     , ot.join
+	                     , ot.joined
 		          from (select e.event_no eventNo
 		          			   , e.user_no userNo
 		          			   , x1, x2, y1, y2
@@ -48,7 +48,7 @@
 	                           , e.join_max joinMax
 	                           , j.count
 	                           , t.user_no tagged
-	                           , ej.user_no join
+	                           , ej.user_no joined
 	                  	from course c, (select x1, x2, y1, y2
 			                  	  	 		   , max_order_no
 			                  	  	 		   , min_order_no
