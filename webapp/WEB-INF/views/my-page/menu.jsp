@@ -48,14 +48,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="add-bookmark-category-close"><span aria-hidden="true">&times;</span></button>
+        <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 추가</h5>
-        <br>
-        <p class="modal-title">새로운 목록을 만들어 주세요.</p>
       </div>
       <div class="modal-body">
-        <p>새 목록 이름</p>
-        <input type="text" name="catename" value="" placeholder="즐겨찾기 이름을 입력하세요">
+        <p>즐겨찾기 이름을 입력하세요!!</p>
+        <input type="text" name="catename" value="" placeholder="새 목록 이름">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" id="add-bookmark-category-cancel" data-dismiss="modal">취소</button>
@@ -74,17 +72,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" id="del-bookmark-category-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 삭제</h5>
-        <br>
-        <p class="modal-title">삭제할 목록을 선택해 주세요.</p>
       </div>
       <div class="modal-body">
+      	<p>삭제할 목록을 선택해 주세요!</p>
         <select id="del-select-list" class="sel-delCategory" >
         	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
-        <p <%--  class="modal-body-detail" --%>>목록을 삭제할 경우,<br>목록 안의 내용들도 삭제됩니다!!</p>
+        
       </div>
+      <p class="cate-del-warning">삭제시 목록 안의 내용들도 삭제됩니다!!</p>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" id="del-bookmark-category-cancel" data-dismiss="modal">취소</button>
         <button type="button" class="btn btn-primary" id="del-bookmark-category">목록 삭제</button>
@@ -102,7 +100,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" id="edit-bookmark-category-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
       <h5 class="modal-title">즐겨찾기 목록 이름 변경</h5>
     </div>
     <div class="modal-body">

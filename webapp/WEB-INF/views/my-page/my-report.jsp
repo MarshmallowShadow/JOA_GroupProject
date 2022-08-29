@@ -105,7 +105,6 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="byebye-record-close"><span aria-hidden="true">&times;</span></button>
         <h5 class="modal-title">나의 기록 삭제</h5>
       </div>
       <div class="modal-body">

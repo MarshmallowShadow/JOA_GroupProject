@@ -11,7 +11,7 @@ input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #header {left:0; z-index: 1;  /* top:0; */ /* position: fixed; */ width:100%; background-color:white;}
 #wrap {position: relative; /* height: 100vh; */ /* margin:auto; */ }
-#content {/* position: relative; */ padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px; min-height:70vh; 
+#content {/* position: relative; */ padding:50px 0px; margin:auto; margin-bottom:150px; max-width:1200px; min-height:80vh; 
 				-ms-overflow-style: none; /* IE and Edge */
    					scrollbar-width: none; /* Firefox */
    					object-fit: cover; }
@@ -112,9 +112,9 @@ input[type=radio] {display:none;}
 /* 마이페이지-나의 기록 *************************************************************/
 /**************************************************************************/
 .myReport {position: absolute; left: 50%; transform: translateX(-50%); display: center; text-align:center; 
-			width:1200px; height:700px; padding:0px 30px;}
+			width:1200px; padding:0px 30px;}
 
-.myReport #calendar {float:left; width:750px; line-height: 50px;}
+.myReport #calendar {float:left; width:750px; line-height: 50px; }
 .myReport #calendar #calendarApi { -ms-overflow-style: none; /* IE and Edge */
    									scrollbar-width: none; /* Firefox */
    									object-fit: cover;}/* 스크롤바 없애는게 안됨... */
@@ -178,6 +178,12 @@ input[type=radio] {display:none;}
 	text-align: left;
 }
 
+.cate-del-warning{
+	font-size: 12px;
+	color:red;
+	padding: 16px 24px;
+	text-align: left;
+}
 /* ---------------------코스제목 수정(모달창)----------------------- */
 .modal-body #title-update {
 	width: 100%;

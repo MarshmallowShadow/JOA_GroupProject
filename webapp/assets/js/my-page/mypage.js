@@ -843,9 +843,6 @@ $(window).ready(function(){
 	});
 	
 	//모달창의 닫기버튼 클릭할때
-	$("#del-bookmark-category-close").on("click", function(){
-		$(".category-del-btn").hide('modal');
-	});
 	$("#del-bookmark-category-cancel").on("click", function(){
 		$(".category-del-btn").hide('modal');
 	});
@@ -939,9 +936,6 @@ $(window).ready(function(){
 	});
 	
 	//카테고리 수정 모달창의 닫기버튼 클릭할때
-	$("#edit-bookmark-category-close").on("click", function(){
-		$(".category-modify-btn").hide('modal');
-	});
 	$("#edit-bookmark-category-cancel").on("click", function(){
 		$(".category-modify-btn").hide('modal');
 	});
@@ -1000,9 +994,6 @@ $(window).ready(function(){
 		});
 		
 		//나의 기록 삭제 모달창의 닫기버튼 클릭할때
-		$("#byebye-record-close").on("click", function(){
-			$(".myrecord-del-modal").hide('modal');
-		});
 		$("#byebye-record-cancel").on("click", function(){
 			$(".myrecord-del-modal").hide('modal');
 		});
