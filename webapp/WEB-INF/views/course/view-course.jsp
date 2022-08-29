@@ -177,7 +177,7 @@
 					<!-- 하단 버튼 영역 -->
 					<div id="course-info-btn">
 						<input type="hidden" id="courseNo" value="${coMap.coVo.courseNo }">
-						<a href="${pageContext.request.contextPath}/board?boardCategory=post" class="link-btn">후기 보러가기</a>
+						<a href="${pageContext.request.contextPath}/board?boardCategory=post&courseNo=${coMap.coVo.courseNo }" class="link-btn">후기 보러가기</a>
 						<a class="like-btn">
 							<img id="like" src="${pageContext.request.contextPath }/assets/image/main/${coMap.liked}.png">
 							<span id="like-cnt">${coMap.likeCnt }</span>
