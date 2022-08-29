@@ -43,23 +43,25 @@
 						</tr>
 						<tr>
 							<td>
-								<!-- 
-								<div class="course-container" onclick="window.location='../course/c_viewform.html';">
-									<a href="${pageContext.request.contextPath}/WEB-INF/course/view-course">
-										<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
-										<div class="course-info">
-											<h3 class="course-title">헬 ^^</h3>
-											<p class="p-info">
-												작성자: 쿵야 <br>
-												거리: 5.0km <br>
-												시간: 40분
-											</p>
-											<div class="tag-blue"><p>런닝</p></div>
-											<div class="tag-pink"><p>어려움</p></div>
-										</div>
-									</a>
-								</div>
-								 -->
+								
+								<c:if test="${bMap.COURSENO != null}">
+									<div class="course-container" onclick="window.location='../course/c_viewform.html';">
+										<a href="${pageContext.request.contextPath}/WEB-INF/course/view-course">
+											<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
+											<div class="course-info">
+												<h3 class="course-title">${bMap.CTITLE}</h3>
+												<p class="p-info">
+													작성자: ${bMap.ID} <br>
+													거리: ${bMap.DISTANCE}km <br>
+													시간: ${bMap.COURSETIME}분
+												</p>
+												<div class="tag-blue"><p>${bMap.COURSECATEGORY}</p></div>
+												<div class="tag-pink"><p>${bMap.DIFFICULTY}</p></div>
+											</div>
+										</a>
+									</div>
+								</c:if>
+								
 								
 								<div class="chart">
 									<table id="together_chart" onClick="location.href='http://localhost:8088/JOA/together/together-read'">
