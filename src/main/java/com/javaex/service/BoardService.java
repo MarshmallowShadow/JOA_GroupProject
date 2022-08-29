@@ -16,9 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.javaex.dao.BoardCommentDao;
 import com.javaex.dao.BoardDao;
 import com.javaex.dao.BoardImgDao;
+import com.javaex.dao.MyFavoriteDao;
 import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardImgVo;
 import com.javaex.vo.BoardVo;
+import com.javaex.vo.CourseVo;
+import com.javaex.vo.FavoriteCategoryVo;
 
 @Service
 public class BoardService {
@@ -32,6 +35,8 @@ public class BoardService {
 	//CourseDao courseDao;
 	@Autowired
 	private BoardImgDao boardImgDao;
+	@Autowired
+	private MyFavoriteDao myFavoriteDao;
 	
 	//생성자
 	
@@ -279,6 +284,37 @@ public class BoardService {
 		System.out.println(boardCommentVo);
 		
 		return boardCommentDao.commentWrite(boardCommentVo);
+		
+	}
+	
+	//게시판 글쓰기에 코스 즐겨찾기 목록 가져오기
+	public Map<String, Object> favorite(int userNo) {
+		
+		System.out.println("BoardService > favorite");
+		
+		Map<String, Object> pMap = new HashMap<>();
+		
+		List<FavoriteCategoryVo> fList = myFavoriteDao.getFavList(userNo);
+		pMap.put("fList", fList);
+		
+		if(fList != null) {
+			
+			int cateNo = fList.get(0).getCateNo();
+					
+			List<CourseVo> cList = myFavoriteDao.getCourses(cateNo);
+			System.out.println(cList);
+			pMap.put("cList", cList);
+			
+		}
+		
+		return pMap;
+		
+	}
+	
+	public List<CourseVo> getCourseList(int cateNo){
+		System.out.println("BoardService>getCourseList");
+		
+		return myFavoriteDao.getCourses(cateNo);
 	}
 
 }
