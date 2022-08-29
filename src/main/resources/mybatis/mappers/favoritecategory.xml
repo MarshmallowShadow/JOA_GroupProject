@@ -3,5 +3,27 @@
 
 <mapper namespace="favcate">
 
+	<select id="getFavList" parameterType="int" resultType="favCateVo">
+		<![CDATA[
+			select f.cate_no cateNo
+				   , u.user_no userNo
+				   , f.cate_name cateName
+			from FAVORITE_CATEGORY f, USERS u
+			where u.user_no = f.user_no
+			and u.user_no = #{userNo}
+		]]>
+	</select>
+	
+	<select id="getCourses" parameterType="int" resultType="coVo">
+		<![CDATA[
+			select fc.course_no courseNo
+				   , f.cate_no cateNo
+				   , c.title
+			from FAVORITE_CATEGORY f, FAVORITE_COURSE fc, course c
+			where f.cate_no = fc.cate_no
+			and fc.course_no = c.course_no
+			and f.cate_no = #{cateNo}
+		]]>
+	</select>
 	
 </mapper>
