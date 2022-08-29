@@ -58,6 +58,46 @@
 		console.log(eventNo);
 		
 	});
+	
+	 /* 조인을 클릭했을 때 */
+    $("#ListArea").on("click", ".btn-able", function(){
+		console.log("able!");
+		
+		var $this = $(this);
+		
+	    //이벤트 no 알아내기
+		var eventNo = $this.data("eventno");
+		var joined = $this.data("joined");
+	    
+	    var map = {eventNo: eventNo
+				   , userNo: userNo
+				   , joined: joined};
+		
+		//서버 보내기 --> 저장
+	    $.ajax({
+		
+			url : pageContext + "/api/together/join",
+			type : "post",
+			contentType : "application/json",
+			data : JSON.stringify(map),
+			dataType : "json",
+			success : function(eventJoinedVo){
+				
+				//성공 시 처리해야 될 코드 작성
+				console.log(eventJoinedVo);
+				
+				if(joined == true) {
+					
+				}else {
+					
+				}
+				
+			}
+			
+		});
+	    
+		
+	});
  
  
  	/* 리스트 요청 */
@@ -117,12 +157,20 @@
 		var bookmark = "bookmark";
 		var image = "image";
 		var join = "join";
+		var joinOver ="joinOver";
 		var endDate = new Date(Map.REGEND);
 		var gray = "notYet";
 		var black = "line_top";
 		var over = "line_bottom";
 		var mark = "mark";
 		var joinGray = "";
+		var able = "";
+		
+		var btnColor = "join";
+		var btnAble = "btn-able";
+		var joined = "false";
+		
+		
 		
 		//현재 날짜에서 1일 전
 		var today = new Date();
@@ -139,12 +187,20 @@
 			bookmarkTag += ' 					<button class="'+ bookmark +' btn" data-tagged="false" data-eventno="'+ Map.EVENTNO +'"> ' ;
 			bookmarkTag += ' 						<img class="'+ image +'" src="'+ tagImg + '"> ' ;
 			bookmarkTag += ' 					</button> ' ;
-		} else {
+		}else {
 			bookmarkTag += ' 					<button class="'+ bookmark +' btn" data-tagged="true" data-eventno="'+ Map.EVENTNO +'"> ' ;
 			bookmarkTag += ' 						<img class="'+ image +'" src="'+ NtagImg + '"> ' ;
 			bookmarkTag += ' 					</button> ' ;
 		}
 		
+		if(Map.JOINED == '' || Map.JOINED == undefined) {
+			str += ' 					<button type="button" data-joined="false" data-eventNo="'+ Map.EVENTNO +'" class="'+ join +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		}else {
+			str += ' 					<button type="button" data-joined="true" data-eventNo="'+ Map.EVENTNO +'" class="'+ joinOver +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		}
+		
+		
+		//모집기간 만료 시 이벤트 리스트 색 변경(회색)
 		if(endDate < today) {
 			gray = "over";
 			black = "date_over";
@@ -153,11 +209,21 @@
 			bookmark = "bookmark_over";
 			mark = "mark_over";
 			joinGray = "joinGray";
+			btnColor = "joinGray";
+			btnAble = "btn-disable";
 		}
+		
+		if(userNo == Map.JOINED) {
+			btnColor = "joinOver";
+			joined = "true";
+		}
+		
+		//이벤트 제작자와 로그인 번호가 같을 시 파란색 자동
 		if(userNo == Map.USERNO) {
-			join = "joinOver";
-			joinGray = "";
+			btnAble = "btn-disable";
 		}
+		
+		var joinBtn = '<button type="button" data-joined=' + joined + ' data-eventNo="'+ Map.EVENTNO +'" class="'+ btnColor + ' ' + btnAble + '"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
 		
 		
 		var str = '' ;
@@ -190,7 +256,9 @@
 		str += ' 			<tr> ' ;
 		str += ' 				<th colspan="2" class="'+ over +'"> ' ;
 		str += ' 					'+ courseCate[Map.COURSECATEGORY];
-		str += ' 					<button type="submit" data-eventNo="'+ userNo +'" class="'+ join +' '+ joinGray +'"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		
+		str += ' ' + joinBtn;
+		
 		str += ' 				</th> ' ;
 		str += ' 			</tr> ' ;
 		str += ' 		</tfoot> ' ;
