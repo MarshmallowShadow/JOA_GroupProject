@@ -43,7 +43,7 @@
 				$(".courseChoose ul").empty();
 				
 				for(var i=0; i<result.length; i++){
-					$(".courseChoose ul").append('<li class="co" data-course-no="'+ result[i].courseNo +'" role="presentation">' + result[i].title + '</li>');
+					$(".courseChoose ul").append('<li class="co" data-title="' + result[i].title + '" data-course-no="'+ result[i].courseNo +'" role="presentation">' + result[i].title + '</li>');
 				}
 				
 			},
@@ -56,6 +56,34 @@
 		
 	});
 	
+	//코스 선택
+	$("#courseModal").on("click", ".co", function(){
+		$(".co").removeClass("c_selected");
+		$(this).addClass("c_selected");
+	});	
+	
+	/* 코스 SAVE 버튼 눌렀을 때 */
+	$("#c-save").on("click", function() {
+		
+		var courseNo = $(".c_selected").data("course-no");
+		
+		var folderIcon = '<span class="glyphicon glyphicon-folder-open gray" id="folder"></span>';
+		
+		if(courseNo != null || isNaN(courseNo) == false) {
+			//모달 닫기
+			$("#courseModal").modal("hide");
+			
+			//black text
+			$("#course_choice").addClass("blackBtn");
+			
+			//change course text
+			$("#course_choice").html(folderIcon + $(".c_selected").data("title"));
+			
+			//hidden add courseNo
+			$("#courseFinal").val(courseNo);
+		}
+		
+	});
 	
 	/* 함께 버튼을 클릭했을 때 */
 	$("#together_choice").on("click", function() {
