@@ -166,8 +166,6 @@ public class BoardService {
 		
 		int count = boardDao.write(boardVo);
 		
-		//courseDao.selectCourse(boardVo);
-		
 		//togetherDao.together(boardVo);
 		
 		//System.out.println(count);
@@ -302,7 +300,6 @@ public class BoardService {
 			int cateNo = fList.get(0).getCateNo();
 					
 			List<CourseVo> cList = myFavoriteDao.getCourses(cateNo);
-			System.out.println(cList);
 			pMap.put("cList", cList);
 			
 		}
@@ -311,10 +308,13 @@ public class BoardService {
 		
 	}
 	
+	//게시판 글쓰기 코스 리스트 가져오기
 	public List<CourseVo> getCourseList(int cateNo){
-		System.out.println("BoardService>getCourseList");
+		
+		System.out.println("BoardService > getCourseList");
 		
 		return myFavoriteDao.getCourses(cateNo);
+		
 	}
 
 }
