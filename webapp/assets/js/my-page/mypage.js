@@ -553,7 +553,7 @@ $(window).ready(function(){
 	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
 	console.log('즐겨찾기');
 	/*$(".course-like-cancel").hide();*/
-	$("#bookmark-checkbox-list").hide();
+	$(".bookmark-checkbox-list").hide();
 	
 	$("body").on("click", ".like-cancel-btn", function(){
 		console.log("좋아요해제");
@@ -613,7 +613,7 @@ $(window).ready(function(){
 					bookmarkSelRender(favList[i]);
 				}
 				//모달창 띄우기
-				$("#bookmark-checkbox-list").show("modal");
+				$(".bookmark-checkbox-list").show();
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
@@ -666,7 +666,10 @@ $(window).ready(function(){
 					console.error(status + " : " + error);
 				}
 			});
-			
+		});
+		//즐겨찾기 변경 모달창의 취소버튼을 눌렀을 때,
+		$("#bookmark-checkbox-list-cancel").on("click", function(){
+			$(".bookmark-checkbox-list").hide('modal');
 		});
 	});
 	

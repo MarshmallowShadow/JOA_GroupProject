@@ -295,9 +295,6 @@ CREATE TABLE EVENT_COMMENT (
 	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
 	reg_date DATE NOT NULL, /* 등록일 */
-	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
-	order_no NUMBER NOT NULL, /* 답글 순서 */
-	depth NUMBER NOT NULL, /* 댓글 계층 */
 	Primary Key (e_comment_no),
 	CONSTRAINT e_comment_event_fk Foreign Key(event_no)
 	references event(event_no)
@@ -366,9 +363,6 @@ CREATE TABLE BOARD_COMMENT (
 	mention_user NUMBER NULL, /* 멘션 회원번호 */
 	content VARCHAR2(1000) NOT NULL, /* 내용 */
 	reg_date DATE NOT NULL, /* 등록일 */
-	group_no NUMBER NOT NULL, /* 최상위 댓글번호 */
-	order_no NUMBER NOT NULL, /* 답글 순서 */
-	depth NUMBER NOT NULL, /* 댓글 계층 */
 	Primary Key (b_comment_no),
 	CONSTRAINT b_comment_board_fk Foreign Key(board_no)
 	references board(board_no)
