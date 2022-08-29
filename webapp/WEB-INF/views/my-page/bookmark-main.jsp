@@ -35,12 +35,11 @@
 </div>
 <!-- 헤더자리 -->	
 
-<!-- 마이페이지 메뉴바 자리 -->
-<div id="menuBar" class="w3-container w3-center w3-animate-left">
-	<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
-</div>
-
 <div id="wrap">
+	<!-- 마이페이지 메뉴바 자리 -->
+	<div id="menuBar" class="w3-container w3-center w3-animate-left">
+		<c:import url="/WEB-INF/views/my-page/menu.jsp"></c:import>
+	</div>
 		
 	
 	<!-- content -->
