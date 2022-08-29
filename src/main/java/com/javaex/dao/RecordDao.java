@@ -52,7 +52,7 @@ public class RecordDao {
 		return sqlSession.selectList("record.getCateCnt", courseNo);
 	}
 	
-	//종목 차트 데이터 가져오기
+	//난이도 차트 데이터 가져오기
 	public List<Map<String, Object>> getDiffiCnt(int courseNo) {
 		System.out.println("RecordDao->getDiffiCnt");
 		return sqlSession.selectList("record.getDiffiCnt", courseNo);
