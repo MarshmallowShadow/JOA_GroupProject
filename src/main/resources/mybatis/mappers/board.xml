@@ -80,7 +80,7 @@
 		]]>
 	</insert>
 	<!-- 게시판 글쓰기(코스 null) -->
-	<insert id="insertCourse" parameterType="BoardVo">
+	<insert id="insertTogether" parameterType="BoardVo">
 		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
 			select SEQ_BOARD_NO.nextval from dual
 		</selectKey>
@@ -90,7 +90,7 @@
 		]]>
 	</insert>
 	<!-- 게시판 글쓰기(함께하기 null) -->
-	<insert id="insertTogether" parameterType="BoardVo">
+	<insert id="insertCourse" parameterType="BoardVo">
 		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
 			select SEQ_BOARD_NO.nextval from dual
 		</selectKey>
@@ -122,7 +122,22 @@
                     , b.view_count viewCount
                     , to_char(b.reg_date,'YYYY-MM-DD') regDate
                     , b.user_no userNo
-			from board b, users u
+                    , u.id
+                    , b.course_no courseNo
+                    , c.ctitle
+                    , c.distance
+                    , c.courseCategory
+                    , c.courseTime
+                    , c.difficulty
+			from users u, board b
+			left outer join (select course_no courseNo
+			  						, title ctitle
+                                    , distance
+                                    , course_category courseCategory
+                                    , course_time courseTime
+                                    , difficulty
+                             from course) c
+            on b.course_no = c.courseNo
 	        where u.user_no = b.user_no
 			and b.board_no = #{no}
 		]]>
