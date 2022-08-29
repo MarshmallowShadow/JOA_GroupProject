@@ -66,10 +66,10 @@ public class BoardDao {
 		
 		if(all > '0') {
 			sqlSession.insert("board.insertAll", boardVo);
-		}else if(together =='0') {
-			sqlSession.insert("board.insertTogether", boardVo);
-		}else if(course == '0') {
+		}else if(course != '0') {
 			sqlSession.insert("board.insertCourse", boardVo);
+		}else if(together != '0') {
+			sqlSession.insert("board.insertTogether", boardVo);
 		}
 		
 		return sqlSession.insert("board.insertBoth", boardVo);
