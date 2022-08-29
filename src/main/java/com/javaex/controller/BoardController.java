@@ -58,9 +58,19 @@ public class BoardController {
 	
 	//게시판 글쓰기폼
 	@RequestMapping(value="/writeform", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeform() {
+	public String writeform(HttpSession session, Model model) {
 		
 		 System.out.println("BoardController > writeform");
+		 
+		 UserVo authUser = (UserVo)session.getAttribute("authUser");
+		 
+		 int userNo = authUser.getUserNo();
+		 
+		 Map<String, Object> bMap =  boardService.favorite(userNo);
+		 
+		 model.addAttribute("fList", bMap.get("fList"));
+		 model.addAttribute("cList", bMap.get("cList"));
+		 
 		
 		return "board/writeform";
 		
