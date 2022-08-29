@@ -22,7 +22,18 @@ $(document).ready(function() {
 	$("#year").val(today.getFullYear()); //년
 	$("#month").val(today.getMonth()+1); //월
 	$("#day").val(today.getDate()); //일
-	$("#date-hour").val(today.getHours()); //시
+	
+	//시
+	if(today.getHours() < 13) {
+		//오전일때
+		$("#am").prop("checked", true);
+		$("#date-hour").val(today.getHours());
+	} else {
+		//오후일때
+		$("#pm").prop("checked", true);
+		$("#date-hour").val(today.getHours()-12);
+	}
+	
 	$("#date-minute").val(today.getMinutes()); //분
 
 	
@@ -47,12 +58,19 @@ $(document).ready(function() {
 	$(".add").on("click", function() {
 		
 		//폼 데이터 가져오기
-		var year = $("#year").val().toString();
-		var month = $("#month").val().toString();
-		var day = $("#day").val().toString();
-		var date_hour = $("#date-hour").val().toString();
-		var date_minute = $("#date-minute").val().toString();
+		var year = $("#year").val();
+		var month = $("#month").val();
+		var day = $("#day").val();
+		var ampm = $("input[name='ampm']:checked").val();
+		if(ampm == 'pm') {
+			var date_hour = parseInt($("#date-hour").val())+12;
+		} else {
+			var date_hour = $("#date-hour").val();
+		}
+		var date_minute = $("#date-minute").val();
 		var regDate = year+"-"+month+"-"+day+" "+date_hour+":"+date_minute;
+		
+		
 		var weather = $('input[name="weather"]:checked').val();
 		var temperature = $("#tem").val();
 		var courseCate = $('input[name="courseCate"]:checked').val();
@@ -67,28 +85,19 @@ $(document).ready(function() {
 
 		
 		/*유효성 검사*/
-		/*if(regDate == " " || regDate == null) {
-			alert("날짜를 입력해주세요");
-			$("#date").css("border", "solid 3px rgb(255, 52, 120)");
-			$("#time").css("border", "solid 3px rgb(255, 52, 120)");
-			return false;
-		} else {
-			$("#date").css("border", "solid 1px rgb(223, 223, 223)");
-			$("#time").css("border", "solid 1px rgb(223, 223, 223)");
-		}*/
 		
 		if(courseCate == "" || courseCate == null) {
 			alert("종목을 선택해주세요");
-			$("input[name='courseCate']").css("border", "solid 3px rgb(255, 52, 120)");
+			$("input[name='courseCate']").css("border", "solid 2px rgb(255, 52, 120)");
 			return false;
 		} else {
 			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
 		}
 		
-		if(hour == "" || hour == null || minute == "" || minute == null) {
+		if(hour == "" || hour == null || hour == "0" || minute == "" || minute == null || minute == "0") {
 			alert("시간을 입력해주세요");
-			$("#hour").css("border", "solid 3px rgb(255, 52, 120)");
-			$("#minute").css("border", "solid 3px rgb(255, 52, 120)");
+			$("#hour").css("border", "solid 2px rgb(255, 52, 120)");
+			$("#minute").css("border", "solid 2px rgb(255, 52, 120)");
 			return false;
 		} else {
 			$("#hour").css("border", "solid 1px rgb(223, 223, 223)");
