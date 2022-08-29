@@ -7,6 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.javaex.vo.CourseVo;
+import com.javaex.vo.FavoriteCategoryVo;
+
 @Repository
 public class MyFavoriteDao {
 	
@@ -25,6 +28,22 @@ public class MyFavoriteDao {
 	public List<Map<String, Object>> getFavCourseList(Map<String, Object> fcVo) {/* Map<String, Object> fcMap */
 		System.out.println("MyFavoriteDao>getFavCourseList"); 
 		return sqlSession.selectList("mypage.getFavCourseList", fcVo); 
+	}
+	
+	public List<FavoriteCategoryVo> getFavList(int userNo) {
+		
+		System.out.println("MyFavoriteDao > getFavList");
+		
+		return sqlSession.selectList("favcate.getFavList", userNo);
+		
+	}
+	
+	public List<CourseVo> getCourses(int cateNo) {
+		
+		System.out.println("MyFavoriteDao > getFavCourses");
+		
+		return sqlSession.selectList("favcate.getCourses", cateNo);
+		
 	}
 	
 }
