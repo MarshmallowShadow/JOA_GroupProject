@@ -30,6 +30,7 @@ public class MyFavoriteDao {
 		return sqlSession.selectList("mypage.getFavCourseList", fcVo); 
 	}
 	
+	//게시판 코스 불러오기에 즐겨찾기 항목 가져오기
 	public List<FavoriteCategoryVo> getFavList(int userNo) {
 		
 		System.out.println("MyFavoriteDao > getFavList");
@@ -38,6 +39,7 @@ public class MyFavoriteDao {
 		
 	}
 	
+	//게시판 코스 불러오기에 코스 리스트 가져오기
 	public List<CourseVo> getCourses(int cateNo) {
 		
 		System.out.println("MyFavoriteDao > getFavCourses");
