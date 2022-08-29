@@ -70,7 +70,7 @@
 							
 							
 							<!-- 설정 -->
-							<c:if test="${not empty authUser }">
+							<c:if test="${authUser.userNo eq coMap.coVo.userNo }">
 								<div class="right btn-group">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<img id="option-btn" alt="비공개" src="${pageContext.request.contextPath }/assets/image/course/option.png">

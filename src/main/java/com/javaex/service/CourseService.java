@@ -74,15 +74,28 @@ public class CourseService {
 	public int[] getCateData(int courseNo) {
 		System.out.println("CourseService->getCategory");
 		
-		int walk = recDao.getWalkCnt(courseNo);
-		int jogging = recDao.getJogCnt(courseNo);
-		int running = recDao.getRunCnt(courseNo);
-		int marathon = recDao.getMaraCnt(courseNo);
-		int bicycle = recDao.getBicCnt(courseNo);
-		int draw = recDao.getDrawCnt(courseNo);
+		List<Map<String, Object>> cateList = recDao.getCateCnt(courseNo);
+		int[] cateData = {0,0,0,0,0,0};
 		
-		int[] cateData = {walk, jogging, running, marathon, bicycle, draw};		
-		
+		for(Map<String, Object> cate : cateList) {
+			String cateName = String.valueOf(cate.get("COURSECATE"));
+			int cnt = Integer.parseInt(String.valueOf(cate.get("CNT")));
+			
+			if(cateName.equals("walk")) {
+				cateData[0] = cnt;
+			} else if(cateName.equals("jogging")) {
+				cateData[1] = cnt;
+			} else if(cateName.equals("running")) {
+				cateData[2] = cnt;
+			} else if(cateName.equals("marathon")) {
+				cateData[3] = cnt;
+			} else if(cateName.equals("bicycle")) {
+				cateData[4] = cnt;
+			} else if(cateName.equals("draw")) {
+				cateData[5] = cnt;
+			} 
+		}
+
 		return cateData;
 	}
 	
@@ -90,12 +103,22 @@ public class CourseService {
 	public int[] getDiffiData(int courseNo) {
 		System.out.println("CourseService->getDiffiData");
 		
-		int easy = recDao.getEasyCnt(courseNo);
-		int normal = recDao.getNormalCnt(courseNo);
-		int hard = recDao.getHardCnt(courseNo);
+		List<Map<String, Object>> diffiList = recDao.getDiffiCnt(courseNo);
+		int[] diffiData = {0,0,0};
 		
-		int[] diffiData = {easy, normal, hard};
-		
+		for(Map<String, Object> diffi : diffiList) {
+			String diffiName = String.valueOf(diffi.get("DIFFICULTY"));
+			int cnt = Integer.parseInt(String.valueOf(diffi.get("CNT")));
+			
+			if(diffiName.equals("easy")) {
+				diffiData[0] = cnt;
+			} else if(diffiName.equals("normal")) {
+				diffiData[1] = cnt;
+			} else if(diffiName.equals("hard")) {
+				diffiData[2] = cnt;
+			}
+		}
+
 		return diffiData;
 	}
 
