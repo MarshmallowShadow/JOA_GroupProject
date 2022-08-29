@@ -43,7 +43,6 @@ public class BoardController {
 		System.out.println("BoardController > board");
 		 
 		Map<String, Object> pMap = boardService.board(boardCategory, keyword, crtPage);
-		
 		model.addAttribute("boardList", pMap.get("boardList"));
 		model.addAttribute("prev", pMap.get("prev"));
 		model.addAttribute("next", pMap.get("next"));
@@ -66,11 +65,9 @@ public class BoardController {
 		 
 		 int userNo = authUser.getUserNo();
 		 
-		 Map<String, Object> bMap =  boardService.favorite(userNo);
-		 
+		 Map<String, Object> bMap =  boardService.favorite(userNo);		 
 		 model.addAttribute("fList", bMap.get("fList"));
-		 model.addAttribute("cList", bMap.get("cList"));
-		 
+		 model.addAttribute("cList", bMap.get("cList"));	 
 		
 		return "board/writeform";
 		
