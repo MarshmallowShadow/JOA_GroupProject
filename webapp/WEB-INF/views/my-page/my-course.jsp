@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기 메인</title>
+<title>나의 코스보기</title>
 
 <!-- favicon.ico 404에러 해결 -->
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
@@ -106,7 +106,7 @@
       	<img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 추가하기</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="bookmark-select-list" >
         
         <div>
         	<ul id="fevList">

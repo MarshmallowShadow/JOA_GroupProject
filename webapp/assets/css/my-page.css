@@ -11,7 +11,7 @@ input[type=radio] {display:none;}
 /* =======================레이아웃======================= */
 #header {left:0; z-index: 1;  /* top:0; */ /* position: fixed; */ width:100%; background-color:white;}
 #wrap {position: relative; /* height: 100vh; */ /* margin:auto; */ }
-#content {/* position: relative; */ padding:50px 0px; margin:auto; /* margin-bottom:150px; */ max-width:1200px; min-height:80vh; 
+#content {/* position: relative; */ padding:50px 0px; margin:auto; /* margin-bottom:150px; */ max-width:1200px; min-height:100vh; 
 				-ms-overflow-style: none; /* IE and Edge */
    					scrollbar-width: none; /* Firefox */
    					object-fit: cover; }
@@ -196,6 +196,7 @@ input[type=radio] {display:none;}
 }
 
 /* ---------------------즐겨찾기 추가(모달창)----------------------- */
+
 #bookmark-list .modal-header .modal-title {
 	display: inline-block;
 }
@@ -223,7 +224,25 @@ input[type=radio] {display:none;}
 	position: relative;
 	top: -1.5px;
 }
+#bookmark-select-list{
+	max-height:220px;
+	overflow-y:scroll;
+	overflow-x:none;
+}
 
 
+
+
+
+/* ---------------------즐겨찾기 삭제(모달창)----------------------- */
+#del-select-list{
+	height:40px;
+	width:100%;
+}
+
+#cateName-modal input{
+	height:40px;
+	width:100%;
+}
 
 

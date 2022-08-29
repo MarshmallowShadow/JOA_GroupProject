@@ -58,8 +58,8 @@ function cateEditRender(categoryList){
 /*달력 API*/
 var rList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
 				{
-					title: '테스트 코스',
-					start: '2022-08-01',
+					/*title: '테스트 코스',
+					start: '2022-08-01',*/
 				}
 			];
 
@@ -105,12 +105,12 @@ function calendarNullRender() {
 
 /*나의 코스*/
 var cList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
-				{	courseNo: '1',
+				{	/*courseNo: '1',
 					userNo: '1',
 					title: '테스트',
 					id: 'joa123',
 					regDate: '2022-08-08',
-					openStatus: '공개'
+					openStatus: '공개'*/
 				}
 			];
 
@@ -199,12 +199,12 @@ function bookmarkSelRender(fevVo) {
 
 /*나의 즐겨찾기(전체리스트)*/
 var fList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
-				{	courseNo: '1',
+				{	/*courseNo: '1',
 					userNo: '1',
 					title: '테스트',
 					id: 'joa123',
 					regDate: '2022-08-08',
-					openStatus: '공개'
+					openStatus: '공개'*/
 				}
 			];
 
@@ -260,12 +260,12 @@ function myfavRender(fMap){
 
 /*나의 즐겨찾기(카테고리별리스트)*/
 var fcList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
-				{	courseNo: '1',
+				{	/*courseNo: '1',
 					userNo: '1',
 					title: '테스트',
 					id: 'joa123',
 					regDate: '2022-08-08',
-					openStatus: '공개'
+					openStatus: '공개'*/
 				}
 			];
 
@@ -331,12 +331,12 @@ function myfavCateRender(fcMap){
 
 /*나의 즐겨찾기(카테고리별리스트)*/
 var lcList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
-				{	courseNo: '1',
+				{	/*courseNo: '1',
 					userNo: '1',
 					title: '테스트',
 					id: 'joa123',
 					regDate: '2022-08-08',
-					openStatus: '공개'
+					openStatus: '공개'*/
 				}
 			];
 

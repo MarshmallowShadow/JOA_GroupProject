@@ -136,7 +136,7 @@
       	<img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 추가하기</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="bookmark-select-list" >
         
         <div>
         	<ul id="fevList">

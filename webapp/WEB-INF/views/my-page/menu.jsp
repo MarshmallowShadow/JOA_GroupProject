@@ -80,7 +80,6 @@
         <select id="del-select-list" class="sel-delCategory" >
         	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
-        
       </div>
       <p class="cate-del-warning">삭제시 목록 안의 내용들도 삭제됩니다!!</p>
       <div class="modal-footer">
