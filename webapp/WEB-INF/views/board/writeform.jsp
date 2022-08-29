@@ -52,7 +52,7 @@
 				<div id="course_line">
 					<p id="course">코스선택</p>
 					<button type="button" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
-					<input type="hidden" name="courseNo" value="">
+					<input type="hidden" id="courseFinal" name="courseNo" value="">
 				</div>
 				
 				<!-- 함께하기 선택 -->
@@ -124,7 +124,7 @@
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			  	<c:forEach items="${fList}" var="favCateVo">
-			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation">${favCateVo.cateName}</li>
+			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation"><a role="menuitem" tabindex="-1">${favCateVo.cateName}</a></li>
 			  	</c:forEach>
 			  </ul>
 			</div>
@@ -136,7 +136,7 @@
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			    <c:forEach items="${cList}" var="CourseVo">
-			  		<li class="co" data-course-no="${CourseVo.courseNo}" role="presentation">${CourseVo.title}</li>
+			  		<li class="co" data-title="${CourseVo.title}" data-course-no="${CourseVo.courseNo}" role="presentation"><a role="menuitem" tabindex="-1">${CourseVo.title}</a></li>
 			  	</c:forEach>
 			  </ul>
 			</div>
@@ -144,7 +144,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="save">Save</button>
+	        <button type="button" class="btn btn-primary" id="c-save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -178,7 +178,7 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation">Action</li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Action</a></li>
 			    <li role="presentation">Another action</li>
 			    <li role="presentation">Something else here</li>
 			    <li role="presentation">Separated link</li>
@@ -188,7 +188,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="save">Save</button>
+	        <button type="button" class="btn btn-primary" id="t-save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
