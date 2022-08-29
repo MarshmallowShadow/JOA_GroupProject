@@ -158,7 +158,7 @@ function mycourseRender(cMap) {
 	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+cMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" >';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+cMap.COURSENO+'">';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
@@ -170,6 +170,32 @@ function mycourseRender(cMap) {
 	
 	$(".my-course-list-box").append(str);
 }
+
+
+
+
+/*즐겨찾기 리스트 출력*/
+function bookmarkSelRender(fevVo) {
+	console.log(fevVo.COURSENO);
+	
+	var str = "";
+    str += '<li>';
+    str += '	<div>';
+    str += '		<input type="checkbox" id="bookmark'+fevVo.CATENO+'" name="bookmark" value="'+fevVo.CATENO + '"';
+    
+    if(fevVo.COURSENO != 0) {
+		str += 'checked';
+	}
+    
+    str += '>';
+    str += '		<label for="bookmark'+fevVo.CATENO+'">'+fevVo.CATENAME+'</label>';
+    str += '	</div>';
+    str += '</li>';	
+    
+    $("#fevList").append(str);
+}
+
+
 
 /*나의 즐겨찾기(전체리스트)*/
 var fList = [	//ajax 데이터 불러올 부분(배열)///////////////////////////////
@@ -218,7 +244,7 @@ function myfavRender(fMap){
 	str += '				<p id="courseName">['+fMap.OPENSTATUS+']'+fMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fMap.COURSENO+'">';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fMap.ID+'</p>';
@@ -279,7 +305,7 @@ function myfavCateRender(fcMap){
 	str += '				<p id="courseName">['+fcMap.OPENSTATUS+']'+fcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fcMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fcMap.COURSENO+'">';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fcMap.ID+'</p>';
@@ -350,7 +376,7 @@ function mylikedCoRender(lcMap){
 	str += '				<p id="courseName">['+lcMap.OPENSTATUS+']'+lcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+lcMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+lcMap.COURSENO+'">';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+lcMap.ID+'</p>';
@@ -520,21 +546,17 @@ $(window).ready(function(){
 	console.log(userNo);
 	console.log("cateNo", cateNo);
 	
-	
-	
 	$(".myrecord-del-modal").hide();
-	
 	
 	
 	
 	/*///////즐겨찾기/좋아요 버튼들/////////////////////////////////////////////*/
 	console.log('즐겨찾기');
-	$(".course-like-cancel").hide();
-	$(".course-bookmark-cancel").hide();
+	/*$(".course-like-cancel").hide();*/
+	$(".bookmark-checkbox-list").hide();
 	
-	$(document).on("click", ".like-cancel-btn", function(){
+	$("body").on("click", ".like-cancel-btn", function(){
 		console.log("좋아요해제");
-		
 		var courseNo = $(this).data("courseno");
 		console.log(courseNo);
 		
@@ -565,48 +587,43 @@ $(window).ready(function(){
 			});
 		}
 	});
-   
+
+	
 	$("body").on("click", ".bookmark-cancel-btn", function(){
-		console.log("좋아요해제");
+		console.log("즐겨찾기버튼");
+		var authUserNo = window.userNo;
+		var courseNo = $(this).data("courseno");
+		console.log("즐겨찾기버튼", authUserNo, courseNo);
 		
-		/*var courseNo = $(this).data("courseno");
-		console.log(courseNo);
-		
-		if(isNaN(userNo)) {
-			userNo = 0;
-		}
-		
-		if(userNo != 0){
-			$.ajax({
-				//보낼때
-				url : contextPath+"/apiCo/likeBtnClick",
-				type : "post",
-				//contentType : "application/json",
-				data : {courseNo},
-				
-				//받을때
-				//dataType : "json",
-				success : function(result){
-					//성공시 처리해야될 코드 작성
-					/*var src = contextPath + "/assets/image/main/heart.png";
-					$(this).attr("src", src);
-					*/
-				/*	location.reload();
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : " + error);
+		$("#fevList").empty();
+		//즐겨찾기 목록 가져오기
+		$.ajax({
+			//보낼때
+			url : contextPath+"/apiFav/getFavCate",
+			type : "post",
+			//contentType : "application/json",
+			data : {authUserNo, courseNo},
+			
+			//받을때
+			//dataType : "json",
+			success : function(favList){
+				//성공시 처리해야될 코드 작성
+				console.log("favList", favList);
+				for(var i=0; i<favList.length; i++) {
+					bookmarkSelRender(favList[i]);
 				}
-			});
-		}*/
+				//모달창 띄우기
+				$(".bookmark-checkbox-list").show();
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
 		
 		
-		/*$(".modal course-bookmark-cancel").show("modal");*/
 		
 		/*즐겨찾기 추가 버튼 클릭*/
-		/*$("#bookmark-add").on("click", function() {
-			
-			
-			
+		$("#bookmark-add").on("click", function() {
 			var bmkList = [];
 			var notBmkList = [];
 			
@@ -619,8 +636,7 @@ $(window).ready(function(){
 				var bmk = parseInt($(this).val());
 				notBmkList.push(bmk);
 			});
-			
-			console.log(notBmkList);
+			console.log(authUserNo, courseNo, "notBmkList", notBmkList);
 			
 			//즐겨찾기 목록 가져오기
 			$.ajax({
@@ -642,39 +658,23 @@ $(window).ready(function(){
 						var src = contextPath + "/assets/image/main/star-off.png";
 						$("#bookmark").attr("src", src);
 					}
-					
+					location.reload();
 					//모달창 닫기
-					$("#bookmark-list").modal("hide");
+					$("#bookmark-checkbox-list").hide();
 				},
 				error : function(XHR, status, error) {
 					console.error(status + " : " + error);
 				}
 			});
-			
 		});
-		
-		/*즐겨찾기 리스트 출력*/
-		/*function render(fevVo) {
-			
-			console.log(fevVo.COURSENO);
-			
-			var str = "";
-		    str += '<li>';
-		    str += '	<div>';
-		    str += '		<input type="checkbox" id="bookmark'+fevVo.CATENO+'" name="bookmark" value="'+fevVo.CATENO + '"';
-		    
-		    if(fevVo.COURSENO != 0) {
-				str += 'checked';
-			}
-		    
-		    str += '>';
-		    str += '		<label for="bookmark'+fevVo.CATENO+'">'+fevVo.CATENAME+'</label>';
-		    str += '	</div>';
-		    str += '</li>';	
-		    
-		    $("#fevList").append(str);
-		}*/
+		//즐겨찾기 변경 모달창의 취소버튼을 눌렀을 때,
+		$("#bookmark-checkbox-list-cancel").on("click", function(){
+			$(".bookmark-checkbox-list").hide('modal');
+		});
 	});
+	
+	
+	
 	
 	
 	

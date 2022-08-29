@@ -158,7 +158,12 @@
 							<input class="txt-short" type="number" id="year" value="" min="2000" max="2050"><p>년</p>
 							<input class="txt-short" type="number" id="month" value="" min="1" max="12"><p>월</p>
 							<input class="txt-short" type="number" id="day" value="" min="1" max="31"><p>일</p>
-							<input class="txt-short margin-left" type="number" id="date-hour" value="" min="0" max="23"><p>시</p>
+							
+							<input type="radio" name="ampm" id="am" value="am">
+							<label for="am" class="margin-left">오전</label>
+							<input type="radio" name="ampm" id="pm" value="pm">
+							<label for="pm">오후</label>
+							<input class="txt-short" type="number" id="date-hour" value="" min="0" max="12"><p>시</p>
 							<input class="txt-short" type="number" id="date-minute" value="" min="0" max="59"><p>분</p>
 						</td>
 					</tr>
