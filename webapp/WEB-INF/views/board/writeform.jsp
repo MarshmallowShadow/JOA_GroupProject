@@ -46,20 +46,20 @@
 				</div>
 				
 				<!-- 글내용 -->
-				<div id="content_line"><textarea id="contentbox" name="content"></textarea></div>
+				<div id="content_line"><textarea id="contentbox" name="content" style="resize: none;"></textarea></div>
 				
 				<!-- 코스 선택 -->
 				<div id="course_line">
 					<p id="course">코스선택</p>
 					<button type="button" id="course_choice"><span class="glyphicon glyphicon-folder-open gray" id="folder"></span>코스 불러오기</button>
-					<!-- <input type="hidden" name="courseNo"> -->
+					<input type="hidden" name="courseNo" value="">
 				</div>
 				
 				<!-- 함께하기 선택 -->
 				<div id="together_line">
 					<p id="together">함께하기</p>
 					<button type="button" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
-					<!-- <input type="hidden" name="eventNo"> -->
+					<!-- <input type="hidden" name="eventNo" value=""> -->
 				</div>
 				
 				<!-- 사진 등록 (드래그앤 드롭) -->
@@ -119,14 +119,13 @@
 	        
 	        <div class="courseCate">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    카테고리
+			    즐겨찾기
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  	<c:forEach items="${fList}" var="favCateVo">
+			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation">${favCateVo.cateName}</li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 			
@@ -136,10 +135,9 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			    <c:forEach items="${cList}" var="CourseVo">
+			  		<li class="co" data-course-no="${CourseVo.courseNo}" role="presentation">${CourseVo.title}</li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 
@@ -169,9 +167,8 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">함께</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">태그</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">참여</a></li>
+			    <li role="presentation">태그</li>
+			    <li role="presentation">참여</li>
 			  </ul>
 			</div>
 			
@@ -181,10 +178,10 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			    <li role="presentation">Action</li>
+			    <li role="presentation">Another action</li>
+			    <li role="presentation">Something else here</li>
+			    <li role="presentation">Separated link</li>
 			  </ul>
 			</div>
 
@@ -204,6 +201,7 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript">
 	window.pageContext = '${pageContext.request.contextPath}';
+	window.userNo = parseInt('${authUser.userNo}');
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
