@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.service.BoardService;
 import com.javaex.vo.BoardVo;
+import com.javaex.vo.CourseVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -66,6 +68,16 @@ public class ApiBoardController {
 		
 		return boardService.boardImgWrite(fileList, boardNo);
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getCourseList", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<CourseVo> geCourseList(@RequestBody int cateNo){
+		System.out.println("apiBoardController>getCourseList");
+		
+		List<CourseVo> cList = boardService.getCourseList(cateNo);
+		
+		return cList;
 	}
 
 }
