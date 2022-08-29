@@ -155,7 +155,7 @@ h1 {
 	height: 18px;
 }
 .join {
-	background-color: #fff;
+	background-color: transparent;
 	border: solid 1px #9e9e9e;
 	color: #9e9e9e;
 }

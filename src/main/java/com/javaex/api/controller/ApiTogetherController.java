@@ -81,5 +81,14 @@ public class ApiTogetherController {
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/join", method= {RequestMethod.GET, RequestMethod.POST})
+	public int join(@RequestBody Map<String, Object> map) {
+		System.out.println("ApiTogetherController > join");
+		
+		int result = togetherService.join(map);
+		
+		return result;
+	}
 	
 }

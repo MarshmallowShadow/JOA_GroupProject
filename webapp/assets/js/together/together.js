@@ -66,12 +66,16 @@
 		var $this = $(this);
 		
 	    //이벤트 no 알아내기
-		var eventNo = $this.data("eventno");
+		var eventNo = parseInt($this.data("eventno"));
 		var joined = $this.data("joined");
+		var count = parseInt($this.data("count"));
+		var joinMax = parseInt($this.data("join-max"));
 	    
 	    var map = {eventNo: eventNo
 				   , userNo: userNo
-				   , joined: joined};
+				   , joined: joined
+				   , count: count
+				   , joinMax: joinMax};
 		
 		//서버 보내기 --> 저장
 	    $.ajax({
@@ -81,15 +85,39 @@
 			contentType : "application/json",
 			data : JSON.stringify(map),
 			dataType : "json",
-			success : function(eventJoinedVo){
+			success : function(result){
 				
 				//성공 시 처리해야 될 코드 작성
-				console.log(eventJoinedVo);
+				console.log(result);
 				
-				if(joined == true) {
+				var icon = '<span class="glyphicon glyphicon-user" id="join_icon"></span>';
+				
+				if(result == -1){
+					alert("참여 인원 최대입니다.");
+				} else if(result == 1) { //추가 완료 시
+					$this.removeClass("join");
+					$this.addClass("joinOver");
 					
-				}else {
+					$this.attr("data-count", count + 1);
+					$this.data("count", count + 1);
 					
+					$this.attr("data-joined", "true");
+					$this.data("joined", true);
+					
+					$this.html(icon + (count + 1) + "/" + joinMax);
+				} else if(result == 2) { //삭제 완료 시
+					$this.removeClass("joinOver");
+					$this.addClass("join");
+					
+					$this.attr("data-count", count - 1);
+					$this.data("count", count - 1);
+					
+					$this.attr("data-joined", "false");
+					$this.data("joined", false);
+					
+					$this.html(icon + (count - 1) + "/" + joinMax);
+				} else { //기타 오류
+					alert("오류입니다. 페이지 새로고침 해주세요.");
 				}
 				
 			}
@@ -163,8 +191,6 @@
 		var black = "line_top";
 		var over = "line_bottom";
 		var mark = "mark";
-		var joinGray = "";
-		var able = "";
 		
 		var btnColor = "join";
 		var btnAble = "btn-able";
@@ -209,7 +235,7 @@
 			bookmark = "bookmark_over";
 			mark = "mark_over";
 			joinGray = "joinGray";
-			btnColor = "joinGray";
+			
 			btnAble = "btn-disable";
 		}
 		
@@ -219,11 +245,12 @@
 		}
 		
 		//이벤트 제작자와 로그인 번호가 같을 시 파란색 자동
-		if(userNo == Map.USERNO) {
+		if(userNo == Map.USERNO || isNaN(userNo)) {
 			btnAble = "btn-disable";
 		}
 		
-		var joinBtn = '<button type="button" data-joined=' + joined + ' data-eventNo="'+ Map.EVENTNO +'" class="'+ btnColor + ' ' + btnAble + '"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ parseInt(Map.COUNT) +'/'+ Map.JOINMAX +'</button> ' ;
+		
+		var joinBtn = '<button type="button" data-count="'+ Map.COUNT +'" data-join-max="'+ Map.JOINMAX +'" data-joined=' + joined + ' data-eventNo="'+ Map.EVENTNO +'" class="'+ btnColor + ' ' + btnAble + '"><span class="glyphicon glyphicon-user" id="join_icon"></span>'+ Map.COUNT +'/'+ Map.JOINMAX +'</button> ' ;
 		
 		
 		var str = '' ;

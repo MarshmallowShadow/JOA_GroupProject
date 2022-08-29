@@ -191,7 +191,7 @@ public class TogetherService {
 		
 		
 		//이벤트 참여
-		int event = eventJoinedDao.wrtieJoin(eventVo);	
+		int event = eventJoinedDao.join(eventVo);	
 		
 		return event;
 		
@@ -263,6 +263,33 @@ public class TogetherService {
 			return eventTaggedDao.bookmarkDelete(map);
 		}
 		
+	}
+	
+	public int join(Map<String, Object> map) {
+		System.out.println("TogetherService>join");
+		
+		int result = 0;
+		
+		EventVo eventVo = new EventVo();
+		int userNo = (int)map.get("userNo");
+		int eventNo = (int)map.get("eventNo");
+		int count = (int)map.get("count");
+		int joinMax = (int)map.get("joinMax");
+		boolean joined = ((boolean)map.get("joined"));
+		
+		eventVo.setUserNo(userNo);
+		eventVo.setEventNo(eventNo);
+		
+		if(joined == true) {
+			eventJoinedDao.unjoin(eventVo);
+			result = 2;
+		} else if(count == joinMax) {
+			result = -1;
+		} else {
+			result = eventJoinedDao.join(eventVo);
+		}
+		
+		return result;
 	}
 
 }

@@ -46,7 +46,7 @@
 	                           , p.max_order_no maxOrderNo
 	                           , c.course_category courseCategory
 	                           , e.join_max joinMax
-	                           , j.count
+	                           , nvl(j.count, 0) count
 	                           , t.user_no tagged
 	                           , ej.user_no joined
 	                  	from course c, (select x1, x2, y1, y2
@@ -108,15 +108,6 @@
 		<![CDATA[
 			insert into event
 			values(#{eventNo}, #{userNo}, #{courseNo}, #{eventTitle}, #{content}, #{place}, #{joinMax}, to_date(#{regStart}, 'YYYY-MM-DD'), to_date(#{regEnd}, 'YYYY-MM-DD'), to_date(#{eventStart}, 'YYYY-MM-DD HH24:MI'))
-		]]>
-	</insert>
-	
-	
-	<!-- 함께하기 글쓰기 인원 참가 -->
-	<insert id="wrtieJoin" parameterType="EventJoinedVo">			
-		<![CDATA[
-			insert into event_joined
-			values(#{userNo}, #{eventNo})
 		]]>
 	</insert>
 	

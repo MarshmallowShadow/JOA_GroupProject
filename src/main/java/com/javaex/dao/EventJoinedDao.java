@@ -20,12 +20,18 @@ public class EventJoinedDao {
 	
 	//메소드-일반
 	//내용 읽기
-	public int wrtieJoin(EventVo eventVo) {
+	public int join(EventVo eventVo) {
 		
-		System.out.println("EventJoinedDao > wrtieJoin");
+		System.out.println("EventJoinedDao > join");
 		
-		return sqlSession.insert("together.wrtieJoin", eventVo);
+		return sqlSession.insert("event_joined.join", eventVo);
 		
+	}
+	
+	public int unjoin(EventVo eventVo) {
+		System.out.println("EventJoinedDao > delete");
+		
+		return sqlSession.delete("event_joined.delete", eventVo);
 	}
 
 }
