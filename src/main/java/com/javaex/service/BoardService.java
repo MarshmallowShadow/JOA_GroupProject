@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import com.javaex.dao.BoardImgDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.MyFavoriteDao;
 import com.javaex.dao.UserDao;
+import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardImgVo;
 import com.javaex.vo.BoardVo;
@@ -34,8 +36,8 @@ public class BoardService {
 	private BoardDao boardDao;
 	@Autowired
 	private BoardCommentDao boardCommentDao;
-	//@Autowired
-	//CourseDao courseDao;
+	@Autowired
+	private LocalApiComponent localApiComponent;
 	@Autowired
 	private BoardImgDao boardImgDao;
 	@Autowired
@@ -253,6 +255,7 @@ public class BoardService {
 		//조회수 올리기
 		boardDao.boardHit(no);
 		
+		//게시판 항목 해석
 		Map<String, String> categoryMap = new HashMap<String, String>();
 		categoryMap.put("commute", "소통");
 		categoryMap.put("question", "질문");
@@ -260,8 +263,36 @@ public class BoardService {
 		categoryMap.put("together", "함께");
 		categoryMap.put("map", "코스");
 		
+		//게시판 코스 종목 해석
+		Map<String, String> courseCateMap = new HashMap<String, String>();
+		courseCateMap.put("walk", "산책");
+		courseCateMap.put("jogging", "조깅");
+		courseCateMap.put("bike", "자전거");
+		courseCateMap.put("running", "러닝");
+		courseCateMap.put("marathon", "마라톤");
+		courseCateMap.put("draw", "그림");
+		
+		//게시판 코스 난이도 해석
+		Map<String, String> courseDifiMap = new HashMap<String, String>();
+		courseDifiMap.put("easy", "쉬움");
+		courseDifiMap.put("normal", "보통");
+		courseDifiMap.put("hard", "어려움");
+		
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
+		
+		//지명 가져오기
+		double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
+		double y1 = ((BigDecimal)bMap.get("Y1")).doubleValue();
+		
+		String START = localApiComponent.getLocation(x1, y1);
+		bMap.put("START", START);
+		
+		double x2 = ((BigDecimal)bMap.get("X2")).doubleValue();
+		double y2 = ((BigDecimal)bMap.get("Y2")).doubleValue();
+		
+		String END = localApiComponent.getLocation(x2, y2);
+		bMap.put("END", END);
 		
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
@@ -274,6 +305,8 @@ public class BoardService {
 		rMap.put("categoryMap", categoryMap);
 		rMap.put("boardCommentList", boardCommentList);
 		rMap.put("imgList", imgList);
+		rMap.put("courseCateMap", courseCateMap);
+		rMap.put("courseDifiMap", courseDifiMap);
 		
 		System.out.println(rMap);
 		
