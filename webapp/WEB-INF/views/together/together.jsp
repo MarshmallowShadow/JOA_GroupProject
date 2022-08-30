@@ -45,23 +45,25 @@
 		
 				<!-- 본인 제작 이벤트, 즐겨찾기와 참여한 항목 필터링 버튼 -->
 				<div id="rightside">
-					<ul>
-						<li id="man_btn">
-							<a href="${pageContext.request.contextPath}/together/together?filStatus=1&regStatus=${param.regStatuss}">
-								<span class="glyphicon glyphicon-user"></span> 함께
-							</a>
-						</li>
-						<li id="tag_btn">
-							<a href="${pageContext.request.contextPath}/together/together?filStatus=2&regStatus=${param.regStatuss}">
-								<span class="glyphicon glyphicon-bookmark"></span> 태그
-							</a>
-						</li>
-						<li id="joined_btn">
-							<a href="${pageContext.request.contextPath}/together/together?filStatus=3&regStatus=${param.regStatuss}">
-								<span class="glyphicon glyphicon-ok"></span> 참여
-							</a>
-						</li>
-					</ul>
+					<c:if test="${authUser != null}">
+						<ul>
+							<li id="man_btn">
+								<a href="${pageContext.request.contextPath}/together/together?filStatus=1&regStatus=${param.regStatuss}">
+									<span class="glyphicon glyphicon-user"></span> 함께
+								</a>
+							</li>
+							<li id="tag_btn">
+								<a href="${pageContext.request.contextPath}/together/together?filStatus=2&regStatus=${param.regStatuss}">
+									<span class="glyphicon glyphicon-bookmark"></span> 태그
+								</a>
+							</li>
+							<li id="joined_btn">
+								<a href="${pageContext.request.contextPath}/together/together?filStatus=3&regStatus=${param.regStatuss}">
+									<span class="glyphicon glyphicon-ok"></span> 참여
+								</a>
+							</li>
+						</ul>
+					</c:if>
 				</div><!-- rightside -->
 				
 			</div><!-- together-nav -->
