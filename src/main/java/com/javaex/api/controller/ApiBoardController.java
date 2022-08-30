@@ -26,7 +26,7 @@ public class ApiBoardController {
 	
 	//필드
 	@Autowired
-	BoardService boardService;
+	private BoardService boardService;
 	
 	//생성자
 	

@@ -23,7 +23,7 @@ public class ApiTogetherController {
 	
 	//필드
 	@Autowired
-	TogetherService togetherService;
+	private TogetherService togetherService;
 	
 	//생성자
 	

@@ -13,7 +13,7 @@ public class BoardImgDao {
 	
 	//필드
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 		
 	//생성자
 	

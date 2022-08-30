@@ -14,7 +14,7 @@ public class BoardCommentDao {
 	
 	//필드
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//생성자
 	
