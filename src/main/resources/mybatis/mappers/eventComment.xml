@@ -6,20 +6,23 @@
 	<insert id="commentWrite" parameterType="EventCommentVo">
 		<![CDATA[
 			INSERT into EVENT_COMMENT
-			VALUES (SEQ_EVENT_COMMENT_NO.nextval, #{eventNo}, #{userNo}, 0, #{content}, sysdate)
+			VALUES (SEQ_EVENT_COMMENT_NO.nextval, #{eventNo}, #{userNo}, #{mentionUser}, #{content}, sysdate)
 		]]>
 	</insert>
 	
 	
-	<!-- 댓글 불러오기 -->
+	<!-- 댓글 불러오기 **수정한 부분 참고** -->
 	<select id="comment" parameterType="int" resultType="map">
 		<![CDATA[
 			SELECT eo.e_comment_no
 			       , eo.event_no eventNo
 			       , u.id
+			       , m.id mention
 			       , to_char(eo.reg_date, 'YYYY-MM-DD') regDate
 			       , eo.content
-			FROM event_comment eo, users u
+			FROM users u, event_comment eo
+			left outer join(select id, mention_user from users u, event_comment eo where u.user_no = eo.mention_user) m
+			on m.mention_user = eo.mention_user
 			where eo.user_no = u.user_no
 			and eo.event_no = #{eventNo}
 		]]>	

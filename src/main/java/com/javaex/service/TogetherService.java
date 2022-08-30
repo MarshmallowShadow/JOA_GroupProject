@@ -14,6 +14,7 @@ import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
 import com.javaex.dao.EventTaggedDao;
 import com.javaex.dao.PointDao;
+import com.javaex.dao.UserDao;
 import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.EventCommentVo;
@@ -30,6 +31,8 @@ public class TogetherService {
 	private CourseDao coDao;
 	@Autowired
 	private PointDao pointDao;
+	@Autowired
+	private UserDao userDao;
 	@Autowired
 	private EventJoinedDao eventJoinedDao;
 	@Autowired
@@ -94,7 +97,7 @@ public class TogetherService {
 			
 			String END = localApiComponent.getLocation(x2, y2);
 			togetherList.get(i).put("END", END);
-					
+			
 		}
 		
 		//System.out.println(togetherList);
@@ -227,14 +230,13 @@ public class TogetherService {
 		System.out.println(tMap);
 		
 		return tMap;
-		
 	}
 	
 	//함께하기 지도 불러오기
 	public List<PointVo> map(int no) {
 		
 		System.out.println("TogetherService > map");
-			
+		
 		//코스 불러오기
 		List<PointVo> getTogetherCourse = pointDao.getTogetherCourse(no);
 		
@@ -248,6 +250,19 @@ public class TogetherService {
 		System.out.println("TogetherService > commentWrite");
 		
 		System.out.println(eventCommentVo);
+		
+		String content = eventCommentVo.getContent();
+		
+		if(content.charAt(0) == '@' && content.contains(" ")) {
+			String mention = content.substring(1, content.indexOf(" "));
+			
+			int mentionUser = userDao.getUserNo(mention);
+			
+			if(mentionUser != 0) {
+				eventCommentVo.setMentionUser(mentionUser);
+				eventCommentVo.setContent(content.substring(content.indexOf(" ") + 1));
+			}
+		}
 		
 		return eventCommentDao.commentWrite(eventCommentVo);
 	}

@@ -33,5 +33,10 @@ public class UserDao {
 		//System.out.println("UserDao->getUserName");
 		return sqlSession.selectOne("users.getName", userNo);
 	}
+	
+	public int getUserNo(String id) {
+		//System.out.println("UserDao->getUserNo");
+		return sqlSession.selectOne("users.getUserNo", id);
+	}
 
 }

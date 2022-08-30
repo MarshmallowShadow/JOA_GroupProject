@@ -148,6 +148,11 @@ tr {height: 100px}
 	margin-left: 10px;
 	margin-top: 3px;
 }
+
+.mention {
+	font-weight: 900;
+}
+
 #comment_, #comment_btn, #REcomment_btn {
 	font-size : 12pt;
 	margin-left: 10px;
