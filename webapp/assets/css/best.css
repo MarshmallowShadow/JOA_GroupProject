@@ -201,6 +201,7 @@ table td:hover {
 
 .button-ttl .imgbutton-text {
 	margin-left: 3px;
+	margin-right: 10px;
 	color: 진한 회색 rgb(101, 101, 101);
 }
 
@@ -220,7 +221,16 @@ table td:hover {
 	font-size: 14px;
 	float: left;
 	margin-top: 5px;
-	margin-left: 3px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.bi bi-calendar4-week {
+	margin-left: 10px;
+}
+
+.imgbutton-text{
+	margin-left: 10px;
 }
 
 /*------------------------- Top 4~15 -------------------------*/

@@ -121,9 +121,9 @@
 									<span class="imgbutton-text">${map.R_COUNT}</span>
 									<div class="imgbutton">
 										<img src="${pageContext.request.contextPath}/assets/image/main/heart.png">
-										<span>좋아요 : ${map.L_COUNT}</span> 
+										<span> 좋아요 : ${map.L_COUNT} </span> 
 										<img src="${pageContext.request.contextPath}/assets/image/main/star.png">
-										<span>즐겨찾기 : ${map.F_COUNT}</span>
+										<span> 즐겨찾기 : ${map.F_COUNT} </span>
 									</div>
 								</div>
 								
