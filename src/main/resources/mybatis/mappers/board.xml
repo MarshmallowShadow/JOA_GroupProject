@@ -124,11 +124,22 @@
                     , b.user_no userNo
                     , u.id
                     , b.course_no courseNo
+                    , b.event_no eventNo
                     , c.ctitle
                     , c.distance
                     , c.courseCategory
                     , c.courseTime
                     , c.difficulty
+                    , ee.eventNo
+                    , ee.eventTitle
+                    , ee.x1, ee.x2, ee.y1, ee.y2
+                    , ee.regStart
+                    , ee.regEnd
+                    , ee.eventTitle
+                    , ee.minOrderNo
+                    , ee.maxOrderNo
+                    , ee.joinMax
+                    , ee.count
 			from users u, board b
 			left outer join (select course_no courseNo
 			  						, title ctitle
@@ -138,6 +149,46 @@
                                     , difficulty
                              from course) c
             on b.course_no = c.courseNo
+            left outer join (select e.event_no eventNo
+								    , x1, x2, y1, y2
+						   			, to_char(e.reg_start, 'YYYY/MM/DD') regStart
+					                , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
+					                , e.event_title eventTitle
+					                , p.min_order_no minOrderNo
+					                , p.max_order_no maxOrderNo
+					                , e.join_max joinMax
+					                , j.count
+          					 from course c,(select x1, x2, y1, y2
+          					  					   , max_order_no
+          					  					   , min_order_no
+          					  					   , omax.course_no
+   				   							from (select x x2, y y2
+   				   							 			 , p.course_no
+   				   							 			 , p.order_no max_order_no 
+           										  from(select max(order_no) order_no
+           										  			  , course_no 
+           											   from point p 
+           					 						   group by course_no) max, point p 
+           										  where max.course_no = p.course_no 
+           										  and max.order_no = p.order_no) omax
+								  , (select x x1, y y1
+										    , p.course_no
+										    , p.order_no min_order_no 
+									 from(select min(order_no) order_no
+												 , course_no 
+			           					  from point p 
+			           					  group by course_no) min, point p 
+	           					  	 where min.course_no = p.course_no 
+	           					  	 and min.order_no = p.order_no) omin
+      					 	 where omax.course_no = omin.course_no) p
+         	  	 		 	 , event e left outer join (select count(*) count
+          		  		  						      	  	   , event_no
+          		   								   		from event_joined
+          		   								   		group by event_no) j
+            			 	 on e.event_no = j.event_no
+            where c.course_no = e.course_no
+            and c.course_no = p.course_no)ee
+            on b.event_no = ee.eventNo
 	        where u.user_no = b.user_no
 			and b.board_no = #{no}
 		]]>
