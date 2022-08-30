@@ -90,7 +90,13 @@
 				<c:forEach items="${eventCommentList}"  var="eventCommentVo">
 					<p class="id">${eventCommentVo.ID}</p>
 					<div id="comment-inline">
-						<p class="comment">${eventCommentVo.CONTENT}</p>
+						<p class="comment">
+							<!-- 멘션이 있는지 확인 -->
+							<c:if test="${eventCommentVo.MENTION != null}">
+								<span class="mention">@${eventCommentVo.MENTION} </span>
+							</c:if>
+							${eventCommentVo.CONTENT}
+						</p>
 						<div id="writer_btnS">
 							<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>
 							<button type="submit" id="delete_s"><span class="glyphicon glyphicon-trash"></span></button>

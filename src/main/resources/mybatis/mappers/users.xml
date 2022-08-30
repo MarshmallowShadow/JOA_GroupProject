@@ -32,5 +32,13 @@
 		]]>
 	
 	</select>
-
+	
+	<!-- 유저 번호 아이디로 얻기 -->
+	<select id="getUserNo" parameterType="String" resultType="int">
+		<![CDATA[
+			select user_no userNo
+			from users
+			where id = #{id}
+		]]>
+	</select>
 </mapper>

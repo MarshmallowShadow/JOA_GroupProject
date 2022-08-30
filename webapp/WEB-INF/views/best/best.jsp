@@ -59,12 +59,9 @@
 					<c:choose>
 						<c:when test="${status.index == 0}">
 							<div class="img-1">
-								<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" />
-								</p>
-								<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" />
-								</p>
-								<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" />
-								</p>
+								<p>Top 1 <img src="${pageContext.request.contextPath }/assets/image/best/cgold.jpg" /></p>
+								<p>Top 2 <img src="${pageContext.request.contextPath }/assets/image/best/csilver.jpg" /></p>
+								<p>Top 3 <img src="${pageContext.request.contextPath }/assets/image/best/cbronze.jpg" /></p>
 							</div>
 							<br> <br> <br>
 						</c:when>
@@ -118,7 +115,7 @@
 							</div>
 								<span id="best-text"> 지역 : <span>${map.LOCATION}</span> | 거리 : <span>${map.DISTANCE}</span> km</span>
 							
-							<!-- 기록/좋아요/즐찾 -->
+							<!-- 기록/좋아요/즐겨찾기 -->
 								<div class="button-ttl">
 									<span class="bi bi-calendar4-week"></span>
 									<span class="imgbutton-text">${map.R_COUNT}</span>

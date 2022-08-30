@@ -302,7 +302,7 @@ CREATE TABLE EVENT_COMMENT (
 	CONSTRAINT e_comment_user_fk Foreign Key(user_no)
 	references users(user_no)
 	ON DELETE CASCADE,
-	CONSTRAINT e_comment_mention_fk Foreign Key(user_no)
+	CONSTRAINT e_comment_mention_fk Foreign Key(mention_user)
 	references users(user_no)
 	ON DELETE SET NULL
 );
@@ -370,7 +370,7 @@ CREATE TABLE BOARD_COMMENT (
 	CONSTRAINT b_comment_user_fk Foreign Key(user_no)
 	references users(user_no)
 	ON DELETE CASCADE,
-	CONSTRAINT b_comment_mention_fk Foreign Key(user_no)
+	CONSTRAINT b_comment_mention_fk Foreign Key(mention_user)
 	references users(user_no)
 	ON DELETE SET NULL
 );

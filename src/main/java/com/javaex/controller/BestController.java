@@ -25,8 +25,7 @@ public class BestController {
 	//메소드 g/s
 	
 	//메소드 일반
-	
-	//게시글 불러오기
+	//코스 베스트 불러오기
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 	public String best(Model model,
 			@RequestParam(value="course_cate", defaultValue="") String course_cate,

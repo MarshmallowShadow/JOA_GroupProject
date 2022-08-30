@@ -155,10 +155,10 @@
 				if (result.main.temp >= 35) {
 					alert("더운 날씨가 예상됩니다. 야외활동에 주의하십시오.");
 
-				} else if (result.main.temp <= -10) {
+				} else if (result.main.temp <= -15) {
 					alert("강추위가 예상됩니다. 야외활동에 주의하십시오.");
 
-				} else if (result.wind.speed >= 5) {
+				} else if (result.wind.speed >= 7) {
 					alert("강한 바람이 예상됩니다. 야외활동에 주의하십시오.")
 				};
 

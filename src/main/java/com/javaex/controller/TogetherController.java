@@ -78,8 +78,8 @@ public class TogetherController {
 	@RequestMapping(value="/read/{no}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String read(Model model, @PathVariable int no) {
 		
-		 System.out.println("TogetherController > read"+no);
-		 
+		System.out.println("TogetherController > read"+no);
+		
 		//내용 읽기
 		Map<String, Object> tMap = togetherService.read(no);
 		model.addAttribute("tMap", tMap);
