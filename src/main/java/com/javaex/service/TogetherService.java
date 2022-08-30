@@ -283,7 +283,8 @@ public class TogetherService {
 	}
 	
 	public int join(Map<String, Object> map) {
-		System.out.println("TogetherService>join");
+		
+		System.out.println("TogetherService > join");
 		
 		int result = 0;
 		
@@ -307,6 +308,7 @@ public class TogetherService {
 		}
 		
 		return result;
+		
 	}
 
 }
