@@ -149,6 +149,8 @@ table td:hover {
 	font-size: 20px;
 	font-family:verdana, sans-serif;
 	text-align: center;
+	font-weight: bold;
+	background-color: rgba( 255, 255, 255, 0.5 );
 }
 
 .img-line .img-cont:hover .textbox {
