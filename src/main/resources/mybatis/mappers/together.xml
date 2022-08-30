@@ -99,6 +99,11 @@
 	    </choose>
 	    
 	    <choose>
+	    	<when test="filStatus == 1"> <!-- 태그 -->
+		    <![CDATA[
+		    			and e.user_no = #{userNo}
+		    ]]>
+		    </when>
 	    	<when test="filStatus == 2"> <!-- 태그 -->
 		    <![CDATA[
 		    			and t.user_no is not null

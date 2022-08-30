@@ -41,7 +41,7 @@ public class TogetherController {
 	public String together(Model model
 						   , @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage
 						   , @RequestParam(value="regStatus", required = false, defaultValue="1") int regStatus
-						   , @RequestParam(value="filStatus", required = false, defaultValue="1") int filStatus) {
+						   , @RequestParam(value="filStatus", required = false, defaultValue="0") int filStatus) {
 		
 		 System.out.println("TogetherController > together");
 		
