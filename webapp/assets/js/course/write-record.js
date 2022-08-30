@@ -94,7 +94,7 @@ $(document).ready(function() {
 			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
 		}
 		
-		if(hour == "" || hour == null || hour == "0" || minute == "" || minute == null || minute == "0") {
+		if(hour == "" || hour == null || hour == "0" || minute == "" || minute == null) {
 			alert("시간을 입력해주세요");
 			$("#hour").css("border", "solid 2px rgb(255, 52, 120)");
 			$("#minute").css("border", "solid 2px rgb(255, 52, 120)");
@@ -178,9 +178,8 @@ $(document).ready(function() {
 							}
 						});
 					}
-					
-					location.href = contextPath+"/record/view?courseNo="+courseNo;
 				}
+				location.href = contextPath+"/record/view?courseNo="+courseNo;
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);

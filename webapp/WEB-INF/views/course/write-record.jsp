@@ -356,7 +356,7 @@
 					<tr>
 						<th>한줄평</th>
 						<td colspan="3">
-							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="200">
+							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="100">
 						</td>
 					</tr>
 					
