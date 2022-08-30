@@ -76,35 +76,6 @@
 					
 				</div>
 				<!-- /List -->
-				
-				<div class="chart">
-					<table class="over">
-						<thead>
-							<tr class="top">
-								<th class="date_over">2022/07/24 - 2022/07/30</th>
-								<th class="mark_over">
-									<button class="bookmark_over">
-										<img class="image_over" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
-									</button>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th colspan="2" class="content">쭈쭈네 동네 한바퀴</th>
-							</tr>
-							<tr>
-								<th colspan="2" class="content_course"><span class="glyphicon glyphicon-map-marker" class="marking"></span>신림 - 잠실</th>
-							</tr>
-							<tr>
-								<th colspan="2" class="line_bottomOver">
-									산책
-									<button type="submit" class="joinOver joinGray"><span class="glyphicon glyphicon-user" id="join_iconOver"></span>11/15</button>
-								</th>
-							</tr>
-						</tbody>
-					</table>
-				</div><!-- table(chart) -->
 			</div><!-- list -->
 
 			<!-- 페이지 -->
