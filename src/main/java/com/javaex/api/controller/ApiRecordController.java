@@ -25,6 +25,16 @@ public class ApiRecordController {
 	private RecordService recService;
 
 	
+	//기록 등록2
+	@ResponseBody
+	@RequestMapping(value="/recWrite", method = {RequestMethod.GET, RequestMethod.POST})
+	public String recWrite(@ModelAttribute(value = "recVo") RecordVo recVo,
+			@RequestPart(value = "file", required = false) List<MultipartFile> fileList) {
+		System.out.println("RecordController->recWrite");
+		return recService.recWrite(recVo, fileList);
+	}
+	
+	
 	//기록 등록
 	@ResponseBody
 	@RequestMapping(value="/recordWrite", method = {RequestMethod.GET, RequestMethod.POST})

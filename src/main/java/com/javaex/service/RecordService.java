@@ -34,6 +34,65 @@ public class RecordService {
 	private LikedCourseDao likeDao;
 
 	
+	//기록등록 2
+	public String recWrite(RecordVo recVo, List<MultipartFile> fileList) {
+		System.out.println("RecordService->recWrite");
+		recDao.insertRecord(recVo);
+		
+		int recNo = recVo.getRecordNo();
+		
+		String saveDir = "C:\\javaStudy\\upload";
+		
+		//기록 이미지 번호가 있는지 찾음
+		int index = imgDao.getOrderNo(recNo)+1;
+		System.out.println(index);
+		
+		for(MultipartFile file : fileList) {
+			
+			if(file.getSize() > 0) {
+				//오리지날 파일명
+				String orgName = file.getOriginalFilename();
+				//확장자
+				String exName = orgName.substring(orgName.lastIndexOf("."));
+				//현재시간+랜덤UUID+확장자
+				String saveName = System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
+				
+				//파일경로(디렉토리+저장파일명)
+				String filePath = saveDir + "\\" + saveName;
+				
+				//DB 저장
+				RecordImgVo imgVo = new RecordImgVo();
+				imgVo.setRecordNo(recNo);
+				imgVo.setSaveName(saveName);
+				imgVo.setFilePath("/upload/"+saveName);
+				imgVo.setOrderNo(index);
+				imgDao.insertImg(imgVo);
+				
+				//파일 저장
+				try {
+					
+					byte[] fileData = file.getBytes();
+					OutputStream os = new FileOutputStream(filePath);
+					BufferedOutputStream bos = new BufferedOutputStream(os);
+					
+					bos.write(fileData);
+					bos.close();
+					
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return "false";
+				}
+			}
+			
+			index++;
+		}
+		
+		return "success";
+		
+	}
+	
 	//(기록등록) 코스 정보 가져오기
 	public Map<String, Object> getCourseInfo(int courseNo) {
 		System.out.println("RecordService->getCourseInfo");
@@ -220,6 +279,9 @@ public class RecordService {
 		return "fail";
 		
 	}
+
+
+	
 
 	
 

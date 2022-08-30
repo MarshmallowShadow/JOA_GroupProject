@@ -76,7 +76,7 @@ $(document).ready(function() {
 		var courseCate = $('input[name="courseCate"]:checked').val();
 		var hour = $("#hour").val();
 		var minute = $("#minute").val();
-		var courseTime = (hour*60)+parseInt(minute);
+		var courseTime = ((hour*60)+parseInt(minute));
 		var difficulty = $('input[name="difficulty"]:checked').val();
 		var review = $("#review").val();
 		var courseNo = $("#courseNo").val();
@@ -117,7 +117,7 @@ $(document).ready(function() {
 		}
 		
 		//recVo 생성
-		var recVo = {
+		/*var recVo = {
 			regDate: regDate,
 			weather: weather,
 			temperature: temperature,
@@ -129,9 +129,51 @@ $(document).ready(function() {
 			userNo: userNo
 		};
 		
-		console.log(recVo);
+		console.log(recVo);*/
 		
-		//recVo 전송
+		var formData = new FormData();
+		
+		formData.append('regDate', regDate);
+		formData.append('weather', weather);
+		formData.append('temperature', temperature);
+		formData.append('courseCate', courseCate);
+		formData.append('courseTime', courseTime);
+		formData.append('difficulty', difficulty);
+		formData.append('review', review);
+		formData.append('courseNo', courseNo);
+		formData.append('userNo', userNo);
+		
+		if(uploadFiles.length > 0) { 
+			for(var i=0; i < uploadFiles.length; i++) {
+				formData.append('file', uploadFiles[i]);
+			}
+		}
+		
+		$.ajax({
+			//보낼때
+			url : contextPath+"/apiRec/recWrite",
+			type : "post",
+			//contentType : "application/json",
+			data : formData,
+			processData: false,
+			contentType: false,
+			enctype : 'multipart/form-data',
+			
+			//받을때
+			//dataType : "json",
+			success : function(result){
+				//성공시 처리해야될 코드 작성
+				console.log(result);
+				if(result === 'success') {
+					location.href = contextPath+"/record/view?courseNo="+courseNo;
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+				
+		/*//recVo 전송
 		$.ajax({
 			//보낼때
 			url : contextPath+"/apiRec/recordWrite",
@@ -184,7 +226,7 @@ $(document).ready(function() {
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
-		});
+		});*/
 	});
 	
 });
