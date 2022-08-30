@@ -59,7 +59,7 @@
 				<div id="together_line">
 					<p id="together">함께하기</p>
 					<button type="button" id="together_choice"><span class="glyphicon glyphicon-user gray" id="man"></span>함께하기 불러오기</button>
-					<!-- <input type="hidden" name="eventNo" value=""> -->
+					<input type="hidden" id="togetherFinal" name="eventNo" value="">
 				</div>
 				
 				<!-- 사진 등록 (드래그앤 드롭) -->
@@ -72,12 +72,12 @@
 					</h2>
 					
 					<div id="drop">
-						
 						<div id="fileDragDesc">
 							<img id="photo-icon" src="${pageContext.request.contextPath}/assets/image/course/photo.png">
 						</div>
 						
 						<div id="filesList">
+						
 						</div>
 					</div>
 					
@@ -167,9 +167,9 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation">함께</li>
-			    <li role="presentation">태그</li>
-			    <li role="presentation">참여</li>
+			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">함께</a></li>
+			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">태그</a></li>
+			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">참여</a></li>
 			  </ul>
 			</div>
 			
@@ -180,9 +180,9 @@
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			    <li role="presentation"><a role="menuitem" tabindex="-1">Action</a></li>
-			    <li role="presentation">Another action</li>
-			    <li role="presentation">Something else here</li>
-			    <li role="presentation">Separated link</li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Separated link</a></li>
 			  </ul>
 			</div>
 
