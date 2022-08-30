@@ -140,13 +140,15 @@
 					</c:forEach>
 					
 					<!-- 댓글 상자 -->
-					<form method="get" action="${pageContext.request.contextPath}/board/comment">
-						<input type="hidden" name="boardNo" value="${bMap.BOARDNO}">
-						<input type="hidden" name="userNo" value="${authUser.userNo}">
-						<div id="comment-box">
-							<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
-						</div>
-					</form>
+					<c:if test="${authUser != null}">
+						<form method="get" action="${pageContext.request.contextPath}/board/comment">
+							<input type="hidden" name="boardNo" value="${bMap.BOARDNO}">
+							<input type="hidden" name="userNo" value="${authUser.userNo}">
+							<div id="comment-box">
+								<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+							</div>
+						</form>
+					</c:if>
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
