@@ -86,42 +86,41 @@
 	    
 	    <choose>
 	    	<when test="regStatus == 2"> <!-- 진행중 -->
-		    <![CDATA[
-		    			and reg_start <= sysdate
-		    			and reg_end >= sysdate
-		    ]]>
+			    <![CDATA[
+			    			and reg_end >= sysdate
+			    ]]>
 		    </when>
 		    <when test="regStatus == 3"> <!-- 마감 -->
-		    <![CDATA[
-		    			and reg_end < sysdate
-		    ]]>
+			    <![CDATA[
+			    			and reg_end < sysdate
+			    ]]>
 		    </when>
 	    </choose>
 	    
 	    <choose>
 	    	<when test="filStatus == 1"> <!-- 태그 -->
-		    <![CDATA[
-		    			and e.user_no = #{userNo}
-		    ]]>
+			    <![CDATA[
+			    			and e.user_no = #{userNo}
+			    ]]>
 		    </when>
 	    	<when test="filStatus == 2"> <!-- 태그 -->
-		    <![CDATA[
-		    			and t.user_no is not null
-		    ]]>
+			    <![CDATA[
+			    			and t.user_no is not null
+			    ]]>
 		    </when>
 		    <when test="filStatus == 3"> <!-- 참여 -->
-		    <![CDATA[
-		    			and ej.user_no is not null
-		    ]]>
+			    <![CDATA[
+			    			and ej.user_no is not null
+			    ]]>
 		    </when>
 	    </choose>
 	    
-	    <![CDATA[
-	                    order by e.event_no desc)ot
-	                    )ort
-			where rn>=#{startRnum}
-			and rn<=#{endRnum}
-		]]>
+		    <![CDATA[
+		                    order by e.event_no desc)ot
+		                    )ort
+				where rn>=#{startRnum}
+				and rn<=#{endRnum}
+			]]>
 	</select>
 	
 	
