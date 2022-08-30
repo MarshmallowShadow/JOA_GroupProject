@@ -64,7 +64,7 @@
 								
 								<c:if test="${bMap.EVENTNO != null}">
 									<div class="chart">
-										<table id="over" onClick="location.href='http://localhost:8088/JOA/together/together/read'">
+										<table id="over" onClick="location.href='http://localhost:8088/JOA/together/read/${bMap.EVENTNO}'">
 											<thead>
 												<tr class="t-top">
 													<th class="line_top">${bMap.REGSTART} - ${bMap.REGEND}</th>
