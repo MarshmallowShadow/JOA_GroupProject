@@ -193,5 +193,33 @@
             and e.event_no = #{no}
 		]]>
 	</select>
+	
+	<select id="getEvents" parameterType="map" resultType="EventVo">
+		<![CDATA[
+			select e.event_no eventNo, e.event_title eventTitle
+			from event e
+		]]>
+		<choose>
+			<when test="filCate == 3">
+			<![CDATA[
+				, event_joined j
+				where e.event_no = j.event_no
+				and e.user_no = #{userNo}
+			]]>
+			</when>
+			<when test="filCate == 2">
+			<![CDATA[
+				, event_tagged t
+				where e.event_no = t.event_no
+				and e.user_no = #{userNo}
+			]]>
+			</when>
+			<otherwise>
+			<![CDATA[
+				where e.user_no = #{userNo}
+			]]>
+			</otherwise>
+		</choose>
+	</select>
 
 </mapper>

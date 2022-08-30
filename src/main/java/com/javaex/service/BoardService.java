@@ -16,12 +16,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.javaex.dao.BoardCommentDao;
 import com.javaex.dao.BoardDao;
 import com.javaex.dao.BoardImgDao;
+import com.javaex.dao.EventDao;
 import com.javaex.dao.MyFavoriteDao;
 import com.javaex.dao.UserDao;
 import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardImgVo;
 import com.javaex.vo.BoardVo;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.EventVo;
 import com.javaex.vo.FavoriteCategoryVo;
 
 @Service
@@ -40,6 +42,8 @@ public class BoardService {
 	private MyFavoriteDao myFavoriteDao;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private EventDao eventDao;
 	
 	//생성자
 	
@@ -302,7 +306,7 @@ public class BoardService {
 	}
 	
 	//게시판 글쓰기에 코스 즐겨찾기 목록 가져오기
-	public Map<String, Object> favorite(int userNo) {
+	public Map<String, Object> getInfo(int userNo, int filCate) {
 		
 		System.out.println("BoardService > favorite");
 		
@@ -314,15 +318,23 @@ public class BoardService {
 		if(fList != null) {
 			
 			int cateNo = fList.get(0).getCateNo();
-					
+			
 			List<CourseVo> cList = myFavoriteDao.getCourses(cateNo);
 			pMap.put("cList", cList);
 			
 		}
 		
-		return pMap;
+		Map<String, Integer> map = new HashMap<>();
+		map.put("userNo", userNo);
+		map.put("filCate", filCate);
+		List<EventVo> eList = eventDao.getEvents(map);
+		pMap.put("eList", eList);
 		
+		System.out.println(eList);
+		
+		return pMap;
 	}
+	
 	
 	//게시판 글쓰기 코스 리스트 가져오기
 	public List<CourseVo> getCourseList(int cateNo){
@@ -331,6 +343,18 @@ public class BoardService {
 		
 		return myFavoriteDao.getCourses(cateNo);
 		
+	}
+	
+	//게시판 글쓰기 함께하기 리스트 가져오기
+	public List<EventVo> getEventList(int filCate, int userNo) {
+		
+		System.out.println("BoardService > getCourseList");
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("filCate", filCate);
+		map.put("userNo", userNo);
+		
+		return eventDao.getEvents(map);
 	}
 
 }

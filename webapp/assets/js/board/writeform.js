@@ -10,6 +10,8 @@
 		
 	});
 	
+/*------------------------------ 코스모달 ----------------------------------*/
+	
 	/* 코스 버튼을 클릭했을 때 */
 	$("#course_choice").on("click", function() {
 		
@@ -56,13 +58,14 @@
 		
 	});
 	
+	
 	//코스 선택
 	$("#courseModal").on("click", ".co", function(){
 		
 		$(".co").removeClass("c_selected");
 		$(this).addClass("c_selected");
 		
-	});	
+	});
 	
 	/* 코스 SAVE 버튼 눌렀을 때 */
 	$("#c-save").on("click", function() {
@@ -72,9 +75,6 @@
 		var folderIcon = '<span class="glyphicon glyphicon-folder-open gray" id="folder"></span>';
 		
 		if(courseNo != null || isNaN(courseNo) == false) {
-			//모달 닫기
-			$("#courseModal").modal("hide");
-			
 			//black text
 			$("#course_choice").addClass("blackBtn");
 			
@@ -85,6 +85,83 @@
 			$("#courseFinal").val(courseNo);
 		}
 		
+		//모달 닫기
+		$("#courseModal").modal("hide");
+		
+	});
+	
+/*------------------------------ 함께모달 ----------------------------------*/
+	
+	/* 이벤트 종류 선택 */
+	$("#togetherModal").on("click", ".fil", function(){
+		
+		var $this = $(this);
+		
+		var filCate = parseInt($this.data("fil-cate"));
+		
+		console.log(filCate);
+		
+		var map = {
+			filCate: filCate,
+			userNo: userNo
+		};
+		
+		//ajax
+		$.ajax({
+							
+			//보낼 때
+			url : pageContext + "/apiBoard/getEventList",
+			type : "post",
+			data : map,
+			//받을 때
+			//dataType : "json",
+			success : function(result){
+				
+				$(".togetherChoose ul").empty();
+				
+				for(var i=0; i<result.length; i++){
+					$(".togetherChoose ul").append('<li class="ev" data-event-title="' + result[i].eventTitle + '" data-event-no="' + result[i].eventNo + '" role="presentation"><a role="menuitem" tabindex="-1">' + result[i].eventTitle + '</a></li>');
+				}
+				
+			},
+			
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+			
+		});
+		
+	});
+	
+	//이벤트 선택
+	$("#togetherModal").on("click", ".ev", function(){
+		
+		$(".ev").removeClass("e_selected");
+		$(this).addClass("e_selected");
+		
+	});
+	
+	/* 코스 SAVE 버튼 눌렀을 때 */
+	$("#t-save").on("click", function() {
+		
+		var eventNo = $(".e_selected").data("event-no");
+		
+		var personIcon = '<span class="glyphicon glyphicon-user gray" id="man"></span>';
+		
+		if(eventNo != null || isNaN(eventNo) == false) {
+			//black text
+			$("#together_choice").addClass("blackBtn");
+			
+			//change course text
+			$("#together_choice").html(personIcon + $(".e_selected").data("title"));
+			
+			//hidden add courseNo
+			$("#togetherFinal").val(eventNo);
+		}
+		
+		//모달 닫기
+		$("#togetherModal").modal("hide");
+		
 	});
 	
 	/* 함께 버튼을 클릭했을 때 */
@@ -94,11 +171,6 @@
 		
 		//모달창 띄우기
 		$("#togetherModal").modal("show");
-		
-	});
-	
-	/* 함께 no */
-	$("#togetherModal").on("click", ".fil", function(){
 		
 	});
 	

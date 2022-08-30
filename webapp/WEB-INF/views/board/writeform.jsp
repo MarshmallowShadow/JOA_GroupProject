@@ -167,9 +167,9 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">함께</a></li>
-			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">태그</a></li>
-			    <li class="fil" data-filter="" role="presentation"><a role="menuitem" tabindex="-1">참여</a></li>
+			    <li class="fil" data-fil-cate="1" role="presentation"><a role="menuitem" tabindex="-1">함께</a></li>
+			    <li class="fil" data-fil-cate="2" role="presentation"><a role="menuitem" tabindex="-1">태그</a></li>
+			    <li class="fil" data-fil-cate="3" role="presentation"><a role="menuitem" tabindex="-1">참여</a></li>
 			  </ul>
 			</div>
 			
@@ -179,10 +179,9 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">Separated link</a></li>
+			    <c:forEach items="${eList}" var="EventVo">
+			  		<li class="ev" data-event-title="${EventVo.eventTitle}" data-event-no="${EventVo.eventNo}" role="presentation"><a role="menuitem" tabindex="-1">${EventVo.eventTitle}</a></li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 

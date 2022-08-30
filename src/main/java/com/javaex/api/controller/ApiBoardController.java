@@ -1,6 +1,7 @@
 package com.javaex.api.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.javaex.service.BoardService;
 import com.javaex.vo.BoardVo;
 import com.javaex.vo.CourseVo;
+import com.javaex.vo.EventVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -70,14 +72,29 @@ public class ApiBoardController {
 		
 	}
 	
+	//모달 코스 리스트 가져오기
 	@ResponseBody
 	@RequestMapping(value="/getCourseList", method= {RequestMethod.GET, RequestMethod.POST})
-	public List<CourseVo> geCourseList(@RequestBody int cateNo){
+	public List<CourseVo> getCourseList(@RequestBody int cateNo){
 		System.out.println("apiBoardController>getCourseList");
 		
 		List<CourseVo> cList = boardService.getCourseList(cateNo);
 		
 		return cList;
+	}
+	
+	//함께하기 모달 리스트 가져오기
+	@ResponseBody
+	@RequestMapping(value="/getEventList", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<EventVo> getEventList(@RequestParam("filCate") int filCate, @RequestParam("userNo") int userNo){
+		System.out.println("apiBoardController>getCourseList");
+		
+		System.out.println(filCate);
+		System.out.println(userNo);
+		
+		List<EventVo> eList = boardService.getEventList(filCate, userNo);
+		
+		return eList;
 	}
 
 }

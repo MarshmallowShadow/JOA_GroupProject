@@ -70,5 +70,10 @@ public class EventDao {
 		return tMap;
 		
 	}
+	
+	public List<EventVo> getEvents(Map<String, Integer> map){
+		System.out.println("EventDao > getEvents");
+		return sqlSession.selectList("together.getEvents", map);
+	}
 
 }

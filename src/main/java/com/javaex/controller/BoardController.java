@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BoardService;
 import com.javaex.vo.BoardCommentVo;
-import com.javaex.vo.BoardVo;
 import com.javaex.vo.UserVo;
 
 @Controller
@@ -57,7 +56,8 @@ public class BoardController {
 	
 	//게시판 글쓰기폼
 	@RequestMapping(value="/writeform", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeform(HttpSession session, Model model) {
+	public String writeform(HttpSession session, Model model
+							, @RequestParam(value="filCate", required=false, defaultValue="1") int filCate) {
 		
 		 System.out.println("BoardController > writeform");
 		 
@@ -65,9 +65,10 @@ public class BoardController {
 		 
 		 int userNo = authUser.getUserNo();
 		 
-		 Map<String, Object> bMap =  boardService.favorite(userNo);		 
+		 Map<String, Object> bMap =  boardService.getInfo(userNo, filCate);		 
 		 model.addAttribute("fList", bMap.get("fList"));
-		 model.addAttribute("cList", bMap.get("cList"));	 
+		 model.addAttribute("cList", bMap.get("cList"));
+		 model.addAttribute("eList", bMap.get("eList"));
 		
 		return "board/writeform";
 		
