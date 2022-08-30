@@ -87,12 +87,12 @@
 	    <choose>
 	    	<when test="regStatus == 2"> <!-- 진행중 -->
 			    <![CDATA[
-			    			and reg_end >= sysdate
+			    			and reg_end >= sysdate - 1
 			    ]]>
 		    </when>
 		    <when test="regStatus == 3"> <!-- 마감 -->
 			    <![CDATA[
-			    			and reg_end < sysdate
+			    			and reg_end < sysdate - 1
 			    ]]>
 		    </when>
 	    </choose>
