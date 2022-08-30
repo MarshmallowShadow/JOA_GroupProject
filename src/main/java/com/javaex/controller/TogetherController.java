@@ -39,9 +39,11 @@ public class TogetherController {
 	//함께하기 리스트
 	@RequestMapping(value="/together", method = {RequestMethod.GET, RequestMethod.POST})
 	public String together(Model model
-						   , @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage) {
+						   , @RequestParam(value="crtPage", required = false, defaultValue = "1")int crtPage
+						   , @RequestParam(value="regStatus", required = false, defaultValue="1") int regStatus
+						   , @RequestParam(value="filStatus", required = false, defaultValue="1") int filStatus) {
 		
-		 System.out.println("TogetherController > together");			
+		 System.out.println("TogetherController > together");
 		
 		return "together/together";
 		

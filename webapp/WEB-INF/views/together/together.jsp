@@ -25,11 +25,11 @@
 			<!-- 소분류 카테고리 -->
 			<div id="top_side">
 				<ul>
-					<li><a href="">전체</a></li>
+					<li><a href="${pageContext.request.contextPath}/together/together?regStatus=1">전체</a></li>
 					<li>|</li>
-					<li><a href="">진행중</a></li>
+					<li><a href="${pageContext.request.contextPath}/together/together?regStatus=2">진행중</a></li>
 					<li>|</li>
-					<li><a href="">마감</a></li>
+					<li><a href="${pageContext.request.contextPath}/together/together?regStatus=3">마감</a></li>
 				</ul>
 			</div><!-- top_side -->
 				
@@ -47,17 +47,17 @@
 				<div id="rightside">
 					<ul>
 						<li id="man_btn">
-							<a href="">
+							<a href="${pageContext.request.contextPath}/together/together?filStatus=1&regStatus=${param.regStatuss}">
 								<span class="glyphicon glyphicon-user"></span> 함께
 							</a>
 						</li>
 						<li id="tag_btn">
-							<a href="">
+							<a href="${pageContext.request.contextPath}/together/together?filStatus=2&regStatus=${param.regStatuss}">
 								<span class="glyphicon glyphicon-bookmark"></span> 태그
 							</a>
 						</li>
 						<li id="joined_btn">
-							<a href="">
+							<a href="${pageContext.request.contextPath}/together/together?filStatus=3&regStatus=${param.regStatuss}">
 								<span class="glyphicon glyphicon-ok"></span> 참여
 							</a>
 						</li>
@@ -125,8 +125,11 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript">
 	window.pageContext = '${pageContext.request.contextPath}';
-	window.crtPage = '${param.crtPage}';
 	window.userNo = parseInt('${authUser.userNo}');
+	
+	window.crtPage = parseInt('${param.crtPage}') || 0;
+	window.regStatus = ('${param.regStatus}') || 0;
+	window.filStatus = ('${param.filStatus}') || 0;
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>

@@ -24,14 +24,12 @@ public class EventDao {
 	
 	//메소드-일반
 	//리스트 불러오기 + 페이징
-	public List<Map<String, Object>> together(int startRnum, int endRnum, int userNo) {
+	public List<Map<String, Object>> together(int startRnum, int endRnum, Map<String, Object> map) {
 		
 		System.out.println("EventDao > together");
 		
-		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
-		map.put("userNo", userNo);
 		
 		List<Map<String, Object>> togetherList = sqlSession.selectList("together.together", map);
 		

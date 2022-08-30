@@ -38,7 +38,7 @@
 		          from (select e.event_no eventNo
 		          			   , e.user_no userNo
 		          			   , x1, x2, y1, y2
-		          			   , to_char(e.reg_start, 'YYYY/MM/DD') regStart
+		          			   , to_char(e.reg_start, 'YYYY/MM/DD')  regStart
 	                           , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
 	                           , e.event_title eventTitle
 	                           , p.course_no courseNo
@@ -82,6 +82,36 @@
 	                    					on e.event_no = ej.event_no
 	                    where c.course_no = e.course_no
 	                    and c.course_no = p.course_no
+	    ]]>
+	    
+	    <choose>
+	    	<when test="regStatus == 2"> <!-- 진행중 -->
+		    <![CDATA[
+		    			and reg_start <= sysdate
+		    			and reg_end >= sysdate
+		    ]]>
+		    </when>
+		    <when test="regStatus == 3"> <!-- 마감 -->
+		    <![CDATA[
+		    			and reg_end < sysdate
+		    ]]>
+		    </when>
+	    </choose>
+	    
+	    <choose>
+	    	<when test="filStatus == 2"> <!-- 태그 -->
+		    <![CDATA[
+		    			and t.user_no is not null
+		    ]]>
+		    </when>
+		    <when test="filStatus == 3"> <!-- 참여 -->
+		    <![CDATA[
+		    			and ej.user_no is not null
+		    ]]>
+		    </when>
+	    </choose>
+	    
+	    <![CDATA[
 	                    order by e.event_no desc)ot
 	                    )ort
 			where rn>=#{startRnum}

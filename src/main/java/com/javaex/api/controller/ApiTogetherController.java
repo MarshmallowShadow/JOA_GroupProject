@@ -33,7 +33,7 @@ public class ApiTogetherController {
 	//함께하기 리스트
 	@ResponseBody
 	@RequestMapping(value="/getList", method = {RequestMethod.GET, RequestMethod.POST})
-	public Map<String, Object> getList(@RequestBody int crtPage, HttpSession session){
+	public Map<String, Object> getList(@RequestBody Map<String,Object> info, HttpSession session){
 		
 		System.out.println("ApiTogetherController > getList");
 		
@@ -45,7 +45,9 @@ public class ApiTogetherController {
 			userNo = authUser.getUserNo();
 		}
 		
-		Map<String, Object> xMap = togetherService.together(crtPage, userNo);
+		info.put("userNo", userNo);
+		
+		Map<String, Object> xMap = togetherService.together(info);
 		
 		System.out.println(xMap);
 		

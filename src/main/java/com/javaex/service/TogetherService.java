@@ -50,9 +50,11 @@ public class TogetherService {
 	
 	//메소드-일반
 	//함꼐하기 리스트 + 페이징
-	public Map<String, Object> together(int crtPage, int userNo) {
+	public Map<String, Object> together(Map<String,Object> info) {
 		
 		System.out.println("TogetherService > together");
+		
+		int crtPage = (int)info.get("crtPage");
 		
 		//////////////////////////////////////////////
 		//                 리스트 가져오기               //
@@ -81,7 +83,7 @@ public class TogetherService {
 		
 		//System.out.println("글갯수" + listCnt + ",페이지" + crtPage + ",시작글" + startRnum + ",끝글" + endRnum);
 		
-		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum, userNo);
+		List<Map<String, Object>> togetherList = eventDao.together(startRnum, endRnum, info);
 		
 		//반복문으로 좌표 이용해서 위치 가져오기
 		for(int i=0; i<togetherList.size(); i++) {
@@ -151,7 +153,7 @@ public class TogetherService {
 		xMap.put("endPageBtnNo", endPageBtnNo);
 		xMap.put("startPageBtnNo", startPageBtnNo);
 		xMap.put("courseCate", courseCate);
-		xMap.put("userNo", userNo);
+		xMap.put("userNo", (int)info.get("userNo"));
 		
 		
 		return xMap;
@@ -256,9 +258,9 @@ public class TogetherService {
 		if(content.charAt(0) == '@' && content.contains(" ")) {
 			String mention = content.substring(1, content.indexOf(" "));
 			
-			int mentionUser = userDao.getUserNo(mention);
+			Integer mentionUser = userDao.getUserNo(mention);
 			
-			if(mentionUser != 0) {
+			if(mentionUser != null) {
 				eventCommentVo.setMentionUser(mentionUser);
 				eventCommentVo.setContent(content.substring(content.indexOf(" ") + 1));
 			}
