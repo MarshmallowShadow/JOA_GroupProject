@@ -167,6 +167,7 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation">함께</li>
 			    <li role="presentation">태그</li>
 			    <li role="presentation">참여</li>
 			  </ul>
