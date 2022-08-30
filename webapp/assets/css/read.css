@@ -149,6 +149,9 @@ tr>#date, #up {
 	display :inline-block;
 	margin-right: 8px;
 }
+.mention {
+	font-weight: 900;
+}
 #writer_btnM {margin-left: 79.5%;}
 #modify_m {
 	width : 82px;

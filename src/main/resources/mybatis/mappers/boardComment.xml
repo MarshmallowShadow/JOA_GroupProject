@@ -6,7 +6,7 @@
 	<insert id="commentWrite" parameterType="BoardCommentVo">
 		<![CDATA[
 			INSERT into BOARD_COMMENT
-			VALUES (SEQ_BOARD_COMMENT_NO.nextval, #{boardNo}, #{userNo}, 0, #{content}, sysdate)
+			VALUES (SEQ_BOARD_COMMENT_NO.nextval, #{boardNo}, #{userNo}, #{mentionUser}, #{content}, sysdate)
 		]]>
 	</insert>
 	
@@ -17,9 +17,12 @@
 			SELECT bo.b_comment_no
 			       , bo.board_no boardNo
 			       , u.id
+			       , m.id mention
 			       , to_char(bo.reg_date, 'YYYY-MM-DD') regDate
 			       , bo.content
-			FROM board_comment bo, users u
+			FROM users u, board_comment bo
+			left outer join(select id, mention_user from users u, board_comment bo where u.user_no = bo.mention_user) m
+			on m.mention_user = bo.mention_user
 			where bo.user_no = u.user_no
 			and bo.board_no = #{boardNo}
 		]]>	

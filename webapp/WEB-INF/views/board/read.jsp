@@ -127,6 +127,10 @@
 					<c:forEach items="${boardCommentList}"  var="boardCommentVo">
 						<p class="id">${boardCommentVo.ID}</p>
 						<div id="comment-inline">
+							<!-- 멘션이 있는지 확인 -->
+							<c:if test="${boardCommentVo.MENTION != null}">
+								<span class="mention">@${boardCommentVo.MENTION} </span>
+							</c:if>
 							<p class="comment">${boardCommentVo.CONTENT}</p>
 							<div id="writer_btnS">
 								<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>

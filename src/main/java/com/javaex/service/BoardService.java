@@ -17,6 +17,7 @@ import com.javaex.dao.BoardCommentDao;
 import com.javaex.dao.BoardDao;
 import com.javaex.dao.BoardImgDao;
 import com.javaex.dao.MyFavoriteDao;
+import com.javaex.dao.UserDao;
 import com.javaex.vo.BoardCommentVo;
 import com.javaex.vo.BoardImgVo;
 import com.javaex.vo.BoardVo;
@@ -37,6 +38,8 @@ public class BoardService {
 	private BoardImgDao boardImgDao;
 	@Autowired
 	private MyFavoriteDao myFavoriteDao;
+	@Autowired
+	private UserDao userDao;
 	
 	//생성자
 	
@@ -280,6 +283,19 @@ public class BoardService {
 		System.out.println("BoardService > commentWrite");
 		
 		System.out.println(boardCommentVo);
+		
+		String content = boardCommentVo.getContent();
+		
+		if(content.charAt(0) == '@' && content.contains(" ")) {
+			String mention = content.substring(1, content.indexOf(" "));
+			
+			Integer mentionUser = userDao.getUserNo(mention);
+			
+			if(mentionUser != null) {
+				boardCommentVo.setMentionUser(mentionUser);
+				boardCommentVo.setContent(content.substring(content.indexOf(" ") + 1));
+			}
+		}
 		
 		return boardCommentDao.commentWrite(boardCommentVo);
 		
