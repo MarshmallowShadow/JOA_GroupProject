@@ -58,8 +58,10 @@
 	
 	//코스 선택
 	$("#courseModal").on("click", ".co", function(){
+		
 		$(".co").removeClass("c_selected");
 		$(this).addClass("c_selected");
+		
 	});	
 	
 	/* 코스 SAVE 버튼 눌렀을 때 */
@@ -92,6 +94,11 @@
 		
 		//모달창 띄우기
 		$("#togetherModal").modal("show");
+		
+	});
+	
+	/* 함께 no */
+	$("#togetherModal").on("click", ".fil", function(){
 		
 	});
 	
