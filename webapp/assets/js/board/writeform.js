@@ -210,12 +210,16 @@
 		var boardCategory = $("[name='boardCategory']").val();
 		var title = $("[name='title']").val();
 		var content = $("[name='content']").val();
-		var userNo = $("#userNo").val();
+		var eventNo = $("[name='eventNo']").val() || null;
+		var courseNo = $("[name='courseNo']").val() || null;
+		var userNo = $("[name='userNo']").val();
 		
 		//boardVo 생성
 		var boardVo = {
 			boardCategory: boardCategory
 			, title: title
+			, eventNo: eventNo
+			, courseNo: courseNo
 			, content: content
 			, userNo: userNo
 		};
