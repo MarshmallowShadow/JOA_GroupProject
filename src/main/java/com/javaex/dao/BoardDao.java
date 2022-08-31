@@ -60,19 +60,7 @@ public class BoardDao {
 		
 		System.out.println("BoardDao > write");
 		
-		int all = boardVo.getCourseNo() + boardVo.getEventNo();
-		int course = boardVo.getCourseNo();
-		int together = boardVo.getEventNo();
-		
-		if(all > '0') {
-			sqlSession.insert("board.insertAll", boardVo);
-		}else if(course != '0') {
-			sqlSession.insert("board.insertCourse", boardVo);
-		}else if(together != '0') {
-			sqlSession.insert("board.insertTogether", boardVo);
-		}
-		
-		return sqlSession.insert("board.insertBoth", boardVo);
+		return	sqlSession.insert("board.insertAll", boardVo);
 		
 	}
 	
