@@ -49,8 +49,9 @@ $(document).ready(function() {
 		var idx = $target.attr('data-idx');
 		console.log(idx);
 		delete uploadFiles[idx]; //배열에서 요소 삭제
-		
 		$target.parent().remove(); //프리뷰 삭제
+		fileCnt--;
+		console.log("fileCnt:"+fileCnt);
 	});
 	
 	
@@ -85,7 +86,6 @@ $(document).ready(function() {
 
 		
 		/*유효성 검사*/
-		
 		if(courseCate == "" || courseCate == null) {
 			alert("종목을 선택해주세요");
 			$("input[name='courseCate']").css("border", "solid 2px rgb(255, 52, 120)");
@@ -94,7 +94,7 @@ $(document).ready(function() {
 			$("input[name='courseCate']").css("border", "solid 1px rgb(223, 223, 223)");
 		}
 		
-		if(hour == "" || hour == null || hour == "0" || minute == "" || minute == null) {
+		if(hour == "" || hour == null || minute == "" || minute == null) {
 			alert("시간을 입력해주세요");
 			$("#hour").css("border", "solid 2px rgb(255, 52, 120)");
 			$("#minute").css("border", "solid 2px rgb(255, 52, 120)");
@@ -165,6 +165,8 @@ $(document).ready(function() {
 /********************************************************사진 드래그앤 드롭********************************************************/ 
 //업로드할 파일 목록
 var uploadFiles = [];
+//파일 갯수
+var fileCnt = 0;
 
 $(function() {
 	//파일 드롭 다운
@@ -212,35 +214,66 @@ function fileDropDown() {
 function selectFile(fileObject) {
 	var files = null;
 	
-	if(fileObject != null) {
-		//파일 Drag 이용하여 등록시
-		files = fileObject;
+	if(fileCnt < 10) {
+		if(fileObject != null) {
+			//파일 Drag 이용하여 등록시
+			files = fileObject;
+		} else {
+			//직접 파일 등록시
+			files = $('#multipaartFileList_' + fileIndex)[0].files;
+			console.log(files);
+		}
+		
+		//다중파일 등록
+		if(files != null) {
+			
+			if(files != null && files.length > 0) {
+				$("#fileDragDesc").hide();
+				$("#filesList").show();
+			} else {
+				$("#fileDragDesc").show();
+				$("#filesList").hide();
+			}
+			
+			
+			for(var i = 0; i < files.length; i++) {
+				if(fileCnt < 10) {
+					console.log(files[i]);
+					var file = files[i];
+					var size = uploadFiles.push(file); //업로드 목록에 추가
+					preview(file, size - 1); //미리보기 만들기
+					
+					/*//이미지 압축
+					var option = {
+						maxSizeMB: 1,
+						maxWidthOrHeight: 1920,
+						intialQuality: 0.7
+					}
+					
+					try {
+						var compressedFile = imageCompression(file, option);
+						
+						console.log(compressedFile);
+						
+						var size = uploadFiles.push(compressedFile); //업로드 목록에 추가
+						fileCnt++;
+						console.log("fileCnt:"+fileCnt);
+						preview(compressedFile, size - 1); //미리보기 만들기
+					} catch (error) {
+						console.log(error);
+					}*/
+					
+				} else {
+					break;
+				}
+			}
+			
+		}
 	} else {
-		//직접 파일 등록시
-		files = $('#multipaartFileList_' + fileIndex)[0].files;
-		console.log(files);
+		alert("최대 이미지 갯수를 초과했습니다.");
 	}
 	
-	//다중파일 등록
-	if(files != null) {
-		
-		if(files != null && files.length > 0) {
-			$("#fileDragDesc").hide();
-			$("#filesList").show();
-		} else {
-			$("#fileDragDesc").show();
-			$("#filesList").hide();
-		}
-		
-		
-		for(var i = 0; i < files.length; i++) {
-			console.log(files[i]);
-			var file = files[i];
-			var size = uploadFiles.push(file); //업로드 목록에 추가
-			preview(file, size - 1); //미리보기 만들기
-		}
-		
-	}
+	
 	
 }
 
