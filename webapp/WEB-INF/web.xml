@@ -12,7 +12,7 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- DispatChServlet Mapping : Front Controller 등록 -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
@@ -23,6 +23,16 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Multipart Filter -->
+	<filter>
+		<filter-name>MultipartFilter</filter-name>
+		<filter-class>org.springframework.web.multipart.support.MultipartFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MultipartFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- 한글처리 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -40,8 +50,8 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	
+
+
 	<!-- Context Listener 등록 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

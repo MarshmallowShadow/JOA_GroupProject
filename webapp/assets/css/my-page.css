@@ -162,7 +162,6 @@ input[type=radio] {display:none;}
 	width: 300px;
 	margin: auto;
 	height: auto;
-	position: relative;
 	top: 20%;
 	/* left: 40%; */
 	/* transform: translate(-50%, -50%); */
