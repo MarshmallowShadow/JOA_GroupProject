@@ -297,7 +297,7 @@ public class BoardService {
 			String END = localApiComponent.getLocation(x2, y2);
 			bMap.put("END", END);
 		}
-		
+		System.out.println("c"+bMap);
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
 		
