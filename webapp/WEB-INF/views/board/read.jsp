@@ -70,7 +70,7 @@
 													<th class="line_top">${bMap.REGSTART} - ${bMap.REGEND}</th>
 													<th class="mark">
 														<button class="bookmark">
-															<img id="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
+															<img id="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
 														</button>
 													</th>
 												</tr>
