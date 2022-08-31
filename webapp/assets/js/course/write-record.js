@@ -241,6 +241,8 @@ function selectFile(fileObject) {
 					console.log(files[i]);
 					var file = files[i];
 					var size = uploadFiles.push(file); //업로드 목록에 추가
+					fileCnt++;
+					console.log("fileCnt:"+fileCnt);
 					preview(file, size - 1); //미리보기 만들기
 					
 					/*//이미지 압축
