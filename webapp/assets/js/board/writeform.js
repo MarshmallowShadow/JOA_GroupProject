@@ -153,7 +153,7 @@
 			$("#together_choice").addClass("blackBtn");
 			
 			//change course text
-			$("#together_choice").html(personIcon + $(".e_selected").data("title"));
+			$("#together_choice").html(personIcon + $(".e_selected").data("event-title"));
 			
 			//hidden add courseNo
 			$("#togetherFinal").val(eventNo);

@@ -280,20 +280,24 @@ public class BoardService {
 		
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
-		
+
+		Integer eventNo = (Integer)bMap.get("eventNo");
+				
 		//지명 가져오기
-		double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
-		double y1 = ((BigDecimal)bMap.get("Y1")).doubleValue();
-		
-		String START = localApiComponent.getLocation(x1, y1);
-		bMap.put("START", START);
-		
-		double x2 = ((BigDecimal)bMap.get("X2")).doubleValue();
-		double y2 = ((BigDecimal)bMap.get("Y2")).doubleValue();
-		
-		String END = localApiComponent.getLocation(x2, y2);
-		bMap.put("END", END);
-		
+		if(eventNo != null) {
+			double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
+			double y1 = ((BigDecimal)bMap.get("Y1")).doubleValue();
+			
+			String START = localApiComponent.getLocation(x1, y1);
+			bMap.put("START", START);
+			
+			double x2 = ((BigDecimal)bMap.get("X2")).doubleValue();
+			double y2 = ((BigDecimal)bMap.get("Y2")).doubleValue();
+			
+			String END = localApiComponent.getLocation(x2, y2);
+			bMap.put("END", END);
+		}
+		System.out.println("c"+bMap);
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
 		

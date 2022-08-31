@@ -5,8 +5,8 @@ public class BoardVo {
 	//필드
 	private int boardNo; /* 게시판 번호 */
 	private int userNo; /* 회원번호 */
-	private int courseNo; /* 코스번호 */
-	private int eventNo; /* 이벤트 번호 */
+	private Integer courseNo; /* 코스번호 */
+	private Integer eventNo; /* 이벤트 번호 */
 	private String boardCategory; /* 항목 */
 	private String title; /* 제목 */
 	private String content; /* 내용 */
@@ -16,8 +16,8 @@ public class BoardVo {
 	//생성자
 	public BoardVo() {}
 	
-	public BoardVo(int boardNo, int userNo, int courseNo, int eventNo, String boardCategory, String title,
-			String content, String regDate, int viewCount) {
+	public BoardVo(int boardNo, int userNo, Integer courseNo, Integer eventNo, String boardCategory, String title,
+				   String content, String regDate, int viewCount) {
 		this.boardNo = boardNo;
 		this.userNo = userNo;
 		this.courseNo = courseNo;
@@ -46,7 +46,7 @@ public class BoardVo {
 		this.userNo = userNo;
 	}
 
-	public int getCourseNo() {
+	public Integer getCourseNo() {
 		return courseNo;
 	}
 
@@ -54,7 +54,7 @@ public class BoardVo {
 		this.courseNo = courseNo;
 	}
 
-	public int getEventNo() {
+	public Integer getEventNo() {
 		return eventNo;
 	}
 

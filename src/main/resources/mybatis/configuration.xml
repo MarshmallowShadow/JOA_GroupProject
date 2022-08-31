@@ -2,6 +2,11 @@
 
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!--  -->
+	<settings>
+        <setting name="jdbcTypeForNull" value="INTEGER" />             
+    </settings>
+    
 	<typeAliases>
 		<typeAlias alias="coVo" type="com.javaex.vo.CourseVo"/>
 		<typeAlias alias="BoardVo" type="com.javaex.vo.BoardVo"/>
@@ -21,6 +26,7 @@
 		<typeAlias alias="favCateVo" type="com.javaex.vo.FavoriteCategoryVo"/>
 		<typeAlias alias="favCoVo" type="com.javaex.vo.FavoriteCourseVo"/>
 	</typeAliases>
+	
 	<mappers>
 		<mapper resource="mybatis/mappers/users.xml" />
 		<mapper resource="mybatis/mappers/mypage.xml" />
