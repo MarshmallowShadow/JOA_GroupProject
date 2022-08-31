@@ -116,21 +116,6 @@ $(document).ready(function() {
 			temperature = -100;
 		}
 		
-		//recVo 생성
-		/*var recVo = {
-			regDate: regDate,
-			weather: weather,
-			temperature: temperature,
-			courseCate: courseCate,
-			courseTime: courseTime,
-			difficulty: difficulty,
-			review: review,
-			courseNo: courseNo,
-			userNo: userNo
-		};
-		
-		console.log(recVo);*/
-		
 		var formData = new FormData();
 		
 		formData.append('regDate', regDate);
@@ -151,7 +136,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			//보낼때
-			url : contextPath+"/apiRec/recWrite",
+			url : contextPath+"/apiRec/recordWrite",
 			type : "post",
 			//contentType : "application/json",
 			data : formData,
@@ -172,61 +157,6 @@ $(document).ready(function() {
 				console.error(status + " : " + error);
 			}
 		});
-				
-		/*//recVo 전송
-		$.ajax({
-			//보낼때
-			url : contextPath+"/apiRec/recordWrite",
-			type : "post",
-			//contentType : "application/json",
-			data : recVo,
-	
-			//받을때
-			//dataType : "json",
-			success : function(recNo){
-				//성공시 처리해야될 코드 작성
-				console.log("recordNo:"+recNo);
-				
-				if(recNo > 0) {
-									
-					//업로드할 사진이 있을때 사진 업로드
-					if(uploadFiles.length > 0) { 
-						var formData = new FormData();
-						
-						for(var i=0; i < uploadFiles.length; i++) {
-							formData.append('file', uploadFiles[i]);
-						}
-						
-						formData.append('recNo', recNo);
-						
-						$.ajax({
-							//보낼때
-							url : contextPath+"/apiRec/recordImgWrite",
-							type : "post",
-							//contentType : "application/json",
-							data : formData,
-							processData: false,
-							contentType: false,
-							enctype : 'multipart/form-data',
-							
-							//받을때
-							//dataType : "json",
-							success : function(imgResult){
-								//성공시 처리해야될 코드 작성
-								console.log("img:"+imgResult);
-							},
-							error : function(XHR, status, error) {
-								console.error(status + " : " + error);
-							}
-						});
-					}
-				}
-				location.href = contextPath+"/record/view?courseNo="+courseNo;
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-		});*/
 	});
 	
 });
