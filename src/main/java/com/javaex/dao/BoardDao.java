@@ -60,6 +60,8 @@ public class BoardDao {
 		
 		System.out.println("BoardDao > write");
 		
+		System.out.println(boardVo);
+		
 		return	sqlSession.insert("board.insertAll", boardVo);
 		
 	}
