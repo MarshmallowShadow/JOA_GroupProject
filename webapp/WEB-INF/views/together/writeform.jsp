@@ -245,7 +245,7 @@
 					
 					<!-- 하단 버튼 -->
 					<div id="btn-wrap">
-						<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
+						<button class="cancel" onclick="location.href='${pageContext.request.contextPath}/together/together';">취소</button>
 						<button type="submit" class="add" id="add">함께 등록</button>
 					</div>
 					
