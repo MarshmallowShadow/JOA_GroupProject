@@ -20,7 +20,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/view-record.js"></script>
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
+<!-- 로컬 -->
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script> -->
+<!-- 보승 컴 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9&libraries=services"></script>
 <!-- lightbox -->
 <script src="${pageContext.request.contextPath }/assets/js/course/lightbox.js"></script>
 </head>
