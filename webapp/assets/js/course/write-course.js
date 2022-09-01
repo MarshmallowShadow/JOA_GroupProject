@@ -103,7 +103,7 @@ function map() {
 	    
 	} else { // HTML5의 GeoLocation을 사용할 수 없을때
 	    
-	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667); 
+	    var locPosition = new kakao.maps.LatLng(37.57793316923273, 126.97704154286627); 
 	        
 	    // 접속 위치 변경
 	    map.setCenter(locPosition); 

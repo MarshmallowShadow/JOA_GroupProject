@@ -29,7 +29,7 @@ function map() {
 	
 		var mapContainer = document.getElementById('map');
 		var mapOption = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+			center: new kakao.maps.LatLng(37.57793316923273, 126.97704154286627), //지도 중심좌표
 			level: 3 //지도의 레벨(확대, 축소 정도)
 	}
 	
@@ -55,7 +55,7 @@ function map() {
 	    
 	} else { //HTML5의 GeoLocation을 사용할 수 없을 때
 	    
-	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667); 
+	    var locPosition = new kakao.maps.LatLng(37.57793316923273, 126.97704154286627); 
 	        
 	    //접속 위치 변경
 	    map.setCenter(locPosition); 
