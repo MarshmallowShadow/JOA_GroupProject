@@ -6,13 +6,13 @@ public class EventCommentVo {
 	private int eCommentNo; /* 댓글번호 */
 	private int eventNo; /* 이벤트 번호 */
 	private int userNo; /* 작성자 회원번호 */
-	private int mentionUser; /* 멘션 회원번호 */
+	private Integer mentionUser; /* 멘션 회원번호 */
 	private String content; /* 내용 */
 	
 	//생성자
 	public EventCommentVo() {}
 	
-	public EventCommentVo(int eCommentNo, int eventNo, int userNo, int mentionUser, String content) {
+	public EventCommentVo(int eCommentNo, int eventNo, int userNo, Integer mentionUser, String content) {
 		this.eCommentNo = eCommentNo;
 		this.eventNo = eventNo;
 		this.userNo = userNo;
@@ -45,11 +45,11 @@ public class EventCommentVo {
 		this.userNo = userNo;
 	}
 
-	public int getMentionUser() {
+	public Integer getMentionUser() {
 		return mentionUser;
 	}
 
-	public void setMentionUser(int mentionUser) {
+	public void setMentionUser(Integer mentionUser) {
 		this.mentionUser = mentionUser;
 	}
 
