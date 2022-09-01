@@ -275,14 +275,13 @@
 	        
 	        <div class="courseCate">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    카테고리
+			    즐겨찾기
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  	<c:forEach items="${fList}" var="favCateVo">
+			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation"><a role="menuitem" tabindex="-1">${favCateVo.cateName}</a></li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 			
@@ -292,17 +291,16 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			    <c:forEach items="${cList}" var="CourseVo">
+			  		<li class="co" data-title="${CourseVo.title}" data-course-no="${CourseVo.courseNo}" role="presentation"><a role="menuitem" tabindex="-1">${CourseVo.title}</a></li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="save">Save</button>
+	        <button type="button" class="btn btn-primary" id="c-save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->

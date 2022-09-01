@@ -13,12 +13,14 @@ import com.javaex.dao.EventCommentDao;
 import com.javaex.dao.EventDao;
 import com.javaex.dao.EventJoinedDao;
 import com.javaex.dao.EventTaggedDao;
+import com.javaex.dao.MyFavoriteDao;
 import com.javaex.dao.PointDao;
 import com.javaex.dao.UserDao;
 import com.javaex.utl.LocalApiComponent;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.EventCommentVo;
 import com.javaex.vo.EventVo;
+import com.javaex.vo.FavoriteCategoryVo;
 import com.javaex.vo.PointVo;
 
 @Service
@@ -41,6 +43,8 @@ public class TogetherService {
 	private LocalApiComponent localApiComponent;
 	@Autowired
 	private EventTaggedDao eventTaggedDao;
+	@Autowired
+	private MyFavoriteDao myFavoriteDao;
 	
 	//생성자
 	
@@ -199,6 +203,33 @@ public class TogetherService {
 		int event = eventJoinedDao.join(eventVo);	
 		
 		return event;
+		
+	}
+	
+	//게시판 글쓰기에 코스 즐겨찾기 목록 가져오기
+	public Map<String, Object> getInfo(int userNo, int filCate) {
+		
+		System.out.println("TogetherService > favorite");
+		
+		Map<String, Object> pMap = new HashMap<>();
+		
+		List<FavoriteCategoryVo> fList = myFavoriteDao.getFavList(userNo);
+		pMap.put("fList", fList);
+		
+		if(fList != null) {
+			
+			int cateNo = fList.get(0).getCateNo();
+			
+			List<CourseVo> cList = myFavoriteDao.getCourses(cateNo);
+			pMap.put("cList", cList);
+			
+		}
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("userNo", userNo);
+		map.put("filCate", filCate);
+		
+		return pMap;
 		
 	}
 	

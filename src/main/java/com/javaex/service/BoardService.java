@@ -364,12 +364,14 @@ public class BoardService {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("userNo", userNo);
 		map.put("filCate", filCate);
+		
 		List<EventVo> eList = eventDao.getEvents(map);
 		pMap.put("eList", eList);
 		
 		System.out.println(eList);
 		
 		return pMap;
+		
 	}
 	
 	
