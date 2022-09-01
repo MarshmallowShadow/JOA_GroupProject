@@ -187,7 +187,7 @@
 								<!-- 이벤트 이름 -->
 								<tr>
 									<th>이벤트 이름</th>
-									<td><input type="text" class="txt-long" id="together-title" name="eventTitle" maxlength="11"></td>
+									<td><input type="text" class="txt-long" id="together-title" name="eventTitle" maxlength="100"></td>
 								</tr>
 								
 								
