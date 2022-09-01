@@ -117,7 +117,7 @@
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
 
-		<button type="submit" id="list" onclick="location.href='${pageContext.request.contextPath}/JOA/together/together';">목록</button>
+		<button type="submit" id="list" onclick="location.href='${pageContext.request.contextPath}/together/together';">목록</button>
 		
 		<br><br><br><br><br><br><br><br><br><br>
 		
