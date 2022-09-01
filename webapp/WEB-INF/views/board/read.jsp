@@ -45,7 +45,7 @@
 							<td>
 								
 								<c:if test="${bMap.COURSENO != null}">
-									<div class="course-container" onclick="window.location='../course/c_viewform.html';">
+									<div class="course-container" onclick="window.location='${pageContext.request.contextPath}/course/c_viewform.html';">
 										<a href="${pageContext.request.contextPath}/WEB-INF/course/view-course">
 											<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
 											<div class="course-info">

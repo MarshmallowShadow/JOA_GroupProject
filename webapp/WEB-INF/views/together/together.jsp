@@ -39,7 +39,7 @@
 			
 				<div id="to_make">
 					<c:if test="${authUser != null}">
-						<button type="submit" id="together_make" onclick="location.href='http://localhost:8088/JOA/together/writeform';">함께하기 만들기</button>
+						<button type="submit" id="together_make" onclick="location.href='${pageContext.request.contextPath}/JOA/together/writeform';">함께하기 만들기</button>
 					</c:if>
 				</div>
 		
