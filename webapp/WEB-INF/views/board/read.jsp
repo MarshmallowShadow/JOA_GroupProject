@@ -151,7 +151,7 @@
 							<input type="hidden" name="boardNo" value="${bMap.BOARDNO}">
 							<input type="hidden" name="userNo" value="${authUser.userNo}">
 							<div id="comment-box">
-								<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+								<textarea id="replybox" name="content" style="resize: none;"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
 							</div>
 						</form>
 					</c:if>
