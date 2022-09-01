@@ -129,10 +129,12 @@
 <!-- js -->
 <script type="text/javascript">
 	window.contextPath = '${pageContext.request.contextPath}';
+	//key WiFi acae275ea0809d93a5e7a1622fddb4f9
+	//key Local 61a92b5fb49fcf77c122981c5991fdb8
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9&libraries=services"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/map/map.js"></script>
 
 </html>
