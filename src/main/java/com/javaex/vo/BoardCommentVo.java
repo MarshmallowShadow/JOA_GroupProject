@@ -67,5 +67,5 @@ public class BoardCommentVo {
 		return "BoardCommentVo [bCommentNo=" + bCommentNo + ", boardNo=" + boardNo + ", userNo=" + userNo
 				+ ", mentionUser=" + mentionUser + ", content=" + content + "]";
 	}
-
+	
 }
