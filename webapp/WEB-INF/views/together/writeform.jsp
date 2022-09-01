@@ -12,9 +12,6 @@
 <link href="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/together-write.css" rel="stylesheet" type="text/css">
 
-
-
-
 </head>
 <body>
 
@@ -319,6 +316,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/writeform.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
+
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9"></script>
 
 </html>
