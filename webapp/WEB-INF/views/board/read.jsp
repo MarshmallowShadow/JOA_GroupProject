@@ -64,7 +64,7 @@
 								
 								<c:if test="${bMap.EVENTNO != null}">
 									<div class="chart">
-										<table id="over" onClick="location.href='http://localhost:8088/JOA/together/read/${bMap.EVENTNO}'">
+										<table id="over" onClick="location.href='${pageContext.request.contextPath}/together/read/${bMap.EVENTNO}'">
 											<thead>
 												<tr class="t-top">
 													<th class="line_top">${bMap.REGSTART} - ${bMap.REGEND}</th>
@@ -158,7 +158,7 @@
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
-			<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA/board/board';">목록</button>
+			<button type="submit" id="list" onclick="location.href='${pageContext.request.contextPath}/board/board';">목록</button>
 			
 			<br><br><br><br><br><br><br><br><br><br>
 			
