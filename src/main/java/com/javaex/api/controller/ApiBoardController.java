@@ -23,7 +23,7 @@ import com.javaex.vo.EventVo;
 import com.javaex.vo.UserVo;
 
 @Controller
-@RequestMapping(value = "apiBoard")
+@RequestMapping(value = "/apiBoard")
 public class ApiBoardController {
 	
 	//필드
@@ -40,7 +40,7 @@ public class ApiBoardController {
 	//게시판 글쓰기
 	@ResponseBody
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public int write(@ModelAttribute BoardVo boardVo, HttpSession session) {
+	public int write(@RequestBody BoardVo boardVo, HttpSession session) {
 		
 		System.out.println("ApiBoardController > write");
 		
