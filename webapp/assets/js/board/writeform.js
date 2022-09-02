@@ -45,7 +45,7 @@
 				$(".courseChoose ul").empty();
 				
 				for(var i=0; i<result.length; i++){
-					$(".courseChoose ul").append('<li class="co" data-title="' + result[i].title + '" data-course-no="'+ result[i].courseNo +'" role="presentation">' + result[i].title + '</li>');
+					$(".courseChoose ul").append('<li class="co" data-title="' + result[i].title + '" data-course-no="'+ result[i].courseNo +'" role="presentation"><a role="menuitem" tabindex="-1">' + result[i].title + '</a></li>');
 				}
 				
 			},
