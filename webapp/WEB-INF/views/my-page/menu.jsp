@@ -23,8 +23,8 @@
 		<ol>
 			<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark/main">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
 			<li class="bookmark-btn">
-				<img class="plus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
-				<img class="minus-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
+				<img class="plus-btn" data-toggle="modal" data-target=".category-add-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
+				<img class="minus-btn" data-toggle="modal" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 			</li>
 		</ol>	
 		<ol class="categoryArea">	
@@ -44,29 +44,44 @@
 </div>
 
 <!-- 모달-즐겨찾기 추가 ***************************************************************************************** -->
-<div class="modal category-add-btn">
+
+<div class="modal fade category-add-btn" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 추가</h5>
       </div>
       <div class="modal-body">
-        <p>즐겨찾기 이름을 입력하세요!!</p>
-        <input type="text" name="catename" value="" placeholder="새 목록 이름">
+        <form>
+          <div class="form-group">
+            <p>즐겨찾기 이름을 입력하세요!!</p>
+            <input type="text" class="form-control" name="catename" value="" placeholder="새 목록 이름">
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="add-bookmark-category-cancel" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary" id="add-bookmark-category">목록 만들기</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="add-bookmark-category">목록 만들기</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
+    </div>
+  </div>
+</div>
 
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
-
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
 <div class="modal category-del-btn">
   <div class="modal-dialog" role="document">
@@ -76,7 +91,7 @@
         <h5 class="modal-title">즐겨찾기 삭제</h5>
       </div>
       <div class="modal-body">
-      	<p>삭제할 목록을 선택해 주세요!</p>
+      	<p>삭제할 목록을 선택해 주세요!</p> 
         <select id="del-select-list" class="sel-delCategory" >
         	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
