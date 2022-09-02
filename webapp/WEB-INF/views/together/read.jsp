@@ -30,7 +30,7 @@
 			<!-- 상세지도 -->
 			<div class="map_sample">
 				<!-- 지도 영역 -->
-				<div id="map-info" class="map"></div><!-- a링크 걸어서 상세지도 연결 -->
+				<div id="map-info" class="map"></div>
 			</div>
 			
 			<!-- 상세정보 -->
