@@ -24,7 +24,7 @@
 			<li id="bookmark"><a href="${pageContext.request.contextPath}/my-page/bookmark/main">즐겨찾기 <img class="bmStar" src="${pageContext.request.contextPath}/assets/image/my-page/star.png"></a></li>
 			<li class="bookmark-btn">
 				<img class="plus-btn" data-toggle="modal" data-target=".category-add-btn" src="${pageContext.request.contextPath}/assets/image/my-page/plus.png">&nbsp; 
-				<img class="minus-btn" data-toggle="modal" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
+				<img class="minus-btn" data-toggle="modal" data-target=".category-del-btn" src="${pageContext.request.contextPath}/assets/image/my-page/minus.png">
 			</li>
 		</ol>	
 		<ol class="categoryArea">	
