@@ -28,7 +28,7 @@ function categoryRender(categoryList) {
 	var str = '';
 	str += '<li id="menuList" class="bookmark-menuList" value="'+categoryList.cateNo+'">';
 	str += '	<a href="'+contextPath+'/my-page/bookmark?cateNo='+categoryList.cateNo+'">'+categoryList.cateName+'</a>';	//카테고리 번호에 따라 페이지 이동하기...!!
-	str += '	<img id="edit-cate-name" class="editName" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
+	str += '	<img id="edit-cate-name" class="editName" data-toggle="modal" data-target=".category-modify-btn" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'" src="'+contextPath+'/assets/image/my-page/edit.png">';
 	str += '</li>';
 	
 	$(".categoryArea").append(str);
@@ -37,14 +37,17 @@ function categoryRender(categoryList) {
 
 function cateDelRender(categoryList) {
 	var str = '';
-	str += '<option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
+	str += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'>'+categoryList.cateName+'</a></li>';
 	
 	$(".sel-delCategory").append(str);
 }
 
 function cateEditRender(categoryList){
 	var str = '';
-	str += '<input id="input-cateName-edit" type="text" value="" data-catename="'+categoryList.cateName+'" data-cateno="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
+	/*str += '<input id="input-cateName-edit" type="text" value="" data-catename="'+categoryList.cateName+'" data-cateno="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
+	*/
+	
+	str += '<input id="input-cateName-edit" type="text" class="form-control" name="catename" value="" data-catename="'+categoryList.cateName+'" data-cateno="'+categoryList.cateNo+'" placeholder="'+categoryList.cateName+'">';
 	
 	$("#cateName-modal").append(str);
 }
@@ -818,13 +821,18 @@ $(window).ready(function(){
 		//모달창 띄우기
 		$(".category-del-btn").show('modal');
 	});
-		
+	
+	
+	
 	//모달창의 삭제버튼 클릭할때
 	$("#del-bookmark-category").on("click", function(){
 		console.log("모달>삭제버튼 클릭")
 		//삭제할 데이터 모으기
 		var cateNo = $("#del-select-list").val();
-        console.log("cateNo", cateNo);
+		console.log("cateNo", cateNo);
+		
+		//즐겨찾기 삭제 항목 중 선택 이벤트 값 띄우기
+		$("#dropdownMenu9").html($("#del-select-list").data("catename") + '<span class="caret"></span>');	
 		
 		//서버로 데이터 전송(ajax)
 		$.ajax({
@@ -845,19 +853,7 @@ $(window).ready(function(){
 				console.error(status + " : " + error);
 			}
 		});
-		$(".category-del-btn").hide('modal');
 	});
-	
-	//모달창의 닫기버튼 클릭할때
-	$("#del-bookmark-category-cancel").on("click", function(){
-		$(".category-del-btn").hide('modal');
-	});
-
-	
-	
-	
-	
-	
 	
 	
 	
@@ -938,21 +934,7 @@ $(window).ready(function(){
 				console.error(status + " : " + error);
 			}
 		});
-		$(".category-modify-btn").hide('modal');
 	});
-	
-	//카테고리 수정 모달창의 닫기버튼 클릭할때
-	$("#edit-bookmark-category-cancel").on("click", function(){
-		$(".category-modify-btn").hide('modal');
-	});
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
