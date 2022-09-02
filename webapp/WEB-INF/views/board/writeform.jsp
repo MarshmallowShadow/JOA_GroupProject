@@ -162,11 +162,11 @@
 	      <div class="modal-body">
 	        
 	        <div class="togetherCate">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
 			    카테고리
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu" id="t-fil" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu" id="t-fil" role="menu" aria-labelledby="dropdownMenu3">
 			    <li class="fil" data-fil-cate="1" role="presentation"><a role="menuitem" tabindex="-1">함께</a></li>
 			    <li class="fil" data-fil-cate="2" role="presentation"><a role="menuitem" tabindex="-1">태그</a></li>
 			    <li class="fil" data-fil-cate="3" role="presentation"><a role="menuitem" tabindex="-1">참여</a></li>
@@ -174,11 +174,11 @@
 			</div>
 			
 			<div class="togetherChoose">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-expanded="true">
 			    함께하기
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu" id="t-list" role="menu" aria-labelledby="dropdownMenu2">
+			  <ul class="dropdown-menu" id="t-list" role="menu" aria-labelledby="dropdownMenu4">
 			    <c:forEach items="${eList}" var="EventVo">
 			  		<li class="ev" data-event-title="${EventVo.eventTitle}" data-event-no="${EventVo.eventNo}" role="presentation"><a role="menuitem" tabindex="-1">${EventVo.eventTitle}</a></li>
 			  	</c:forEach>

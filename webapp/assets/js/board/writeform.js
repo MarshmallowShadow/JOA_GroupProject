@@ -152,7 +152,7 @@
 	$('#togetherModal').on('click', '#t-fil li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
+	    $('#dropdownMenu3').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
@@ -168,7 +168,7 @@
 	$("#togetherModal").on('click', '#t-list li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기
-	    $('#dropdownMenu2').html($(this).text() + '<span class="caret"></span>');
+	    $('#dropdownMenu4').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
