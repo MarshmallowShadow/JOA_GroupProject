@@ -70,23 +70,14 @@
 </div>
 
 <!-- 모달-즐겨찾기 추가 끝!! ************************************************************************************* -->
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul>
-</div>
+
+
 <!-- 모달-즐겨찾기 삭제 ***************************************************************************************** -->
-<div class="modal category-del-btn">
-  <div class="modal-dialog" role="document">
+<div class="modal fade category-del-btn" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
         <h5 class="modal-title">즐겨찾기 삭제</h5>
       </div>
@@ -95,15 +86,27 @@
         <select id="del-select-list" class="sel-delCategory" >
         	<%-- <option>${categoryVo.cateName}</option> --%>
         </select>
+        
+        
+        <div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		    Dropdown
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+		  </ul>
+		</div>
+		<p class="cate-del-warning">삭제시 목록 안의 내용들도 삭제됩니다!!</p>
       </div>
-      <p class="cate-del-warning">삭제시 목록 안의 내용들도 삭제됩니다!!</p>
+      
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="del-bookmark-category-cancel" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary" id="del-bookmark-category">목록 삭제</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="del-bookmark-category">목록 삭제</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
 
 
 

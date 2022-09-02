@@ -749,7 +749,7 @@ $(window).ready(function(){
 	$(".plus-btn").click(function(){
 		console.log("카테고리추가");
 		$("[name=catename]").val("");
-		$(".category-add-btn").modal('show');
+		$(".category-add-btn").show('modal');
 	 });
 	 
 	$("#add-bookmark-category").on("click", function(){
@@ -786,18 +786,6 @@ $(window).ready(function(){
 		$(".bookmark-menuList").remove();
 		categoryList();
 	});
-	//모달창의 닫기버튼 클릭할때
-	$("#add-bookmark-category-close").on("click", function(){
-		$("[name=catename]").val("");
-		$(".category-add-btn").hide('modal');
-	});
-	$("#add-bookmark-category-cancel").on("click", function(){
-		$("[name=catename]").val("");
-		$(".category-add-btn").hide('modal');
-	});
-	
-	
-	
 	
 	
 	/*--------------------------------------------------*/
