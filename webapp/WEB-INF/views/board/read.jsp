@@ -89,7 +89,7 @@
 												<tr>
 													<th colspan="2" class="line_bottom">
 														${courseCateMap[bMap.COURSECATEGORY]}
-														<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>${bMAP.COUNT}/${bMAP.JOINMAX}</button>
+														<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>${bMap.COUNT}/${bMap.JOINMAX}</button>
 													</th>
 												</tr>
 											</tfoot>
