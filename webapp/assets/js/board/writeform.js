@@ -59,7 +59,7 @@
 	});
 	
 	//코스 즐겨찾기 선택된 값 띄우기
-	$('#fav-menu li > a').on('click', function() {
+	$('#courseModal').on('click', '#fav-menu li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
 	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
@@ -75,7 +75,7 @@
 	});
 	
 	//즐겨찾기된 코스 선택된 값 띄우기
-	$('#fav-course li > a').on('click', function() {
+	$('#courseModal').on('click', '#fav-course li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
 	    $('#dropdownMenu2').text($(this).text() + '<span class="caret"></span>');
@@ -149,7 +149,7 @@
 	});
 	
 	//함께하기 항목 중 선택된 값 띄우기
-	$('#t-fil li > a').on('click', function() {
+	$('#togetherModal').on('click', '#t-fil li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
 	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
@@ -165,7 +165,7 @@
 	});
 	
 	//함께하기 항목 중 선택 이벤트 값 띄우기
-	$("#courseModal").on('click', '#t-list li > a', function() {
+	$("#togetherModal").on('click', '#t-list li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기
 	    $('#dropdownMenu2').html($(this).text() + '<span class="caret"></span>');
