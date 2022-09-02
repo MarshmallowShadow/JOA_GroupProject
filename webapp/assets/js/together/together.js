@@ -41,11 +41,13 @@
 				console.log(eventTaggedVo);				
 				
 				if(tagged == true) {
-					$('[data-eventno="' + eventNo + '"]').children().attr("src", pageContext +'/assets/image/together/bookmarks_white.png');
+					$('[data-eventno="' + eventNo + '"]').children().attr("src", 
+						pageContext +'/assets/image/together/bookmarks_white.png');
 					$this.data("tagged", false);
 					$this.attr("data-tagged", "false");
 				} else {
-					$('[data-eventno="' + eventNo + '"]').children().attr("src", pageContext +'/assets/image/together/bookmarks_black.png');
+					$('[data-eventno="' + eventNo + '"]').children().attr("src", 
+						pageContext +'/assets/image/together/bookmarks_black.png');
 					$this.data("tagged", true);
 					$this.attr("data-tagged", "true");
 				}

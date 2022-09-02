@@ -352,7 +352,7 @@ public class BoardService {
 		List<FavoriteCategoryVo> fList = myFavoriteDao.getFavList(userNo);
 		pMap.put("fList", fList);
 		
-		if(fList != null) {
+		if(fList.size() > 0) {
 			
 			int cateNo = fList.get(0).getCateNo();
 			
