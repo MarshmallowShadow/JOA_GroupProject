@@ -34,33 +34,12 @@ public class RecordService {
 	private LikedCourseDao likeDao;
 
 	
-	//(기록등록) 코스 정보 가져오기
-	public Map<String, Object> getCourseInfo(int courseNo) {
-		System.out.println("RecordService->getCourseInfo");
-		
-		//코스 정보
-		CourseVo coVo = coDao.selectCourse(courseNo);
-		
-		Map<String, Object> coMap = new HashMap<String, Object>();
-		coMap.put("coVo", coVo);
-
-		return coMap;
-	}
-	
-	
-	//코스기록 등록하기
-	public int recordWrite(RecordVo recVo) {
-		System.out.println("RecordService->recordWrite");
-		System.out.println(recVo);
+	//기록 등록
+	public String recordWrite(RecordVo recVo, List<MultipartFile> fileList) {
+		System.out.println("RecordService->recWrite");
 		recDao.insertRecord(recVo);
-		System.out.println(recVo.getRecordNo());
-		return recVo.getRecordNo();
-	}
-	
-	
-	//코스기록 이미지 등록
-	public String recordImgWrite(List<MultipartFile> fileList, int recNo) {
-		System.out.println("RecordService->recordImgWrite");
+		
+		int recNo = recVo.getRecordNo();
 		
 		String saveDir = "C:\\javaStudy\\upload";
 		
@@ -112,6 +91,19 @@ public class RecordService {
 		
 		return "success";
 		
+	}
+	
+	//(기록등록) 코스 정보 가져오기
+	public Map<String, Object> getCourseInfo(int courseNo) {
+		System.out.println("RecordService->getCourseInfo");
+		
+		//코스 정보
+		CourseVo coVo = coDao.selectCourse(courseNo);
+		
+		Map<String, Object> coMap = new HashMap<String, Object>();
+		coMap.put("coVo", coVo);
+
+		return coMap;
 	}
 	
 	
@@ -220,6 +212,9 @@ public class RecordService {
 		return "fail";
 		
 	}
+
+
+	
 
 	
 

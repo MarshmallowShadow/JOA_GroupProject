@@ -2,9 +2,9 @@
 //기본 지도 변수들
 
 //위치 정보 차단 경우 기본 좌표
-var lat = 33.450701;
-var lon = 126.570667;
-var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+var lat = 37.57793316923273;
+var lon = 126.97704154286627;
+var locPosition = new kakao.maps.LatLng(37.57793316923273, 126.97704154286627);
 
 //마커 배열
 var markerList = [];

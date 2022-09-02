@@ -72,23 +72,23 @@
 		     from (select c.course_no, c.title, nvl(l_count, 0) as l_count, nvl(f_count, 0) as f_count, nvl(r_count, 0) as r_count, x, y, file_path, distance
 		           from point p, course c
                 left outer join (SELECT count(*) l_count, course_no
-		                 FROM liked_course
-		                 GROUP by course_no)lc
+				                 FROM liked_course
+				                 GROUP by course_no)lc
                 on  c.course_no = lc.course_no
                 left outer join (SELECT count(*) f_count, course_no
-		                 from favorite_course
-		                 group by course_no) fc
+				                 from favorite_course
+				                 group by course_no) fc
                 on c.course_no = fc.course_no
                 left outer join (SELECT count(*) r_count, course_no
-		                 FROM record
-		                 group by course_no) rc
-                on rc.course_no = c.course_no
+				                 FROM record
+				                 group by course_no) rc
+                on c.course_no = rc.course_no
                 left outer join (SELECT file_path, course_no
-		                 FROM record_img i, (SELECT MIN(record_no) "ma", course_no
-		                                                FROM record
-		                                                GROUP BY course_no) d       
-		                where i.record_no = d."ma"
-                        and order_no = 0) i
+		                		 FROM record_img i, (SELECT MIN(record_no) "ma", course_no
+	                                                FROM record
+	                                                GROUP BY course_no) d       
+		                		where i.record_no = d."ma"
+                     			and order_no = 0) i
                 on i.course_no = c.course_no
 		        where c.course_no = p.course_no
                 and p.order_no = 0

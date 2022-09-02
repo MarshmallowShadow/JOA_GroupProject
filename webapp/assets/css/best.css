@@ -181,12 +181,13 @@ table td:hover {
 
 .comment-text1{
 	width: 340px;
-	height: 0 auto;
+	height: 24px;
 	border:1px solid rgb(101, 101, 101);
 	border-radius: 2px;
 	margin-top: 3px;
 	margin-left: 8px;
 	padding: 2px;
+	 overflow: hidden;
 }
 
 /* 후기 좋아요 Total */

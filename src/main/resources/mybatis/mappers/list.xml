@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="list">
+
 <!-- 수정 -->
 <update id="modify" parameterType="ListVo">
 	<![CDATA[
@@ -12,6 +13,7 @@
 	]]>
 
 </update>
+
 
 <!-- 전체글 갯수 -->
 <select id="selectTotalCnt" parameterType="map" resultType="int">
@@ -100,6 +102,7 @@
 	]]>
 </select>
 
+
 <!-- 글쓰기 -->
 <insert id="listWrite" parameterType="ListVo">
 	<![CDATA[
@@ -107,4 +110,5 @@
 		values(seq_q_list_no.nextval, #{userNo}, #{boardCategory}, #{title}, #{content}, sysdate, 0)
 	]]>
 </insert> 
+
 </mapper>

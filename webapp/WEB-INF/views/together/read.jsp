@@ -110,14 +110,14 @@
 						<input type="hidden" name="eventNo" value="${tMap.EVENTNO}">
 						<input type="hidden" name="userNo" value="${authUser.userNo}">
 						<div id="comment-box">
-							<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+							<textarea id="replybox" name="content" style="resize: none;"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
 						</div>
 					</form>
 				</c:if>
 			</div><!-- commentbox -->
 		</div><!-- 댓글 -->
 
-		<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA/together/together';">목록</button>
+		<button type="submit" id="list" onclick="location.href='${pageContext.request.contextPath}/together/together';">목록</button>
 		
 		<br><br><br><br><br><br><br><br><br><br>
 		
@@ -137,6 +137,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/read.js"></script>
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9"></script>
 
 </html>

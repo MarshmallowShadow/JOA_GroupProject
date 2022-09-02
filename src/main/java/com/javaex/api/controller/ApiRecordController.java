@@ -28,20 +28,10 @@ public class ApiRecordController {
 	//기록 등록
 	@ResponseBody
 	@RequestMapping(value="/recordWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public int recordWrite(@ModelAttribute RecordVo recVo) {
+	public String recWrite(@ModelAttribute(value = "recVo") RecordVo recVo,
+			@RequestPart(value = "file", required = false) List<MultipartFile> fileList) {
 		System.out.println("RecordController->recordWrite");
-		return recService.recordWrite(recVo);
-	}
-	
-	//기록사진 등록
-	@ResponseBody
-	@RequestMapping(value = "/recordImgWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWrite(@RequestPart(value = "file", required = false) List<MultipartFile> fileList,
-					@RequestParam(value = "recNo", required = false) int recNo) {
-		System.out.println("ApiRecordController->recordWrite");
-		System.out.println(fileList);
-		System.out.println(recNo);
-		return recService.recordImgWrite(fileList, recNo);
+		return recService.recordWrite(recVo, fileList);
 	}
 	
 	//기록 이미지 삭제

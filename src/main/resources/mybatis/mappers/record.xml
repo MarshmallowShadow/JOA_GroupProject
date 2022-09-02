@@ -46,6 +46,9 @@
 		<if test="authUserNo != 0">
 			and r.user_no = ${authUserNo}
 		</if>
+		<![CDATA[
+			order by reg_date
+		]]>
 	</select>
 	
 	<!-- 기록 가져오기 -->

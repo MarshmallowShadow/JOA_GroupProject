@@ -19,6 +19,7 @@ import com.javaex.service.TogetherService;
 import com.javaex.vo.CourseVo;
 import com.javaex.vo.EventCommentVo;
 import com.javaex.vo.EventVo;
+import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping(value="/together")
@@ -51,9 +52,18 @@ public class TogetherController {
 	
 	//함께하기 글쓰기폼
 	@RequestMapping(value="/writeform", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeform() {
+	public String writeform(HttpSession session, Model model
+			, @RequestParam(value="filCate", required=false, defaultValue="1") int filCate) {
 		
 		 System.out.println("TogetherController > writeform");
+		 
+		 UserVo authUser = (UserVo)session.getAttribute("authUser");
+		 
+		 int userNo = authUser.getUserNo();
+		 
+		 Map<String, Object> bMap =  togetherService.getInfo(userNo, filCate);		 
+		 model.addAttribute("fList", bMap.get("fList"));
+		 model.addAttribute("cList", bMap.get("cList"));
 		
 		return "together/writeform";
 		

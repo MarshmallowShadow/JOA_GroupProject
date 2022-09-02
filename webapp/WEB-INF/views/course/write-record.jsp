@@ -20,7 +20,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/write-record.js"></script>
 <!-- 카카오지도 API -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
+<!-- 로컬 -->
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script> -->
+<!-- 보승 컴 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9"></script>
 </head>
 <body>
 <div id="wrap">
@@ -356,7 +359,7 @@
 					<tr>
 						<th>한줄평</th>
 						<td colspan="3">
-							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="200">
+							<input class="txt-long" type="text" id="review" name="review" value=""  maxlength="100">
 						</td>
 					</tr>
 					
@@ -369,7 +372,7 @@
 				<h2>
 					<input type="file" id="input-file" multiple="multiple">
 					<label for="input-file">파일선택</label>
-					사진을 드래그하거나 선택해주세요.
+					사진을 드래그하거나 선택해주세요. (최대 10장)
 				</h2>
 				
 				<div id="drop">

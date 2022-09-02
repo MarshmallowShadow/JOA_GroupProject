@@ -12,9 +12,6 @@
 <link href="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/together-write.css" rel="stylesheet" type="text/css">
 
-
-
-
 </head>
 <body>
 
@@ -190,7 +187,7 @@
 								<!-- 이벤트 이름 -->
 								<tr>
 									<th>이벤트 이름</th>
-									<td><input type="text" class="txt-long" id="together-title" name="eventTitle" maxlength="11"></td>
+									<td><input type="text" class="txt-long" id="together-title" name="eventTitle" maxlength="100"></td>
 								</tr>
 								
 								
@@ -248,7 +245,7 @@
 					
 					<!-- 하단 버튼 -->
 					<div id="btn-wrap">
-						<button class="cancel" onclick="location.href='http://localhost:8088/JOA/together/together';">취소</button>
+						<button class="cancel" onclick="location.href='${pageContext.request.contextPath}/together/together';">취소</button>
 						<button type="submit" class="add" id="add">함께 등록</button>
 					</div>
 					
@@ -278,14 +275,13 @@
 	        
 	        <div class="courseCate">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    카테고리
+			    즐겨찾기
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  	<c:forEach items="${fList}" var="favCateVo">
+			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation"><a role="menuitem" tabindex="-1">${favCateVo.cateName}</a></li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 			
@@ -295,17 +291,16 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			    <c:forEach items="${cList}" var="CourseVo">
+			  		<li class="co" data-title="${CourseVo.title}" data-course-no="${CourseVo.courseNo}" role="presentation"><a role="menuitem" tabindex="-1">${CourseVo.title}</a></li>
+			  	</c:forEach>
 			  </ul>
 			</div>
 
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="save">Save</button>
+	        <button type="button" class="btn btn-primary" id="c-save">Save</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -319,6 +314,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/together/writeform.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8&libraries=services"></script>
+
+<!-- 카카오지도 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9&libraries=services"></script>
 
 </html>

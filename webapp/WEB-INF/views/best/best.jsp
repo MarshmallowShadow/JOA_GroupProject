@@ -129,10 +129,11 @@
 								
 							<!-- 기록 3개 반복문 -->
 							<div class="comment-text">
+							
 								<c:forEach items="${map.RECORDLIST}" var="review">
 									<div class="comment-text1">${review}</div>
 								</c:forEach>
-
+							
 							</div>
 							<!-- 기록 3개 반복문 끝/ class="comment-text" -->
 						</div>

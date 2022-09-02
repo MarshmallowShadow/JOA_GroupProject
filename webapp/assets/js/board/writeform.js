@@ -153,7 +153,7 @@
 			$("#together_choice").addClass("blackBtn");
 			
 			//change course text
-			$("#together_choice").html(personIcon + $(".e_selected").data("title"));
+			$("#together_choice").html(personIcon + $(".e_selected").data("event-title"));
 			
 			//hidden add courseNo
 			$("#togetherFinal").val(eventNo);
@@ -210,12 +210,16 @@
 		var boardCategory = $("[name='boardCategory']").val();
 		var title = $("[name='title']").val();
 		var content = $("[name='content']").val();
-		var userNo = $("#userNo").val();
+		var eventNo = $("[name='eventNo']").val() || null;
+		var courseNo = $("[name='courseNo']").val() || null;
+		var userNo = $("[name='userNo']").val();
 		
 		//boardVo 생성
 		var boardVo = {
 			boardCategory: boardCategory
 			, title: title
+			, eventNo: eventNo
+			, courseNo: courseNo
 			, content: content
 			, userNo: userNo
 		};

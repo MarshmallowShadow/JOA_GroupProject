@@ -22,6 +22,86 @@
 		$("#courseModal").modal("show");
 		
 	});
+	
+/*------------------------------ 코스모달 ----------------------------------*/
+	
+	/* 코스 버튼을 클릭했을 때 */
+	$("#course_choice").on("click", function() {
+		
+		console.log("코스 불러오기");
+		
+		$("#courseModal").modal("show");
+		
+	});
+	
+	/* 코스 no */
+	$("#courseModal").on("click", ".fav", function(){
+		
+		var $this = $(this);
+		
+		var cateNo = $this.data("cate-no");
+		
+		//ajax
+		$.ajax({
+							
+			//보낼 때
+			url : pageContext + "/apiBoard/getCourseList",
+			type : "post",
+			contentType : "application/json",
+			data : JSON.stringify(cateNo),
+			dataType: "json",
+			
+			//받을 때
+			//dataType : "json",
+			success : function(result){
+				
+				$(".courseChoose ul").empty();
+				
+				for(var i=0; i<result.length; i++){
+					$(".courseChoose ul").append('<li class="co" data-title="' + result[i].title + '" data-course-no="'+ result[i].courseNo +'" role="presentation">' + result[i].title + '</li>');
+				}
+				
+			},
+			
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+			
+		});
+		
+	});
+	
+	
+	//코스 선택
+	$("#courseModal").on("click", ".co", function(){
+		
+		$(".co").removeClass("c_selected");
+		$(this).addClass("c_selected");
+		
+	});
+	
+	/* 코스 SAVE 버튼 눌렀을 때 */
+	$("#c-save").on("click", function() {
+		
+		var courseNo = $(".c_selected").data("course-no");
+		
+		var folderIcon = '<span class="glyphicon glyphicon-folder-open gray" id="folder"></span>';
+		
+		if(courseNo != null || isNaN(courseNo) == false) {
+			//black text
+			$("#course_choice").addClass("blackBtn");
+			
+			//change course text
+			$("#course_choice").html(folderIcon + $(".c_selected").data("title"));
+			
+			//hidden add courseNo
+			$("#courseFinal").val(courseNo);
+		}
+		
+		//모달 닫기
+		$("#courseModal").modal("hide");
+		
+	});
 
 /*------------------------------ 지도 --------------------------------*/ 
 
@@ -29,7 +109,7 @@ function map() {
 	
 		var mapContainer = document.getElementById('map');
 		var mapOption = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도 중심좌표
+			center: new kakao.maps.LatLng(37.57793316923273, 126.97704154286627), //지도 중심좌표
 			level: 3 //지도의 레벨(확대, 축소 정도)
 	}
 	
@@ -55,7 +135,7 @@ function map() {
 	    
 	} else { //HTML5의 GeoLocation을 사용할 수 없을 때
 	    
-	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667); 
+	    var locPosition = new kakao.maps.LatLng(37.57793316923273, 126.97704154286627); 
 	        
 	    //접속 위치 변경
 	    map.setCenter(locPosition); 

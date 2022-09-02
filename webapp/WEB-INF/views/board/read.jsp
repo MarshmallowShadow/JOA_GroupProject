@@ -45,7 +45,7 @@
 							<td>
 								
 								<c:if test="${bMap.COURSENO != null}">
-									<div class="course-container" onclick="window.location='../course/c_viewform.html';">
+									<div class="course-container" onclick="window.location='${pageContext.request.contextPath}/course/c_viewform.html';">
 										<a href="${pageContext.request.contextPath}/WEB-INF/course/view-course">
 											<div class="course-icon"><img src="${pageContext.request.contextPath}/assets/image/map/map-icon.jpg"></div>
 											<div class="course-info">
@@ -55,42 +55,48 @@
 													거리: ${bMap.DISTANCE}km <br>
 													시간: ${bMap.COURSETIME}분
 												</p>
-												<div class="tag-blue"><p>${bMap.COURSECATEGORY}</p></div>
-												<div class="tag-pink"><p>${bMap.DIFFICULTY}</p></div>
+												<div class="tag-blue"><p>${courseCateMap[bMap.COURSECATEGORY]}</p></div>
+												<div class="tag-pink"><p>${courseDifiMap[bMap.DIFFICULTY]}</p></div>
 											</div>
 										</a>
 									</div>
 								</c:if>
 								
+								<c:if test="${bMap.EVENTNO != null}">
+									<div class="chart">
+										<table id="over" onClick="location.href='${pageContext.request.contextPath}/together/read/${bMap.EVENTNO}'">
+											<thead>
+												<tr class="t-top">
+													<th class="line_top">${bMap.REGSTART} - ${bMap.REGEND}</th>
+													<th class="mark">
+														<button class="bookmark">
+															<img id="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_white.png">
+														</button>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th colspan="2" class="content">${bMap.EVENTTITLE}</th>
+												</tr>
+												<tr>
+													<th colspan="2" class="content_course">
+														<span class="glyphicon glyphicon-map-marker" class="marking"></span>${bMap.START} - ${bMap.END}
+													</th>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<th colspan="2" class="line_bottom">
+														${courseCateMap[bMap.COURSECATEGORY]}
+														<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>${bMAP.COUNT}/${bMAP.JOINMAX}</button>
+													</th>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</c:if>
 								
-								<div class="chart">
-									<table id="together_chart" onClick="location.href='http://localhost:8088/JOA/together/together-read'">
-										<thead>
-											<tr class="top">
-												<th class="line_top">2022/07/24 - 2022/07/30</th>
-												<th class="mark">
-													<button class="bookmark">
-														<img id="image" src="${pageContext.request.contextPath}/assets/image/together/bookmarks_black.png">
-													</button>
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th colspan="2" class="content">쭈쭈네 동네 한바퀴</th>
-											</tr>
-											<tr>
-												<th colspan="2" class="content_course"><span class="glyphicon glyphicon-map-marker" class="marking"></span>신림 - 잠실</th>
-											</tr>
-											<tr>
-												<th colspan="2" class="line_bottom">
-													산책
-													<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>11/15</button>
-												</th>
-											</tr>
-										</tbody>
-									</table>
-								</div>
 							</td>
 						</tr>
 						<tr>
@@ -145,14 +151,14 @@
 							<input type="hidden" name="boardNo" value="${bMap.BOARDNO}">
 							<input type="hidden" name="userNo" value="${authUser.userNo}">
 							<div id="comment-box">
-								<textarea id="replybox" name="content"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+								<textarea id="replybox" name="content" style="resize: none;"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
 							</div>
 						</form>
 					</c:if>
 				</div><!-- commentbox -->
 			</div><!-- 댓글 -->
 		
-			<button type="submit" id="list" onclick="location.href='http://localhost:8088/JOA/board/board';">목록</button>
+			<button type="submit" id="list" onclick="location.href='${pageContext.request.contextPath}/board/board';">목록</button>
 			
 			<br><br><br><br><br><br><br><br><br><br>
 			
