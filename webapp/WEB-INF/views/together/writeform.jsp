@@ -50,6 +50,7 @@
 									<span class="glyphicon glyphicon-folder-open"></span>
 									코스 불러오기
 								</button>
+								<input type="hidden" id="courseFinal" name="courseNo" value="">
 							</td>
 						</tr>
 						
@@ -278,7 +279,7 @@
 			    즐겨찾기
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu" id="fav-menu" role="menu" aria-labelledby="dropdownMenu1">
 			  	<c:forEach items="${fList}" var="favCateVo">
 			  		<li class="fav" data-cate-no="${favCateVo.cateNo}" role="presentation"><a role="menuitem" tabindex="-1">${favCateVo.cateName}</a></li>
 			  	</c:forEach>
@@ -286,11 +287,11 @@
 			</div>
 			
 			<div class="courseChoose">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
 			    코스
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu" id="fav-course" role="menu" aria-labelledby="dropdownMenu2">
 			    <c:forEach items="${cList}" var="CourseVo">
 			  		<li class="co" data-title="${CourseVo.title}" data-course-no="${CourseVo.courseNo}" role="presentation"><a role="menuitem" tabindex="-1">${CourseVo.title}</a></li>
 			  	</c:forEach>

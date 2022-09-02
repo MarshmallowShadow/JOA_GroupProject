@@ -26,7 +26,7 @@
 /*------------------------------ 코스모달 ----------------------------------*/
 	
 	/* 코스 버튼을 클릭했을 때 */
-	$("#course_choice").on("click", function() {
+	$("#course-load").on("click", function() {
 		
 		console.log("코스 불러오기");
 		
@@ -71,6 +71,13 @@
 		
 	});
 	
+	//코스 즐겨찾기 선택된 값 띄우기
+	$('#courseModal').on('click', '#fav-menu li > a', function() {
+		
+	    //버튼에 선택된 항목 텍스트 넣기 
+	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
+	    
+	});
 	
 	//코스 선택
 	$("#courseModal").on("click", ".co", function(){
@@ -78,6 +85,14 @@
 		$(".co").removeClass("c_selected");
 		$(this).addClass("c_selected");
 		
+	});
+	
+	//즐겨찾기된 코스 선택된 값 띄우기
+	$('#courseModal').on('click', '#fav-course li > a', function() {
+		
+	    //버튼에 선택된 항목 텍스트 넣기 
+	    $('#dropdownMenu2').html($(this).text() + '<span class="caret"></span>');
+	    
 	});
 	
 	/* 코스 SAVE 버튼 눌렀을 때 */
@@ -89,10 +104,10 @@
 		
 		if(courseNo != null || isNaN(courseNo) == false) {
 			//black text
-			$("#course_choice").addClass("blackBtn");
+			$("#course-load").addClass("blackBtn");
 			
 			//change course text
-			$("#course_choice").html(folderIcon + $(".c_selected").data("title"));
+			$("#course-load").html(folderIcon + $(".c_selected").data("title"));
 			
 			//hidden add courseNo
 			$("#courseFinal").val(courseNo);
