@@ -81,7 +81,7 @@ h1 {
 	border:none;
 	color: white;
 }
-.fav, .co {
+.fav, .co, .fil, .ev {
 	cursor: pointer;
 	margin-bottom: 6px;
 	margin-top: 6px;
