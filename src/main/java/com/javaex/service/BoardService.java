@@ -267,9 +267,9 @@ public class BoardService {
 		
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
-
+		
 		Integer eventNo = (Integer)bMap.get("eventNo");
-				
+		
 		//지명 가져오기
 		if(eventNo != null) {
 			double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
@@ -302,7 +302,6 @@ public class BoardService {
 		System.out.println(rMap);
 		
 		return rMap;
-		
 	}
 	
 	//댓글 쓰기

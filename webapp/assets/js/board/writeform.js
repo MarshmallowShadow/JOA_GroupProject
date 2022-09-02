@@ -241,8 +241,8 @@
 		var boardCategory = $("[name='boardCategory']").val();
 		var title = $("[name='title']").val();
 		var content = $("[name='content']").val();
-		var eventNo = $("[name='eventNo']").val() || null;
-		var courseNo = $("[name='courseNo']").val() || null;
+		var eventNo = $("[name='eventNo']").val() || undefined;
+		var courseNo = $("[name='courseNo']").val() || undefined;
 		var userNo = $("[name='userNo']").val();
 		
 		//boardVo 생성
@@ -263,12 +263,13 @@
 			//보낼 때
 			url : pageContext +"/apiBoard/write",
 			type : "post",
-			//contentType : "application/json",
-			data : boardVo,
+			contentType : "application/json",
+			data : JSON.stringify(boardVo),
 	
 			//받을 때
-			//dataType : "json",
+			dataType : "json",
 			success : function(boardNo){
+				
 				
 				//성공 시 처리해야 될 코드 작성
 				console.log("boardNo:"+boardNo);
@@ -314,11 +315,14 @@
 						
 					}
 					
-					location.href = pageContext + "/board/read/" + boardNo;
 				}
+				
+				location.href = pageContext + "/board/read/" + boardNo;
 			},
 			
-			error : function(XHR, status, error) {console.error(status + " : " + error);}
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
 			
 		});
 		

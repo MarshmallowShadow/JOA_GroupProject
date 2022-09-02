@@ -83,23 +83,22 @@
       </div>
       <div class="modal-body">
       	<p>삭제할 목록을 선택해 주세요!</p> 
-        <select id="del-select-list" class="sel-delCategory" >
-        	<%-- <option>${categoryVo.cateName}</option> --%>
-        </select>
+        <!-- <select id="del-select-list" class="sel-delCategory" > -->
+        	<%-- <option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option> --%>
+        <!-- </select> -->
         
         
         <div class="dropdown">
-		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-		    Dropdown
-		    <span class="caret"></span>
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu9" data-toggle="dropdown" aria-expanded="true">
+		    목록 선택
+			<span class="caret"></span>
 		  </button>
-		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+		  <ul class="dropdown-menu sel-delCategory" role="menu" aria-labelledby="dropdownMenu9">
+		    <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li> -->
 		  </ul>
 		</div>
-		<p class="cate-del-warning">삭제시 목록 안의 내용들도 삭제됩니다!!</p>
-      </div>
-      
+	  </div>
+      <p class="cate-del-warning">삭제시, 목록 안의 내용들도 삭제됩니다!!!!!</p>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" id="del-bookmark-category">목록 삭제</button>
@@ -113,26 +112,39 @@
 <!-- 모달-즐겨찾기 삭제 끝!! ************************************************************************************* -->
 
 <!-- 모달-즐겨찾기 이름변경 ***************************************************************************************** -->
-<div class="modal category-modify-btn">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
-      <h5 class="modal-title">즐겨찾기 목록 이름 변경</h5>
-    </div>
-    <div class="modal-body">
-    	<p>목록의 이름을 변경해주세요.</p>
-    	<div id="cateName-modal">
-    		<%-- <input type="text" value="" placeholder="${categoryVo.cateName}"><input type="text" value="${categoryVo.cateNo}"> --%>
-    	</div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" id="edit-bookmark-category-cancel" data-dismiss="modal">취소</button>
-      <button type="button" class="btn btn-primary" id="edit-bookmark-category">변경</button>
-    </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<div class="modal fade category-modify-btn" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      <img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
+	      <h5 class="modal-title">즐겨찾기 목록 이름 변경</h5>
+	    </div>
+	    <div class="modal-body">
+	    	
+	    	<form>
+	          <div class="form-group">
+	            <p>목록의 이름을 변경해주세요.</p>
+	            <div id="cateName-modal">
+	            <!-- <input type="text" class="form-control" name="catename" value="" placeholder="새 목록 이름"> -->
+	          	</div>
+	          </div>
+	        </form>
+	    	
+	    	
+	    	
+	    	<%-- <p>목록의 이름을 변경해주세요.</p>
+	    	<div id="cateName-modal">
+	    		<input type="text" value="" placeholder="${categoryVo.cateName}"><input type="text" value="${categoryVo.cateNo}">
+	    	</div> --%>
+	    </div>
+	    <div class="modal-footer">
+	      <button type="button" class="btn btn-default" data-dismiss="modal" >취소</button>
+	      <button type="button" class="btn btn-primary" data-dismiss="modal"  id="edit-bookmark-category">변경</button>
+	    </div>
+	  </div>
+	</div>
+</div>
 <!-- 모달-즐겨찾기 이름변경 끝!! ***************************************************************************************** -->
 
 
