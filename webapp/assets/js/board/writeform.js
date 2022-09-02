@@ -58,13 +58,34 @@
 		
 	});
 	
-	
+	//코스 즐겨찾기 선택된 값 띄우기
+	$('#fav-menu li > a').on('click', function() {
+		
+	    //버튼에 선택된 항목 텍스트 넣기 
+	    $('#dropdownMenu1').text($(this).text());
+	        
+	    //선택된 항목 값(value) 얻기
+	    $(this).attr('value', '<span class="caret"></span>');
+	    
+	});
+
 	//코스 선택
 	$("#courseModal").on("click", ".co", function(){
 		
 		$(".co").removeClass("c_selected");
 		$(this).addClass("c_selected");
 		
+	});
+	
+	//즐겨찾기된 코스 선택된 값 띄우기
+	$('#fav-course li > a').on('click', function() {
+		
+	    //버튼에 선택된 항목 텍스트 넣기 
+	    $('#dropdownMenu2').text($(this).text());
+	        
+	    //선택된 항목 값(value) 얻기
+	    $(this).attr('value');
+	    
 	});
 	
 	/* 코스 SAVE 버튼 눌렀을 때 */
@@ -131,6 +152,17 @@
 			
 		});
 		
+	});
+	
+	//함께하기 항목 중 선택된 값 띄우기
+	$('#t-fil li > a').on('click', function() {
+		
+	    //버튼에 선택된 항목 텍스트 넣기 
+	    $('#dropdownMenu1').text($(this).text());
+	        
+	    //선택된 항목 값(value) 얻기
+	    $(this).attr('value', '<span class="caret"></span>');
+	    
 	});
 	
 	//이벤트 선택
