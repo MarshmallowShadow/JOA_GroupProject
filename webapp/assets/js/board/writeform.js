@@ -78,7 +78,7 @@
 	$('#courseModal').on('click', '#fav-course li > a', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu2').text($(this).text() + '<span class="caret"></span>');
+	    $('#dropdownMenu2').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
