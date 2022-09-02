@@ -37,10 +37,14 @@ function categoryRender(categoryList) {
 
 function cateDelRender(categoryList) {
 	var str = '';
-	str += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'>'+categoryList.cateName+'</a></li>';
+	str += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'>'+categoryList.cateName+'</a></li>';
 	
 	$(".sel-delCategory").append(str);
 }
+
+$(".category-del-btn").on("click", ".opt-del-cateNo", function(){
+	$("#dropdownMenu9").html($(this).text() + '<span class="caret"></span>');
+});
 
 function cateEditRender(categoryList){
 	var str = '';
@@ -635,7 +639,6 @@ $(window).ready(function(){
 					bookmarkSelRender(favList[i]);
 				}
 				//모달창 띄우기
-				$(".bookmark-checkbox-list").show();
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
@@ -752,7 +755,6 @@ $(window).ready(function(){
 	$(".plus-btn").click(function(){
 		console.log("카테고리추가");
 		$("[name=catename]").val("");
-		$(".category-add-btn").show('modal');
 	 });
 	 
 	$("#add-bookmark-category").on("click", function(){
@@ -819,7 +821,6 @@ $(window).ready(function(){
 			}
 		});
 		//모달창 띄우기
-		$(".category-del-btn").show('modal');
 	});
 	
 	
@@ -831,8 +832,7 @@ $(window).ready(function(){
 		var cateNo = $("#del-select-list").val();
 		console.log("cateNo", cateNo);
 		
-		//즐겨찾기 삭제 항목 중 선택 이벤트 값 띄우기
-		$("#dropdownMenu9").html($("#del-select-list").data("catename") + '<span class="caret"></span>');	
+			
 		
 		//서버로 데이터 전송(ajax)
 		$.ajax({
@@ -893,7 +893,6 @@ $(window).ready(function(){
 		var cateNo = $this.data("cateno");
         console.log(cateName, cateNo);
 		//모달창 띄우기
-		$(".category-modify-btn").show('modal');
 	});
 		
 		
