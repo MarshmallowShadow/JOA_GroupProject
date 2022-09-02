@@ -231,7 +231,7 @@ function myfavRender(fMap){
 	}
 	
 	var ocStatus = '공개'
-	if(cMap.OPENSTATUS !='open'){
+	if(fMap.OPENSTATUS !='open'){
 		ocStatus = '비공개'
 	}
 	
@@ -297,7 +297,7 @@ function myfavCateRender(fcMap){
 	}
 	
 	var ocStatus = '공개'
-	if(cMap.OPENSTATUS !='open'){
+	if(fcMap.OPENSTATUS !='open'){
 		ocStatus = '비공개'
 	}
 	
@@ -373,7 +373,7 @@ function mylikedCoRender(lcMap){
 	}
 	
 	var ocStatus = '공개'
-	if(cMap.OPENSTATUS !='open'){
+	if(lcMap.OPENSTATUS !='open'){
 		ocStatus = '비공개'
 	}
 	
