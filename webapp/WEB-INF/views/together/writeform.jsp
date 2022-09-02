@@ -74,10 +74,6 @@
 								<p class="map-guide">지도를 마우스로 클릭하면 선 그리기가 시작되고, 오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다</p>
 								<!-- 지도 -->
 								<div id="map"></div>
-								<c:if test="${bMap.COURSENO != null}">
-									<!-- 지도 영역 -->
-									<div id="map-info" class="mapInfo"></div><!-- a링크 걸어서 상세지도 연결 -->
-								</c:if>
 							</td>
 						</tr>
 					
