@@ -204,7 +204,7 @@ function map() {
 	        clickLine.setPath(path);
 	
 			// 거리 계산
-	        var distance = Math.round(clickLine.getLength());
+	        var distance = parseFloat(Math.round(clickLine.getLength()).toFixed(3));
 	        displayCircleDot(clickPosition, distance);
 	    }
 	});
