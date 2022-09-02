@@ -163,7 +163,7 @@ function mycourseRender(cMap) {
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+cMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
+	str += '			<a href="'+contextPath+'/board/board?boardCategory=post&courseNo=' + cMap.COURSENO + '"><p id="courseInfo">후기글 '+pCount+' </p></a>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -249,7 +249,7 @@ function myfavRender(fMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+fMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
+	str += '			<a href="'+contextPath+'/board/board?boardCategory=post&courseNo=' + fMap.COURSENO + '"><p id="courseInfo">후기글 '+pCount+' </p></a>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -310,7 +310,7 @@ function myfavCateRender(fcMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fcMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+fcMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
+	str += '			<a href="'+contextPath+'/board/board?boardCategory=post&courseNo=' + fcMap.COURSENO + '"><p id="courseInfo">후기글 '+pCount+' </p></a>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -381,7 +381,7 @@ function mylikedCoRender(lcMap){
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+lcMap.ID+'</p>';
 	str += '			<p id="courseInfo">'+lcMap.REGDATE+'</p>';
-	str += '			<p id="courseInfo">후기글 '+pCount+' </p>';
+	str += '			<a href="'+contextPath+'/board/board?boardCategory=post&courseNo=' + lcMap.COURSENO + '"><p id="courseInfo">후기글 '+pCount+' </p></a>';
 	str += '	  	</div>';
 	str += '	</div>';
 	str += '</li>';

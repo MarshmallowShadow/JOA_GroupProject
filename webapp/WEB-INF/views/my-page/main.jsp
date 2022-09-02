@@ -63,32 +63,6 @@
 		
 		<div class="resultView">
 			<div class="resultList">
-				<p id="listTitle">최근 조회한 코스들</p>
-				<ol>
-					<li>
-						<div class="listBox" style="cursor: pointer;" onclick="window.location='';">
-						  	<img class="courseImg" src="${pageContext.request.contextPath}/assets/image/my-page/sample.jpg">
-						  	<div id="textBox">
-								<div class="courseTitle">
-									<p id="courseName">신나는 코스 &nbsp;<img class="besticon" src="${pageContext.request.contextPath}/assets/image/best/cgold.jpg"></p>
-									<div class="img-icons">
-										<img class="like-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/heart.png">
-										<img class="bookmark-cancel-btn" src="${pageContext.request.contextPath}/assets/image/main/star.png">
-									</div>
-								</div>
-								<p id="courseInfo">홍길동</p>
-								<p id="courseInfo">조회수2 * 22.07.01</p>
-								<p id="courseInfo">후기글8 &nbsp;<img class="newpost" src="${pageContext.request.contextPath}/assets/image/main/new.png"></p>
-						  	</div>
-						</div>
-					</li>
-					
-					
-				</ol>
-			</div>
-			
-			
-			<div class="resultList">
 				<p id="listTitle">좋아요 한 코스들</p>
 				
 				<ol class="my-liked-course-list">

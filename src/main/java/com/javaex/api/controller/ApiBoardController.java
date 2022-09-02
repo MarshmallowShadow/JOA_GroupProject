@@ -54,8 +54,6 @@ public class ApiBoardController {
 		
 		boardService.write(boardVo);
 		
-		//return "redirect:board/read/" + boardVo.getBoardNo();
-		
 		return boardVo.getBoardNo();
 		
 	}

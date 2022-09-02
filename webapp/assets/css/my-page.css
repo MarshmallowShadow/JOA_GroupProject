@@ -159,6 +159,7 @@ input[type=radio] {display:none;}
 	text-align: center;
 }
 .modal-dialog {
+	/* animation-duration: 0s; */
 	width: 300px;
 	margin: auto;
 	height: auto;
