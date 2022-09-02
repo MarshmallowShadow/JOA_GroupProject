@@ -62,10 +62,7 @@
 	$('#fav-menu li > a').on('click', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu1').text($(this).text());
-	        
-	    //선택된 항목 값(value) 얻기
-	    $(this).attr('value', '<span class="caret"></span>');
+	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 
@@ -81,10 +78,7 @@
 	$('#fav-course li > a').on('click', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu2').text($(this).text());
-	        
-	    //선택된 항목 값(value) 얻기
-	    $(this).attr('value');
+	    $('#dropdownMenu2').text($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
@@ -158,10 +152,7 @@
 	$('#t-fil li > a').on('click', function() {
 		
 	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu1').text($(this).text());
-	        
-	    //선택된 항목 값(value) 얻기
-	    $(this).attr('value', '<span class="caret"></span>');
+	    $('#dropdownMenu1').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
@@ -174,13 +165,10 @@
 	});
 	
 	//함께하기 항목 중 선택 이벤트 값 띄우기
-	$('#t-list li > a').on('click', function() {
+	$("#courseModal").on('click', '#t-list li > a', function() {
 		
-	    //버튼에 선택된 항목 텍스트 넣기 
-	    $('#dropdownMenu2').text($(this).text());
-	        
-	    //선택된 항목 값(value) 얻기
-	    $(this).attr('value', '<span class="caret"></span>');
+	    //버튼에 선택된 항목 텍스트 넣기
+	    $('#dropdownMenu2').html($(this).text() + '<span class="caret"></span>');
 	    
 	});
 	
