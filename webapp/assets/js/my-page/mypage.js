@@ -131,6 +131,10 @@ function mycourseRender(cMap) {
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
+	var ocStatus = '공개'
+	if(cMap.OPENSTATUS !='open'){
+		ocStatus = '비공개'
+	}
 	/*var pCount = contextPath + '/assets/image/main/star-off.png';
 	if(cMap.PCOUNT != undefined) {
 		pCount = contextPath + '/assets/image/main/new.png';
@@ -155,7 +159,7 @@ function mycourseRender(cMap) {
 	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+cMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
-	str += '				<p id="courseName">['+cMap.OPENSTATUS+']'+cMap.TITLE+' </p>';
+	str += '				<p id="courseName">['+ocStatus+'] '+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+cMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+cMap.COURSENO+'">';
@@ -226,6 +230,11 @@ function myfavRender(fMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
+	var ocStatus = '공개'
+	if(cMap.OPENSTATUS !='open'){
+		ocStatus = '비공개'
+	}
+	
 	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
 	var pCount;
 	if(fMap.PCOUNT != undefined){
@@ -241,7 +250,7 @@ function myfavRender(fMap){
 	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+fMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
-	str += '				<p id="courseName">['+fMap.OPENSTATUS+']'+fMap.TITLE+' </p>';
+	str += '				<p id="courseName">['+ocStatus+'] '+fMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fMap.COURSENO+'">';
@@ -287,6 +296,11 @@ function myfavCateRender(fcMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
+	var ocStatus = '공개'
+	if(cMap.OPENSTATUS !='open'){
+		ocStatus = '비공개'
+	}
+	
 	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
 	var pCount;
 	if(fcMap.PCOUNT != undefined){
@@ -302,7 +316,7 @@ function myfavCateRender(fcMap){
 	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+fcMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
-	str += '				<p id="courseName">['+fcMap.OPENSTATUS+']'+fcMap.TITLE+' </p>';
+	str += '				<p id="courseName">['+ocStatus+'] '+fcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fcMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fcMap.COURSENO+'">';
@@ -358,6 +372,11 @@ function mylikedCoRender(lcMap){
 		favorite = contextPath + '/assets/image/main/star.png';
 	}
 	
+	var ocStatus = '공개'
+	if(cMap.OPENSTATUS !='open'){
+		ocStatus = '비공개'
+	}
+	
 	var newpost = '&nbsp;<img class="newpost" src="'+contextPath+'/assets/image/main/new.png">';
 	var pCount;
 	if(lcMap.PCOUNT != undefined){
@@ -373,7 +392,7 @@ function mylikedCoRender(lcMap){
 	str += '	  	<a href="'+contextPath+'/course/view?courseNo='+lcMap.COURSENO+'" target="_blank"><img id="courseMapImg" class="courseImg" src="'+img+'"></a>';
 	str += '	  	<div id="textBox">';
 	str += '			<div class="courseTitle">';
-	str += '				<p id="courseName">['+lcMap.OPENSTATUS+']'+lcMap.TITLE+' </p>';
+	str += '				<p id="courseName">['+ocStatus+'] '+lcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+lcMap.COURSENO+'">';  
 	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+lcMap.COURSENO+'">';
