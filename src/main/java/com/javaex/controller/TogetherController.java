@@ -36,7 +36,6 @@ public class TogetherController {
 	
 	
 	//메소드-일반
-	
 	//함께하기 리스트
 	@RequestMapping(value="/together", method = {RequestMethod.GET, RequestMethod.POST})
 	public String together(Model model
@@ -44,7 +43,7 @@ public class TogetherController {
 						   , @RequestParam(value="regStatus", required = false, defaultValue="1") int regStatus
 						   , @RequestParam(value="filStatus", required = false, defaultValue="0") int filStatus) {
 		
-		 System.out.println("TogetherController > together");
+		System.out.println("TogetherController > together");
 		
 		return "together/together";
 		
@@ -55,15 +54,15 @@ public class TogetherController {
 	public String writeform(HttpSession session, Model model
 			, @RequestParam(value="filCate", required=false, defaultValue="1") int filCate) {
 		
-		 System.out.println("TogetherController > writeform");
+		System.out.println("TogetherController > writeform");
 		 
-		 UserVo authUser = (UserVo)session.getAttribute("authUser");
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		 
-		 int userNo = authUser.getUserNo();
+		int userNo = authUser.getUserNo();
 		 
-		 Map<String, Object> bMap =  togetherService.getInfo(userNo, filCate);		 
-		 model.addAttribute("fList", bMap.get("fList"));
-		 model.addAttribute("cList", bMap.get("cList"));
+		Map<String, Object> bMap =  togetherService.getInfo(userNo, filCate);		 
+		model.addAttribute("fList", bMap.get("fList"));
+		model.addAttribute("cList", bMap.get("cList"));
 		
 		return "together/writeform";
 		

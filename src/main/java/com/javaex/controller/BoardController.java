@@ -111,7 +111,7 @@ public class BoardController {
 	@RequestMapping(value="/modifyform", method = {RequestMethod.GET, RequestMethod.POST})
 	public String modifyform() {
 		
-		 System.out.println("BoardController > modifyform");
+		System.out.println("BoardController > modifyform");
 		
 		return "board/modifyform";
 		
