@@ -23,9 +23,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/course/modify-record.js"></script>
 <!-- 카카오지도 API -->
 <!-- 로컬 -->
-<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script> -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=61a92b5fb49fcf77c122981c5991fdb8"></script>
 <!-- 보승 컴 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9"></script>
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=acae275ea0809d93a5e7a1622fddb4f9"></script> -->
 </head>
 <body>
 <div id="wrap">
