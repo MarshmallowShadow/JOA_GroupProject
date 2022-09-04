@@ -939,12 +939,6 @@ $(window).ready(function(){
 		var recordNo = $this.data("recordno");
 		console.log("기록삭제", recordNo);
 		//모달창 열기
-		$(".myrecord-del-modal").show('modal');
-		
-		
-		
-		
-		
 		
 		//기록삭제 버튼 눌렀을때, 
 		$("#byebye-record").on("click", function(){
