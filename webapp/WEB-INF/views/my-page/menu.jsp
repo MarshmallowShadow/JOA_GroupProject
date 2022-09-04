@@ -83,20 +83,21 @@
       </div>
       <div class="modal-body">
       	<p>삭제할 목록을 선택해 주세요!</p> 
-        <!-- <select id="del-select-list" class="sel-delCategory" > -->
-        	<%-- <option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option> --%>
-        <!-- </select> -->
+        <select id="del-select-list" class="sel-delCategory" >
+        	<option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>
+        </select>
         
         
-        <div class="dropdown">
+        <!-- <div class="dropdown">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu9" data-toggle="dropdown" aria-expanded="true">
 		    목록 선택
 			<span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu sel-delCategory" role="menu" aria-labelledby="dropdownMenu9">
-		    <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li> -->
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+		    <li id="category-del-select-list" role="presentation"><a role="menuitem" tabindex="-1" href="#" class="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'>'+categoryList.cateName+'</a></li>
 		  </ul>
-		</div>
+		</div> -->
 	  </div>
       <p class="cate-del-warning">삭제시, 목록 안의 내용들도 삭제됩니다!!!!!</p>
       <div class="modal-footer">

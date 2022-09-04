@@ -93,27 +93,27 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- footer -->
 
+
+
 <!-- 즐겨찾기 변경 모달!! ************************************************************************************* -->
 <!-- 즐겨찾기 목록 선택 -->
-<div class="modal course-bookmark-cancel bookmark-checkbox-list"  tabindex="-1" role="dialog" id="bookmark-list">
-  <div class="modal-dialog" role="document">
+<div class="modal fade course-bookmark-cancel bookmark-checkbox-list" id="bookmark-list" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-      	<img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      	<img alt="즐겨찾기" src="${pageContext.request.contextPath }/assets/image/main/star.png"><br>
         <h5 class="modal-title">즐겨찾기 추가하기</h5>
       </div>
       <div class="modal-body" id="bookmark-select-list" >
-        
         <div>
         	<ul id="fevList">
-        		
-        		
+        		<!-- 렌더할 부분 -->
         	</ul>
         </div>
-        
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-primary" id="bookmark-add">추가</button>
+      	<button type="button" class="btn btn-primary" data-dismiss="modal">추가</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="bookmark-checkbox-list-cancel" >취소</button>
       </div>
     </div><!-- modal-content -->
@@ -121,6 +121,8 @@
 </div><!-- modal -->
 
 <!-- 즐겨찾기 변경 모달 끝!! ************************************************************************************* -->
+
+
 
 
 

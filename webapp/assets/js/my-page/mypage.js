@@ -37,14 +37,12 @@ function categoryRender(categoryList) {
 
 function cateDelRender(categoryList) {
 	var str = '';
-	str += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateno="'+categoryList.cateNo+'" data-catename="'+categoryList.cateName+'>'+categoryList.cateName+'</a></li>';
+	str += '<option id="opt-del-cateNo" value="'+categoryList.cateNo+'" data-cateNo="'+categoryList.cateNo+'">'+categoryList.cateName+'</option>';
 	
 	$(".sel-delCategory").append(str);
 }
 
-$(".category-del-btn").on("click", ".opt-del-cateNo", function(){
-	$("#dropdownMenu9").html($(this).text() + '<span class="caret"></span>');
-});
+
 
 function cateEditRender(categoryList){
 	var str = '';
@@ -89,7 +87,7 @@ function calendarRender(rMap) {
 	str += '		</a>';
 	str += '		<div class="modify-del-icons">';
 	str += '			<a href="'+contextPath+'/record/modify?courseNo='+rMap.COURSENO+'&recordNo='+rMap.RECORDNO+'"><span class="glyphicon glyphicon-pencil" style="cursor:pointer"></span></a>&nbsp;';
-	str += '			<span id="record-del-button" class="glyphicon glyphicon-trash" data-recordno="'+rMap.RECORDNO+'" style="cursor:pointer"></span>';
+	str += '			<span id="record-del-button" class="glyphicon glyphicon-trash" data-toggle="modal" data-target=".myrecord-del-modal" data-recordno="'+rMap.RECORDNO+'" style="cursor:pointer"></span>';
 	str += '		</div>';
 	str += '	</div>';
 	str += '</li>';
@@ -169,7 +167,7 @@ function mycourseRender(cMap) {
 	str += '				<p id="courseName">['+ocStatus+'] '+cMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+cMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+cMap.COURSENO+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+cMap.COURSENO+'" data-toggle="modal" data-target=".bookmark-checkbox-list" >';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+cMap.ID+'</p>';
@@ -260,7 +258,7 @@ function myfavRender(fMap){
 	str += '				<p id="courseName">['+ocStatus+'] '+fMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fMap.COURSENO+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fMap.COURSENO+'" data-toggle="modal" data-target=".bookmark-checkbox-list" >';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fMap.ID+'</p>';
@@ -326,7 +324,7 @@ function myfavCateRender(fcMap){
 	str += '				<p id="courseName">['+ocStatus+'] '+fcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+fcMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fcMap.COURSENO+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+fcMap.COURSENO+'" data-toggle="modal" data-target=".bookmark-checkbox-list" >';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+fcMap.ID+'</p>';
@@ -402,7 +400,7 @@ function mylikedCoRender(lcMap){
 	str += '				<p id="courseName">['+ocStatus+'] '+lcMap.TITLE+' </p>';
 	str += '				<div class="img-icons">';
 	str += '					<img class="like-cancel-btn" src="'+heartonoff+'" data-courseno="'+lcMap.COURSENO+'">';  
-	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+lcMap.COURSENO+'">';
+	str += '					<img class="bookmark-cancel-btn" src="'+favorite+'" data-courseno="'+lcMap.COURSENO+'" data-toggle="modal" data-target=".bookmark-checkbox-list" >';
 	str += '				</div>';
 	str += '			</div>';
 	str += '			<p id="courseInfo">'+lcMap.ID+'</p>';
@@ -692,10 +690,6 @@ $(window).ready(function(){
 				}
 			});
 		});
-		//즐겨찾기 변경 모달창의 취소버튼을 눌렀을 때,
-		$("#bookmark-checkbox-list-cancel").on("click", function(){
-			$(".bookmark-checkbox-list").hide('modal');
-		});
 	});
 	
 	
@@ -795,6 +789,7 @@ $(window).ready(function(){
 	
 	/*--------------------------------------------------*/
 	/*카테고리 삭제하기*/
+	
 	$(".minus-btn").click(function(){
 		console.log("카테고리삭제");
 		$("option").remove();
@@ -822,8 +817,6 @@ $(window).ready(function(){
 		});
 		//모달창 띄우기
 	});
-	
-	
 	
 	//모달창의 삭제버튼 클릭할때
 	$("#del-bookmark-category").on("click", function(){
