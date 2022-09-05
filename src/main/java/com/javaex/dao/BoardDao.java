@@ -83,5 +83,14 @@ public class BoardDao {
 		return sqlSession.update("board.boardHit", no);
 		
 	}
+	
+	//게시판 삭제
+	public int delete(int no) {
+		
+		System.out.println("BoardDao > delete");
+
+		return sqlSession.delete("board.delete", no);
+		
+	}
 
 }
