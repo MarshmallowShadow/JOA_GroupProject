@@ -116,8 +116,7 @@
 				<!-- 수정, 삭제 버튼 -->
 				<div id="writer_btnM">
 					<c:if test="${authUser.userNo eq bMap.USERNO}">
-						<button type="button" id="modify_m">수정</button>
-						<button type="button" id="delete_m">삭제</button>
+						<a type="button" id="delete_m" href="${pageContext.request.contextPath}/board/delete/${bMap.BOARDNO}">삭제</a>
 					</c:if>
 				</div><!-- writer_btn -->
 
