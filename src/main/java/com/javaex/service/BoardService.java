@@ -386,5 +386,14 @@ public class BoardService {
 		
 		return eventDao.getEvents(map);
 	}
+	
+	//게시판 삭제
+	public int delete(int no) {
+		
+		System.out.println("BoardService > delete");
+		
+		return  boardDao.delete(no);
+		
+	}
 
 }
