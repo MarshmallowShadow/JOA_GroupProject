@@ -88,6 +88,7 @@ public class BoardController {
 		model.addAttribute("imgList", rMap.get("imgList"));
 		model.addAttribute("courseCateMap", rMap.get("courseCateMap"));
 		model.addAttribute("courseDifiMap", rMap.get("courseDifiMap"));
+		model.addAttribute("mapName", rMap.get("mapName"));
 		
 		System.out.println(rMap);
 		
