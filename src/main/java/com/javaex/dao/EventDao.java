@@ -71,9 +71,22 @@ public class EventDao {
 		
 	}
 	
+	//이벤트 카테고리 필터링
 	public List<EventVo> getEvents(Map<String, Integer> map){
+		
 		System.out.println("EventDao > getEvents");
+		
 		return sqlSession.selectList("together.getEvents", map);
+		
+	}
+	
+	//이벤트 삭제
+	public int delete(int no) {
+		
+		System.out.println("BoardDao > delete");
+
+		return sqlSession.delete("together.delete", no);
+		
 	}
 
 }
