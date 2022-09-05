@@ -117,5 +117,17 @@ public class BoardController {
 		return "board/modifyform";
 		
 	}
+	
+	//게시판 삭제
+	@RequestMapping(value="/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@PathVariable int no) {
+		
+		System.out.println("BoardController > delete");
+		
+		boardService.delete(no);
+		
+		return "redirect:/board";
+		
+	}
 
 }
