@@ -81,7 +81,7 @@
 												</tr>
 												<tr>
 													<th colspan="2" class="content_course">
-														<span class="glyphicon glyphicon-map-marker" class="marking"></span>${bMap.START} - ${bMap.END}
+														<span class="glyphicon glyphicon-map-marker" class="marking"></span>${mapName[bMap.START]} - ${mapName[bMap.END]}
 													</th>
 												</tr>
 											</tbody>
