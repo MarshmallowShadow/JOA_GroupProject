@@ -112,4 +112,16 @@ public class TogetherController {
 		
 	}
 	
+	//게시판 삭제
+	@RequestMapping(value="/delete/{no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@PathVariable int no) {
+		
+		System.out.println("TogetherController > delete");
+		
+		togetherService.delete(no);
+		
+		return "redirect:/together";
+		
+	}
+	
 }
