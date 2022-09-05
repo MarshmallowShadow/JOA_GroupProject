@@ -271,20 +271,24 @@ public class BoardService {
 		Integer eventNo = (Integer)bMap.get("eventNo");
 		
 		//지명 가져오기
+		Map<String, String> mapName = new HashMap<String, String>();
+		
 		if(eventNo != null) {
 			double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
 			double y1 = ((BigDecimal)bMap.get("Y1")).doubleValue();
 			
 			String START = localApiComponent.getLocation(x1, y1);
-			bMap.put("START", START);
+			mapName.put("START", START);
 			
 			double x2 = ((BigDecimal)bMap.get("X2")).doubleValue();
 			double y2 = ((BigDecimal)bMap.get("Y2")).doubleValue();
 			
 			String END = localApiComponent.getLocation(x2, y2);
-			bMap.put("END", END);
+			mapName.put("END", END);
 		}
-		System.out.println("c"+bMap);
+		
+		System.out.println("c"+mapName);
+		
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);
 		
@@ -298,6 +302,7 @@ public class BoardService {
 		rMap.put("imgList", imgList);
 		rMap.put("courseCateMap", courseCateMap);
 		rMap.put("courseDifiMap", courseDifiMap);
+		rMap.put("mapName", mapName);
 		
 		System.out.println(rMap);
 		
