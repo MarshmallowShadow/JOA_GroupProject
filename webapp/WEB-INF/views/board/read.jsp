@@ -138,10 +138,6 @@
 								<span class="mention">@${boardCommentVo.MENTION} </span>
 							</c:if>
 							<p class="comment">${boardCommentVo.CONTENT}</p>
-							<div id="writer_btnS">
-								<button type="submit" id="modify_s"><span class="glyphicon glyphicon-pencil"></span></button>
-								<button type="submit" id="delete_s"><span class="glyphicon glyphicon-trash"></span></button>
-							</div><!-- writer_btn -->
 						</div>
 					</c:forEach>
 					
