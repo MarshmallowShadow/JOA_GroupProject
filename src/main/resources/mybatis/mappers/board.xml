@@ -173,5 +173,14 @@
 			where board_no = #{no}
 		]]>
 	</update>
+	
+	
+	<!-- 게시판 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete from board
+			where board_no = #{boardNo}
+		]]>
+	</delete>
 
 </mapper>
