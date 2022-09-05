@@ -341,5 +341,14 @@ public class TogetherService {
 		return result;
 		
 	}
+	
+	//게시판 삭제
+	public int delete(int no) {
+		
+		System.out.println("TogetherService > delete");
+		
+		return  eventDao.delete(no);
+		
+	}
 
 }
