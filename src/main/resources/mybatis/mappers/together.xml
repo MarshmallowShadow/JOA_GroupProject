@@ -221,5 +221,14 @@
 			</otherwise>
 		</choose>
 	</select>
+	
+	
+	<!-- 이벤트 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete from event
+			where event_no = #{eventNo}
+		]]>
+	</delete>
 
 </mapper>
