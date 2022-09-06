@@ -2,16 +2,17 @@
 
 $(document).ready(function(position){
 	
+	//위치 모를 때 기본은 서울
 	var lat = 37.5683;
 	var lon = 126.9778;
 	
 	var options = {
-		enableHighAccuracy : true,
-		timeout : 5000,
-		maximumAge : 0
+		enableHighAccuracy : true,		//배터리를 더 소모해서 더 정확한 위치를 찾음
+		timeout : 5000,					//주어진 초 안에 찾지 못하면 에러 발생
+		maximumAge : 0					//한 번 찾은 위치 정보를 해당 초만큼 캐싱
 	};
-	function success(pos) {
-		var crd = pos.coords;
+	function success(pos) {		
+		var crd = pos.coords;			//pos : 카카오 좌표 객체, coords : 객체의 위도,경도 불러오기
 		console.log('위도 : ' + crd.latitude);
 		console.log('경도: ' + crd.longitude);
 		lat = crd.latitude;

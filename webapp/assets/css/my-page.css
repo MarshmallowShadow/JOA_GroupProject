@@ -141,7 +141,8 @@ input[type=radio] {display:none;}
 .myReport #reportList .contentImg {width:100px; height:100px; border:none; float:left; margin-right:20px; }
 .myReport #reportList .contentTitle {font-size:16px; width:360px; font-weight:bold;line-height:28px; }
 .myReport #reportList .modify-del-icons {margin:10px 20px 0px 0px;}
-.myReport #reportList .content {font-size:14px; line-height:20px; }
+.myReport #reportList .content {font-size:14px; line-height:20px; width:50%;
+								text-overflow: ellipsis; white-space : nowrap; overflow : hidden;}
 .myReport #reportList .contentDate {font-size:12px; color:gray; line-height:20px;}
 
 

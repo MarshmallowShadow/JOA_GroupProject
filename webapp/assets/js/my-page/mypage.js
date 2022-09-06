@@ -76,13 +76,18 @@ function calendarRender(rMap) {
 		imgPath = contextPath+'/upload/' + rMap.SAVENAME;
 	}
 	
+	var myReview = "_";
+	if(rMap.REVIEW != undefined){
+		myReview = rMap.REVIEW;
+	}
+	
 	var str = '';
 	str += '<li class="reportContent">';
 	str += '	<div>';
 	str += '		<a href="'+contextPath+'/record/view?courseNo='+rMap.COURSENO+'" target="_blank">';
 	str += '			<img class="contentImg" src="'+imgPath+'">';
 	str += '			<p class="contentTitle">'+rMap.TITLE+'<p class="date" id="nows"></p></p>';
-	str += '			<p class="content">'+rMap.REVIEW+'</p>';
+	str += '			<p class="content">'+myReview+'</p>';
 	str += '			<p class="contentDate">'+rMap.REGDATE1+'</p>';
 	str += '		</a>';
 	str += '		<div class="modify-del-icons">';
