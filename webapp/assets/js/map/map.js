@@ -287,9 +287,6 @@ $("#search-form").on("submit", function(){
 					if(result[i].y > y2) {
 						y2 = result[i].y;
 					}
-					
-					//console.log(result[i].x);
-					//console.log(result[i].y);
 				}
         	}
         	

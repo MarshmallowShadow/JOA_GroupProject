@@ -18,7 +18,7 @@ public class ApiBestController {
 	
 	//필드
 	@Autowired
-	BestService bestService;
+	private BestService bestService;
 
 	//생성자
 	
