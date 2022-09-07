@@ -81,7 +81,7 @@
 	</insert>
 	
 	
-	<!-- 게시판 내용 읽기 -->
+	<!-- 게시판 내용 읽기(상세페이지) -->
 	<select id="read" parameterType="int" resultType="map">
 		<![CDATA[
 			select b.board_no boardNo
