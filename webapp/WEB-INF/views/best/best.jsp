@@ -49,7 +49,7 @@
 				</div>
 			</div>
 
-			<hr id="hr">
+			<hr class="hr">
 			<div class="img-total">
 
 				<!-- Top 1~3 게시물(15개 반복) -->
@@ -67,7 +67,7 @@
 						</c:when>
 
 						<c:when test="${status.index == 3}">
-						<hr id="hr">
+						<hr class="hr">
 							<div class="img-line">
 								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 4 ~ 6</p>
 							</div>
@@ -75,7 +75,7 @@
 						</c:when>
 
 						<c:when test="${status.index == 6}">
-						<hr id="hr">
+						<hr class="hr">
 							<div class="img-line">
 								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 7 ~ 9</p>
 							</div>
@@ -83,7 +83,7 @@
 						</c:when>
 
 						<c:when test="${status.index == 9}">
-						<hr id="hr">
+						<hr class="hr">
 							<div class="img-line">
 								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 10 ~ 12</p>
 							</div>
@@ -91,7 +91,7 @@
 						</c:when>
 
 						<c:when test="${status.index == 12}">
-						<hr id="hr">
+						<hr class="hr">
 							<div class="img-line">
 								<p id="img-line-p"><span id="img-line-span">ε♡з</span> Top 13 ~ 15</p>
 							</div>
@@ -140,7 +140,6 @@
 					</div>
 				</c:forEach>
 			</div>
-			<hr id="hr">
 		</div>
 	</div>
 
