@@ -18,10 +18,10 @@
 				<label for="check-btn" id="menu-btn">${authUser.name }님</label>
 				<input id="check-btn" type="checkbox">
 				<ul id="menuitems" class="menubars" tabindex="-1">
-						<li class="a" onclick="window.open('${pageContext.request.contextPath }/course/write', '_blank');">코스 등록하기</li>
-						<li class="a" onclick="window.open('${pageContext.request.contextPath }/my-page');">마이사이트</li>
-						<li class="a" onclick="window.open('${pageContext.request.contextPath }/list/list');">1:1 문의하기</li>
-						<li class="a" onclick="window.open('${pageContext.request.contextPath }/user/logout');">로그아웃</li>
+						<li class="a" onclick="window.open('${pageContext.request.contextPath }/course/write', '_self');">코스 등록하기</li>
+						<li class="a" onclick="window.open('${pageContext.request.contextPath }/my-page', '_self');">마이사이트</li>
+						<li class="a" onclick="window.open('${pageContext.request.contextPath }/list/list', '_self');">1:1 문의하기</li>
+						<li class="a" onclick="window.open('${pageContext.request.contextPath }/user/logout', '_self');">로그아웃</li>
 				</ul>
 				
 				<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
