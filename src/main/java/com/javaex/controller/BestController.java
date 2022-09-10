@@ -28,8 +28,8 @@ public class BestController {
 	//코스 베스트 불러오기
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 	public String best(Model model,
-			@RequestParam(value="course_cate", defaultValue="") String course_cate,
-		    @RequestParam(value="count_cate", required=true, defaultValue="l_count") String count_cate) {
+			@RequestParam(value="course_cate", required=false, defaultValue="") String course_cate,
+		    @RequestParam(value="count_cate", required=false, defaultValue="l_count") String count_cate) {
 		System.out.println("BestController");
 		
 		List<Map<String, Object>> bList = bestService.getBest(course_cate, count_cate);
