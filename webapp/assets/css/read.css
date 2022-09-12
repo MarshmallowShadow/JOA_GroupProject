@@ -57,27 +57,19 @@ tr>#date, #up {
 }
 /***** 첨부 자료 *****/
 .course-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	float: left;
 	margin-bottom: 10px;
 	margin-left: 10px;
+	padding: 15px;
 	cursor: pointer;
-	width: 380px;
-	height: 200px;
+	width: 400px;
+	max-height: 172px;
 	overflow: hidden;
 	border: solid 1px #c0c0c0;
 	margin-right: 550px;
-}
-.course-title {margin-top: 28px;}
-.course-icon {
-	float: left;
-	width: 205px;
-	height: 144px;
-	overflow: hidden;
-}
-.course-icon {
-	margin-top: 15px;
-	margin-left: 15px;
-	margin-bottom: 22px;
 }
 /***** 함께하기 첨부 *****/
 .chart table {
