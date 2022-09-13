@@ -219,8 +219,6 @@ function getMyRecord(courseNo, coUserNo, authUserNo) {
 
 /*리스트 추가하기*/
 function render(recVo, coUserNo, recImgs) {
-	//console.log("render");
-	
 	var hour = Math.floor(recVo.COURSETIME/60);
 	hour = "00" + hour;
 	hour = hour.slice(-2);
@@ -229,7 +227,7 @@ function render(recVo, coUserNo, recImgs) {
 	minute = "00" + minute;
 	minute = minute.slice(-2);
 	
-	
+	//한줄평이 없을 때
 	if(recVo.REVIEW == undefined || recVo.REVIEW == null || recVo.REVIEW == "") {
 		recVo.REVIEW = "";
 	}
@@ -281,13 +279,10 @@ function render(recVo, coUserNo, recImgs) {
 	} else if(recVo.DIFFICULTY === 'hard') {
 		str += '<span><img class="info-img" src="'+contextPath+'/assets/image/course/difficulty.png">어려움</span>';
 	}
-	
 	str +=	'				</span>';
 	str +=	'			</div>';
-	
 	str +=	'			<div>';
 	str +=	'				<span>'+recVo.REGDATE+'</span>';
-	
 	//기온
 	if(recVo.TEMPERATURE != -100) {
 		str +=	'				<span style="width:24px;">'+recVo.TEMPERATURE+'℃</span>';
@@ -297,12 +292,9 @@ function render(recVo, coUserNo, recImgs) {
 		str +=	'				<span><img class="weather" src="'+contextPath+'/assets/image/course/'+recVo.WEATHER+'.png"></span>';
 	}
 	str +=	'			</div>';
-	
 	str +=	'		</div>';
 	str +=	'	</div>';
-				
 	str +=	'	<div class="record-img">';
-	
 	//이미지
 	for(var i=0; i<recImgs.length; i++) {
 		//console.log(recVo.RECORDNO+","+recImgs[i].RECORD_NO);

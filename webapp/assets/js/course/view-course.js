@@ -134,9 +134,9 @@ $(document).ready(function() {
 	/*즐겨찾기 추가 버튼 클릭*/
 	$("#bookmark-add").on("click", function() {
 		
-		
-		
+		//즐겨찾기 추가할 배열
 		var bmkList = [];
+		//즐겨찾기 취소할 배열
 		var notBmkList = [];
 		
 		$("input[name='bookmark']:checked").each(function() {
@@ -151,7 +151,7 @@ $(document).ready(function() {
 		
 		console.log(notBmkList);
 		
-		//즐겨찾기 목록 가져오기
+		//즐겨찾기 추가
 		$.ajax({
 				//보낼때
 			url : contextPath+"/apiFav/addFav",
@@ -159,11 +159,9 @@ $(document).ready(function() {
 			//contentType : "application/json",
 			data : {authUserNo, courseNo, bmkList, notBmkList},
 			
-			//받을때
-			//dataType : "json",
 			success : function(result){
-				//성공시 처리해야될 코드 작성
 				
+				//즐겨찾기 여부에 따라 별 이미지 변경
 				if(result > 0) {
 					var src = contextPath + "/assets/image/main/star.png";
 					$("#bookmark").attr("src", src);

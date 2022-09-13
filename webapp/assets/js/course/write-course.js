@@ -167,7 +167,7 @@ function map() {
 	        // 코스 정보 지우기
 	        deleteDistnce();
 	
-	        //// 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
+	        // 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거
 	        deleteCircleDot();
 	    
 	        // 선 생성
@@ -188,7 +188,7 @@ function map() {
 	            strokeStyle: 'solid' // 선 스타일   
 	        });
 	    
-	        //// 클릭한 지점에 대한 정보를 지도에 표시합니다
+	        // 클릭한 지점에 대한 정보를 지도에 표시
 	        displayCircleDot(clickPosition, 0);
 	
 	            
@@ -267,6 +267,7 @@ function map() {
 	            showDistanceInfo(disNtime);
 	            console.log(path);
 	            
+	            //종목이 변경되면 시간 다시 계산
 	            $('input:radio[name="courseCate"]').change(function() {
 					var disNtime = getTime(distance),
 	               		content = getOveray(disNtime);
@@ -278,9 +279,7 @@ function map() {
 				
 				//input hidden 추가
 				for(var i=0; i<path.length; i++) {
-					
 					console.log(path[i]);
-					
 					var input = '<input type="hidden" name="x" value="'+path[i].La+'">'
 								+ '<input type="hidden" name="y" value="'+path[i].Ma+'">';
 					$("#point").append(input);
@@ -371,22 +370,21 @@ function map() {
 		$('#minute').attr('value', '');
 	}
 	
-	// 선이 그려지고 있는 상태일 때 지도를 클릭하면 호출하여 
-	// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 표출하는 함수입니다
+	// 선이 그려지고 있을때 거리 표시
 	function displayCircleDot(position, distance) {
 	
-		// 클릭 지점을 표시할 빨간 동그라미 커스텀오버레이를 생성합니다
+		// 커스텀 오버레이 생성
 	    var circleOverlay = new kakao.maps.CustomOverlay({
 	        content: '<span class="dot"></span>',
 	        position: position,
 	        zIndex: 1
 	    });
 	
-	    // 지도에 표시합니다
+	    // 지도에 표시
 	    circleOverlay.setMap(map);
 	
 	    if (distance > 0) {
-	        // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
+	        // 커스텀 오버레이 생성
 	        var distanceOverlay = new kakao.maps.CustomOverlay({
 	            content: '<div class="dotOverlay">거리 <span class="number">' + distance + '</span>m</div>',
 	            position: position,
@@ -394,15 +392,14 @@ function map() {
 	            zIndex: 2
 	        });
 	
-	        // 지도에 표시합니다
+	        // 지도에 표시
 	        distanceOverlay.setMap(map);
 	    }
 	
-	    // 배열에 추가합니다
 	    dots.push({circle:circleOverlay, distance: distanceOverlay});
 	}
 	
-	// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 지도에서 모두 제거하는 함수입니다
+	// 커스텀 오버레이 제거
 	function deleteCircleDot() {
 	    var i;
 	
@@ -429,7 +426,7 @@ function map() {
 	        zIndex: 1
 	    });
 	
-	    // 지도에 표시합니다
+	    // 지도에 표시
 	    circleOverlay.setMap(map);
 
 	
