@@ -268,7 +268,7 @@ public class BoardService {
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
 		
-		Integer eventNo = (Integer)bMap.get("eventNo");
+		Integer eventNo = ((BigDecimal)bMap.get("EVENTNO")).intValue();
 		
 		//지명 가져오기
 		Map<String, String> mapName = new HashMap<String, String>();
@@ -285,9 +285,9 @@ public class BoardService {
 			
 			String END = localApiComponent.getLocation(x2, y2);
 			mapName.put("END", END);
+			
+			System.out.println("c"+mapName);
 		}
-		
-		System.out.println("c"+mapName);
 		
 		//댓글
 		List<BoardCommentVo> boardCommentList = boardCommentDao.comment(no);

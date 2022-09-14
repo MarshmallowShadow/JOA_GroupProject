@@ -106,6 +106,7 @@
                     , ee.regStart
                     , ee.regEnd
                     , ee.eventTitle
+                    , ee.eCourseCategory
                     , ee.minOrderNo
                     , ee.maxOrderNo
                     , ee.joinMax
@@ -124,6 +125,7 @@
 						   			, to_char(e.reg_start, 'YYYY/MM/DD') regStart
 					                , to_char(e.reg_end, 'YYYY/MM/DD') regEnd
 					                , e.event_title eventTitle
+					                , c.course_category eCourseCategory
 					                , p.min_order_no minOrderNo
 					                , p.max_order_no maxOrderNo
 					                , e.join_max joinMax

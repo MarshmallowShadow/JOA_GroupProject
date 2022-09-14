@@ -81,14 +81,14 @@
 												</tr>
 												<tr>
 													<th colspan="2" class="content_course">
-														<span class="glyphicon glyphicon-map-marker" class="marking"></span>${mapName[bMap.START]} - ${mapName[bMap.END]}
+														<span class="glyphicon glyphicon-map-marker" class="marking"></span>${mapName.START} - ${mapName.END}
 													</th>
 												</tr>
 											</tbody>
 											<tfoot>
 												<tr>
 													<th colspan="2" class="line_bottom">
-														${courseCateMap[bMap.COURSECATEGORY]}
+														${courseCateMap[bMap.ECOURSECATEGORY]}
 														<button type="submit" class="join"><span class="glyphicon glyphicon-user" id="join_icon"></span>${bMap.COUNT}/${bMap.JOINMAX}</button>
 													</th>
 												</tr>
