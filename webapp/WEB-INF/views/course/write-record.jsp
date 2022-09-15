@@ -96,7 +96,6 @@
 								<p>거리</p>
 								<span>${coMap.coVo.distance }</span>
 								<span>km</span>
-								<!-- <p>m</p> -->
 							</div>
 							
 							<div>

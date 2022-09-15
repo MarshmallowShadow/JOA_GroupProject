@@ -128,8 +128,6 @@ public class RecordService {
 		System.out.println(recMap);
 		
 		return recMap;
-		
-		
 	}
 	
 
