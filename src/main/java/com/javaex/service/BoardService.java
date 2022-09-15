@@ -268,12 +268,10 @@ public class BoardService {
 		//게시판 내용 읽기
 		Map<String, Object> bMap = boardDao.read(no);
 		
-		Integer eventNo = ((BigDecimal)bMap.get("EVENTNO")).intValue();
-		
 		//지명 가져오기
 		Map<String, String> mapName = new HashMap<String, String>();
 		
-		if(eventNo != null) {
+		if(bMap.get("EVENTNO") != null) {
 			double x1 = ((BigDecimal)bMap.get("X1")).doubleValue();
 			double y1 = ((BigDecimal)bMap.get("Y1")).doubleValue();
 			
