@@ -102,9 +102,7 @@
 						<tr>
 							<td>
 								<c:forEach items="${imgList}" var="boardImgVo">
-									<li id="${boardImgVo.boardImgNo}" data-no="${boardImgVo.boardImgNo}">
-										<img class="image" src="${pageContext.request.contextPath}/upload/${boardImgVo.saveName}">
-									</li>
+									<img class="image" src="${pageContext.request.contextPath}/upload/${boardImgVo.saveName}">
 								</c:forEach>
 							</td>
 						</tr>
