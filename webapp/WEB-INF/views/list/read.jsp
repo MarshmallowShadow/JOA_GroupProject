@@ -60,7 +60,9 @@
 	<div>
 		<p id="top_comment">댓글</p>
 		<div id="commentbox">
-			
+		<c:if test="${cList.size() == 0 }">
+			<h3 style="text-align: center; padding: 30px; font-size: 20px;">댓글이 없습니다.</h3>
+		</c:if>
 		<c:forEach items="${cList}"  var="listCommentVo">
 			<p class="id">${listCommentVo.ID}</p>
 			<p class="comment">${listCommentVo.CONTENT}</p>
