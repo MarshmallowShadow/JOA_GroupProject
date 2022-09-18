@@ -67,14 +67,16 @@
 			<p class="id">${listCommentVo.ID}</p>
 			<p class="comment">${listCommentVo.CONTENT}</p>
 		</c:forEach>
-		
-			<!-- 수정, 삭제 버튼 -->
-			<form method="get" action="${pageContext.request.contextPath}/list/comment">
+		<!-- 댓글 -->
+		<c:if test="${authUser != null}">
+			<form method="get" action="${pageContext.request.contextPath}/together/comment">
 				<input type="hidden" name="qListNo" value="${rMap.QLISTNO}">
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
-				<textarea id="replybox" name="content"></textarea>
-				<button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+				<div id="comment-box">
+					<textarea id="replybox" name="content" style="resize: none;"></textarea><button type="submit" id="reply_btn"><span class="glyphicon glyphicon-open"></span></button>
+				</div>
 			</form>
+		</c:if>
 		</div><!-- commentbox -->
 	</div><!-- 댓글 -->
 
