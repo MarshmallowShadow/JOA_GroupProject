@@ -159,6 +159,24 @@ tr>#date, #up {
 	font-weight : bold;
 	float: left;
 }
+.REcomment {
+	margin-left: 10px;
+	margin-top: 20px;
+	font-size : 11pt;
+}
+#REcomment_btn {
+	font-size : 11pt;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+	float: left;
+}
+#REcomment_bottom {
+	font-size : 11pt;
+	margin-left: 10px;
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
 #replybox {
 	width: 86%;
 	height: 35px;
