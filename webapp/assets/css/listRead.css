@@ -123,11 +123,13 @@ tr>#date, #up {
 	font-size : 16pt;
 	font-weight : bold;
 }
+#comment-box {padding-top: 25px;}
 #commentbox {
 	margin-left: 9.5%;
 	width : 83%;
 	border-top: solid 2px #ccc;
 	border-bottom: solid 2px #ccc;
+	padding-bottom: 20px;
 }
 .id {
 	font-size : 14pt;
@@ -140,7 +142,7 @@ tr>#date, #up {
 	margin-left: 10px;
 	margin-top: 3px;
 }
-#comment_, #comment_btn {
+#comment_, #comment_btn, #REcomment_btn {
 	font-size : 12pt;
 	margin-left: 10px;
 	margin-top: 5px;
@@ -157,27 +159,21 @@ tr>#date, #up {
 	font-weight : bold;
 	float: left;
 }
-
 #replybox {
-	position: static;
-	display: block;
-	width: 95%;
+	width: 86%;
 	height: 35px;
-	margin-top: 50px;
-	margin-bottom: 15px;
-	margin-left: 30px;
+	float: left;
+	margin-left: 31px;
+	margin-bottom: 25px;
 	border: solid 1px #c0c0c0;
 	border-radius: 3px;
 }
-
 #reply_btn {
-	position: static;
-	display: block;
-	margin-left: 95%;
-	margin-bottom: 10px;
-	width:30px;
-	height: 30px;
-	padding: 3px 0px;
+	width: 63px;
+	height: 35px;
+	margin-left: 10px;
+	margin-bottom: 25px;
+	padding-top: 3px;
 	font-size: 10pt;
 	border: none;
 	border: solid 1px #000;
@@ -185,7 +181,6 @@ tr>#date, #up {
 	color: #000;
 	border-radius: 3px;
 }
-
 .glyphicon glyphicon-open {
 	width: 300px;
 	height: 305px;
