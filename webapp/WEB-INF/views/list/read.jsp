@@ -69,7 +69,7 @@
 		</c:forEach>
 		<!-- 댓글 -->
 		<c:if test="${authUser != null}">
-			<form method="get" action="${pageContext.request.contextPath}/together/comment">
+			<form method="get" action="${pageContext.request.contextPath}/list/comment">
 				<input type="hidden" name="qListNo" value="${rMap.QLISTNO}">
 				<input type="hidden" name="userNo" value="${authUser.userNo}">
 				<div id="comment-box">
