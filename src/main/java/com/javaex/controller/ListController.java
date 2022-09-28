@@ -43,7 +43,7 @@ public class ListController {
 		return "redirect:/list/read/" + listCommentVo.getqListNo();
 	}
 	
-	/***************** 수정 ****************/
+	/***************** 글수정 ****************/
 	//수정
 	@RequestMapping(value = "/listModify", method = {RequestMethod.GET, RequestMethod.POST})
 	public String listModify(@ModelAttribute ListVo listVo) {
