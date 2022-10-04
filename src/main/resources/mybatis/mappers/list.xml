@@ -81,7 +81,6 @@
 		set view_count = view_count + 1
 		where q_list_no = #{no}
 	]]>
-
 </update>
  
  
