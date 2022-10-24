@@ -104,6 +104,29 @@
 			having course_no = #{courseNo}
 		]]>
 	</select>
+	
+	<!-- 기록 통계 가져오기 -->
+	<select id="getStat" parameterType="int" resultType="hashmap">
+		<![CDATA[
+			select to_char(b.dt, 'yyyy-mm') regDate
+			        ,nvl(sum(a.cnt), 0) cnt
+			from (select name
+			                ,to_char(reg_date, 'yyyy-mm-dd') reg_date
+			                ,count(*) cnt
+			        from record r, users u
+			        where r.user_no = u.user_no
+			        and u.user_no = #{userNo}
+			        group by name, reg_date
+			        having reg_date between to_date('2022-01-01', 'yyyy-mm-dd') and to_date('2022-12-31', 'yyyy-mm-dd')) a
+			    , (select to_date('2022-01-01', 'yyyy-mm-dd') + level - 1 as dt
+			        from dual
+			        connect by level <= (to_date('2022-12-31', 'yyyy-mm-dd') - to_date('2022-01-01', 'yyyy-mm-dd') + 1)
+			        order by dt) b
+			where b.dt = a.reg_date(+)
+			group by to_char(b.dt, 'yyyy-mm')
+			order by to_char(b.dt, 'yyyy-mm')
+		]]>
+	</select>
 
 	
 	

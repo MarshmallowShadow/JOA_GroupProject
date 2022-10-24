@@ -1,5 +1,7 @@
 package com.javaex.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,6 +39,11 @@ public class UserDao {
 	public Integer getUserNo(String id) {
 		//System.out.println("UserDao->getUserNo");
 		return sqlSession.selectOne("users.getUserNo", id);
+	}
+
+	//회원 번호 전체 가져오기
+	public List<UserVo> getAllUserNo() {
+		return sqlSession.selectList("users.getAllUserNo");
 	}
 
 }

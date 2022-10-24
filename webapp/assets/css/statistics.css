@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import "clearfix.css";
+@import "includes.css";
+
+/* =======================공통======================= */
+body {font-size: 14px;}
+button, a, label, .pointer {cursor: pointer;}
+.bold {font-weight: 700;}
+/* radio 버튼 초기화 */
+input[type=radio] {display:none;}
+/* =======================레이아웃======================= */
+#wrap>#content {padding: 100px 0px; margin: auto; margin-bottom: 150px; max-width: 1200px;}
+/* =======================타이틀======================= */
+#wrap #title {
+	margin: 80px 0px 64px 0px;
+	font-size: 46px;
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+}
+
+/* =======================테이블======================= */
+#content table {
+	margin-bottom: 50px;
+	border: 1px solid rgb(204, 204, 204);
+	width: 100%;
+}
+#content table tr th {
+	height: 70px;
+	min-width: auto;
+	color: rgb(34,34,34);
+	font-size: 15px;
+	font-weight: 700;
+	background-color: rgb(240, 240, 240);
+	border-top: 1px solid rgb(204, 204, 204);
+	text-align: center;
+	vertical-align: middle;
+}
+#content table tr td {
+	padding: 12px 20px;
+	border-top: 1px solid rgb(204, 204, 204);
+	text-align: center;
+}

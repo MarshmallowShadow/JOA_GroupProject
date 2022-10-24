@@ -41,4 +41,13 @@
 			where id = #{id}
 		]]>
 	</select>
+	
+	<!-- 회원 번호 전체 가져오기 -->
+	<select id="getAllUserNo" resultType="UserVo">
+		<![CDATA[
+			select user_no userNo,
+			        name
+			from users
+		]]>
+	</select>
 </mapper>
