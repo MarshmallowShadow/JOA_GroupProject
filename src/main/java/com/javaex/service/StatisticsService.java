@@ -31,7 +31,6 @@ public class StatisticsService {
 		for(UserVo userVo : userList) {
 			//통계 데이터 가져오기
 			List<Map<String, Object>> data = statDao.getStat(userVo.getUserNo());
-			System.out.println(data);
 
 			//총합계
 			int total = 0;
@@ -45,7 +44,6 @@ public class StatisticsService {
 			map.put("total", total);
 			
 			list.add(map);
-			System.out.println(list);
 		}
 		
 		return list;
