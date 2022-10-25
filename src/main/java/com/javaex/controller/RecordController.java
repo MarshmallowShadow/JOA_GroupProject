@@ -24,11 +24,14 @@ public class RecordController {
 	
 	//기록 등록폼
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordWriteForm(Model model, @RequestParam int courseNo) {
+	public String recordWriteForm(Model model, HttpSession session, @RequestParam int courseNo) {
 		System.out.println("RecordController->recordWriteForm");
-		Map<String, Object> coMap = recService.getCourseInfo(courseNo);
-		model.addAttribute("coMap", coMap);
-		return "course/write-record";
+		if(session.getAttribute("authUser") != null) {
+			Map<String, Object> coMap = recService.getCourseInfo(courseNo);
+			model.addAttribute("coMap", coMap);
+			return "course/write-record";
+		}
+		return "redirect:/user/loginForm";
 	}
 	
 	
@@ -49,12 +52,16 @@ public class RecordController {
 	
 	//기록 수정폼
 	@RequestMapping(value="/modify", method = {RequestMethod.GET, RequestMethod.POST})
-	public String recordModifyForm(Model model,
+	public String recordModifyForm(Model model, HttpSession session,
 								@RequestParam(value = "courseNo", required = false) int courseNo,
 								@RequestParam(value = "recordNo", required = false) int recordNo) {
 		System.out.println("RecordController->recordWriteForm");
-		Map<String, Object> recMap = recService.getRecord(courseNo, recordNo);
-		model.addAttribute("recMap", recMap);
-		return "course/modify-record";
+		if(session.getAttribute("authUser") != null) {
+			Map<String, Object> recMap = recService.getRecord(courseNo, recordNo);
+			model.addAttribute("recMap", recMap);
+			return "course/modify-record";
+		}
+		return "redirect:/user/loginForm";
+		
 	}
 }

@@ -26,9 +26,12 @@ public class CourseController {
 
 	//코스 등록폼
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public String courseWriteForm() {
+	public String courseWriteForm(HttpSession session) {
 		System.out.println("CourseController->courseWriteForm()");
-		return "course/write-course";
+		if(session.getAttribute("authUser") != null) {
+			return "course/write-course";
+		}
+		return "redirect:/user/loginForm";
 	}
 	
 	//코스 정보 등록
