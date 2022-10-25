@@ -22,6 +22,7 @@ public class ApiStatisticsController {
 	@ResponseBody
 	@RequestMapping(value="stat", method = {RequestMethod.GET, RequestMethod.POST})
 	public List<Map<String, Object>> Statistics() {
+		System.out.println("api/stat");
 		return statService.getStat();
 	}
 }
