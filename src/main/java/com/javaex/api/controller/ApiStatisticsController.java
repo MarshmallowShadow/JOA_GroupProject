@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.StatisticsService;
@@ -21,8 +22,8 @@ public class ApiStatisticsController {
 	//통계 페이지
 	@ResponseBody
 	@RequestMapping(value="stat", method = {RequestMethod.GET, RequestMethod.POST})
-	public List<Map<String, Object>> Statistics() {
+	public List<Map<String, Object>> Statistics(@RequestParam(value="selected", required = false, defaultValue = "all") String month) {
 		//System.out.println("api/stat");
-		return statService.getStat();
+		return statService.getStat(month);
 	}
 }
