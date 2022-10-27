@@ -42,3 +42,13 @@ input[type=radio] {display:none;}
 	border-top: 1px solid rgb(204, 204, 204);
 	text-align: center;
 }
+
+/* =======================select======================= */
+#content select {
+	width: 100px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#content #selectBtn {
+	height: 30px;
+}

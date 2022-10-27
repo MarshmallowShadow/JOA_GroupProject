@@ -14,7 +14,7 @@ public class StatisticsDao {
 	SqlSession sqlSession;
 	
 	//기록 통계 가져오기
-	public List<Map<String, Object>> getStat(int userNo) {
-		return sqlSession.selectList("record.getStat", userNo);
+	public List<Map<String, Object>> getStat(Map<String, Object> map) {
+		return sqlSession.selectList("record.getStat", map);
 	}
 }

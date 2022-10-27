@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.StatisticsService;
 
@@ -19,8 +20,8 @@ public class StatisticsController {
 
 	//통계 페이지
 	@RequestMapping(value="stat", method = {RequestMethod.GET, RequestMethod.POST})
-	public String Statistics(Model model) {
-		List<Map<String, Object>> statList = statService.getStat();
+	public String Statistics(Model model, @RequestParam(value="selected", required = false, defaultValue = "all") String month) {
+		List<Map<String, Object>> statList = statService.getStat(month);
 		model.addAttribute("statList", statList);
 		return "course/statistics";
 	}
