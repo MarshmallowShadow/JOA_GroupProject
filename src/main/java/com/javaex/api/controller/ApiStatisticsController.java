@@ -22,7 +22,7 @@ public class ApiStatisticsController {
 	//통계 페이지
 	@ResponseBody
 	@RequestMapping(value="stat", method = {RequestMethod.GET, RequestMethod.POST})
-	public List<Map<String, Object>> Statistics(@RequestParam(value="selected", required = false, defaultValue = "all") String month) {
+	public List<Map<String, Object>> Statistics(@RequestParam(value="month", required = false, defaultValue = "all") String month) {
 		//System.out.println("api/stat");
 		return statService.getStat(month);
 	}

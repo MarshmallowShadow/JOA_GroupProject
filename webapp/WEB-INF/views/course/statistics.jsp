@@ -56,7 +56,7 @@
 		
 		
 		<c:choose>
-			<c:when test="${param.selected eq null }">
+			<c:when test="${param.month eq null }">
 				<table>
 					<tr>
 						<th>작성자</th>
@@ -94,7 +94,7 @@
 				<table>
 					<tr>
 						<th>작성자</th>
-						<th>${param.selected }월</th>
+						<th>${param.month }월</th>
 					</tr>
 					
 					<c:forEach items="${statList }" var="stat">
@@ -129,7 +129,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	var param = "${param.selected}";
+	var param = "${param.month}";
 	console.log(param);
 	$('select > option[value='+param+']').prop('selected', true);
 });
@@ -137,7 +137,7 @@ $(document).ready(function() {
 $('#selectBtn').on('click', function() {
 	var selected = $('#month-select').val();
 	if(selected != 'all') {
-		location.href = "./?selected="+selected;
+		location.href = ".?month="+selected;
 	} else {
 		location.href = "${pageContext.request.contextPath}/stat/";
 	}
