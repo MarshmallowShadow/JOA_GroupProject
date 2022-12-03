@@ -1,7 +1,6 @@
 package com.javaex.api.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -40,7 +39,8 @@ public class ApiBoardController {
 	//게시판 글쓰기
 	@ResponseBody
 	@RequestMapping(value="/write", method = {RequestMethod.GET, RequestMethod.POST})
-	public int write(@RequestBody BoardVo boardVo, HttpSession session) {
+	public int write(@ModelAttribute(value = "boardVo") BoardVo boardVo, 
+			@RequestPart(value = "file", required = false) List<MultipartFile> fileList, HttpSession session) {
 		
 		System.out.println("ApiBoardController > write");
 		
@@ -48,25 +48,12 @@ public class ApiBoardController {
 		boardVo.setUserNo(authUser.getUserNo());
 		
 		System.out.println(authUser.getUserNo());
+		System.out.println(boardVo);
+		System.out.println(fileList);
 		
-		//줄바꿈
-		boardVo.setContent(boardVo.getContent().replace("\n", "<br>"));
-		
-		boardService.write(boardVo);
+		boardService.write(boardVo, fileList);
 		
 		return boardVo.getBoardNo();
-		
-	}
-	
-	//게시판 사진 등록
-	@ResponseBody
-	@RequestMapping(value = "/boardImgWrite", method = {RequestMethod.GET, RequestMethod.POST})
-	public String boardImgWrite(@RequestPart(value = "file", required = false) List<MultipartFile> fileList
-							  	, @RequestParam(value = "boardNo", required = false) int boardNo) {
-		
-		System.out.println("ApiBoardController > boardImgWrite");
-		
-		return boardService.boardImgWrite(fileList, boardNo);
 		
 	}
 	

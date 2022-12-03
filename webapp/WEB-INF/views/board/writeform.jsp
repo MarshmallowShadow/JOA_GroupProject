@@ -68,19 +68,18 @@
 					<h2>
 						<input type="file" id="input-file" multiple="multiple">
 						<label for="input-file">파일선택</label>
-						사진을 드래그하거나 선택해주세요.
+						사진을 드래그하거나 선택해주세요. (최대 10장)
 					</h2>
 					
 					<div id="drop">
+						
 						<div id="fileDragDesc">
-							<img id="photo-icon" src="${pageContext.request.contextPath}/assets/image/course/photo.png">
+							<img id="photo-icon" src="${pageContext.request.contextPath }/assets/image/course/photo.png">
 						</div>
 						
 						<div id="filesList">
-						
 						</div>
 					</div>
-					
 				</div>
 				<!-- course-form -->
 				
@@ -185,7 +184,7 @@
 			  </ul>
 			</div>
 
-	      </div>
+	      </div>	
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
 	        <button type="button" class="btn btn-primary" id="t-save">Save</button>

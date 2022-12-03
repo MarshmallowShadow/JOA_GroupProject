@@ -157,7 +157,7 @@ public class BoardService {
 	}
 	
 	//게시판 글쓰기
-	public int write(BoardVo boardVo) {
+	public int write(BoardVo boardVo, List<MultipartFile> fileList) {
 		
 		System.out.println("BoardService > write");
 		
@@ -170,12 +170,14 @@ public class BoardService {
 		
 		System.out.println(no);
 		
+		boardImgWrite(no, fileList);
+		
 		return no;
 		
 	}
 	
 	//코스기록 이미지 등록
-	public String boardImgWrite(List<MultipartFile> fileList, int boardNo) {
+	public String boardImgWrite(int boardNo, List<MultipartFile> fileList) {
 		
 		System.out.println("boardImgWrite > boardImgWrite");
 		

@@ -231,6 +231,7 @@
 		
 		$target.parent().remove(); //프리뷰 삭제
 		
+		fileCnt--;
 	});
 	
  /*----------------------------- 게시판 글쓰기 등록하기 ----------------------------*/ 
@@ -241,21 +242,28 @@
 		var boardCategory = $("[name='boardCategory']").val();
 		var title = $("[name='title']").val();
 		var content = $("[name='content']").val();
-		var eventNo = $("[name='eventNo']").val() || undefined;
-		var courseNo = $("[name='courseNo']").val() || undefined;
+		var eventNo = $("[name='eventNo']").val() || null;
+		var courseNo = $("[name='courseNo']").val() || null;
 		var userNo = $("[name='userNo']").val();
 		
-		//boardVo 생성
-		var boardVo = {
-			boardCategory: boardCategory
-			, title: title
-			, eventNo: eventNo
-			, courseNo: courseNo
-			, content: content
-			, userNo: userNo
-		};
+		var formData = new FormData();
 		
-		console.log(boardVo);
+		formData.append('boardCategory', boardCategory);
+		formData.append('title', title);
+		if(eventNo != null) {formData.append('eventNo', eventNo);}
+		if(courseNo != null) {formData.append('courseNo', courseNo);}
+		formData.append('content', content);
+		formData.append('userNo', userNo);
+		
+		//업로드할 사진이 있을 때 사진 업로드
+		if(uploadFiles.length > 0) { 
+			
+			for(var i=0; i < uploadFiles.length; i++) {
+				formData.append('file', uploadFiles[i]);
+			}
+		}
+		
+		console.log(formData);
 		
 		//boardVo 전송
 		$.ajax({
@@ -263,59 +271,19 @@
 			//보낼 때
 			url : pageContext +"/apiBoard/write",
 			type : "post",
-			contentType : "application/json",
-			data : JSON.stringify(boardVo),
+			//contentType : "application/json",
+			data : formData,
+			processData: false,
+			contentType: false,
+			enctype : 'multipart/form-data',
 	
 			//받을 때
-			dataType : "json",
+			//dataType : "json",
 			success : function(boardNo){
 				
 				
 				//성공 시 처리해야 될 코드 작성
 				console.log("boardNo:"+boardNo);
-				
-				if(boardNo > 0) {
-									
-					//업로드할 사진이 있을 때 사진 업로드
-					if(uploadFiles.length > 0) { 
-						
-						var formData = new FormData();
-						
-						for(var i=0; i < uploadFiles.length; i++) {
-							formData.append('file', uploadFiles[i]);
-						}
-						
-						formData.append('boardNo', boardNo);
-						
-						$.ajax({
-							
-							//보낼 때
-							url : pageContext + "/apiBoard/boardImgWrite",
-							type : "post",
-							//contentType : "application/json",
-							data : formData,
-							
-							processData: false,
-							contentType: false,
-							enctype : 'multipart/form-data',
-							
-							//받을 때
-							//dataType : "json",
-							success : function(imgResult){
-								
-								//성공 시 처리해야 될 코드 작성
-								console.log("img:"+imgResult);
-							},
-							
-							error : function(XHR, status, error) {
-								console.error(status + " : " + error);
-							}
-							
-						});
-						
-					}
-					
-				}
 				
 				location.href = pageContext + "/board/read/" + boardNo;
 			},
@@ -332,6 +300,8 @@
 	
 	//업로드할 파일 목록
 	var uploadFiles = [];
+	//파일 갯수
+	var fileCnt = 0;
 	
 	$(function() {
 		
@@ -402,38 +372,66 @@
 	function selectFile(fileObject) {
 		
 		var files = null;
-		
-		if(fileObject != null) {
-			//파일 Drag 이용하여 등록시
-			files = fileObject;
-		} else {
-			//직접 파일 등록 시
-			files = $('#multipaartFileList_' + fileIndex)[0].files;
-		}
-		
-		//다중 파일 등록
-		if(files != null) {
-			
-			if(files != null && files.length > 0) {
-				$("#fileDragDesc").hide();
-				$("#filesList").show();
+	
+		if(fileCnt < 10) {
+			if(fileObject != null) {
+				//파일 Drag 이용하여 등록시
+				files = fileObject;
 			} else {
-				$("#fileDragDesc").show();
-				$("#filesList").hide();
+				//직접 파일 등록시
+				files = $('#multipaartFileList_' + fileIndex)[0].files;
+				console.log(files);
 			}
 			
-			
-			for(var i = 0; i < files.length; i++) {
+			//다중파일 등록
+			if(files != null) {
 				
-				console.log(files[i]);
+				if(files != null && files.length > 0) {
+					$("#fileDragDesc").hide();
+					$("#filesList").show();
+				} else {
+					$("#fileDragDesc").show();
+					$("#filesList").hide();
+				}
 				
-				var file = files[i];
-				var size = uploadFiles.push(file); //업로드 목록에 추가
 				
-				preview(file, size - 1); //미리보기 만들기
+				for(var i = 0; i < files.length; i++) {
+					if(fileCnt < 10) {
+						console.log(files[i]);
+						var file = files[i];
+						var size = uploadFiles.push(file); //업로드 목록에 추가
+						fileCnt++;
+						console.log("fileCnt:"+fileCnt);
+						preview(file, size - 1); //미리보기 만들기
+						
+						/*//이미지 압축
+						var option = {
+							maxSizeMB: 1,
+							maxWidthOrHeight: 1920,
+							intialQuality: 0.7
+						}
+						
+						try {
+							var compressedFile = imageCompression(file, option);
+							
+							console.log(compressedFile);
+							
+							var size = uploadFiles.push(compressedFile); //업로드 목록에 추가
+							fileCnt++;
+							console.log("fileCnt:"+fileCnt);
+							preview(compressedFile, size - 1); //미리보기 만들기
+						} catch (error) {
+							console.log(error);
+						}*/
+						
+					} else {
+						break;
+					}
+				}
 				
 			}
-			
+		} else {
+			alert("최대 이미지 갯수를 초과했습니다.");
 		}
 		
 	}
